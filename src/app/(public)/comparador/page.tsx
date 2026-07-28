@@ -1,17 +1,33 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { getComparisonVehicles, type ComparisonVehicle } from "@/lib/data/vehicles";
 import { FUEL_TYPE_LABELS, TRANSMISSION_LABELS, VEHICLE_CATEGORY_LABELS } from "@/lib/constants";
-import { Container, Section } from "@/components/ui/Container";
-import { ButtonLink } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
   title: "Comparador de vehículos",
   description: "Compara varios coches en renting lado a lado.",
 };
 
-const ROWS: { label: string; render: (v: ComparisonVehicle) => React.ReactNode }[] = [
-  { label: "Precio", render: (v) => <span className="font-semibold text-primary">{v.priceLabel}/mes</span> },
+const ROWS: {
+  label: string;
+  emphasized?: boolean;
+  render: (v: ComparisonVehicle) => React.ReactNode;
+}[] = [
+  {
+    label: "Precio",
+    emphasized: true,
+    render: (v) => (
+      <span
+        className="text-xl font-bold text-[#0068FF]"
+        style={{ fontFamily: "var(--font-space-grotesk)" }}
+      >
+        {v.priceLabel}
+        <span className="text-sm font-medium text-white/35">/mes</span>
+      </span>
+    ),
+  },
   { label: "Categoría", render: (v) => VEHICLE_CATEGORY_LABELS[v.category] },
   { label: "Combustible", render: (v) => FUEL_TYPE_LABELS[v.fuelType] },
   { label: "Cambio", render: (v) => TRANSMISSION_LABELS[v.transmission] },
@@ -33,69 +49,107 @@ export default async function ComparadorPage({
   const ids = (idsParam ?? "").split(",").map((id) => id.trim()).filter(Boolean);
   const vehicles = ids.length > 0 ? await getComparisonVehicles(ids) : [];
 
-  if (vehicles.length === 0) {
-    return (
-      <Section className="pt-12">
-        <Container>
-          <h1 className="text-3xl font-semibold tracking-tight">Comparador de vehículos</h1>
-          <div className="mt-8 rounded-2xl border border-dashed border-border-subtle p-10 text-center text-muted">
-            <p>
-              Añade coches al comparador desde el catálogo pulsando &ldquo;+ Comparar&rdquo; en cada
-              ficha (hasta 3 a la vez).
-            </p>
-            <ButtonLink href="/catalogo" className="mt-4">
-              Ir al catálogo
-            </ButtonLink>
-          </div>
-        </Container>
-      </Section>
-    );
-  }
-
   return (
-    <Section className="pt-12">
-      <Container>
-        <h1 className="text-3xl font-semibold tracking-tight">Comparador de vehículos</h1>
-        <div className="mt-8 overflow-x-auto">
-          <table className="w-full min-w-[560px] border-separate border-spacing-0">
-            <thead>
-              <tr>
-                <th className="w-40" />
-                {vehicles.map((v) => (
-                  <th key={v.id} className="border-b border-border-subtle p-4 text-left">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-surface-elevated">
-                      {v.imageUrl ? (
-                        <Image src={v.imageUrl} alt={v.modelName} fill className="object-cover" />
-                      ) : (
-                        <div className="flex h-full items-center justify-center text-2xl font-semibold text-muted-2">
-                          {v.brandName.charAt(0)}
-                        </div>
-                      )}
-                    </div>
-                    <p className="mt-2 text-xs uppercase tracking-wide text-muted-2">{v.brandName}</p>
-                    <p className="font-semibold">{v.modelName}</p>
-                    <p className="text-sm text-muted">{v.version}</p>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {ROWS.map((row) => (
-                <tr key={row.label}>
-                  <th className="border-b border-border-subtle p-4 text-left text-sm font-medium text-muted">
-                    {row.label}
-                  </th>
-                  {vehicles.map((v) => (
-                    <td key={v.id} className="border-b border-border-subtle p-4 text-sm">
-                      {row.render(v)}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+    <section className="surface-black ambient-blue-top relative overflow-hidden pt-32 pb-24">
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="max-w-2xl">
+          <Reveal>
+            <p className="section-label">Comparador</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h1 className="display-lg mt-4 text-white">Compara antes de decidir</h1>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="mt-5 text-lg text-white/40">
+              Pon hasta tres coches lado a lado y elige con datos, no con intuición.
+            </p>
+          </Reveal>
         </div>
-      </Container>
-    </Section>
+
+        {vehicles.length === 0 ? (
+          <Reveal delay={0.3}>
+            <div className="glass mt-14 rounded-3xl px-8 py-16 text-center">
+              <p className="mx-auto max-w-md text-white/60">
+                Añade coches al comparador desde el catálogo pulsando &ldquo;+ Comparar&rdquo; en
+                cada ficha (hasta 3 a la vez).
+              </p>
+              <Link href="/catalogo" className="btn-primary mt-8">
+                Ir al catálogo
+              </Link>
+            </div>
+          </Reveal>
+        ) : (
+          <Reveal delay={0.3}>
+            <div className="mt-14 overflow-hidden rounded-3xl border border-white/8 bg-white/[0.02]">
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[640px] border-collapse">
+                  <thead>
+                    <tr>
+                      <th className="w-40 border-b border-white/5" />
+                      {vehicles.map((v) => (
+                        <th
+                          key={v.id}
+                          className="border-b border-white/5 p-5 text-left align-top"
+                        >
+                          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/[0.04]">
+                            {v.imageUrl ? (
+                              <Image
+                                src={v.imageUrl}
+                                alt={v.modelName}
+                                fill
+                                className="object-cover"
+                              />
+                            ) : (
+                              <div
+                                className="flex h-full items-center justify-center text-3xl font-bold text-white/20"
+                                style={{ fontFamily: "var(--font-space-grotesk)" }}
+                              >
+                                {v.brandName.charAt(0)}
+                              </div>
+                            )}
+                          </div>
+                          <p className="mt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-white/35">
+                            {v.brandName}
+                          </p>
+                          <p
+                            className="mt-1 text-base font-semibold text-white"
+                            style={{ fontFamily: "var(--font-space-grotesk)" }}
+                          >
+                            {v.modelName}
+                          </p>
+                          <p className="mt-0.5 text-sm font-normal text-white/40">{v.version}</p>
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/5">
+                    {ROWS.map((row) => (
+                      <tr
+                        key={row.label}
+                        className="transition-colors hover:bg-white/[0.03]"
+                      >
+                        <th className="p-5 text-left text-sm font-medium text-white/35">
+                          {row.label}
+                        </th>
+                        {vehicles.map((v) => (
+                          <td
+                            key={v.id}
+                            className={`p-5 text-sm text-white/80 ${
+                              row.emphasized ? "align-middle" : ""
+                            }`}
+                          >
+                            {row.render(v)}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </Reveal>
+        )}
+      </div>
+    </section>
   );
 }

@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
-const STORAGE_KEY = "qr_cookie_pref";
+const STORAGE_KEY = "ml_cookie_pref";
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
@@ -24,32 +25,40 @@ export function CookieBanner() {
     setVisible(false);
   }
 
-  if (!visible) return null;
-
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-[#111827]/95 px-4 py-4 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-[#94a3b8]">
-          Usamos cookies para mejorar tu experiencia.{" "}
-          <Link href="/politica-cookies" className="underline hover:text-white">
-            Más información
-          </Link>
-        </p>
-        <div className="flex shrink-0 gap-3">
-          <button
-            onClick={reject}
-            className="rounded-full border border-white/15 px-4 py-1.5 text-sm text-[#94a3b8] hover:text-white transition-colors"
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          initial={{ y: 24, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 24, opacity: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed bottom-4 inset-x-4 z-50 sm:left-auto sm:right-6 sm:max-w-md"
+        >
+          <div
+            className="rounded-2xl border border-white/10 bg-[#0A0A0A]/85 p-6 backdrop-blur-xl"
+            style={{ boxShadow: "var(--shadow-float)" }}
           >
-            Rechazar
-          </button>
-          <button
-            onClick={accept}
-            className="rounded-full bg-[#22c55e] px-4 py-1.5 text-sm font-semibold text-white hover:brightness-110 transition-all"
-          >
-            Aceptar
-          </button>
-        </div>
-      </div>
-    </div>
+            <p className="text-[13px] leading-relaxed text-white/50">
+              Usamos cookies para mejorar tu experiencia de navegación.{" "}
+              <Link
+                href="/politica-cookies"
+                className="text-white/80 underline underline-offset-2 transition-colors hover:text-white"
+              >
+                Más información
+              </Link>
+            </p>
+            <div className="mt-5 flex items-center gap-3">
+              <button onClick={accept} className="btn-primary px-6 py-2.5">
+                Aceptar
+              </button>
+              <button onClick={reject} className="btn-ghost px-6 py-2.5">
+                Rechazar
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

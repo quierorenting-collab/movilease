@@ -23,10 +23,10 @@ export function CompareButton({ vehicleId }: { vehicleId: string }) {
         event.preventDefault();
         toggle(vehicleId);
       }}
-      className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
+      className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-300 hover:scale-105 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 ${
         active
-          ? "border-primary bg-primary/10 text-primary"
-          : "border-border-subtle text-muted hover:text-foreground"
+          ? "bg-[#0068FF] text-white shadow-[0_4px_16px_rgba(0,104,255,0.35)]"
+          : "border border-[#E5E7EB] bg-white/85 text-[#6B7280] backdrop-blur-sm hover:border-[#0068FF]/40 hover:text-[#0068FF]"
       }`}
     >
       {active ? "✓ Comparando" : "+ Comparar"}

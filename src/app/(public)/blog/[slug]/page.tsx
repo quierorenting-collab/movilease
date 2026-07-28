@@ -6,6 +6,6 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   await params;
-  // La consulta real a blog_posts llega en la Fase 4 junto al resto del panel de blog.
+  // La plantilla de artículo llega con la fase de datos del blog; hasta entonces, 404.
   notFound();
 }

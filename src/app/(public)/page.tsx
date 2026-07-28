@@ -17,6 +17,12 @@ const STATS = [
   { value: 48,    prefix: "",   suffix: "h", decimals: 0, label: "Gestión garantizada" },
 ];
 
+const MARQUEE_BRANDS = [
+  "Audi", "BMW", "Mercedes-Benz", "Volkswagen", "Toyota", "Hyundai",
+  "Kia", "Renault", "Peugeot", "Citroën", "SEAT", "CUPRA",
+  "Škoda", "Ford", "Opel", "Nissan", "MG", "Volvo",
+];
+
 const HOW_STEPS = [
   {
     n: "01",
@@ -102,21 +108,13 @@ export default async function HomePage() {
         <HeroContent />
       </section>
 
-      {/* ══ STATS — white, huge numbers ═══════════════════ */}
-      <section className="relative bg-white py-28 sm:py-36">
+      {/* ══ STATS — dark graphite, huge numbers ═══════════ */}
+      <section className="surface-graphite relative py-28 sm:py-36">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
-          <div className="grid grid-cols-2 gap-14 sm:grid-cols-4 sm:gap-0 sm:divide-x sm:divide-[#EDEEF0]">
+          <div className="grid grid-cols-2 gap-14 sm:grid-cols-4 sm:gap-0 sm:divide-x sm:divide-white/5">
             {STATS.map((s, i) => (
               <Reveal key={s.label} delay={i * 0.08} className="text-center sm:px-8">
-                <p
-                  className="font-bold text-[#0A0A0A]"
-                  style={{
-                    fontFamily: "var(--font-space-grotesk)",
-                    fontSize: "clamp(2.6rem, 5.5vw, 5rem)",
-                    lineHeight: 1,
-                    letterSpacing: "-0.03em",
-                  }}
-                >
+                <p className="display-md text-white">
                   <AnimatedCounter
                     value={s.value}
                     prefix={s.prefix}
@@ -125,7 +123,7 @@ export default async function HomePage() {
                     duration={2.2}
                   />
                 </p>
-                <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#9CA3AF]">
+                <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/30">
                   {s.label}
                 </p>
               </Reveal>
@@ -134,11 +132,29 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ══ MARQUEE — marcas disponibles ══════════════════ */}
+      <section className="surface-black overflow-hidden py-16 sm:py-20">
+        <Reveal className="mb-10 text-center">
+          <p className="section-label">Marcas disponibles</p>
+        </Reveal>
+        <div className="marquee-track" aria-hidden="true">
+          {[...MARQUEE_BRANDS, ...MARQUEE_BRANDS].map((brand, i) => (
+            <span
+              key={`${brand}-${i}`}
+              className="mx-7 whitespace-nowrap text-[15px] font-bold uppercase tracking-[0.28em] text-white/20 sm:mx-10 sm:text-[17px]"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}
+            >
+              {brand}
+            </span>
+          ))}
+        </div>
+      </section>
+
       {/* ══ OFERTAS — dark cinematic ══════════════════════ */}
       {dedupedOffers.length > 0 && (
         <section
           id="ofertas"
-          className="ambient-blue-top relative overflow-hidden bg-[#080808] py-32 sm:py-44"
+          className="surface-black ambient-blue-top relative overflow-hidden py-32 sm:py-44"
         >
           <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
             <Reveal className="mb-20 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -230,7 +246,7 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* ══ PROCESO — premium storytelling ════════════════ */}
+      {/* ══ PROCESO — premium white contrast ══════════════ */}
       <section id="por-que" className="bg-white py-32 sm:py-44">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
           <Reveal className="mb-24 max-w-2xl">
@@ -270,12 +286,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ COMPARISON — MoviLease vs Concesionario ═══════ */}
-      <section className="bg-[#FAFAFA] py-32 sm:py-44">
+      {/* ══ COMPARISON — dark glass table ═════════════════ */}
+      <section className="surface-carbon py-32 sm:py-44">
         <div className="mx-auto max-w-5xl px-6 sm:px-10">
           <Reveal className="mb-20 text-center">
             <p className="section-label mb-5">La diferencia</p>
-            <h2 className="display-md text-[#0A0A0A]">
+            <h2 className="display-md text-white">
               ¿Por qué renting
               <br />
               y no comprar?
@@ -283,13 +299,10 @@ export default async function HomePage() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <div
-              className="overflow-hidden rounded-3xl bg-white"
-              style={{ boxShadow: "var(--shadow-float)" }}
-            >
+            <div className="overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] backdrop-blur">
               {/* Header */}
-              <div className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-[#F0F1F3] bg-[#FAFBFC] px-6 py-5 sm:px-10">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#9CA3AF]">
+              <div className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-white/[0.08] bg-white/[0.02] px-6 py-5 sm:px-10">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
                   Comparativa
                 </span>
                 <span
@@ -298,7 +311,7 @@ export default async function HomePage() {
                 >
                   MoviLease
                 </span>
-                <span className="w-[100px] text-center text-[10px] font-semibold uppercase tracking-[0.12em] text-[#C4C9D0] sm:w-[140px]">
+                <span className="w-[100px] text-center text-[10px] font-semibold uppercase tracking-[0.12em] text-white/25 sm:w-[140px]">
                   Compra
                 </span>
               </div>
@@ -307,12 +320,12 @@ export default async function HomePage() {
               {COMPARISON.map((row) => (
                 <div
                   key={row.feature}
-                  className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-[#F7F8F9] px-6 py-5 transition-colors last:border-0 hover:bg-[#FAFBFF] sm:px-10"
+                  className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-white/5 px-6 py-5 transition-colors last:border-0 hover:bg-white/[0.03] sm:px-10"
                 >
-                  <span className="text-[13.5px] font-medium text-[#374151]">{row.feature}</span>
+                  <span className="text-[13.5px] font-medium text-white/70">{row.feature}</span>
                   <span className="flex w-[100px] items-center justify-center gap-1.5 sm:w-[140px]">
                     <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0">
-                      <circle cx="8" cy="8" r="8" fill="#0068FF" fillOpacity="0.1" />
+                      <circle cx="8" cy="8" r="8" fill="#0068FF" fillOpacity="0.15" />
                       <path
                         d="M5 8.2l2 2 4-4.4"
                         stroke="#0068FF"
@@ -321,9 +334,9 @@ export default async function HomePage() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span className="text-[12px] font-semibold text-[#0A0A0A]">{row.movilease}</span>
+                    <span className="text-[12px] font-semibold text-white">{row.movilease}</span>
                   </span>
-                  <span className="w-[100px] text-center text-[12px] text-[#9CA3AF] sm:w-[140px]">
+                  <span className="w-[100px] text-center text-[12px] text-white/35 sm:w-[140px]">
                     {row.dealer}
                   </span>
                 </div>
@@ -344,8 +357,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ MARCAS ════════════════════════════════════════ */}
-      <section id="marcas" className="bg-white py-32 sm:py-44">
+      {/* ══ MARCAS — premium white ════════════════════════ */}
+      <section id="marcas" className="bg-[#FAFAFA] py-32 sm:py-44">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
           <Reveal className="mb-20 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -407,14 +420,14 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ DESTACADOS ════════════════════════════════════ */}
+      {/* ══ DESTACADOS — dark graphite ════════════════════ */}
       {dedupedFeatured.length > 0 && (
-        <section id="catalogo" className="bg-[#FAFAFA] py-32 sm:py-44">
+        <section id="catalogo" className="surface-graphite py-32 sm:py-44">
           <div className="mx-auto max-w-7xl px-6 sm:px-10">
             <Reveal className="mb-20 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="section-label mb-5">Selección de la semana</p>
-                <h2 className="display-md text-[#0A0A0A]">
+                <h2 className="display-md text-white">
                   Los más
                   <br />
                   solicitados.
@@ -422,7 +435,7 @@ export default async function HomePage() {
               </div>
               <Link
                 href="/catalogo"
-                className="group hidden items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#9CA3AF] transition-colors hover:text-[#0068FF] sm:flex"
+                className="group hidden items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-white/30 transition-colors hover:text-white sm:flex"
               >
                 Ver todos
                 <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
@@ -449,12 +462,12 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* ══ TESTIMONIOS ═══════════════════════════════════ */}
-      <section className="bg-white py-32 sm:py-44">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+      {/* ══ TESTIMONIOS — dark cards ══════════════════════ */}
+      <section className="surface-black ambient-blue-top relative py-32 sm:py-44">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
           <Reveal className="mb-20">
             <p className="section-label mb-5">Clientes reales</p>
-            <h2 className="display-md text-[#0A0A0A]">
+            <h2 className="display-md text-white">
               Confianza
               <br />
               demostrada.
@@ -464,10 +477,7 @@ export default async function HomePage() {
           <RevealGroup stagger={0.08} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {TESTIMONIALS.map((t) => (
               <RevealItem key={t.name}>
-                <div
-                  className="flex h-full flex-col rounded-2xl bg-white p-9 transition-all duration-400 hover:-translate-y-1.5"
-                  style={{ boxShadow: "var(--shadow-card)" }}
-                >
+                <div className="card-dark flex h-full flex-col p-9">
                   <div className="mb-7 flex gap-1">
                     {Array.from({ length: t.stars }).map((_, i) => (
                       <svg key={i} viewBox="0 0 12 12" fill="#0068FF" className="h-3.5 w-3.5">
@@ -475,19 +485,19 @@ export default async function HomePage() {
                       </svg>
                     ))}
                   </div>
-                  <p className="flex-1 text-[15px] leading-[1.75] text-[#374151]">
+                  <p className="flex-1 text-[15px] leading-[1.75] text-white/60">
                     &ldquo;{t.text}&rdquo;
                   </p>
-                  <div className="mt-8 flex items-center gap-3.5 border-t border-[#F5F6F8] pt-6">
+                  <div className="mt-8 flex items-center gap-3.5 border-t border-white/5 pt-6">
                     <div
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0068FF]/10 to-[#0068FF]/5 text-[13px] font-bold text-[#0068FF]"
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0068FF]/20 to-[#0068FF]/5 text-[13px] font-bold text-[#0068FF]"
                       style={{ fontFamily: "var(--font-space-grotesk)" }}
                     >
                       {t.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="text-[13px] font-bold text-[#0A0A0A]">{t.name}</p>
-                      <p className="text-[11px] text-[#9CA3AF]">{t.info}</p>
+                      <p className="text-[13px] font-bold text-white">{t.name}</p>
+                      <p className="text-[11px] text-white/30">{t.info}</p>
                     </div>
                   </div>
                 </div>
@@ -497,12 +507,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ FAQ ═══════════════════════════════════════════ */}
-      <section id="faq" className="bg-[#FAFAFA] py-32 sm:py-44">
+      {/* ══ FAQ — dark with light accordion card ══════════ */}
+      <section id="faq" className="surface-dark py-32 sm:py-44">
         <div className="mx-auto max-w-4xl px-6 sm:px-10">
           <Reveal className="mb-20">
             <p className="section-label mb-5">FAQ</p>
-            <h2 className="display-md text-[#0A0A0A]">
+            <h2 className="display-md text-white">
               Preguntas
               <br />
               frecuentes.
@@ -520,7 +530,7 @@ export default async function HomePage() {
       </section>
 
       {/* ══ CTA FINAL — dark cinematic ════════════════════ */}
-      <section className="ambient-blue relative overflow-hidden bg-[#080808] py-40 sm:py-56">
+      <section className="surface-black ambient-blue relative overflow-hidden py-40 sm:py-56">
         <Reveal className="relative z-10 mx-auto max-w-5xl px-6 text-center sm:px-10">
           <p className="section-label mb-8">MoviLease — Smart Mobility Platform</p>
           <h2 className="display-lg text-white">

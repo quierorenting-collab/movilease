@@ -50,31 +50,25 @@ export default async function CatalogoPage({
     return (
       <>
         {/* Brand hero strip */}
-        <div className="border-b border-[#F3F4F6] bg-white pt-28 pb-12">
-          <div className="mx-auto max-w-7xl px-6 sm:px-10">
+        <div className="surface-black ambient-blue-top relative pt-32 pb-16">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
             <Link
               href="/catalogo"
-              className="mb-6 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#9CA3AF] transition-colors hover:text-[#0068FF]"
+              className="group mb-6 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-white"
             >
-              ← Todas las marcas
+              <span
+                aria-hidden="true"
+                className="inline-block transition-transform duration-300 group-hover:-translate-x-1"
+              >
+                ←
+              </span>
+              Todas las marcas
             </Link>
             <div className="flex items-end justify-between">
               <div>
-                <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[#0068FF]">
-                  Catálogo
-                </p>
-                <h1
-                  className="font-bold text-[#0A0A0A]"
-                  style={{
-                    fontFamily: "var(--font-space-grotesk)",
-                    fontSize: "clamp(2rem, 5vw, 4rem)",
-                    letterSpacing: "-0.03em",
-                    lineHeight: 1,
-                  }}
-                >
-                  {displayName}
-                </h1>
-                <p className="mt-3 text-[14px] text-[#6B7280]">
+                <p className="section-label mb-3">Catálogo</p>
+                <h1 className="display-lg text-white">{displayName}</h1>
+                <p className="mt-4 text-[14px] text-white/40">
                   {filtered.length} vehículo{filtered.length !== 1 ? "s" : ""} disponible{filtered.length !== 1 ? "s" : ""}
                 </p>
               </div>
@@ -83,10 +77,10 @@ export default async function CatalogoPage({
         </div>
 
         {/* Filters */}
-        <div className="sticky top-20 z-30 border-b border-[#F3F4F6] bg-white/95 backdrop-blur-sm">
+        <div className="glass-dark sticky top-[72px] z-40 border-b border-white/[0.08]">
           <div className="mx-auto max-w-7xl px-6 sm:px-10">
             <div className="flex flex-wrap items-center gap-2 py-4">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#9CA3AF]">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">
                 Filtrar:
               </span>
               {CATEGORIES.map(([value, label]) => {
@@ -97,17 +91,17 @@ export default async function CatalogoPage({
                   <Link
                     key={value}
                     href={href}
-                    className={`px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] transition-all ${
+                    className={`rounded-full border px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] transition-all duration-300 ${
                       category === value
-                        ? "bg-[#0068FF] text-white"
-                        : "border border-[#E5E7EB] text-[#6B7280] hover:border-[#0068FF] hover:text-[#0068FF]"
+                        ? "border-[#0068FF] bg-[#0068FF] text-white shadow-lg shadow-[#0068FF]/25"
+                        : "border-white/10 text-white/50 hover:border-[#0068FF]/50 hover:text-white"
                     }`}
                   >
                     {label}
                   </Link>
                 );
               })}
-              <span className="mx-1 h-4 w-px bg-[#E5E7EB]" />
+              <span className="mx-1 h-4 w-px bg-white/10" />
               {FUEL_TYPES_MAP.map(([value, label]) => {
                 const href = value === fuelType
                   ? `/catalogo?brand=${brandParam}${category ? `&category=${category}` : ""}`
@@ -116,10 +110,10 @@ export default async function CatalogoPage({
                   <Link
                     key={value}
                     href={href}
-                    className={`px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] transition-all ${
+                    className={`rounded-full border px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] transition-all duration-300 ${
                       fuelType === value
-                        ? "bg-[#0068FF] text-white"
-                        : "border border-[#E5E7EB] text-[#6B7280] hover:border-[#0068FF] hover:text-[#0068FF]"
+                        ? "border-[#0068FF] bg-[#0068FF] text-white shadow-lg shadow-[#0068FF]/25"
+                        : "border-white/10 text-white/50 hover:border-[#0068FF]/50 hover:text-white"
                     }`}
                   >
                     {label}
@@ -131,7 +125,7 @@ export default async function CatalogoPage({
         </div>
 
         {/* Vehicle grid */}
-        <section className="bg-[#FAFAFA] py-16">
+        <section className="surface-graphite py-16">
           <div className="mx-auto max-w-7xl px-6 sm:px-10">
             {filtered.length > 0 ? (
               <RevealGroup
@@ -145,10 +139,13 @@ export default async function CatalogoPage({
                 ))}
               </RevealGroup>
             ) : (
-              <div className="py-32 text-center">
-                <p className="text-[14px] text-[#9CA3AF]">
+              <div className="mx-auto max-w-xl rounded-2xl border border-white/[0.08] bg-white/[0.03] p-12 text-center">
+                <p className="text-[14px] text-white">
                   No hay vehículos con este filtro.{" "}
-                  <Link href={`/catalogo?brand=${brandParam}`} className="text-[#0068FF] hover:underline">
+                  <Link
+                    href={`/catalogo?brand=${brandParam}`}
+                    className="text-[#0068FF] transition-colors hover:text-[#3D8BFF] hover:underline"
+                  >
                     Ver todos los {displayName}
                   </Link>
                 </p>
@@ -167,82 +164,73 @@ export default async function CatalogoPage({
   return (
     <>
       {/* Page header */}
-      <div className="bg-white pt-28 pb-16 border-b border-[#F3F4F6]">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10">
-          <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#0068FF]">
-            Catálogo completo
-          </p>
-          <h1
-            className="font-bold text-[#0A0A0A]"
-            style={{
-              fontFamily: "var(--font-space-grotesk)",
-              fontSize: "clamp(2.2rem, 5vw, 4.5rem)",
-              letterSpacing: "-0.03em",
-              lineHeight: 1,
-            }}
-          >
+      <div className="surface-black ambient-blue-top relative pt-32 pb-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
+          <p className="section-label mb-4">Catálogo completo</p>
+          <h1 className="display-lg text-white">
             {brands.length} marcas.
             <br />
             <span className="text-[#0068FF]">
               {brands.reduce((sum, b) => sum + b.vehicleCount, 0)} vehículos.
             </span>
           </h1>
-          <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-[#6B7280]">
+          <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/40">
             Elige tu marca favorita y explora todos los modelos disponibles en renting.
             Sin entrada, con seguro incluido y gestión en 48 horas.
           </p>
         </div>
       </div>
 
-      {/* Brand catalog */}
-      <section className="bg-[#FAFAFA] py-20">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+      {/* Premium brands */}
+      {premiumBrands.length > 0 && (
+        <section id="marcas" className="surface-graphite py-20">
+          <div className="mx-auto max-w-7xl px-6 sm:px-10">
+            <Reveal className="mb-8 flex items-center gap-4">
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/25">
+                Marcas premium
+              </p>
+              <div className="flex-1 border-t border-white/[0.08]" />
+            </Reveal>
+            <RevealGroup
+              stagger={0.06}
+              className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {premiumBrands.map((brand) => (
+                <RevealItem key={brand.brandName}>
+                  <BrandCard brand={brand} />
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
+      )}
 
-          {/* Premium brands */}
-          {premiumBrands.length > 0 && (
-            <>
-              <Reveal className="mb-8 flex items-center gap-4">
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#9CA3AF]">
-                  Marcas premium
-                </p>
-                <div className="flex-1 border-t border-[#E5E7EB]" />
-              </Reveal>
-              <RevealGroup
-                stagger={0.06}
-                className="mb-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
-              >
-                {premiumBrands.map((brand) => (
-                  <RevealItem key={brand.brandName}>
-                    <BrandCard brand={brand} />
-                  </RevealItem>
-                ))}
-              </RevealGroup>
-            </>
-          )}
-
-          {/* Generalista brands */}
-          {generalBrands.length > 0 && (
-            <>
-              <Reveal className="mb-8 flex items-center gap-4">
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#9CA3AF]">
-                  Marcas generalistas
-                </p>
-                <div className="flex-1 border-t border-[#E5E7EB]" />
-              </Reveal>
-              <RevealGroup
-                stagger={0.04}
-                className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-              >
-                {generalBrands.map((brand) => (
-                  <RevealItem key={brand.brandName}>
-                    <BrandCard brand={brand} />
-                  </RevealItem>
-                ))}
-              </RevealGroup>
-            </>
-          )}
-        </div>
-      </section>
+      {/* Generalista brands */}
+      {generalBrands.length > 0 && (
+        <section
+          id={premiumBrands.length === 0 ? "marcas" : undefined}
+          className="surface-dark py-20"
+        >
+          <div className="mx-auto max-w-7xl px-6 sm:px-10">
+            <Reveal className="mb-8 flex items-center gap-4">
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/25">
+                Marcas generalistas
+              </p>
+              <div className="flex-1 border-t border-white/[0.08]" />
+            </Reveal>
+            <RevealGroup
+              stagger={0.04}
+              className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+            >
+              {generalBrands.map((brand) => (
+                <RevealItem key={brand.brandName}>
+                  <BrandCard brand={brand} />
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
+      )}
 
       {/* All vehicles flat view for SEO */}
       <AllVehiclesSection />
@@ -263,25 +251,34 @@ async function AllVehiclesSection() {
     return true;
   });
 
+  const featured = deduped.slice(0, 12);
+
   return (
-    <section className="bg-white py-24">
+    <section className="surface-black py-24">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal className="mb-12 flex items-center gap-4">
-          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#9CA3AF]">
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/25">
             Todos los vehículos · {deduped.length} modelos
           </p>
-          <div className="flex-1 border-t border-[#E5E7EB]" />
+          <div className="flex-1 border-t border-white/[0.08]" />
         </Reveal>
         <RevealGroup
           stagger={0.03}
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
-          {deduped.map((vehicle) => (
+          {featured.map((vehicle) => (
             <RevealItem key={vehicle.id}>
               <VehicleCard vehicle={vehicle} />
             </RevealItem>
           ))}
         </RevealGroup>
+        {deduped.length > featured.length && (
+          <Reveal className="mt-14 flex justify-center">
+            <a href="#marcas" className="btn-ghost">
+              Ver todas las marcas
+            </a>
+          </Reveal>
+        )}
       </div>
     </section>
   );

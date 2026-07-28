@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { getCurrentBrand } from "@/lib/brand";
 import { SITE_URL } from "@/lib/constants";
@@ -15,6 +15,10 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#050505",
+};
 
 export async function generateMetadata(): Promise<Metadata> {
   const brand = await getCurrentBrand();
@@ -35,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#050505] text-white">{children}</body>
     </html>
   );
 }

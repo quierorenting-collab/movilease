@@ -27,10 +27,10 @@
   --paper-2: #FAFAFA;
   --paper-3: #F5F5F5;
 
-  --dark: #080808;
-  --dark-2: #0C0C0C;
-  --dark-3: #141414;
-  --dark-4: #1A1A1A;
+  --dark: #050505;
+  --dark-2: #0A0A0A;
+  --dark-3: #111111;
+  --dark-4: #181818;
 
   --blue: #0068FF;
   --blue-dim: rgba(0, 104, 255, 0.12);
@@ -370,6 +370,73 @@ h1, h2, h3, h4, h5, h6 {
 }
 .comparison-row:last-child { border-bottom: none; }
 .comparison-row:hover { background: rgba(0,104,255,0.03); }
+
+/* ══════════════════════════════════════════════════
+   GLASS FORMS
+   ══════════════════════════════════════════════════ */
+.input-glass {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.9rem 1.25rem;
+  font-size: 0.875rem;
+  color: #fff;
+  outline: none;
+  backdrop-filter: blur(8px);
+  transition: border-color var(--duration-normal) var(--easing),
+              background var(--duration-normal) var(--easing),
+              box-shadow var(--duration-normal) var(--easing);
+}
+.input-glass::placeholder { color: rgba(255, 255, 255, 0.25); }
+.input-glass:focus {
+  border-color: rgba(0, 104, 255, 0.6);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(0, 104, 255, 0.12);
+}
+
+.input-light {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid #E5E7EB;
+  background: #FFFFFF;
+  padding: 0.9rem 1.25rem;
+  font-size: 0.875rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color var(--duration-normal) var(--easing),
+              box-shadow var(--duration-normal) var(--easing);
+}
+.input-light::placeholder { color: #C4C9D0; }
+.input-light:focus {
+  border-color: rgba(0, 104, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(0, 104, 255, 0.10);
+}
+
+/* ══════════════════════════════════════════════════
+   DARK SECTION SURFACES
+   ══════════════════════════════════════════════════ */
+.surface-black    { background: #050505; }
+.surface-dark     { background: #0A0A0A; }
+.surface-graphite { background: linear-gradient(180deg, #111111 0%, #0C0C0C 100%); }
+.surface-carbon   { background: linear-gradient(160deg, #161616 0%, #0E0E0E 60%, #0A0A0A 100%); }
+
+.card-dark {
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, #141414 0%, #0E0E0E 100%);
+  transition: border-color var(--duration-slow) var(--easing),
+              transform var(--duration-normal) var(--easing),
+              box-shadow var(--duration-slow) var(--easing);
+}
+.card-dark:hover {
+  border-color: rgba(0, 104, 255, 0.25);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 104, 255, 0.10);
+}
+
+/* Divider for dark surfaces */
+.divider-dark { height: 1px; background: rgba(255, 255, 255, 0.06); }
 
 /* ══════════════════════════════════════════════════
    HERO CINEMATIC
