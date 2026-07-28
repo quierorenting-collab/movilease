@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const SESSION_KEY = "qr_popup_v2";
+const ease = [0.16, 1, 0.3, 1] as const;
 
 export function LeadPopup() {
   const [open, setOpen] = useState(false);
@@ -13,7 +15,7 @@ export function LeadPopup() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (sessionStorage.getItem(SESSION_KEY)) return;
-    const t = setTimeout(() => setOpen(true), 4000);
+    const t = setTimeout(() => setOpen(true), 6000);
     return () => clearTimeout(t);
   }, []);
 
@@ -39,110 +41,146 @@ export function LeadPopup() {
     sessionStorage.setItem(SESSION_KEY, "1");
   }
 
-  if (!open) return null;
-
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
-      onClick={close}
-    >
-      <div
-        className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-[#111827] shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4 backdrop-blur-md"
           onClick={close}
-          className="absolute right-4 top-4 text-[#64748b] hover:text-white transition-colors z-10"
-          aria-label="Cerrar"
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
-            <path d="M18 6 6 18M6 6l12 12" strokeLinecap="round" />
-          </svg>
-        </button>
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.98 }}
+            transition={{ duration: 0.6, ease }}
+            className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/10"
+            style={{
+              background: "linear-gradient(160deg, rgba(20,20,20,0.95) 0%, rgba(8,8,8,0.98) 100%)",
+              backdropFilter: "blur(32px)",
+              boxShadow:
+                "0 0 0 1px rgba(255,255,255,0.04), 0 24px 80px rgba(0,0,0,0.6), 0 0 120px rgba(0,104,255,0.08)",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Ambient glow inside modal */}
+            <div
+              className="pointer-events-none absolute -top-24 left-1/2 h-48 w-96 -translate-x-1/2"
+              style={{
+                background: "radial-gradient(ellipse, rgba(0,104,255,0.15) 0%, transparent 70%)",
+              }}
+            />
 
-        <div className="flex flex-col md:flex-row">
-          {/* Left panel */}
-          <div className="bg-[#0a0f1c] p-7 md:w-2/5">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#22c55e]">Oferta exclusiva</p>
-            <h2 className="mt-2 text-xl font-bold text-white leading-tight">
-              Recibe las mejores ofertas de renting
-            </h2>
-            <ul className="mt-5 space-y-3 text-sm text-[#94a3b8]">
-              {[
-                "Sin entrada, 0€",
-                "Seguro incluido",
-                "Gestión en 48h",
-                "Asesoría personal gratis",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e] shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+            <button
+              onClick={close}
+              className="absolute right-5 top-5 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-white/40 transition-all duration-300 hover:border-white/30 hover:text-white"
+              aria-label="Cerrar"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-3.5 w-3.5">
+                <path d="M18 6 6 18M6 6l12 12" strokeLinecap="round" />
+              </svg>
+            </button>
 
-          {/* Right panel */}
-          <div className="flex-1 p-7">
-            {status === "sent" ? (
-              <div className="flex h-full flex-col items-center justify-center gap-3 text-center py-6">
-                <div className="text-4xl">✅</div>
-                <p className="font-semibold text-white">¡Mensaje recibido!</p>
-                <p className="text-sm text-[#94a3b8]">Te contactamos en menos de 24h.</p>
-                <button onClick={close} className="mt-3 text-sm text-[#22c55e] hover:underline">
-                  Cerrar
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={submit} className="flex flex-col gap-4">
-                <h3 className="font-semibold text-white">¿Hablamos sin compromiso?</h3>
-                <input
-                  type="text"
-                  placeholder="Nombre"
-                  value={form.nombre}
-                  onChange={(e) => setForm({ ...form, nombre: e.target.value })}
-                  className="w-full rounded-lg bg-[#1a2236] px-4 py-3 text-sm text-white placeholder-[#64748b] outline-none focus:ring-1 focus:ring-[#22c55e]"
-                />
-                <input
-                  type="tel"
-                  placeholder="Teléfono *"
-                  required
-                  value={form.telefono}
-                  onChange={(e) => setForm({ ...form, telefono: e.target.value })}
-                  className="w-full rounded-lg bg-[#1a2236] px-4 py-3 text-sm text-white placeholder-[#64748b] outline-none focus:ring-1 focus:ring-[#22c55e]"
-                />
-                <input
-                  type="email"
-                  placeholder="Email (opcional)"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full rounded-lg bg-[#1a2236] px-4 py-3 text-sm text-white placeholder-[#64748b] outline-none focus:ring-1 focus:ring-[#22c55e]"
-                />
-                <label className="flex items-start gap-2 text-xs text-[#64748b]">
-                  <input
-                    type="checkbox"
-                    checked={gdpr}
-                    onChange={(e) => setGdpr(e.target.checked)}
-                    required
-                    className="mt-0.5 shrink-0 accent-[#22c55e]"
-                  />
-                  Acepto la{" "}
-                  <a href="/politica-privacidad" className="underline hover:text-white" target="_blank">
-                    política de privacidad
-                  </a>
-                </label>
-                <button
-                  type="submit"
-                  disabled={status === "sending" || !gdpr}
-                  className="rounded-full bg-gradient-to-br from-[#22c55e] to-[#16a34a] px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110 disabled:opacity-50"
+            <div className="relative p-9">
+              {status === "sent" ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col items-center justify-center gap-4 py-10 text-center"
                 >
-                  {status === "sending" ? "Enviando…" : "Quiero mi oferta gratis"}
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#0068FF]/10">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0068FF" strokeWidth="2" className="h-6 w-6">
+                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <p
+                    className="text-xl font-bold text-white"
+                    style={{ fontFamily: "var(--font-space-grotesk)" }}
+                  >
+                    Mensaje recibido
+                  </p>
+                  <p className="text-sm text-white/40">Te contactamos en menos de 24 h.</p>
+                  <button
+                    onClick={close}
+                    className="mt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#0068FF] transition-colors hover:text-white"
+                  >
+                    Cerrar
+                  </button>
+                </motion.div>
+              ) : (
+                <>
+                  <p className="section-label mb-4">Asesoramiento gratuito</p>
+                  <h2
+                    className="text-[26px] font-bold leading-tight text-white"
+                    style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.02em" }}
+                  >
+                    Tu próximo coche,
+                    <br />
+                    <span className="text-[#0068FF]">sin complicaciones.</span>
+                  </h2>
+                  <p className="mt-3 text-[13px] leading-relaxed text-white/35">
+                    Déjanos tu teléfono y te asesoramos sin compromiso. Sin entrada, todo incluido.
+                  </p>
+
+                  <form onSubmit={submit} className="mt-7 flex flex-col gap-3">
+                    <input
+                      type="text"
+                      placeholder="Nombre"
+                      value={form.nombre}
+                      onChange={(e) => setForm({ ...form, nombre: e.target.value })}
+                      className="w-full rounded-xl border border-white/8 bg-white/[0.04] px-5 py-3.5 text-sm text-white placeholder-white/25 outline-none backdrop-blur-sm transition-all duration-300 focus:border-[#0068FF]/60 focus:bg-white/[0.06]"
+                    />
+                    <input
+                      type="tel"
+                      placeholder="Teléfono *"
+                      required
+                      value={form.telefono}
+                      onChange={(e) => setForm({ ...form, telefono: e.target.value })}
+                      className="w-full rounded-xl border border-white/8 bg-white/[0.04] px-5 py-3.5 text-sm text-white placeholder-white/25 outline-none backdrop-blur-sm transition-all duration-300 focus:border-[#0068FF]/60 focus:bg-white/[0.06]"
+                    />
+                    <input
+                      type="email"
+                      placeholder="Email (opcional)"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="w-full rounded-xl border border-white/8 bg-white/[0.04] px-5 py-3.5 text-sm text-white placeholder-white/25 outline-none backdrop-blur-sm transition-all duration-300 focus:border-[#0068FF]/60 focus:bg-white/[0.06]"
+                    />
+                    <label className="mt-1 flex items-start gap-2.5 text-[11px] leading-relaxed text-white/30">
+                      <input
+                        type="checkbox"
+                        checked={gdpr}
+                        onChange={(e) => setGdpr(e.target.checked)}
+                        required
+                        className="mt-0.5 shrink-0 accent-[#0068FF]"
+                      />
+                      <span>
+                        Acepto la{" "}
+                        <a
+                          href="/politica-privacidad"
+                          className="text-white/50 underline transition-colors hover:text-white"
+                          target="_blank"
+                        >
+                          política de privacidad
+                        </a>
+                      </span>
+                    </label>
+                    <button
+                      type="submit"
+                      disabled={status === "sending" || !gdpr}
+                      className="btn-primary mt-3 w-full justify-center disabled:cursor-not-allowed disabled:opacity-40"
+                    >
+                      {status === "sending" ? "Enviando…" : "Solicitar asesoramiento"}
+                    </button>
+                  </form>
+                </>
+              )}
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

@@ -2,78 +2,145 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
 
+const NAV_LINKS = [
+  { href: "/catalogo", label: "Catálogo" },
+  { href: "/#por-que", label: "Ventajas" },
+  { href: "/#ofertas", label: "Ofertas" },
+  { href: "/#faq", label: "FAQ" },
+];
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isLight = scrolled;
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   return (
-    <header
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
-        isLight
-          ? "border-b border-black/5 bg-white/98 shadow-[0_1px_20px_rgba(0,0,0,0.06)] backdrop-blur-md"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6 sm:px-10">
-        {/* Logo */}
-        <Link href="/" aria-label="MoviLease" className="shrink-0">
-          <Logo
-            height={46}
-            className={`transition-all duration-500 ${isLight ? "" : "brightness-0 invert"}`}
-          />
-        </Link>
+    <>
+      <motion.header
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
+          scrolled ? "glass-dark py-0" : "bg-transparent py-2"
+        }`}
+      >
+        <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between px-6 sm:px-10">
+          {/* Logo */}
+          <Link href="/" aria-label="MoviLease" className="shrink-0">
+            <Logo height={44} className="brightness-0 invert transition-all duration-500" />
+          </Link>
 
-        {/* Nav */}
-        <nav
-          className={`hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[0.15em] md:flex ${
-            isLight ? "text-[#4A5568]" : "text-white/65"
-          }`}
-        >
-          {[
-            { href: "/catalogo", label: "Catálogo" },
-            { href: "/#por-que", label: "Ventajas" },
-            { href: "/#ofertas", label: "Ofertas" },
-            { href: "/#faq", label: "FAQ" },
-          ].map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`transition-colors ${
-                isLight ? "hover:text-[#0068FF]" : "hover:text-white"
-              }`}
+          {/* Desktop nav */}
+          <nav className="hidden items-center gap-9 md:flex">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="group relative text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60 transition-colors duration-300 hover:text-white"
+              >
+                {link.label}
+                <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-[#0068FF] transition-all duration-300 group-hover:w-full" />
+              </Link>
+            ))}
+          </nav>
+
+          {/* Right side */}
+          <div className="flex items-center gap-3">
+            <a
+              href={buildWhatsAppLink("Hola, me interesa el renting de coches.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden items-center gap-2.5 border border-white/15 bg-white/[0.03] px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.16em] text-white backdrop-blur-sm transition-all duration-300 hover:border-[#0068FF] hover:bg-[#0068FF] sm:flex"
             >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#25D366] opacity-60" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#25D366]" />
+              </span>
+              Contactar
+            </a>
 
-        {/* CTA */}
-        <a
-          href={buildWhatsAppLink("Hola, me interesa el renting de coches.")}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`flex items-center gap-2 px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-300 ${
-            isLight
-              ? "border border-[#0A0A0A] text-[#0A0A0A] hover:bg-[#0068FF] hover:border-[#0068FF] hover:text-white"
-              : "border border-white/30 text-white hover:bg-white hover:text-[#0A0A0A]"
-          }`}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5 shrink-0">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-          </svg>
-          Contactar
-        </a>
-      </div>
-    </header>
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Menú"
+              className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+            >
+              <motion.span
+                animate={mobileOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
+                className="h-px w-5 bg-white"
+              />
+              <motion.span
+                animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
+                className="h-px w-5 bg-white"
+              />
+              <motion.span
+                animate={mobileOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
+                className="h-px w-5 bg-white"
+              />
+            </button>
+          </div>
+        </div>
+      </motion.header>
+
+      {/* Mobile menu overlay */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-40 flex flex-col justify-center bg-[#080808]/97 px-8 backdrop-blur-xl md:hidden"
+          >
+            <nav className="flex flex-col gap-2">
+              {NAV_LINKS.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block py-4 text-4xl font-bold text-white/80 transition-colors hover:text-white"
+                    style={{ fontFamily: "var(--font-space-grotesk)" }}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.a
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.45, duration: 0.5 }}
+                href={buildWhatsAppLink("Hola, me interesa el renting de coches.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex w-fit items-center gap-3 bg-[#0068FF] px-8 py-4 text-[11px] font-bold uppercase tracking-[0.18em] text-white"
+              >
+                Hablar por WhatsApp
+              </motion.a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
