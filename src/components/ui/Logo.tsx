@@ -5,18 +5,17 @@ import Image from "next/image";
  * es una imagen (sin vectorial disponible), así que se usa tal cual.
  * Fondo transparente confirmado; funciona sobre el header oscuro.
  */
-export function Logo({ height = 34 }: { height?: number }) {
-  // Proporción real del archivo: 1536x1024 ≈ 1.5:1
+export function Logo({ height = 34, className }: { height?: number; className?: string }) {
   const width = Math.round(height * 1.5);
 
   return (
     <Image
-      src="/brand/movilease-logo.png"
+      src="/logo.png"
       alt="MoviLease — Smart Mobility Platform"
       width={width}
       height={height}
       priority
-      className="h-auto"
+      className={`h-auto ${className ?? ""}`}
       style={{ height, width: "auto" }}
     />
   );
