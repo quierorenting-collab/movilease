@@ -1,32 +1,14 @@
 import Link from "next/link";
 import { buildWhatsAppLink, CONTACT } from "@/lib/constants";
-
-function MovileaseLogo() {
-  return (
-    <Link href="/" className="flex items-center gap-2.5 group">
-      {/* Isotipo M con diagonal */}
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="36" height="36" rx="8" fill="#071A2F"/>
-        <path d="M6 28L12 8L18 20L24 8L30 28" stroke="#18BBE5" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <line x1="20" y1="14" x2="32" y2="2" stroke="#18BBE5" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-      </svg>
-      <div className="leading-none">
-        <span className="block text-lg font-bold tracking-wider text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-          MOVILEASE<sup className="text-[10px] text-[#18BBE5]">®</sup>
-        </span>
-        <span className="block text-[8px] tracking-[0.2em] text-[#18BBE5] font-medium uppercase">
-          Smart Mobility Platform
-        </span>
-      </div>
-    </Link>
-  );
-}
+import { Logo } from "@/components/ui/Logo";
 
 export async function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[#18BBE5]/10 bg-[#071A2F]/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-[#0068FF]/10 bg-[#061B3F]/95 backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
-        <MovileaseLogo />
+        <Link href="/" className="group">
+          <Logo />
+        </Link>
         <div className="flex items-center gap-4">
           <a
             href={CONTACT.instagram}

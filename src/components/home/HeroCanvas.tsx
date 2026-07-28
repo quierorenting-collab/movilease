@@ -38,7 +38,7 @@ export function HeroCanvas() {
       speed: 0.0015 + Math.random() * 0.004,
       len: 0.08 + Math.random() * 0.18,
       side: i < 10 ? -1 : 1,
-      color: i % 3 === 0 ? "24,187,229" : i % 3 === 1 ? "14,165,201" : "180,220,240",
+      color: i % 3 === 0 ? "0,104,255" : i % 3 === 1 ? "14,165,201" : "180,220,240",
       alpha: 0.15 + Math.random() * 0.45,
       width: 1 + Math.random() * 1.5,
     }));
@@ -48,14 +48,14 @@ export function HeroCanvas() {
       ctx.clearRect(0, 0, W, H);
 
       const bg = ctx.createLinearGradient(0, 0, 0, H);
-      bg.addColorStop(0, "#071A2F");
+      bg.addColorStop(0, "#061B3F");
       bg.addColorStop(1, "#041020");
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, W, H);
 
       const glow = ctx.createRadialGradient(W * 0.5, H * 0.38, 0, W * 0.5, H * 0.38, W * 0.55);
-      glow.addColorStop(0, "rgba(24,187,229,0.08)");
-      glow.addColorStop(1, "rgba(24,187,229,0)");
+      glow.addColorStop(0, "rgba(0,104,255,0.08)");
+      glow.addColorStop(1, "rgba(0,104,255,0)");
       ctx.fillStyle = glow;
       ctx.fillRect(0, 0, W, H);
 
@@ -86,7 +86,7 @@ export function HeroCanvas() {
         const y1 = VP.y + (H - VP.y) * t;
         const y2 = VP.y + (H - VP.y) * t2;
         const alpha = 0.08 + t * 0.25;
-        ctx.strokeStyle = `rgba(24,187,229,${alpha})`;
+        ctx.strokeStyle = `rgba(0,104,255,${alpha})`;
         ctx.lineWidth = 1 + t * 2;
         ctx.setLineDash([8, 12]);
         ctx.beginPath();
@@ -120,8 +120,8 @@ export function HeroCanvas() {
 
       // Diagonal brand accent (like brand book cover)
       const diagGrad = ctx.createLinearGradient(W, 0, W * 0.5, H * 0.38);
-      diagGrad.addColorStop(0, "rgba(24,187,229,0.35)");
-      diagGrad.addColorStop(1, "rgba(24,187,229,0)");
+      diagGrad.addColorStop(0, "rgba(0,104,255,0.35)");
+      diagGrad.addColorStop(1, "rgba(0,104,255,0)");
       ctx.beginPath();
       ctx.moveTo(W, 0);
       ctx.lineTo(W * 0.5, H * 0.38);

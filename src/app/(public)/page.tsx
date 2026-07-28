@@ -111,16 +111,16 @@ export default async function HomePage() {
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative flex min-h-[92vh] items-center overflow-hidden">
         <HeroCanvas />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#071A2F]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#061B3F]" />
 
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-20 sm:px-6">
-          <div className="max-w-xl rounded-2xl border border-[#18BBE5]/15 bg-[#071A2F]/80 p-8 backdrop-blur-md sm:p-10">
-            <span className="inline-block rounded-full bg-[#18BBE5]/15 px-3 py-1 text-xs font-semibold text-[#18BBE5]">
-              Smart Mobility Platform
+          <div className="max-w-xl rounded-2xl border border-[#0068FF]/15 bg-[#061B3F]/80 p-8 backdrop-blur-md sm:p-10">
+            <span className="inline-block rounded-full bg-[#0068FF]/15 px-3 py-1 text-xs font-semibold text-[#0068FF]">
+              Smart Mobility Company
             </span>
             <h1 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl" style={{ fontFamily: "var(--font-space-grotesk)" }}>
               Movilidad inteligente.{" "}
-              <span className="text-[#18BBE5]">Libertad para crecer.</span>
+              <span className="text-[#0068FF]">Libertad para crecer.</span>
             </h1>
             <p className="mt-4 text-base text-[#94b8cc] sm:text-lg">
               Una cuota fija mensual con seguro, mantenimiento y asistencia incluidos. Sin entrada, sin sorpresas.
@@ -128,7 +128,7 @@ export default async function HomePage() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/catalogo"
-                className="rounded-full bg-[#18BBE5] px-6 py-3 text-sm font-semibold text-[#071A2F] shadow-lg shadow-[#18BBE5]/20 transition-all hover:brightness-110"
+                className="rounded-full bg-[#0068FF] px-6 py-3 text-sm font-semibold text-[#061B3F] shadow-lg shadow-[#0068FF]/20 transition-all hover:brightness-110"
               >
                 Ver catálogo
               </Link>
@@ -136,7 +136,7 @@ export default async function HomePage() {
                 href={buildWhatsAppLink("Hola, quiero información sobre renting de coches.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-[#18BBE5]/30 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-all hover:border-[#18BBE5]/60 hover:bg-[#18BBE5]/5"
+                className="rounded-full border border-[#0068FF]/30 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-all hover:border-[#0068FF]/60 hover:bg-[#0068FF]/5"
               >
                 Pedir oferta gratis
               </a>
@@ -149,12 +149,12 @@ export default async function HomePage() {
       </section>
 
       {/* ── TRUST BAR ─────────────────────────────────────────────────────── */}
-      <section className="border-y border-[#18BBE5]/10 bg-[#0d2442]/80 py-5">
+      <section className="border-y border-[#0068FF]/10 bg-[#0d2442]/80 py-5">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <ul className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-[#94b8cc]">
             {TRUST_ITEMS.map((item) => (
               <li key={item} className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#18BBE5]" />
+                <span className="h-2 w-2 rounded-full bg-[#0068FF]" />
                 {item}
               </li>
             ))}
@@ -168,7 +168,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-5">
             {STATS.map((s) => (
               <div key={s.label} className="text-center">
-                <p className="text-3xl font-bold text-[#18BBE5] sm:text-4xl" style={{ fontFamily: "var(--font-space-grotesk)" }}>{s.value}</p>
+                <p className="text-3xl font-bold text-[#0068FF] sm:text-4xl" style={{ fontFamily: "var(--font-space-grotesk)" }}>{s.value}</p>
                 <p className="mt-1 text-sm text-[#94b8cc]">{s.label}</p>
               </div>
             ))}
@@ -183,7 +183,7 @@ export default async function HomePage() {
             <h2 className="text-2xl font-bold text-white sm:text-3xl" style={{ fontFamily: "var(--font-space-grotesk)" }}>
               Nuestro catálogo
             </h2>
-            <Link href="/catalogo" className="text-sm text-[#18BBE5] hover:underline">
+            <Link href="/catalogo" className="text-sm text-[#0068FF] hover:underline">
               Filtrar →
             </Link>
           </div>
@@ -194,7 +194,7 @@ export default async function HomePage() {
               ))}
             </div>
           ) : (
-            <div className="rounded-2xl border border-dashed border-[#18BBE5]/20 p-10 text-center text-[#94b8cc]">
+            <div className="rounded-2xl border border-dashed border-[#0068FF]/20 p-10 text-center text-[#94b8cc]">
               Catálogo cargando — vuelve pronto.
             </div>
           )}
@@ -205,14 +205,14 @@ export default async function HomePage() {
       {offers.length > 0 && (
         <section
           id="ofertas"
-          className="py-16 border-t border-[#18BBE5]/10"
+          className="py-16 border-t border-[#0068FF]/10"
           style={{
-            background: "radial-gradient(ellipse at 50% 0, rgba(24,187,229,0.07) 0%, transparent 70%), #071A2F",
+            background: "radial-gradient(ellipse at 50% 0, rgba(0,104,255,0.07) 0%, transparent 70%), #061B3F",
           }}
         >
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="mb-3">
-              <span className="rounded-full bg-[#18BBE5]/15 px-3 py-1 text-xs font-semibold text-[#18BBE5]">
+              <span className="rounded-full bg-[#0068FF]/15 px-3 py-1 text-xs font-semibold text-[#0068FF]">
                 Disponibilidad limitada
               </span>
             </div>
@@ -223,7 +223,7 @@ export default async function HomePage() {
               {offers.map((vehicle) => (
                 <div
                   key={vehicle.id}
-                  className="group relative overflow-hidden rounded-2xl border border-[#18BBE5]/10 bg-[#0d2442] transition-all hover:-translate-y-1 hover:border-[#18BBE5]/30"
+                  className="group relative overflow-hidden rounded-2xl border border-[#0068FF]/10 bg-[#0d2442] transition-all hover:-translate-y-1 hover:border-[#0068FF]/30"
                 >
                   <div className="relative aspect-[4/3] w-full bg-[#112d52]">
                     {vehicle.imageUrl ? (
@@ -239,11 +239,11 @@ export default async function HomePage() {
                         {vehicle.brandName.charAt(0)}
                       </div>
                     )}
-                    <span className="absolute left-3 top-3 rounded-full bg-[#18BBE5]/20 px-3 py-1 text-xs font-semibold text-[#18BBE5] border border-[#18BBE5]/30">
+                    <span className="absolute left-3 top-3 rounded-full bg-[#0068FF]/20 px-3 py-1 text-xs font-semibold text-[#0068FF] border border-[#0068FF]/30">
                       Oferta exclusiva
                     </span>
                     <span className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-black/50 px-2 py-0.5 text-xs text-white">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#18BBE5] animate-pulse" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#0068FF] animate-pulse" />
                       Disponible
                     </span>
                   </div>
@@ -256,7 +256,7 @@ export default async function HomePage() {
                     </p>
                     <p className="text-sm text-[#94b8cc]">{vehicle.version}</p>
                     <div className="mt-3 flex items-center justify-between">
-                      <p className="text-2xl font-bold text-[#18BBE5]" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                      <p className="text-2xl font-bold text-[#0068FF]" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                         {vehicle.priceLabel}
                         <span className="text-sm font-normal text-[#94b8cc]">/mes</span>
                       </p>
@@ -264,7 +264,7 @@ export default async function HomePage() {
                         href={buildWhatsAppLink(`Hola, me interesa la oferta del ${vehicle.brandName} ${vehicle.modelName}`)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-full bg-[#18BBE5] px-4 py-2 text-xs font-semibold text-[#071A2F] hover:brightness-110 transition-all"
+                        className="rounded-full bg-[#0068FF] px-4 py-2 text-xs font-semibold text-[#061B3F] hover:brightness-110 transition-all"
                       >
                         Lo quiero
                       </a>
@@ -278,15 +278,15 @@ export default async function HomePage() {
       )}
 
       {/* ── POR QUÉ ELEGIRNOS ─────────────────────────────────────────────── */}
-      <section className="py-16 border-t border-[#18BBE5]/10">
+      <section className="py-16 border-t border-[#0068FF]/10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 className="mb-10 text-2xl font-bold text-white sm:text-3xl" style={{ fontFamily: "var(--font-space-grotesk)" }}>
             ¿Por qué elegir {brand.name}?
           </h2>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {WHY_ITEMS.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-[#18BBE5]/10 bg-[#0d2442] p-6">
-                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#18BBE5]/10 text-[#18BBE5]">
+              <div key={item.title} className="rounded-2xl border border-[#0068FF]/10 bg-[#0d2442] p-6">
+                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#0068FF]/10 text-[#0068FF]">
                   {item.icon}
                 </div>
                 <h3 className="font-semibold text-white">{item.title}</h3>
@@ -298,22 +298,22 @@ export default async function HomePage() {
       </section>
 
       {/* ── TESTIMONIALES ─────────────────────────────────────────────────── */}
-      <section className="py-16 border-t border-[#18BBE5]/10">
+      <section className="py-16 border-t border-[#0068FF]/10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 className="mb-10 text-2xl font-bold text-white sm:text-3xl" style={{ fontFamily: "var(--font-space-grotesk)" }}>
             Lo que dicen nuestros clientes
           </h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {TESTIMONIALS.map((t) => (
-              <div key={t.name} className="rounded-2xl border border-[#18BBE5]/10 bg-[#0d2442] p-6">
-                <div className="flex gap-0.5 text-[#18BBE5]">
+              <div key={t.name} className="rounded-2xl border border-[#0068FF]/10 bg-[#0d2442] p-6">
+                <div className="flex gap-0.5 text-[#0068FF]">
                   {Array.from({ length: t.stars }).map((_, i) => (
                     <span key={i}>★</span>
                   ))}
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-[#94b8cc]">&ldquo;{t.text}&rdquo;</p>
                 <div className="mt-4 flex items-center gap-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#18BBE5]/15 text-sm font-bold text-[#18BBE5]">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0068FF]/15 text-sm font-bold text-[#0068FF]">
                     {t.name.charAt(0)}
                   </div>
                   <div>
@@ -328,17 +328,17 @@ export default async function HomePage() {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
-      <section className="py-16 border-t border-[#18BBE5]/10">
+      <section className="py-16 border-t border-[#0068FF]/10">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2 className="mb-8 text-2xl font-bold text-white sm:text-3xl" style={{ fontFamily: "var(--font-space-grotesk)" }}>
             Preguntas frecuentes
           </h2>
-          <div className="divide-y divide-[#18BBE5]/10">
+          <div className="divide-y divide-[#0068FF]/10">
             {FAQ_ITEMS.map((item) => (
               <details key={item.q} className="group py-4">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-white">
                   {item.q}
-                  <span className="shrink-0 text-[#18BBE5] transition-transform group-open:rotate-45 text-lg">+</span>
+                  <span className="shrink-0 text-[#0068FF] transition-transform group-open:rotate-45 text-lg">+</span>
                 </summary>
                 <p className="mt-3 text-sm text-[#94b8cc] leading-relaxed">{item.a}</p>
               </details>
@@ -348,9 +348,9 @@ export default async function HomePage() {
       </section>
 
       {/* ── CTA FINAL ─────────────────────────────────────────────────────── */}
-      <section className="py-20 border-t border-[#18BBE5]/10" style={{ background: "linear-gradient(135deg, #071A2F 0%, #0d2442 50%, #071A2F 100%)" }}>
+      <section className="py-20 border-t border-[#0068FF]/10" style={{ background: "linear-gradient(135deg, #061B3F 0%, #0d2442 50%, #061B3F 100%)" }}>
         <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 px-4 text-center sm:px-6">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#18BBE5]">MOVILEASE® Smart Mobility Platform</p>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#0068FF]">MOVILEASE® Smart Mobility Company</p>
           <h2 className="text-2xl font-bold text-white sm:text-4xl" style={{ fontFamily: "var(--font-space-grotesk)" }}>
             El futuro pertenece a quienes pueden moverse mejor.
           </h2>
