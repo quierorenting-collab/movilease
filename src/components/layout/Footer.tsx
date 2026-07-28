@@ -6,7 +6,7 @@ export async function Footer() {
   return (
     <footer className="border-t border-[#0068FF]/10 bg-[#041020] py-10 text-sm text-[#94b8cc]">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 sm:px-6 text-center">
-        <Logo size={28} />
+        <Logo height={28} />
         <p className="max-w-sm text-sm text-[#5E6673]">
           Movilidad inteligente. Libertad para crecer.
         </p>
