@@ -301,3 +301,44 @@ export async function getCatalogVehicles(filters: CatalogFilters = {}): Promise<
     return [];
   }
 }
+
+export interface BrandSummary {
+  brandName: string;
+  vehicleCount: number;
+  cheapestPriceLabel: string;
+  featuredImageUrl: string | null;
+  isPremium: boolean;
+}
+
+export interface VehiclesByBrand {
+  brands: BrandSummary[];
+  vehiclesByBrand: Record<string, VehicleCardData[]>;
+}
+
+const PREMIUM_BRANDS = new Set(["BMW", "Mercedes", "Audi", "Tesla", "Volvo", "Lexus", "Porsche"]);
+
+export async function getVehiclesByBrand(): Promise<VehiclesByBrand> {
+  const all = await getCatalogVehicles({});
+
+  const map: Record<string, VehicleCardData[]> = {};
+  for (const v of all) {
+    if (!v.brandName) continue;
+    if (!map[v.brandName]) map[v.brandName] = [];
+    map[v.brandName].push(v);
+  }
+
+  const brands: BrandSummary[] = Object.entries(map)
+    .map(([name, vehicles]) => ({
+      brandName: name,
+      vehicleCount: vehicles.length,
+      cheapestPriceLabel: vehicles[0]?.priceLabel ?? "",
+      featuredImageUrl: vehicles.find((v) => v.imageUrl)?.imageUrl ?? null,
+      isPremium: PREMIUM_BRANDS.has(name),
+    }))
+    .sort((a, b) => {
+      if (a.isPremium !== b.isPremium) return a.isPremium ? -1 : 1;
+      return a.brandName.localeCompare(b.brandName);
+    });
+
+  return { brands, vehiclesByBrand: map };
+}

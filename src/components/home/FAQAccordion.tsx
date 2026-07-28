@@ -9,18 +9,19 @@ export function FAQAccordion({ items }: { items: FAQItem[] }) {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <div className="divide-y divide-white/6">
+    <div className="divide-y divide-[#E5E7EB]">
       {items.map((item, i) => (
         <div key={item.q}>
           <button
             onClick={() => setOpen(open === i ? null : i)}
-            className="flex w-full cursor-pointer items-start justify-between gap-6 py-6 text-left text-sm font-medium text-white/75 transition-colors hover:text-white"
+            className="flex w-full cursor-pointer items-start justify-between gap-6 py-6 text-left font-medium text-[#0A0A0A] transition-colors hover:text-[#0068FF]"
+            style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)" }}
           >
             <span>{item.q}</span>
             <motion.span
               animate={{ rotate: open === i ? 45 : 0 }}
               transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-              className="shrink-0 text-xl leading-none text-[#0068FF] mt-0.5"
+              className="mt-0.5 shrink-0 text-xl leading-none text-[#0068FF]"
             >
               +
             </motion.span>
@@ -35,7 +36,7 @@ export function FAQAccordion({ items }: { items: FAQItem[] }) {
                 transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
                 style={{ overflow: "hidden" }}
               >
-                <p className="pb-6 text-sm leading-relaxed text-white/40">{item.a}</p>
+                <p className="pb-6 text-[14px] leading-relaxed text-[#6B7280]">{item.a}</p>
               </motion.div>
             )}
           </AnimatePresence>
