@@ -8,14 +8,13 @@ export function HeroImage() {
   const [loaded, setLoaded] = useState(false);
   const { scrollY } = useScroll();
 
-  // Cinematic parallax — image drifts slower than scroll
-  const rawY = useTransform(scrollY, [0, 1000], [0, 220]);
+  // Cinematic parallax — the car drifts slower than the scroll
+  const rawY = useTransform(scrollY, [0, 1000], [0, 160]);
   const y = useSpring(rawY, { stiffness: 90, damping: 30, restDelta: 0.001 });
-  const scale = useTransform(scrollY, [0, 800], [1.06, 1.16]);
-  const overlayOpacity = useTransform(scrollY, [0, 600], [1, 1.35]);
+  const scale = useTransform(scrollY, [0, 800], [1, 1.08]);
 
   // Subtle mouse-driven ambient light
-  const [mouse, setMouse] = useState({ x: 0.5, y: 0.5 });
+  const [mouse, setMouse] = useState({ x: 0.6, y: 0.5 });
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
       setMouse({ x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight });
@@ -25,51 +24,58 @@ export function HeroImage() {
   }, []);
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
-      {/* Parallax image layer */}
-      <motion.div className="absolute inset-0" style={{ y, scale }}>
+    <div className="absolute inset-0 overflow-hidden bg-[#050505]">
+      {/* Ambient blue glow behind the text column */}
+      <div
+        className="pointer-events-none absolute -left-32 top-1/4 h-[560px] w-[560px]"
+        style={{
+          background: "radial-gradient(circle, rgba(0,104,255,0.12) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* Car layer — full bleed on mobile, right column on desktop */}
+      <motion.div
+        style={{ y, scale }}
+        className="absolute inset-0 lg:left-auto lg:right-0 lg:w-[68%]"
+      >
         <Image
-          src="/hero-bg.webp"
+          src="/hero-car.webp"
           alt=""
           fill
           priority
           quality={92}
-          sizes="100vw"
+          sizes="(max-width: 1024px) 100vw, 68vw"
           className={`object-cover object-center transition-all duration-[1400ms] ease-out ${
-            loaded ? "opacity-100 blur-0 scale-100" : "opacity-0 blur-xl scale-105"
+            loaded ? "opacity-100 blur-0" : "opacity-0 blur-xl"
           }`}
           onLoad={() => setLoaded(true)}
         />
       </motion.div>
 
-      {/* Base darkening */}
-      <motion.div
-        className="absolute inset-0 bg-black/60"
-        style={{ opacity: overlayOpacity }}
+      {/* Mobile — heavy darkening so the copy always reads */}
+      <div className="absolute inset-0 bg-[#050505]/78 lg:hidden" />
+
+      {/* Desktop — blend the car's left edge into pure black */}
+      <div
+        className="absolute inset-0 hidden lg:block"
+        style={{
+          background:
+            "linear-gradient(90deg, #050505 0%, #050505 26%, rgba(5,5,5,0.82) 38%, rgba(5,5,5,0.35) 52%, rgba(5,5,5,0.08) 64%, transparent 74%)",
+        }}
       />
 
-      {/* Left → right cinematic gradient for text legibility — strong enough
-          to swallow the branding text baked into the source image */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/20" />
+      {/* Top fade — keeps the white logo + nav readable */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#050505] via-[#050505]/55 to-transparent" />
 
-      {/* Vertical fade into next section */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/50" />
+      {/* Bottom fade into the next section */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#050505] to-transparent" />
 
       {/* Ambient mouse-following light — very subtle */}
       <div
         className="pointer-events-none absolute inset-0 transition-opacity duration-700"
         style={{
-          background: `radial-gradient(600px circle at ${mouse.x * 100}% ${mouse.y * 100}%, rgba(0,104,255,0.10) 0%, transparent 65%)`,
+          background: `radial-gradient(650px circle at ${mouse.x * 100}% ${mouse.y * 100}%, rgba(0,104,255,0.07) 0%, transparent 65%)`,
           opacity: loaded ? 1 : 0,
-        }}
-      />
-
-      {/* Bottom vignette for depth */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 130% 100% at 50% 0%, transparent 40%, rgba(0,0,0,0.55) 100%)",
         }}
       />
     </div>

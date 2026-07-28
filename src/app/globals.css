@@ -443,17 +443,17 @@ h1, h2, h3, h4, h5, h6 {
    ══════════════════════════════════════════════════ */
 .hero-headline {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2.5rem, 5.2vw, 5.25rem);
+  font-size: clamp(2.25rem, 4.2vw, 4.25rem);
   font-weight: 700;
   letter-spacing: -0.035em;
-  line-height: 1.0;
+  line-height: 1.02;
 }
 
 .hero-subline {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2.5rem, 5.2vw, 5.25rem);
+  font-size: clamp(2.25rem, 4.2vw, 4.25rem);
   font-weight: 700;
   letter-spacing: -0.035em;
-  line-height: 1.0;
+  line-height: 1.02;
   color: var(--blue);
 }

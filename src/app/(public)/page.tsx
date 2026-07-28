@@ -103,7 +103,7 @@ export default async function HomePage() {
   return (
     <>
       {/* ══ HERO — cinematic ══════════════════════════════ */}
-      <section className="relative flex h-screen min-h-[760px] items-end overflow-hidden bg-[#080808]">
+      <section className="relative flex h-screen min-h-[680px] items-center overflow-hidden bg-[#050505]">
         <HeroImage />
         <HeroContent />
       </section>

@@ -28,8 +28,8 @@ const TRUST = [
 export function HeroContent() {
   return (
     <>
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:pb-20">
-        <div className="lg:max-w-[58%]">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-28 sm:px-10 lg:pb-24">
+        <div className="lg:max-w-[48%]">
           {/* Eyebrow */}
           <motion.div
             variants={rise(0, 20)}
@@ -133,7 +133,7 @@ export function HeroContent() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-9 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 lg:flex"
+        className="absolute bottom-9 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 xl:flex"
       >
         <span className="text-[8px] uppercase tracking-[0.35em] text-white/25">Scroll</span>
         <div className="relative h-12 w-px overflow-hidden bg-white/10">
