@@ -28,8 +28,8 @@ const TRUST = [
 export function HeroContent() {
   return (
     <>
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:pb-28">
-        <div className="lg:max-w-[62%]">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:pb-20">
+        <div className="lg:max-w-[58%]">
           {/* Eyebrow */}
           <motion.div
             variants={rise(0, 20)}
@@ -67,7 +67,7 @@ export function HeroContent() {
             variants={rise(3, 28)}
             initial="hidden"
             animate="visible"
-            className="mt-9 max-w-md text-[15px] leading-[1.75] text-white/50 sm:text-[16px]"
+            className="mt-6 max-w-md text-[15px] leading-[1.7] text-white/50 sm:text-[16px]"
           >
             Renting inteligente para particulares, autónomos y empresas.
             Todo incluido en una cuota fija. Sin entrada. Sin sorpresas.
@@ -78,7 +78,7 @@ export function HeroContent() {
             variants={rise(4, 28)}
             initial="hidden"
             animate="visible"
-            className="mt-11 flex flex-col gap-3 sm:flex-row sm:gap-4"
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4"
           >
             <Link href="/catalogo" className="btn-primary justify-center">
               Explorar catálogo
@@ -109,7 +109,7 @@ export function HeroContent() {
             variants={rise(5, 24)}
             initial="hidden"
             animate="visible"
-            className="mt-14 flex flex-wrap items-center gap-x-10 gap-y-5 border-t border-white/8 pt-8"
+            className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-5 border-t border-white/8 pt-6"
           >
             {TRUST.map((t) => (
               <div key={t.label} className="flex flex-col gap-1">

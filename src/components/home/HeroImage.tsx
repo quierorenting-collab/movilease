@@ -44,15 +44,16 @@ export function HeroImage() {
 
       {/* Base darkening */}
       <motion.div
-        className="absolute inset-0 bg-black/45"
+        className="absolute inset-0 bg-black/60"
         style={{ opacity: overlayOpacity }}
       />
 
-      {/* Left → right cinematic gradient for text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
+      {/* Left → right cinematic gradient for text legibility — strong enough
+          to swallow the branding text baked into the source image */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/20" />
 
       {/* Vertical fade into next section */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/50" />
 
       {/* Ambient mouse-following light — very subtle */}
       <div
