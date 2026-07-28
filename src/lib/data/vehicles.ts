@@ -277,7 +277,7 @@ export async function getCatalogVehicles(filters: CatalogFilters = {}): Promise<
       query = query.lte("monthly_price_cents", filters.maxPriceEuros * 100);
     }
 
-    const { data, error } = await query.order("monthly_price_cents").limit(60);
+    const { data, error } = await query.order("monthly_price_cents").limit(300);
     if (error || !data) return [];
     return attachModelsAndBrands(data as CardRow[]);
   } catch {
