@@ -10,7 +10,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 export const revalidate = 900;
 
 export const metadata: Metadata = {
-  title: "Catálogo de coches en renting | MoviLease",
+  title: "Catálogo de coches en renting",
   description: "Explora todas las marcas y modelos en renting para particulares. Sin entrada, todo incluido.",
 };
 

@@ -54,7 +54,8 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
             {brand.brandName}
           </p>
           <p className="mt-1.5 text-[11px] text-white/60">
-            {brand.vehicleCount} {brand.vehicleCount === 1 ? "vehículo" : "vehículos"} disponibles
+            {brand.vehicleCount}{" "}
+          {brand.vehicleCount === 1 ? "vehículo disponible" : "vehículos disponibles"}
           </p>
         </div>
       </div>
