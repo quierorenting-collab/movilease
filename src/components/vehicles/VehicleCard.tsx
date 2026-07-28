@@ -1,49 +1,70 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import type { VehicleCardData } from "@/lib/data/vehicles";
-import { FUEL_TYPE_LABELS } from "@/lib/constants";
-import { FavoriteButton } from "@/components/vehicles/FavoriteButton";
-import { CompareButton } from "@/components/vehicles/CompareButton";
+import { FUEL_TYPE_LABELS, TRANSMISSION_LABELS, buildWhatsAppLink } from "@/lib/constants";
 
 export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
+  const waLink = buildWhatsAppLink(`Hola, me interesa el ${vehicle.brandName} ${vehicle.modelName}`);
+
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-border-subtle bg-surface transition-transform hover:-translate-y-1 hover:border-primary/30">
+    <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#18BBE5]/10 bg-[#0d2442] transition-all hover:-translate-y-1 hover:border-[#18BBE5]/30 hover:shadow-xl hover:shadow-[#18BBE5]/5">
       <Link href={`/${vehicle.modelSlug}`} className="contents">
-        <div className="relative aspect-[4/3] w-full bg-surface-elevated">
+        <div className="relative aspect-[4/3] w-full bg-[#112d52]">
           {vehicle.imageUrl ? (
             <Image
               src={vehicle.imageUrl}
               alt={`${vehicle.brandName} ${vehicle.modelName}`}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
             />
           ) : (
-            <div className="flex h-full items-center justify-center text-4xl font-semibold text-muted-2">
+            <div className="flex h-full items-center justify-center text-4xl font-bold text-[#112d52] text-[#18BBE5]/10">
               {vehicle.brandName.charAt(0)}
             </div>
           )}
           {vehicle.badgeText && (
-            <span className="absolute left-3 top-3 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-black">
+            <span className="absolute left-3 top-3 rounded-full bg-[#18BBE5]/15 px-2.5 py-0.5 text-xs font-semibold text-[#18BBE5] border border-[#18BBE5]/25">
               {vehicle.badgeText}
             </span>
           )}
         </div>
-        <div className="flex flex-1 flex-col gap-1 p-5">
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-2">
-            {vehicle.brandName} · {FUEL_TYPE_LABELS[vehicle.fuelType]}
+        <div className="flex flex-1 flex-col gap-1 p-4">
+          <p className="text-xs font-medium uppercase tracking-wide text-[#5E6673]">
+            {vehicle.category}
           </p>
-          <h3 className="font-semibold text-foreground">{vehicle.modelName}</h3>
-          <p className="text-sm text-muted">{vehicle.version}</p>
-          <p className="mt-3 text-lg font-semibold text-primary">
-            {vehicle.priceLabel}
-            <span className="text-sm font-normal text-muted"> /mes</span>
-          </p>
+          <h3 className="font-semibold text-white">
+            {vehicle.brandName} {vehicle.modelName}
+          </h3>
+          <p className="text-sm text-[#94b8cc] line-clamp-1">{vehicle.version}</p>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            <span className="rounded-full bg-[#071A2F] px-2.5 py-0.5 text-xs text-[#94b8cc]">
+              {FUEL_TYPE_LABELS[vehicle.fuelType]}
+            </span>
+            <span className="rounded-full bg-[#071A2F] px-2.5 py-0.5 text-xs text-[#94b8cc]">
+              {TRANSMISSION_LABELS[vehicle.transmission]}
+            </span>
+          </div>
+          <div className="mt-3">
+            <p className="text-2xl font-bold text-[#18BBE5]" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+              {vehicle.priceLabel}
+              <span className="text-sm font-normal text-[#94b8cc]">/mes</span>
+            </p>
+          </div>
         </div>
       </Link>
-      <FavoriteButton vehicleId={vehicle.id} />
-      <div className="px-5 pb-4">
-        <CompareButton vehicleId={vehicle.id} />
+      <div className="px-4 pb-4">
+        <a
+          href={waLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="flex w-full items-center justify-center rounded-full border border-[#18BBE5]/40 py-2.5 text-sm font-medium text-[#18BBE5] transition-all hover:bg-[#18BBE5] hover:text-[#071A2F]"
+        >
+          Lo quiero
+        </a>
       </div>
     </div>
   );

@@ -168,6 +168,23 @@ export async function getComparisonVehicles(ids: string[]): Promise<ComparisonVe
 }
 
 /** Nunca lanza: si Supabase no está configurado todavía, devuelve []. */
+export async function getOfferVehicles(limit = 8): Promise<VehicleCardData[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from("vehicles")
+      .select(CARD_COLUMNS)
+      .eq("is_active", true)
+      .eq("is_offer", true)
+      .order("monthly_price_cents")
+      .limit(limit);
+    if (error || !data) return [];
+    return attachModelsAndBrands(data as CardRow[]);
+  } catch {
+    return [];
+  }
+}
+
 export async function getFeaturedVehicles(limit = 6): Promise<VehicleCardData[]> {
   try {
     const supabase = await createClient();
