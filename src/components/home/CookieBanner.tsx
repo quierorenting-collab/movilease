@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { updateAnalyticsConsent } from "@/lib/analytics/consent";
 
 const STORAGE_KEY = "ml_cookie_pref";
 
@@ -10,18 +11,24 @@ export function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => {
-      if (!localStorage.getItem(STORAGE_KEY)) setVisible(true);
-    }, 900);
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === "accept") {
+      updateAnalyticsConsent(true);
+      return;
+    }
+    if (stored === "reject") return;
+    const t = setTimeout(() => setVisible(true), 900);
     return () => clearTimeout(t);
   }, []);
 
   function accept() {
     localStorage.setItem(STORAGE_KEY, "accept");
+    updateAnalyticsConsent(true);
     setVisible(false);
   }
   function reject() {
     localStorage.setItem(STORAGE_KEY, "reject");
+    updateAnalyticsConsent(false);
     setVisible(false);
   }
 

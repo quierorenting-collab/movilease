@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getFeaturedVehicles, getOfferVehicles, getVehiclesByBrand } from "@/lib/data/vehicles";
-import { buildWhatsAppLink } from "@/lib/constants";
+import { buildWhatsAppLink, CONTACT } from "@/lib/constants";
+import { getCurrentBrand } from "@/lib/brand";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { BrandCard } from "@/components/catalog/BrandCard";
 import { HeroImage } from "@/components/home/HeroImage";
@@ -9,6 +11,48 @@ import { FAQAccordion } from "@/components/home/FAQAccordion";
 import { Reveal, RevealGroup, RevealItem, AnimatedCounter } from "@/components/ui/Reveal";
 
 export const revalidate = 3600;
+
+/** Metadata específica de Home, por dominio/marca (ver lib/brand.ts). */
+const HOME_SEO = {
+  "movilease.es": {
+    description:
+      "Renting de coches para particulares en España, sin entrada. Seguro, mantenimiento e impuestos incluidos en la cuota fija. Más de 30 marcas y gestión en 48 horas.",
+    ogImageAlt: "MoviLease — renting de coches sin entrada, todo incluido",
+  },
+  "quierorenting.es": {
+    description:
+      "Renting de coches para particulares desde 264€/mes, sin entrada. Seguro, mantenimiento e impuestos incluidos en la cuota fija. Gestión en 48 horas.",
+    ogImageAlt: "QuieroRenting — renting de coches sin entrada, todo incluido",
+  },
+} as const;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const brand = await getCurrentBrand();
+  const seo = HOME_SEO[brand.domain];
+  const title = `${brand.name} | Renting de Coches para Particulares`;
+  const url = `https://${brand.domain}`;
+
+  return {
+    title: { absolute: title },
+    description: seo.description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description: seo.description,
+      url,
+      siteName: brand.name,
+      type: "website",
+      locale: "es_ES",
+      images: [{ url: "/hero-car.webp", width: 936, height: 596, alt: seo.ogImageAlt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: seo.description,
+      images: ["/hero-car.webp"],
+    },
+  };
+}
 
 const STATS = [
   { value: 10000, prefix: "+",  suffix: "",  decimals: 0, label: "Clientes satisfechos" },
@@ -75,6 +119,10 @@ const FAQ_ITEMS = [
 ];
 
 export default async function HomePage() {
+  const brand = await getCurrentBrand();
+  const seo = HOME_SEO[brand.domain];
+  const siteUrl = `https://${brand.domain}`;
+
   const [featured, offers, { brands }] = await Promise.all([
     getFeaturedVehicles(200),
     getOfferVehicles(8),
@@ -97,8 +145,56 @@ export default async function HomePage() {
     return true;
   });
 
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: brand.name,
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
+    sameAs: [CONTACT.instagram],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: `+${CONTACT.whatsappNumber}`,
+      contactType: "customer service",
+      areaServed: "ES",
+      availableLanguage: ["Spanish"],
+    },
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: brand.name,
+    url: siteUrl,
+    description: seo.description,
+    publisher: { "@type": "Organization", name: brand.name },
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ_ITEMS.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       {/* ══ HERO — cinematic ══════════════════════════════ */}
       <section className="relative flex h-screen min-h-[680px] items-center overflow-hidden bg-[#050505]">
         <HeroImage />
