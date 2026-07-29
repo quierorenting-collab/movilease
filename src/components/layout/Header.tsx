@@ -43,7 +43,7 @@ export function Header() {
         <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between px-6 sm:px-10">
           {/* Logo */}
           <Link href="/" aria-label="MoviLease" className="shrink-0">
-            <Logo height={44} className="brightness-0 invert transition-all duration-500" />
+            <Logo height={64} className="brightness-0 invert transition-all duration-500" />
           </Link>
 
           {/* Desktop nav */}
