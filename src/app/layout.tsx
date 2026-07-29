@@ -29,6 +29,9 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s | ${brand.name}`,
     },
     description: brand.description,
+    verification: {
+      google: "pI-BaqPscKQ0D8SPEvg0PIfdRcASlcHuXDNh7dNf_w4",
+    },
   };
 }
 
