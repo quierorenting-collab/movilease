@@ -1,8 +1,5 @@
 import requests, re
-
-SUPABASE_URL = "https://cwbiyfjaeaxmfaheskae.supabase.co"
-SERVICE_KEY  = "REDACTED_SUPABASE_SECRET_KEY"
-ANON_KEY     = "sb_publishable_yZ0mZkDWTeFq9CV9rakVZA_2HzIvAvK"
+from _env import SUPABASE_URL, SERVICE_KEY, ANON_KEY
 
 HDR_R = {"apikey": ANON_KEY,    "Authorization": f"Bearer {ANON_KEY}"}
 HDR_W = {"apikey": SERVICE_KEY, "Authorization": f"Bearer {SERVICE_KEY}",

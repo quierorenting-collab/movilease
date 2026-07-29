@@ -7,10 +7,8 @@ y sesión limpia para Supabase (sin headers de browser que activan
 el bloqueo de la service key).
 """
 import requests, unicodedata, re
+from _env import SUPABASE_URL, SERVICE_KEY, ANON_KEY
 
-SUPABASE_URL = "https://cwbiyfjaeaxmfaheskae.supabase.co"
-SERVICE_KEY  = "REDACTED_SUPABASE_SECRET_KEY"
-ANON_KEY     = "sb_publishable_yZ0mZkDWTeFq9CV9rakVZA_2HzIvAvK"
 FOTO_BASE    = "https://fotos.quecochemecompro.com"
 QCMC_BASE    = "https://quecochemecompro.com/precios"
 
