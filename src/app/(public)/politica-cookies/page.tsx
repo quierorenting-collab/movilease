@@ -13,7 +13,7 @@ export default function PoliticaCookiesPage() {
         <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6">
           <p className="section-label mb-6">Legal</p>
           <h1 className="display-md text-white">Política de cookies</h1>
-          <p className="mt-6 text-sm text-white/25">
+          <p className="mt-6 text-sm text-white/70">
             Última actualización: pendiente de publicación
           </p>
         </div>
@@ -26,11 +26,11 @@ export default function PoliticaCookiesPage() {
           >
             Uso de cookies en este sitio
           </h2>
-          <p className="mt-4 text-[15px] leading-[1.8] text-white/55">
+          <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
             Esta página describirá las cookies utilizadas por el sitio y cómo
             gestionarlas desde tu navegador.
           </p>
-          <div className="mt-10 rounded-xl border border-[#0068FF]/15 bg-[#0068FF]/[0.04] p-5 text-[13px] leading-relaxed text-white/40">
+          <div className="mt-10 rounded-xl border border-[#0068FF]/15 bg-[#0068FF]/[0.04] p-5 text-[13px] leading-relaxed text-white/70">
             [PENDIENTE: documentar cookies reales (Supabase Auth, analítica,
             chat) cuando se integren en las fases siguientes.]
           </div>

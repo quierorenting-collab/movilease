@@ -37,14 +37,14 @@ export function FavoritosClient() {
         <Reveal>
           <p className="section-label">Favoritos</p>
           <h1 className="display-lg mt-4 text-white">Tus favoritos.</h1>
-          <p className="mt-4 max-w-xl text-white/40">
+          <p className="mt-4 max-w-xl text-white/70">
             Guardados en este navegador — no necesitas cuenta para verlos más tarde.
           </p>
         </Reveal>
 
         <div className="mt-14">
           {!hydrated || loading ? (
-            <p className="text-white/40">Cargando…</p>
+            <p className="text-white/70">Cargando…</p>
           ) : vehicles.length > 0 ? (
             <RevealGroup
               stagger={0.06}
@@ -81,7 +81,7 @@ export function FavoritosClient() {
                 >
                   Aún no tienes favoritos
                 </h2>
-                <p className="mt-3 text-sm text-white/40">
+                <p className="mt-3 text-sm text-white/70">
                   Explora el catálogo y guarda los vehículos que más te interesen.
                 </p>
                 <Link href="/catalogo" className="btn-primary mt-8 inline-flex">

@@ -18,11 +18,16 @@ function rise(i: number, distance = 44) {
   };
 }
 
+/**
+ * Beneficios, no cifras: las cifras (+10.000 clientes, 4,9/5, 48 h) ya salen
+ * en la banda de stats justo debajo, y repetirlas aquí no añadía información.
+ * Aquí interesa responder "¿qué me llevo por esa cuota?" junto al CTA.
+ */
 const TRUST = [
-  { value: "+10.000", label: "clientes" },
-  { value: "4,9/5", label: "valoración" },
-  { value: "48 h", label: "gestión" },
-  { value: "0 €", label: "entrada" },
+  { value: "0 €", label: "de entrada" },
+  { value: "Seguro", label: "a todo riesgo incluido" },
+  { value: "Mantenimiento", label: "e ITV incluidos" },
+  { value: "48 h", label: "y tienes respuesta" },
 ];
 
 export function HeroContent() {
@@ -43,7 +48,7 @@ export function HeroContent() {
               transition={{ duration: 1, delay: 0.5, ease }}
               className="h-px w-10 origin-left bg-[#0068FF]"
             />
-            <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-[#0068FF]">
+            <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#5AA0FF]">
               Smart Mobility Platform
             </span>
           </motion.div>
@@ -67,7 +72,7 @@ export function HeroContent() {
             variants={rise(3, 28)}
             initial="hidden"
             animate="visible"
-            className="mt-6 max-w-md text-[15px] leading-[1.7] text-white/50 sm:text-[16px]"
+            className="mt-6 max-w-lg text-[16px] leading-[1.7] text-white/80 sm:text-[17px]"
           >
             Renting inteligente para particulares, autónomos y empresas.
             Todo incluido en una cuota fija. Sin entrada. Sin sorpresas.
@@ -109,23 +114,33 @@ export function HeroContent() {
             variants={rise(5, 24)}
             initial="hidden"
             animate="visible"
-            className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-5 border-t border-white/8 pt-6"
+            className="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/15 pt-7"
           >
-            {TRUST.map((t, i) => (
-              <div
-                key={t.label}
-                className={`flex flex-col gap-1 ${i > 0 ? "sm:border-l sm:border-white/10 sm:pl-10 sm:-ml-10" : ""}`}
-              >
+            {TRUST.map((t) => (
+              <span key={t.label} className="flex items-baseline gap-2 text-[14px] sm:text-[15px]">
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                  className="h-3.5 w-3.5 shrink-0 translate-y-[2px]"
+                >
+                  <circle cx="8" cy="8" r="8" fill="#5AA0FF" fillOpacity="0.22" />
+                  <path
+                    d="M5 8.2l2 2 4-4.4"
+                    stroke="#8FBEFF"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
                 <span
-                  className="text-[19px] font-bold leading-none text-white sm:text-[22px]"
+                  className="font-bold text-white"
                   style={{ fontFamily: "var(--font-space-grotesk)" }}
                 >
                   {t.value}
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.22em] text-white/30">
-                  {t.label}
-                </span>
-              </div>
+                <span className="text-white/70">{t.label}</span>
+              </span>
             ))}
           </motion.div>
         </div>
@@ -138,7 +153,7 @@ export function HeroContent() {
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-9 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 xl:flex"
       >
-        <span className="text-[8px] uppercase tracking-[0.35em] text-white/25">Scroll</span>
+        <span className="text-[9px] uppercase tracking-[0.3em] text-white/70">Scroll</span>
         <div className="relative h-12 w-px overflow-hidden bg-white/10">
           <motion.div
             animate={{ y: ["-100%", "200%"] }}

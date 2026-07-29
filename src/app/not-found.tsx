@@ -20,7 +20,7 @@ export default function NotFound() {
             Página no encontrada
           </h1>
         </div>
-        <p className="mt-6 max-w-md text-white/40">
+        <p className="mt-6 max-w-md text-white/70">
           El contenido que buscas no existe o se ha movido.
         </p>
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">

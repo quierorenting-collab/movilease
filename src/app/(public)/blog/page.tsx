@@ -19,7 +19,7 @@ export default function BlogPage() {
         <Reveal className="max-w-2xl">
           <p className="section-label">Blog</p>
           <h1 className="display-lg mt-4 text-white">Historias de movilidad.</h1>
-          <p className="mt-5 max-w-xl text-lg text-white/40">
+          <p className="mt-5 max-w-xl text-lg text-white/70">
             Guías de renting, comparativas y novedades. Muy pronto.
           </p>
         </Reveal>
@@ -53,7 +53,7 @@ export default function BlogPage() {
         </RevealGroup>
 
         <Reveal delay={0.2} className="mt-20 text-center">
-          <p className="text-white/35">¿Quieres que te avisemos?</p>
+          <p className="text-white/70">¿Quieres que te avisemos?</p>
           <div className="mt-6">
             <a
               href={buildWhatsAppLink(

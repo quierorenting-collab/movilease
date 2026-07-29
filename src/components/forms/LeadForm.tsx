@@ -9,7 +9,7 @@ import { CLIENT_TYPE_LABELS } from "@/lib/constants";
 const initialState: CreateLeadResult = { success: false };
 
 const labelClass =
-  "block text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-2";
+  "block text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 mb-2";
 
 export function LeadForm({
   vehicleId,
@@ -47,7 +47,7 @@ export function LeadForm({
         >
           Solicitud recibida
         </p>
-        <p className="mt-2 text-sm leading-relaxed text-white/50">
+        <p className="mt-2 text-sm leading-relaxed text-white/70">
           No tardaremos más de unos minutos en contactar contigo.
         </p>
         {state.whatsappLink && (
@@ -176,7 +176,7 @@ export function LeadForm({
         />
       </div>
 
-      <label className="flex items-start gap-3 text-[13px] leading-relaxed text-white/50">
+      <label className="flex items-start gap-3 text-[13px] leading-relaxed text-white/70">
         <input
           type="checkbox"
           name="rgpd"

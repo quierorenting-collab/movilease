@@ -21,8 +21,8 @@
   --ink: #0A0A0A;
   --ink-2: #1A1A1A;
   --ink-muted: #374151;
-  --ink-light: #6B7280;
-  --ink-pale: #9CA3AF;
+  --ink-light: #5B6472;
+  --ink-pale: #7C8595;
   --paper: #FFFFFF;
   --paper-2: #FAFAFA;
   --paper-3: #F5F5F5;
@@ -33,12 +33,30 @@
   --dark-4: #1B4080;
 
   --blue: #0068FF;
+  /* --blue-light: azul legible como TEXTO sobre fondos oscuros.
+     #0068FF sobre #071A3D solo llega a 3.1:1; este llega a 5.6:1 (WCAG AA). */
+  --blue-light: #5AA0FF;
   --blue-dim: rgba(0, 104, 255, 0.12);
   --blue-glow: rgba(0, 104, 255, 0.20);
+  --whatsapp: #25D366;
+  --whatsapp-dark: #1DA851;
 
-  --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  /* ── Escala de texto sobre fondo oscuro ─────────────────
+     Jerarquía por tamaño/peso, no por opacidades ilegibles.
+     Mínimo /55 para texto informativo (≈4.6:1 sobre #071A3D). */
+  --on-dark-1: #FFFFFF;
+  --on-dark-2: rgba(255, 255, 255, 0.74);
+  --on-dark-3: rgba(255, 255, 255, 0.58);
+  --on-dark-ornament: rgba(255, 255, 255, 0.30);
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.10);
   --glass-bg-dark: rgba(0, 0, 0, 0.40);
+
+  --radius-sm: 0.625rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
 
   --shadow-float:
     0 0 0 1px rgba(0,0,0,0.04),
@@ -65,6 +83,9 @@
   --duration-normal: 350ms;
   --duration-slow: 600ms;
   --duration-cinematic: 900ms;
+
+  /* Altura del header fijo — usado por los stickies para no solaparse */
+  --header-h: 88px;
 }
 
 @theme inline {
@@ -78,6 +99,7 @@
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
   --color-accent: var(--accent);
+  --color-blue-light: var(--blue-light);
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
 }
@@ -87,6 +109,8 @@
    ══════════════════════════════════════════════════ */
 html {
   scroll-behavior: smooth;
+  /* Los anclas internas (#faq, #ofertas) no quedan debajo del header fijo */
+  scroll-padding-top: calc(var(--header-h) + 1rem);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -116,20 +140,99 @@ body::before {
   background-size: 180px 180px;
 }
 
+/* En móvil el grano es una capa fija a pantalla completa que no aporta
+   nada perceptible y sí coste de composición: fuera. */
+@media (max-width: 767px) {
+  body::before { display: none; }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-space-grotesk), system-ui, sans-serif;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
+
+p { text-wrap: pretty; }
 
 ::selection {
   background: rgba(0, 104, 255, 0.25);
   color: #fff;
 }
 
-::-webkit-scrollbar { width: 3px; }
+/* Scrollbar agarrable (3px era imposible de usar con ratón) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(0, 104, 255, 0.25); }
-::-webkit-scrollbar-thumb:hover { background: rgba(0, 104, 255, 0.5); }
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 104, 255, 0.35);
+  border: 3px solid transparent;
+  background-clip: content-box;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 104, 255, 0.6); background-clip: content-box; }
+
+/* ══════════════════════════════════════════════════
+   ACCESIBILIDAD
+   ══════════════════════════════════════════════════ */
+
+/* Foco visible por teclado en todo lo interactivo, no solo a/button */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--blue-light);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Enlace de salto al contenido: invisible hasta recibir foco */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10000;
+  transform: translateY(-160%);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--blue);
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  transition: transform var(--duration-fast) var(--easing-out);
+}
+.skip-link:focus-visible { transform: translateY(0); }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Respeta a quien pide menos movimiento: sin parallax, sin marquee,
+   sin scroll animado. La web sigue siendo idéntica, solo quieta. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track { animation: none !important; transform: none !important; }
+}
+
+/* En pantallas táctiles los :hover se quedan "pegados" tras el tap */
+@media (hover: none) {
+  .vehicle-card:hover,
+  .card-dark:hover,
+  .hover-lift:hover { transform: none; }
+}
 
 /* ══════════════════════════════════════════════════
    GLASS MORPHISM
@@ -142,10 +245,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-dark {
-  background: rgba(9, 30, 66, 0.75);
+  background: rgba(7, 26, 61, 0.82);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* ══════════════════════════════════════════════════
@@ -162,6 +265,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%);
   width: 900px;
   height: 400px;
+  max-width: 100%;
   background: radial-gradient(ellipse, rgba(0,104,255,0.14) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
@@ -175,6 +279,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%);
   width: 700px;
   height: 300px;
+  max-width: 100%;
   background: radial-gradient(ellipse, rgba(0,104,255,0.10) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
@@ -197,72 +302,127 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ══════════════════════════════════════════════════
    PREMIUM BUTTONS
+   Objetivo CRO: área táctil ≥48px, texto legible (no 10px),
+   radio coherente con tarjetas/inputs y estados claros.
    ══════════════════════════════════════════════════ */
-.btn-primary {
+.btn-primary,
+.btn-ghost,
+.btn-white,
+.btn-whatsapp {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2.5rem;
-  background: var(--blue);
-  color: #fff;
-  font-size: 0.65rem;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 54px;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   font-family: var(--font-space-grotesk), sans-serif;
-  transition: background var(--duration-fast) var(--easing),
-              transform var(--duration-fast) var(--easing),
-              box-shadow var(--duration-normal) var(--easing);
+  text-align: center;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--easing),
+              border-color var(--duration-fast) var(--easing),
+              color var(--duration-fast) var(--easing),
+              transform var(--duration-fast) var(--easing),
+              box-shadow var(--duration-normal) var(--easing);
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0,104,255,0.22);
 }
 .btn-primary::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.14) 0%, transparent 55%);
   opacity: 0;
   transition: opacity var(--duration-fast);
 }
 .btn-primary:hover {
   background: #0052CC;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,104,255,0.35), 0 0 50px rgba(0,104,255,0.15);
+  box-shadow: 0 10px 28px rgba(0,104,255,0.38), 0 0 50px rgba(0,104,255,0.15);
 }
 .btn-primary:hover::after { opacity: 1; }
-.btn-primary:active { transform: translateY(0); }
+.btn-primary:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(0,104,255,0.28); }
 
 .btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2.5rem;
-  border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.8);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-family: var(--font-space-grotesk), sans-serif;
-  transition: all var(--duration-normal) var(--easing);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.04);
   backdrop-filter: blur(8px);
 }
 .btn-ghost:hover {
-  border-color: rgba(255,255,255,0.4);
-  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.09);
+  color: #fff;
   transform: translateY(-2px);
 }
 .btn-ghost:active {
   transform: translateY(0);
-  background: rgba(255,255,255,0.09);
+  background: rgba(255,255,255,0.12);
 }
 
-/* Foco visible por teclado en toda la web, reutilizando el azul de marca */
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 3px;
+/* Para secciones claras, donde btn-ghost es invisible */
+.btn-white {
+  border: 1px solid rgba(10,10,10,0.14);
+  color: var(--ink);
+  background: #fff;
+  box-shadow: var(--shadow-card);
 }
+.btn-white:hover {
+  border-color: rgba(0,104,255,0.4);
+  color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+.btn-white:active { transform: translateY(0); }
+
+/* WhatsApp con su color reconocible: convierte mucho mejor que un CTA neutro */
+.btn-whatsapp {
+  background: var(--whatsapp);
+  color: #04240F;
+  box-shadow: 0 2px 10px rgba(37,211,102,0.25);
+}
+.btn-whatsapp:hover {
+  background: var(--whatsapp-dark);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(37,211,102,0.35);
+}
+.btn-whatsapp:active { transform: translateY(0); }
+
+.btn-lg {
+  min-height: 62px;
+  padding: 1.15rem 2.6rem;
+  font-size: 0.875rem;
+}
+
+.btn-sm {
+  min-height: 44px;
+  padding: 0.7rem 1.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.btn-primary:disabled,
+.btn-ghost:disabled,
+.btn-white:disabled,
+.btn-whatsapp:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-block { width: 100%; }
 
 /* ══════════════════════════════════════════════════
    VEHICLE CARD BASE
@@ -288,6 +448,12 @@ button:focus-visible {
   transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
 }
 .vehicle-card:hover::after { transform: scaleX(1); }
+
+.hover-lift {
+  transition: transform var(--duration-normal) var(--easing),
+              box-shadow var(--duration-slow) var(--easing);
+}
+.hover-lift:hover { transform: translateY(-4px); }
 
 /* ══════════════════════════════════════════════════
    MARQUEE ANIMATION
@@ -338,13 +504,39 @@ button:focus-visible {
 /* ══════════════════════════════════════════════════
    SECTION HELPERS
    ══════════════════════════════════════════════════ */
+
+/* Ritmo vertical fluido y coherente en toda la web (antes: py-32/py-44
+   copiados a mano sección a sección, con saltos irregulares en tablet) */
+.section-y { padding-top: clamp(4.5rem, 9vw, 10rem); padding-bottom: clamp(4.5rem, 9vw, 10rem); }
+.section-y-sm { padding-top: clamp(3rem, 6vw, 6rem); padding-bottom: clamp(3rem, 6vw, 6rem); }
+.section-head { margin-bottom: clamp(3rem, 6vw, 5.5rem); }
+
 .section-label {
   display: block;
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
+  color: var(--blue-light);
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+/* --blue-light está pensado para fondos oscuros; sobre blanco baja a 2,6:1.
+   En superficies claras la etiqueta vuelve al azul de marca (5,4:1). */
+.section-label-on-light,
+.surface-light .section-label,
+:is(.bg-white, .bg-\[\#FAFAFA\], .bg-\[\#FFFFFF\], .bg-\[\#F5F5F5\], .bg-\[\#F7F8FA\]) .section-label {
   color: var(--blue);
+}
+
+/* Micro-etiquetas: legibles (11px) en lugar de 9px con tracking extremo */
+.eyebrow {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
   font-family: var(--font-space-grotesk), sans-serif;
 }
 
@@ -376,6 +568,23 @@ button:focus-visible {
   word-break: break-word;
 }
 
+.display-sm {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* Cuerpo de texto: 16-17px reales en vez de 13,5px */
+.body-lg { font-size: clamp(1rem, 1.15vw, 1.125rem); line-height: 1.72; color: var(--on-dark-2); }
+.body-md { font-size: 0.9375rem; line-height: 1.7; color: var(--on-dark-2); }
+.body-sm { font-size: 0.875rem; line-height: 1.65; color: var(--on-dark-3); }
+
+.text-on-dark-2 { color: var(--on-dark-2); }
+.text-on-dark-3 { color: var(--on-dark-3); }
+.text-ornament { color: var(--on-dark-ornament); }
+
 /* ══════════════════════════════════════════════════
    COMPARISON TABLE
    ══════════════════════════════════════════════════ */
@@ -395,11 +604,13 @@ button:focus-visible {
    ══════════════════════════════════════════════════ */
 .input-glass {
   width: 100%;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 0.9rem 1.25rem;
-  font-size: 0.875rem;
+  min-height: 52px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.9rem 1.15rem;
+  /* 16px en móvil: menos de 16px hace que iOS Safari haga zoom al enfocar */
+  font-size: 1rem;
   color: #fff;
   outline: none;
   backdrop-filter: blur(8px);
@@ -407,29 +618,55 @@ button:focus-visible {
               background var(--duration-normal) var(--easing),
               box-shadow var(--duration-normal) var(--easing);
 }
-.input-glass::placeholder { color: rgba(255, 255, 255, 0.25); }
+.input-glass::placeholder { color: rgba(255, 255, 255, 0.42); }
+.input-glass:hover { border-color: rgba(255, 255, 255, 0.26); }
 .input-glass:focus {
-  border-color: rgba(0, 104, 255, 0.6);
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 0 0 3px rgba(0, 104, 255, 0.12);
+  border-color: var(--blue-light);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 0 3px rgba(0, 104, 255, 0.22);
+}
+.input-glass[aria-invalid="true"] {
+  border-color: rgba(248, 113, 113, 0.7);
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.14);
+}
+/* select nativo oscuro: las opciones heredaban fondo blanco en Windows */
+select.input-glass option { background: var(--dark-2); color: #fff; }
+
+@media (min-width: 640px) {
+  .input-glass { font-size: 0.9375rem; }
 }
 
 .input-light {
   width: 100%;
-  border-radius: 0.75rem;
-  border: 1px solid #E5E7EB;
+  min-height: 52px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #D8DDE5;
   background: #FFFFFF;
-  padding: 0.9rem 1.25rem;
-  font-size: 0.875rem;
+  padding: 0.9rem 1.15rem;
+  font-size: 1rem;
   color: var(--ink);
   outline: none;
   transition: border-color var(--duration-normal) var(--easing),
               box-shadow var(--duration-normal) var(--easing);
 }
-.input-light::placeholder { color: #C4C9D0; }
+.input-light::placeholder { color: #9AA2AE; }
 .input-light:focus {
-  border-color: rgba(0, 104, 255, 0.5);
-  box-shadow: 0 0 0 3px rgba(0, 104, 255, 0.10);
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0, 104, 255, 0.14);
+}
+
+@media (min-width: 640px) {
+  .input-light { font-size: 0.9375rem; }
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
 }
 
 /* ══════════════════════════════════════════════════
@@ -441,31 +678,31 @@ button:focus-visible {
 .surface-carbon   { background: linear-gradient(160deg, #2563EB 0%, #123068 60%, #071A3D 100%); }
 
 .card-dark {
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   background: linear-gradient(180deg, #1B4080 0%, #0C2454 100%);
   transition: border-color var(--duration-slow) var(--easing),
               transform var(--duration-normal) var(--easing),
               box-shadow var(--duration-slow) var(--easing);
 }
 .card-dark:hover {
-  border-color: rgba(0, 104, 255, 0.25);
+  border-color: rgba(90, 160, 255, 0.4);
   transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0, 104, 255, 0.10);
+  box-shadow: 0 20px 60px rgba(0, 104, 255, 0.16);
 }
 
 /* Divider for dark surfaces */
-.divider-dark { height: 1px; background: rgba(255, 255, 255, 0.06); }
+.divider-dark { height: 1px; background: rgba(255, 255, 255, 0.08); }
 
 /* ══════════════════════════════════════════════════
    HERO CINEMATIC
    ══════════════════════════════════════════════════ */
 .hero-headline {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(1.9rem, 8vw, 4.25rem);
+  font-size: clamp(2.15rem, 7.4vw, 4.5rem);
   font-weight: 700;
   letter-spacing: -0.035em;
-  line-height: 1.05;
+  line-height: 1.04;
   overflow-wrap: break-word;
   word-break: break-word;
 }

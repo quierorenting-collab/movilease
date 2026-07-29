@@ -22,7 +22,7 @@ export default function ContactoPage() {
             <Reveal>
               <p className="section-label">Contacto</p>
               <h1 className="display-lg mt-4 text-white">Hablemos.</h1>
-              <p className="mt-6 max-w-md text-lg leading-relaxed text-white/40">
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-white/70">
                 Cuéntanos qué buscas y te preparamos una propuesta a medida, sin
                 compromiso. Respondemos rápido, sin esperas ni llamadas
                 comerciales innecesarias.
@@ -51,7 +51,7 @@ export default function ContactoPage() {
                   </svg>
                 </span>
                 <span>
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
                     Email
                   </span>
                   <span className="mt-1 block text-sm font-medium text-white">
@@ -82,7 +82,7 @@ export default function ContactoPage() {
                   </svg>
                 </span>
                 <span>
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
                     WhatsApp
                   </span>
                   <span className="mt-1 block text-sm font-medium text-white">

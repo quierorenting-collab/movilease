@@ -15,12 +15,12 @@ export default function GlobalError({
       <div className="relative z-10 flex flex-col items-center">
         <p className="section-label mb-6">Error</p>
         <h1 className="display-md text-white">Algo ha ido mal.</h1>
-        <p className="mt-6 max-w-md text-white/40">
+        <p className="mt-6 max-w-md text-white/70">
           Ha ocurrido un error inesperado. Puedes intentarlo de nuevo o volver
           al inicio.
         </p>
         {error.digest && (
-          <p className="mt-4 font-mono text-[10px] text-white/20">
+          <p className="mt-4 font-mono text-[10px] text-white/70">
             Ref: {error.digest}
           </p>
         )}

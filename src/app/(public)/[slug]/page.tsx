@@ -101,7 +101,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
               <p className="section-label">{model.brandName}</p>
               <h1 className="display-lg mt-4 text-white">{model.model.name}</h1>
               {model.model.description && (
-                <p className="mt-5 max-w-xl leading-relaxed text-white/50">
+                <p className="mt-5 max-w-xl leading-relaxed text-white/70">
                   {model.model.description}
                 </p>
               )}
@@ -110,7 +110,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
                 {chips.map((chip) => (
                   <span
                     key={chip}
-                    className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/50"
+                    className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/70"
                   >
                     {chip}
                   </span>
@@ -119,7 +119,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
 
               {cheapest && (
                 <div className="mt-10">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
                     Desde
                   </p>
                   <p
@@ -127,7 +127,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
                     style={{ fontFamily: "var(--font-space-grotesk)" }}
                   >
                     {cheapest.priceLabel}
-                    <span className="ml-2 text-lg font-medium text-white/35">/mes</span>
+                    <span className="ml-2 text-lg font-medium text-white/70">/mes</span>
                   </p>
                 </div>
               )}
@@ -152,7 +152,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
                   </>
                 ) : (
                   <div
-                    className="flex h-full w-full items-center justify-center bg-gradient-to-b from-[#141414] to-[#0E0E0E] text-7xl font-bold text-white/10"
+                    className="flex h-full w-full items-center justify-center bg-gradient-to-b from-[#141414] to-[#0E0E0E] text-7xl font-bold text-white/70"
                     style={{ fontFamily: "var(--font-space-grotesk)" }}
                   >
                     {model.brandName.charAt(0)}
@@ -198,7 +198,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
                             className="object-cover"
                           />
                         ) : (
-                          <div className="flex h-full w-full items-center justify-center text-2xl font-bold text-white/10">
+                          <div className="flex h-full w-full items-center justify-center text-2xl font-bold text-white/70">
                             {model.brandName.charAt(0)}
                           </div>
                         )}
@@ -206,7 +206,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
 
                       <div className="min-w-0 flex-1">
                         <p className="font-semibold text-white">{vehicle.version}</p>
-                        <p className="mt-1 text-sm text-white/35">{specs.join(" · ")}</p>
+                        <p className="mt-1 text-sm text-white/70">{specs.join(" · ")}</p>
                       </div>
 
                       <div className="flex flex-col items-start gap-4 sm:items-end">
@@ -215,7 +215,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
                           style={{ fontFamily: "var(--font-space-grotesk)" }}
                         >
                           {vehicle.priceLabel}
-                          <span className="ml-1 text-sm font-medium text-white/35">/mes</span>
+                          <span className="ml-1 text-sm font-medium text-white/70">/mes</span>
                         </p>
                         <a
                           href={buildWhatsAppLink(
@@ -279,7 +279,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
             <Reveal>
               <p className="section-label">Solicita información</p>
               <h2 className="display-md mt-4 text-white">¿Te interesa este modelo?</h2>
-              <p className="mt-5 max-w-md leading-relaxed text-white/50">
+              <p className="mt-5 max-w-md leading-relaxed text-white/70">
                 Déjanos tus datos y te contactamos por WhatsApp en menos de 24h con una
                 propuesta a tu medida.
               </p>
@@ -292,7 +292,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
                 ].map((bullet) => (
                   <li key={bullet} className="flex items-center gap-4">
                     <CheckIcon />
-                    <span className="text-sm text-white/60">{bullet}</span>
+                    <span className="text-sm text-white/75">{bullet}</span>
                   </li>
                 ))}
               </ul>
@@ -322,7 +322,7 @@ function LandingPage({ landing }: { landing: NonNullable<Awaited<ReturnType<type
             <p className="section-label">Renting</p>
             <h1 className="display-lg mt-4 max-w-4xl text-white">{landing.h1}</h1>
             {landing.introContent && (
-              <p className="mt-6 max-w-2xl leading-relaxed text-white/50">
+              <p className="mt-6 max-w-2xl leading-relaxed text-white/70">
                 {landing.introContent}
               </p>
             )}
@@ -356,7 +356,7 @@ function LandingPage({ landing }: { landing: NonNullable<Awaited<ReturnType<type
             </>
           ) : (
             <Reveal>
-              <div className="rounded-3xl border border-dashed border-white/10 p-14 text-center text-white/40">
+              <div className="rounded-3xl border border-dashed border-white/10 p-14 text-center text-white/70">
                 Estamos ampliando el catálogo de esta categoría — vuelve pronto.
               </div>
             </Reveal>
@@ -395,7 +395,7 @@ function LandingPage({ landing }: { landing: NonNullable<Awaited<ReturnType<type
             <h2 className="display-md mx-auto max-w-2xl text-white">
               ¿No encuentras lo que buscas?
             </h2>
-            <p className="mx-auto mt-5 max-w-xl leading-relaxed text-white/50">
+            <p className="mx-auto mt-5 max-w-xl leading-relaxed text-white/70">
               Cuéntanos qué coche necesitas y te ayudamos a encontrar la mejor cuota de renting.
             </p>
             <div className="mt-10">

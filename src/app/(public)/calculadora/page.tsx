@@ -21,7 +21,7 @@ export default function CalculadoraPage() {
               <h1 className="display-lg mt-4 text-white">¿Cuánto quieres pagar al mes?</h1>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="mt-5 text-lg text-white/40">
+              <p className="mt-5 text-lg text-white/70">
                 Ajusta tu presupuesto mensual y descubre qué coches encajan — todo incluido en una
                 sola cuota.
               </p>

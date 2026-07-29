@@ -16,13 +16,13 @@ export function ComparisonBar() {
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           {ids.length} vehículo{ids.length === 1 ? "" : "s"}{" "}
-          <span className="hidden text-white/40 sm:inline">para comparar</span>
+          <span className="hidden text-white/70 sm:inline">para comparar</span>
         </span>
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={clear}
-            className="text-xs font-medium text-white/40 transition-colors hover:text-white"
+            className="text-xs font-medium text-white/70 transition-colors hover:text-white"
           >
             Vaciar
           </button>

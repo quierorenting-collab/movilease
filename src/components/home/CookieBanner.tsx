@@ -39,7 +39,7 @@ export function CookieBanner() {
             className="rounded-2xl border border-white/10 bg-[#0A0A0A]/85 p-6 backdrop-blur-xl"
             style={{ boxShadow: "var(--shadow-float)" }}
           >
-            <p className="text-[13px] leading-relaxed text-white/50">
+            <p className="text-[13px] leading-relaxed text-white/70">
               Usamos cookies para mejorar tu experiencia de navegación.{" "}
               <Link
                 href="/politica-cookies"

@@ -106,7 +106,7 @@ export default async function HomePage() {
       </section>
 
       {/* ══ STATS — dark graphite, huge numbers ═══════════ */}
-      <section className="surface-graphite relative py-28 sm:py-36">
+      <section className="surface-graphite relative section-y">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
           <div className="grid grid-cols-2 gap-14 sm:grid-cols-4 sm:gap-0">
             {STATS.map((s, i) => (
@@ -124,7 +124,7 @@ export default async function HomePage() {
                     duration={2.2}
                   />
                 </p>
-                <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/30">
+                <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">
                   {s.label}
                 </p>
               </Reveal>
@@ -134,7 +134,7 @@ export default async function HomePage() {
       </section>
 
       {/* ══ MARQUEE — marcas disponibles ══════════════════ */}
-      <section className="surface-black overflow-hidden py-16 sm:py-20">
+      <section className="surface-black overflow-hidden section-y-sm">
         <Reveal className="mb-10 text-center">
           <p className="section-label">Marcas disponibles</p>
         </Reveal>
@@ -142,7 +142,7 @@ export default async function HomePage() {
           {[...MARQUEE_BRANDS, ...MARQUEE_BRANDS].map((brand, i) => (
             <span
               key={`${brand}-${i}`}
-              className="mx-7 whitespace-nowrap text-[15px] font-bold uppercase tracking-[0.28em] text-white/20 sm:mx-10 sm:text-[17px]"
+              className="mx-7 whitespace-nowrap text-[15px] font-bold uppercase tracking-[0.28em] text-white/70 sm:mx-10 sm:text-[17px]"
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
               {brand}
@@ -152,11 +152,11 @@ export default async function HomePage() {
       </section>
 
       {/* ══ MARCAS — premium white ════════════════════════ */}
-      <section id="marcas" className="bg-[#FAFAFA] py-32 sm:py-44">
+      <section id="marcas" className="bg-[#FAFAFA] section-y">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
-          <Reveal className="mb-20 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="section-label mb-5">Catálogo por marcas</p>
+              <p className="section-label section-label-on-light mb-5">Catálogo por marcas</p>
               <h2 className="display-md text-[#0A0A0A]">
                 Todas las marcas.
                 <br />
@@ -165,7 +165,7 @@ export default async function HomePage() {
             </div>
             <Link
               href="/catalogo"
-              className="group hidden items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#9CA3AF] transition-colors hover:text-[#0068FF] sm:flex"
+              className="group hidden items-center gap-2 py-3 text-[12px] font-bold uppercase tracking-[0.14em] text-[#4B5563] transition-colors hover:text-[#0068FF] sm:flex"
             >
               Catálogo completo
               <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
@@ -189,10 +189,10 @@ export default async function HomePage() {
       {dedupedOffers.length > 0 && (
         <section
           id="ofertas"
-          className="surface-black ambient-blue-top relative overflow-hidden py-32 sm:py-44"
+          className="surface-black ambient-blue-top relative overflow-hidden section-y"
         >
           <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
-            <Reveal className="mb-20 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="section-label mb-5">Disponibilidad limitada</p>
                 <h2 className="display-md text-white">
@@ -205,7 +205,7 @@ export default async function HomePage() {
                 href={buildWhatsAppLink("Hola, me interesan las ofertas exclusivas.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group hidden items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-white/30 transition-colors hover:text-white sm:flex"
+                className="group hidden items-center gap-2 py-3 text-[12px] font-bold uppercase tracking-[0.14em] text-white/70 transition-colors hover:text-white sm:flex"
               >
                 Consultar todas
                 <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
@@ -218,7 +218,7 @@ export default async function HomePage() {
             >
               {dedupedOffers.map((vehicle) => (
                 <RevealItem key={vehicle.id}>
-                  <div className="group relative h-full overflow-hidden rounded-2xl border border-white/6 bg-gradient-to-b from-[#1B4080] to-[#0C2454] transition-all duration-500 hover:border-[#0068FF]/25 hover:shadow-[0_20px_60px_rgba(0,104,255,0.12)]">
+                  <div className="group relative h-full overflow-hidden rounded-2xl border border-white/12 bg-gradient-to-b from-[#1B4080] to-[#0C2454] transition-all duration-500 hover:border-[#0068FF]/25 hover:shadow-[0_20px_60px_rgba(0,104,255,0.12)]">
                     <div className="relative aspect-[4/3] overflow-hidden">
                       {vehicle.imageUrl ? (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -229,7 +229,7 @@ export default async function HomePage() {
                           loading="lazy"
                         />
                       ) : (
-                        <div className="flex h-full items-center justify-center text-7xl font-bold text-white/4">
+                        <div className="flex h-full items-center justify-center text-7xl font-bold text-white/70">
                           {vehicle.brandName.charAt(0)}
                         </div>
                       )}
@@ -241,7 +241,7 @@ export default async function HomePage() {
                       </div>
                     </div>
                     <div className="p-6">
-                      <p className="text-[9px] font-bold uppercase tracking-[0.24em] text-white/30">
+                      <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/75">
                         {vehicle.brandName}
                       </p>
                       <p
@@ -252,13 +252,13 @@ export default async function HomePage() {
                       </p>
                       <div className="mt-5 flex items-end justify-between">
                         <div>
-                          <p className="text-[9px] uppercase tracking-[0.18em] text-white/20">desde</p>
+                          <p className="text-[11px] uppercase tracking-[0.16em] text-white/75">desde</p>
                           <p
                             className="text-[24px] font-bold leading-none text-white"
                             style={{ fontFamily: "var(--font-space-grotesk)" }}
                           >
                             {vehicle.priceLabel}
-                            <span className="ml-1 text-[11px] font-normal text-white/25">/mes</span>
+                            <span className="ml-1 text-[12px] font-normal text-white/75">/mes</span>
                           </p>
                         </div>
                         <a
@@ -267,7 +267,7 @@ export default async function HomePage() {
                           )}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="rounded-full border border-[#0068FF]/40 px-5 py-2.5 text-[9px] font-bold uppercase tracking-[0.16em] text-[#0068FF] transition-all duration-300 hover:border-[#0068FF] hover:bg-[#0068FF] hover:text-white hover:shadow-lg hover:shadow-[#0068FF]/25"
+                          className="shrink-0 rounded-full bg-[#0068FF] px-5 py-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-white shadow-lg shadow-[#0068FF]/25 transition-all duration-300 hover:bg-[#0052CC] hover:shadow-xl hover:shadow-[#0068FF]/35"
                         >
                           Lo quiero
                         </a>
@@ -282,10 +282,10 @@ export default async function HomePage() {
       )}
 
       {/* ══ PROCESO — premium white contrast ══════════════ */}
-      <section id="por-que" className="bg-white py-32 sm:py-44">
+      <section id="por-que" className="bg-white section-y">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
-          <Reveal className="mb-24 max-w-2xl">
-            <p className="section-label mb-5">El proceso</p>
+          <Reveal className="section-head max-w-2xl">
+            <p className="section-label section-label-on-light mb-5">El proceso</p>
             <h2 className="display-md text-[#0A0A0A]">
               Tan fácil como
               <br />
@@ -309,12 +309,12 @@ export default async function HomePage() {
                   </span>
                 </div>
                 <h3
-                  className="text-[19px] font-bold text-[#0A0A0A]"
+                  className="text-[20px] font-bold text-[#0A0A0A]"
                   style={{ fontFamily: "var(--font-space-grotesk)" }}
                 >
                   {step.title}
                 </h3>
-                <p className="mt-3 text-[13.5px] leading-[1.7] text-[#6B7280]">{step.body}</p>
+                <p className="mt-3 text-[15px] leading-[1.72] text-[#4B5563]">{step.body}</p>
               </Reveal>
             ))}
           </div>
@@ -322,9 +322,9 @@ export default async function HomePage() {
       </section>
 
       {/* ══ COMPARISON — dark glass table ═════════════════ */}
-      <section className="surface-carbon py-32 sm:py-44">
+      <section className="surface-carbon section-y">
         <div className="mx-auto max-w-5xl px-6 sm:px-10">
-          <Reveal className="mb-20 text-center">
+          <Reveal className="section-head text-center">
             <p className="section-label mb-5">La diferencia</p>
             <h2 className="display-md text-white">
               ¿Por qué renting
@@ -337,16 +337,16 @@ export default async function HomePage() {
             <div className="overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] backdrop-blur">
               {/* Header */}
               <div className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-white/[0.08] bg-white/[0.02] px-6 py-5 sm:px-10">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+                <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-white/75">
                   Comparativa
                 </span>
                 <span
-                  className="w-[100px] text-center text-[11px] font-bold uppercase tracking-[0.14em] text-[#0068FF] sm:w-[140px]"
+                  className="w-[100px] text-center text-[12px] font-bold uppercase tracking-[0.12em] text-[#5AA0FF] sm:w-[140px]"
                   style={{ fontFamily: "var(--font-space-grotesk)" }}
                 >
                   MoviLease
                 </span>
-                <span className="w-[100px] text-center text-[10px] font-semibold uppercase tracking-[0.12em] text-white/25 sm:w-[140px]">
+                <span className="w-[100px] text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-white/75 sm:w-[140px]">
                   Compra
                 </span>
               </div>
@@ -357,7 +357,7 @@ export default async function HomePage() {
                   key={row.feature}
                   className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-white/5 px-6 py-5 transition-colors last:border-0 hover:bg-white/[0.03] sm:px-10"
                 >
-                  <span className="text-[13.5px] font-medium text-white/70">{row.feature}</span>
+                  <span className="text-[14.5px] font-medium text-white/85">{row.feature}</span>
                   <span className="flex w-[100px] items-center justify-center gap-1.5 sm:w-[140px]">
                     <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0">
                       <circle cx="8" cy="8" r="8" fill="#0068FF" fillOpacity="0.15" />
@@ -369,9 +369,9 @@ export default async function HomePage() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span className="text-[12px] font-semibold text-white">{row.movilease}</span>
+                    <span className="text-[13px] font-semibold text-white">{row.movilease}</span>
                   </span>
-                  <span className="w-[100px] text-center text-[12px] text-white/35 sm:w-[140px]">
+                  <span className="w-[100px] text-center text-[13px] text-white/75 sm:w-[140px]">
                     {row.dealer}
                   </span>
                 </div>
@@ -395,9 +395,9 @@ export default async function HomePage() {
 
       {/* ══ DESTACADOS — dark graphite ════════════════════ */}
       {dedupedFeatured.length > 0 && (
-        <section id="catalogo" className="surface-graphite py-32 sm:py-44">
+        <section id="catalogo" className="surface-graphite section-y">
           <div className="mx-auto max-w-7xl px-6 sm:px-10">
-            <Reveal className="mb-20 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="section-label mb-5">Selección de la semana</p>
                 <h2 className="display-md text-white">
@@ -408,7 +408,7 @@ export default async function HomePage() {
               </div>
               <Link
                 href="/catalogo"
-                className="group hidden items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-white/30 transition-colors hover:text-white sm:flex"
+                className="group hidden items-center gap-2 py-3 text-[12px] font-bold uppercase tracking-[0.14em] text-white/70 transition-colors hover:text-white sm:flex"
               >
                 Ver todos
                 <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
@@ -436,9 +436,9 @@ export default async function HomePage() {
       )}
 
       {/* ══ TESTIMONIOS — dark cards ══════════════════════ */}
-      <section className="surface-black ambient-blue-top relative py-32 sm:py-44">
+      <section className="surface-black ambient-blue-top relative section-y">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
-          <Reveal className="mb-20">
+          <Reveal className="section-head">
             <p className="section-label mb-5">Clientes reales</p>
             <h2 className="display-md text-white">
               Confianza
@@ -458,7 +458,7 @@ export default async function HomePage() {
                       </svg>
                     ))}
                   </div>
-                  <p className="flex-1 text-[15px] leading-[1.75] text-white/60">
+                  <p className="flex-1 text-[16px] leading-[1.75] text-white/80">
                     &ldquo;{t.text}&rdquo;
                   </p>
                   <div className="mt-8 flex items-center gap-3.5 border-t border-white/5 pt-6">
@@ -470,7 +470,7 @@ export default async function HomePage() {
                     </div>
                     <div>
                       <p className="text-[13px] font-bold text-white">{t.name}</p>
-                      <p className="text-[11px] text-white/30">{t.info}</p>
+                      <p className="text-[12.5px] text-white/75">{t.info}</p>
                     </div>
                   </div>
                 </div>
@@ -481,9 +481,9 @@ export default async function HomePage() {
       </section>
 
       {/* ══ FAQ — dark with light accordion card ══════════ */}
-      <section id="faq" className="surface-dark py-32 sm:py-44">
+      <section id="faq" className="surface-dark section-y">
         <div className="mx-auto max-w-4xl px-6 sm:px-10">
-          <Reveal className="mb-20">
+          <Reveal className="section-head">
             <p className="section-label mb-5">FAQ</p>
             <h2 className="display-md text-white">
               Preguntas
@@ -503,7 +503,7 @@ export default async function HomePage() {
       </section>
 
       {/* ══ CTA FINAL — dark cinematic ════════════════════ */}
-      <section className="surface-black ambient-blue relative overflow-hidden py-40 sm:py-56">
+      <section className="surface-black ambient-blue relative overflow-hidden section-y">
         <Reveal className="relative z-10 mx-auto max-w-5xl px-6 text-center sm:px-10">
           <p className="section-label mb-8">MoviLease — Smart Mobility Platform</p>
           <h2 className="display-lg text-white">
@@ -515,7 +515,7 @@ export default async function HomePage() {
           </h2>
           <div className="mx-auto mt-10 flex max-w-md flex-wrap items-center justify-center gap-x-6 gap-y-3">
             {["Sin entrada", "Gestión en 48 h", "Todo incluido"].map((item) => (
-              <span key={item} className="flex items-center gap-1.5 text-[13px] text-white/50">
+              <span key={item} className="flex items-center gap-1.5 text-[14px] text-white/75">
                 <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0">
                   <circle cx="8" cy="8" r="8" fill="#0068FF" fillOpacity="0.15" />
                   <path

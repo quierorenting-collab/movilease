@@ -54,7 +54,7 @@ export default async function CatalogoPage({
           <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
             <Link
               href="/catalogo"
-              className="group mb-6 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-white"
+              className="group mb-6 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:text-white"
             >
               <span
                 aria-hidden="true"
@@ -68,7 +68,7 @@ export default async function CatalogoPage({
               <div>
                 <p className="section-label mb-3">Catálogo</p>
                 <h1 className="display-lg text-white">{displayName}</h1>
-                <p className="mt-4 text-[14px] text-white/40">
+                <p className="mt-4 text-[14px] text-white/70">
                   {filtered.length} vehículo{filtered.length !== 1 ? "s" : ""} disponible{filtered.length !== 1 ? "s" : ""}
                 </p>
               </div>
@@ -77,10 +77,10 @@ export default async function CatalogoPage({
         </div>
 
         {/* Filters */}
-        <div className="glass-dark sticky top-[72px] z-40 border-b border-white/[0.08]">
+        <div className="glass-dark sticky top-[72px] z-30 border-b border-white/[0.08]">
           <div className="mx-auto max-w-7xl px-6 sm:px-10">
             <div className="flex flex-wrap items-center gap-2 py-4">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
                 Filtrar:
               </span>
               {CATEGORIES.map(([value, label]) => {
@@ -94,7 +94,7 @@ export default async function CatalogoPage({
                     className={`rounded-full border px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] transition-all duration-300 ${
                       category === value
                         ? "border-[#0068FF] bg-[#0068FF] text-white shadow-lg shadow-[#0068FF]/25"
-                        : "border-white/10 text-white/50 hover:border-[#0068FF]/50 hover:text-white"
+                        : "border-white/10 text-white/70 hover:border-[#0068FF]/50 hover:text-white"
                     }`}
                   >
                     {label}
@@ -113,7 +113,7 @@ export default async function CatalogoPage({
                     className={`rounded-full border px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] transition-all duration-300 ${
                       fuelType === value
                         ? "border-[#0068FF] bg-[#0068FF] text-white shadow-lg shadow-[#0068FF]/25"
-                        : "border-white/10 text-white/50 hover:border-[#0068FF]/50 hover:text-white"
+                        : "border-white/10 text-white/70 hover:border-[#0068FF]/50 hover:text-white"
                     }`}
                   >
                     {label}
@@ -171,7 +171,7 @@ export default async function CatalogoPage({
               {brands.reduce((sum, b) => sum + b.vehicleCount, 0)} vehículos.
             </span>
           </h1>
-          <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/40">
+          <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/70">
             Elige tu marca favorita y explora todos los modelos disponibles en renting.
             Sin entrada, con seguro incluido y gestión en 48 horas.
           </p>
@@ -219,7 +219,7 @@ async function AllVehiclesSection() {
     <section className="surface-black py-24">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal className="mb-12 flex items-center gap-4">
-          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/25">
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/70">
             Todos los vehículos · {deduped.length} modelos
           </p>
           <div className="flex-1 border-t border-white/[0.08]" />

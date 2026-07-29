@@ -24,7 +24,7 @@ const ROWS: {
         style={{ fontFamily: "var(--font-space-grotesk)" }}
       >
         {v.priceLabel}
-        <span className="text-sm font-medium text-white/35">/mes</span>
+        <span className="text-sm font-medium text-white/70">/mes</span>
       </span>
     ),
   },
@@ -60,7 +60,7 @@ export default async function ComparadorPage({
             <h1 className="display-lg mt-4 text-white">Compara antes de decidir</h1>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-5 text-lg text-white/40">
+            <p className="mt-5 text-lg text-white/70">
               Pon hasta tres coches lado a lado y elige con datos, no con intuición.
             </p>
           </Reveal>
@@ -69,7 +69,7 @@ export default async function ComparadorPage({
         {vehicles.length === 0 ? (
           <Reveal delay={0.3}>
             <div className="glass mt-14 rounded-3xl px-8 py-16 text-center">
-              <p className="mx-auto max-w-md text-white/60">
+              <p className="mx-auto max-w-md text-white/75">
                 Añade coches al comparador desde el catálogo pulsando &ldquo;+ Comparar&rdquo; en
                 cada ficha (hasta 3 a la vez).
               </p>
@@ -101,14 +101,14 @@ export default async function ComparadorPage({
                               />
                             ) : (
                               <div
-                                className="flex h-full items-center justify-center text-3xl font-bold text-white/20"
+                                className="flex h-full items-center justify-center text-3xl font-bold text-white/70"
                                 style={{ fontFamily: "var(--font-space-grotesk)" }}
                               >
                                 {v.brandName.charAt(0)}
                               </div>
                             )}
                           </div>
-                          <p className="mt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-white/35">
+                          <p className="mt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
                             {v.brandName}
                           </p>
                           <p
@@ -117,7 +117,7 @@ export default async function ComparadorPage({
                           >
                             {v.modelName}
                           </p>
-                          <p className="mt-0.5 text-sm font-normal text-white/40">{v.version}</p>
+                          <p className="mt-0.5 text-sm font-normal text-white/70">{v.version}</p>
                         </th>
                       ))}
                     </tr>
@@ -128,7 +128,7 @@ export default async function ComparadorPage({
                         key={row.label}
                         className="transition-colors hover:bg-white/[0.03]"
                       >
-                        <th className="p-5 text-left text-sm font-medium text-white/35">
+                        <th className="p-5 text-left text-sm font-medium text-white/70">
                           {row.label}
                         </th>
                         {vehicles.map((v) => (

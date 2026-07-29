@@ -9,7 +9,9 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
   return (
     <>
       <Header />
-      <main className="flex-1 pt-0">{children}</main>
+      <main id="contenido" className="flex-1 pt-0">
+        {children}
+      </main>
       <Footer />
       <WhatsAppButton />
       <ComparisonBar />

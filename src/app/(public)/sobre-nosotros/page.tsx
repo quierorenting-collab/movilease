@@ -98,7 +98,7 @@ export default async function SobreNosotrosPage() {
             <h1 className="display-lg mt-4 text-white">
               Movilidad sin fricciones.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/50">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
               En {brand.name} creemos que estrenar coche no debería ser
               complicado. Por eso reunimos las mejores ofertas de renting en un
               solo lugar y te acompañamos en todo el proceso: una cuota mensual
@@ -131,7 +131,7 @@ export default async function SobreNosotrosPage() {
                   >
                     {v.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/40">
+                  <p className="mt-3 text-sm leading-relaxed text-white/70">
                     {v.body}
                   </p>
                 </div>
@@ -185,7 +185,7 @@ export default async function SobreNosotrosPage() {
             <h2 className="display-md text-white">
               Tu próximo coche te está esperando
             </h2>
-            <p className="mx-auto mt-5 max-w-md text-white/40">
+            <p className="mx-auto mt-5 max-w-md text-white/70">
               Explora el catálogo o escríbenos y te ayudamos a encontrar el
               renting que mejor encaja contigo.
             </p>

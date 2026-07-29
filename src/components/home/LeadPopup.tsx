@@ -76,7 +76,7 @@ export function LeadPopup() {
 
             <button
               onClick={close}
-              className="absolute right-5 top-5 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-white/40 transition-all duration-300 hover:border-white/30 hover:text-white"
+              className="absolute right-5 top-5 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-white/70 transition-all duration-300 hover:border-white/30 hover:text-white"
               aria-label="Cerrar"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-3.5 w-3.5">
@@ -102,7 +102,7 @@ export function LeadPopup() {
                   >
                     Mensaje recibido
                   </p>
-                  <p className="text-sm text-white/40">Te contactamos en menos de 24 h.</p>
+                  <p className="text-sm text-white/70">Te contactamos en menos de 24 h.</p>
                   <button
                     onClick={close}
                     className="mt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#0068FF] transition-colors hover:text-white"
@@ -121,7 +121,7 @@ export function LeadPopup() {
                     <br />
                     <span className="text-[#0068FF]">sin complicaciones.</span>
                   </h2>
-                  <p className="mt-3 text-[13px] leading-relaxed text-white/35">
+                  <p className="mt-3 text-[13px] leading-relaxed text-white/70">
                     Déjanos tu teléfono y te asesoramos sin compromiso. Sin entrada, todo incluido.
                   </p>
 
@@ -148,7 +148,7 @@ export function LeadPopup() {
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       className="w-full rounded-xl border border-white/8 bg-white/[0.04] px-5 py-3.5 text-sm text-white placeholder-white/25 outline-none backdrop-blur-sm transition-all duration-300 focus:border-[#0068FF]/60 focus:bg-white/[0.06]"
                     />
-                    <label className="mt-1 flex items-start gap-2.5 text-[11px] leading-relaxed text-white/30">
+                    <label className="mt-1 flex items-start gap-2.5 text-[11px] leading-relaxed text-white/70">
                       <input
                         type="checkbox"
                         checked={gdpr}
@@ -160,7 +160,7 @@ export function LeadPopup() {
                         Acepto la{" "}
                         <a
                           href="/politica-privacidad"
-                          className="text-white/50 underline transition-colors hover:text-white"
+                          className="text-white/70 underline transition-colors hover:text-white"
                           target="_blank"
                         >
                           política de privacidad
