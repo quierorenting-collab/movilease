@@ -338,10 +338,7 @@ export async function getVehiclesByBrand(): Promise<VehiclesByBrand> {
       logoUrl: getBrandLogoUrl(name),
       isPremium: PREMIUM_BRANDS.has(name),
     }))
-    .sort((a, b) => {
-      if (a.isPremium !== b.isPremium) return a.isPremium ? -1 : 1;
-      return a.brandName.localeCompare(b.brandName);
-    });
+    .sort((a, b) => a.brandName.localeCompare(b.brandName));
 
   return { brands, vehiclesByBrand: map };
 }

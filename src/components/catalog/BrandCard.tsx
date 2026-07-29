@@ -28,15 +28,6 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
             {brand.brandName}
           </span>
         )}
-
-        {/* Premium badge */}
-        {brand.isPremium && (
-          <div className="absolute right-4 top-4">
-            <span className="rounded-full bg-[#0068FF] px-3.5 py-1.5 text-[9px] font-bold uppercase tracking-[0.18em] text-white shadow-lg shadow-[#0068FF]/25">
-              Premium
-            </span>
-          </div>
-        )}
       </div>
 
       {/* Brand name */}

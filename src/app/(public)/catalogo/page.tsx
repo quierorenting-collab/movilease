@@ -158,9 +158,6 @@ export default async function CatalogoPage({
   }
 
   // Default view: all brands overview
-  const premiumBrands = brands.filter((b) => b.isPremium);
-  const generalBrands = brands.filter((b) => !b.isPremium);
-
   return (
     <>
       {/* Page header */}
@@ -181,56 +178,21 @@ export default async function CatalogoPage({
         </div>
       </div>
 
-      {/* Premium brands */}
-      {premiumBrands.length > 0 && (
-        <section id="marcas" className="surface-graphite py-20">
-          <div className="mx-auto max-w-7xl px-6 sm:px-10">
-            <Reveal className="mb-8 flex items-center gap-4">
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/25">
-                Marcas premium
-              </p>
-              <div className="flex-1 border-t border-white/[0.08]" />
-            </Reveal>
-            <RevealGroup
-              stagger={0.06}
-              className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
-            >
-              {premiumBrands.map((brand) => (
-                <RevealItem key={brand.brandName}>
-                  <BrandCard brand={brand} />
-                </RevealItem>
-              ))}
-            </RevealGroup>
-          </div>
-        </section>
-      )}
-
-      {/* Generalista brands */}
-      {generalBrands.length > 0 && (
-        <section
-          id={premiumBrands.length === 0 ? "marcas" : undefined}
-          className="surface-dark py-20"
-        >
-          <div className="mx-auto max-w-7xl px-6 sm:px-10">
-            <Reveal className="mb-8 flex items-center gap-4">
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/25">
-                Marcas generalistas
-              </p>
-              <div className="flex-1 border-t border-white/[0.08]" />
-            </Reveal>
-            <RevealGroup
-              stagger={0.04}
-              className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-            >
-              {generalBrands.map((brand) => (
-                <RevealItem key={brand.brandName}>
-                  <BrandCard brand={brand} />
-                </RevealItem>
-              ))}
-            </RevealGroup>
-          </div>
-        </section>
-      )}
+      {/* All brands, same treatment for every one */}
+      <section id="marcas" className="surface-dark py-20">
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+          <RevealGroup
+            stagger={0.03}
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+          >
+            {brands.map((brand) => (
+              <RevealItem key={brand.brandName}>
+                <BrandCard brand={brand} />
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
 
       {/* All vehicles flat view for SEO */}
       <AllVehiclesSection />

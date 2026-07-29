@@ -97,9 +97,6 @@ export default async function HomePage() {
     return true;
   });
 
-  const premiumBrands = brands.filter((b) => b.isPremium);
-  const generalBrands = brands.filter((b) => !b.isPremium);
-
   return (
     <>
       {/* ══ HERO — cinematic ══════════════════════════════ */}
@@ -147,6 +144,40 @@ export default async function HomePage() {
               {brand}
             </span>
           ))}
+        </div>
+      </section>
+
+      {/* ══ MARCAS — premium white ════════════════════════ */}
+      <section id="marcas" className="bg-[#FAFAFA] py-32 sm:py-44">
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+          <Reveal className="mb-20 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="section-label mb-5">Catálogo por marcas</p>
+              <h2 className="display-md text-[#0A0A0A]">
+                Todas las marcas.
+                <br />
+                Un solo lugar.
+              </h2>
+            </div>
+            <Link
+              href="/catalogo"
+              className="group hidden items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#9CA3AF] transition-colors hover:text-[#0068FF] sm:flex"
+            >
+              Catálogo completo
+              <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+            </Link>
+          </Reveal>
+
+          <RevealGroup
+            stagger={0.03}
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+          >
+            {brands.map((brand) => (
+              <RevealItem key={brand.brandName}>
+                <BrandCard brand={brand} />
+              </RevealItem>
+            ))}
+          </RevealGroup>
         </div>
       </section>
 
@@ -357,68 +388,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ MARCAS — premium white ════════════════════════ */}
-      <section id="marcas" className="bg-[#FAFAFA] py-32 sm:py-44">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10">
-          <Reveal className="mb-20 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="section-label mb-5">Catálogo por marcas</p>
-              <h2 className="display-md text-[#0A0A0A]">
-                Todas las marcas.
-                <br />
-                Un solo lugar.
-              </h2>
-            </div>
-            <Link
-              href="/catalogo"
-              className="group hidden items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#9CA3AF] transition-colors hover:text-[#0068FF] sm:flex"
-            >
-              Catálogo completo
-              <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-            </Link>
-          </Reveal>
-
-          {premiumBrands.length > 0 && (
-            <>
-              <Reveal className="mb-7">
-                <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#C4C9D0]">
-                  Marcas premium
-                </p>
-              </Reveal>
-              <RevealGroup
-                stagger={0.07}
-                className="mb-20 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
-              >
-                {premiumBrands.map((brand) => (
-                  <RevealItem key={brand.brandName}>
-                    <BrandCard brand={brand} />
-                  </RevealItem>
-                ))}
-              </RevealGroup>
-            </>
-          )}
-
-          {generalBrands.length > 0 && (
-            <>
-              <Reveal className="mb-7">
-                <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#C4C9D0]">
-                  Marcas generalistas
-                </p>
-              </Reveal>
-              <RevealGroup
-                stagger={0.04}
-                className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-              >
-                {generalBrands.map((brand) => (
-                  <RevealItem key={brand.brandName}>
-                    <BrandCard brand={brand} />
-                  </RevealItem>
-                ))}
-              </RevealGroup>
-            </>
-          )}
-        </div>
-      </section>
 
       {/* ══ DESTACADOS — dark graphite ════════════════════ */}
       {dedupedFeatured.length > 0 && (
