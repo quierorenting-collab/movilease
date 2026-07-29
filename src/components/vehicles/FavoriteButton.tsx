@@ -15,11 +15,11 @@ export function FavoriteButton({ vehicleId }: { vehicleId: string }) {
         event.preventDefault();
         toggle(vehicleId);
       }}
-      className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/85 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-110"
+      className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-110"
     >
       <svg
         viewBox="0 0 24 24"
-        className="h-4 w-4 transition-colors"
+        className="h-[18px] w-[18px] transition-colors"
         fill={active ? "#0068FF" : "none"}
         stroke={active ? "#0068FF" : "#9CA3AF"}
         strokeWidth={1.8}
