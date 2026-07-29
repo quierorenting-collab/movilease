@@ -11,13 +11,13 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
       style={{ boxShadow: "var(--shadow-card)" }}
     >
       {/* Logo tile */}
-      <div className="relative aspect-[16/9] overflow-hidden bg-[#F7F8FA]">
+      <div className="relative flex h-[132px] items-center justify-center overflow-hidden bg-[#F7F8FA] px-6">
         {brand.logoUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={brand.logoUrl}
             alt={`Logo de ${brand.brandName}`}
-            className="h-full w-full object-contain p-10 transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+            className="max-h-16 w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.06]"
             loading="lazy"
           />
         ) : brand.featuredImageUrl ? (
@@ -25,18 +25,16 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
           <img
             src={brand.featuredImageUrl}
             alt={brand.brandName}
-            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
             loading="lazy"
           />
         ) : (
-          <div className="flex h-full items-center justify-center">
-            <span
-              className="text-8xl font-bold text-[#0A0A0A]/10"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
-            >
-              {brand.brandName.charAt(0)}
-            </span>
-          </div>
+          <span
+            className="text-5xl font-bold text-[#0A0A0A]/10"
+            style={{ fontFamily: "var(--font-space-grotesk)" }}
+          >
+            {brand.brandName.charAt(0)}
+          </span>
         )}
 
         {/* Premium badge */}
