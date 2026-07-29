@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import { RENTING_DEFAULTS } from "@/lib/constants";
 import { RentingCalculator } from "@/components/calculator/RentingCalculator";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Calculadora de renting",
-  description: "Descubre qué coches encajan en tu presupuesto mensual y qué incluye la cuota.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Calculadora de renting: cuota mensual",
+  description:
+    "Calcula qué coches entran en tu presupuesto mensual de renting y qué incluye la cuota: seguro, mantenimiento e impuestos.",
+  path: "/calculadora",
+});
 
 export default function CalculadoraPage() {
   return (

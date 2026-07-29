@@ -7,13 +7,15 @@ import {
   RevealItem,
   AnimatedCounter,
 } from "@/components/ui/Reveal";
+import { pageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
   const brand = await getCurrentBrand();
-  return {
+  return pageMetadata({
     title: "Sobre nosotros",
-    description: `Quiénes somos en ${brand.name}.`,
-  };
+    description: `Quiénes somos en ${brand.name}: cómo trabajamos el renting de coches para particulares, autónomos y empresas en toda España.`,
+    path: "/sobre-nosotros",
+  });
 }
 
 const VALUES = [

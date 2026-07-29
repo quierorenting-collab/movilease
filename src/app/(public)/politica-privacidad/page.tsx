@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Política de privacidad",
-  robots: { index: false },
-};
+  description: "Cómo trata MoviLease tus datos personales y qué derechos tienes.",
+  path: "/politica-privacidad",
+});
 
 export default function PoliticaPrivacidadPage() {
   return (

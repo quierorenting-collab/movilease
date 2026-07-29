@@ -3,7 +3,20 @@ import { SITE_URL } from "@/lib/constants";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [{ userAgent: "*", allow: "/", disallow: ["/admin"] }],
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: [
+          "/admin",
+          "/api/",
+          // Dependen de localStorage del visitante: sin contenido que indexar
+          "/favoritos",
+          "/comparador",
+        ],
+      },
+    ],
     sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

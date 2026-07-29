@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Aviso legal",
-  robots: { index: false },
-};
+  description: "Información legal y condiciones de uso de MoviLease.",
+  path: "/aviso-legal",
+});
 
 export default function AvisoLegalPage() {
   return (

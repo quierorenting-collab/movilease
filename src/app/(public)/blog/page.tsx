@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { buildWhatsAppLink } from "@/lib/constants";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "Artículos sobre renting de coches para particulares.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Blog de renting",
+  description:
+    "Guías y artículos sobre renting de coches para particulares, autónomos y empresas: cuotas, fiscalidad y comparativas.",
+  path: "/blog",
+});
 
 const SKELETON_CARDS = [0, 1, 2];
 

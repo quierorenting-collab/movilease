@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import { CONTACT, buildWhatsAppLink } from "@/lib/constants";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { Reveal } from "@/components/ui/Reveal";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Contacto",
-  description: "Ponte en contacto con el equipo para solicitar una oferta de renting.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Contacto: pide tu oferta de renting",
+  description:
+    "Cuéntanos qué coche buscas y te preparamos una propuesta de renting sin compromiso. Por formulario, teléfono, email o WhatsApp.",
+  path: "/contacto",
+});
 
 export default function ContactoPage() {
   const whatsappLink = buildWhatsAppLink(

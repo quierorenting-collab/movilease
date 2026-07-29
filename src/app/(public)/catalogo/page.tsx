@@ -6,15 +6,54 @@ import type { VehicleCategoryEnum, FuelTypeEnum } from "@/types/database.types";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { BrandCard } from "@/components/catalog/BrandCard";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { BreadcrumbJsonLd, ItemListJsonLd } from "@/components/seo/JsonLd";
+import { pageMetadata } from "@/lib/metadata";
 
 export const revalidate = 900;
 
-export const metadata: Metadata = {
-  title: "Catálogo de coches en renting",
-  description: "Explora todas las marcas y modelos en renting para particulares. Sin entrada, todo incluido.",
-};
+/**
+ * Canonical propio por marca (?brand=...): sin esto, las ~28 vistas de marca y
+ * todas sus combinaciones de filtros competían como duplicados de /catalogo.
+ * Las combinaciones con filtro de categoría o combustible no se indexan.
+ */
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | undefined>>;
+}): Promise<Metadata> {
+  const params = await searchParams;
+  const brand = params.brand?.toLowerCase();
 
-const CATEGORIES = Object.entries(VEHICLE_CATEGORY_LABELS) as [VehicleCategoryEnum, string][];
+  if (!brand) {
+    return pageMetadata({
+      title: "Catálogo de coches en renting",
+      description:
+        "Explora todas las marcas y modelos en renting para particulares, autónomos y empresas. Sin entrada, con seguro y mantenimiento incluidos.",
+      path: "/catalogo",
+    });
+  }
+
+  const nombre = brand.charAt(0).toUpperCase() + brand.slice(1);
+  const filtrado = Boolean(params.category || params.fuel);
+  return pageMetadata({
+    title: `Renting ${nombre}: modelos y cuotas`,
+    description: `Todos los modelos ${nombre} disponibles en renting sin entrada, con seguro a todo riesgo y mantenimiento incluidos. Consulta cuotas y pide tu propuesta.`,
+    path: `/catalogo?brand=${encodeURIComponent(brand)}`,
+    noIndex: filtrado,
+  });
+}
+
+/**
+ * "Híbrido" y "Diesel" existen a la vez como categoría y como combustible:
+ * mostrarlos en las dos filas de filtros duplicaba la misma acción con
+ * resultados distintos. Como categoría se ocultan; los valores del enum se
+ * siguen resolviendo con VEHICLE_CATEGORY_LABELS donde haga falta.
+ */
+const FUEL_LIKE_CATEGORIES = new Set(["hibrido", "diesel"]);
+
+const CATEGORIES = (
+  Object.entries(VEHICLE_CATEGORY_LABELS) as [VehicleCategoryEnum, string][]
+).filter(([value]) => !FUEL_LIKE_CATEGORIES.has(value));
 const FUEL_TYPES_MAP = Object.entries(FUEL_TYPE_LABELS) as [FuelTypeEnum, string][];
 
 export default async function CatalogoPage({
@@ -47,23 +86,52 @@ export default async function CatalogoPage({
 
     const displayName = matchedBrand?.brandName ?? brandParam;
 
+    const brandPath = `/catalogo?brand=${encodeURIComponent(brandParam)}`;
+
     return (
       <>
+        <BreadcrumbJsonLd
+          items={[
+            { name: "Inicio", path: "/" },
+            { name: "Catálogo", path: "/catalogo" },
+            { name: displayName, path: brandPath },
+          ]}
+        />
+        <ItemListJsonLd
+          name={`Modelos ${displayName} en renting`}
+          items={filtered.map((v) => ({
+            name: `${v.brandName} ${v.modelName}`,
+            path: `/${v.modelSlug}`,
+          }))}
+        />
+
         {/* Brand hero strip */}
         <div className="surface-black ambient-blue-top relative pt-32 pb-16">
           <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
-            <Link
-              href="/catalogo"
-              className="group mb-6 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors hover:text-white"
-            >
-              <span
-                aria-hidden="true"
-                className="inline-block transition-transform duration-300 group-hover:-translate-x-1"
-              >
-                ←
-              </span>
-              Todas las marcas
-            </Link>
+            {/* Migas de pan: no había ninguna ruta visible desde una marca */}
+            <nav aria-label="Ruta de navegación" className="mb-6">
+              <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[12.5px] text-white/70">
+                <li>
+                  <Link href="/" className="transition-colors hover:text-white">
+                    Inicio
+                  </Link>
+                </li>
+                <li aria-hidden="true" className="text-white/45">
+                  /
+                </li>
+                <li>
+                  <Link href="/catalogo" className="transition-colors hover:text-white">
+                    Catálogo
+                  </Link>
+                </li>
+                <li aria-hidden="true" className="text-white/45">
+                  /
+                </li>
+                <li aria-current="page" className="font-semibold text-white">
+                  {displayName}
+                </li>
+              </ol>
+            </nav>
             <div className="flex items-end justify-between">
               <div>
                 <p className="section-label mb-3">Catálogo</p>
@@ -77,7 +145,10 @@ export default async function CatalogoPage({
         </div>
 
         {/* Filters */}
-        <div className="glass-dark sticky top-[72px] z-30 border-b border-white/[0.08]">
+        <section
+          aria-label="Filtros del catálogo"
+          className="glass-dark sticky top-[72px] z-30 border-b border-white/[0.08]"
+        >
           <div className="mx-auto max-w-7xl px-6 sm:px-10">
             <div className="flex flex-wrap items-center gap-2 py-4">
               <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
@@ -122,11 +193,14 @@ export default async function CatalogoPage({
               })}
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Vehicle grid */}
         <section className="surface-graphite py-16">
           <div className="mx-auto max-w-7xl px-6 sm:px-10">
+            <h2 className="display-sm mb-10 text-white">
+              Modelos {displayName} en renting
+            </h2>
             {filtered.length > 0 ? (
               <RevealGroup
                 stagger={0.05}
@@ -166,6 +240,20 @@ export default async function CatalogoPage({
   // Default view: all brands overview
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Inicio", path: "/" },
+          { name: "Catálogo", path: "/catalogo" },
+        ]}
+      />
+      <ItemListJsonLd
+        name="Marcas disponibles en renting"
+        items={brands.map((b) => ({
+          name: b.brandName,
+          path: `/catalogo?brand=${encodeURIComponent(b.brandName.toLowerCase())}`,
+        }))}
+      />
+
       {/* Page header */}
       <div className="surface-black ambient-blue-top relative pt-32 pb-16">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
@@ -187,6 +275,7 @@ export default async function CatalogoPage({
       {/* All brands, same treatment for every one */}
       <section id="marcas" className="surface-dark py-20">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
+          <h2 className="display-sm mb-10 text-white">Elige marca</h2>
           <RevealGroup
             stagger={0.03}
             className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
@@ -269,9 +358,10 @@ async function AllVehiclesSection() {
     <section className="surface-black py-24">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal className="mb-12 flex items-center gap-4">
-          <p className="eyebrow">
-            Todos los vehículos · {deduped.length} modelos
-          </p>
+          <h2 className="display-sm shrink-0 text-white">
+            Todos los modelos{" "}
+            <span className="text-[#5AA0FF]">({deduped.length})</span>
+          </h2>
           <div className="flex-1 border-t border-white/[0.08]" />
         </Reveal>
         <RevealGroup

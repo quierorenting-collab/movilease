@@ -4,11 +4,16 @@ import Link from "next/link";
 import { getComparisonVehicles, type ComparisonVehicle } from "@/lib/data/vehicles";
 import { FUEL_TYPE_LABELS, TRANSMISSION_LABELS, VEHICLE_CATEGORY_LABELS } from "@/lib/constants";
 import { Reveal } from "@/components/ui/Reveal";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Comparador de vehículos",
-  description: "Compara varios coches en renting lado a lado.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Comparador de coches en renting",
+  description:
+    "Compara hasta cuatro coches en renting lado a lado: cuota, potencia, consumo, plazas y servicios incluidos.",
+  path: "/comparador",
+  // El contenido depende de los ids que elige el visitante: nada que indexar.
+  noIndex: true,
+});
 
 const ROWS: {
   label: string;

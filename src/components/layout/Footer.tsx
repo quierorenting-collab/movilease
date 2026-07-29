@@ -1,8 +1,28 @@
 import Link from "next/link";
 import { CONTACT, buildWhatsAppLink } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
+import { getVehiclesByBrand } from "@/lib/data/vehicles";
 
 export async function Footer() {
+  /**
+   * Enlazado interno: el pie solo apuntaba a /catalogo, así que las vistas por
+   * marca colgaban de un único enlace en toda la web. Las marcas con más stock
+   * pasan a estar enlazadas desde cualquier página.
+   */
+  let topBrands: { name: string; href: string }[] = [];
+  try {
+    const { brands } = await getVehiclesByBrand();
+    topBrands = [...brands]
+      .sort((a, b) => b.vehicleCount - a.vehicleCount)
+      .slice(0, 12)
+      .map((b) => ({
+        name: b.brandName,
+        href: `/catalogo?brand=${encodeURIComponent(b.brandName.toLowerCase())}`,
+      }));
+  } catch {
+    topBrands = [];
+  }
+
   return (
     <footer className="relative overflow-hidden bg-[#04102A] text-white/70">
       {/* Top accent */}
@@ -169,8 +189,35 @@ export async function Footer() {
           </div>
         </div>
 
+        {/* Marcas destacadas — enlazado interno hacia las vistas por marca */}
+        {topBrands.length > 0 && (
+          <nav aria-label="Marcas destacadas" className="mt-16 border-t border-white/10 pt-10">
+            <p className="eyebrow mb-5">Renting por marca</p>
+            <ul className="flex flex-wrap gap-x-2 gap-y-2">
+              {topBrands.map((brand) => (
+                <li key={brand.href}>
+                  <Link
+                    href={brand.href}
+                    className="inline-flex min-h-[36px] items-center rounded-full border border-white/12 px-3.5 text-[13px] text-white/70 transition-colors hover:border-[#5AA0FF]/50 hover:text-white"
+                  >
+                    {brand.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/catalogo"
+                  className="inline-flex min-h-[36px] items-center rounded-full border border-[#5AA0FF]/40 px-3.5 text-[13px] font-semibold text-[#5AA0FF] transition-colors hover:border-[#5AA0FF] hover:text-white"
+                >
+                  Todas las marcas
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        )}
+
         {/* Bottom bar */}
-        <div className="mt-20 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-9 sm:flex-row">
+        <div className="mt-16 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-9 sm:flex-row">
           <p className="text-[12px] text-white/75">
             © 2026 MOVILEASE®. Todos los derechos reservados.
           </p>

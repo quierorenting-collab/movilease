@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getFeaturedVehicles, getOfferVehicles, getVehiclesByBrand } from "@/lib/data/vehicles";
 import { buildWhatsAppLink } from "@/lib/constants";
@@ -8,8 +9,21 @@ import { HeroContent } from "@/components/home/HeroContent";
 import { FAQAccordion } from "@/components/home/FAQAccordion";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { Reveal, RevealGroup, RevealItem, AnimatedCounter } from "@/components/ui/Reveal";
+import {
+  FaqJsonLd,
+  OrganizationJsonLd,
+  WebSiteJsonLd,
+} from "@/components/seo/JsonLd";
+import { pageMetadata } from "@/lib/metadata";
 
 export const revalidate = 3600;
+
+export const metadata: Metadata = pageMetadata({
+  title: "Renting de coches sin entrada | Todo incluido",
+  description:
+    "Renting de coches para particulares, autónomos y empresas: sin entrada, con seguro a todo riesgo, mantenimiento e impuestos incluidos. Más de 30 marcas y respuesta en 48 h.",
+  path: "/",
+});
 
 const STATS = [
   { value: 10000, prefix: "+",  suffix: "",  decimals: 0, label: "Clientes satisfechos" },
@@ -100,6 +114,10 @@ export default async function HomePage() {
 
   return (
     <>
+      <OrganizationJsonLd />
+      <WebSiteJsonLd />
+      <FaqJsonLd items={FAQ_ITEMS} />
+
       {/* ══ HERO — cinematic ══════════════════════════════ */}
       <section className="relative flex h-screen min-h-[680px] items-center overflow-hidden bg-[#071A3D]">
         <HeroImage />

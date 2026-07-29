@@ -22,13 +22,43 @@ export const viewport: Viewport = {
 
 export async function generateMetadata(): Promise<Metadata> {
   const brand = await getCurrentBrand();
+  const defaultTitle = `${brand.name} | Renting de Coches para Particulares`;
+  const ogImage = `${SITE_URL}/opengraph-image`;
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: `${brand.name} | Renting de Coches para Particulares`,
+      default: defaultTitle,
       template: `%s | ${brand.name}`,
     },
     description: brand.description,
+    applicationName: brand.name,
+    // Evita que iOS convierta precios y cifras del catálogo en enlaces de llamada
+    formatDetection: { telephone: false, address: false, email: false },
+    openGraph: {
+      type: "website",
+      locale: "es_ES",
+      siteName: brand.name,
+      url: SITE_URL,
+      title: defaultTitle,
+      description: brand.description,
+      images: [ogImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: defaultTitle,
+      description: brand.description,
+      images: [ogImage],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     verification: {
       google: "pI-BaqPscKQ0D8SPEvg0PIfdRcASlcHuXDNh7dNf_w4",
     },
