@@ -48,11 +48,20 @@ export const LEAD_STATUS_LABELS = {
   nuevo: "Nuevo",
   contactado: "Contactado",
   en_proceso: "En proceso",
+  oferta_enviada: "Oferta enviada",
   ganado: "Ganado",
   perdido: "Perdido",
 } as const;
 
 export type LeadStatus = keyof typeof LEAD_STATUS_LABELS;
+
+export const CLIENT_TYPE_LABELS = {
+  empresa: "Empresa",
+  autonomo: "Autónomo",
+  particular: "Particular",
+} as const;
+
+export type ClientType = keyof typeof CLIENT_TYPE_LABELS;
 
 export const LEAD_SOURCES = [
   "vehicle_page",

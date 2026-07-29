@@ -1,7 +1,10 @@
 "use client";
 
 import { useActionState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { createLeadAction, type CreateLeadResult } from "@/lib/actions/leads";
+import { CLIENT_TYPE_LABELS } from "@/lib/constants";
 
 const initialState: CreateLeadResult = { success: false };
 
@@ -17,6 +20,7 @@ export function LeadForm({
   modelId?: string;
   source?: string;
 }) {
+  const pathname = usePathname();
   const [state, formAction, isPending] = useActionState(createLeadAction, initialState);
 
   if (state.success) {
@@ -44,8 +48,7 @@ export function LeadForm({
           Solicitud recibida
         </p>
         <p className="mt-2 text-sm leading-relaxed text-white/50">
-          Gracias por confiar en nosotros. Te contactaremos en breve para darte
-          una respuesta personalizada.
+          No tardaremos más de unos minutos en contactar contigo.
         </p>
         {state.whatsappLink && (
           <a
@@ -66,6 +69,7 @@ export function LeadForm({
       {vehicleId && <input type="hidden" name="vehicleId" value={vehicleId} />}
       {modelId && <input type="hidden" name="modelId" value={modelId} />}
       <input type="hidden" name="source" value={source} />
+      <input type="hidden" name="pageUrl" value={pathname ?? ""} />
       <input
         type="text"
         name="website"
@@ -75,35 +79,89 @@ export function LeadForm({
         aria-hidden="true"
       />
 
-      <div>
-        <label htmlFor="name" className={labelClass}>
-          Nombre
-        </label>
-        <input id="name" name="name" required className="input-glass" placeholder="Tu nombre" />
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="name" className={labelClass}>
+            Nombre
+          </label>
+          <input id="name" name="name" required className="input-glass" placeholder="Tu nombre" />
+        </div>
+        <div>
+          <label htmlFor="lastName" className={labelClass}>
+            Apellidos
+          </label>
+          <input
+            id="lastName"
+            name="lastName"
+            className="input-glass"
+            placeholder="Tus apellidos"
+          />
+        </div>
       </div>
       <div>
-        <label htmlFor="phone" className={labelClass}>
-          Teléfono
+        <label htmlFor="company" className={labelClass}>
+          Empresa (opcional)
         </label>
         <input
-          id="phone"
-          name="phone"
-          required
+          id="company"
+          name="company"
           className="input-glass"
-          placeholder="600 000 000"
+          placeholder="Nombre de tu empresa"
         />
       </div>
-      <div>
-        <label htmlFor="email" className={labelClass}>
-          Email (opcional)
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          className="input-glass"
-          placeholder="tu@email.com"
-        />
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="phone" className={labelClass}>
+            Teléfono
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            required
+            className="input-glass"
+            placeholder="600 000 000"
+          />
+        </div>
+        <div>
+          <label htmlFor="email" className={labelClass}>
+            Email (opcional)
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            className="input-glass"
+            placeholder="tu@email.com"
+          />
+        </div>
+      </div>
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="province" className={labelClass}>
+            Provincia
+          </label>
+          <input
+            id="province"
+            name="province"
+            className="input-glass"
+            placeholder="Madrid"
+          />
+        </div>
+        <div>
+          <label htmlFor="clientType" className={labelClass}>
+            Tipo de cliente
+          </label>
+          <select id="clientType" name="clientType" className="input-glass" defaultValue="">
+            <option value="" disabled>
+              Selecciona una opción
+            </option>
+            {Object.entries(CLIENT_TYPE_LABELS).map(([value, label]) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <div>
         <label htmlFor="message" className={labelClass}>
@@ -117,6 +175,22 @@ export function LeadForm({
           placeholder="Cuéntanos qué coche buscas o cualquier duda que tengas"
         />
       </div>
+
+      <label className="flex items-start gap-3 text-[13px] leading-relaxed text-white/50">
+        <input
+          type="checkbox"
+          name="rgpd"
+          required
+          className="mt-1 h-4 w-4 shrink-0 rounded border-white/20 bg-transparent accent-[#0068FF]"
+        />
+        <span>
+          He leído y acepto la{" "}
+          <Link href="/politica-privacidad" className="underline hover:text-white/80">
+            política de privacidad
+          </Link>{" "}
+          de MoviLease.
+        </span>
+      </label>
 
       {state.error && (
         <p className="rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-[13px] text-red-300">

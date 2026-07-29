@@ -16,7 +16,14 @@ export type UserRoleEnum = "admin" | "catalog_editor" | "leads_viewer";
 export type FuelTypeEnum = "gasolina" | "hibrido" | "electrico" | "diesel" | "phev";
 export type TransmissionEnum = "manual" | "automatico";
 export type VehicleCategoryEnum = "turismo" | "suv" | "hibrido" | "furgoneta" | "4x4" | "diesel";
-export type LeadStatusEnum = "nuevo" | "contactado" | "en_proceso" | "ganado" | "perdido";
+export type LeadStatusEnum =
+  | "nuevo"
+  | "contactado"
+  | "en_proceso"
+  | "oferta_enviada"
+  | "ganado"
+  | "perdido";
+export type ClientTypeEnum = "empresa" | "autonomo" | "particular";
 export type LeadSourceEnum =
   | "vehicle_page"
   | "catalog"
@@ -104,8 +111,12 @@ export type Lead = {
   model_id: string | null;
   vehicle_id: string | null;
   name: string;
+  last_name: string | null;
   phone: string;
   email: string | null;
+  company: string | null;
+  province: string | null;
+  client_type: ClientTypeEnum | null;
   message: string | null;
   source: LeadSourceEnum;
   status: LeadStatusEnum;
@@ -113,6 +124,9 @@ export type Lead = {
   utm_source: string | null;
   utm_medium: string | null;
   utm_campaign: string | null;
+  ip_address: string | null;
+  user_agent: string | null;
+  page_url: string | null;
   notified_web3forms: boolean;
   notified_telegram: boolean;
   created_at: string;
