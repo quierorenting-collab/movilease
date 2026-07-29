@@ -24,7 +24,7 @@ export function HeroImage() {
   }, []);
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[#050505]">
+    <div className="absolute inset-0 overflow-hidden bg-[#071A3D]">
       {/* Ambient blue glow behind the text column */}
       <div
         className="pointer-events-none absolute -left-32 top-1/4 h-[560px] w-[560px]"
@@ -53,22 +53,22 @@ export function HeroImage() {
       </motion.div>
 
       {/* Mobile — heavy darkening so the copy always reads */}
-      <div className="absolute inset-0 bg-[#050505]/78 lg:hidden" />
+      <div className="absolute inset-0 bg-[#071A3D]/78 lg:hidden" />
 
-      {/* Desktop — blend the car's left edge into pure black */}
+      {/* Desktop — blend the car's left edge into the dark blue panel */}
       <div
         className="absolute inset-0 hidden lg:block"
         style={{
           background:
-            "linear-gradient(90deg, #050505 0%, #050505 26%, rgba(5,5,5,0.82) 38%, rgba(5,5,5,0.35) 52%, rgba(5,5,5,0.08) 64%, transparent 74%)",
+            "linear-gradient(90deg, #071A3D 0%, #071A3D 26%, rgba(7,26,61,0.82) 38%, rgba(7,26,61,0.35) 52%, rgba(7,26,61,0.08) 64%, transparent 74%)",
         }}
       />
 
       {/* Top fade — keeps the white logo + nav readable */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#050505] via-[#050505]/55 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#071A3D] via-[#071A3D]/55 to-transparent" />
 
       {/* Bottom fade into the next section */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#050505] to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#071A3D] to-transparent" />
 
       {/* Ambient mouse-following light — very subtle */}
       <div

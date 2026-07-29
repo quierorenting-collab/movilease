@@ -40,10 +40,14 @@ export function Header() {
           scrolled ? "glass-dark py-0" : "bg-transparent py-2"
         }`}
       >
-        <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between px-6 sm:px-10">
+        <div className="mx-auto flex h-[96px] w-full max-w-7xl items-center justify-between px-6 sm:px-10">
           {/* Logo */}
-          <Link href="/" aria-label="MoviLease" className="shrink-0">
-            <Logo height={64} className="brightness-0 invert transition-all duration-500" />
+          <Link
+            href="/"
+            aria-label="MoviLease"
+            className="shrink-0 rounded-xl bg-white/95 px-4 py-2 shadow-lg shadow-black/10 transition-all duration-500"
+          >
+            <Logo height={64} className="transition-all duration-500" />
           </Link>
 
           {/* Desktop nav */}

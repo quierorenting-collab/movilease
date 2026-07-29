@@ -27,10 +27,10 @@
   --paper-2: #FAFAFA;
   --paper-3: #F5F5F5;
 
-  --dark: #050810;
-  --dark-2: #0A0F1A;
-  --dark-3: #0F1524;
-  --dark-4: #171F30;
+  --dark: #071A3D;
+  --dark-2: #0C2454;
+  --dark-3: #123068;
+  --dark-4: #1B4080;
 
   --blue: #0068FF;
   --blue-dim: rgba(0, 104, 255, 0.12);
@@ -138,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-dark {
-  background: rgba(6, 10, 20, 0.70);
+  background: rgba(9, 30, 66, 0.75);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -416,15 +416,15 @@ h1, h2, h3, h4, h5, h6 {
 /* ══════════════════════════════════════════════════
    DARK SECTION SURFACES
    ══════════════════════════════════════════════════ */
-.surface-black    { background: #060A14; }
-.surface-dark     { background: #0A0F1C; }
-.surface-graphite { background: linear-gradient(180deg, #121A2A 0%, #0C121F 100%); }
-.surface-carbon   { background: linear-gradient(160deg, #1A2234 0%, #111826 60%, #0A0F1A 100%); }
+.surface-black    { background: #071A3D; }
+.surface-dark     { background: #0C2454; }
+.surface-graphite { background: linear-gradient(180deg, #1B4EA8 0%, #0F2F63 100%); }
+.surface-carbon   { background: linear-gradient(160deg, #2563EB 0%, #123068 60%, #071A3D 100%); }
 
 .card-dark {
   border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: linear-gradient(180deg, #161F30 0%, #0F1524 100%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: linear-gradient(180deg, #1B4080 0%, #0C2454 100%);
   transition: border-color var(--duration-slow) var(--easing),
               transform var(--duration-normal) var(--easing),
               box-shadow var(--duration-slow) var(--easing);
