@@ -252,6 +252,17 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(255,255,255,0.06);
   transform: translateY(-2px);
 }
+.btn-ghost:active {
+  transform: translateY(0);
+  background: rgba(255,255,255,0.09);
+}
+
+/* Foco visible por teclado en toda la web, reutilizando el azul de marca */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
 
 /* ══════════════════════════════════════════════════
    VEHICLE CARD BASE
@@ -351,6 +362,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .display-md {
@@ -359,6 +372,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.05;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* ══════════════════════════════════════════════════

@@ -100,7 +100,7 @@ export default async function HomePage() {
   return (
     <>
       {/* ══ HERO — cinematic ══════════════════════════════ */}
-      <section className="relative flex h-screen min-h-[680px] items-center overflow-hidden bg-[#050505]">
+      <section className="relative flex h-screen min-h-[680px] items-center overflow-hidden bg-[#071A3D]">
         <HeroImage />
         <HeroContent />
       </section>
@@ -108,9 +108,13 @@ export default async function HomePage() {
       {/* ══ STATS — dark graphite, huge numbers ═══════════ */}
       <section className="surface-graphite relative py-28 sm:py-36">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
-          <div className="grid grid-cols-2 gap-14 sm:grid-cols-4 sm:gap-0 sm:divide-x sm:divide-white/5">
+          <div className="grid grid-cols-2 gap-14 sm:grid-cols-4 sm:gap-0">
             {STATS.map((s, i) => (
-              <Reveal key={s.label} delay={i * 0.08} className="text-center sm:px-8">
+              <Reveal
+                key={s.label}
+                delay={i * 0.08}
+                className={`text-center sm:px-8 ${i > 0 ? "sm:border-l sm:border-white/10" : ""}`}
+              >
                 <p className="display-md text-white">
                   <AnimatedCounter
                     value={s.value}
@@ -214,7 +218,7 @@ export default async function HomePage() {
             >
               {dedupedOffers.map((vehicle) => (
                 <RevealItem key={vehicle.id}>
-                  <div className="group relative h-full overflow-hidden rounded-2xl border border-white/6 bg-gradient-to-b from-[#101010] to-[#0A0A0A] transition-all duration-500 hover:border-[#0068FF]/25 hover:shadow-[0_20px_60px_rgba(0,104,255,0.12)]">
+                  <div className="group relative h-full overflow-hidden rounded-2xl border border-white/6 bg-gradient-to-b from-[#1B4080] to-[#0C2454] transition-all duration-500 hover:border-[#0068FF]/25 hover:shadow-[0_20px_60px_rgba(0,104,255,0.12)]">
                     <div className="relative aspect-[4/3] overflow-hidden">
                       {vehicle.imageUrl ? (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -229,7 +233,7 @@ export default async function HomePage() {
                           {vehicle.brandName.charAt(0)}
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1B4080] via-transparent to-transparent" />
                       <div className="absolute left-4 top-4">
                         <span className="rounded-full bg-[#0068FF] px-3.5 py-1.5 text-[9px] font-bold uppercase tracking-[0.18em] text-white shadow-lg shadow-[#0068FF]/30">
                           Oferta
@@ -509,9 +513,23 @@ export default async function HomePage() {
             <br />
             <span className="text-[#0068FF]">mejor.</span>
           </h2>
-          <p className="mx-auto mt-10 max-w-md text-[14px] leading-relaxed text-white/30">
-            Sin entrada · Gestión en 48 h · Todo incluido
-          </p>
+          <div className="mx-auto mt-10 flex max-w-md flex-wrap items-center justify-center gap-x-6 gap-y-3">
+            {["Sin entrada", "Gestión en 48 h", "Todo incluido"].map((item) => (
+              <span key={item} className="flex items-center gap-1.5 text-[13px] text-white/50">
+                <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0">
+                  <circle cx="8" cy="8" r="8" fill="#0068FF" fillOpacity="0.15" />
+                  <path
+                    d="M5 8.2l2 2 4-4.4"
+                    stroke="#0068FF"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                {item}
+              </span>
+            ))}
+          </div>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href={buildWhatsAppLink("Hola, me gustaría información sobre renting de coches.")}

@@ -100,7 +100,7 @@ export function HeroContent() {
               rel="noopener noreferrer"
               className="btn-ghost justify-center"
             >
-              Solicitar asesoramiento
+              Hablar por WhatsApp
             </a>
           </motion.div>
 
@@ -111,8 +111,11 @@ export function HeroContent() {
             animate="visible"
             className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-5 border-t border-white/8 pt-6"
           >
-            {TRUST.map((t) => (
-              <div key={t.label} className="flex flex-col gap-1">
+            {TRUST.map((t, i) => (
+              <div
+                key={t.label}
+                className={`flex flex-col gap-1 ${i > 0 ? "sm:border-l sm:border-white/10 sm:pl-10 sm:-ml-10" : ""}`}
+              >
                 <span
                   className="text-[19px] font-bold leading-none text-white sm:text-[22px]"
                   style={{ fontFamily: "var(--font-space-grotesk)" }}

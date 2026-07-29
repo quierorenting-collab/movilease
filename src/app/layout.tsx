@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#050505",
+  themeColor: "#071A3D",
 };
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -42,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#050505] text-white">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#071A3D] text-white">{children}</body>
     </html>
   );
 }
