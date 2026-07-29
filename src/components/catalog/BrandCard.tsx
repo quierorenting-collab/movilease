@@ -20,20 +20,12 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
             className="max-h-16 w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.06]"
             loading="lazy"
           />
-        ) : brand.featuredImageUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={brand.featuredImageUrl}
-            alt={brand.brandName}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-            loading="lazy"
-          />
         ) : (
           <span
-            className="text-5xl font-bold text-[#0A0A0A]/10"
+            className="text-center text-2xl font-bold uppercase tracking-wide text-[#0A0A0A]/70"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
-            {brand.brandName.charAt(0)}
+            {brand.brandName}
           </span>
         )}
 
