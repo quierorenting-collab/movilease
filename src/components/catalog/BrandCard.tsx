@@ -10,9 +10,17 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
       className="group relative flex flex-col overflow-hidden rounded-2xl bg-white transition-all duration-500 hover:-translate-y-1.5"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
-      {/* Image */}
-      <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-[#F5F6F8] to-[#EAECEF]">
-        {brand.featuredImageUrl ? (
+      {/* Logo tile */}
+      <div className="relative aspect-[16/9] overflow-hidden bg-[#F7F8FA]">
+        {brand.logoUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={brand.logoUrl}
+            alt={`Logo de ${brand.brandName}`}
+            className="h-full w-full object-contain p-10 transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+            loading="lazy"
+          />
+        ) : brand.featuredImageUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={brand.featuredImageUrl}
@@ -23,16 +31,13 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
         ) : (
           <div className="flex h-full items-center justify-center">
             <span
-              className="text-8xl font-bold text-[#0A0A0A]/5"
+              className="text-8xl font-bold text-[#0A0A0A]/10"
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
               {brand.brandName.charAt(0)}
             </span>
           </div>
         )}
-
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
 
         {/* Premium badge */}
         {brand.isPremium && (
@@ -42,20 +47,20 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
             </span>
           </div>
         )}
+      </div>
 
-        {/* Brand name overlay */}
-        <div className="absolute bottom-0 left-0 p-6">
-          <p
-            className="text-[24px] font-bold leading-none text-white"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
-          >
-            {brand.brandName}
-          </p>
-          <p className="mt-2 text-[11px] text-white/55">
-            {brand.vehicleCount}{" "}
-            {brand.vehicleCount === 1 ? "vehículo disponible" : "vehículos disponibles"}
-          </p>
-        </div>
+      {/* Brand name */}
+      <div className="px-6 pt-5">
+        <p
+          className="text-[20px] font-bold leading-none text-[#0A0A0A]"
+          style={{ fontFamily: "var(--font-space-grotesk)" }}
+        >
+          {brand.brandName}
+        </p>
+        <p className="mt-2 text-[11px] text-[#8A8F98]">
+          {brand.vehicleCount}{" "}
+          {brand.vehicleCount === 1 ? "vehículo disponible" : "vehículos disponibles"}
+        </p>
       </div>
 
       {/* Footer */}

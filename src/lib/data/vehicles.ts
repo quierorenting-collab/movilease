@@ -1,6 +1,7 @@
 import "server-only";
 import { createClient } from "@/lib/supabase/server";
 import { formatPriceFromCents } from "@/lib/utils";
+import { getBrandLogoUrl } from "@/lib/brand-logos";
 import type {
   FuelTypeEnum,
   TransmissionEnum,
@@ -307,6 +308,7 @@ export interface BrandSummary {
   vehicleCount: number;
   cheapestPriceLabel: string;
   featuredImageUrl: string | null;
+  logoUrl: string | null;
   isPremium: boolean;
 }
 
@@ -333,6 +335,7 @@ export async function getVehiclesByBrand(): Promise<VehiclesByBrand> {
       vehicleCount: vehicles.length,
       cheapestPriceLabel: vehicles[0]?.priceLabel ?? "",
       featuredImageUrl: vehicles.find((v) => v.imageUrl)?.imageUrl ?? null,
+      logoUrl: getBrandLogoUrl(name),
       isPremium: PREMIUM_BRANDS.has(name),
     }))
     .sort((a, b) => {
