@@ -17,12 +17,14 @@ export default function ContactoPage() {
     <div className="surface-black ambient-blue relative min-h-screen pt-32 pb-32">
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr]">
-          {/* Left: intro + contact channels */}
-          <div>
+          {/* Left: intro + contact channels.
+              En móvil va DESPUÉS del formulario (order-2): antes había que
+              recorrer toda la introducción y los canales antes de ver un campo. */}
+          <div className="order-2 lg:order-1">
             <Reveal>
               <p className="section-label">Contacto</p>
               <h1 className="display-lg mt-4 text-white">Hablemos.</h1>
-              <p className="mt-6 max-w-md text-lg leading-relaxed text-white/70">
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-white/75">
                 Cuéntanos qué buscas y te preparamos una propuesta a medida, sin
                 compromiso. Respondemos rápido, sin esperas ni llamadas
                 comerciales innecesarias.
@@ -31,16 +33,43 @@ export default function ContactoPage() {
 
             <Reveal delay={0.15} className="mt-12 space-y-4">
               <a
-                href={`mailto:${CONTACT.email}`}
-                className="flex items-center gap-4 rounded-2xl border border-white/8 bg-white/[0.03] p-5 transition-colors hover:border-[#0068FF]/30"
+                href={`tel:${CONTACT.phone}`}
+                className="flex items-center gap-4 rounded-2xl border border-white/15 bg-white/[0.04] p-5 transition-colors hover:border-[#5AA0FF]/50"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#0068FF]/10">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#0068FF]/15">
                   <svg
                     width="18"
                     height="18"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#0068FF"
+                    stroke="#5AA0FF"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </span>
+                <span>
+                  <span className="eyebrow">Teléfono</span>
+                  <span className="mt-1 block text-[15px] font-medium text-white">
+                    {CONTACT.phoneDisplay}
+                  </span>
+                </span>
+              </a>
+
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="flex items-center gap-4 rounded-2xl border border-white/15 bg-white/[0.04] p-5 transition-colors hover:border-[#5AA0FF]/50"
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#0068FF]/15">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#5AA0FF"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -51,10 +80,10 @@ export default function ContactoPage() {
                   </svg>
                 </span>
                 <span>
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
+                  <span className="eyebrow">
                     Email
                   </span>
-                  <span className="mt-1 block text-sm font-medium text-white">
+                  <span className="mt-1 block text-[15px] font-medium text-white">
                     {CONTACT.email}
                   </span>
                 </span>
@@ -64,15 +93,15 @@ export default function ContactoPage() {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-2xl border border-white/8 bg-white/[0.03] p-5 transition-colors hover:border-[#0068FF]/30"
+                className="flex items-center gap-4 rounded-2xl border border-white/15 bg-white/[0.04] p-5 transition-colors hover:border-[#5AA0FF]/50"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#0068FF]/10">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#0068FF]/15">
                   <svg
                     width="18"
                     height="18"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#0068FF"
+                    stroke="#5AA0FF"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -82,10 +111,10 @@ export default function ContactoPage() {
                   </svg>
                 </span>
                 <span>
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
+                  <span className="eyebrow">
                     WhatsApp
                   </span>
-                  <span className="mt-1 block text-sm font-medium text-white">
+                  <span className="mt-1 block text-[15px] font-medium text-white">
                     Escríbenos directamente
                   </span>
                 </span>
@@ -94,8 +123,17 @@ export default function ContactoPage() {
           </div>
 
           {/* Right: lead form */}
-          <Reveal delay={0.2}>
-            <div className="shadow-float rounded-3xl border border-white/8 bg-white/[0.03] p-9 backdrop-blur-xl">
+          <Reveal delay={0.2} className="order-1 lg:order-2">
+            <div className="shadow-float rounded-3xl border border-white/12 bg-white/[0.04] p-7 backdrop-blur-xl sm:p-9">
+              <h2
+                className="text-[22px] font-bold text-white"
+                style={{ fontFamily: "var(--font-space-grotesk)" }}
+              >
+                Pide tu propuesta
+              </h2>
+              <p className="mb-7 mt-2 text-[14.5px] leading-relaxed text-white/75">
+                Nombre y teléfono es todo lo que necesitamos para empezar.
+              </p>
               <LeadForm source="contact_form" />
             </div>
           </Reveal>

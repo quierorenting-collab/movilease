@@ -6,6 +6,7 @@ import { BrandCard } from "@/components/catalog/BrandCard";
 import { HeroImage } from "@/components/home/HeroImage";
 import { HeroContent } from "@/components/home/HeroContent";
 import { FAQAccordion } from "@/components/home/FAQAccordion";
+import { LeadForm } from "@/components/forms/LeadForm";
 import { Reveal, RevealGroup, RevealItem, AnimatedCounter } from "@/components/ui/Reveal";
 
 export const revalidate = 3600;
@@ -379,14 +380,17 @@ export default async function HomePage() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.25} className="mt-12 text-center">
+          <Reveal delay={0.25} className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link href="/calculadora" className="btn-primary">
+              Calcular mi cuota
+            </Link>
             <a
               href={buildWhatsAppLink("Hola, quiero saber cuánto me ahorro con renting.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
+              className="btn-ghost"
             >
-              Calcular mi ahorro
+              Preguntar por WhatsApp
             </a>
           </Reveal>
         </div>
@@ -502,48 +506,90 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ CTA FINAL — dark cinematic ════════════════════ */}
-      <section className="surface-black ambient-blue relative overflow-hidden section-y">
-        <Reveal className="relative z-10 mx-auto max-w-5xl px-6 text-center sm:px-10">
-          <p className="section-label mb-8">MoviLease — Smart Mobility Platform</p>
-          <h2 className="display-lg text-white">
-            El futuro pertenece
-            <br />
-            a quienes se mueven
-            <br />
-            <span className="text-[#0068FF]">mejor.</span>
-          </h2>
-          <div className="mx-auto mt-10 flex max-w-md flex-wrap items-center justify-center gap-x-6 gap-y-3">
-            {["Sin entrada", "Gestión en 48 h", "Todo incluido"].map((item) => (
-              <span key={item} className="flex items-center gap-1.5 text-[14px] text-white/75">
-                <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0">
-                  <circle cx="8" cy="8" r="8" fill="#0068FF" fillOpacity="0.15" />
-                  <path
-                    d="M5 8.2l2 2 4-4.4"
-                    stroke="#0068FF"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                {item}
-              </span>
-            ))}
-          </div>
-          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href={buildWhatsAppLink("Hola, me gustaría información sobre renting de coches.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              Hablar por WhatsApp
-            </a>
-            <Link href="/catalogo" className="btn-ghost">
-              Explorar catálogo
-            </Link>
-          </div>
-        </Reveal>
+      {/* ══ CTA FINAL — copy + formulario ═════════════════
+          Antes esta sección solo ofrecía WhatsApp: quien no quiere abrir un
+          chat (o navega desde escritorio) se quedaba sin forma de contactar
+          sin salir de la home. Ahora el formulario está aquí mismo. */}
+      <section
+        id="solicitar"
+        className="surface-black ambient-blue relative overflow-hidden section-y"
+      >
+        <div className="relative z-10 mx-auto grid max-w-6xl gap-14 px-6 sm:px-10 lg:grid-cols-[1fr_460px] lg:items-center lg:gap-20">
+          <Reveal>
+            <p className="section-label mb-6">Empieza aquí</p>
+            <h2 className="display-md text-white">
+              Dinos qué coche
+              <br />
+              quieres y te lo
+              <br />
+              <span className="text-[#5AA0FF]">calculamos gratis.</span>
+            </h2>
+            <p className="mt-7 max-w-md text-[16px] leading-[1.72] text-white/80">
+              Un asesor real revisa tu caso y te manda una propuesta con la cuota
+              cerrada. Sin llamadas comerciales insistentes y sin compromiso.
+            </p>
+
+            <ul className="mt-9 flex flex-col gap-3.5">
+              {[
+                "Sin entrada: 0 € de desembolso inicial",
+                "Seguro a todo riesgo, mantenimiento e impuestos incluidos",
+                "Respuesta en menos de 48 horas laborables",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-[15px] text-white/80">
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    aria-hidden="true"
+                    className="mt-1 h-4 w-4 shrink-0"
+                  >
+                    <circle cx="8" cy="8" r="8" fill="#5AA0FF" fillOpacity="0.2" />
+                    <path
+                      d="M5 8.2l2 2 4-4.4"
+                      stroke="#8FBEFF"
+                      strokeWidth="1.7"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10 flex flex-col gap-3 border-t border-white/15 pt-8 sm:flex-row sm:items-center">
+              <p className="text-[14px] text-white/70 sm:mr-2">¿Prefieres escribirnos?</p>
+              <a
+                href={buildWhatsAppLink("Hola, me gustaría información sobre renting de coches.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-whatsapp btn-sm w-fit"
+              >
+                Hablar por WhatsApp
+              </a>
+              <Link
+                href="/catalogo"
+                className="flex min-h-[40px] w-fit items-center text-[13px] font-bold uppercase tracking-[0.1em] text-white/75 underline underline-offset-4 transition-colors hover:text-white"
+              >
+                Ver catálogo
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <div className="shadow-float rounded-3xl border border-white/12 bg-white/[0.04] p-7 backdrop-blur-xl sm:p-9">
+              <h3
+                className="text-[21px] font-bold text-white"
+                style={{ fontFamily: "var(--font-space-grotesk)" }}
+              >
+                Pide tu propuesta
+              </h3>
+              <p className="mb-7 mt-2 text-[14px] text-white/70">
+                Dos datos y listo. El resto es opcional.
+              </p>
+              <LeadForm source="landing_page" submitLabel="Quiero mi propuesta gratis" />
+            </div>
+          </Reveal>
+        </div>
       </section>
     </>
   );

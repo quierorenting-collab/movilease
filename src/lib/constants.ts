@@ -6,11 +6,26 @@
 export const DEFAULT_BRAND_NAME = "MoviLease";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://movilease.es";
 
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "34613267375";
+
 export const CONTACT = {
-  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "34613267375",
+  whatsappNumber: WHATSAPP_NUMBER,
+  /** Mismo número, en formato marcable (href="tel:") y legible. */
+  phone: `+${WHATSAPP_NUMBER}`,
+  phoneDisplay: formatSpanishPhone(WHATSAPP_NUMBER),
   email: "quierorenting@gmail.com",
   instagram: "https://www.instagram.com/quierorenting",
 } as const;
+
+/** "34613267375" -> "+34 613 26 73 75" */
+function formatSpanishPhone(raw: string) {
+  const digits = raw.replace(/\D/g, "");
+  if (digits.startsWith("34") && digits.length === 11) {
+    const n = digits.slice(2);
+    return `+34 ${n.slice(0, 3)} ${n.slice(3, 5)} ${n.slice(5, 7)} ${n.slice(7)}`;
+  }
+  return `+${digits}`;
+}
 
 export function buildWhatsAppLink(message: string) {
   return `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(message)}`;

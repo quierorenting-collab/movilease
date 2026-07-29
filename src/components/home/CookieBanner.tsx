@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -8,6 +8,7 @@ const STORAGE_KEY = "ml_cookie_pref";
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -15,6 +16,28 @@ export function CookieBanner() {
     }, 900);
     return () => clearTimeout(t);
   }, []);
+
+  /**
+   * Reserva su altura en --bottom-inset mientras está visible: el botón de
+   * WhatsApp y la barra de comparación se apartan hacia arriba en lugar de
+   * quedar tapados por el banner.
+   */
+  useEffect(() => {
+    const el = cardRef.current;
+    const root = document.documentElement;
+    if (!visible || !el) {
+      root.style.removeProperty("--bottom-inset");
+      return;
+    }
+    const apply = () => root.style.setProperty("--bottom-inset", `${el.offsetHeight + 16}px`);
+    apply();
+    const observer = new ResizeObserver(apply);
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      root.style.removeProperty("--bottom-inset");
+    };
+  }, [visible]);
 
   function accept() {
     localStorage.setItem(STORAGE_KEY, "accept");
@@ -33,13 +56,16 @@ export function CookieBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 24, opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed bottom-4 inset-x-4 z-50 sm:left-auto sm:right-6 sm:max-w-md"
+          className="fixed inset-x-4 bottom-4 z-50 sm:left-6 sm:right-auto sm:max-w-md"
         >
           <div
-            className="rounded-2xl border border-white/10 bg-[#0A0A0A]/85 p-6 backdrop-blur-xl"
+            ref={cardRef}
+            role="dialog"
+            aria-label="Aviso de cookies"
+            className="rounded-2xl border border-white/12 bg-[#071A3D]/95 p-6 backdrop-blur-xl"
             style={{ boxShadow: "var(--shadow-float)" }}
           >
-            <p className="text-[13px] leading-relaxed text-white/70">
+            <p className="text-[14px] leading-relaxed text-white/80">
               Usamos cookies para mejorar tu experiencia de navegación.{" "}
               <Link
                 href="/politica-cookies"
@@ -49,10 +75,10 @@ export function CookieBanner() {
               </Link>
             </p>
             <div className="mt-5 flex items-center gap-3">
-              <button onClick={accept} className="btn-primary px-6 py-2.5">
+              <button onClick={accept} className="btn-primary btn-sm">
                 Aceptar
               </button>
-              <button onClick={reject} className="btn-ghost px-6 py-2.5">
+              <button onClick={reject} className="btn-ghost btn-sm">
                 Rechazar
               </button>
             </div>

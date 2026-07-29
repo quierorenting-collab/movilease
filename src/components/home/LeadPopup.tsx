@@ -1,23 +1,79 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
 const SESSION_KEY = "qr_popup_v2";
 const ease = [0.16, 1, 0.3, 1] as const;
 
+/** Páginas que ya tienen el formulario delante: interrumpir ahí solo estorba. */
+const SILENCED_PATHS = ["/contacto", "/favoritos"];
+
 export function LeadPopup() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
   const [form, setForm] = useState({ nombre: "", telefono: "", email: "" });
   const [gdpr, setGdpr] = useState(false);
+  const firstFieldRef = useRef<HTMLInputElement>(null);
+  const lastFocusedRef = useRef<HTMLElement | null>(null);
 
+  /**
+   * Antes saltaba a los 6 segundos, sin más: interrumpía a media lectura del
+   * hero, cuando el visitante aún no sabe si le interesa. Ahora espera una
+   * señal de intención — que haya leído media página o que el cursor se vaya
+   * hacia la barra del navegador — con un plazo largo como último recurso.
+   */
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (sessionStorage.getItem(SESSION_KEY)) return;
-    const t = setTimeout(() => setOpen(true), 6000);
-    return () => clearTimeout(t);
-  }, []);
+    if (SILENCED_PATHS.some((p) => pathname?.startsWith(p))) return;
+
+    let done = false;
+    const trigger = () => {
+      if (done) return;
+      done = true;
+      cleanup();
+      setOpen(true);
+    };
+
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (max > 0 && window.scrollY / max > 0.5) trigger();
+    };
+    // Salida del puntero por el borde superior = intención de abandonar
+    const onLeave = (e: MouseEvent) => {
+      if (e.clientY <= 4) trigger();
+    };
+    const timer = window.setTimeout(trigger, 45000);
+
+    function cleanup() {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("mouseout", onLeave);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("mouseout", onLeave);
+    return cleanup;
+  }, [pathname]);
+
+  // Al abrir: recordar el foco previo, llevarlo al primer campo y devolverlo al cerrar
+  useEffect(() => {
+    if (!open) return;
+    lastFocusedRef.current = document.activeElement as HTMLElement | null;
+    firstFieldRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      lastFocusedRef.current?.focus?.();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
 
   function close() {
     sessionStorage.setItem(SESSION_KEY, "1");
@@ -57,9 +113,12 @@ export function LeadPopup() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
             transition={{ duration: 0.6, ease }}
-            className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/10"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="popup-titulo"
+            className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/12"
             style={{
-              background: "linear-gradient(160deg, rgba(20,20,20,0.95) 0%, rgba(8,8,8,0.98) 100%)",
+              background: "linear-gradient(160deg, rgba(18,48,104,0.96) 0%, rgba(7,26,61,0.98) 100%)",
               backdropFilter: "blur(32px)",
               boxShadow:
                 "0 0 0 1px rgba(255,255,255,0.04), 0 24px 80px rgba(0,0,0,0.6), 0 0 120px rgba(0,104,255,0.08)",
@@ -92,7 +151,7 @@ export function LeadPopup() {
                   className="flex flex-col items-center justify-center gap-4 py-10 text-center"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#0068FF]/10">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#0068FF" strokeWidth="2" className="h-6 w-6">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#5AA0FF" strokeWidth="2" className="h-6 w-6">
                       <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
@@ -102,10 +161,10 @@ export function LeadPopup() {
                   >
                     Mensaje recibido
                   </p>
-                  <p className="text-sm text-white/70">Te contactamos en menos de 24 h.</p>
+                  <p className="text-[15px] text-white/75">Te contactamos en menos de 24 h.</p>
                   <button
                     onClick={close}
-                    className="mt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#0068FF] transition-colors hover:text-white"
+                    className="btn-ghost btn-sm mt-2"
                   >
                     Cerrar
                   </button>
@@ -114,47 +173,57 @@ export function LeadPopup() {
                 <>
                   <p className="section-label mb-4">Asesoramiento gratuito</p>
                   <h2
+                    id="popup-titulo"
                     className="text-[26px] font-bold leading-tight text-white"
                     style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.02em" }}
                   >
                     Tu próximo coche,
                     <br />
-                    <span className="text-[#0068FF]">sin complicaciones.</span>
+                    <span className="text-[#5AA0FF]">sin complicaciones.</span>
                   </h2>
-                  <p className="mt-3 text-[13px] leading-relaxed text-white/70">
+                  <p className="mt-3 text-[14.5px] leading-relaxed text-white/75">
                     Déjanos tu teléfono y te asesoramos sin compromiso. Sin entrada, todo incluido.
                   </p>
 
                   <form onSubmit={submit} className="mt-7 flex flex-col gap-3">
                     <input
+                      ref={firstFieldRef}
                       type="text"
+                      aria-label="Nombre"
+                      autoComplete="given-name"
                       placeholder="Nombre"
                       value={form.nombre}
                       onChange={(e) => setForm({ ...form, nombre: e.target.value })}
-                      className="w-full rounded-xl border border-white/8 bg-white/[0.04] px-5 py-3.5 text-sm text-white placeholder-white/25 outline-none backdrop-blur-sm transition-all duration-300 focus:border-[#0068FF]/60 focus:bg-white/[0.06]"
+                      className="input-glass"
                     />
                     <input
                       type="tel"
+                      inputMode="tel"
+                      aria-label="Teléfono"
+                      autoComplete="tel"
                       placeholder="Teléfono *"
                       required
                       value={form.telefono}
                       onChange={(e) => setForm({ ...form, telefono: e.target.value })}
-                      className="w-full rounded-xl border border-white/8 bg-white/[0.04] px-5 py-3.5 text-sm text-white placeholder-white/25 outline-none backdrop-blur-sm transition-all duration-300 focus:border-[#0068FF]/60 focus:bg-white/[0.06]"
+                      className="input-glass"
                     />
                     <input
                       type="email"
+                      inputMode="email"
+                      aria-label="Email (opcional)"
+                      autoComplete="email"
                       placeholder="Email (opcional)"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full rounded-xl border border-white/8 bg-white/[0.04] px-5 py-3.5 text-sm text-white placeholder-white/25 outline-none backdrop-blur-sm transition-all duration-300 focus:border-[#0068FF]/60 focus:bg-white/[0.06]"
+                      className="input-glass"
                     />
-                    <label className="mt-1 flex items-start gap-2.5 text-[11px] leading-relaxed text-white/70">
+                    <label className="mt-1 flex items-start gap-2.5 text-[13px] leading-relaxed text-white/75">
                       <input
                         type="checkbox"
                         checked={gdpr}
                         onChange={(e) => setGdpr(e.target.checked)}
                         required
-                        className="mt-0.5 shrink-0 accent-[#0068FF]"
+                        className="mt-0.5 h-5 w-5 shrink-0 accent-[#0068FF]"
                       />
                       <span>
                         Acepto la{" "}
@@ -170,9 +239,9 @@ export function LeadPopup() {
                     <button
                       type="submit"
                       disabled={status === "sending" || !gdpr}
-                      className="btn-primary mt-3 w-full justify-center disabled:cursor-not-allowed disabled:opacity-40"
+                      className="btn-primary btn-block mt-3"
                     >
-                      {status === "sending" ? "Enviando…" : "Solicitar asesoramiento"}
+                      {status === "sending" ? "Enviando…" : "Quiero que me asesoren"}
                     </button>
                   </form>
                 </>

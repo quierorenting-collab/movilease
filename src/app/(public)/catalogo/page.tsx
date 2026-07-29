@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getVehiclesByBrand, getCatalogVehicles } from "@/lib/data/vehicles";
-import { VEHICLE_CATEGORY_LABELS, FUEL_TYPE_LABELS } from "@/lib/constants";
+import { VEHICLE_CATEGORY_LABELS, FUEL_TYPE_LABELS, buildWhatsAppLink } from "@/lib/constants";
 import type { VehicleCategoryEnum, FuelTypeEnum } from "@/types/database.types";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { BrandCard } from "@/components/catalog/BrandCard";
@@ -144,7 +144,7 @@ export default async function CatalogoPage({
                   No hay vehículos con este filtro.{" "}
                   <Link
                     href={`/catalogo?brand=${brandParam}`}
-                    className="text-[#0068FF] transition-colors hover:text-[#3D8BFF] hover:underline"
+                    className="font-semibold text-[#5AA0FF] underline underline-offset-2 transition-colors hover:text-white"
                   >
                     Ver todos los {displayName}
                   </Link>
@@ -153,6 +153,12 @@ export default async function CatalogoPage({
             )}
           </div>
         </section>
+
+        <CatalogCta
+          title={`¿No encuentras el ${displayName} que buscas?`}
+          body="Trabajamos con más stock del que aparece publicado. Dinos modelo, versión y kilometraje y te buscamos la mejor cuota."
+          whatsappMessage={`Hola, busco un ${displayName} en renting. ¿Podéis ayudarme?`}
+        />
       </>
     );
   }
@@ -196,7 +202,51 @@ export default async function CatalogoPage({
 
       {/* All vehicles flat view for SEO */}
       <AllVehiclesSection />
+
+      <CatalogCta
+        title="Dinos qué coche quieres y te lo calculamos"
+        body="Más de 30 marcas y stock que no siempre está publicado. Cuéntanos qué buscas y te mandamos una propuesta con la cuota cerrada."
+        whatsappMessage="Hola, quiero información sobre el catálogo de renting."
+      />
     </>
+  );
+}
+
+/**
+ * El catálogo terminaba en una rejilla sin salida: quien no encontraba su
+ * modelo se iba. Este bloque cierra las dos vistas con una vía de contacto.
+ */
+function CatalogCta({
+  title,
+  body,
+  whatsappMessage,
+}: {
+  title: string;
+  body: string;
+  whatsappMessage: string;
+}) {
+  return (
+    <section className="surface-carbon section-y-sm">
+      <Reveal className="mx-auto flex max-w-4xl flex-col items-center gap-7 px-6 text-center sm:px-10">
+        <div>
+          <h2 className="display-sm text-white">{title}</h2>
+          <p className="mx-auto mt-4 max-w-xl text-[15.5px] leading-[1.72] text-white/80">{body}</p>
+        </div>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <a
+            href={buildWhatsAppLink(whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-whatsapp"
+          >
+            Preguntar por WhatsApp
+          </a>
+          <Link href="/contacto" className="btn-ghost">
+            Dejar mis datos
+          </Link>
+        </div>
+      </Reveal>
+    </section>
   );
 }
 
@@ -219,7 +269,7 @@ async function AllVehiclesSection() {
     <section className="surface-black py-24">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal className="mb-12 flex items-center gap-4">
-          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/70">
+          <p className="eyebrow">
             Todos los vehículos · {deduped.length} modelos
           </p>
           <div className="flex-1 border-t border-white/[0.08]" />

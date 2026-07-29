@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { createLeadAction, type CreateLeadResult } from "@/lib/actions/leads";
@@ -8,31 +8,39 @@ import { CLIENT_TYPE_LABELS } from "@/lib/constants";
 
 const initialState: CreateLeadResult = { success: false };
 
-const labelClass =
-  "block text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 mb-2";
-
 export function LeadForm({
   vehicleId,
   modelId,
   source = "contact_form",
+  submitLabel = "Solicitar mi oferta sin compromiso",
 }: {
   vehicleId?: string;
   modelId?: string;
   source?: string;
+  submitLabel?: string;
 }) {
   const pathname = usePathname();
   const [state, formAction, isPending] = useActionState(createLeadAction, initialState);
+  /**
+   * Solo nombre + teléfono a la vista. El resto de campos siguen ahí y se
+   * envían igual, pero pedir ocho datos de golpe para un primer contacto
+   * espanta: quien quiera detallar, los abre.
+   */
+  const [showDetails, setShowDetails] = useState(false);
 
   if (state.success) {
     return (
-      <div className="rounded-2xl border border-[#0068FF]/20 bg-[#0068FF]/[0.06] p-8 text-center">
+      <div
+        className="rounded-2xl border border-[#0068FF]/20 bg-[#0068FF]/[0.06] p-8 text-center"
+        role="status"
+      >
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#0068FF]/15">
           <svg
             width="22"
             height="22"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#0068FF"
+            stroke="#5AA0FF"
             strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -47,7 +55,7 @@ export function LeadForm({
         >
           Solicitud recibida
         </p>
-        <p className="mt-2 text-sm leading-relaxed text-white/70">
+        <p className="mt-2 text-[15px] leading-relaxed text-white/75">
           No tardaremos más de unos minutos en contactar contigo.
         </p>
         {state.whatsappLink && (
@@ -55,7 +63,7 @@ export function LeadForm({
             href={state.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-ghost mt-6 inline-flex"
+            className="btn-whatsapp mt-6 inline-flex"
           >
             Continuar por WhatsApp
           </a>
@@ -79,132 +87,185 @@ export function LeadForm({
         aria-hidden="true"
       />
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className={labelClass}>
-            Nombre
-          </label>
-          <input id="name" name="name" required className="input-glass" placeholder="Tu nombre" />
-        </div>
-        <div>
-          <label htmlFor="lastName" className={labelClass}>
-            Apellidos
+          <label htmlFor="name" className="form-label">
+            Nombre <span className="text-[#FFAFAF]">*</span>
           </label>
           <input
-            id="lastName"
-            name="lastName"
+            id="name"
+            name="name"
+            required
+            autoComplete="given-name"
             className="input-glass"
-            placeholder="Tus apellidos"
+            placeholder="Tu nombre"
           />
         </div>
-      </div>
-      <div>
-        <label htmlFor="company" className={labelClass}>
-          Empresa (opcional)
-        </label>
-        <input
-          id="company"
-          name="company"
-          className="input-glass"
-          placeholder="Nombre de tu empresa"
-        />
-      </div>
-      <div className="grid grid-cols-2 gap-4">
         <div>
-          <label htmlFor="phone" className={labelClass}>
-            Teléfono
+          <label htmlFor="phone" className="form-label">
+            Teléfono <span className="text-[#FFAFAF]">*</span>
           </label>
           <input
             id="phone"
             name="phone"
+            type="tel"
+            inputMode="tel"
             required
+            autoComplete="tel"
             className="input-glass"
             placeholder="600 000 000"
           />
         </div>
-        <div>
-          <label htmlFor="email" className={labelClass}>
-            Email (opcional)
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            className="input-glass"
-            placeholder="tu@email.com"
-          />
-        </div>
-      </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="province" className={labelClass}>
-            Provincia
-          </label>
-          <input
-            id="province"
-            name="province"
-            className="input-glass"
-            placeholder="Madrid"
-          />
-        </div>
-        <div>
-          <label htmlFor="clientType" className={labelClass}>
-            Tipo de cliente
-          </label>
-          <select id="clientType" name="clientType" className="input-glass" defaultValue="">
-            <option value="" disabled>
-              Selecciona una opción
-            </option>
-            {Object.entries(CLIENT_TYPE_LABELS).map(([value, label]) => (
-              <option key={value} value={value}>
-                {label}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-      <div>
-        <label htmlFor="message" className={labelClass}>
-          Mensaje (opcional)
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          className="input-glass resize-none"
-          placeholder="Cuéntanos qué coche buscas o cualquier duda que tengas"
-        />
       </div>
 
-      <label className="flex items-start gap-3 text-[13px] leading-relaxed text-white/70">
+      {!showDetails && (
+        <button
+          type="button"
+          onClick={() => setShowDetails(true)}
+          aria-expanded={false}
+          aria-controls="lead-detalles"
+          className="flex min-h-[40px] items-center gap-2 text-[13.5px] font-semibold text-[#5AA0FF] transition-colors hover:text-white"
+        >
+          <span aria-hidden="true" className="text-[17px] leading-none">
+            +
+          </span>
+          Añadir email, provincia u otros datos (opcional)
+        </button>
+      )}
+
+      <div id="lead-detalles" hidden={!showDetails} className="space-y-5">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label htmlFor="lastName" className="form-label">
+              Apellidos
+            </label>
+            <input
+              id="lastName"
+              name="lastName"
+              autoComplete="family-name"
+              className="input-glass"
+              placeholder="Tus apellidos"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+              className="input-glass"
+              placeholder="tu@email.com"
+            />
+          </div>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label htmlFor="province" className="form-label">
+              Provincia
+            </label>
+            <input
+              id="province"
+              name="province"
+              autoComplete="address-level1"
+              className="input-glass"
+              placeholder="Madrid"
+            />
+          </div>
+          <div>
+            <label htmlFor="clientType" className="form-label">
+              Tipo de cliente
+            </label>
+            <select id="clientType" name="clientType" className="input-glass" defaultValue="">
+              <option value="" disabled>
+                Selecciona una opción
+              </option>
+              {Object.entries(CLIENT_TYPE_LABELS).map(([value, label]) => (
+                <option key={value} value={value}>
+                  {label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div>
+          <label htmlFor="company" className="form-label">
+            Empresa
+          </label>
+          <input
+            id="company"
+            name="company"
+            autoComplete="organization"
+            className="input-glass"
+            placeholder="Nombre de tu empresa"
+          />
+        </div>
+        <div>
+          <label htmlFor="message" className="form-label">
+            Mensaje
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            className="input-glass resize-none"
+            placeholder="Cuéntanos qué coche buscas o cualquier duda que tengas"
+          />
+        </div>
+      </div>
+
+      <label className="flex items-start gap-3 text-[13.5px] leading-relaxed text-white/75">
         <input
           type="checkbox"
           name="rgpd"
           required
-          className="mt-1 h-4 w-4 shrink-0 rounded border-white/20 bg-transparent accent-[#0068FF]"
+          className="mt-0.5 h-5 w-5 shrink-0 rounded border-white/30 bg-transparent accent-[#0068FF]"
         />
         <span>
           He leído y acepto la{" "}
-          <Link href="/politica-privacidad" className="underline hover:text-white/80">
+          <Link
+            href="/politica-privacidad"
+            className="underline underline-offset-2 hover:text-white"
+          >
             política de privacidad
           </Link>{" "}
           de MoviLease.
         </span>
       </label>
 
-      {state.error && (
-        <p className="rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-[13px] text-red-300">
-          {state.error}
-        </p>
-      )}
+      <div aria-live="polite" aria-atomic="true">
+        {state.error && (
+          <p className="rounded-xl border border-red-400/30 bg-red-500/[0.12] px-4 py-3 text-[14px] text-red-200">
+            {state.error}
+          </p>
+        )}
+      </div>
 
-      <button
-        type="submit"
-        disabled={isPending}
-        className="btn-primary w-full justify-center disabled:opacity-40"
-      >
-        {isPending ? "Enviando…" : "Solicitar información"}
+      <button type="submit" disabled={isPending} className="btn-primary btn-lg btn-block">
+        {isPending ? "Enviando…" : submitLabel}
       </button>
+
+      {/* Reduce la ansiedad justo donde se decide el envío */}
+      <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-[12.5px] text-white/70">
+        {["Sin compromiso", "Respuesta en menos de 24 h", "No cedemos tus datos"].map((item) => (
+          <li key={item} className="flex items-center gap-1.5">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="h-3.5 w-3.5 shrink-0">
+              <circle cx="8" cy="8" r="8" fill="#5AA0FF" fillOpacity="0.2" />
+              <path
+                d="M5 8.2l2 2 4-4.4"
+                stroke="#8FBEFF"
+                strokeWidth="1.7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            {item}
+          </li>
+        ))}
+      </ul>
     </form>
   );
 }
