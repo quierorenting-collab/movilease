@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { getCurrentBrand } from "@/lib/brand";
 import { SITE_URL } from "@/lib/constants";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -29,6 +30,9 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s | ${brand.name}`,
     },
     description: brand.description,
+    verification: {
+      google: "pI-BaqPscKQ0D8SPEvg0PIfdRcASlcHuXDNh7dNf_w4",
+    },
   };
 }
 
@@ -39,7 +43,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#050505] text-white">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#050505] text-white">
+        {children}
+        <GoogleAnalytics />
+      </body>
     </html>
   );
 }
