@@ -3,8 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import { buildWhatsAppLink } from "@/lib/constants";
+import { AnimatedCounter } from "@/components/ui/Reveal";
 
-const SESSION_KEY = "qr_popup_v2";
+const SESSION_KEY = "qr_popup_v3";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 /** Páginas que ya tienen el formulario delante: interrumpir ahí solo estorba. */
@@ -14,7 +16,7 @@ export function LeadPopup() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
-  const [form, setForm] = useState({ nombre: "", telefono: "", email: "" });
+  const [form, setForm] = useState({ nombre: "", telefono: "" });
   const [gdpr, setGdpr] = useState(false);
   const firstFieldRef = useRef<HTMLInputElement>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
@@ -115,26 +117,30 @@ export function LeadPopup() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="popup-titulo"
-            className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/12"
+            className="relative w-full max-w-[420px] overflow-hidden rounded-[28px] border border-white/12"
             style={{
-              background: "linear-gradient(160deg, rgba(18,48,104,0.96) 0%, rgba(7,26,61,0.98) 100%)",
+              background: "linear-gradient(165deg, rgba(20,52,112,0.97) 0%, rgba(6,22,52,0.99) 62%, rgba(4,14,33,1) 100%)",
               backdropFilter: "blur(32px)",
               boxShadow:
-                "0 0 0 1px rgba(255,255,255,0.04), 0 24px 80px rgba(0,0,0,0.6), 0 0 120px rgba(0,104,255,0.08)",
+                "0 0 0 1px rgba(255,255,255,0.05), 0 30px 90px rgba(0,0,0,0.65), 0 0 140px rgba(0,104,255,0.1)",
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Ambient glow inside modal */}
+            {/* Top accent line */}
+            <div className="h-[3px] w-full bg-gradient-to-r from-[#0068FF] via-[#5AA0FF] to-[#0068FF]" />
+
+            {/* Ambient glow, pulsing gently for a touch of life */}
             <div
-              className="pointer-events-none absolute -top-24 left-1/2 h-48 w-96 -translate-x-1/2"
+              className="pointer-events-none absolute -top-20 left-1/2 h-56 w-[420px] -translate-x-1/2"
               style={{
-                background: "radial-gradient(ellipse, rgba(0,104,255,0.15) 0%, transparent 70%)",
+                background: "radial-gradient(ellipse, rgba(0,104,255,0.22) 0%, transparent 70%)",
+                animation: "glow-pulse 4s ease-in-out infinite",
               }}
             />
 
             <button
               onClick={close}
-              className="absolute right-5 top-5 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-white/70 transition-all duration-300 hover:border-white/30 hover:text-white"
+              className="absolute right-4 top-[18px] z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/12 text-white/70 transition-all duration-300 hover:border-white/30 hover:bg-white/5 hover:text-white"
               aria-label="Cerrar"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-3.5 w-3.5">
@@ -142,14 +148,14 @@ export function LeadPopup() {
               </svg>
             </button>
 
-            <div className="relative p-9">
+            <div className="relative px-8 pb-8 pt-9 sm:px-9">
               {status === "sent" ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center justify-center gap-4 py-10 text-center"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#0068FF]/10">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#0068FF]/15">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#5AA0FF" strokeWidth="2" className="h-6 w-6">
                       <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -161,19 +167,44 @@ export function LeadPopup() {
                     Mensaje recibido
                   </p>
                   <p className="text-[15px] text-white/75">Te contactamos en menos de 24 h.</p>
-                  <button
-                    onClick={close}
-                    className="btn-ghost btn-sm mt-2"
-                  >
-                    Cerrar
-                  </button>
+                  <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
+                    <a
+                      href={buildWhatsAppLink("Hola, acabo de dejar mis datos en la web y quiero seguir por aquí.")}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-whatsapp btn-sm"
+                      onClick={close}
+                    >
+                      Continuar por WhatsApp
+                    </a>
+                    <button onClick={close} className="btn-ghost btn-sm">
+                      Cerrar
+                    </button>
+                  </div>
                 </motion.div>
               ) : (
                 <>
-                  <p className="section-label mb-4">Asesoramiento gratuito</p>
+                  {/* Trust strip — misma cifra que el resto de la web, aquí como prueba social rápida */}
+                  <div className="mb-5 flex items-center gap-2.5 text-[12.5px] font-medium text-white/70">
+                    <span className="flex gap-0.5">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <svg key={i} viewBox="0 0 12 12" fill="#5AA0FF" className="h-3 w-3">
+                          <path d="M6 0l1.5 4h4.5l-3.5 2.5 1.5 4L6 8.5 2 10.5l1.5-4L0 4h4.5z" />
+                        </svg>
+                      ))}
+                    </span>
+                    <span>
+                      4,9/5 ·{" "}
+                      <span className="font-bold text-white">
+                        <AnimatedCounter value={10000} prefix="+" duration={1.4} />
+                      </span>{" "}
+                      clientes
+                    </span>
+                  </div>
+
                   <h2
                     id="popup-titulo"
-                    className="text-[26px] font-bold leading-tight text-white"
+                    className="text-[27px] font-bold leading-[1.08] text-white"
                     style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.02em" }}
                   >
                     Tu próximo coche,
@@ -185,38 +216,30 @@ export function LeadPopup() {
                   </p>
 
                   <form onSubmit={submit} className="mt-7 flex flex-col gap-3">
-                    <input
-                      ref={firstFieldRef}
-                      type="text"
-                      aria-label="Nombre"
-                      autoComplete="given-name"
-                      placeholder="Nombre"
-                      value={form.nombre}
-                      onChange={(e) => setForm({ ...form, nombre: e.target.value })}
-                      className="input-glass"
-                    />
-                    <input
-                      type="tel"
-                      inputMode="tel"
-                      aria-label="Teléfono"
-                      autoComplete="tel"
-                      placeholder="Teléfono *"
-                      required
-                      value={form.telefono}
-                      onChange={(e) => setForm({ ...form, telefono: e.target.value })}
-                      className="input-glass"
-                    />
-                    <input
-                      type="email"
-                      inputMode="email"
-                      aria-label="Email (opcional)"
-                      autoComplete="email"
-                      placeholder="Email (opcional)"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="input-glass"
-                    />
-                    <label className="mt-1 flex items-start gap-2.5 text-[13px] leading-relaxed text-white/75">
+                    <div className="grid grid-cols-2 gap-3">
+                      <input
+                        ref={firstFieldRef}
+                        type="text"
+                        aria-label="Nombre"
+                        autoComplete="given-name"
+                        placeholder="Nombre"
+                        value={form.nombre}
+                        onChange={(e) => setForm({ ...form, nombre: e.target.value })}
+                        className="input-glass"
+                      />
+                      <input
+                        type="tel"
+                        inputMode="tel"
+                        aria-label="Teléfono"
+                        autoComplete="tel"
+                        placeholder="Teléfono *"
+                        required
+                        value={form.telefono}
+                        onChange={(e) => setForm({ ...form, telefono: e.target.value })}
+                        className="input-glass"
+                      />
+                    </div>
+                    <label className="mt-1 flex items-start gap-2.5 text-[12.5px] leading-relaxed text-white/70">
                       <input
                         type="checkbox"
                         checked={gdpr}
@@ -238,10 +261,13 @@ export function LeadPopup() {
                     <button
                       type="submit"
                       disabled={status === "sending" || !gdpr}
-                      className="btn-primary btn-block mt-3"
+                      className="btn-primary btn-block mt-2"
                     >
                       {status === "sending" ? "Enviando…" : "Quiero que me asesoren"}
                     </button>
+                    <p className="text-center text-[11.5px] text-white/40">
+                      Sin compromiso · Respuesta en menos de 24 h
+                    </p>
                   </form>
                 </>
               )}

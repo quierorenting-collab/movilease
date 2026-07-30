@@ -77,6 +77,14 @@ const FAQ_ITEMS = [
     q: "¿Puedo elegir cualquier coche del catálogo?",
     a: "Sí, el catálogo es el mismo para particulares, autónomos y empresas.",
   },
+  {
+    q: "¿El renting cuenta como gasto en la declaración trimestral?",
+    a: "El renting suele registrarse como gasto corriente de la actividad, dentro de los límites que marque tu caso concreto. Confírmalo con tu gestoría antes de firmar.",
+  },
+  {
+    q: "¿Qué pasa si mi actividad se reduce y necesito dar de baja el vehículo?",
+    a: "Contáctanos y estudiamos tu situación de forma individual; cada contrato se revisa caso a caso.",
+  },
 ];
 
 export default function RentingAutonomosPage() {

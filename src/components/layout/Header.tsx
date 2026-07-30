@@ -11,8 +11,8 @@ const NAV_LINKS = [
   { href: "/catalogo", label: "Catálogo" },
   { href: "/#ofertas", label: "Ofertas" },
   { href: "/calculadora", label: "Calculadora" },
-  { href: "/#por-que", label: "Cómo funciona" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/renting-empresas", label: "Empresas" },
+  { href: "/renting-autonomos", label: "Autónomos" },
   { href: "/contacto", label: "Contacto" },
 ];
 

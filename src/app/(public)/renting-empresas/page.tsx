@@ -77,6 +77,14 @@ const FAQ_ITEMS = [
     q: "¿Puedo combinar varios modelos en la misma flota?",
     a: "Sí. Puedes combinar marcas y modelos según las necesidades de cada puesto o departamento.",
   },
+  {
+    q: "¿El renting empresarial incluye un kilometraje limitado?",
+    a: "Los contratos se calculan sobre un kilometraje anual pactado (habitualmente 15.000 km por vehículo), que ajustamos según el uso real de tu flota.",
+  },
+  {
+    q: "¿Qué duración tienen los contratos?",
+    a: "Trabajamos principalmente contratos de 24 a 48 meses. Cuéntanos tu caso y vemos qué plazo encaja mejor con tu actividad.",
+  },
 ];
 
 export default function RentingEmpresasPage() {
