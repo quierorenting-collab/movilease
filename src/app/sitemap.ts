@@ -21,6 +21,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/calculadora", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/comparador", priority: 0.6, changeFrequency: "monthly" as const },
     { path: "/contacto", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/renting-empresas", priority: 0.75, changeFrequency: "monthly" as const },
+    { path: "/renting-autonomos", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/sobre-nosotros", priority: 0.6, changeFrequency: "monthly" as const },
     { path: "/blog", priority: 0.5, changeFrequency: "weekly" as const },
     { path: "/aviso-legal", priority: 0.2, changeFrequency: "yearly" as const },

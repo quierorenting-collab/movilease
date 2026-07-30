@@ -121,8 +121,9 @@ export async function Footer() {
             <ul role="list" className="flex flex-col gap-3.5">
               {[
                 { label: "Sobre nosotros", href: "/sobre-nosotros" },
+                { label: "Renting empresas", href: "/renting-empresas" },
+                { label: "Renting autónomos", href: "/renting-autonomos" },
                 { label: "Cómo funciona", href: "/#por-que" },
-                { label: "Ofertas", href: "/#ofertas" },
                 { label: "FAQ", href: "/#faq" },
               ].map((l) => (
                 <li key={l.label}>
