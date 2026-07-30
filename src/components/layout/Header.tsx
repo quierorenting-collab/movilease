@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: "/calculadora", label: "Calculadora" },
   { href: "/renting-empresas", label: "Empresas" },
   { href: "/renting-autonomos", label: "Autónomos" },
+  { href: "/sobre-nosotros", label: "Quiénes somos" },
   { href: "/contacto", label: "Contacto" },
 ];
 
