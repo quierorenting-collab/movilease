@@ -490,9 +490,20 @@ export default async function HomePage() {
       </section>
 
 
-      {/* ══ DESTACADOS — dark graphite ════════════════════ */}
+      {/* ══ DESTACADOS — dark graphite con vídeo de fondo ══
+          Coches en un parking en penumbra: encaja con "los más solicitados",
+          pero a brillo bajo para que sean las tarjetas (con los coches reales
+          del catálogo) las que se vean bien, no el vídeo. */}
       {dedupedFeatured.length > 0 && (
-        <section id="catalogo" className="surface-graphite relative overflow-hidden bg-texture-dark section-y">
+        <section id="catalogo" className="surface-graphite relative overflow-hidden section-y">
+          <VideoBackdrop
+            mp4="/videos/destacados.mp4"
+            webm="/videos/destacados.webm"
+            poster="/videos/destacados-poster.webp"
+            base="#123068"
+            filter="brightness(0.4) saturate(0.7) contrast(1.1)"
+            veil="linear-gradient(180deg, rgba(27,78,168,0.75) 0%, rgba(15,47,99,0.85) 45%, rgba(15,47,99,0.95) 100%)"
+          />
           <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
             <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
