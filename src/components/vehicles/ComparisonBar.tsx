@@ -18,6 +18,7 @@ export function ComparisonBar() {
     >
       <div className="glass-dark flex items-center justify-between gap-3 rounded-2xl border border-white/12 px-4 py-3 shadow-float sm:px-5">
         <span
+          aria-live="polite"
           className="text-[14px] font-medium text-white"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >

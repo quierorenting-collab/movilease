@@ -22,28 +22,30 @@ export function RentingCalculator() {
   const pct = ((budget - MIN_BUDGET) / (MAX_BUDGET - MIN_BUDGET)) * 100;
 
   return (
-    <div className="shadow-float rounded-3xl border border-white/8 bg-white/[0.04] p-8 backdrop-blur-xl sm:p-10">
+    <div className="shadow-float rounded-3xl border border-white/12 bg-white/[0.04] p-8 backdrop-blur-xl sm:p-10">
       <label
         htmlFor="budget"
-        className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70"
+        className="form-label"
       >
         Presupuesto mensual
       </label>
 
       <div className="mt-5 flex items-baseline gap-1.5">
         <motion.span
+          aria-hidden="true"
           className="text-6xl font-bold leading-none text-white sm:text-7xl"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           {display}
         </motion.span>
         <span
-          className="text-4xl font-bold text-[#0068FF] sm:text-5xl"
+          aria-hidden="true"
+          className="text-4xl font-bold text-[#5AA0FF] sm:text-5xl"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           €
         </span>
-        <span className="ml-1 text-sm text-white/70">/mes</span>
+        <span aria-hidden="true" className="ml-1 text-[15px] text-white/75">/mes</span>
       </div>
 
       <input
@@ -54,24 +56,26 @@ export function RentingCalculator() {
         step={STEP}
         value={budget}
         onChange={(event) => setBudget(Number(event.target.value))}
+        aria-valuetext={`${budget} euros al mes`}
+        aria-describedby="budget-ayuda"
         style={{
           background: `linear-gradient(to right, #0068FF ${pct}%, rgba(255,255,255,0.08) ${pct}%)`,
         }}
         className="mt-8 h-1.5 w-full cursor-pointer appearance-none rounded-full outline-none [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-[#0068FF] [&::-moz-range-thumb]:shadow-[0_0_0_6px_rgba(0,104,255,0.15)] [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#0068FF] [&::-webkit-slider-thumb]:shadow-[0_0_0_6px_rgba(0,104,255,0.15)]"
       />
-      <div className="mt-2 flex justify-between text-xs text-white/70">
+      <div aria-hidden="true" className="mt-2 flex justify-between text-[13px] text-white/70">
         <span>{MIN_BUDGET}€</span>
         <span>{MAX_BUDGET}€</span>
       </div>
 
-      <p className="mt-8 text-xs leading-relaxed text-white/70">
+      <p id="budget-ayuda" className="mt-8 text-[13.5px] leading-relaxed text-white/75">
         Precio calculado para un contrato de {RENTING_DEFAULTS.contractMonths} meses ·{" "}
         {RENTING_DEFAULTS.annualKm.toLocaleString("es-ES")} km/año · sin entrada.
       </p>
 
       <Link
         href={`/catalogo?maxPrice=${budget}`}
-        className="btn-primary mt-6 w-full justify-center"
+        className="btn-primary btn-block mt-6"
       >
         Ver coches hasta {budget}€/mes
       </Link>

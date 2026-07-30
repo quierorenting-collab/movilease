@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
@@ -16,8 +17,13 @@ const NAV_LINKS = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  /** Sólo las rutas reales pueden marcarse como página actual (no los anclas). */
+  const isCurrent = (href: string) => !href.includes("#") && pathname === href;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -32,13 +38,42 @@ export function Header() {
     };
   }, [mobileOpen]);
 
-  // Escape cierra el menú: salir sin ratón no debería requerir buscar la X
+  /**
+   * Con el menú abierto: Escape cierra y el tabulador queda dentro del panel.
+   * Sin esto, tabular seguía recorriendo la página que hay detrás — invisible
+   * para quien navega con teclado.
+   */
   useEffect(() => {
     if (!mobileOpen) return;
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMobileOpen(false);
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+        return;
+      }
+      if (e.key !== "Tab") return;
+
+      const panel = panelRef.current;
+      if (!panel) return;
+      const focusables = panel.querySelectorAll<HTMLElement>("a[href], button:not([disabled])");
+      if (focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+
+      if (e.shiftKey && (active === first || !panel.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
+
     window.addEventListener("keydown", onKey);
+    // El primer enlace recibe el foco al abrir
+    panelRef.current?.querySelector<HTMLElement>("a[href]")?.focus();
     return () => window.removeEventListener("keydown", onKey);
   }, [mobileOpen]);
 
@@ -81,10 +116,17 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative py-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-white/75 transition-colors duration-300 hover:text-white"
+                aria-current={isCurrent(link.href) ? "page" : undefined}
+                className={`group relative py-2 text-[12px] font-semibold uppercase tracking-[0.12em] transition-colors duration-300 hover:text-white ${
+                  isCurrent(link.href) ? "text-white" : "text-white/75"
+                }`}
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 h-[1.5px] w-0 bg-[#5AA0FF] transition-all duration-300 group-hover:w-full" />
+                <span
+                  className={`absolute bottom-0 left-0 h-[1.5px] bg-[#5AA0FF] transition-all duration-300 group-hover:w-full ${
+                    isCurrent(link.href) ? "w-full" : "w-0"
+                  }`}
+                />
               </Link>
             ))}
           </nav>
@@ -139,6 +181,10 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35 }}
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menú de navegación"
             className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-[#071A3D]/98 px-7 pb-10 pt-[104px] backdrop-blur-xl lg:hidden"
           >
             <nav aria-label="Navegación principal" className="flex flex-1 flex-col justify-center">
@@ -154,7 +200,8 @@ export function Header() {
                     <Link
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block py-4 text-[28px] font-bold leading-tight text-white transition-colors hover:text-[#5AA0FF]"
+                      aria-current={isCurrent(link.href) ? "page" : undefined}
+                      className="block py-4 text-[28px] font-bold leading-tight text-white transition-colors hover:text-[#5AA0FF] aria-[current=page]:text-[#5AA0FF]"
                       style={{ fontFamily: "var(--font-space-grotesk)" }}
                     >
                       {link.label}

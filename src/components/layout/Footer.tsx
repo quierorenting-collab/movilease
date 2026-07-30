@@ -94,11 +94,9 @@ export async function Footer() {
           </div>
 
           {/* Plataforma */}
-          <div>
-            <p className="eyebrow mb-6">
-              Plataforma
-            </p>
-            <ul className="flex flex-col gap-3.5">
+          <nav aria-label="Plataforma">
+            <p className="eyebrow mb-6">Plataforma</p>
+            <ul role="list" className="flex flex-col gap-3.5">
               {[
                 { label: "Catálogo", href: "/catalogo" },
                 { label: "Calculadora", href: "/calculadora" },
@@ -115,14 +113,12 @@ export async function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Empresa */}
-          <div>
-            <p className="eyebrow mb-6">
-              Empresa
-            </p>
-            <ul className="flex flex-col gap-3.5">
+          <nav aria-label="Empresa">
+            <p className="eyebrow mb-6">Empresa</p>
+            <ul role="list" className="flex flex-col gap-3.5">
               {[
                 { label: "Sobre nosotros", href: "/sobre-nosotros" },
                 { label: "Cómo funciona", href: "/#por-que" },
@@ -139,14 +135,12 @@ export async function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Contacto + Legal */}
-          <div>
-            <p className="eyebrow mb-6">
-              Contacto
-            </p>
-            <ul className="flex flex-col gap-3.5">
+          <nav aria-label="Contacto y legal">
+            <p className="eyebrow mb-6">Contacto</p>
+            <ul role="list" className="flex flex-col gap-3.5">
               <li>
                 <a
                   href={`mailto:${CONTACT.email}`}
@@ -170,7 +164,7 @@ export async function Footer() {
             <p className="eyebrow mb-4 mt-9">
               Legal
             </p>
-            <ul className="flex flex-col gap-3.5">
+            <ul role="list" className="flex flex-col gap-3.5">
               {[
                 { label: "Aviso legal", href: "/aviso-legal" },
                 { label: "Privacidad", href: "/politica-privacidad" },
@@ -186,14 +180,14 @@ export async function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
         </div>
 
         {/* Marcas destacadas — enlazado interno hacia las vistas por marca */}
         {topBrands.length > 0 && (
           <nav aria-label="Marcas destacadas" className="mt-16 border-t border-white/10 pt-10">
             <p className="eyebrow mb-5">Renting por marca</p>
-            <ul className="flex flex-wrap gap-x-2 gap-y-2">
+            <ul role="list" className="flex flex-wrap gap-x-2 gap-y-2">
               {topBrands.map((brand) => (
                 <li key={brand.href}>
                   <Link
