@@ -42,9 +42,9 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
       </div>
 
       {/* Brand name */}
-      <div className="px-6 pt-5">
+      <div className="px-5 pt-5">
         <p
-          className="text-[20px] font-bold leading-none text-[#0A0A0A]"
+          className="text-[19px] font-bold leading-tight text-[#0A0A0A]"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           {brand.brandName}
@@ -55,23 +55,32 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
         </p>
       </div>
 
-      {/* Footer — en móvil la tarjeta mide ~174px: en fila el CTA se cortaba */}
-      <div className="flex flex-col gap-3 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[#6B7280]">
-            desde
-          </p>
-          <p
-            className="text-[19px] font-bold leading-none text-[#0A0A0A]"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
+      {/*
+        Footer en dos filas fijas, nunca precio y CTA en la misma línea: en la
+        rejilla de 5 columnas la tarjeta mide ~200 px y no caben juntos, y los
+        breakpoints sm: no sirven porque miran el ancho de la ventana, no el de
+        la tarjeta. Mismo patrón que el pie de VehicleCard.
+      */}
+      <div className="mt-auto px-5 pb-4 pt-4">
+        <p className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[#6B7280]">
+          desde
+        </p>
+        <p
+          className="mt-1 text-[22px] font-bold leading-none text-[#0A0A0A]"
+          style={{ fontFamily: "var(--font-space-grotesk)" }}
+        >
+          {brand.cheapestPriceLabel}
+          <span className="ml-1 text-[12px] font-medium text-[#5B6472]">/mes</span>
+        </p>
+
+        <span className="mt-4 flex items-center justify-between gap-2 border-t border-[#EDEFF2] pt-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#0057D6]">
+          <span className="whitespace-nowrap">Ver modelos</span>
+          <span
+            aria-hidden="true"
+            className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
           >
-            {brand.cheapestPriceLabel}
-            <span className="ml-0.5 text-[12px] font-medium text-[#5B6472]">/mes</span>
-          </p>
-        </div>
-        <span className="flex items-center gap-1.5 text-[11.5px] font-bold uppercase tracking-[0.12em] text-[#0057D6] transition-all duration-300 group-hover:gap-3">
-          Ver modelos
-          <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            →
+          </span>
         </span>
       </div>
     </Link>
