@@ -10,6 +10,7 @@ import { HeroContent } from "@/components/home/HeroContent";
 import { FAQAccordion } from "@/components/home/FAQAccordion";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { Reveal, RevealGroup, RevealItem, AnimatedCounter } from "@/components/ui/Reveal";
+import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import {
   FaqJsonLd,
   OrganizationJsonLd,
@@ -18,6 +19,14 @@ import {
 import { pageMetadata } from "@/lib/metadata";
 
 export const revalidate = 3600;
+
+/**
+ * Vídeo de fondo de la sección de ofertas. Se pone a true en el mismo commit
+ * en que entran los archivos en public/videos/ (ver
+ * scripts/build-section-video.mjs). Mientras siga en false la sección usa sólo
+ * el fondo claro y no pide archivos que no existen.
+ */
+const OFERTAS_VIDEO = false;
 
 export const metadata: Metadata = pageMetadata({
   title: "Renting de coches sin entrada | Todo incluido",
@@ -205,27 +214,42 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ OFERTAS — dark cinematic ══════════════════════ */}
+      {/* ══ OFERTAS — fondo claro con vídeo de tráfico ═════
+          Las tarjetas son azul marino oscuro: sobre claro destacan mucho más
+          que sobre el azul oscuro anterior, así que el bloque gana presencia
+          sin tocar las tarjetas. El vídeo va detrás de un velo claro, que es
+          lo que mantiene legible el texto. */}
+      {/* El fondo claro va en la propia sección, no sólo en el backdrop: si el
+          vídeo o el póster fallasen, el texto en tinta oscura quedaría sobre el
+          azul marino del body y sería ilegible. */}
       {dedupedOffers.length > 0 && (
-        <section
-          id="ofertas"
-          className="surface-black ambient-blue-top relative overflow-hidden section-y"
-        >
+        <section id="ofertas" className="relative overflow-hidden bg-[#F4F6FA] section-y">
+          <VideoBackdrop
+            mp4={OFERTAS_VIDEO ? "/videos/ofertas.mp4" : undefined}
+            webm={OFERTAS_VIDEO ? "/videos/ofertas.webm" : undefined}
+            poster={OFERTAS_VIDEO ? "/videos/ofertas-poster.webp" : undefined}
+          />
+
           <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
             <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="section-label mb-5">Disponibilidad limitada</p>
-                <h2 className="display-md text-white">
+                {/* .section-label es CSS sin capa y gana a las utilidades de
+                    Tailwind, de ahi el estilo en linea. #0068FF sobre este gris
+                    azulado se queda en 4,39:1, justo por debajo de AA. */}
+                <p className="section-label mb-5" style={{ color: "#0057D6" }}>
+                  Disponibilidad limitada
+                </p>
+                <h2 className="display-md text-[#0A0A0A]">
                   Ofertas
                   <br />
-                  <span className="text-[#0068FF]">exclusivas.</span>
+                  <span className="text-[#0057D6]">exclusivas.</span>
                 </h2>
               </div>
               <a
                 href={buildWhatsAppLink("Hola, me interesan las ofertas exclusivas.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group hidden items-center gap-2 py-3 text-[12px] font-bold uppercase tracking-[0.14em] text-white/70 transition-colors hover:text-white sm:flex"
+                className="group hidden items-center gap-2 py-3 text-[12px] font-bold uppercase tracking-[0.14em] text-[#4B5563] transition-colors hover:text-[#0057D6] sm:flex"
               >
                 Consultar todas
                 <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
@@ -245,7 +269,10 @@ export default async function HomePage() {
                     mismo reparto que VehicleCard (el botón de WhatsApp queda
                     fuera del enlace, no se pueden anidar).
                   */}
-                  <div className="card-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/12 bg-gradient-to-b from-[#1B4080] to-[#0C2454] hover:border-[#5AA0FF]/40">
+                  <div
+                    className="card-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#0C2454]/20 bg-gradient-to-b from-[#1B4080] to-[#0C2454] hover:border-[#5AA0FF]/50"
+                    style={{ boxShadow: "0 18px 40px rgba(7,26,61,0.22)" }}
+                  >
                     <Link
                       href={`/${vehicle.modelSlug}`}
                       className="flex flex-1 flex-col"
@@ -390,7 +417,7 @@ export default async function HomePage() {
             <div className="overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] backdrop-blur">
               {/* Header */}
               <div className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-white/[0.08] bg-white/[0.02] px-6 py-5 sm:px-10">
-                <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-white/75">
+                <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-white/90">
                   Comparativa
                 </span>
                 <span
@@ -399,7 +426,7 @@ export default async function HomePage() {
                 >
                   MoviLease
                 </span>
-                <span className="w-[100px] text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-white/75 sm:w-[140px]">
+                <span className="w-[100px] text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-white/90 sm:w-[140px]">
                   Compra
                 </span>
               </div>
@@ -410,7 +437,7 @@ export default async function HomePage() {
                   key={row.feature}
                   className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-white/5 px-6 py-5 transition-colors last:border-0 hover:bg-white/[0.03] sm:px-10"
                 >
-                  <span className="text-[14.5px] font-medium text-white/85">{row.feature}</span>
+                  <span className="text-[14.5px] font-medium text-white/95">{row.feature}</span>
                   <span className="flex w-[100px] items-center justify-center gap-1.5 sm:w-[140px]">
                     <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0">
                       <circle cx="8" cy="8" r="8" fill="#0068FF" fillOpacity="0.15" />
@@ -424,7 +451,7 @@ export default async function HomePage() {
                     </svg>
                     <span className="text-[13px] font-semibold text-white">{row.movilease}</span>
                   </span>
-                  <span className="w-[100px] text-center text-[13px] text-white/75 sm:w-[140px]">
+                  <span className="w-[100px] text-center text-[13px] text-white/90 sm:w-[140px]">
                     {row.dealer}
                   </span>
                 </div>

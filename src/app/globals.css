@@ -96,6 +96,7 @@
 /* Elementos fijos del pie: siempre por encima del carril reservado */
 .bottom-fab { bottom: calc(1.5rem + var(--bottom-inset)); }
 .bottom-bar { bottom: calc(1rem + var(--bottom-inset)); }
+.bottom-dock { bottom: var(--bottom-inset); }
 
 /* ══════════════════════════════════════════════════
    REVEAL AL HACER SCROLL (ver components/ui/Reveal.tsx)
@@ -726,7 +727,9 @@ select.input-glass option { background: var(--dark-2); color: #fff; }
 .surface-black    { background: #071A3D; }
 .surface-dark     { background: #0C2454; }
 .surface-graphite { background: linear-gradient(180deg, #1B4EA8 0%, #0F2F63 100%); }
-.surface-carbon   { background: linear-gradient(160deg, #2563EB 0%, #123068 60%, #071A3D 100%); }
+/* #2563EB como primer alto dejaba el texto blanco/70 en 3,6:1 en la zona
+   clara del degradado; #1E4FA0 lo sube a 4,7:1 sin salir de la paleta. */
+.surface-carbon   { background: linear-gradient(160deg, #1E4FA0 0%, #123068 55%, #071A3D 100%); }
 
 .card-dark {
   border-radius: var(--radius-lg);
