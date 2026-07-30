@@ -53,16 +53,17 @@ export function HeroContent() {
             </span>
           </motion.div>
 
-          {/* Headline — massive editorial */}
+          {/* Headline — massive editorial. El slogan de marca, aquí en
+              grande, en vez de como texto pequeño junto al logo del header. */}
           <h1 className="hero-headline text-white">
             <span className="block overflow-hidden">
               <motion.span variants={rise(1)} initial="hidden" animate="visible" className="block">
-                Estrena coche
+                Hazlo fácil.
               </motion.span>
             </span>
             <span className="block overflow-hidden">
               <motion.span variants={rise(2)} initial="hidden" animate="visible" className="block">
-                sin <span className="text-[#0068FF]">complicaciones.</span>
+                Hazlo <span className="text-[#0068FF]">MoviLease.</span>
               </motion.span>
             </span>
           </h1>

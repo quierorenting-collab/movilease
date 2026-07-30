@@ -85,9 +85,9 @@ export function Header() {
       </a>
 
       <motion.header
-        initial={{ y: -80, opacity: 0 }}
+        initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.45, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed left-0 right-0 top-0 z-50 bg-white transition-all duration-500 ${
           scrolled ? "shadow-[0_8px_28px_rgba(10,10,10,0.12)]" : "shadow-[0_2px_16px_rgba(10,10,10,0.06)]"
         }`}
@@ -97,14 +97,14 @@ export function Header() {
             scrolled ? "h-[72px]" : "h-[88px]"
           }`}
         >
-          {/* Logo — banda blanca de cabecera, así que va con sus colores
-              reales en vez del blanco sólido que hacía falta sobre fondo
-              oscuro. El eslogan es texto real (HTML), no forma parte del
-              SVG: no hacía falta generar un logo nuevo para cambiarlo. */}
+          {/* Logo — banda blanca de cabecera, con sus colores reales en vez
+              del blanco sólido que hacía falta sobre fondo oscuro. El
+              slogan ya no va aquí en pequeño: está en grande en el titular
+              del hero, mismo sitio donde antes decía "Estrena coche". */}
           <Link
             href="/"
             aria-label="MoviLease — ir a la portada"
-            className="flex shrink-0 items-center gap-3 transition-all duration-500"
+            className="flex shrink-0 items-center transition-all duration-500"
           >
             <Logo
               variant="color"
@@ -114,15 +114,10 @@ export function Header() {
                   : "h-9 sm:h-12 lg:h-[60px]"
               }`}
             />
-            <span className="hidden border-l border-[#0A0A0A]/15 pl-3 text-[11px] font-semibold leading-tight text-[#4B5563] md:block">
-              Hazlo fácil.
-              <br />
-              Hazlo <span className="font-bold text-[#0068FF]">MoviLease</span>.
-            </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav aria-label="Navegación principal" className="hidden items-center gap-7 lg:flex">
+          <nav aria-label="Navegación principal" className="hidden items-center gap-6 lg:flex xl:gap-7">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -143,7 +138,7 @@ export function Header() {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-3 sm:gap-4">
             <a
               href={buildWhatsAppLink("Hola, me interesa el renting de coches.")}
               target="_blank"
