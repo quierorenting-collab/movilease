@@ -328,46 +328,76 @@ summary:focus-visible,
 }
 
 /*
- * Fondo de la sección de marcas: dos glows azules en las esquinas + una
- * malla de puntos que se desvanece hacia el centro + un par de curvas finas
- * tipo "swoosh". Todo en CSS/SVG inline en vez de una imagen de fondo:
- * escala a cualquier alto de sección (la rejilla de marcas cambia de tamaño
- * según el catálogo) sin recortarse ni repetirse, y no añade ninguna
- * petición de red.
+ * Textura de fondo reutilizable: dos glows azules en esquinas opuestas + una
+ * malla de puntos que se concentra en esas mismas esquinas + un par de
+ * curvas finas tipo "swoosh" de punta a punta. Todo en CSS/SVG inline en vez
+ * de una imagen: escala a cualquier alto de sección sin recortarse ni
+ * repetirse, y no añade ninguna petición de red. Dos variantes según el
+ * fondo de la sección — dots/curvas más suaves en claro, más luminosos en
+ * oscuro para que se noten sobre el azul marino.
+ *
+ * Uso: añadir bg-texture-light o bg-texture-dark junto a la clase de fondo
+ * de la sección (bg-white, surface-graphite...). La sección necesita
+ * `relative overflow-hidden` y su contenido `relative z-10` para quedar
+ * por encima.
  */
-.surface-marcas {
-  position: relative;
-  background:
-    radial-gradient(ellipse 900px 500px at 100% 0%, rgba(0,104,255,0.10) 0%, transparent 60%),
-    radial-gradient(ellipse 900px 600px at 0% 100%, rgba(0,104,255,0.09) 0%, transparent 55%),
-    #FAFAFA;
-}
-.surface-marcas::before {
+.bg-texture-light::before,
+.bg-texture-dark::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(0,104,255,0.16) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-repeat: no-repeat;
   -webkit-mask-image:
     radial-gradient(ellipse 55% 45% at 96% 4%, black 0%, transparent 72%),
     radial-gradient(ellipse 55% 45% at 4% 96%, black 0%, transparent 72%);
-  -webkit-mask-composite: source-over;
   mask-image:
     radial-gradient(ellipse 55% 45% at 96% 4%, black 0%, transparent 72%),
     radial-gradient(ellipse 55% 45% at 4% 96%, black 0%, transparent 72%);
-  mask-composite: add;
   pointer-events: none;
   z-index: 0;
 }
-.surface-marcas::after {
+.bg-texture-light::after,
+.bg-texture-dark::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'%3E%3Cpath d='M-100 60 C 300 180, 700 -40, 1700 140' stroke='%230068FF' stroke-opacity='0.14' stroke-width='1.5' fill='none'/%3E%3Cpath d='M-100 860 C 400 700, 900 960, 1700 780' stroke='%230068FF' stroke-opacity='0.12' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   pointer-events: none;
   z-index: 0;
+}
+
+.bg-texture-light {
+  position: relative;
+}
+.bg-texture-light::before {
+  background-image:
+    radial-gradient(ellipse 900px 500px at 100% 0%, rgba(0,104,255,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 900px 600px at 0% 100%, rgba(0,104,255,0.09) 0%, transparent 55%),
+    radial-gradient(rgba(0,104,255,0.16) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 24px 24px;
+}
+.bg-texture-light::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%230068FF' stop-opacity='0'/%3E%3Cstop offset='38%25' stop-color='%230068FF' stop-opacity='0.35'/%3E%3Cstop offset='52%25' stop-color='%230068FF' stop-opacity='0.6'/%3E%3Cstop offset='68%25' stop-color='%230068FF' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%230068FF' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M-100 700 C 300 750, 900 350, 1700 250' stroke='url(%23g)' stroke-width='2' fill='none'/%3E%3Cpath d='M-100 735 C 320 785, 920 395, 1700 295' stroke='%230068FF' stroke-opacity='0.07' stroke-width='1' fill='none'/%3E%3Cpath d='M-100 765 C 340 815, 940 435, 1700 335' stroke='%230068FF' stroke-opacity='0.055' stroke-width='1' fill='none'/%3E%3Cpath d='M-100 60 C 300 180, 700 -40, 1700 140' stroke='%230068FF' stroke-opacity='0.1' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+}
+
+.bg-texture-dark {
+  position: relative;
+}
+.bg-texture-dark::before {
+  background-image:
+    radial-gradient(ellipse 900px 500px at 100% 0%, rgba(0,104,255,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 900px 600px at 0% 100%, rgba(90,160,255,0.16) 0%, transparent 55%),
+    radial-gradient(rgba(90,160,255,0.22) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 24px 24px;
+}
+.bg-texture-dark::after {
+  /* Curva principal con un "glint" (degradado que pasa de azul apagado a un
+     azul casi blanco en el centro) más un abanico de líneas finas debajo,
+     igual que la referencia que pasó Adrián — mismo lenguaje que la curva
+     suelta que ya había en la versión clara, pero más marcado porque aquí
+     hay más contraste disponible sobre el azul marino. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%235AA0FF' stop-opacity='0'/%3E%3Cstop offset='38%25' stop-color='%235AA0FF' stop-opacity='0.55'/%3E%3Cstop offset='52%25' stop-color='%23BFE0FF' stop-opacity='0.95'/%3E%3Cstop offset='68%25' stop-color='%235AA0FF' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%235AA0FF' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M-100 700 C 300 750, 900 350, 1700 250' stroke='url(%23g)' stroke-width='2.5' fill='none'/%3E%3Cpath d='M-100 735 C 320 785, 920 395, 1700 295' stroke='%235AA0FF' stroke-opacity='0.12' stroke-width='1' fill='none'/%3E%3Cpath d='M-100 765 C 340 815, 940 435, 1700 335' stroke='%235AA0FF' stroke-opacity='0.09' stroke-width='1' fill='none'/%3E%3Cpath d='M-100 795 C 360 845, 960 475, 1700 375' stroke='%235AA0FF' stroke-opacity='0.06' stroke-width='1' fill='none'/%3E%3Cpath d='M-100 60 C 300 180, 700 -40, 1700 140' stroke='%235AA0FF' stroke-opacity='0.12' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
 }
 
 /* ══════════════════════════════════════════════════

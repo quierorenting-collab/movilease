@@ -98,15 +98,21 @@ export function Header() {
             scrolled ? "h-[72px]" : "h-[88px]"
           }`}
         >
-          {/* Logo */}
+          {/* Logo — blanco, directo sobre el header oscuro. Antes iba en una
+              caja blanca pensada para un icono pequeño; con el SVG recortado
+              a su contenido real (venía con muchísimo margen vacío en el
+              viewBox, por eso se veía diminuto) ya no hace falta. */}
           <Link
             href="/"
             aria-label="MoviLease — ir a la portada"
-            className="shrink-0 rounded-xl bg-white px-3.5 py-2 shadow-lg shadow-black/15 transition-all duration-500 sm:px-4"
+            className="shrink-0 transition-all duration-500"
           >
             <Logo
-              height={scrolled ? 44 : 54}
-              className="transition-all duration-500"
+              className={`w-auto transition-all duration-500 ${
+                scrolled
+                  ? "h-8 sm:h-10 lg:h-[52px]"
+                  : "h-9 sm:h-12 lg:h-[60px]"
+              }`}
             />
           </Link>
 

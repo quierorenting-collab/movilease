@@ -135,8 +135,8 @@ export default async function HomePage() {
       </section>
 
       {/* ══ STATS — dark graphite, huge numbers ═══════════ */}
-      <section className="surface-graphite relative section-y">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+      <section className="surface-graphite relative overflow-hidden bg-texture-dark section-y">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
           <div className="grid grid-cols-2 gap-14 sm:grid-cols-4 sm:gap-0">
             {STATS.map((s, i) => (
               <Reveal
@@ -181,7 +181,7 @@ export default async function HomePage() {
       </section>
 
       {/* ══ MARCAS — premium white ════════════════════════ */}
-      <section id="marcas" className="surface-marcas overflow-hidden section-y">
+      <section id="marcas" className="relative overflow-hidden bg-[#FAFAFA] bg-texture-light section-y">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
           <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -365,8 +365,8 @@ export default async function HomePage() {
       )}
 
       {/* ══ PROCESO — premium white contrast ══════════════ */}
-      <section id="por-que" className="bg-white section-y">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+      <section id="por-que" className="relative overflow-hidden bg-white bg-texture-light section-y">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
           <Reveal className="section-head max-w-2xl">
             <p className="section-label section-label-on-light mb-5">El proceso</p>
             <h2 className="display-md text-[#0A0A0A]">
@@ -405,8 +405,8 @@ export default async function HomePage() {
       </section>
 
       {/* ══ COMPARISON — dark glass table ═════════════════ */}
-      <section className="surface-carbon section-y">
-        <div className="mx-auto max-w-5xl px-6 sm:px-10">
+      <section className="surface-carbon relative overflow-hidden bg-texture-dark section-y">
+        <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-10">
           <Reveal className="section-head text-center">
             <p className="section-label mb-5">La diferencia</p>
             <h2 className="display-md text-white">
@@ -481,8 +481,8 @@ export default async function HomePage() {
 
       {/* ══ DESTACADOS — dark graphite ════════════════════ */}
       {dedupedFeatured.length > 0 && (
-        <section id="catalogo" className="surface-graphite section-y">
-          <div className="mx-auto max-w-7xl px-6 sm:px-10">
+        <section id="catalogo" className="surface-graphite relative overflow-hidden bg-texture-dark section-y">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
             <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="section-label mb-5">Selección de la semana</p>
@@ -522,32 +522,7 @@ export default async function HomePage() {
       )}
 
       {/* ══ TESTIMONIOS — dark cards ══════════════════════ */}
-      <section className="surface-black ambient-blue-top relative overflow-hidden section-y">
-        {/* Foto decorativa detrás del titular — sólo escritorio, se funde con
-            el fondo oscuro por los cuatro lados para no competir con las
-            tarjetas de testimonios, que van encima en su propia capa. */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[38%] lg:block"
-        >
-          <Image
-            src="/confianza-car.webp"
-            alt=""
-            fill
-            sizes="38vw"
-            className="object-cover object-center"
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(90deg, #071A3D 0%, rgba(7,26,61,0.88) 20%, rgba(7,26,61,0.35) 52%, transparent 78%)",
-            }}
-          />
-          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#071A3D] to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#071A3D] to-transparent" />
-        </div>
-
+      <section className="surface-black ambient-blue-top relative overflow-hidden bg-texture-dark section-y">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
           <Reveal className="section-head">
             <p className="section-label mb-5">Clientes reales</p>
@@ -592,8 +567,8 @@ export default async function HomePage() {
       </section>
 
       {/* ══ FAQ — dark with light accordion card ══════════ */}
-      <section id="faq" className="surface-dark section-y">
-        <div className="mx-auto max-w-4xl px-6 sm:px-10">
+      <section id="faq" className="surface-dark relative overflow-hidden bg-texture-dark section-y">
+        <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-10">
           <Reveal className="section-head">
             <p className="section-label mb-5">FAQ</p>
             <h2 className="display-md text-white">
@@ -619,7 +594,7 @@ export default async function HomePage() {
           sin salir de la home. Ahora el formulario está aquí mismo. */}
       <section
         id="solicitar"
-        className="surface-black ambient-blue relative overflow-hidden section-y"
+        className="surface-black ambient-blue relative overflow-hidden bg-texture-dark section-y"
       >
         <div className="relative z-10 mx-auto grid max-w-6xl gap-14 px-6 sm:px-10 lg:grid-cols-[1fr_460px] lg:items-center lg:gap-20">
           <Reveal>
