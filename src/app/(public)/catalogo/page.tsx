@@ -65,6 +65,9 @@ export default async function CatalogoPage({
   const brandParam = params.brand?.toLowerCase();
   const category = params.category as VehicleCategoryEnum | undefined;
   const fuelType = params.fuel as FuelTypeEnum | undefined;
+  const maxPriceRaw = Number(params.maxPrice);
+  const maxPrice =
+    Number.isFinite(maxPriceRaw) && maxPriceRaw > 0 ? Math.round(maxPriceRaw) : undefined;
 
   const { brands, vehiclesByBrand } = await getVehiclesByBrand();
 
@@ -81,6 +84,9 @@ export default async function CatalogoPage({
     const filtered = brandVehicles.filter((v) => {
       if (category && v.category !== category) return false;
       if (fuelType && v.fuelType !== fuelType) return false;
+      if (maxPrice && v.monthlyPriceCents !== undefined && v.monthlyPriceCents > maxPrice * 100) {
+        return false;
+      }
       return true;
     });
 
@@ -290,7 +296,7 @@ export default async function CatalogoPage({
       </section>
 
       {/* All vehicles flat view for SEO */}
-      <AllVehiclesSection />
+      <AllVehiclesSection maxPrice={maxPrice} />
 
       <CatalogCta
         title="Dinos qué coche quieres y te lo calculamos"
@@ -339,10 +345,30 @@ function CatalogCta({
   );
 }
 
-async function AllVehiclesSection() {
-  const vehicles = await getCatalogVehicles({});
+async function AllVehiclesSection({ maxPrice }: { maxPrice?: number }) {
+  const vehicles = await getCatalogVehicles({ maxPriceEuros: maxPrice });
 
-  if (vehicles.length === 0) return null;
+  if (vehicles.length === 0) {
+    if (!maxPrice) return null;
+    return (
+      <section className="surface-black py-24">
+        <div className="mx-auto max-w-xl px-6 text-center sm:px-10">
+          <h2 className="display-sm text-white">Nada por debajo de {maxPrice} €/mes</h2>
+          <p className="mt-4 text-[15px] leading-relaxed text-white/75">
+            Ajusta el presupuesto o dinos qué buscas y te proponemos alternativas.
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link href="/calculadora" className="btn-ghost">
+              Cambiar presupuesto
+            </Link>
+            <Link href="/catalogo" className="btn-primary">
+              Ver todo el catálogo
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   // Dedup by model slug
   const seen = new Set<string>();
@@ -357,12 +383,21 @@ async function AllVehiclesSection() {
   return (
     <section className="surface-black py-24">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
-        <Reveal className="mb-12 flex items-center gap-4">
+        <Reveal className="mb-12 flex flex-wrap items-center gap-4">
           <h2 className="display-sm shrink-0 text-white">
-            Todos los modelos{" "}
+            {maxPrice ? `Hasta ${maxPrice} €/mes` : "Todos los modelos"}{" "}
             <span className="text-[#5AA0FF]">({deduped.length})</span>
           </h2>
-          <div className="flex-1 border-t border-white/[0.08]" />
+          <div className="hidden flex-1 border-t border-white/[0.08] sm:block" />
+          {maxPrice && (
+            <Link
+              href="/catalogo"
+              className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-white/20 px-4 text-[13px] font-semibold text-white/80 transition-colors hover:border-white/45 hover:text-white"
+            >
+              <span aria-hidden="true">×</span>
+              Quitar filtro de precio
+            </Link>
+          )}
         </Reveal>
         <RevealGroup
           stagger={0.03}

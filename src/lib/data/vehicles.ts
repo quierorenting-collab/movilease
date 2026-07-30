@@ -15,6 +15,11 @@ export interface VehicleCardData {
   modelSlug: string;
   version: string;
   priceLabel: string;
+  /**
+   * Precio en céntimos, para filtrar por tope sin reparsear la etiqueta.
+   * Opcional: hay orígenes de tarjeta que no lo traen.
+   */
+  monthlyPriceCents?: number;
   imageUrl: string | null;
   category: VehicleCategoryEnum;
   fuelType: FuelTypeEnum;
@@ -71,6 +76,7 @@ async function attachModelsAndBrands(vehicles: CardRow[]): Promise<VehicleCardDa
       modelSlug: model?.slug ?? "",
       version: v.version,
       priceLabel: formatPriceFromCents(v.monthly_price_cents),
+      monthlyPriceCents: v.monthly_price_cents,
       imageUrl: v.main_image_url,
       category: v.category,
       fuelType: v.fuel_type,
