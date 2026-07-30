@@ -238,46 +238,63 @@ export default async function HomePage() {
             >
               {dedupedOffers.map((vehicle) => (
                 <RevealItem key={vehicle.id}>
-                  <div className="group relative h-full overflow-hidden rounded-2xl border border-white/12 bg-gradient-to-b from-[#1B4080] to-[#0C2454] transition-all duration-500 hover:border-[#0068FF]/25 hover:shadow-[0_20px_60px_rgba(0,104,255,0.12)]">
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      {vehicle.imageUrl ? (
-                        /* next/image en lugar de <img> crudo: sirve WebP/AVIF
-                           al tamaño real de la tarjeta en vez de la foto
-                           original completa. */
-                        <Image
-                          src={vehicle.imageUrl}
-                          alt={`${vehicle.brandName} ${vehicle.modelName}`}
-                          fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                        />
-                      ) : (
-                        <div className="flex h-full items-center justify-center text-7xl font-bold text-white/30">
-                          {vehicle.brandName.charAt(0)}
+                  {/*
+                    La tarjeta era un <div> con un único enlace a WhatsApp:
+                    pinchar la foto o el nombre no llevaba a la ficha. Ahora la
+                    imagen y el título son un enlace real a /[modelo], con el
+                    mismo reparto que VehicleCard (el botón de WhatsApp queda
+                    fuera del enlace, no se pueden anidar).
+                  */}
+                  <div className="card-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/12 bg-gradient-to-b from-[#1B4080] to-[#0C2454] hover:border-[#5AA0FF]/40">
+                    <Link
+                      href={`/${vehicle.modelSlug}`}
+                      className="flex flex-1 flex-col"
+                      aria-label={`Ver ficha del ${vehicle.brandName} ${vehicle.modelName}`}
+                    >
+                      <div className="relative aspect-[4/3] overflow-hidden">
+                        {vehicle.imageUrl ? (
+                          /* next/image en lugar de <img> crudo: sirve WebP/AVIF
+                             al tamaño real de la tarjeta en vez de la foto
+                             original completa. */
+                          <Image
+                            src={vehicle.imageUrl}
+                            alt={`${vehicle.brandName} ${vehicle.modelName}`}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="flex h-full items-center justify-center text-7xl font-bold text-white/30">
+                            {vehicle.brandName.charAt(0)}
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1B4080] via-transparent to-transparent" />
+                        <div className="absolute left-4 top-4">
+                          <span className="rounded-full bg-[#0068FF] px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.14em] text-white shadow-lg shadow-[#0068FF]/30">
+                            Oferta
+                          </span>
                         </div>
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1B4080] via-transparent to-transparent" />
-                      <div className="absolute left-4 top-4">
-                        <span className="rounded-full bg-[#0068FF] px-3.5 py-1.5 text-[9px] font-bold uppercase tracking-[0.18em] text-white shadow-lg shadow-[#0068FF]/30">
-                          Oferta
-                        </span>
                       </div>
-                    </div>
-                    <div className="p-6">
-                      <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/75">
-                        {vehicle.brandName}
-                      </p>
-                      <p
-                        className="mt-1 text-[19px] font-bold leading-tight text-white"
-                        style={{ fontFamily: "var(--font-space-grotesk)" }}
-                      >
-                        {vehicle.modelName}
-                      </p>
-                      <div className="mt-5 flex items-end justify-between">
+
+                      <div className="px-6 pb-2 pt-5">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/75">
+                          {vehicle.brandName}
+                        </p>
+                        <h3
+                          className="mt-1 text-[20px] font-bold leading-tight text-white"
+                          style={{ fontFamily: "var(--font-space-grotesk)" }}
+                        >
+                          {vehicle.modelName}
+                        </h3>
+                      </div>
+                    </Link>
+
+                    <div className="mt-auto px-6 pb-5 pt-4">
+                      <div className="flex items-end justify-between gap-3">
                         <div>
                           <p className="text-[11px] uppercase tracking-[0.16em] text-white/75">desde</p>
                           <p
-                            className="text-[24px] font-bold leading-none text-white"
+                            className="text-[25px] font-bold leading-none text-white"
                             style={{ fontFamily: "var(--font-space-grotesk)" }}
                           >
                             {vehicle.priceLabel}
@@ -295,6 +312,19 @@ export default async function HomePage() {
                           Lo quiero
                         </a>
                       </div>
+
+                      <Link
+                        href={`/${vehicle.modelSlug}`}
+                        className="group/link mt-4 flex items-center justify-between gap-2 border-t border-white/12 pt-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#8FBEFF] transition-colors hover:text-white"
+                      >
+                        <span className="whitespace-nowrap">Ver ficha</span>
+                        <span
+                          aria-hidden="true"
+                          className="shrink-0 transition-transform duration-300 group-hover/link:translate-x-1"
+                        >
+                          →
+                        </span>
+                      </Link>
                     </div>
                   </div>
                 </RevealItem>

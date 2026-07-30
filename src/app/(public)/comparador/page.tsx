@@ -94,35 +94,56 @@ export default async function ComparadorPage({
                       {vehicles.map((v) => (
                         <th
                           key={v.id}
+                          scope="col"
                           className="border-b border-white/5 p-5 text-left align-top"
                         >
-                          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/[0.04]">
-                            {v.imageUrl ? (
-                              <Image
-                                src={v.imageUrl}
-                                alt={v.modelName}
-                                fill
-                                className="object-cover"
-                              />
-                            ) : (
-                              <div
-                                className="flex h-full items-center justify-center text-3xl font-bold text-white/70"
-                                style={{ fontFamily: "var(--font-space-grotesk)" }}
-                              >
-                                {v.brandName.charAt(0)}
-                              </div>
-                            )}
-                          </div>
-                          <p className="mt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
-                            {v.brandName}
-                          </p>
-                          <p
-                            className="mt-1 text-base font-semibold text-white"
-                            style={{ fontFamily: "var(--font-space-grotesk)" }}
+                          {/* La cabecera no enlazaba a nada: desde la
+                              comparativa no se podía abrir ninguna ficha. */}
+                          <Link
+                            href={`/${v.modelSlug}`}
+                            className="group block"
+                            aria-label={`Ver ficha del ${v.brandName} ${v.modelName}`}
                           >
-                            {v.modelName}
-                          </p>
-                          <p className="mt-0.5 text-sm font-normal text-white/70">{v.version}</p>
+                            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/[0.04]">
+                              {v.imageUrl ? (
+                                <Image
+                                  src={v.imageUrl}
+                                  alt={`${v.brandName} ${v.modelName}`}
+                                  fill
+                                  sizes="(max-width: 640px) 60vw, 220px"
+                                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                                />
+                              ) : (
+                                <div
+                                  className="flex h-full items-center justify-center text-3xl font-bold text-white/70"
+                                  style={{ fontFamily: "var(--font-space-grotesk)" }}
+                                >
+                                  {v.brandName.charAt(0)}
+                                </div>
+                              )}
+                            </div>
+                            <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.16em] text-white/75">
+                              {v.brandName}
+                            </p>
+                            <p
+                              className="mt-1 text-[17px] font-semibold text-white transition-colors group-hover:text-[#8FBEFF]"
+                              style={{ fontFamily: "var(--font-space-grotesk)" }}
+                            >
+                              {v.modelName}
+                            </p>
+                            <p className="mt-0.5 text-[13.5px] font-normal text-white/75">
+                              {v.version}
+                            </p>
+                            <span className="mt-3 inline-flex items-center gap-1.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#8FBEFF]">
+                              Ver ficha
+                              <span
+                                aria-hidden="true"
+                                className="transition-transform duration-300 group-hover:translate-x-1"
+                              >
+                                →
+                              </span>
+                            </span>
+                          </Link>
                         </th>
                       ))}
                     </tr>
@@ -133,7 +154,7 @@ export default async function ComparadorPage({
                         key={row.label}
                         className="transition-colors hover:bg-white/[0.03]"
                       >
-                        <th className="p-5 text-left text-sm font-medium text-white/70">
+                        <th scope="row" className="p-5 text-left text-[14px] font-medium text-white/80">
                           {row.label}
                         </th>
                         {vehicles.map((v) => (
