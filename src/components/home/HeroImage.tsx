@@ -1,26 +1,51 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 export function HeroImage() {
   const [loaded, setLoaded] = useState(false);
   const { scrollY } = useScroll();
+  const glowRef = useRef<HTMLDivElement>(null);
 
   // Cinematic parallax — the car drifts slower than the scroll
   const rawY = useTransform(scrollY, [0, 1000], [0, 160]);
   const y = useSpring(rawY, { stiffness: 90, damping: 30, restDelta: 0.001 });
   const scale = useTransform(scrollY, [0, 800], [1, 1.08]);
 
-  // Subtle mouse-driven ambient light
-  const [mouse, setMouse] = useState({ x: 0.6, y: 0.5 });
+  /**
+   * Luz ambiental que sigue al ratón. Antes hacía setState en cada evento de
+   * mousemove: React re-renderizaba el hero completo decenas de veces por
+   * segundo con solo mover el cursor. Ahora escribe dos variables CSS sobre el
+   * nodo, agrupadas en un requestAnimationFrame — cero re-renders. Se omite en
+   * táctil y si el visitante pide menos movimiento.
+   */
   useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      setMouse({ x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight });
+    if (window.matchMedia("(hover: none)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let frame = 0;
+    let next = { x: 0.6, y: 0.5 };
+
+    const paint = () => {
+      frame = 0;
+      const node = glowRef.current;
+      if (!node) return;
+      node.style.setProperty("--mx", `${(next.x * 100).toFixed(2)}%`);
+      node.style.setProperty("--my", `${(next.y * 100).toFixed(2)}%`);
     };
+
+    const onMove = (e: MouseEvent) => {
+      next = { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight };
+      if (!frame) frame = requestAnimationFrame(paint);
+    };
+
     window.addEventListener("mousemove", onMove, { passive: true });
-    return () => window.removeEventListener("mousemove", onMove);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (
@@ -72,9 +97,11 @@ export function HeroImage() {
 
       {/* Ambient mouse-following light — very subtle */}
       <div
+        ref={glowRef}
         className="pointer-events-none absolute inset-0 transition-opacity duration-700"
         style={{
-          background: `radial-gradient(650px circle at ${mouse.x * 100}% ${mouse.y * 100}%, rgba(0,104,255,0.07) 0%, transparent 65%)`,
+          background:
+            "radial-gradient(650px circle at var(--mx, 60%) var(--my, 50%), rgba(0,104,255,0.07) 0%, transparent 65%)",
           opacity: loaded ? 1 : 0,
         }}
       />

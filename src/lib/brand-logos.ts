@@ -15,7 +15,7 @@ const EXTENSION_BY_SLUG: Record<string, string> = {
   kia: "svg",
   maxus: "png",
   mazda: "svg",
-  mg: "jpg",
+  mg: "png",
   mitsubishi: "svg",
   nissan: "svg",
   omoda: "svg",
@@ -24,7 +24,7 @@ const EXTENSION_BY_SLUG: Record<string, string> = {
   renault: "svg",
   seat: "svg",
   skoda: "png",
-  subaru: "svg",
+  subaru: "png",
   toyota: "svg",
   volkswagen: "svg",
 };

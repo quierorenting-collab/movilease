@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import type { VehicleCardData } from "@/lib/data/vehicles";
 import { FUEL_TYPE_LABELS, TRANSMISSION_LABELS, buildWhatsAppLink } from "@/lib/constants";
 import { FavoriteButton } from "@/components/vehicles/FavoriteButton";
@@ -14,10 +11,11 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
   );
 
   return (
-    <motion.div
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white"
-      whileHover={{ y: -8 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+    /* El levantamiento al pasar el ratón era framer-motion: en el catálogo
+       eran ~70 componentes animados por JS para lo que hace una transición
+       CSS. Ver .card-lift en globals.css. */
+    <div
+      className="card-lift group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
       {/* Favorito — persistente en localStorage vía useFavorites */}
@@ -106,7 +104,6 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
             className="shrink-0 rounded-full bg-[#0A0A0A] px-5 py-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-white transition-all duration-300 hover:bg-[#0068FF] hover:shadow-lg hover:shadow-[#0068FF]/30"
           >
             Lo quiero
@@ -130,6 +127,6 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
           </Link>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

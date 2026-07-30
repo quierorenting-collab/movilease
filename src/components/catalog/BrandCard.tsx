@@ -1,8 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { BrandSummary } from "@/lib/data/vehicles";
 
 export function BrandCard({ brand }: { brand: BrandSummary }) {
   const href = `/catalogo?brand=${encodeURIComponent(brand.brandName.toLowerCase())}`;
+  /**
+   * El optimizador de Next devuelve 400 para SVG salvo que se active
+   * dangerouslyAllowSVG. Como los SVG ya son vectoriales y pesan 9-13 kB, se
+   * sirven tal cual: seguimos usando next/image por las dimensiones (sin CLS)
+   * pero sin pasar por el optimizador.
+   */
+  const isSvg = brand.logoUrl?.endsWith(".svg") ?? false;
 
   return (
     <Link
@@ -13,12 +21,15 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
       {/* Logo tile */}
       <div className="relative flex h-[132px] items-center justify-center overflow-hidden bg-[#F7F8FA] px-6">
         {brand.logoUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          /* width/height explícitos: sin ellos el logo no reservaba espacio y
+             la tarjeta saltaba al cargar (CLS). */
+          <Image
             src={brand.logoUrl}
             alt={`Logo de ${brand.brandName}`}
+            width={240}
+            height={64}
+            unoptimized={isSvg}
             className="max-h-16 w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.06]"
-            loading="lazy"
           />
         ) : (
           <span

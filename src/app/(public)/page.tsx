@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { getFeaturedVehicles, getOfferVehicles, getVehiclesByBrand } from "@/lib/data/vehicles";
 import { buildWhatsAppLink } from "@/lib/constants";
@@ -240,15 +241,18 @@ export default async function HomePage() {
                   <div className="group relative h-full overflow-hidden rounded-2xl border border-white/12 bg-gradient-to-b from-[#1B4080] to-[#0C2454] transition-all duration-500 hover:border-[#0068FF]/25 hover:shadow-[0_20px_60px_rgba(0,104,255,0.12)]">
                     <div className="relative aspect-[4/3] overflow-hidden">
                       {vehicle.imageUrl ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
+                        /* next/image en lugar de <img> crudo: sirve WebP/AVIF
+                           al tamaño real de la tarjeta en vez de la foto
+                           original completa. */
+                        <Image
                           src={vehicle.imageUrl}
                           alt={`${vehicle.brandName} ${vehicle.modelName}`}
-                          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                          loading="lazy"
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         />
                       ) : (
-                        <div className="flex h-full items-center justify-center text-7xl font-bold text-white/70">
+                        <div className="flex h-full items-center justify-center text-7xl font-bold text-white/30">
                           {vehicle.brandName.charAt(0)}
                         </div>
                       )}
@@ -535,11 +539,8 @@ export default async function HomePage() {
         <div className="relative z-10 mx-auto grid max-w-6xl gap-14 px-6 sm:px-10 lg:grid-cols-[1fr_460px] lg:items-center lg:gap-20">
           <Reveal>
             <p className="section-label mb-6">Empieza aquí</p>
-            <h2 className="display-md text-white">
-              Dinos qué coche
-              <br />
-              quieres y te lo
-              <br />
+            <h2 className="display-sm max-w-md text-white">
+              Dinos qué coche quieres y te lo{" "}
               <span className="text-[#5AA0FF]">calculamos gratis.</span>
             </h2>
             <p className="mt-7 max-w-md text-[16px] leading-[1.72] text-white/80">

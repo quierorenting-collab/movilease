@@ -97,6 +97,28 @@
 .bottom-fab { bottom: calc(1.5rem + var(--bottom-inset)); }
 .bottom-bar { bottom: calc(1rem + var(--bottom-inset)); }
 
+/* ══════════════════════════════════════════════════
+   REVEAL AL HACER SCROLL (ver components/ui/Reveal.tsx)
+   ══════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 28px));
+  will-change: opacity, transform;
+}
+.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--reveal-duration, 0.8s) var(--easing) var(--reveal-delay, 0s),
+    transform var(--reveal-duration, 0.8s) var(--easing) var(--reveal-delay, 0s);
+  will-change: auto;
+}
+
+/* Sin animación: el contenido debe estar visible igualmente */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
 /* Entrada del botón flotante sin JavaScript */
 @keyframes fab-in {
   from { opacity: 0; transform: scale(0.7); }
@@ -249,6 +271,7 @@ summary:focus-visible,
 @media (hover: none) {
   .vehicle-card:hover,
   .card-dark:hover,
+  .card-lift:hover,
   .hover-lift:hover { transform: none; }
 }
 
@@ -473,6 +496,14 @@ summary:focus-visible,
 }
 .hover-lift:hover { transform: translateY(-4px); }
 
+/* Levantamiento de tarjeta (sustituye al whileHover de framer-motion) */
+.card-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-lift:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover) !important; }
+.card-lift:focus-within { transform: translateY(-8px); }
+
 /* ══════════════════════════════════════════════════
    MARQUEE ANIMATION
    ══════════════════════════════════════════════════ */
@@ -586,12 +617,14 @@ summary:focus-visible,
   word-break: break-word;
 }
 
+/* Paso intermedio entre display-md (72px) y el cuerpo: para titulares que
+   viven en columna estrecha, donde display-md se parte en cuatro líneas. */
 .display-sm {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  font-size: clamp(1.65rem, 3vw, 2.75rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
 }
 
 /* Cuerpo de texto: 16-17px reales en vez de 13,5px */
@@ -717,7 +750,9 @@ select.input-glass option { background: var(--dark-2); color: #fff; }
    ══════════════════════════════════════════════════ */
 .hero-headline {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2.15rem, 7.4vw, 4.5rem);
+  /* Máximo 4rem: a 4,5rem "sin complicaciones." no cabía en la columna del
+     48 % y "sin" se quedaba solo en una línea. */
+  font-size: clamp(2.15rem, 7.4vw, 4rem);
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.04;

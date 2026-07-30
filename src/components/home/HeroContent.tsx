@@ -34,7 +34,7 @@ export function HeroContent() {
   return (
     <>
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-28 sm:px-10 lg:pb-24">
-        <div className="lg:max-w-[48%]">
+        <div className="lg:max-w-[52%]">
           {/* Eyebrow */}
           <motion.div
             variants={rise(0, 20)}

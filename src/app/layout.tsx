@@ -4,16 +4,20 @@ import { getCurrentBrand } from "@/lib/brand";
 import { SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
+// El peso 300 no aparece en ningún sitio del proyecto (0 usos de font-light):
+// dos archivos de fuente menos que descargar en la primera visita.
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {

@@ -1,9 +1,95 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 
-const ease = [0.25, 0.1, 0.25, 1] as const;
+/**
+ * Apariciones al hacer scroll. Antes cada Reveal/RevealItem era un componente
+ * de framer-motion con su propio useInView: en /catalogo, con ~70 tarjetas,
+ * eso son ~70 componentes animados por JS y ~70 observadores. Ahora la
+ * animación la hace CSS y un único IntersectionObserver compartido decide
+ * cuándo añadir la clase — mismo resultado visual, mismas props, sin
+ * framer-motion en las páginas que solo usan esto.
+ *
+ * La animación se define en globals.css (.reveal / .reveal-in) y queda
+ * desactivada automáticamente con prefers-reduced-motion.
+ */
+
+type Observed = { el: Element; onEnter: () => void };
+
+let sharedObserver: IntersectionObserver | null = null;
+const callbacks = new Map<Element, () => void>();
+let visibilityHooked = false;
+
+function inViewport(el: Element) {
+  const rect = el.getBoundingClientRect();
+  return rect.top < window.innerHeight && rect.bottom > 0;
+}
+
+function release(el: Element) {
+  const cb = callbacks.get(el);
+  callbacks.delete(el);
+  sharedObserver?.unobserve(el);
+  cb?.();
+}
+
+/**
+ * Red de seguridad: una pestaña en segundo plano no ejecuta el ciclo de
+ * renderizado, así que IntersectionObserver no entrega nada. Si se ha hecho
+ * scroll mientras estaba oculta, al volver el contenido seguiría invisible.
+ * Al recuperar visibilidad se recomprueban las posiciones pendientes.
+ */
+function hookVisibility() {
+  if (visibilityHooked) return;
+  visibilityHooked = true;
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState !== "visible") return;
+    for (const el of [...callbacks.keys()]) {
+      if (inViewport(el)) release(el);
+    }
+  });
+}
+
+function observe({ el, onEnter }: Observed) {
+  if (typeof IntersectionObserver === "undefined") {
+    onEnter();
+    return () => {};
+  }
+  if (!sharedObserver) {
+    sharedObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) release(entry.target);
+        }
+      },
+      { rootMargin: "0px 0px -40px 0px", threshold: 0.01 }
+    );
+  }
+  callbacks.set(el, onEnter);
+  sharedObserver.observe(el);
+  hookVisibility();
+  return () => {
+    callbacks.delete(el);
+    sharedObserver?.unobserve(el);
+  };
+}
+
+function useReveal<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || shown) return;
+    // Si ya está en pantalla al montar (contenido sobre el pliegue), no esperes
+    if (inViewport(el)) {
+      setShown(true);
+      return;
+    }
+    return observe({ el, onEnter: () => setShown(true) });
+  }, [shown]);
+
+  return { ref, shown };
+}
 
 interface RevealProps {
   children: React.ReactNode;
@@ -14,19 +100,22 @@ interface RevealProps {
 }
 
 export function Reveal({ children, className, delay = 0, duration = 0.8, y = 28 }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px 0px" });
+  const { ref, shown } = useReveal<HTMLDivElement>();
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      className={className}
-      initial={{ opacity: 0, y }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration, delay, ease }}
+      className={`reveal${shown ? " reveal-in" : ""}${className ? ` ${className}` : ""}`}
+      style={
+        {
+          "--reveal-delay": `${delay}s`,
+          "--reveal-duration": `${duration}s`,
+          "--reveal-y": `${y}px`,
+        } as React.CSSProperties
+      }
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -58,19 +147,22 @@ interface RevealItemProps {
 }
 
 export function RevealItem({ children, className, _staggerDelay = 0 }: RevealItemProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px 0px" });
+  const { ref, shown } = useReveal<HTMLDivElement>();
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      className={className}
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, delay: _staggerDelay, ease }}
+      className={`reveal${shown ? " reveal-in" : ""}${className ? ` ${className}` : ""}`}
+      style={
+        {
+          "--reveal-delay": `${_staggerDelay}s`,
+          "--reveal-duration": "0.65s",
+          "--reveal-y": "20px",
+        } as React.CSSProperties
+      }
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -90,27 +182,39 @@ export function AnimatedCounter({
   duration = 1.8,
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px 0px" });
   const [current, setCurrent] = useState(0);
   const startedRef = useRef(false);
 
   useEffect(() => {
-    if (!inView || startedRef.current) return;
-    startedRef.current = true;
+    const el = ref.current;
+    if (!el || startedRef.current) return;
 
-    const startTime = performance.now();
-    const totalMs = duration * 1000;
+    const run = () => {
+      if (startedRef.current) return;
+      startedRef.current = true;
 
-    function tick(now: number) {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / totalMs, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCurrent(eased * value);
-      if (progress < 1) requestAnimationFrame(tick);
+      // Quien pide menos movimiento ve la cifra final directamente
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setCurrent(value);
+        return;
+      }
+
+      const startTime = performance.now();
+      const totalMs = duration * 1000;
+      const tick = (now: number) => {
+        const progress = Math.min((now - startTime) / totalMs, 1);
+        setCurrent((1 - Math.pow(1 - progress, 3)) * value);
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    if (inViewport(el)) {
+      run();
+      return;
     }
-
-    requestAnimationFrame(tick);
-  }, [inView, value, duration]);
+    return observe({ el, onEnter: run });
+  }, [value, duration]);
 
   return (
     <span ref={ref}>

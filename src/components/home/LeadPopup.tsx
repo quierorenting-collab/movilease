@@ -72,7 +72,6 @@ export function LeadPopup() {
       window.removeEventListener("keydown", onKey);
       lastFocusedRef.current?.focus?.();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   function close() {
