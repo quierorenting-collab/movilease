@@ -327,6 +327,49 @@ summary:focus-visible,
   z-index: 0;
 }
 
+/*
+ * Fondo de la sección de marcas: dos glows azules en las esquinas + una
+ * malla de puntos que se desvanece hacia el centro + un par de curvas finas
+ * tipo "swoosh". Todo en CSS/SVG inline en vez de una imagen de fondo:
+ * escala a cualquier alto de sección (la rejilla de marcas cambia de tamaño
+ * según el catálogo) sin recortarse ni repetirse, y no añade ninguna
+ * petición de red.
+ */
+.surface-marcas {
+  position: relative;
+  background:
+    radial-gradient(ellipse 900px 500px at 100% 0%, rgba(0,104,255,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 900px 600px at 0% 100%, rgba(0,104,255,0.09) 0%, transparent 55%),
+    #FAFAFA;
+}
+.surface-marcas::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0,104,255,0.16) 1px, transparent 1px);
+  background-size: 24px 24px;
+  -webkit-mask-image:
+    radial-gradient(ellipse 55% 45% at 96% 4%, black 0%, transparent 72%),
+    radial-gradient(ellipse 55% 45% at 4% 96%, black 0%, transparent 72%);
+  -webkit-mask-composite: source-over;
+  mask-image:
+    radial-gradient(ellipse 55% 45% at 96% 4%, black 0%, transparent 72%),
+    radial-gradient(ellipse 55% 45% at 4% 96%, black 0%, transparent 72%);
+  mask-composite: add;
+  pointer-events: none;
+  z-index: 0;
+}
+.surface-marcas::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'%3E%3Cpath d='M-100 60 C 300 180, 700 -40, 1700 140' stroke='%230068FF' stroke-opacity='0.14' stroke-width='1.5' fill='none'/%3E%3Cpath d='M-100 860 C 400 700, 900 960, 1700 780' stroke='%230068FF' stroke-opacity='0.12' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* ══════════════════════════════════════════════════
    SHADOWS
    ══════════════════════════════════════════════════ */
