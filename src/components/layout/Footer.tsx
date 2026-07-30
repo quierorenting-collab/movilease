@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CONTACT, buildWhatsAppLink } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
+import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { getVehiclesByBrand } from "@/lib/data/vehicles";
 
 export async function Footer() {
@@ -25,18 +26,29 @@ export async function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-[#04102A] text-white/70">
+      {/* Misma rotonda nocturna que "¿Por qué renting y no comprar?" — mismos
+          assets, sin reprocesar. Fondo muy velado: el pie tiene mucho texto
+          pequeño y no puede permitirse perder contraste. */}
+      <VideoBackdrop
+        mp4="/videos/porque-renting.mp4"
+        poster="/videos/porque-renting-poster.webp"
+        base="#04102A"
+        filter="brightness(0.5) saturate(0.7) contrast(1.05)"
+        veil="linear-gradient(180deg, rgba(4,16,42,0.8) 0%, rgba(4,16,42,0.92) 55%, rgba(4,16,42,0.98) 100%)"
+      />
+
       {/* Top accent */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[#0068FF]/25 to-transparent" />
+      <div className="relative z-10 h-px bg-gradient-to-r from-transparent via-[#0068FF]/25 to-transparent" />
 
       {/* Ambient glow */}
       <div
-        className="pointer-events-none absolute -top-40 left-1/2 h-80 w-[800px] -translate-x-1/2"
+        className="pointer-events-none absolute -top-40 left-1/2 z-10 h-80 w-[800px] -translate-x-1/2"
         style={{
           background: "radial-gradient(ellipse, rgba(0,104,255,0.06) 0%, transparent 70%)",
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 pb-14 pt-24 sm:px-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-14 pt-24 sm:px-10">
         {/* Newsletter row */}
         <div className="mb-20 flex flex-col items-start justify-between gap-10 border-b border-white/10 pb-20 lg:flex-row lg:items-end">
           <div className="max-w-md">
@@ -44,9 +56,9 @@ export async function Footer() {
               className="text-[26px] font-bold leading-tight text-white sm:text-[32px]"
               style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.02em" }}
             >
-              Movilidad inteligente.
+              Hazlo fácil.
               <br />
-              <span className="text-white/70">Libertad para moverse.</span>
+              Hazlo <span className="text-[#5AA0FF]">MoviLease</span>.
             </p>
           </div>
           <a

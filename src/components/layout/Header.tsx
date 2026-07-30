@@ -87,10 +87,8 @@ export function Header() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "glass-dark shadow-[0_8px_32px_rgba(0,0,0,0.28)]"
-            : "bg-gradient-to-b from-[#071A3D]/70 to-transparent"
+        className={`fixed left-0 right-0 top-0 z-50 bg-white transition-all duration-500 ${
+          scrolled ? "shadow-[0_8px_28px_rgba(10,10,10,0.12)]" : "shadow-[0_2px_16px_rgba(10,10,10,0.06)]"
         }`}
       >
         <div
@@ -98,22 +96,28 @@ export function Header() {
             scrolled ? "h-[72px]" : "h-[88px]"
           }`}
         >
-          {/* Logo — blanco, directo sobre el header oscuro. Antes iba en una
-              caja blanca pensada para un icono pequeño; con el SVG recortado
-              a su contenido real (venía con muchísimo margen vacío en el
-              viewBox, por eso se veía diminuto) ya no hace falta. */}
+          {/* Logo — banda blanca de cabecera, así que va con sus colores
+              reales en vez del blanco sólido que hacía falta sobre fondo
+              oscuro. El eslogan es texto real (HTML), no forma parte del
+              SVG: no hacía falta generar un logo nuevo para cambiarlo. */}
           <Link
             href="/"
             aria-label="MoviLease — ir a la portada"
-            className="shrink-0 transition-all duration-500"
+            className="flex shrink-0 items-center gap-3 transition-all duration-500"
           >
             <Logo
+              variant="color"
               className={`w-auto transition-all duration-500 ${
                 scrolled
                   ? "h-8 sm:h-10 lg:h-[52px]"
                   : "h-9 sm:h-12 lg:h-[60px]"
               }`}
             />
+            <span className="hidden border-l border-[#0A0A0A]/15 pl-3 text-[11px] font-semibold leading-tight text-[#4B5563] md:block">
+              Hazlo fácil.
+              <br />
+              Hazlo <span className="font-bold text-[#0068FF]">MoviLease</span>.
+            </span>
           </Link>
 
           {/* Desktop nav */}
@@ -123,13 +127,13 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 aria-current={isCurrent(link.href) ? "page" : undefined}
-                className={`group relative py-2 text-[12px] font-semibold uppercase tracking-[0.12em] transition-colors duration-300 hover:text-white ${
-                  isCurrent(link.href) ? "text-white" : "text-white/75"
+                className={`group relative py-2 text-[12px] font-semibold uppercase tracking-[0.12em] transition-colors duration-300 hover:text-[#0068FF] ${
+                  isCurrent(link.href) ? "text-[#0A0A0A]" : "text-[#4B5563]"
                 }`}
               >
                 {link.label}
                 <span
-                  className={`absolute bottom-0 left-0 h-[1.5px] bg-[#5AA0FF] transition-all duration-300 group-hover:w-full ${
+                  className={`absolute bottom-0 left-0 h-[1.5px] bg-[#0068FF] transition-all duration-300 group-hover:w-full ${
                     isCurrent(link.href) ? "w-full" : "w-0"
                   }`}
                 />
@@ -159,19 +163,19 @@ export function Header() {
               aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={mobileOpen}
               aria-controls="menu-movil"
-              className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-lg border border-white/15 bg-white/[0.04] lg:hidden"
+              className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-lg border border-[#0A0A0A]/15 bg-[#0A0A0A]/[0.03] lg:hidden"
             >
               <motion.span
                 animate={mobileOpen ? { rotate: 45, y: 6.5 } : { rotate: 0, y: 0 }}
-                className="h-[1.5px] w-[18px] bg-white"
+                className="h-[1.5px] w-[18px] bg-[#0A0A0A]"
               />
               <motion.span
                 animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-                className="h-[1.5px] w-[18px] bg-white"
+                className="h-[1.5px] w-[18px] bg-[#0A0A0A]"
               />
               <motion.span
                 animate={mobileOpen ? { rotate: -45, y: -6.5 } : { rotate: 0, y: 0 }}
-                className="h-[1.5px] w-[18px] bg-white"
+                className="h-[1.5px] w-[18px] bg-[#0A0A0A]"
               />
             </button>
           </div>
