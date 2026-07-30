@@ -26,6 +26,9 @@ export function VideoBackdrop({
   veil = "linear-gradient(180deg, rgba(244,246,250,0.92) 0%, rgba(244,246,250,0.80) 45%, rgba(244,246,250,0.94) 100%)",
   /** Base visible mientras no hay póster ni vídeo. */
   base = "#F4F6FA",
+  /** Pensado para fondo claro (aclara y desatura). Secciones oscuras pasan
+   *  algo más apagado, p. ej. "brightness(0.55) saturate(0.7) contrast(1.1)". */
+  filter = "saturate(0.55) brightness(1.08) contrast(0.95)",
   className = "",
 }: {
   mp4?: string;
@@ -33,6 +36,7 @@ export function VideoBackdrop({
   poster?: string;
   veil?: string;
   base?: string;
+  filter?: string;
   className?: string;
 }) {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -107,11 +111,7 @@ export function VideoBackdrop({
           tabIndex={-1}
           onPlaying={() => setPlaying(true)}
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000"
-          style={{
-            opacity: playing ? 1 : 0,
-            // Desaturado y algo más claro: el vídeo aporta movimiento, no color
-            filter: "saturate(0.55) brightness(1.08) contrast(0.95)",
-          }}
+          style={{ opacity: playing ? 1 : 0, filter }}
         >
           {webm && <source src={webm} type="video/webm" />}
           {mp4 && <source src={mp4} type="video/mp4" />}

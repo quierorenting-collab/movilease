@@ -404,8 +404,19 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ COMPARISON — dark glass table ═════════════════ */}
-      <section className="surface-carbon relative overflow-hidden bg-texture-dark section-y">
+      {/* ══ COMPARISON — dark glass table con vídeo de fondo ══
+          Vista aérea nocturna de tráfico en una rotonda: movimiento sin
+          protagonismo de un coche o marca concreta, encaja con "¿por qué
+          renting y no comprar?" (movilidad, no producto). Mismo velo oscuro
+          que ya usa surface-carbon para que la tabla siga siendo el foco. */}
+      <section className="surface-carbon relative overflow-hidden section-y">
+        <VideoBackdrop
+          mp4="/videos/porque-renting.mp4"
+          poster="/videos/porque-renting-poster.webp"
+          base="#123068"
+          filter="brightness(0.6) saturate(0.75) contrast(1.05)"
+          veil="linear-gradient(160deg, rgba(30,79,160,0.82) 0%, rgba(18,48,104,0.85) 55%, rgba(7,26,61,0.92) 100%)"
+        />
         <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-10">
           <Reveal className="section-head text-center">
             <p className="section-label mb-5">La diferencia</p>
