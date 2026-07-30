@@ -501,8 +501,8 @@ export default async function HomePage() {
             webm="/videos/destacados.webm"
             poster="/videos/destacados-poster.webp"
             base="#123068"
-            filter="brightness(0.4) saturate(0.7) contrast(1.1)"
-            veil="linear-gradient(180deg, rgba(27,78,168,0.75) 0%, rgba(15,47,99,0.85) 45%, rgba(15,47,99,0.95) 100%)"
+            filter="brightness(0.75) saturate(0.8) contrast(1.05)"
+            veil="linear-gradient(180deg, rgba(27,78,168,0.5) 0%, rgba(15,47,99,0.6) 45%, rgba(15,47,99,0.78) 100%)"
           />
           <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
             <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -588,8 +588,18 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ FAQ — dark with light accordion card ══════════ */}
-      <section id="faq" className="surface-dark relative overflow-hidden bg-texture-dark section-y">
+      {/* ══ FAQ — dark with light accordion card ══════════
+          Mismo clip que el hero (avenida al atardecer), reutilizado tal
+          cual — sin volver a procesarlo — a brillo bajo para que la tarjeta
+          blanca del acordeón siga siendo lo que se lee. */}
+      <section id="faq" className="surface-dark relative overflow-hidden section-y">
+        <VideoBackdrop
+          mp4="/videos/hero.mp4"
+          poster="/videos/hero-poster.webp"
+          base="#0C2454"
+          filter="brightness(0.4) saturate(0.7) contrast(1.1)"
+          veil="linear-gradient(180deg, rgba(12,36,84,0.8) 0%, rgba(12,36,84,0.9) 45%, rgba(12,36,84,0.96) 100%)"
+        />
         <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-10">
           <Reveal className="section-head">
             <p className="section-label mb-5">FAQ</p>
