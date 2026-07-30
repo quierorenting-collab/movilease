@@ -5,7 +5,7 @@ import { getFeaturedVehicles, getOfferVehicles, getVehiclesByBrand } from "@/lib
 import { buildWhatsAppLink } from "@/lib/constants";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { BrandCard } from "@/components/catalog/BrandCard";
-import { HeroImage } from "@/components/home/HeroImage";
+import { HeroVideo } from "@/components/home/HeroVideo";
 import { HeroContent } from "@/components/home/HeroContent";
 import { FAQAccordion } from "@/components/home/FAQAccordion";
 import { LeadForm } from "@/components/forms/LeadForm";
@@ -21,10 +21,10 @@ import { pageMetadata } from "@/lib/metadata";
 export const revalidate = 3600;
 
 /**
- * Vídeo de fondo de la sección de ofertas. Se pone a true en el mismo commit
- * en que entran los archivos en public/videos/ (ver
- * scripts/build-section-video.mjs). Mientras siga en false la sección usa sólo
- * el fondo claro y no pide archivos que no existen.
+ * Vídeo de fondo de la sección de ofertas. A false la sección usa la foto del
+ * BMW (hero-car.webp) como fondo en vez del vídeo de tráfico — decisión de
+ * contenido, no un problema técnico. El vídeo y su script de generación
+ * siguen aquí sin tocar por si se retoma más adelante.
  */
 const OFERTAS_VIDEO = false;
 
@@ -130,7 +130,7 @@ export default async function HomePage() {
 
       {/* ══ HERO — cinematic ══════════════════════════════ */}
       <section className="relative flex h-screen min-h-[680px] items-center overflow-hidden bg-[#071A3D]">
-        <HeroImage />
+        <HeroVideo />
         <HeroContent />
       </section>
 
@@ -214,20 +214,23 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ OFERTAS — fondo claro con vídeo de tráfico ═════
+      {/* ══ OFERTAS — fondo claro con la foto del BMW ═════
           Las tarjetas son azul marino oscuro: sobre claro destacan mucho más
           que sobre el azul oscuro anterior, así que el bloque gana presencia
-          sin tocar las tarjetas. El vídeo va detrás de un velo claro, que es
+          sin tocar las tarjetas. La foto va detrás de un velo claro, que es
           lo que mantiene legible el texto. */}
-      {/* El fondo claro va en la propia sección, no sólo en el backdrop: si el
-          vídeo o el póster fallasen, el texto en tinta oscura quedaría sobre el
-          azul marino del body y sería ilegible. */}
+      {/* El fondo claro va en la propia sección, no sólo en el backdrop: si la
+          foto fallase, el texto en tinta oscura quedaría sobre el azul marino
+          del body y sería ilegible. */}
       {dedupedOffers.length > 0 && (
         <section id="ofertas" className="relative overflow-hidden bg-[#F4F6FA] section-y">
           <VideoBackdrop
             mp4={OFERTAS_VIDEO ? "/videos/ofertas.mp4" : undefined}
-            webm={OFERTAS_VIDEO ? "/videos/ofertas.webm" : undefined}
-            poster={OFERTAS_VIDEO ? "/videos/ofertas-poster.webp" : undefined}
+            poster={OFERTAS_VIDEO ? "/videos/ofertas-poster.webp" : "/hero-car.webp"}
+            /* Velo fuerte arriba, donde va el titular en tinta oscura, y flojo
+               en la banda de las tarjetas, que es donde interesa ver pasar los
+               coches. Las tarjetas son opacas: no necesitan velo debajo. */
+            veil="linear-gradient(180deg, rgba(244,246,250,0.95) 0%, rgba(244,246,250,0.92) 30%, rgba(244,246,250,0.50) 46%, rgba(244,246,250,0.58) 100%)"
           />
 
           <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
