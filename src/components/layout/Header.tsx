@@ -1,11 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
+
+export interface NavBrand {
+  name: string;
+  count: number;
+  logoUrl: string | null;
+}
 
 const NAV_LINKS = [
   { href: "/catalogo", label: "Catálogo" },
@@ -17,11 +24,44 @@ const NAV_LINKS = [
   { href: "/contacto", label: "Contacto" },
 ];
 
-export function Header() {
+export function Header({ brands = [] }: { brands?: NavBrand[] }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [megaOpen, setMegaOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+  /* Pequeño retardo al salir: sin él, el panel parpadea al pasar el ratón del
+     enlace al propio panel o entre dos marcas. */
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openMega = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    if (brands.length > 0) setMegaOpen(true);
+  };
+  const closeMega = (delay = 140) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setMegaOpen(false), delay);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
+  }, []);
+
+  // El desplegable no debe sobrevivir a un cambio de página
+  useEffect(() => {
+    setMegaOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!megaOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMegaOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [megaOpen]);
 
   /** Sólo las rutas reales pueden marcarse como página actual (no los anclas). */
   const isCurrent = (href: string) => !href.includes("#") && pathname === href;
@@ -88,6 +128,7 @@ export function Header() {
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.45, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+        onMouseLeave={() => closeMega()}
         className={`fixed left-0 right-0 top-0 z-50 bg-white transition-all duration-500 ${
           scrolled ? "shadow-[0_8px_28px_rgba(10,10,10,0.12)]" : "shadow-[0_2px_16px_rgba(10,10,10,0.06)]"
         }`}
@@ -118,23 +159,30 @@ export function Header() {
 
           {/* Desktop nav */}
           <nav aria-label="Navegación principal" className="hidden items-center gap-6 lg:flex xl:gap-7">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={isCurrent(link.href) ? "page" : undefined}
-                className={`group relative py-2 text-[12px] font-semibold uppercase tracking-[0.12em] transition-colors duration-300 hover:text-[#0068FF] ${
-                  isCurrent(link.href) ? "text-[#0A0A0A]" : "text-[#4B5563]"
-                }`}
-              >
-                {link.label}
-                <span
-                  className={`absolute bottom-0 left-0 h-[1.5px] bg-[#0068FF] transition-all duration-300 group-hover:w-full ${
-                    isCurrent(link.href) ? "w-full" : "w-0"
+            {NAV_LINKS.map((link) => {
+              const hasMega = link.href === "/catalogo" && brands.length > 0;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isCurrent(link.href) ? "page" : undefined}
+                  aria-haspopup={hasMega ? true : undefined}
+                  aria-expanded={hasMega ? megaOpen : undefined}
+                  onMouseEnter={hasMega ? openMega : () => closeMega(0)}
+                  onFocus={hasMega ? openMega : () => closeMega(0)}
+                  className={`group relative py-2 text-[12px] font-semibold uppercase tracking-[0.12em] transition-colors duration-300 hover:text-[#0068FF] ${
+                    isCurrent(link.href) ? "text-[#0A0A0A]" : "text-[#4B5563]"
                   }`}
-                />
-              </Link>
-            ))}
+                >
+                  {link.label}
+                  <span
+                    className={`absolute bottom-0 left-0 h-[1.5px] bg-[#0068FF] transition-all duration-300 group-hover:w-full ${
+                      isCurrent(link.href) || (hasMega && megaOpen) ? "w-full" : "w-0"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right side */}
@@ -176,6 +224,68 @@ export function Header() {
             </button>
           </div>
         </div>
+
+        {/* Mega menú de "Catálogo": las marcas del catálogo, con su logo, sin
+            tener que entrar en la página. Sólo en escritorio — en móvil el
+            menú a pantalla completa ya cumple esa función. */}
+        <AnimatePresence>
+          {megaOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+              onMouseEnter={openMega}
+              onMouseLeave={() => closeMega()}
+              className="absolute left-0 right-0 top-full hidden border-t border-[#E5E7EB] bg-white shadow-[0_24px_48px_rgba(10,10,10,0.12)] lg:block"
+            >
+              <div className="mx-auto w-full max-w-7xl px-10 py-9">
+                <div className="grid grid-cols-4 gap-x-8 gap-y-1 xl:grid-cols-6">
+                  {brands.map((brand) => (
+                    <Link
+                      key={brand.name}
+                      href={`/catalogo?brand=${encodeURIComponent(brand.name.toLowerCase())}`}
+                      onClick={() => setMegaOpen(false)}
+                      className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-[#F4F6FA]"
+                    >
+                      {brand.logoUrl ? (
+                        <Image
+                          src={brand.logoUrl}
+                          alt=""
+                          width={56}
+                          height={24}
+                          unoptimized={brand.logoUrl.endsWith(".svg")}
+                          className="h-6 w-7 shrink-0 object-contain opacity-55 transition-opacity duration-300 group-hover:opacity-100"
+                        />
+                      ) : (
+                        <span className="h-6 w-7 shrink-0" aria-hidden="true" />
+                      )}
+                      <span className="text-[14px] font-medium text-[#1A1A1A] transition-colors group-hover:text-[#0068FF]">
+                        {brand.name}
+                      </span>
+                      <span className="ml-auto text-[12px] tabular-nums text-[#9AA3B2]">
+                        {brand.count}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="mt-8 flex flex-col gap-4 border-t border-[#E5E7EB] pt-7 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-[13.5px] text-[#5B6472]">
+                    Todas las marcas en renting, sin entrada y con todo incluido.
+                  </p>
+                  <Link
+                    href="/catalogo"
+                    onClick={() => setMegaOpen(false)}
+                    className="btn-primary btn-sm w-fit"
+                  >
+                    Ver todos los coches
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.header>
 
       {/* Mobile menu overlay */}

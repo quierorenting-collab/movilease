@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { RENTING_DEFAULTS } from "@/lib/constants";
 import { RentingCalculator } from "@/components/calculator/RentingCalculator";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -14,7 +15,15 @@ export const metadata: Metadata = pageMetadata({
 export default function CalculadoraPage() {
   return (
     <>
-      <section className="surface-black ambient-blue-top relative overflow-hidden pt-32 pb-24">
+      <section className="surface-black relative overflow-hidden pt-32 pb-24">
+        {/* Foto de fondo (escritorio con vistas). La original es muy luminosa:
+            se sirve ya rebajada de brillo desde el propio WebP, porque el velo
+            es lo único que hay entre la foto y el texto blanco de encima. */}
+        <VideoBackdrop
+          poster="/calculadora-bg.webp"
+          base="#071A3D"
+          veil="linear-gradient(180deg, rgba(7,26,61,0.84) 0%, rgba(12,36,84,0.7) 45%, rgba(7,26,61,0.9) 100%)"
+        />
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>

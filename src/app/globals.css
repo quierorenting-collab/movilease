@@ -27,10 +27,10 @@
   --paper-2: #FAFAFA;
   --paper-3: #F5F5F5;
 
-  --dark: #071A3D;
-  --dark-2: #0C2454;
-  --dark-3: #123068;
-  --dark-4: #1B4080;
+  --dark: #0B2A5E;
+  --dark-2: #10306B;
+  --dark-3: #16407F;
+  --dark-4: #2358B4;
 
   --blue: #0068FF;
   /* --blue-light: azul legible como TEXTO sobre fondos oscuros.
@@ -43,10 +43,12 @@
 
   /* ── Escala de texto sobre fondo oscuro ─────────────────
      Jerarquía por tamaño/peso, no por opacidades ilegibles.
-     Mínimo /55 para texto informativo (≈4.6:1 sobre #071A3D). */
+     Las opacidades suben con los fondos: sobre el azul más claro de
+     surface-graphite (#2358B4), /74 y /58 se quedaban en 4,5:1 y 3,3:1.
+     Con /86 y /72 los dos pasan AA y se mantiene la jerarquía. */
   --on-dark-1: #FFFFFF;
-  --on-dark-2: rgba(255, 255, 255, 0.74);
-  --on-dark-3: rgba(255, 255, 255, 0.58);
+  --on-dark-2: rgba(255, 255, 255, 0.86);
+  --on-dark-3: rgba(255, 255, 255, 0.72);
   --on-dark-ornament: rgba(255, 255, 255, 0.30);
 
   --glass-bg: rgba(255, 255, 255, 0.05);
@@ -797,12 +799,14 @@ select.input-glass option { background: var(--dark-2); color: #fff; }
 /* ══════════════════════════════════════════════════
    DARK SECTION SURFACES
    ══════════════════════════════════════════════════ */
-.surface-black    { background: #071A3D; }
-.surface-dark     { background: #0C2454; }
-.surface-graphite { background: linear-gradient(180deg, #1B4EA8 0%, #0F2F63 100%); }
-/* #2563EB como primer alto dejaba el texto blanco/70 en 3,6:1 en la zona
-   clara del degradado; #1E4FA0 lo sube a 4,7:1 sin salir de la paleta. */
-.surface-carbon   { background: linear-gradient(160deg, #1E4FA0 0%, #123068 55%, #071A3D 100%); }
+/* Toda la escala oscura va un paso más clara y más azul: el sitio se veía
+   casi negro en las secciones largas. El techo lo pone el texto blanco/74
+   (--on-dark-2), que sobre el azul más claro del degradado sigue por encima
+   de 4,5:1; subir más obligaría a bajar las opacidades del texto. */
+.surface-black    { background: #0B2A5E; }
+.surface-dark     { background: #10306B; }
+.surface-graphite { background: linear-gradient(180deg, #2358B4 0%, #133A78 100%); }
+.surface-carbon   { background: linear-gradient(160deg, #2A62BE 0%, #16407F 55%, #0B2A5E 100%); }
 
 .card-dark {
   border-radius: var(--radius-lg);

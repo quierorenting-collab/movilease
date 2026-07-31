@@ -6,6 +6,7 @@ import {
   RevealItem,
   AnimatedCounter,
 } from "@/components/ui/Reveal";
+import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -79,8 +80,18 @@ function CheckIcon() {
 export default function SobreNosotrosPage() {
   return (
     <div>
-      {/* Hero */}
-      <section className="surface-black ambient-blue relative overflow-hidden pt-32 pb-24">
+      {/* Hero — carretera al amanecer de fondo.
+          El clip es dorado y muy luminoso: sin bajarle brillo y sin un velo
+          azul fuerte, el titular en blanco no se leería. */}
+      <section className="surface-black relative overflow-hidden pt-32 pb-24">
+        <VideoBackdrop
+          mp4="/videos/quienes-somos.mp4"
+          webm="/videos/quienes-somos.webm"
+          poster="/videos/quienes-somos-poster.webp"
+          base="#071A3D"
+          filter="brightness(0.62) saturate(0.7) contrast(1.05)"
+          veil="linear-gradient(180deg, rgba(7,26,61,0.7) 0%, rgba(12,36,84,0.78) 45%, rgba(7,26,61,0.92) 100%)"
+        />
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6">
           <Reveal>
             <p className="section-label">Quiénes somos</p>
@@ -208,16 +219,24 @@ export default function SobreNosotrosPage() {
         </div>
       </section>
 
-      {/* Cierre */}
-      <section className="surface-black ambient-blue-top relative overflow-hidden py-28">
+      {/* Cierre — fondo azul claro (carretera hacia la ciudad).
+          Al ser una imagen casi blanca, la sección deja de ser oscura: el
+          texto va en tinta y el CTA secundario pasa a btn-white, que es el
+          equivalente de btn-ghost para fondos claros. */}
+      <section className="relative overflow-hidden bg-[#EAF2FD] py-28">
+        <VideoBackdrop
+          poster="/cierre-bg.webp"
+          base="#EAF2FD"
+          veil="linear-gradient(180deg, rgba(234,242,253,0.45) 0%, rgba(234,242,253,0.3) 50%, rgba(234,242,253,0.5) 100%)"
+        />
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center sm:px-6">
           <Reveal>
-            <h2 className="display-md text-white">
+            <h2 className="display-md text-[#0A0A0A]">
               Hazlo fácil.
               <br />
-              Hazlo <span className="text-[#5AA0FF]">MoviLease.</span>
+              Hazlo <span className="text-[#0057D6]">MoviLease.</span>
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/70">
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[#374151]">
               No vendemos coches. Creamos una nueva forma de acceder a la
               movilidad: más sencilla, más inteligente y pensada para ti.
               Porque cuando todo es fácil, solo queda disfrutar del camino.
@@ -226,7 +245,7 @@ export default function SobreNosotrosPage() {
               <Link href="/catalogo" className="btn-primary">
                 Ver catálogo
               </Link>
-              <Link href="/contacto" className="btn-ghost">
+              <Link href="/contacto" className="btn-white">
                 Hablar con nosotros
               </Link>
             </div>

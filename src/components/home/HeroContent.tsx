@@ -32,137 +32,118 @@ const TRUST = [
 
 export function HeroContent() {
   return (
-    <>
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-28 sm:px-10 lg:pb-24">
-        <div className="lg:max-w-[52%]">
-          {/* Eyebrow */}
-          <motion.div
-            variants={rise(0, 20)}
-            initial="hidden"
-            animate="visible"
-            className="mb-8 flex items-center gap-4"
-          >
-            <motion.span
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1, delay: 0.5, ease }}
-              className="h-px w-10 origin-left bg-[#0068FF]"
-            />
-            <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#5AA0FF]">
-              Smart Mobility Platform
-            </span>
-          </motion.div>
+    <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-28 sm:px-10 lg:pb-24">
+      <div className="lg:max-w-[52%]">
+        {/* Eyebrow */}
+        <motion.div
+          variants={rise(0, 20)}
+          initial="hidden"
+          animate="visible"
+          className="mb-8 flex items-center gap-4"
+        >
+          <motion.span
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1, delay: 0.5, ease }}
+            className="h-px w-10 origin-left bg-[#0068FF]"
+          />
+          <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#5AA0FF]">
+            Smart Mobility Platform
+          </span>
+        </motion.div>
 
-          {/* Headline — massive editorial. El slogan de marca, aquí en
-              grande, en vez de como texto pequeño junto al logo del header. */}
-          <h1 className="hero-headline text-white">
-            <span className="block overflow-hidden">
-              <motion.span variants={rise(1)} initial="hidden" animate="visible" className="block">
-                Hazlo fácil.
-              </motion.span>
-            </span>
-            <span className="block overflow-hidden">
-              <motion.span variants={rise(2)} initial="hidden" animate="visible" className="block">
-                Hazlo <span className="text-[#0068FF]">MoviLease.</span>
-              </motion.span>
-            </span>
-          </h1>
+        {/* Headline — massive editorial. El slogan de marca, aquí en
+            grande, en vez de como texto pequeño junto al logo del header. */}
+        <h1 className="hero-headline text-white">
+          <span className="block overflow-hidden">
+            <motion.span variants={rise(1)} initial="hidden" animate="visible" className="block">
+              Hazlo fácil.
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden">
+            <motion.span variants={rise(2)} initial="hidden" animate="visible" className="block">
+              Hazlo <span className="text-[#0068FF]">MoviLease.</span>
+            </motion.span>
+          </span>
+        </h1>
 
-          {/* Subtitle */}
-          <motion.p
-            variants={rise(3, 28)}
-            initial="hidden"
-            animate="visible"
-            className="mt-6 max-w-lg text-[16px] leading-[1.7] text-white/80 sm:text-[17px]"
-          >
-            Renting inteligente para particulares, autónomos y empresas.
-            Todo incluido en una cuota fija. Sin entrada. Sin sorpresas.
-          </motion.p>
+        {/* Subtitle */}
+        <motion.p
+          variants={rise(3, 28)}
+          initial="hidden"
+          animate="visible"
+          className="mt-6 max-w-lg text-[16px] leading-[1.7] text-white/80 sm:text-[17px]"
+        >
+          Renting inteligente para particulares, autónomos y empresas.
+          Todo incluido en una cuota fija. Sin entrada. Sin sorpresas.
+        </motion.p>
 
-          {/* CTAs */}
-          <motion.div
-            variants={rise(4, 28)}
-            initial="hidden"
-            animate="visible"
-            className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4"
+        {/* CTAs */}
+        <motion.div
+          variants={rise(4, 28)}
+          initial="hidden"
+          animate="visible"
+          className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4"
+        >
+          <Link href="/catalogo" className="btn-primary justify-center">
+            Explorar catálogo
+            <svg viewBox="0 0 16 16" fill="none" className="h-3 w-3 shrink-0">
+              <path
+                d="M1 8h13M9 3l5 5-5 5"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+          <a
+            href={buildWhatsAppLink(
+              "Hola, me gustaría recibir asesoramiento personalizado sobre renting."
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost justify-center"
           >
-            <Link href="/catalogo" className="btn-primary justify-center">
-              Explorar catálogo
-              <svg viewBox="0 0 16 16" fill="none" className="h-3 w-3 shrink-0">
+            Hablar por WhatsApp
+          </a>
+        </motion.div>
+
+        {/* Trust indicators */}
+        <motion.div
+          variants={rise(5, 24)}
+          initial="hidden"
+          animate="visible"
+          className="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/15 pt-7"
+        >
+          {TRUST.map((t) => (
+            <span key={t.label} className="flex items-baseline gap-2 text-[14px] sm:text-[15px]">
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+                className="h-3.5 w-3.5 shrink-0 translate-y-[2px]"
+              >
+                <circle cx="8" cy="8" r="8" fill="#5AA0FF" fillOpacity="0.22" />
                 <path
-                  d="M1 8h13M9 3l5 5-5 5"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
+                  d="M5 8.2l2 2 4-4.4"
+                  stroke="#8FBEFF"
+                  strokeWidth="1.7"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
-            </Link>
-            <a
-              href={buildWhatsAppLink(
-                "Hola, me gustaría recibir asesoramiento personalizado sobre renting."
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost justify-center"
-            >
-              Hablar por WhatsApp
-            </a>
-          </motion.div>
-
-          {/* Trust indicators */}
-          <motion.div
-            variants={rise(5, 24)}
-            initial="hidden"
-            animate="visible"
-            className="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/15 pt-7"
-          >
-            {TRUST.map((t) => (
-              <span key={t.label} className="flex items-baseline gap-2 text-[14px] sm:text-[15px]">
-                <svg
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  aria-hidden="true"
-                  className="h-3.5 w-3.5 shrink-0 translate-y-[2px]"
-                >
-                  <circle cx="8" cy="8" r="8" fill="#5AA0FF" fillOpacity="0.22" />
-                  <path
-                    d="M5 8.2l2 2 4-4.4"
-                    stroke="#8FBEFF"
-                    strokeWidth="1.7"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span
-                  className="font-bold text-white"
-                  style={{ fontFamily: "var(--font-space-grotesk)" }}
-                >
-                  {t.value}
-                </span>
-                <span className="text-white/70">{t.label}</span>
+              <span
+                className="font-bold text-white"
+                style={{ fontFamily: "var(--font-space-grotesk)" }}
+              >
+                {t.value}
               </span>
-            ))}
-          </motion.div>
-        </div>
+              <span className="text-white/70">{t.label}</span>
+            </span>
+          ))}
+        </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-9 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 xl:flex"
-      >
-        <span className="text-[9px] uppercase tracking-[0.3em] text-white/70">Scroll</span>
-        <div className="relative h-12 w-px overflow-hidden bg-white/10">
-          <motion.div
-            animate={{ y: ["-100%", "200%"] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute inset-x-0 h-6 bg-gradient-to-b from-transparent via-[#0068FF] to-transparent"
-          />
-        </div>
-      </motion.div>
-    </>
+    </div>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CONTACT, buildWhatsAppLink } from "@/lib/constants";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { Reveal } from "@/components/ui/Reveal";
+import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -17,7 +18,15 @@ export default function ContactoPage() {
   );
 
   return (
-    <div className="surface-black ambient-blue relative min-h-screen pt-32 pb-32">
+    <div className="surface-black relative min-h-screen overflow-hidden pt-32 pb-32">
+      {/* Foto de fondo (oficina de noche). VideoBackdrop sin vídeo: sirve el
+          póster a pantalla completa con su velo, que es lo que mantiene
+          legibles el titular y las tarjetas de contacto encima. */}
+      <VideoBackdrop
+        poster="/contacto-bg.webp"
+        base="#071A3D"
+        veil="linear-gradient(180deg, rgba(7,26,61,0.78) 0%, rgba(7,26,61,0.62) 45%, rgba(7,26,61,0.86) 100%)"
+      />
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr]">
           {/* Left: intro + contact channels.

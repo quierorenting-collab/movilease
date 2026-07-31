@@ -71,6 +71,99 @@ const HOW_STEPS = [
   },
 ];
 
+/**
+ * Todo lo que va dentro de la cuota. Antes esto sólo se contaba de pasada (una
+ * respuesta del FAQ y cuatro pastillas en el hero); es el argumento de venta
+ * principal del renting, así que va escrito y desarrollado en su propia
+ * sección. Los iconos son decorativos: el texto se entiende sin ellos.
+ */
+const INCLUDED = [
+  {
+    title: "Coche nuevo",
+    body: "Vehículo a estrenar, del año en curso y con la garantía oficial del fabricante. Cero kilómetros de nadie más.",
+    icon: (
+      <>
+        <path d="M3.5 16.5h17V12l-1.8-4.2a2 2 0 0 0-1.8-1.3H7.1a2 2 0 0 0-1.8 1.3L3.5 12v4.5Z" />
+        <path d="M4.5 16.5v2a1 1 0 0 0 1 1H7a1 1 0 0 0 1-1v-2m8 0v2a1 1 0 0 0 1 1h1.5a1 1 0 0 0 1-1v-2" />
+        <path d="M7 13.5h.01M17 13.5h.01" />
+      </>
+    ),
+  },
+  {
+    title: "Precios transparentes",
+    body: "Una única cuota mensual con el IVA ya incluido. Sin comisiones de apertura, sin gastos ocultos y sin letra pequeña.",
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="8.5" />
+        <path d="M15 9.6a3.4 3.4 0 1 0 0 4.8" />
+        <path d="M8.4 11h4.4M8.4 13h4.4" />
+      </>
+    ),
+  },
+  {
+    title: "Sin entrada",
+    body: "0 € de desembolso inicial. No inmovilizas ahorros ni pides un préstamo: empiezas a pagar cuando ya tienes el coche.",
+    icon: (
+      <>
+        <path d="M3.5 8.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1" />
+        <path d="M3.5 8.5v8a2 2 0 0 0 2 2h13a1 1 0 0 0 1-1v-3" />
+        <path d="M20.5 9.5H17a2.5 2.5 0 0 0 0 5h3.5" />
+      </>
+    ),
+  },
+  {
+    title: "Entrega a domicilio",
+    body: "Te llevamos el coche a donde nos digas, en cualquier punto de España, sin coste añadido. No pisas el concesionario.",
+    icon: (
+      <>
+        <path d="M12 21s7-5.6 7-10.5a7 7 0 1 0-14 0C5 15.4 12 21 12 21Z" />
+        <circle cx="12" cy="10.4" r="2.5" />
+      </>
+    ),
+  },
+  {
+    title: "Todo incluido",
+    body: "Seguro a todo riesgo, impuesto de circulación, matriculación y gestiones. Tú solo pones el combustible.",
+    icon: (
+      <>
+        <path d="M12 3l7 3v5.5c0 4.3-2.9 7.6-7 9.5-4.1-1.9-7-5.2-7-9.5V6l7-3Z" />
+        <path d="M9 12l2.2 2.2L15.5 10" />
+      </>
+    ),
+  },
+  {
+    title: "Asistencia en carretera",
+    body: "24 horas, 365 días al año y en toda Europa. Una avería o un pinchazo dejan de ser tu problema.",
+    icon: (
+      <>
+        <path d="M5 13v-1a7 7 0 0 1 14 0v1" />
+        <path d="M5 13a2 2 0 0 1 2 2v2a2 2 0 0 1-4 0v-2a2 2 0 0 1 2-2Zm14 0a2 2 0 0 1 2 2v2a2 2 0 0 1-4 0v-2a2 2 0 0 1 2-2Z" />
+        <path d="M19 19v.5a2.5 2.5 0 0 1-2.5 2.5H13" />
+      </>
+    ),
+  },
+  {
+    title: "Cambio de neumáticos",
+    body: "Neumáticos nuevos cuando toca, montados y equilibrados. Ni una factura de tu bolsillo por desgaste.",
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="8.5" />
+        <circle cx="12" cy="12" r="3.5" />
+        <path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5" />
+      </>
+    ),
+  },
+  {
+    title: "Revisiones y averías",
+    body: "Mantenimiento en talleres oficiales y reparaciones cubiertas. Nosotros gestionamos la cita; tú sigues conduciendo.",
+    icon: (
+      <>
+        <path d="M20 5.4a4.5 4.5 0 0 1-5.9 5.9l-7.5 7.5a2 2 0 0 1-2.8-2.8l7.5-7.5A4.5 4.5 0 0 1 17.2 2.6l-2.8 2.8 1.4 2.8 2.8 1.4L20 5.4Z" />
+      </>
+    ),
+  },
+];
+
 const COMPARISON = [
   { feature: "Entrada inicial",            movilease: "0 €",           dealer: "20-30 % del precio" },
   { feature: "Seguro a todo riesgo",        movilease: "Incluido",      dealer: "Aparte (+1.200 €/año)" },
@@ -91,7 +184,7 @@ const TESTIMONIALS = [
 ];
 
 const FAQ_ITEMS = [
-  { q: "¿Qué incluye la cuota mensual?",   a: "Seguro a todo riesgo, mantenimiento, asistencia en carretera 24h, impuesto de circulación y cambio de neumáticos. Una cuota fija sin sorpresas." },
+  { q: "¿Qué incluye la cuota mensual?",   a: "Coche nuevo, seguro a todo riesgo, mantenimiento y revisiones en talleres oficiales, averías, cambio de neumáticos, asistencia en carretera 24 h, impuesto de circulación y matriculación. Una cuota fija con IVA incluido, sin entrada y sin sorpresas." },
   { q: "¿Necesito dar una entrada?",        a: "No. Todos los coches del catálogo se ofrecen sin entrada inicial. 0 € de desembolso al comenzar." },
   { q: "¿A cuántos kilómetros al año?",     a: "Los precios se calculan para contratos de 36 meses y 15.000 km/año. Adaptamos el kilometraje a tu uso real." },
   { q: "¿Cuánto tarda la aprobación?",      a: "En menos de 48 horas laborables tramitamos tu solicitud y te damos respuesta." },
@@ -404,6 +497,74 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ══ INCLUIDO — qué entra en la cuota ══════════════ */}
+      <section id="incluido" className="relative overflow-hidden bg-[#FAFAFA] bg-texture-light section-y">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
+          <Reveal className="section-head max-w-2xl">
+            <p className="section-label section-label-on-light mb-5">Qué incluye tu cuota</p>
+            <h2 className="display-md text-[#0A0A0A]">
+              Ocho cosas dentro.
+              <br />
+              <span className="text-[#0068FF]">Ninguna sorpresa fuera.</span>
+            </h2>
+            <p className="mt-7 text-[16px] leading-[1.72] text-[#4B5563]">
+              El renting no es un alquiler pelado: en la misma cuota fija va el coche
+              y todo lo que cuesta tenerlo. Esto es exactamente lo que pagas cada mes.
+            </p>
+          </Reveal>
+
+          <RevealGroup
+            stagger={0.05}
+            className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {INCLUDED.map((item) => (
+              <RevealItem key={item.title}>
+                <div
+                  className="card-lift flex h-full flex-col rounded-2xl border border-[#E5E7EB] bg-white p-7"
+                  style={{ boxShadow: "var(--shadow-card)" }}
+                >
+                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#0068FF]/10 text-[#0068FF]">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      className="h-6 w-6"
+                    >
+                      {item.icon}
+                    </svg>
+                  </div>
+                  <h3
+                    className="text-[18px] font-bold leading-tight text-[#0A0A0A]"
+                    style={{ fontFamily: "var(--font-space-grotesk)" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-[14.5px] leading-[1.7] text-[#4B5563]">{item.body}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+
+          <Reveal delay={0.2} className="mt-14 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link href="/calculadora" className="btn-primary">
+              Calcular mi cuota
+            </Link>
+            <a
+              href={buildWhatsAppLink("Hola, quiero saber qué incluye exactamente la cuota.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-white"
+            >
+              Preguntar por WhatsApp
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ══ COMPARISON — dark glass table con vídeo de fondo ══
           Vista aérea nocturna de tráfico en una rotonda: movimiento sin
           protagonismo de un coche o marca concreta, encaja con "¿por qué
@@ -413,9 +574,9 @@ export default async function HomePage() {
         <VideoBackdrop
           mp4="/videos/porque-renting.mp4"
           poster="/videos/porque-renting-poster.webp"
-          base="#123068"
-          filter="brightness(0.6) saturate(0.75) contrast(1.05)"
-          veil="linear-gradient(160deg, rgba(30,79,160,0.82) 0%, rgba(18,48,104,0.85) 55%, rgba(7,26,61,0.92) 100%)"
+          base="#16407F"
+          filter="brightness(0.95) saturate(0.9) contrast(1.02)"
+          veil="linear-gradient(160deg, rgba(42,98,190,0.6) 0%, rgba(22,64,127,0.68) 55%, rgba(11,42,94,0.82) 100%)"
         />
         <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-10">
           <Reveal className="section-head text-center">
@@ -500,9 +661,9 @@ export default async function HomePage() {
             mp4="/videos/destacados.mp4"
             webm="/videos/destacados.webm"
             poster="/videos/destacados-poster.webp"
-            base="#123068"
-            filter="brightness(0.75) saturate(0.8) contrast(1.05)"
-            veil="linear-gradient(180deg, rgba(27,78,168,0.5) 0%, rgba(15,47,99,0.6) 45%, rgba(15,47,99,0.78) 100%)"
+            base="#16407F"
+            filter="brightness(1.05) saturate(0.95) contrast(1.02)"
+            veil="linear-gradient(180deg, rgba(45,105,200,0.4) 0%, rgba(25,68,135,0.5) 45%, rgba(19,58,120,0.7) 100%)"
           />
           <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
             <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -543,12 +704,20 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* ══ TESTIMONIOS — dark cards ══════════════════════ */}
-      <section className="surface-black ambient-blue-top relative overflow-hidden bg-texture-dark section-y">
+      {/* ══ TESTIMONIOS — fondo azul claro, tarjetas oscuras ══
+          Mismo recurso que la sección de ofertas: las tarjetas oscuras
+          destacan mucho más sobre claro, así que el bloque gana presencia sin
+          tocarlas. El titular pasa a tinta porque el fondo ya no es oscuro. */}
+      <section className="relative overflow-hidden bg-[#E8F1FD] section-y">
+        <VideoBackdrop
+          poster="/testimonios-bg.webp"
+          base="#E8F1FD"
+          veil="linear-gradient(180deg, rgba(232,241,253,0.5) 0%, rgba(232,241,253,0.34) 45%, rgba(232,241,253,0.55) 100%)"
+        />
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
           <Reveal className="section-head">
-            <p className="section-label mb-5">Clientes reales</p>
-            <h2 className="display-md text-white">
+            <p className="section-label section-label-on-light mb-5">Clientes reales</p>
+            <h2 className="display-md text-[#0A0A0A]">
               Confianza
               <br />
               demostrada.
@@ -596,9 +765,9 @@ export default async function HomePage() {
         <VideoBackdrop
           mp4="/videos/hero.mp4"
           poster="/videos/hero-poster.webp"
-          base="#0C2454"
-          filter="brightness(0.4) saturate(0.7) contrast(1.1)"
-          veil="linear-gradient(180deg, rgba(12,36,84,0.8) 0%, rgba(12,36,84,0.9) 45%, rgba(12,36,84,0.96) 100%)"
+          base="#10306B"
+          filter="brightness(0.85) saturate(0.9) contrast(1.02)"
+          veil="linear-gradient(180deg, rgba(19,58,120,0.5) 0%, rgba(16,48,107,0.62) 45%, rgba(11,42,94,0.8) 100%)"
         />
         <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-10">
           <Reveal className="section-head">
