@@ -16,6 +16,13 @@ import { VehiclePricingTable } from "@/components/vehicles/VehiclePricingTable";
 import { FAQAccordion } from "@/components/home/FAQAccordion";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import {
+  BreadcrumbJsonLd,
+  FaqJsonLd,
+  VehicleModelJsonLd,
+} from "@/components/seo/JsonLd";
+import { pageMetadata } from "@/lib/metadata";
+import Link from "next/link";
 
 export const revalidate = 1800;
 
@@ -30,20 +37,60 @@ export async function generateMetadata({
 
   const model = await getModelBySlugWithVehicles(slug);
   if (model) {
-    return {
-      title: `Renting ${model.brandName} ${model.model.name}`,
-      description:
-        model.model.description ??
-        `Renting de ${model.brandName} ${model.model.name} para particulares, sin entrada y todo incluido.`,
-    };
+    const nombre = `${model.brandName} ${model.model.name}`;
+    const desde = cuotaMinima(model);
+    const versiones = model.vehicles.length;
+
+    // Descripcion armada con datos reales del coche. Antes eran 70 caracteres
+    // genericos: Google los trunca menos, pero tampoco dicen nada que invite a
+    // pulsar. El precio y "sin entrada" son lo que decide el clic.
+    const partes = [
+      desde ? `Renting ${nombre} desde ${desde} €/mes sin entrada.` : `Renting ${nombre} sin entrada.`,
+      "Seguro a todo riesgo, mantenimiento e impuestos incluidos.",
+      versiones > 1 ? `${versiones} versiones disponibles.` : null,
+      "Respuesta en 48 h.",
+    ].filter(Boolean);
+    let description = partes.join(" ");
+    if (description.length > 158) description = description.slice(0, 155).trimEnd() + "…";
+
+    return pageMetadata({
+      title: desde ? `Renting ${nombre} desde ${desde} €/mes` : `Renting ${nombre}`,
+      description,
+      path: `/${slug}`,
+      // La foto del coche como imagen al compartir, en vez de la generica
+      images: portadaModelo(model) ? [portadaModelo(model)!] : undefined,
+    });
   }
 
   const landing = await getLandingPageBySlug(slug);
   if (landing) {
-    return { title: landing.title, description: landing.metaDescription ?? undefined };
+    return pageMetadata({
+      title: landing.title,
+      description:
+        landing.metaDescription ??
+        `${landing.h1}. Renting sin entrada, con seguro y mantenimiento incluidos.`,
+      path: `/${slug}`,
+    });
   }
 
   return {};
+}
+
+/** Cuota mensual mas baja del modelo, en euros enteros. */
+function cuotaMinima(model: Awaited<ReturnType<typeof getModelBySlugWithVehicles>>) {
+  if (!model?.vehicles.length) return null;
+  const cents = model.vehicles.map((v) => v.monthlyPriceCents).filter((c) => c > 0);
+  return cents.length ? Math.round(Math.min(...cents) / 100) : null;
+}
+
+/** Primera imagen utilizable del modelo. */
+function portadaModelo(model: Awaited<ReturnType<typeof getModelBySlugWithVehicles>>) {
+  if (!model) return null;
+  return (
+    model.model.coverImageUrl ??
+    model.vehicles.find((v) => v.imageUrl)?.imageUrl ??
+    null
+  );
 }
 
 export default async function SlugResolverPage({
@@ -57,7 +104,7 @@ export default async function SlugResolverPage({
   if (model) return <ModelPage model={model} />;
 
   const landing = await getLandingPageBySlug(slug);
-  if (landing) return <LandingPage landing={landing} />;
+  if (landing) return <LandingPage landing={landing} slug={slug} />;
 
   notFound();
 }
@@ -120,11 +167,81 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
       ]
     : [];
 
+  const marcaSlug = encodeURIComponent(model.brandName.toLowerCase());
+  const imagenes = [
+    ...(primary?.images ?? []).map((i) => i.url),
+    ...(primary?.imageUrl ? [primary.imageUrl] : []),
+    ...(model.model.coverImageUrl ? [model.model.coverImageUrl] : []),
+  ].filter(Boolean).slice(0, 6);
+
   return (
     <>
+      <VehicleModelJsonLd
+        brandName={model.brandName}
+        modelName={model.model.name}
+        slug={model.model.slug}
+        description={
+          model.model.description ??
+          primary?.shortDescription ??
+          `Renting de ${model.brandName} ${model.model.name} sin entrada, con seguro a todo riesgo y mantenimiento incluidos.`
+        }
+        images={imagenes}
+        precios={model.vehicles.map((v) => Math.round(v.monthlyPriceCents / 100))}
+        specs={
+          primary
+            ? {
+                combustible: FUEL_TYPE_LABELS[primary.fuelType],
+                cambio: TRANSMISSION_LABELS[primary.transmission],
+                plazas: primary.seats,
+                puertas: primary.doors,
+                potencia: primary.horsepower,
+              }
+            : undefined
+        }
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Inicio", path: "/" },
+          { name: "Catálogo", path: "/catalogo" },
+          { name: model.brandName, path: `/catalogo?brand=${marcaSlug}` },
+          { name: model.model.name, path: `/${model.model.slug}` },
+        ]}
+      />
+
       {/* ── Hero producto ── */}
       <section className="surface-black ambient-blue-top relative overflow-hidden pt-32 pb-20">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
+          {/* Migas visibles: la ficha no tenía ninguna ruta de vuelta ni al
+              catálogo ni a la marca, ni para el visitante ni para Google. */}
+          <nav aria-label="Ruta de navegación" className="mb-8">
+            <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[12.5px] text-white/70">
+              <li>
+                <Link href="/" className="transition-colors hover:text-white">
+                  Inicio
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-white/45">/</li>
+              <li>
+                <Link href="/catalogo" className="transition-colors hover:text-white">
+                  Catálogo
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-white/45">/</li>
+              <li>
+                <Link
+                  href={`/catalogo?brand=${marcaSlug}`}
+                  className="transition-colors hover:text-white"
+                >
+                  {model.brandName}
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-white/45">/</li>
+              <li aria-current="page" className="font-semibold text-white">
+                {model.model.name}
+              </li>
+            </ol>
+          </nav>
+
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal delay={0.05} y={36}>
               {primary ? (
@@ -141,7 +258,12 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
 
             <Reveal>
               <p className="section-label">{model.brandName}</p>
-              <h1 className="display-lg mt-4 text-white">{model.model.name}</h1>
+              <h1 className="display-lg mt-4 text-white">
+                <span className="block text-[0.45em] font-bold uppercase tracking-[0.18em] text-[#8FBEFF]">
+                  Renting {model.brandName}
+                </span>{" "}
+                {model.model.name}
+              </h1>
               {primary && <p className="mt-2 text-lg font-medium text-white/60">{primary.version}</p>}
               {(primary?.shortDescription || model.model.description) && (
                 <p className="mt-5 max-w-xl leading-relaxed text-white/70">
@@ -430,9 +552,26 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
 
 /* ─────────────────────────── landing view ─────────────────────────── */
 
-function LandingPage({ landing }: { landing: NonNullable<Awaited<ReturnType<typeof getLandingPageBySlug>>> }) {
+function LandingPage({
+  landing,
+  slug,
+}: {
+  landing: NonNullable<Awaited<ReturnType<typeof getLandingPageBySlug>>>;
+  slug: string;
+}) {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Inicio", path: "/" },
+          { name: "Catálogo", path: "/catalogo" },
+          { name: landing.title, path: `/${slug}` },
+        ]}
+      />
+      {landing.faq.length > 0 && (
+        <FaqJsonLd items={landing.faq.map((f) => ({ q: f.question, a: f.answer }))} />
+      )}
+
       {/* ── Hero ── */}
       <section className="surface-black ambient-blue-top relative overflow-hidden pt-32 pb-20">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">

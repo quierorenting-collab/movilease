@@ -4,6 +4,7 @@ import { LeadForm } from "@/components/forms/LeadForm";
 import { Reveal } from "@/components/ui/Reveal";
 import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { pageMetadata } from "@/lib/metadata";
+import { BreadcrumbJsonLd, WebPageJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contacto: pide tu oferta de renting",
@@ -18,6 +19,14 @@ export default function ContactoPage() {
   );
 
   return (
+    <>
+      <WebPageJsonLd tipo="ContactPage" nombre="Contacto" descripcion="Pide tu propuesta de renting sin compromiso: formulario, teléfono, email o WhatsApp." path="/contacto" />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Inicio", path: "/" },
+          { name: "Contacto", path: "/contacto" },
+        ]}
+      />
     <div className="surface-black relative min-h-screen overflow-hidden pt-32 pb-32">
       {/* Foto de fondo (oficina de noche). VideoBackdrop sin vídeo: sirve el
           póster a pantalla completa con su velo, que es lo que mantiene
@@ -152,5 +161,6 @@ export default function ContactoPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

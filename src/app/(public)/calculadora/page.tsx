@@ -4,6 +4,7 @@ import { RentingCalculator } from "@/components/calculator/RentingCalculator";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { pageMetadata } from "@/lib/metadata";
+import { BreadcrumbJsonLd, WebPageJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = pageMetadata({
   title: "Calculadora de renting: cuota mensual",
@@ -15,6 +16,14 @@ export const metadata: Metadata = pageMetadata({
 export default function CalculadoraPage() {
   return (
     <>
+      <WebPageJsonLd tipo="WebPage" nombre="Calculadora de renting" descripcion="Calcula qué coches entran en tu presupuesto mensual de renting." path="/calculadora" />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Inicio", path: "/" },
+          { name: "Calculadora de renting", path: "/calculadora" },
+        ]}
+      />
+
       <section className="surface-black relative overflow-hidden pt-32 pb-24">
         {/* Foto de fondo (escritorio con vistas). La original es muy luminosa:
             se sirve ya rebajada de brillo desde el propio WebP, porque el velo

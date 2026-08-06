@@ -9,6 +9,7 @@ import {
 import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
+import { BreadcrumbJsonLd, WebPageJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = pageMetadata({
   title: "Quiénes somos",
@@ -80,6 +81,14 @@ function CheckIcon() {
 
 export default function SobreNosotrosPage() {
   return (
+    <>
+      <WebPageJsonLd tipo="AboutPage" nombre="Quiénes somos" descripcion="Quiénes somos en MoviLease y cómo trabajamos el renting de coches." path="/sobre-nosotros" />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Inicio", path: "/" },
+          { name: "Quiénes somos", path: "/sobre-nosotros" },
+        ]}
+      />
     <div>
       {/* Hero — fondo claro de marca.
           La imagen deja la mitad izquierda casi vacía, que es justo donde cae
@@ -267,5 +276,6 @@ export default function SobreNosotrosPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

@@ -118,3 +118,118 @@ export function ItemListJsonLd({
     />
   );
 }
+
+/**
+ * Ficha de modelo: Product con AggregateOffer porque un mismo modelo tiene
+ * varias versiones a distinto precio. El precio es la cuota MENSUAL, así que va
+ * como UnitPriceSpecification con unitCode MON: declararlo como precio a secas
+ * haría que Google mostrase "264 €" como si fuera el precio del coche.
+ */
+export function VehicleModelJsonLd({
+  brandName,
+  modelName,
+  slug,
+  description,
+  images,
+  precios,
+  specs,
+}: {
+  brandName: string;
+  modelName: string;
+  slug: string;
+  description: string;
+  images: string[];
+  /** Cuota mensual en euros de cada versión. */
+  precios: number[];
+  specs?: {
+    combustible?: string;
+    cambio?: string;
+    plazas?: number | null;
+    puertas?: number | null;
+    potencia?: number | null;
+  };
+}) {
+  const validos = precios.filter((p) => Number.isFinite(p) && p > 0).sort((a, b) => a - b);
+  const propiedades = [
+    specs?.combustible && { name: "Combustible", value: specs.combustible },
+    specs?.cambio && { name: "Cambio", value: specs.cambio },
+    specs?.plazas && { name: "Plazas", value: String(specs.plazas) },
+    specs?.puertas && { name: "Puertas", value: String(specs.puertas) },
+    specs?.potencia && { name: "Potencia", value: `${specs.potencia} CV` },
+  ].filter(Boolean) as { name: string; value: string }[];
+
+  return (
+    <Script
+      data={{
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": `${SITE_URL}/${slug}#producto`,
+        name: `${brandName} ${modelName}`,
+        category: "Renting de vehículos",
+        brand: { "@type": "Brand", name: brandName },
+        ...(images.length ? { image: images } : {}),
+        description,
+        url: `${SITE_URL}/${slug}`,
+        ...(propiedades.length
+          ? {
+              additionalProperty: propiedades.map((p) => ({
+                "@type": "PropertyValue",
+                name: p.name,
+                value: p.value,
+              })),
+            }
+          : {}),
+        ...(validos.length
+          ? {
+              offers: {
+                "@type": "AggregateOffer",
+                priceCurrency: "EUR",
+                lowPrice: validos[0],
+                highPrice: validos[validos.length - 1],
+                offerCount: validos.length,
+                availability: "https://schema.org/InStock",
+                url: `${SITE_URL}/${slug}`,
+                seller: { "@id": `${SITE_URL}/#organizacion` },
+                priceSpecification: {
+                  "@type": "UnitPriceSpecification",
+                  price: validos[0],
+                  priceCurrency: "EUR",
+                  unitCode: "MON",
+                  billingDuration: 36,
+                  billingIncrement: 1,
+                },
+              },
+            }
+          : {}),
+      }}
+    />
+  );
+}
+
+/** Página de contacto, "quiénes somos", etc. */
+export function WebPageJsonLd({
+  tipo,
+  nombre,
+  descripcion,
+  path,
+}: {
+  tipo: "ContactPage" | "AboutPage" | "CollectionPage" | "WebPage";
+  nombre: string;
+  descripcion: string;
+  path: string;
+}) {
+  return (
+    <Script
+      data={{
+        "@context": "https://schema.org",
+        "@type": tipo,
+        name: nombre,
+        description: descripcion,
+        url: `${SITE_URL}${path === "/" ? "" : path}`,
+        inLanguage: "es-ES",
+        isPartOf: { "@id": `${SITE_URL}/#web` },
+        publisher: { "@id": `${SITE_URL}/#organizacion` },
+      }}
+    />
+  );
+}

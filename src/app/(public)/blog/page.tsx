@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
+import { BreadcrumbJsonLd, WebPageJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = pageMetadata({
   title: "Blog de renting",
@@ -15,6 +16,14 @@ const SKELETON_CARDS = [0, 1, 2];
 
 export default function BlogPage() {
   return (
+    <>
+      <WebPageJsonLd tipo="CollectionPage" nombre="Blog de renting" descripcion="Guías y artículos sobre renting de coches para particulares, autónomos y empresas." path="/blog" />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Inicio", path: "/" },
+          { name: "Blog de renting", path: "/blog" },
+        ]}
+      />
     <section className="surface-black relative min-h-[70vh] overflow-hidden pt-32 pb-32">
       <div className="ambient-blue-top" aria-hidden />
 
@@ -72,5 +81,6 @@ export default function BlogPage() {
         </Reveal>
       </div>
     </section>
+    </>
   );
 }
