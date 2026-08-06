@@ -8,6 +8,11 @@ Uso:
 Formato del JSON de entrada — ver fichas/EJEMPLO.json.
 Los campos ausentes se omiten (columna NULL / array vacio); la ficha en la
 web oculta automaticamente lo que no tiene dato.
+
+Si el JSON incluye "update_vehicle_id", en vez de crear un vehiculo nuevo
+se actualiza ese vehiculo existente (precio, specs, equipamiento) y se
+reemplazan sus cuotas/fotos, sin tocar version/version_slug/model_id (para
+no romper la URL ya publicada).
 """
 
 import json
@@ -79,16 +84,12 @@ def main():
     with open(sys.argv[1], encoding="utf-8") as f:
         data = json.load(f)
 
-    brand_id = get_or_create_brand(data["brand"])
-    model_id, model_slug = get_or_create_model(brand_id, data["brand"], data["model"])
-
     images = data.get("images", [])
     main_image_url = images[0]["url"] if images else data.get("main_image_url")
 
+    update_id = data.get("update_vehicle_id")
+
     vehicle_payload = {
-        "model_id": model_id,
-        "version": data["version"],
-        "version_slug": slugify(data["version"]),
         "category": data["category"],
         "fuel_type": data["fuel_type"],
         "transmission": data["transmission"],
@@ -101,8 +102,8 @@ def main():
         "seats": data.get("seats"),
         "doors": data.get("doors"),
         "main_image_url": main_image_url,
-        "is_featured": data.get("is_featured", False),
-        "is_offer": data.get("is_offer", False),
+        "is_featured": data.get("is_featured"),
+        "is_offer": data.get("is_offer"),
         "badge_text": data.get("badge_text"),
         "short_description": data.get("short_description"),
         "description": data.get("description"),
@@ -113,16 +114,38 @@ def main():
     }
     if data.get("included_services"):
         vehicle_payload["included_services"] = data["included_services"]
-    vehicle_payload = {k: v for k, v in vehicle_payload.items() if v is not None}
 
-    vehicle = rest(
-        "POST",
-        "vehicles",
-        json=vehicle_payload,
-        headers={**HEADERS, "Prefer": "return=representation"},
-    )[0]
-    vehicle_id = vehicle["id"]
-    print(f"  + Vehiculo creado: {data['brand']} {data['model']} {data['version']} (id={vehicle_id})")
+    if update_id:
+        vehicle_payload = {k: v for k, v in vehicle_payload.items() if v is not None}
+        rest(
+            "PATCH",
+            f"vehicles?id=eq.{update_id}",
+            json=vehicle_payload,
+            headers={**HEADERS, "Prefer": "return=minimal"},
+        )
+        vehicle_id = update_id
+        vehicle_row = rest("GET", f"vehicles?id=eq.{update_id}&select=version,model_id")[0]
+        model_row = rest("GET", f"models?id=eq.{vehicle_row['model_id']}&select=slug")[0]
+        model_slug = model_row["slug"]
+        print(f"  * Vehiculo actualizado: {data['brand']} {data['model']} {vehicle_row['version']} (id={vehicle_id})")
+        rest("DELETE", f"vehicle_pricing?vehicle_id=eq.{vehicle_id}")
+        rest("DELETE", f"vehicle_images?vehicle_id=eq.{vehicle_id}")
+    else:
+        brand_id = get_or_create_brand(data["brand"])
+        model_id, model_slug = get_or_create_model(brand_id, data["brand"], data["model"])
+        vehicle_payload["model_id"] = model_id
+        vehicle_payload["version"] = data["version"]
+        vehicle_payload["version_slug"] = slugify(data["version"])
+        vehicle_payload = {k: v for k, v in vehicle_payload.items() if v is not None}
+
+        vehicle = rest(
+            "POST",
+            "vehicles",
+            json=vehicle_payload,
+            headers={**HEADERS, "Prefer": "return=representation"},
+        )[0]
+        vehicle_id = vehicle["id"]
+        print(f"  + Vehiculo creado: {data['brand']} {data['model']} {data['version']} (id={vehicle_id})")
 
     pricing = data.get("pricing", [])
     if pricing:

@@ -1,0 +1,52 @@
+{
+  "brand": "Audi",
+  "model": "A1",
+  "version": "SB Adrenalin Edition 30TFSI 116CV Stronic",
+  "category": "turismo",
+  "fuel_type": "gasolina",
+  "transmission": "automatico",
+  "monthly_price_cents": 39850,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 116,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "c",
+  "body_type": "Sportback",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    { "url": "https://fotos.quecochemecompro.com/audi-a1/audi-a1-delantera-dinamica-carretera.jpg?size=1200x800", "alt": "Audi A1 - vista frontal 3/4" },
+    { "url": "https://fotos.quecochemecompro.com/audi-a1/audi-a1-en-movimiento-vista-frontal.jpg?size=1200x800", "alt": "Audi A1 - vista frontal" },
+    { "url": "https://fotos.quecochemecompro.com/audi-a1/audi-a1-sportback-vista-trasera-1.jpg?size=1200x800", "alt": "Audi A1 - vista trasera" },
+    { "url": "https://fotos.quecochemecompro.com/audi-a1/audi-a1-lateral-dinamismo-natural.jpg?size=1200x800", "alt": "Audi A1 - vista lateral" },
+    { "url": "https://fotos.quecochemecompro.com/audi-a1/cuadro-instrumentos-digital-audi-a1.jpg?size=1200x800", "alt": "Audi A1 - cuadro de instrumentos digital" },
+    { "url": "https://fotos.quecochemecompro.com/audi-a1/asientos-deportivos-audi-a1.jpg?size=1200x800", "alt": "Audi A1 - asientos deportivos" }
+  ],
+  "pricing": [
+    { "contract_months": 36, "annual_km": 10000, "monthly_price_cents": 42377 },
+    { "contract_months": 36, "annual_km": 15000, "monthly_price_cents": 44592 },
+    { "contract_months": 36, "annual_km": 20000, "monthly_price_cents": 46807 },
+    { "contract_months": 36, "annual_km": 25000, "monthly_price_cents": 49623 },
+    { "contract_months": 36, "annual_km": 30000, "monthly_price_cents": 52490 },
+    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 41220 },
+    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 43165 },
+    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 45112 },
+    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 47764 },
+    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 50632 },
+    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 39850 },
+    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 41722 },
+    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 43515 },
+    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 46509 },
+    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 49332 }
+  ]
+}

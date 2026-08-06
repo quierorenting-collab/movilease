@@ -363,36 +363,46 @@ export async function getModelBySlugWithVehicles(slug: string): Promise<ModelDet
         coverImageUrl: model.cover_image_url,
       },
       brandName: brand?.name ?? "",
-      vehicles: vehicleRows.map((v) => {
-        const gallery = imagesByVehicle.get(v.id) ?? [];
-        return {
-          id: v.id,
-          version: v.version,
-          versionSlug: v.version_slug,
-          priceLabel: formatPriceFromCents(v.monthly_price_cents),
-          monthlyPriceCents: v.monthly_price_cents,
-          contractMonths: v.contract_months,
-          annualKm: v.annual_km,
-          horsepower: v.horsepower,
-          consumptionValue: v.consumption_value,
-          consumptionUnit: v.consumption_unit,
-          seats: v.seats,
-          doors: v.doors,
-          fuelType: v.fuel_type,
-          transmission: v.transmission,
-          category: v.category,
-          environmentalLabel: v.environmental_label,
-          colors: v.colors,
-          bodyType: v.body_type,
-          equipment: v.equipment,
-          includedServices: v.included_services,
-          shortDescription: v.short_description,
-          description: v.description,
-          imageUrl: v.main_image_url,
-          images: gallery.length > 0 ? gallery : v.main_image_url ? [{ url: v.main_image_url, alt: null }] : [],
-          pricingTiers: pricingByVehicle.get(v.id) ?? [],
-        };
-      }),
+      // La version con ficha completa (galeria real) encabeza la pagina del
+      // modelo aunque no sea la mas barata; entre versiones igual de
+      // completas, gana la mas barata.
+      vehicles: [...vehicleRows]
+        .sort((a, b) => {
+          const aHasGallery = (imagesByVehicle.get(a.id) ?? []).length > 0;
+          const bHasGallery = (imagesByVehicle.get(b.id) ?? []).length > 0;
+          if (aHasGallery !== bHasGallery) return aHasGallery ? -1 : 1;
+          return a.monthly_price_cents - b.monthly_price_cents;
+        })
+        .map((v) => {
+          const gallery = imagesByVehicle.get(v.id) ?? [];
+          return {
+            id: v.id,
+            version: v.version,
+            versionSlug: v.version_slug,
+            priceLabel: formatPriceFromCents(v.monthly_price_cents),
+            monthlyPriceCents: v.monthly_price_cents,
+            contractMonths: v.contract_months,
+            annualKm: v.annual_km,
+            horsepower: v.horsepower,
+            consumptionValue: v.consumption_value,
+            consumptionUnit: v.consumption_unit,
+            seats: v.seats,
+            doors: v.doors,
+            fuelType: v.fuel_type,
+            transmission: v.transmission,
+            category: v.category,
+            environmentalLabel: v.environmental_label,
+            colors: v.colors,
+            bodyType: v.body_type,
+            equipment: v.equipment,
+            includedServices: v.included_services,
+            shortDescription: v.short_description,
+            description: v.description,
+            imageUrl: v.main_image_url,
+            images: gallery.length > 0 ? gallery : v.main_image_url ? [{ url: v.main_image_url, alt: null }] : [],
+            pricingTiers: pricingByVehicle.get(v.id) ?? [],
+          };
+        }),
     };
   } catch {
     return null;
