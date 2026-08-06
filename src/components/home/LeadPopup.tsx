@@ -43,13 +43,13 @@ export function LeadPopup() {
 
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      if (max > 0 && window.scrollY / max > 0.5) trigger();
+      if (max > 0 && window.scrollY / max > 0.22) trigger();
     };
     // Salida del puntero por el borde superior = intención de abandonar
     const onLeave = (e: MouseEvent) => {
       if (e.clientY <= 4) trigger();
     };
-    const timer = window.setTimeout(trigger, 45000);
+    const timer = window.setTimeout(trigger, 12000);
 
     function cleanup() {
       window.clearTimeout(timer);
@@ -106,7 +106,7 @@ export function LeadPopup() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.28 }}
           className="fixed inset-0 z-[60] flex items-center justify-center bg-black/65 p-4 backdrop-blur-md"
           onClick={close}
         >
@@ -114,11 +114,11 @@ export function LeadPopup() {
             initial={{ opacity: 0, y: 40, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
-            transition={{ duration: 0.6, ease }}
+            transition={{ duration: 0.45, ease }}
             role="dialog"
             aria-modal="true"
             aria-labelledby="popup-titulo"
-            className="relative grid w-full max-w-[900px] grid-cols-1 overflow-hidden rounded-[28px] border border-white/12 sm:grid-cols-[42%_1fr]"
+            className="relative grid w-full max-w-[900px] grid-cols-1 overflow-hidden rounded-[28px] border border-white/12 sm:grid-cols-[46%_1fr]"
             style={{
               boxShadow:
                 "0 0 0 1px rgba(255,255,255,0.05), 0 30px 90px rgba(0,0,0,0.65), 0 0 140px rgba(0,104,255,0.12)",
@@ -137,13 +137,16 @@ export function LeadPopup() {
 
             {/* Panel visual */}
             <div className="relative h-48 sm:h-auto">
+              {/* Foto propia de marca (lleva la matricula MOVILEASE). El panel
+                  es estrecho y vertical y la foto apaisada, asi que el foco se
+                  desplaza al coche para que no se pierda en el recorte. */}
               <Image
-                src="/hero-car.webp"
+                src="/img/popup-movilease.webp"
                 alt=""
                 fill
                 priority
-                sizes="(max-width: 640px) 100vw, 380px"
-                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 420px"
+                className="object-cover object-[62%_center] scale-105"
               />
               {/* Blend hacia el panel de texto: lateral en desktop, inferior en móvil */}
               <div

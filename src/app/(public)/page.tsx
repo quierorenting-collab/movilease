@@ -806,13 +806,25 @@ export default async function HomePage() {
           Antes esta sección solo ofrecía WhatsApp: quien no quiere abrir un
           chat (o navega desde escritorio) se quedaba sin forma de contactar
           sin salir de la home. Ahora el formulario está aquí mismo. */}
+      {/* Era la unica seccion grande sin imagen, y es la de mas intencion:
+          la carretera al atardecer acompana el "empieza aqui". Velo azul
+          marino fuerte porque encima va texto blanco y el formulario. */}
       <section
         id="solicitar"
-        className="surface-black ambient-blue relative overflow-hidden bg-texture-dark section-y"
+        className="ambient-blue relative overflow-hidden bg-[#071A3D] section-y"
       >
+        <VideoBackdrop
+          poster="/img/carretera-atardecer.webp"
+          base="#071A3D"
+          veil="linear-gradient(180deg, rgba(7,26,61,0.90) 0%, rgba(9,30,70,0.84) 38%, rgba(7,26,61,0.93) 100%)"
+        />
         <div className="relative z-10 mx-auto grid max-w-6xl gap-14 px-6 sm:px-10 lg:grid-cols-[1fr_460px] lg:items-center lg:gap-20">
           <Reveal>
-            <p className="section-label mb-6">Empieza aquí</p>
+            {/* Azul mas claro que --blue-light: sobre la zona del sol de la
+                foto, #5AA0FF se queda en 3,99:1 y no llega a AA a 11px. */}
+            <p className="section-label mb-6" style={{ color: "#8FBEFF" }}>
+              Empieza aquí
+            </p>
             <h2 className="display-sm max-w-md text-white">
               Dinos qué coche quieres y te lo{" "}
               <span className="text-[#5AA0FF]">calculamos gratis.</span>
