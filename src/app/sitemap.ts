@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/constants";
 import { getCatalogVehicles, getVehiclesByBrand } from "@/lib/data/vehicles";
+import { getPublishedPosts } from "@/lib/data/blog";
 
 export const revalidate = 3600;
 
@@ -38,9 +39,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Si Supabase no responde, el sitemap estático sigue sirviéndose igual.
   let dynamicEntries: MetadataRoute.Sitemap = [];
   try {
-    const [vehicles, { brands }] = await Promise.all([
+    const [vehicles, { brands }, posts] = await Promise.all([
       getCatalogVehicles({}),
       getVehiclesByBrand(),
+      getPublishedPosts(200),
     ]);
 
     const modelSlugs = [...new Set(vehicles.map((v) => v.modelSlug).filter(Boolean))];
@@ -51,6 +53,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: now,
         changeFrequency: "weekly" as const,
         priority: 0.8,
+      })),
+      ...posts.map((post) => ({
+        url: `${SITE_URL}/blog/${post.slug}`,
+        lastModified: post.publishedAt ? new Date(post.publishedAt) : now,
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
       })),
       ...brands.map((brand) => ({
         url: `${SITE_URL}/catalogo?brand=${encodeURIComponent(brand.brandName.toLowerCase())}`,

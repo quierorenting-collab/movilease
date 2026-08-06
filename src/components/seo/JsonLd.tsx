@@ -233,3 +233,38 @@ export function WebPageJsonLd({
     />
   );
 }
+
+/** Artículo del blog. */
+export function ArticleJsonLd({
+  title,
+  slug,
+  excerpt,
+  image,
+  publishedAt,
+  updatedAt,
+}: {
+  title: string;
+  slug: string;
+  excerpt: string | null;
+  image: string | null;
+  publishedAt: string | null;
+  updatedAt: string | null;
+}) {
+  return (
+    <Script
+      data={{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title.slice(0, 110),
+        ...(excerpt ? { description: excerpt } : {}),
+        ...(image ? { image: [image] } : {}),
+        ...(publishedAt ? { datePublished: publishedAt } : {}),
+        ...(updatedAt ? { dateModified: updatedAt } : {}),
+        inLanguage: "es-ES",
+        mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${slug}` },
+        author: { "@id": `${SITE_URL}/#organizacion` },
+        publisher: { "@id": `${SITE_URL}/#organizacion` },
+      }}
+    />
+  );
+}
