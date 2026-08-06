@@ -195,7 +195,7 @@ const FAQ_ITEMS = [
 export default async function HomePage() {
   const [featured, offers, { brands }] = await Promise.all([
     getFeaturedVehicles(200),
-    getOfferVehicles(8),
+    getOfferVehicles(4),
     getVehiclesByBrand(),
   ]);
 
@@ -273,40 +273,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ MARCAS — premium white ════════════════════════ */}
-      <section id="marcas" className="relative overflow-hidden bg-[#FAFAFA] bg-texture-light section-y">
-        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
-          <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="section-label section-label-on-light mb-5">Catálogo por marcas</p>
-              <h2 className="display-md text-[#0A0A0A]">
-                Todas las marcas.
-                <br />
-                Un solo lugar.
-              </h2>
-            </div>
-            <Link
-              href="/catalogo"
-              className="group hidden items-center gap-2 py-3 text-[12px] font-bold uppercase tracking-[0.14em] text-[#4B5563] transition-colors hover:text-[#0068FF] sm:flex"
-            >
-              Catálogo completo
-              <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-            </Link>
-          </Reveal>
-
-          <RevealGroup
-            stagger={0.03}
-            className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-          >
-            {brands.map((brand) => (
-              <RevealItem key={brand.brandName}>
-                <BrandCard brand={brand} />
-              </RevealItem>
-            ))}
-          </RevealGroup>
-        </div>
-      </section>
-
       {/* ══ OFERTAS — fondo claro con la foto del BMW ═════
           Las tarjetas son azul marino oscuro: sobre claro destacan mucho más
           que sobre el azul oscuro anterior, así que el bloque gana presencia
@@ -314,7 +280,10 @@ export default async function HomePage() {
           lo que mantiene legible el texto. */}
       {/* El fondo claro va en la propia sección, no sólo en el backdrop: si la
           foto fallase, el texto en tinta oscura quedaría sobre el azul marino
-          del body y sería ilegible. */}
+          del body y sería ilegible.
+          Va antes que "Catálogo por marcas": son las 4 ofertas más atractivas
+          del momento (Ibiza 80CV, Polo, Taigo, Ebro S400), pensadas como
+          gancho inmediato antes de que el visitante explore por marca. */}
       {dedupedOffers.length > 0 && (
         <section id="ofertas" className="relative overflow-hidden bg-[#F4F6FA] section-y">
           <VideoBackdrop
@@ -456,6 +425,40 @@ export default async function HomePage() {
           </div>
         </section>
       )}
+
+      {/* ══ MARCAS — premium white ════════════════════════ */}
+      <section id="marcas" className="relative overflow-hidden bg-[#FAFAFA] bg-texture-light section-y">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
+          <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="section-label section-label-on-light mb-5">Catálogo por marcas</p>
+              <h2 className="display-md text-[#0A0A0A]">
+                Todas las marcas.
+                <br />
+                Un solo lugar.
+              </h2>
+            </div>
+            <Link
+              href="/catalogo"
+              className="group hidden items-center gap-2 py-3 text-[12px] font-bold uppercase tracking-[0.14em] text-[#4B5563] transition-colors hover:text-[#0068FF] sm:flex"
+            >
+              Catálogo completo
+              <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+            </Link>
+          </Reveal>
+
+          <RevealGroup
+            stagger={0.03}
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+          >
+            {brands.map((brand) => (
+              <RevealItem key={brand.brandName}>
+                <BrandCard brand={brand} />
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
 
       {/* ══ PROCESO — premium white contrast ══════════════ */}
       <section id="por-que" className="relative overflow-hidden bg-white bg-texture-light section-y">

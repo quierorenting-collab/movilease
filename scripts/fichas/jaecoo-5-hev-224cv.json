@@ -1,0 +1,52 @@
+{
+  "update_vehicle_id": "83ace1b9-3592-4963-b56c-14da4ae75a8b",
+  "brand": "Jaecoo",
+  "model": "5",
+  "category": "hibrido",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "monthly_price_cents": 44700,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 224,
+  "consumption_value": 7,
+  "consumption_unit": "l/100km",
+  "seats": 5,
+  "doors": 5,
+  "colors": ["Blanco Aura"],
+  "body_type": "SUV",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    { "url": "https://fotos.quecochemecompro.com/jaecoo-5/42156637.jpg?size=1200x800", "alt": "Jaecoo 5 - vista frontal" },
+    { "url": "https://fotos.quecochemecompro.com/jaecoo-5/42156648.jpg?size=1200x800", "alt": "Jaecoo 5 - vista frontal 3/4" },
+    { "url": "https://fotos.quecochemecompro.com/jaecoo-5/42156652.jpg?size=1200x800", "alt": "Jaecoo 5 - detalle volante" },
+    { "url": "https://fotos.quecochemecompro.com/jaecoo-5/42156656.jpg?size=1200x800", "alt": "Jaecoo 5 - detalle trasero" }
+  ],
+  "pricing": [
+    { "contract_months": 36, "annual_km": 10000, "monthly_price_cents": 48100 },
+    { "contract_months": 36, "annual_km": 15000, "monthly_price_cents": 51400 },
+    { "contract_months": 36, "annual_km": 20000, "monthly_price_cents": 54500 },
+    { "contract_months": 36, "annual_km": 25000, "monthly_price_cents": 58000 },
+    { "contract_months": 36, "annual_km": 30000, "monthly_price_cents": 61700 },
+    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 46400 },
+    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 49500 },
+    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 53400 },
+    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 57400 },
+    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 61600 },
+    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 44700 },
+    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 48400 },
+    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 52700 },
+    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 57000 },
+    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 61600 }
+  ]
+}

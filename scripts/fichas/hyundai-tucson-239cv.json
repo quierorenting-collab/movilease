@@ -1,0 +1,52 @@
+{
+  "update_vehicle_id": "770f6726-b137-4427-aea3-4af67ba9ad25",
+  "brand": "Hyundai",
+  "model": "Tucson",
+  "category": "hibrido",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "monthly_price_cents": 44412,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 239,
+  "consumption_value": 5.6,
+  "consumption_unit": "l/100km",
+  "seats": 5,
+  "doors": 5,
+  "colors": ["Atlas White"],
+  "body_type": "SUV",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    { "url": "https://fotos.quecochemecompro.com/hyundai-tucson/vista-frontal-hyundai-tucson.jpg?size=1200x800", "alt": "Hyundai Tucson - vista frontal" },
+    { "url": "https://fotos.quecochemecompro.com/hyundai-tucson/hyundai-tucson-rojo-vista-trasera.jpg?size=1200x800", "alt": "Hyundai Tucson - vista trasera" },
+    { "url": "https://fotos.quecochemecompro.com/hyundai-tucson/pantalla-digital-hyundai-tucson-tecnologia.jpg?size=1200x800", "alt": "Hyundai Tucson - pantalla e instrumentación" },
+    { "url": "https://fotos.quecochemecompro.com/hyundai-tucson/maletero-amplio-hyundai-tucson.jpg?size=1200x800", "alt": "Hyundai Tucson - maletero" }
+  ],
+  "pricing": [
+    { "contract_months": 36, "annual_km": 10000, "monthly_price_cents": 46424 },
+    { "contract_months": 36, "annual_km": 15000, "monthly_price_cents": 48556 },
+    { "contract_months": 36, "annual_km": 20000, "monthly_price_cents": 50688 },
+    { "contract_months": 36, "annual_km": 25000, "monthly_price_cents": 53644 },
+    { "contract_months": 36, "annual_km": 30000, "monthly_price_cents": 56979 },
+    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 45379 },
+    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 47235 },
+    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 49092 },
+    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 52030 },
+    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 55083 },
+    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 44412 },
+    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 46043 },
+    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 47675 },
+    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 50539 },
+    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 53422 }
+  ]
+}

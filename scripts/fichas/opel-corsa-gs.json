@@ -1,0 +1,47 @@
+{
+  "update_vehicle_id": "2f922af1-57f9-49bb-b0fa-a25440de1294",
+  "brand": "Opel",
+  "model": "Corsa",
+  "category": "turismo",
+  "fuel_type": "gasolina",
+  "transmission": "manual",
+  "monthly_price_cents": 30300,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 100,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "c",
+  "colors": ["Karbon Black", "Grafik Grey"],
+  "body_type": "Hatchback",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    { "url": "https://fotos.quecochemecompro.com/opel-corsa/opel-corsa-vista-delantera-lateral.jpg?size=1200x800", "alt": "Opel Corsa - vista frontal 3/4" },
+    { "url": "https://fotos.quecochemecompro.com/opel-corsa/opel-corsa-vista-trasera-lateral.jpg?size=1200x800", "alt": "Opel Corsa - vista trasera 3/4" },
+    { "url": "https://fotos.quecochemecompro.com/opel-corsa/opel-corsa-perfil-dinamico.jpg?size=1200x800", "alt": "Opel Corsa - perfil lateral" },
+    { "url": "https://fotos.quecochemecompro.com/opel-corsa/interior-opel-corsa-pantalla-instrumentacion.jpg?size=1200x800", "alt": "Opel Corsa - cuadro de instrumentos" },
+    { "url": "https://fotos.quecochemecompro.com/opel-corsa/opel-corsa-cabina-moderna.jpg?size=1200x800", "alt": "Opel Corsa - interior salpicadero" }
+  ],
+  "pricing": [
+    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 31100 },
+    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 33200 },
+    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 35200 },
+    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 38500 },
+    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 40800 },
+    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 30300 },
+    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 32200 },
+    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 35600 },
+    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 38800 },
+    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 41400 }
+  ]
+}
