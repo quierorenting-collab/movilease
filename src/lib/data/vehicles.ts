@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { formatPriceFromCents } from "@/lib/utils";
 import { getBrandLogoUrl } from "@/lib/brand-logos";
 import type {
+  EnvironmentalLabelEnum,
   FuelTypeEnum,
   TransmissionEnum,
   VehicleCategoryEnum,
@@ -216,25 +217,82 @@ export interface CatalogFilters {
   maxPriceEuros?: number;
 }
 
+export interface VehicleGalleryImage {
+  url: string;
+  alt: string | null;
+}
+
+export interface VehiclePricingRow {
+  contractMonths: number;
+  annualKm: number;
+  monthlyPriceCents: number;
+  priceLabel: string;
+}
+
+export interface VehicleDetailData {
+  id: string;
+  version: string;
+  versionSlug: string;
+  priceLabel: string;
+  monthlyPriceCents: number;
+  contractMonths: number;
+  annualKm: number;
+  horsepower: number | null;
+  consumptionValue: number | null;
+  consumptionUnit: string | null;
+  seats: number | null;
+  doors: number | null;
+  fuelType: FuelTypeEnum;
+  transmission: TransmissionEnum;
+  category: VehicleCategoryEnum;
+  environmentalLabel: EnvironmentalLabelEnum | null;
+  colors: string[] | null;
+  bodyType: string | null;
+  equipment: string[];
+  includedServices: string[];
+  shortDescription: string | null;
+  description: string | null;
+  imageUrl: string | null;
+  images: VehicleGalleryImage[];
+  pricingTiers: VehiclePricingRow[];
+}
+
 export interface ModelDetail {
   model: { id: string; name: string; slug: string; description: string | null; coverImageUrl: string | null };
   brandName: string;
-  vehicles: {
-    id: string;
-    version: string;
-    versionSlug: string;
-    priceLabel: string;
-    monthlyPriceCents: number;
-    horsepower: number | null;
-    consumptionValue: number | null;
-    consumptionUnit: string | null;
-    seats: number | null;
-    fuelType: FuelTypeEnum;
-    transmission: TransmissionEnum;
-    imageUrl: string | null;
-    includedServices: string[];
-  }[];
+  vehicles: VehicleDetailData[];
 }
+
+const VEHICLE_DETAIL_COLUMNS =
+  "id, version, version_slug, monthly_price_cents, contract_months, annual_km, horsepower, " +
+  "consumption_value, consumption_unit, seats, doors, fuel_type, transmission, category, " +
+  "environmental_label, colors, body_type, equipment, main_image_url, included_services, " +
+  "short_description, description";
+
+type VehicleDetailRow = {
+  id: string;
+  version: string;
+  version_slug: string;
+  monthly_price_cents: number;
+  contract_months: number;
+  annual_km: number;
+  horsepower: number | null;
+  consumption_value: number | null;
+  consumption_unit: string | null;
+  seats: number | null;
+  doors: number | null;
+  fuel_type: FuelTypeEnum;
+  transmission: TransmissionEnum;
+  category: VehicleCategoryEnum;
+  environmental_label: EnvironmentalLabelEnum | null;
+  colors: string[] | null;
+  body_type: string | null;
+  equipment: string[];
+  main_image_url: string | null;
+  included_services: string[];
+  short_description: string | null;
+  description: string | null;
+};
 
 export async function getModelBySlugWithVehicles(slug: string): Promise<ModelDetail | null> {
   try {
@@ -252,13 +310,49 @@ export async function getModelBySlugWithVehicles(slug: string): Promise<ModelDet
       supabase.from("brands").select("name").eq("id", model.brand_id).maybeSingle(),
       supabase
         .from("vehicles")
-        .select(
-          "id, version, version_slug, monthly_price_cents, horsepower, consumption_value, consumption_unit, seats, fuel_type, transmission, main_image_url, included_services"
-        )
+        .select(VEHICLE_DETAIL_COLUMNS)
         .eq("model_id", model.id)
         .eq("is_active", true)
         .order("monthly_price_cents"),
     ]);
+
+    const vehicleRows = (vehicles ?? []) as unknown as VehicleDetailRow[];
+    const vehicleIds = vehicleRows.map((v) => v.id);
+    const [{ data: images }, { data: pricing }] =
+      vehicleIds.length > 0
+        ? await Promise.all([
+            supabase
+              .from("vehicle_images")
+              .select("vehicle_id, storage_path, alt_text, sort_order")
+              .in("vehicle_id", vehicleIds)
+              .order("sort_order"),
+            supabase
+              .from("vehicle_pricing")
+              .select("vehicle_id, contract_months, annual_km, monthly_price_cents")
+              .in("vehicle_id", vehicleIds)
+              .order("contract_months")
+              .order("annual_km"),
+          ])
+        : [{ data: [] }, { data: [] }];
+
+    const imagesByVehicle = new Map<string, VehicleGalleryImage[]>();
+    for (const img of images ?? []) {
+      const list = imagesByVehicle.get(img.vehicle_id) ?? [];
+      list.push({ url: img.storage_path, alt: img.alt_text });
+      imagesByVehicle.set(img.vehicle_id, list);
+    }
+
+    const pricingByVehicle = new Map<string, VehiclePricingRow[]>();
+    for (const row of pricing ?? []) {
+      const list = pricingByVehicle.get(row.vehicle_id) ?? [];
+      list.push({
+        contractMonths: row.contract_months,
+        annualKm: row.annual_km,
+        monthlyPriceCents: row.monthly_price_cents,
+        priceLabel: formatPriceFromCents(row.monthly_price_cents),
+      });
+      pricingByVehicle.set(row.vehicle_id, list);
+    }
 
     return {
       model: {
@@ -269,21 +363,36 @@ export async function getModelBySlugWithVehicles(slug: string): Promise<ModelDet
         coverImageUrl: model.cover_image_url,
       },
       brandName: brand?.name ?? "",
-      vehicles: (vehicles ?? []).map((v) => ({
-        id: v.id,
-        version: v.version,
-        versionSlug: v.version_slug,
-        priceLabel: formatPriceFromCents(v.monthly_price_cents),
-        monthlyPriceCents: v.monthly_price_cents,
-        horsepower: v.horsepower,
-        consumptionValue: v.consumption_value,
-        consumptionUnit: v.consumption_unit,
-        seats: v.seats,
-        fuelType: v.fuel_type,
-        transmission: v.transmission,
-        imageUrl: v.main_image_url,
-        includedServices: v.included_services,
-      })),
+      vehicles: vehicleRows.map((v) => {
+        const gallery = imagesByVehicle.get(v.id) ?? [];
+        return {
+          id: v.id,
+          version: v.version,
+          versionSlug: v.version_slug,
+          priceLabel: formatPriceFromCents(v.monthly_price_cents),
+          monthlyPriceCents: v.monthly_price_cents,
+          contractMonths: v.contract_months,
+          annualKm: v.annual_km,
+          horsepower: v.horsepower,
+          consumptionValue: v.consumption_value,
+          consumptionUnit: v.consumption_unit,
+          seats: v.seats,
+          doors: v.doors,
+          fuelType: v.fuel_type,
+          transmission: v.transmission,
+          category: v.category,
+          environmentalLabel: v.environmental_label,
+          colors: v.colors,
+          bodyType: v.body_type,
+          equipment: v.equipment,
+          includedServices: v.included_services,
+          shortDescription: v.short_description,
+          description: v.description,
+          imageUrl: v.main_image_url,
+          images: gallery.length > 0 ? gallery : v.main_image_url ? [{ url: v.main_image_url, alt: null }] : [],
+          pricingTiers: pricingByVehicle.get(v.id) ?? [],
+        };
+      }),
     };
   } catch {
     return null;

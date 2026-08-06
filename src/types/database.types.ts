@@ -33,6 +33,7 @@ export type LeadSourceEnum =
   | "landing_page";
 export type ContentStatusEnum = "draft" | "published";
 export type LandingPageTypeEnum = "category" | "city";
+export type EnvironmentalLabelEnum = "0" | "eco" | "c" | "b";
 
 export type Profile = {
   id: string;
@@ -95,6 +96,10 @@ export type Vehicle = {
   created_by: string | null;
   created_at: string;
   updated_at: string;
+  environmental_label: EnvironmentalLabelEnum | null;
+  colors: string[] | null;
+  body_type: string | null;
+  equipment: string[];
 };
 
 export type VehicleImage = {
@@ -104,6 +109,15 @@ export type VehicleImage = {
   alt_text: string | null;
   sort_order: number;
   is_primary: boolean;
+};
+
+export type VehiclePricing = {
+  id: string;
+  vehicle_id: string;
+  contract_months: number;
+  annual_km: number;
+  monthly_price_cents: number;
+  created_at: string;
 };
 
 export type Lead = {
@@ -217,6 +231,15 @@ export type Database = {
       vehicle_images: Table<
         VehicleImage,
         Partial<VehicleImage> & { vehicle_id: string; storage_path: string }
+      >;
+      vehicle_pricing: Table<
+        VehiclePricing,
+        Partial<VehiclePricing> & {
+          vehicle_id: string;
+          contract_months: number;
+          annual_km: number;
+          monthly_price_cents: number;
+        }
       >;
       leads: Table<Lead, Partial<Lead> & { name: string; phone: string }>;
       blog_posts: Table<

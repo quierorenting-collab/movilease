@@ -70,6 +70,13 @@ export const LEAD_STATUS_LABELS = {
 
 export type LeadStatus = keyof typeof LEAD_STATUS_LABELS;
 
+export const ENVIRONMENTAL_LABEL_LABELS = {
+  "0": "Etiqueta 0",
+  eco: "Etiqueta ECO",
+  c: "Etiqueta C",
+  b: "Etiqueta B",
+} as const;
+
 export const CLIENT_TYPE_LABELS = {
   empresa: "Empresa",
   autonomo: "Autónomo",

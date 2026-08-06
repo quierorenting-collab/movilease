@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getModelBySlugWithVehicles } from "@/lib/data/vehicles";
+import { getModelBySlugWithVehicles, type VehicleDetailData } from "@/lib/data/vehicles";
 import { getLandingPageBySlug } from "@/lib/data/landing";
-import { FUEL_TYPE_LABELS, TRANSMISSION_LABELS, buildWhatsAppLink } from "@/lib/constants";
+import {
+  FUEL_TYPE_LABELS,
+  TRANSMISSION_LABELS,
+  ENVIRONMENTAL_LABEL_LABELS,
+  CONTACT,
+  buildWhatsAppLink,
+} from "@/lib/constants";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
+import { VehicleGallery } from "@/components/vehicles/VehicleGallery";
+import { VehiclePricingTable } from "@/components/vehicles/VehiclePricingTable";
 import { FAQAccordion } from "@/components/home/FAQAccordion";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
@@ -56,10 +64,6 @@ export default async function SlugResolverPage({
 
 /* ─────────────────────────── helpers ─────────────────────────── */
 
-function unique<T>(values: T[]): T[] {
-  return [...new Set(values)];
-}
-
 function CheckIcon() {
   return (
     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0068FF]/10">
@@ -78,94 +82,208 @@ function CheckIcon() {
 
 /* ─────────────────────────── model view ─────────────────────────── */
 
-function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof getModelBySlugWithVehicles>>> }) {
-  const cheapest = model.vehicles[0];
-  const heroImage = model.model.coverImageUrl || cheapest?.imageUrl;
-  const fuels = unique(model.vehicles.map((v) => FUEL_TYPE_LABELS[v.fuelType]));
-  const transmissions = unique(model.vehicles.map((v) => TRANSMISSION_LABELS[v.transmission]));
-  const services = cheapest?.includedServices ?? [];
+function SpecRow({ label, value }: { label: string; value: string | null | undefined }) {
+  if (!value) return null;
+  return (
+    <div className="flex items-center gap-3 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-3">
+      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#0068FF]" />
+      <span className="text-[13px] font-medium text-white/80">{value}</span>
+      <span className="ml-auto text-[10px] uppercase tracking-[0.1em] text-white/30">{label}</span>
+    </div>
+  );
+}
 
-  const chips = [
-    `${model.vehicles.length} ${model.vehicles.length === 1 ? "versión" : "versiones"}`,
-    ...fuels,
-    ...transmissions,
-  ];
+function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof getModelBySlugWithVehicles>>> }) {
+  const primary: VehicleDetailData | undefined = model.vehicles[0];
+  const otherVersions = model.vehicles.slice(1);
+  const services = primary?.includedServices ?? [];
+  const fullName = `${model.brandName} ${model.model.name}${primary ? ` ${primary.version}` : ""}`.trim();
+
+  const specRows = primary
+    ? [
+        { label: "Combustible", value: FUEL_TYPE_LABELS[primary.fuelType] },
+        { label: "Cambio", value: TRANSMISSION_LABELS[primary.transmission] },
+        { label: "Potencia", value: primary.horsepower ? `${primary.horsepower} CV` : null },
+        {
+          label: "Etiqueta",
+          value: primary.environmentalLabel ? ENVIRONMENTAL_LABEL_LABELS[primary.environmentalLabel] : null,
+        },
+        { label: "Carrocería", value: primary.bodyType },
+        { label: "Plazas", value: primary.seats ? `${primary.seats} plazas` : null },
+        { label: "Puertas", value: primary.doors ? `${primary.doors} puertas` : null },
+        {
+          label: "Consumo",
+          value: primary.consumptionValue
+            ? `${primary.consumptionValue} ${primary.consumptionUnit ?? ""}`.trim()
+            : null,
+        },
+      ]
+    : [];
 
   return (
     <>
       {/* ── Hero producto ── */}
       <section className="surface-black ambient-blue-top relative overflow-hidden pt-32 pb-20">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <Reveal>
-              <p className="section-label">{model.brandName}</p>
-              <h1 className="display-lg mt-4 text-white">{model.model.name}</h1>
-              {model.model.description && (
-                <p className="mt-5 max-w-xl leading-relaxed text-white/70">
-                  {model.model.description}
-                </p>
-              )}
-
-              <div className="mt-7 flex flex-wrap gap-2">
-                {chips.map((chip) => (
-                  <span
-                    key={chip}
-                    className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/70"
-                  >
-                    {chip}
-                  </span>
-                ))}
-              </div>
-
-              {cheapest && (
-                <div className="mt-10">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
-                    Desde
-                  </p>
-                  <p
-                    className="mt-1 text-5xl font-bold text-[#0068FF] sm:text-6xl"
-                    style={{ fontFamily: "var(--font-space-grotesk)" }}
-                  >
-                    {cheapest.priceLabel}
-                    <span className="ml-2 text-lg font-medium text-white/70">/mes</span>
-                  </p>
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
+            <Reveal delay={0.05} y={36}>
+              {primary ? (
+                <VehicleGallery images={primary.images} alt={fullName} />
+              ) : (
+                <div
+                  className="flex aspect-[4/3] w-full items-center justify-center rounded-3xl bg-gradient-to-b from-[#141414] to-[#0E0E0E] text-7xl font-bold text-white/70"
+                  style={{ fontFamily: "var(--font-space-grotesk)" }}
+                >
+                  {model.brandName.charAt(0)}
                 </div>
               )}
             </Reveal>
 
-            <Reveal delay={0.15} y={36}>
-              <div
-                className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl"
-                style={{ boxShadow: "0 40px 80px -20px rgba(0, 0, 0, 0.7)" }}
-              >
-                {heroImage ? (
-                  <>
-                    <Image
-                      src={heroImage}
-                      alt={`${model.brandName} ${model.model.name}`}
-                      fill
-                      priority
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                  </>
-                ) : (
-                  <div
-                    className="flex h-full w-full items-center justify-center bg-gradient-to-b from-[#141414] to-[#0E0E0E] text-7xl font-bold text-white/70"
+            <Reveal>
+              <p className="section-label">{model.brandName}</p>
+              <h1 className="display-lg mt-4 text-white">{model.model.name}</h1>
+              {primary && <p className="mt-2 text-lg font-medium text-white/60">{primary.version}</p>}
+              {(primary?.shortDescription || model.model.description) && (
+                <p className="mt-5 max-w-xl leading-relaxed text-white/70">
+                  {primary?.shortDescription || model.model.description}
+                </p>
+              )}
+
+              {primary && (
+                <div className="mt-7 flex flex-wrap gap-2">
+                  {[
+                    FUEL_TYPE_LABELS[primary.fuelType],
+                    TRANSMISSION_LABELS[primary.transmission],
+                    primary.horsepower ? `${primary.horsepower} CV` : null,
+                    primary.environmentalLabel ? ENVIRONMENTAL_LABEL_LABELS[primary.environmentalLabel] : null,
+                  ]
+                    .filter(Boolean)
+                    .map((chip) => (
+                      <span
+                        key={chip}
+                        className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/70"
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                </div>
+              )}
+
+              {primary?.colors && primary.colors.length > 0 && (
+                <p className="mt-4 text-[13px] text-white/50">
+                  <span className="text-white/30">Colores disponibles: </span>
+                  {primary.colors.join(" · ")}
+                </p>
+              )}
+
+              {primary && (
+                <div className="mt-10 rounded-2xl border border-[#0068FF]/20 bg-[#0068FF]/[0.06] p-6">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">Desde</p>
+                  <p
+                    className="mt-1 text-5xl font-bold text-white sm:text-6xl"
                     style={{ fontFamily: "var(--font-space-grotesk)" }}
                   >
-                    {model.brandName.charAt(0)}
+                    {primary.priceLabel}
+                    <span className="ml-2 text-lg font-medium text-white/50">/mes</span>
+                  </p>
+                  <p className="mt-1 text-[11px] text-white/30">IVA incluido</p>
+
+                  <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <a href="#solicitar" className="btn-primary justify-center">
+                      Solicitar oferta
+                    </a>
+                    <a href="#solicitar" className="btn-ghost justify-center">
+                      Solicitar información
+                    </a>
+                    <a
+                      href={buildWhatsAppLink(
+                        `Hola, me interesa el ${fullName} (${primary.priceLabel}/mes). ¿Me podéis dar más información?`
+                      )}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-ghost justify-center"
+                    >
+                      WhatsApp
+                    </a>
+                    <a href={`tel:${CONTACT.phone}`} className="btn-ghost justify-center">
+                      Llamar
+                    </a>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </Reveal>
           </div>
+
+          {specRows.some((s) => s.value) && (
+            <Reveal delay={0.1} className="mt-14">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {specRows.map((s) => (
+                  <SpecRow key={s.label} label={s.label} value={s.value} />
+                ))}
+              </div>
+            </Reveal>
+          )}
         </div>
       </section>
 
+      {/* ── Cuotas por plazo y kilometraje ── */}
+      {primary && primary.pricingTiers.length > 0 && (
+        <section className="surface-graphite py-24">
+          <div className="mx-auto max-w-7xl px-6 sm:px-10">
+            <Reveal>
+              <p className="section-label">Cuotas mensuales</p>
+              <h2 className="display-md mt-4 text-white">Elige tu plazo y kilometraje</h2>
+              <p className="mt-3 max-w-xl text-sm text-white/50">IVA incluido en todos los precios.</p>
+            </Reveal>
+            <Reveal delay={0.1} className="mt-10">
+              <VehiclePricingTable tiers={primary.pricingTiers} highlightMonths={primary.contractMonths} />
+            </Reveal>
+          </div>
+        </section>
+      )}
+
+      {/* ── Equipamiento ── */}
+      {primary && primary.equipment.length > 0 && (
+        <section className="surface-dark py-24">
+          <div className="mx-auto max-w-7xl px-6 sm:px-10">
+            <Reveal>
+              <p className="section-label">Equipamiento</p>
+              <h2 className="display-md mt-4 text-white">De serie en este acabado</h2>
+            </Reveal>
+            <RevealGroup
+              stagger={0.03}
+              className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {primary.equipment.map((item) => (
+                <RevealItem key={item}>
+                  <div className="flex items-center gap-3 rounded-xl bg-white/[0.03] px-4 py-3">
+                    <CheckIcon />
+                    <span className="text-sm text-white/70">{item}</span>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
+      )}
+
+      {/* ── Descripción comercial ── */}
+      {primary?.description && (
+        <section className="bg-white py-24">
+          <div className="mx-auto max-w-3xl px-6 sm:px-10">
+            <Reveal>
+              <p className="section-label">Sobre este vehículo</p>
+              <h2 className="display-md mt-4 text-[#0A0A0A]">{fullName}</h2>
+              <p className="mt-6 whitespace-pre-line leading-relaxed text-[#4B5563]">
+                {primary.description}
+              </p>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
       {/* ── Versiones ── */}
-      {model.vehicles.length > 0 && (
+      {otherVersions.length > 0 && (
         <section className="surface-graphite py-24">
           <div className="mx-auto max-w-7xl px-6 sm:px-10">
             <Reveal>
@@ -174,7 +292,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
             </Reveal>
 
             <RevealGroup stagger={0.08} className="mt-12 space-y-4">
-              {model.vehicles.map((vehicle) => {
+              {otherVersions.map((vehicle) => {
                 const specs = [
                   FUEL_TYPE_LABELS[vehicle.fuelType],
                   TRANSMISSION_LABELS[vehicle.transmission],
@@ -273,7 +391,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
       )}
 
       {/* ── Lead form ── */}
-      <section className="surface-black ambient-blue relative overflow-hidden py-24">
+      <section id="solicitar" className="surface-black ambient-blue relative overflow-hidden py-24">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-20">
             <Reveal>
@@ -300,7 +418,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
 
             <Reveal delay={0.15}>
               <div className="rounded-3xl border border-white/8 bg-white/[0.03] p-8 backdrop-blur">
-                <LeadForm modelId={model.model.id} vehicleId={cheapest?.id} source="vehicle_page" />
+                <LeadForm modelId={model.model.id} vehicleId={primary?.id} source="vehicle_page" />
               </div>
             </Reveal>
           </div>
