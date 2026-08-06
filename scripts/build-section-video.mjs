@@ -6,28 +6,32 @@
  * recortando a unos segundos, quitando la pista de audio, escalando a 1280 px
  * y recomprimiendo, más un póster WebP de ~30 KB.
  *
- *   node scripts/build-section-video.mjs <url> [--nombre ofertas] [--inicio 4]
- *                                             [--duracion 10] [--ancho 1280]
+ *   node scripts/build-section-video.mjs <url-o-ruta> [--nombre ofertas]
+ *        [--inicio 0] [--duracion 10] [--ancho 1440] [--eq "brightness=0.32:…"]
+ *
+ * `--eq` aplica el filtro eq de ffmpeg antes de escalar. Es lo que convierte un
+ * clip de atardecer en un fondo claro: subir exposición y bajar saturación deja
+ * la imagen aireada y el texto de encima legible con un velo mucho más suave.
  *
  * Salida en public/videos/: <nombre>.mp4, <nombre>.webm, <nombre>-poster.webp
  */
 import { execFileSync } from "node:child_process";
-import { mkdirSync, statSync, rmSync, existsSync } from "node:fs";
+import { mkdirSync, statSync, rmSync, existsSync, copyFileSync } from "node:fs";
 import path from "node:path";
 
 const args = process.argv.slice(2);
-const url = args.find((a) => a.startsWith("http"));
+const fuente = args.find((a) => !a.startsWith("--") && (a.startsWith("http") || existsSync(a)));
 
 function opt(name, fallback) {
   const i = args.indexOf(`--${name}`);
   return i !== -1 && args[i + 1] ? args[i + 1] : fallback;
 }
 
-if (!url) {
+if (!fuente) {
   console.error(
-    "Falta la URL del clip.\n" +
-      "Uso: node scripts/build-section-video.mjs <url> [--nombre ofertas] " +
-      "[--inicio 4] [--duracion 10] [--ancho 1280]"
+    "Falta el clip de origen (URL o ruta local existente).\n" +
+      "Uso: node scripts/build-section-video.mjs <url-o-ruta> [--nombre ofertas] " +
+      '[--inicio 0] [--duracion 10] [--ancho 1440] [--eq "brightness=0.32:saturation=0.28"]'
   );
   process.exit(1);
 }
@@ -35,7 +39,8 @@ if (!url) {
 const nombre = opt("nombre", "ofertas");
 const inicio = opt("inicio", "0");
 const duracion = opt("duracion", "10");
-const ancho = opt("ancho", "1280");
+const ancho = opt("ancho", "1440");
+const eq = opt("eq", "");
 
 const outDir = path.join(process.cwd(), "public", "videos");
 mkdirSync(outDir, { recursive: true });
@@ -49,13 +54,19 @@ const kb = (f) => (existsSync(f) ? (statSync(f).size / 1024).toFixed(0) + " KB" 
 const run = (bin, argv) => execFileSync(bin, argv, { stdio: ["ignore", "ignore", "inherit"] });
 
 try {
-  console.log(`Descargando el clip original…`);
-  run("curl", ["-sL", "--max-time", "180", "-o", tmp, url]);
+  if (fuente.startsWith("http")) {
+    console.log("Descargando el clip original…");
+    run("curl", ["-sL", "--max-time", "180", "-o", tmp, fuente]);
+  } else {
+    console.log("Usando clip local…");
+    copyFileSync(fuente, tmp);
+  }
   console.log(`  original: ${kb(tmp)}`);
 
   // Recorte comun: sin audio, escalado a ancho par, sin ampliar
   const recorte = ["-ss", inicio, "-t", duracion, "-i", tmp, "-an"];
-  const escala = `scale='min(${ancho},iw)':-2:flags=lanczos`;
+  const escala =
+    (eq ? `eq=${eq},` : "") + `scale='min(${ancho},iw)':-2:flags=lanczos`;
 
   console.log("Codificando MP4 (H.264)…");
   run("ffmpeg", [
@@ -67,6 +78,8 @@ try {
     mp4,
   ]);
 
+  // VP9 no siempre gana: en material desenfocado y velado salio mas grande
+  // que el H.264. Comprueba los tamanos antes de servir el WebM.
   console.log("Codificando WebM (VP9)…");
   run("ffmpeg", [
     "-y", ...recorte,
@@ -78,7 +91,7 @@ try {
 
   console.log("Extrayendo póster…");
   const posterPng = path.join(outDir, `.${nombre}-poster.png`);
-  run("ffmpeg", ["-y", "-ss", inicio, "-i", tmp, "-vframes", "1", "-vf", escala, posterPng]);
+  run("ffmpeg", ["-y", "-ss", inicio, "-i", tmp, "-frames:v", "1", "-update", "1", "-vf", escala, posterPng]);
 
   const sharp = (await import("sharp")).default;
   await sharp(posterPng).webp({ quality: 68 }).toFile(poster);
