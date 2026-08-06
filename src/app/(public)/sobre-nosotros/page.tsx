@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/Reveal";
 import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { pageMetadata } from "@/lib/metadata";
+import Image from "next/image";
 
 export const metadata: Metadata = pageMetadata({
   title: "Quiénes somos",
@@ -80,31 +81,44 @@ function CheckIcon() {
 export default function SobreNosotrosPage() {
   return (
     <div>
-      {/* Hero — carretera al amanecer de fondo.
-          El clip es dorado y muy luminoso: sin bajarle brillo y sin un velo
-          azul fuerte, el titular en blanco no se leería. */}
-      <section className="surface-black relative overflow-hidden pt-32 pb-24">
-        <VideoBackdrop
-          mp4="/videos/quienes-somos.mp4"
-          webm="/videos/quienes-somos.webm"
-          poster="/videos/quienes-somos-poster.webp"
-          base="#071A3D"
-          filter="brightness(0.62) saturate(0.7) contrast(1.05)"
-          veil="linear-gradient(180deg, rgba(7,26,61,0.7) 0%, rgba(12,36,84,0.78) 45%, rgba(7,26,61,0.92) 100%)"
+      {/* Hero — fondo claro de marca.
+          La imagen deja la mitad izquierda casi vacía, que es justo donde cae
+          el texto. Al ser clara, el titular pasa a tinta oscura: en blanco no
+          se leería. El velo sólo levanta un poco la zona del texto. */}
+      <section className="relative overflow-hidden bg-[#E8F0FC] pt-32 pb-24">
+        <Image
+          src="/img/quienes-somos-fondo.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-right"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(232,240,252,0.92) 0%, rgba(232,240,252,0.80) 42%, rgba(232,240,252,0.30) 68%, rgba(232,240,252,0.10) 100%)",
+          }}
         />
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6">
           <Reveal>
-            <p className="section-label">Quiénes somos</p>
-            <h1 className="display-lg mt-4 text-white">
+            {/* Azul mas oscuro que el de marca: a 11px sobre este fondo claro,
+                #0057D6 se queda en 3,87:1 y no llega a AA. */}
+            <p className="section-label" style={{ color: "#00409E" }}>
+              Quiénes somos
+            </p>
+            <h1 className="display-lg mt-4 text-[#0A0A0A]">
               Hazlo fácil.
               <br />
-              Hazlo <span className="text-[#5AA0FF]">MoviLease.</span>
+              Hazlo <span className="text-[#0057D6]">MoviLease.</span>
             </h1>
           </Reveal>
           <RevealGroup stagger={0.06} className="mt-8 space-y-5">
             {INTRO_PARAGRAPHS.map((p) => (
               <RevealItem key={p}>
-                <p className="max-w-2xl text-lg leading-relaxed text-white/70">{p}</p>
+                <p className="max-w-2xl text-lg leading-relaxed text-[#33415C]">{p}</p>
               </RevealItem>
             ))}
           </RevealGroup>
