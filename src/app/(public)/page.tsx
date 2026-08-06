@@ -343,8 +343,22 @@ export default async function HomePage() {
                       className="flex flex-1 flex-col"
                       aria-label={`Ver ficha del ${vehicle.brandName} ${vehicle.modelName}`}
                     >
-                      <div className="relative aspect-[4/3] overflow-hidden">
-                        {vehicle.imageUrl ? (
+                      {/*
+                        El respaldo va SIEMPRE detrás de la foto, no sólo cuando
+                        falta imageUrl: si la foto tarda en llegar o falla (CDN,
+                        bloqueador, red), antes se veía la tarjeta azul vacía y
+                        parecía que el coche no tenía foto. VehicleCard ya hacía
+                        esto con su fondo gris; aquí faltaba.
+                      */}
+                      <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#1B4080] to-[#15315F]">
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-0 flex items-center justify-center text-7xl font-bold text-white/15"
+                          style={{ fontFamily: "var(--font-space-grotesk)" }}
+                        >
+                          {vehicle.brandName.charAt(0)}
+                        </span>
+                        {vehicle.imageUrl && (
                           /* next/image en lugar de <img> crudo: sirve WebP/AVIF
                              al tamaño real de la tarjeta en vez de la foto
                              original completa. */
@@ -355,10 +369,6 @@ export default async function HomePage() {
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                           />
-                        ) : (
-                          <div className="flex h-full items-center justify-center text-7xl font-bold text-white/30">
-                            {vehicle.brandName.charAt(0)}
-                          </div>
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1B4080] via-transparent to-transparent" />
                         <div className="absolute left-4 top-4">
