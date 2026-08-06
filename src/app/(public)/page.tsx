@@ -186,7 +186,7 @@ const TESTIMONIALS = [
 const FAQ_ITEMS = [
   { q: "¿Qué incluye la cuota mensual?",   a: "Coche nuevo, seguro a todo riesgo, mantenimiento y revisiones en talleres oficiales, averías, cambio de neumáticos, asistencia en carretera 24 h, impuesto de circulación y matriculación. Una cuota fija con IVA incluido, sin entrada y sin sorpresas." },
   { q: "¿Necesito dar una entrada?",        a: "No. Todos los coches del catálogo se ofrecen sin entrada inicial. 0 € de desembolso al comenzar." },
-  { q: "¿A cuántos kilómetros al año?",     a: "Los precios se calculan para contratos de 36 meses y 15.000 km/año. Adaptamos el kilometraje a tu uso real." },
+  { q: "¿A cuántos kilómetros al año?",     a: "Los precios se calculan para contratos de 36 meses y 10.000 km/año. Adaptamos el kilometraje a tu uso real." },
   { q: "¿Cuánto tarda la aprobación?",      a: "En menos de 48 horas laborables tramitamos tu solicitud y te damos respuesta." },
   { q: "¿Puedo cancelar antes de tiempo?",  a: "Cada caso se estudia de forma individual. Contáctanos por WhatsApp y te asesoramos sin compromiso." },
   { q: "¿Es solo para particulares?",       a: "Principalmente sí, aunque también tramitamos renting para autónomos y pequeñas empresas." },

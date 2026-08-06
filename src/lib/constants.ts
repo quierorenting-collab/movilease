@@ -13,7 +13,7 @@ export const CONTACT = {
   /** Mismo número, en formato marcable (href="tel:") y legible. */
   phone: `+${WHATSAPP_NUMBER}`,
   phoneDisplay: formatSpanishPhone(WHATSAPP_NUMBER),
-  email: "quierorenting@gmail.com",
+  email: "contacto@movilease.es",
   instagram: "https://www.instagram.com/quierorenting",
 } as const;
 
@@ -106,7 +106,7 @@ export type UserRole = keyof typeof USER_ROLE_LABELS;
 
 export const RENTING_DEFAULTS = {
   contractMonths: 36,
-  annualKm: 15000,
+  annualKm: 10000,
   includedServices: [
     "Seguro a todo riesgo",
     "Mantenimiento",
