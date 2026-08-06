@@ -1,5 +1,5 @@
 import "server-only";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/server";
 
 export interface BlogPostCard {
   id: string;
@@ -42,7 +42,7 @@ function toCard(r: Row): BlogPostCard {
 /** Nunca lanza: si Supabase no responde, el blog se queda vacío en vez de romper. */
 export async function getPublishedPosts(limit = 50): Promise<BlogPostCard[]> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data, error } = await supabase
       .from("blog_posts")
       .select(CARD_COLUMNS)
@@ -59,7 +59,7 @@ export async function getPublishedPosts(limit = 50): Promise<BlogPostCard[]> {
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data } = await supabase
       .from("blog_posts")
       .select(`${CARD_COLUMNS}, content, updated_at`)
