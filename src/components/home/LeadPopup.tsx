@@ -23,10 +23,13 @@ export function LeadPopup() {
   const lastFocusedRef = useRef<HTMLElement | null>(null);
 
   /**
-   * Antes saltaba a los 6 segundos, sin más: interrumpía a media lectura del
-   * hero, cuando el visitante aún no sabe si le interesa. Ahora espera una
-   * señal de intención — que haya leído media página o que el cursor se vaya
-   * hacia la barra del navegador — con un plazo largo como último recurso.
+   * Se abre con lo que ocurra antes: 10 % de scroll, salida del puntero por
+   * arriba (intención de abandonar) o 5 segundos.
+   *
+   * El plazo corto lo pidió Adrián expresamente. Contrapartida conocida: a los
+   * 5 segundos mucha gente sigue leyendo el hero y aún no sabe si le interesa,
+   * así que se ve más veces pero también molesta más. Si el ratio de cierres
+   * sin rellenar sube, subir este número es lo primero que hay que tocar.
    */
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -43,13 +46,13 @@ export function LeadPopup() {
 
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      if (max > 0 && window.scrollY / max > 0.22) trigger();
+      if (max > 0 && window.scrollY / max > 0.10) trigger();
     };
     // Salida del puntero por el borde superior = intención de abandonar
     const onLeave = (e: MouseEvent) => {
       if (e.clientY <= 4) trigger();
     };
-    const timer = window.setTimeout(trigger, 12000);
+    const timer = window.setTimeout(trigger, 5000);
 
     function cleanup() {
       window.clearTimeout(timer);
@@ -118,7 +121,7 @@ export function LeadPopup() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="popup-titulo"
-            className="relative grid w-full max-w-[900px] grid-cols-1 overflow-hidden rounded-[28px] border border-white/12 sm:grid-cols-[46%_1fr]"
+            className="relative flex max-h-[92vh] w-full max-w-[560px] flex-col overflow-y-auto rounded-[28px] border border-white/12"
             style={{
               boxShadow:
                 "0 0 0 1px rgba(255,255,255,0.05), 0 30px 90px rgba(0,0,0,0.65), 0 0 140px rgba(0,104,255,0.12)",
@@ -135,43 +138,29 @@ export function LeadPopup() {
               </svg>
             </button>
 
-            {/* Panel visual */}
-            <div className="relative h-48 sm:h-auto">
-              {/* Foto propia de marca (lleva la matricula MOVILEASE). El panel
-                  es estrecho y vertical y la foto apaisada, asi que el foco se
-                  desplaza al coche para que no se pierda en el recorte. */}
+            {/* Banner de marca. El creativo ya trae el logo, el eslogan y el
+                coche, asi que va a ancho completo y en 16/10, que es casi la
+                proporcion original (3/2): recortar mas cortaria el logo. */}
+            <div className="relative aspect-[16/10] w-full shrink-0">
               <Image
                 src="/img/popup-movilease.webp"
-                alt=""
+                alt="MoviLease — Hazlo fácil. Hazlo Movilease."
                 fill
                 priority
-                sizes="(max-width: 640px) 100vw, 420px"
-                className="object-cover object-[62%_center] scale-105"
+                sizes="(max-width: 640px) 100vw, 560px"
+                className="object-cover object-center"
               />
-              {/* Blend hacia el panel de texto: lateral en desktop, inferior en móvil */}
+              {/* Fundido inferior hacia el formulario */}
               <div
-                className="absolute inset-0 sm:hidden"
-                style={{
-                  background: "linear-gradient(180deg, rgba(4,14,33,0.15) 0%, rgba(4,14,33,0.55) 70%, #071638 100%)",
-                }}
-              />
-              <div
-                className="absolute inset-0 hidden sm:block"
-                style={{
-                  background:
-                    "linear-gradient(90deg, rgba(4,14,33,0.05) 0%, rgba(4,14,33,0.35) 55%, #071638 96%)",
-                }}
-              />
-              <div
-                className="pointer-events-none absolute inset-x-0 top-0 h-16"
-                style={{ background: "linear-gradient(180deg, rgba(4,14,33,0.55) 0%, transparent 100%)" }}
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
+                style={{ background: "linear-gradient(180deg, transparent 0%, rgba(20,52,112,0.85) 70%, #143470 100%)" }}
               />
 
-              {/* Insignia flotante de prueba social sobre la foto */}
-              <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-white/15 bg-black/35 py-1.5 pl-2 pr-3.5 backdrop-blur-md">
+              {/* Prueba social flotante sobre la foto */}
+              <div className="absolute bottom-3 left-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/40 py-1.5 pl-2 pr-3.5 backdrop-blur-md">
                 <span className="flex gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <svg key={i} viewBox="0 0 12 12" fill="#5AA0FF" className="h-3 w-3">
+                    <svg key={i} viewBox="0 0 12 12" fill="#8FBEFF" className="h-3 w-3">
                       <path d="M6 0l1.5 4h4.5l-3.5 2.5 1.5 4L6 8.5 2 10.5l1.5-4L0 4h4.5z" />
                     </svg>
                   ))}
@@ -184,7 +173,7 @@ export function LeadPopup() {
 
             {/* Panel de formulario */}
             <div
-              className="relative px-8 pb-8 pt-9 sm:px-9"
+              className="relative px-7 pb-7 pt-6 sm:px-8"
               style={{
                 background:
                   "linear-gradient(165deg, rgba(20,52,112,0.97) 0%, rgba(6,22,52,0.99) 62%, rgba(4,14,33,1) 100%)",
@@ -234,18 +223,18 @@ export function LeadPopup() {
                 </motion.div>
               ) : (
                 <div className="relative">
-                  <p className="section-label mb-4">Asesoramiento gratuito</p>
+                  {/* La imagen ya dice "Hazlo facil. Hazlo Movilease.": aqui
+                      no se repite, se pasa directo a la accion. */}
                   <h2
                     id="popup-titulo"
-                    className="text-[27px] font-bold leading-[1.08] text-white"
+                    className="text-[22px] font-bold leading-tight text-white"
                     style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.02em" }}
                   >
-                    Tu próximo coche,
-                    <br />
-                    <span className="text-[#5AA0FF]">sin complicaciones.</span>
+                    Te lo calculamos <span className="text-[#8FBEFF]">gratis</span>.
                   </h2>
-                  <p className="mt-3 text-[14.5px] leading-relaxed text-white/75">
-                    Déjanos tus datos y te asesoramos sin compromiso. Sin entrada, todo incluido.
+                  <p className="mt-2 text-[14.5px] leading-relaxed text-white/75">
+                    Déjanos tu teléfono y te asesoramos sin compromiso. Sin entrada,
+                    todo incluido.
                   </p>
 
                   <form onSubmit={submit} className="mt-7 flex flex-col gap-3">
