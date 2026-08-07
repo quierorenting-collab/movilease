@@ -349,10 +349,22 @@ export default async function CatalogoPage({
         </div>
       </div>
 
+      {/*
+        Quien llega con presupuesto viene de pulsar en la calculadora y lo que
+        quiere ver es su resultado. Estaba detrás de las treinta marcas, o sea
+        una pantalla larga de scroll antes de saber si había algo por su
+        dinero. Con presupuesto, el resultado va primero y las marcas después
+        para seguir mirando; sin presupuesto se queda el orden de siempre,
+        porque entonces la entrada natural al catálogo sí es la marca.
+      */}
+      {maxPrice && <AllVehiclesSection maxPrice={maxPrice} />}
+
       {/* All brands, same treatment for every one */}
       <section id="marcas" className="surface-dark py-20">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
-          <h2 className="display-sm mb-10 text-white">Elige marca</h2>
+          <h2 className="display-sm mb-10 text-white">
+            {maxPrice ? "O elige marca" : "Elige marca"}
+          </h2>
           <RevealGroup
             stagger={0.03}
             className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
@@ -367,7 +379,7 @@ export default async function CatalogoPage({
       </section>
 
       {/* All vehicles flat view for SEO */}
-      <AllVehiclesSection maxPrice={maxPrice} />
+      {!maxPrice && <AllVehiclesSection maxPrice={maxPrice} />}
 
       <CatalogCta
         title="Dinos qué coche quieres y te lo calculamos"
@@ -449,8 +461,13 @@ async function AllVehiclesSection({ maxPrice }: { maxPrice?: number }) {
     return true;
   });
 
-  const featured = deduped.slice(0, 12);
-
+  /*
+    Antes esto era deduped.slice(0, 12) y el enlace del final llevaba al ancla
+    de marcas. Es decir: en "todo el catálogo" se veían doce coches y para ver
+    el resto había que ir marca por marca. Ahora salen todos, que es lo que se
+    espera de un catálogo, y de paso cada modelo queda enlazado desde una
+    página que el rastreador ya visita.
+  */
   return (
     <section className="surface-black py-24">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
@@ -474,19 +491,17 @@ async function AllVehiclesSection({ maxPrice }: { maxPrice?: number }) {
           stagger={0.03}
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
-          {featured.map((vehicle) => (
+          {deduped.map((vehicle) => (
             <RevealItem key={vehicle.id}>
               <VehicleCard vehicle={vehicle} />
             </RevealItem>
           ))}
         </RevealGroup>
-        {deduped.length > featured.length && (
-          <Reveal className="mt-14 flex justify-center">
-            <a href="#marcas" className="btn-ghost">
-              Ver todas las marcas
-            </a>
-          </Reveal>
-        )}
+        <Reveal className="mt-14 flex justify-center">
+          <a href="#marcas" className="btn-ghost">
+            Ver por marcas
+          </a>
+        </Reveal>
       </div>
     </section>
   );

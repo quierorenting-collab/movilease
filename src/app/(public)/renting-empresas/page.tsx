@@ -6,6 +6,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { BreadcrumbJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
+import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 
 export const metadata: Metadata = pageMetadata({
   title: "Renting de coches para empresas",
@@ -104,6 +105,16 @@ export default function RentingEmpresasPage() {
 
       {/* Hero */}
       <section className="surface-black ambient-blue relative overflow-hidden pt-32 pb-24">
+        {/* Carretera de montaña al amanecer, con matrícula MoviLease. El titular
+            va en blanco encima, así que la foto se sirve ya rebajada de brillo
+            desde el propio WebP y el velo carga el resto del contraste: en el
+            lado izquierdo, que es donde está el texto, es casi opaco, y se abre
+            hacia la derecha para que se vea el coche y el paisaje. */}
+        <VideoBackdrop
+          poster="/empresas-bg.webp"
+          base="#071A3D"
+          veil="linear-gradient(100deg, rgba(7,26,61,0.94) 0%, rgba(7,26,61,0.88) 38%, rgba(7,26,61,0.62) 70%, rgba(7,26,61,0.72) 100%)"
+        />
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
             <p className="section-label">Renting para empresas</p>

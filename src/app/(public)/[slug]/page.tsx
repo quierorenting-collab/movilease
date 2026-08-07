@@ -20,6 +20,7 @@ import { VehiclePricingTable } from "@/components/vehicles/VehiclePricingTable";
 import { FAQAccordion } from "@/components/home/FAQAccordion";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import {
   BreadcrumbJsonLd,
   FaqJsonLd,
@@ -39,8 +40,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
 
+  // Mismo criterio que la página: sin vehículos activos no hay ficha, así que
+  // tampoco se le genera título ni descripción de modelo.
   const model = await getModelBySlugWithVehicles(slug);
-  if (model) {
+  if (model?.vehicles.length) {
     const nombre = `${model.brandName} ${model.model.name}`;
     const desde = cuotaMinima(model);
     const versiones = model.vehicles.length;
@@ -105,7 +108,16 @@ export default async function SlugResolverPage({
   const { slug } = await params;
 
   const model = await getModelBySlugWithVehicles(slug);
-  if (model) return <ModelPage model={model} />;
+  /*
+    Sin vehículos activos no hay ficha que enseñar: sale el nombre del modelo,
+    las migas y un formulario, pero ni cuota ni versiones ni fotos. Al retirar
+    el SEAT Arona y el Opel Combo por stock, sus URLs seguían devolviendo 200
+    con esa página vacía, que es justo lo que no puede encontrarse un cliente
+    que llegue desde Google. Se responde 404 y el modelo ya no está en el
+    sitemap, así que Google acaba retirándolo. Si vuelve el stock, basta con
+    reactivar el vehículo: la URL es la misma.
+  */
+  if (model?.vehicles.length) return <ModelPage model={model} />;
 
   const landing = await getLandingPageBySlug(slug);
   if (landing) return <LandingPage landing={landing} slug={slug} />;
@@ -264,6 +276,18 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
 
       {/* ── Hero producto ── */}
       <section className="surface-black ambient-blue-top relative overflow-hidden pt-32 pb-20">
+        {/* Showroom de marca detrás de la ficha, en vez del azul plano. Sirve
+            de plató: la foto del coche va sobre él y el conjunto parece un
+            expositor y no una tarjeta suelta. La imagen original traía el
+            reclamo escrito encima, así que se recortó esa banda —texto dentro
+            de una foto no lo lee Google ni un lector de pantalla, y encima
+            competía con el propio titular de la ficha. El velo es denso: aquí
+            el fondo tiene que sugerir, no disputar la atención al coche. */}
+        <VideoBackdrop
+          poster="/ficha-bg.webp"
+          base="#071A3D"
+          veil="linear-gradient(160deg, rgba(7,26,61,0.90) 0%, rgba(9,30,70,0.84) 45%, rgba(7,26,61,0.93) 100%)"
+        />
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
           {/* Migas visibles: la ficha no tenía ninguna ruta de vuelta ni al
               catálogo ni a la marca, ni para el visitante ni para Google. */}

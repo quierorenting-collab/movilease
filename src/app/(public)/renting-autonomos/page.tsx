@@ -6,6 +6,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { BreadcrumbJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
+import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 
 export const metadata: Metadata = pageMetadata({
   title: "Renting de coches para autónomos",
@@ -104,6 +105,16 @@ export default function RentingAutonomosPage() {
 
       {/* Hero */}
       <section className="surface-black ambient-blue relative overflow-hidden pt-32 pb-24">
+        {/* Mirador al atardecer con la matrícula MoviLease. Es una foto a
+            contraluz y casi toda la mitad izquierda es cielo claro, que es
+            justo donde va el titular en blanco: se sirve bastante rebajada de
+            brillo y el velo es casi opaco a la izquierda, abriéndose hacia la
+            derecha para que se vean el coche y el valle. */}
+        <VideoBackdrop
+          poster="/autonomos-bg.webp"
+          base="#071A3D"
+          veil="linear-gradient(100deg, rgba(7,26,61,0.95) 0%, rgba(7,26,61,0.90) 40%, rgba(7,26,61,0.66) 72%, rgba(7,26,61,0.76) 100%)"
+        />
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
             <p className="section-label">Renting para autónomos</p>
