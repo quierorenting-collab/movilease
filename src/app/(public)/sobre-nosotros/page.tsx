@@ -12,7 +12,9 @@ import Image from "next/image";
 import { BreadcrumbJsonLd, WebPageJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Quiénes somos",
+  // "Quiénes somos" ocupaba 25 caracteres del título: Google da ~60 y el
+  // resto se desaprovechaba sin decir de qué empresa ni de qué va.
+  title: "Quiénes somos: renting de coches sin complicaciones",
   description:
     "Hazlo fácil. Hazlo MoviLease. Conoce nuestra misión, visión y valores, y por qué somos la forma más sencilla de estrenar coche en renting.",
   path: "/sobre-nosotros",

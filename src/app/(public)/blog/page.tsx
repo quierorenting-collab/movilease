@@ -10,7 +10,7 @@ import { BreadcrumbJsonLd, ItemListJsonLd, WebPageJsonLd } from "@/components/se
 export const revalidate = 1800;
 
 export const metadata: Metadata = pageMetadata({
-  title: "Blog de renting",
+  title: "Blog de renting: guías, cuotas y consejos antes de firmar",
   description:
     "Guías y artículos sobre renting de coches para particulares, autónomos y empresas: cuotas, fiscalidad y comparativas.",
   path: "/blog",
