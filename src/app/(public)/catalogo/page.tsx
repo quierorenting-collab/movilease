@@ -87,7 +87,7 @@ export default async function CatalogoPage({
       : [];
 
     // Apply local filters
-    const filtered = brandVehicles.filter((v) => {
+    const conFiltros = brandVehicles.filter((v) => {
       if (category && v.category !== category) return false;
       if (fuelType && v.fuelType !== fuelType) return false;
       if (maxPrice && v.monthlyPriceCents !== undefined && v.monthlyPriceCents > maxPrice * 100) {
@@ -95,6 +95,23 @@ export default async function CatalogoPage({
       }
       return true;
     });
+
+    /**
+     * Una tarjeta por modelo, con la versión más barata. El listado general ya
+     * lo hacía; la vista de marca no, y por eso SEAT enseñaba dos Ibiza y
+     * Volkswagen dos Polo y dos Taigo, que es exactamente lo que hace dudar a
+     * quien está comparando. Las demás versiones no se pierden: la ficha del
+     * modelo las lista todas con su tabla de cuotas.
+     */
+    const vistos = new Set<string>();
+    const filtered = conFiltros
+      .slice()
+      .sort((a, b) => (a.monthlyPriceCents ?? Infinity) - (b.monthlyPriceCents ?? Infinity))
+      .filter((v) => {
+        if (vistos.has(v.modelSlug)) return false;
+        vistos.add(v.modelSlug);
+        return true;
+      });
 
     const displayName = matchedBrand?.brandName ?? brandParam;
     const cuotaMinimaMarca = filtered.length

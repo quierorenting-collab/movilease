@@ -118,8 +118,9 @@ export function VideoBackdrop({
         </video>
       )}
 
-      {/* Velo: sin esto el texto de la sección no se lee sobre el vídeo */}
-      <div className="absolute inset-0" style={{ background: veil }} />
+      {/* Velo: sin esto el texto de la sección no se lee sobre el vídeo.
+          La clase lo aligera en móvil, donde si no el vídeo no se aprecia. */}
+      <div className="video-veil absolute inset-0" style={{ background: veil }} />
     </div>
   );
 }

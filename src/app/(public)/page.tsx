@@ -195,7 +195,11 @@ const FAQ_ITEMS = [
 export default async function HomePage() {
   const [featured, offers, { brands }] = await Promise.all([
     getFeaturedVehicles(200),
-    getOfferVehicles(4),
+    // Seis, las que marca Adrián: Ibiza, Polo, Taigo, Ebro S400, GLC Coupé y
+    // CR-V. Con el tope en cuatro que había antes no llegaban a verse el GLC ni
+    // el CR-V, porque la consulta ordena por cuota ascendente y son los dos más
+    // caros de la selección.
+    getOfferVehicles(6),
     getVehiclesByBrand(),
   ]);
 
@@ -321,9 +325,13 @@ export default async function HomePage() {
               </a>
             </Reveal>
 
+            {/* Tres columnas, no cuatro: son seis ofertas y en rejilla de
+                cuatro quedaba una segunda fila con dos huecos. A tres salen
+                dos filas llenas y cada foto se ve bastante más grande, que es
+                justo lo que hay que enseñar. */}
             <RevealGroup
               stagger={0.08}
-              className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
             >
               {dedupedOffers.map((vehicle) => (
                 <RevealItem key={vehicle.id}>

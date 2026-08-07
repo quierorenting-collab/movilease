@@ -15,7 +15,9 @@
   "seats": 5,
   "doors": 5,
   "environmental_label": "c",
-  "colors": ["Blanco"],
+  "colors": [
+    "Blanco"
+  ],
   "body_type": "Hatchback",
   "is_featured": true,
   "short_description": "Motor 1.0 TSI de 95 CV: eficiente, fiable y con bajo consumo",
@@ -48,23 +50,85 @@
     "Cambio de neumáticos"
   ],
   "images": [
-    { "url": "https://fotos.quecochemecompro.com/volkswagen-polo/volkswagen-polo-frontal-lateral.jpg?size=1200x800", "alt": "Volkswagen Polo - vista frontal 3/4" },
-    { "url": "https://fotos.quecochemecompro.com/volkswagen-polo/volkswagen-polo-frontal.jpg?size=1200x800", "alt": "Volkswagen Polo - vista frontal" },
-    { "url": "https://fotos.quecochemecompro.com/volkswagen-polo/volkswagen-polo-trasera.jpg?size=1200x800", "alt": "Volkswagen Polo - vista trasera" },
-    { "url": "https://fotos.quecochemecompro.com/volkswagen-polo/volkswagen-polo-volante.jpg?size=1200x800", "alt": "Volkswagen Polo - salpicadero e instrumentación" },
-    { "url": "https://fotos.quecochemecompro.com/volkswagen-polo/interior-vw-polo-2023.jpg?size=1200x800", "alt": "Volkswagen Polo - pantalla multimedia" },
-    { "url": "https://fotos.quecochemecompro.com/volkswagen-polo/polo-interior-cambio.jpg?size=1200x800", "alt": "Volkswagen Polo - interior" }
+    {
+      "url": "/coches-nuevos/vw-polo-01.webp",
+      "alt": "Volkswagen Polo en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/vw-polo-02.webp",
+      "alt": "Volkswagen Polo en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/vw-polo-03.webp",
+      "alt": "Volkswagen Polo en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/vw-polo-04.webp",
+      "alt": "Volkswagen Polo en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/vw-polo-05.webp",
+      "alt": "Volkswagen Polo en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/vw-polo-06.webp",
+      "alt": "Volkswagen Polo en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/vw-polo-07.webp",
+      "alt": "Volkswagen Polo en renting — vista exterior"
+    }
   ],
   "pricing": [
-    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 33709 },
-    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 35763 },
-    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 38010 },
-    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 41088 },
-    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 43543 },
-    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 32907 },
-    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 34801 },
-    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 38473 },
-    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 41392 },
-    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 44085 }
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 33709
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 35763
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 38010
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 41088
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 43543
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 32907
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 34801
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 38473
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 41392
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 44085
+    }
   ]
 }

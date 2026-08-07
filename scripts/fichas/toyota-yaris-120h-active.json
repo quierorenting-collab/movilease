@@ -1,0 +1,137 @@
+{
+  "update_vehicle_id": "ff173aaa-1e62-4813-8f24-814c39f4991b",
+  "brand": "Toyota",
+  "model": "Yaris",
+  "version": "120H 116CV ACTIVE",
+  "category": "hibrido",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "monthly_price_cents": 32664,
+  "contract_months": 72,
+  "annual_km": 10000,
+  "horsepower": 116,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "colors": [
+    "Blanco"
+  ],
+  "body_type": "Hatchback",
+  "badge_text": "Etiqueta ECO",
+  "short_description": "Híbrido autorrecargable de 116 CV con cambio automático",
+  "description": "El híbrido de Toyota que lleva veinte años puliéndose: no se enchufa, en ciudad va en eléctrico la mayor parte del trayecto y gasta lo que no está escrito.\nEtiqueta ECO y cambio automático, así que en atasco se conduce solo.\nToyota Safety Sense de serie: frenada con detección de peatones, carril y reconocimiento de señales.",
+  "equipment": [
+    "Pantalla táctil de infoentretenimiento",
+    "Conectividad Apple CarPlay y Android Auto",
+    "Radio digital DAB+",
+    "4 altavoces",
+    "Puerto USB tipo C",
+    "Toyota Safety Sense",
+    "Sistema de pre-colisión con detección de peatones",
+    "Reconocimiento de señales de tráfico",
+    "Asistente de mantenimiento de carril",
+    "Cámara trasera",
+    "Climatizador automático",
+    "Volante multifunción",
+    "Asientos cómodos y espaciosos",
+    "Llantas de aleación"
+  ],
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/toyota-yaris-01.webp",
+      "alt": "Toyota Yaris en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-yaris-02.webp",
+      "alt": "Toyota Yaris en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-yaris-03.webp",
+      "alt": "Toyota Yaris en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/toyota-yaris-04.webp",
+      "alt": "Toyota Yaris en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-yaris-05.webp",
+      "alt": "Toyota Yaris en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-yaris-06.webp",
+      "alt": "Toyota Yaris en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-yaris-07.webp",
+      "alt": "Toyota Yaris en renting — vista exterior"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 34671
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 37129
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 39382
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 43165
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 45678
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 34257
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 36231
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 40038
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 43909
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 46575
+    },
+    {
+      "contract_months": 72,
+      "annual_km": 10000,
+      "monthly_price_cents": 32664
+    }
+  ]
+}

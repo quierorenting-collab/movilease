@@ -1,0 +1,164 @@
+{
+  "brand": "Nissan",
+  "model": "Juke",
+  "version": "1.6 Hybrid 145CV N-Connecta",
+  "category": "hibrido",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "monthly_price_cents": 38600,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 143,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "colors": [
+    "Blanco",
+    "Negro",
+    "Gris"
+  ],
+  "body_type": "SUV",
+  "badge_text": "Etiqueta ECO",
+  "short_description": "Híbrido autorrecargable de 143 CV con cambio automático",
+  "description": "Híbrido autorrecargable: no hay que enchufarlo nunca y en ciudad circula en eléctrico buena parte del tiempo. 4,8 litros a los cien y etiqueta ECO, que significa aparcar y entrar donde otros no pueden.\nPantalla NissanConnect de 12,3 pulgadas y cuadro digital del mismo tamaño, con CarPlay y Android Auto sin cables.\nMaletero de 422 litros, de los mayores de su categoría.",
+  "equipment": [
+    "Pantalla táctil NissanConnect de 12,3\"",
+    "Cuadro de instrumentos digital de 12,3\"",
+    "Apple CarPlay y Android Auto inalámbricos",
+    "Cámara de visión trasera",
+    "Cargador inalámbrico para smartphone",
+    "Bluetooth y USB",
+    "Climatizador automático",
+    "Acceso y arranque sin llave (Intelligent Key)",
+    "Retrovisores eléctricos, plegables y calefactables",
+    "Sensor de lluvia",
+    "Sensor de luces automáticas",
+    "Cristales traseros oscurecidos",
+    "Control de crucero inteligente",
+    "Asistente de mantenimiento de carril",
+    "Frenada automática de emergencia con detección de peatones y ciclistas",
+    "Reconocimiento de señales de tráfico",
+    "Detector de fatiga del conductor",
+    "Sensores de aparcamiento delanteros y traseros"
+  ],
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/nissan-juke-01.webp",
+      "alt": "Nissan Juke en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/nissan-juke-02.webp",
+      "alt": "Nissan Juke en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/nissan-juke-03.webp",
+      "alt": "Nissan Juke en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/nissan-juke-04.webp",
+      "alt": "Nissan Juke en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/nissan-juke-05.webp",
+      "alt": "Nissan Juke en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/nissan-juke-06.webp",
+      "alt": "Nissan Juke en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/nissan-juke-07.webp",
+      "alt": "Nissan Juke en renting — vista exterior"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 38800
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 40900
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 43100
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 46100
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 49100
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 38800
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 40800
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 42700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 45600
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 48800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 38600
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 40400
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 42100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 45100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 48000
+    }
+  ],
+  "consumption_value": 4.8,
+  "consumption_unit": "l/100km"
+}

@@ -1,0 +1,162 @@
+{
+  "brand": "Peugeot",
+  "model": "208",
+  "version": "Allure Gasolina 100 S&S 6 Vel. MAN",
+  "category": "turismo",
+  "fuel_type": "gasolina",
+  "transmission": "manual",
+  "monthly_price_cents": 29600,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 100,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "c",
+  "colors": [
+    "Blanco",
+    "Negro",
+    "Gris"
+  ],
+  "body_type": "Hatchback",
+  "badge_text": "Etiqueta C",
+  "short_description": "Motor PureTech 100 CV con cambio manual de 6 velocidades",
+  "description": "El PureTech de 100 CV es de los motores de gasolina más eficientes de su clase: 5,2 litros a los cien y respuesta de sobra para ciudad y carretera.\nInterior i-Cockpit con cuadro digital y pantalla táctil de 10 pulgadas, con Apple CarPlay y Android Auto sin cables.\nSin entrada y con seguro, mantenimiento e impuestos dentro de la cuota.",
+  "equipment": [
+    "Faros LED delanteros",
+    "Luces diurnas LED",
+    "Llantas de aleación de 16\"",
+    "Retrovisores eléctricos y calefactables",
+    "Aire acondicionado",
+    "Pantalla táctil de 10\"",
+    "Apple CarPlay y Android Auto inalámbricos",
+    "Bluetooth y USB",
+    "Cuadro de instrumentos digital",
+    "Mandos en el volante",
+    "Frenada automática de emergencia",
+    "Aviso de cambio involuntario de carril",
+    "Reconocimiento de señales de tráfico",
+    "Control de crucero con limitador",
+    "Sensor de presión de neumáticos",
+    "ESP y asistente de arranque en pendiente"
+  ],
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/peugeot-208-01.webp",
+      "alt": "Peugeot 208 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/peugeot-208-02.webp",
+      "alt": "Peugeot 208 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/peugeot-208-03.webp",
+      "alt": "Peugeot 208 en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/peugeot-208-04.webp",
+      "alt": "Peugeot 208 en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/peugeot-208-05.webp",
+      "alt": "Peugeot 208 en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/peugeot-208-06.webp",
+      "alt": "Peugeot 208 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/peugeot-208-07.webp",
+      "alt": "Peugeot 208 en renting — vista exterior"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 31100
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 32800
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 35000
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 37600
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 39900
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 29600
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 31600
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 34500
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 37100
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 39800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 29600
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 31600
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 34500
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 37100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 39800
+    }
+  ],
+  "consumption_value": 5.2,
+  "consumption_unit": "l/100km"
+}

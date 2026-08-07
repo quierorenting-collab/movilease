@@ -1,0 +1,137 @@
+{
+  "brand": "Mercedes-Benz",
+  "model": "GLC Coupé",
+  "version": "200 4MATIC",
+  "category": "suv",
+  "fuel_type": "gasolina",
+  "transmission": "automatico",
+  "monthly_price_cents": 104800,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 204,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "colors": [
+    "Gris Grafito",
+    "Plata Iridio",
+    "Negro Obsidiana"
+  ],
+  "body_type": "SUV Coupé",
+  "badge_text": "Solo empresas",
+  "short_description": "SUV coupé de 204 CV con tracción total 4MATIC y etiqueta ECO",
+  "description": "El GLC Coupé es el Mercedes que más se mira por la calle: silueta de coupé sobre un SUV, tracción total 4MATIC y 204 CV con etiqueta ECO.\nDentro, MBUX con Extras Digitales, cámara de 360°, asientos calefactados y climatización THERMATIC.\nDisponible solo para empresas y autónomos.",
+  "equipment": [
+    "Llantas de aleación AMG de 48,3 cm (19\")",
+    "Símil de cuero ARTICO/microfibra",
+    "Asientos calefactados delanteros",
+    "Climatización automática THERMATIC",
+    "Iluminación de ambiente",
+    "Paquete de confort KEYLESS-GO",
+    "MBUX con pantalla multimedia",
+    "Integración de smartphone (Apple CarPlay y Android Auto)",
+    "Sistema inalámbrico de carga para móviles",
+    "Paquete Premium con Extras Digitales",
+    "Paquete de aparcamiento con cámara 360°",
+    "Sistema de frenos con discos de mayores dimensiones",
+    "Asistente para señales de tráfico",
+    "Control de ángulo muerto",
+    "Control de crucero",
+    "Sistema de asistencia a la conducción"
+  ],
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-01.webp",
+      "alt": "Mercedes-Benz GLC Coupé en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-02.webp",
+      "alt": "Mercedes-Benz GLC Coupé en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-03.webp",
+      "alt": "Mercedes-Benz GLC Coupé en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-04.webp",
+      "alt": "Mercedes-Benz GLC Coupé en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-05.webp",
+      "alt": "Mercedes-Benz GLC Coupé en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-06.webp",
+      "alt": "Mercedes-Benz GLC Coupé en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-07.webp",
+      "alt": "Mercedes-Benz GLC Coupé en renting — vista exterior"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 112500
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 117400
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 123300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 129800
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 142500
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 104800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 110100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 116900
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 124000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 136200
+    }
+  ],
+  "is_offer": true,
+  "is_featured": true
+}

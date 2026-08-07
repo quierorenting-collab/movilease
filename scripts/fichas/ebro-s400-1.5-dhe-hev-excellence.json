@@ -13,7 +13,10 @@
   "seats": 5,
   "doors": 5,
   "environmental_label": "eco",
-  "colors": ["Gris Phantom", "Blanco"],
+  "colors": [
+    "Gris Phantom",
+    "Blanco"
+  ],
   "body_type": "SUV",
   "is_featured": true,
   "badge_text": "Híbrido",
@@ -48,28 +51,110 @@
     "Cambio de neumáticos"
   ],
   "images": [
-    { "url": "https://fotos.quecochemecompro.com/ebro-s400/39291095.jpg?size=1200x800", "alt": "Ebro S400 - vista frontal 3/4" },
-    { "url": "https://fotos.quecochemecompro.com/ebro-s400/39291101.jpg?size=1200x800", "alt": "Ebro S400 - vista trasera 3/4" },
-    { "url": "https://fotos.quecochemecompro.com/ebro-s400/39291096.jpg?size=1200x800", "alt": "Ebro S400 - vista frontal" },
-    { "url": "https://fotos.quecochemecompro.com/ebro-s400/39291094.jpg?size=1200x800", "alt": "Ebro S400 - vista trasera" },
-    { "url": "https://fotos.quecochemecompro.com/ebro-s400/39291125.jpg?size=1200x800", "alt": "Ebro S400 - interior consola central" },
-    { "url": "https://fotos.quecochemecompro.com/ebro-s400/39291130.jpg?size=1200x800", "alt": "Ebro S400 - interior asientos traseros" }
+    {
+      "url": "/coches-nuevos/ebro-s400-01.webp",
+      "alt": "Ebro S400 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-02.webp",
+      "alt": "Ebro S400 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-03.webp",
+      "alt": "Ebro S400 en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-04.webp",
+      "alt": "Ebro S400 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-05.webp",
+      "alt": "Ebro S400 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-06.webp",
+      "alt": "Ebro S400 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-07.webp",
+      "alt": "Ebro S400 en renting — vista exterior"
+    }
   ],
   "pricing": [
-    { "contract_months": 36, "annual_km": 10000, "monthly_price_cents": 47548 },
-    { "contract_months": 36, "annual_km": 15000, "monthly_price_cents": 49148 },
-    { "contract_months": 36, "annual_km": 20000, "monthly_price_cents": 50749 },
-    { "contract_months": 36, "annual_km": 25000, "monthly_price_cents": 53510 },
-    { "contract_months": 36, "annual_km": 30000, "monthly_price_cents": 56811 },
-    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 45542 },
-    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 46946 },
-    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 48349 },
-    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 51085 },
-    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 54360 },
-    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 43817 },
-    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 45161 },
-    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 46404 },
-    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 49615 },
-    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 52617 }
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 47548
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 49148
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 50749
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 53510
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 56811
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 45542
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 46946
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 48349
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 51085
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 54360
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 43817
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 45161
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 46404
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 49615
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 52617
+    }
   ]
 }

@@ -1,0 +1,117 @@
+{
+  "update_vehicle_id": "9904f33f-173b-4121-9630-778ffb4004cd",
+  "brand": "MG",
+  "model": "ZS",
+  "version": "HEV 1.5T 197CV Automático",
+  "category": "hibrido",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "monthly_price_cents": 36900,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 197,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "colors": [
+    "Plata"
+  ],
+  "body_type": "SUV",
+  "badge_text": "Solo empresas",
+  "short_description": "Híbrido de 197 CV, acabado Hybrid+ Business, etiqueta ECO",
+  "description": "197 CV en un híbrido que no se enchufa y con etiqueta ECO, por menos de lo que cuesta un compacto de gasolina de la mitad de potencia.\nEl acabado Hybrid+ Business viene lleno de serie: pantalla de 10,1 pulgadas, cuadro digital, climatizador automático y todos los asistentes.\nDisponible solo para empresas y autónomos.",
+  "equipment": [
+    "Climatizador automático",
+    "Volante multifunción en cuero",
+    "Asientos de tela",
+    "Ajuste manual de asiento del conductor",
+    "Retrovisores exteriores eléctricos y calefactables",
+    "Pantalla táctil de 10,1\"",
+    "Cuadro de instrumentos digital de 7\"",
+    "Conexión Bluetooth",
+    "Apple CarPlay y Android Auto",
+    "2 puertos USB",
+    "Frenado autónomo de emergencia (AEB)",
+    "Asistente de mantenimiento y cambio de carril (LKA)",
+    "Control de crucero",
+    "Reconocimiento de señales de tráfico",
+    "Cámara de visión trasera",
+    "Sensores de aparcamiento traseros",
+    "Control de estabilidad (ESP)",
+    "Asistente de arranque en pendiente (HHC)",
+    "6 airbags"
+  ],
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/mg-zs-01.webp",
+      "alt": "MG ZS en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/mg-zs-02.webp",
+      "alt": "MG ZS en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/mg-zs-03.webp",
+      "alt": "MG ZS en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/mg-zs-04.webp",
+      "alt": "MG ZS en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/mg-zs-05.webp",
+      "alt": "MG ZS en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/mg-zs-06.webp",
+      "alt": "MG ZS en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/mg-zs-07.webp",
+      "alt": "MG ZS en renting — interior"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 37300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 40200
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 43400
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 36900
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 39800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 44500
+    }
+  ]
+}

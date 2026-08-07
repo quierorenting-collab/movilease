@@ -1,4 +1,5 @@
 {
+  "update_vehicle_id": "40b6bdf8-b4b0-457d-9ace-d67e34d0148a",
   "brand": "SEAT",
   "model": "Ibiza",
   "version": "1.0 TSI 85kW 115CV S&S Style+",
@@ -14,7 +15,9 @@
   "seats": 5,
   "doors": 5,
   "environmental_label": "c",
-  "colors": ["Blanco"],
+  "colors": [
+    "Blanco"
+  ],
   "body_type": "Hatchback",
   "short_description": "Bajo consumo: solo 5,2L/100 km",
   "description": "Bajo consumo: solo 5,2L/100 km.\nMotor 1.0 TSI de 115 CV: equilibrio perfecto entre potencia y eficiencia.\nEtiqueta ambiental C: libertad para moverte por la ciudad.\nCompacto y versátil: ideal para ciudad y carretera.\nGran equipamiento de serie: confort, tecnología y seguridad.\nTodo incluido en una única cuota mensual.",
@@ -52,22 +55,77 @@
     "Cambio de neumáticos"
   ],
   "images": [
-    { "url": "https://fotos.quecochemecompro.com/seat-ibiza/41301225.jpg?size=1200x800", "alt": "SEAT Ibiza - vista frontal 3/4" },
-    { "url": "https://fotos.quecochemecompro.com/seat-ibiza/41301245.jpg?size=1200x800", "alt": "SEAT Ibiza - vista frontal 3/4 alternativa" },
-    { "url": "https://fotos.quecochemecompro.com/seat-ibiza/41301240.jpg?size=1200x800", "alt": "SEAT Ibiza - vista frontal" },
-    { "url": "https://fotos.quecochemecompro.com/seat-ibiza/41301250.jpg?size=1200x800", "alt": "SEAT Ibiza - salpicadero e interior" },
-    { "url": "https://fotos.quecochemecompro.com/seat-ibiza/41301260.jpg?size=1200x800", "alt": "SEAT Ibiza - detalle óptica delantera" }
+    {
+      "url": "/coches-nuevos/seat-ibiza-115-01.webp",
+      "alt": "SEAT Ibiza en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/seat-ibiza-115-02.webp",
+      "alt": "SEAT Ibiza en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/seat-ibiza-115-03.webp",
+      "alt": "SEAT Ibiza en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/seat-ibiza-115-05.webp",
+      "alt": "SEAT Ibiza en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/seat-ibiza-115-06.webp",
+      "alt": "SEAT Ibiza en renting — vista exterior"
+    }
   ],
   "pricing": [
-    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 30246 },
-    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 32201 },
-    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 34196 },
-    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 37256 },
-    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 39444 },
-    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 29950 },
-    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 31605 },
-    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 34702 },
-    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 37791 },
-    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 40199 }
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 30246
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 32201
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 34196
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 37256
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 39444
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 29950
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 31605
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 34702
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 37791
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 40199
+    }
   ]
 }

@@ -1,4 +1,5 @@
 {
+  "update_vehicle_id": "201446f5-f368-4634-819e-aed64d0ce1ee",
   "brand": "Mercedes-Benz",
   "model": "GLE Coupé",
   "version": "300d 4MATIC",
@@ -12,7 +13,11 @@
   "seats": 5,
   "doors": 5,
   "environmental_label": "eco",
-  "colors": ["Blanco", "Azul", "Gris Plata"],
+  "colors": [
+    "Blanco",
+    "Azul",
+    "Gris Plata"
+  ],
   "body_type": "Coupé",
   "equipment": [],
   "included_services": [
@@ -30,28 +35,110 @@
   "is_featured": true,
   "is_offer": false,
   "images": [
-    { "url": "https://fotos.quecochemecompro.com/mercedes-gle-coupe/43139100.jpg?size=1200x800", "alt": "Mercedes GLE Coupé - vista frontal" },
-    { "url": "https://fotos.quecochemecompro.com/mercedes-gle-coupe/43139103.jpg?size=1200x800", "alt": "Mercedes GLE Coupé - vista trasera" },
-    { "url": "https://fotos.quecochemecompro.com/mercedes-gle-coupe/43139111.jpg?size=1200x800", "alt": "Mercedes GLE Coupé - interior salpicadero" },
-    { "url": "https://fotos.quecochemecompro.com/mercedes-gle-coupe/43139118.jpg?size=1200x800", "alt": "Mercedes GLE Coupé - interior asientos traseros" },
-    { "url": "https://fotos.quecochemecompro.com/mercedes-gle-coupe/43139093.jpg?size=1200x800", "alt": "Mercedes GLE Coupé - maletero" },
-    { "url": "https://fotos.quecochemecompro.com/mercedes-gle-coupe/43139108.jpg?size=1200x800", "alt": "Mercedes GLE Coupé - detalle frontal" }
+    {
+      "url": "/coches-nuevos/mercedes-gle-coupe-01.webp",
+      "alt": "Mercedes-Benz GLE Coupé en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-coupe-02.webp",
+      "alt": "Mercedes-Benz GLE Coupé en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-coupe-03.webp",
+      "alt": "Mercedes-Benz GLE Coupé en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-coupe-04.webp",
+      "alt": "Mercedes-Benz GLE Coupé en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-coupe-05.webp",
+      "alt": "Mercedes-Benz GLE Coupé en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-coupe-06.webp",
+      "alt": "Mercedes-Benz GLE Coupé en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-coupe-07.webp",
+      "alt": "Mercedes-Benz GLE Coupé en renting — vista exterior"
+    }
   ],
   "pricing": [
-    { "contract_months": 36, "annual_km": 10000, "monthly_price_cents": 167200 },
-    { "contract_months": 36, "annual_km": 15000, "monthly_price_cents": 174700 },
-    { "contract_months": 36, "annual_km": 20000, "monthly_price_cents": 179900 },
-    { "contract_months": 36, "annual_km": 25000, "monthly_price_cents": 184900 },
-    { "contract_months": 36, "annual_km": 30000, "monthly_price_cents": 193700 },
-    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 151100 },
-    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 157700 },
-    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 163000 },
-    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 171300 },
-    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 177100 },
-    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 140700 },
-    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 145700 },
-    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 163000 },
-    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 171300 },
-    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 177100 }
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 167200
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 174700
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 179900
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 184900
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 193700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 151100
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 157700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 163000
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 171300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 177100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 140700
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 145700
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 163000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 171300
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 177100
+    }
   ]
 }

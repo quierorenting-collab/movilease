@@ -1,0 +1,166 @@
+{
+  "brand": "Honda",
+  "model": "CR-V",
+  "version": "2.0 i-MMD PHEV 4X2 Elegance Tech",
+  "category": "suv",
+  "fuel_type": "phev",
+  "transmission": "automatico",
+  "monthly_price_cents": 54000,
+  "contract_months": 36,
+  "annual_km": 10000,
+  "horsepower": 184,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "0",
+  "colors": [
+    "Negro Cristal",
+    "Diamond Dust"
+  ],
+  "body_type": "SUV",
+  "badge_text": "Etiqueta CERO",
+  "short_description": "Híbrido enchufable de 184 CV con etiqueta CERO",
+  "description": "Etiqueta CERO: aparcamiento sin límite en zona regulada y entrada a cualquier zona de bajas emisiones del país, también los días de restricción.\n184 CV en un híbrido enchufable que se mueve en eléctrico en el día a día y recurre al gasolina solo cuando hace falta.\nHonda SENSING de serie —crucero adaptativo, frenada de emergencia, carril— y el maletero más aprovechable de su clase.\nDisponible solo para empresas y autónomos.",
+  "equipment": [
+    "Climatizador automático bizona",
+    "Asientos delanteros calefactables",
+    "Volante multifunción en cuero",
+    "Retrovisores exteriores abatibles eléctricamente",
+    "Cristales traseros tintados",
+    "Pantalla táctil de 9\"",
+    "Cuadro de instrumentos digital de 10,2\"",
+    "Honda CONNECT con navegación",
+    "Apple CarPlay y Android Auto inalámbricos",
+    "Cargador inalámbrico",
+    "2 puertos USB delanteros y 2 traseros",
+    "Honda SENSING: asistente de conducción",
+    "Frenada de emergencia (CMBS)",
+    "Control de crucero adaptativo (ACC)",
+    "Asistente de mantenimiento de carril (LKAS)",
+    "Reconocimiento de señales de tráfico",
+    "Cámara trasera con guías dinámicas",
+    "Sensores de aparcamiento delanteros y traseros",
+    "Control de estabilidad (VSA)",
+    "Asistente de arranque en pendiente (HSA)",
+    "Sistema de 7 airbags (frontales, laterales, de cortina y de rodilla)"
+  ],
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/honda-crv-01.webp",
+      "alt": "Honda CR-V en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/honda-crv-02.webp",
+      "alt": "Honda CR-V en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/honda-crv-03.webp",
+      "alt": "Honda CR-V en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/honda-crv-04.webp",
+      "alt": "Honda CR-V en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/honda-crv-05.webp",
+      "alt": "Honda CR-V en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/honda-crv-06.webp",
+      "alt": "Honda CR-V en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/honda-crv-07.webp",
+      "alt": "Honda CR-V en renting — vista exterior"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 54000
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 57400
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 60600
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 64000
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 67400
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 55800
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 58800
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 61800
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 64700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 67800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 56100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 58800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 61500
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 64100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 66800
+    }
+  ],
+  "is_offer": true,
+  "is_featured": true
+}

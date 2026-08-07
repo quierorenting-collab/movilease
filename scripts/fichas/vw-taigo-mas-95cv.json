@@ -14,7 +14,9 @@
   "seats": 5,
   "doors": 5,
   "environmental_label": "eco",
-  "colors": ["Blanco"],
+  "colors": [
+    "Blanco"
+  ],
   "body_type": "SUV Coupé",
   "short_description": "Motor eficiente de 95 CV con etiqueta ECO",
   "description": "Motor eficiente de 95 CV: ideal para el día a día con bajo consumo (5,4L/100km).\nDiseño SUV coupé moderno y deportivo con gran personalidad.\nEquipamiento completo en confort, tecnología y seguridad.\nEtiqueta ECO: más ventajas, menos restricciones.\nTodo incluido en una única cuota mensual, sin gastos imprevistos.",
@@ -42,27 +44,110 @@
     "Cambio de neumáticos"
   ],
   "images": [
-    { "url": "https://fotos.quecochemecompro.com/volkswagen-taigo/volkswagen-taigo-blanco-frontal.jpg?size=1200x800", "alt": "Volkswagen Taigo - vista frontal" },
-    { "url": "https://fotos.quecochemecompro.com/volkswagen-taigo/taigo-blanco-perfil-exterior.jpg?size=1200x800", "alt": "Volkswagen Taigo - perfil lateral" },
-    { "url": "https://fotos.quecochemecompro.com/volkswagen-taigo/volkswagen-taigo-vista-trasera.jpg?size=1200x800", "alt": "Volkswagen Taigo - vista trasera" },
-    { "url": "https://fotos.quecochemecompro.com/volkswagen-taigo/cockpit-volkswagen-taigo.jpg?size=1200x800", "alt": "Volkswagen Taigo - salpicadero" },
-    { "url": "https://fotos.quecochemecompro.com/volkswagen-taigo/capacidad-maletero-volkswagen-taigo.jpg?size=1200x800", "alt": "Volkswagen Taigo - maletero" }
+    {
+      "url": "/coches-nuevos/vw-taigo-01.webp",
+      "alt": "Volkswagen Taigo en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-02.webp",
+      "alt": "Volkswagen Taigo en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-03.webp",
+      "alt": "Volkswagen Taigo en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-04.webp",
+      "alt": "Volkswagen Taigo en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-05.webp",
+      "alt": "Volkswagen Taigo en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-06.webp",
+      "alt": "Volkswagen Taigo en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-07.webp",
+      "alt": "Volkswagen Taigo en renting — vista exterior"
+    }
   ],
   "pricing": [
-    { "contract_months": 36, "annual_km": 10000, "monthly_price_cents": 38844 },
-    { "contract_months": 36, "annual_km": 15000, "monthly_price_cents": 40435 },
-    { "contract_months": 36, "annual_km": 20000, "monthly_price_cents": 42026 },
-    { "contract_months": 36, "annual_km": 25000, "monthly_price_cents": 44338 },
-    { "contract_months": 36, "annual_km": 30000, "monthly_price_cents": 46746 },
-    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 36989 },
-    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 38397 },
-    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 39807 },
-    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 42024 },
-    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 44289 },
-    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 35614 },
-    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 36874 },
-    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 38132 },
-    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 40247 },
-    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 42426 }
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 38844
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 40435
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 42026
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 44338
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 46746
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 36989
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 38397
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 39807
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 42024
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 44289
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 35614
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 36874
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 38132
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 40247
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 42426
+    }
   ]
 }

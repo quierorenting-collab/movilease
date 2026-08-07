@@ -848,3 +848,18 @@ select.input-glass option { background: var(--dark-2); color: #fff; }
   line-height: 1.02;
   color: var(--blue);
 }
+
+/* ── Velo de los fondos de vídeo ──────────────────────────────────────────
+   En escritorio el vídeo ocupa una banda ancha y se aprecia el movimiento
+   aunque el velo sea denso. En móvil la misma sección es alta y estrecha, el
+   object-cover recorta casi todo el encuadre y con el velo al 100% el fondo
+   parecía una textura fija: no se notaba que había vídeo.
+
+   Se baja el velo en pantallas pequeñas en vez de tocar el vídeo, porque el
+   velo es lo único que hay entre el fondo y el texto y así se controla de un
+   solo sitio. Al 86% el alfa efectivo sigue por encima de 0.68 sobre las
+   secciones claras, que es lo que mantiene el texto legible. */
+.video-veil { opacity: 1; }
+@media (max-width: 640px) {
+  .video-veil { opacity: 0.86; }
+}

@@ -27,20 +27,85 @@
     "Cambio de neumáticos"
   ],
   "images": [
-    { "url": "https://fotos.quecochemecompro.com/toyota-ch-r/toyota-chr-hibrido-lateral-dinamica.jpg?size=1200x800", "alt": "Toyota C-HR - perfil lateral" },
-    { "url": "https://fotos.quecochemecompro.com/toyota-ch-r/toyota-chr-hibrido-vista-trasera.jpg?size=1200x800", "alt": "Toyota C-HR - vista trasera" },
-    { "url": "https://fotos.quecochemecompro.com/toyota-ch-r/cuadro-instrumentos-digital-toyota-chr.jpg?size=1200x800", "alt": "Toyota C-HR - cuadro de instrumentos" }
+    {
+      "url": "/coches-nuevos/toyota-chr-01.webp",
+      "alt": "Toyota C-HR en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-chr-02.webp",
+      "alt": "Toyota C-HR en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-chr-03.webp",
+      "alt": "Toyota C-HR en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/toyota-chr-04.webp",
+      "alt": "Toyota C-HR en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-chr-05.webp",
+      "alt": "Toyota C-HR en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-chr-06.webp",
+      "alt": "Toyota C-HR en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-chr-07.webp",
+      "alt": "Toyota C-HR en renting — vista exterior"
+    }
   ],
   "pricing": [
-    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 48294 },
-    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 51176 },
-    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 54110 },
-    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 58233 },
-    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 61652 },
-    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 47078 },
-    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 49589 },
-    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 53998 },
-    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 58392 },
-    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 61814 }
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 48294
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 51176
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 54110
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 58233
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 61652
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 47078
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 49589
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 53998
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 58392
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 61814
+    }
   ]
 }

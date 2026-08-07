@@ -1,0 +1,158 @@
+{
+  "update_vehicle_id": "c6c5fd69-c7ce-45c4-9ce4-a162051f3cfe",
+  "brand": "Toyota",
+  "model": "Yaris Cross",
+  "version": "130H e-CVT 5P ACTIVE",
+  "category": "hibrido",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "monthly_price_cents": 41291,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 130,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "colors": [
+    "Gris Grafito"
+  ],
+  "body_type": "SUV",
+  "badge_text": "Etiqueta ECO",
+  "short_description": "SUV híbrido de 130 CV con cambio automático e-CVT",
+  "description": "El Yaris con altura de SUV: se entra y se sale sin agacharse, se ve más carretera y cabe más detrás, con el mismo híbrido que no hay que enchufar.\n130 CV y cambio e-CVT, suave y sin tirones.\nEtiqueta ECO y Toyota Safety Sense de serie.",
+  "equipment": [
+    "Pantalla multimedia de 26,7 cm (10,5\")",
+    "Pantalla multiinformación TFT de 7\"",
+    "Bluetooth manos libres",
+    "Puerto USB tipo C",
+    "Sistema de entrada y arranque sin llave (SME)",
+    "Climatizador automático",
+    "Toyota Safety Sense",
+    "Sistema pre-colisión con detección de peatones",
+    "Asistente de mantenimiento de carril",
+    "Reconocimiento de señales de tráfico",
+    "Cámara trasera",
+    "Faros con función \"Follow me home\"",
+    "Faros delanteros con apagado automático",
+    "Retrovisores plegables automáticamente",
+    "Guías de aparcamiento estáticas"
+  ],
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/toyota-yaris-cross-01.webp",
+      "alt": "Toyota Yaris Cross en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-yaris-cross-02.webp",
+      "alt": "Toyota Yaris Cross en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-yaris-cross-03.webp",
+      "alt": "Toyota Yaris Cross en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/toyota-yaris-cross-04.webp",
+      "alt": "Toyota Yaris Cross en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-yaris-cross-05.webp",
+      "alt": "Toyota Yaris Cross en renting — interior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-yaris-cross-06.webp",
+      "alt": "Toyota Yaris Cross en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/toyota-yaris-cross-07.webp",
+      "alt": "Toyota Yaris Cross en renting — vista exterior"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 43291
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 46239
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 48564
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 51176
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 55362
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 42084
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 44839
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 47722
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 51761
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 54987
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 41291
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 43826
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 47975
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 52219
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 55639
+    }
+  ]
+}
