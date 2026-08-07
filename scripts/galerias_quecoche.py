@@ -36,6 +36,26 @@ BASE = "https://www.quecochemecompro.com"
 MAX_FOTOS = 6
 MIN_PARECIDO = 0.72
 
+# Casos que ninguna heurística razonable puede resolver, resueltos a mano
+# después de comprobar en la web que las fotos son del coche correcto:
+#
+#   - KGM se llamaba SsangYong hasta 2023 y quecochemecompro sigue listando
+#     Korando, Musso, Rexton y Tívoli con el nombre antiguo. /precios/kgm/ está
+#     vacío, así que por marca no había forma de llegar.
+#   - El A3 Sportback: el parecido de texto lo dejaba en 0,57 contra "audi-a3"
+#     porque el sufijo de carrocería descuadra la comparación, y el candidato
+#     mejor puntuado era el A3 Sedán.
+#   - El Tunland que se vende aquí es el G7; la ficha nuestra pone sólo
+#     "Tunland".
+FORZADOS = {
+    ("KGM", "Korando"): "ssangyong-korando",
+    ("KGM", "Musso"): "ssangyong-musso",
+    ("KGM", "Rexton"): "ssangyong-rexton",
+    ("KGM", "Tívoli"): "ssangyong-tivoli",
+    ("Audi", "A3 Sportback"): "audi-a3",
+    ("Foton", "Tunland"): "foton-tunland-g7",
+}
+
 # Sufijos que quecochemecompro añade según la mecánica.
 SUFIJO_COMBUSTIBLE = {
     "hibrido": "hibrido",
@@ -147,7 +167,8 @@ def main():
         if ms not in por_marca:
             por_marca[ms] = candidatos(ms)
 
-        elegido, p = elige(marca, modelo, v["fuel_type"], por_marca[ms])
+        forzado = FORZADOS.get((marca, modelo))
+        elegido, p = (forzado, 1.0) if forzado else elige(marca, modelo, v["fuel_type"], por_marca[ms])
         if not elegido or p < MIN_PARECIDO:
             fallos.append((marca, modelo, elegido, round(p, 2), "no encaja"))
             continue
