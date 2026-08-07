@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getVehiclesByBrand, getCatalogVehicles } from "@/lib/data/vehicles";
+import {
+  getVehiclesByBrand,
+  getCatalogVehicles,
+  getBrandDisplayName,
+} from "@/lib/data/vehicles";
 import { VEHICLE_CATEGORY_LABELS, FUEL_TYPE_LABELS, buildWhatsAppLink } from "@/lib/constants";
 import type { VehicleCategoryEnum, FuelTypeEnum } from "@/types/database.types";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
@@ -33,7 +37,9 @@ export async function generateMetadata({
     });
   }
 
-  const nombre = brand.charAt(0).toUpperCase() + brand.slice(1);
+  // Capitalizar el slug daba "Seat" y "Kgm" en el título y la descripción, que
+  // es lo que ve el usuario en Google. Se usa el nombre real de la marca.
+  const nombre = (await getBrandDisplayName(brand)) ?? brand.charAt(0).toUpperCase() + brand.slice(1);
   const filtrado = Boolean(params.category || params.fuel);
   return pageMetadata({
     title: `Renting ${nombre}: modelos y cuotas`,
@@ -91,6 +97,11 @@ export default async function CatalogoPage({
     });
 
     const displayName = matchedBrand?.brandName ?? brandParam;
+    const cuotaMinimaMarca = filtered.length
+      ? Math.round(
+          Math.min(...filtered.map((v) => v.monthlyPriceCents ?? Infinity)) / 100
+        )
+      : null;
 
     const brandPath = `/catalogo?brand=${encodeURIComponent(brandParam)}`;
 
@@ -231,6 +242,49 @@ export default async function CatalogoPage({
                 </p>
               </div>
             )}
+          </div>
+        </section>
+
+        {/* Texto de apoyo con datos reales del catálogo. La vista de marca tenía
+            188 palabras: demasiado poco para competir por "renting <marca>". */}
+        <section className="bg-white py-20">
+          <div className="mx-auto max-w-3xl px-6 sm:px-10">
+            <h2 className="display-sm text-[#0A0A0A]">
+              Renting de {displayName} sin entrada
+            </h2>
+            <p className="mt-6 text-[17px] leading-[1.8] text-[#33415C]">
+              Tenemos {filtered.length} {filtered.length === 1 ? "vehículo" : "vehículos"} de{" "}
+              {displayName} disponibles en renting
+              {cuotaMinimaMarca ? `, desde ${cuotaMinimaMarca} € al mes` : ""}. Todas las
+              cuotas van con el IVA incluido y sin entrada: el día que recibes el coche
+              no pagas nada por adelantado.
+            </p>
+            <p className="mt-5 text-[17px] leading-[1.8] text-[#33415C]">
+              En la cuota entran el seguro a todo riesgo, el mantenimiento en talleres
+              oficiales, los neumáticos, el impuesto de circulación y la asistencia en
+              carretera. Tú solo pones el combustible. Si quieres el detalle de lo que
+              cubre cada partida, lo explicamos en{" "}
+              <Link
+                href="/blog/que-incluye-la-cuota-de-un-renting"
+                className="font-medium text-[#0057D6] underline underline-offset-2 hover:text-[#0A0A0A]"
+              >
+                qué incluye la cuota de un renting
+              </Link>
+              .
+            </p>
+            <p className="mt-5 text-[17px] leading-[1.8] text-[#33415C]">
+              Las cuotas publicadas se calculan sobre contratos de 36 meses y 10.000 km
+              al año, pero el plazo y el kilometraje se adaptan a tu caso. Si no sabes
+              cuántos kilómetros contratar, te ayudamos a{" "}
+              <Link
+                href="/blog/cuantos-kilometros-contratar-renting"
+                className="font-medium text-[#0057D6] underline underline-offset-2 hover:text-[#0A0A0A]"
+              >
+                calcularlo bien
+              </Link>{" "}
+              antes de firmar. Damos respuesta a la solicitud en menos de 48 horas
+              laborables y entregamos en toda España.
+            </p>
           </div>
         </section>
 

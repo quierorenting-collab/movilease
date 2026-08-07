@@ -1,6 +1,22 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  /**
+   * www servía el sitio entero en paralelo al dominio sin www, con 200 en las
+   * dos. El canonical ya apuntaba bien y Google consolidaba, pero lo correcto
+   * es que exista una sola dirección. Se resuelve en el edge, sin meter
+   * middleware en todas las rutas públicas.
+   */
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.movilease.es" }],
+        destination: "https://movilease.es/:path*",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     // AVIF primero: en fotos de coche baja un 20-30 % respecto a WebP
     formats: ["image/avif", "image/webp"],

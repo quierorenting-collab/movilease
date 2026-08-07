@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getModelBySlugWithVehicles, type VehicleDetailData } from "@/lib/data/vehicles";
+import {
+  getModelBySlugWithVehicles,
+  getSameBrandModels,
+  type VehicleDetailData,
+} from "@/lib/data/vehicles";
 import { getLandingPageBySlug } from "@/lib/data/landing";
 import {
   FUEL_TYPE_LABELS,
@@ -140,7 +144,7 @@ function SpecRow({ label, value }: { label: string; value: string | null | undef
   );
 }
 
-function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof getModelBySlugWithVehicles>>> }) {
+async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof getModelBySlugWithVehicles>>> }) {
   const primary: VehicleDetailData | undefined = model.vehicles[0];
   const otherVersions = model.vehicles.slice(1);
   const services = primary?.includedServices ?? [];
@@ -168,6 +172,55 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
     : [];
 
   const marcaSlug = encodeURIComponent(model.brandName.toLowerCase());
+  const nombreCompleto = `${model.brandName} ${model.model.name}`;
+  const hermanos = await getSameBrandModels(model.brandName, model.model.slug, 4);
+
+  /* Precio y condiciones tienen que salir del MISMO vehículo: si se coge el
+     mínimo por un lado y el plazo de `primary` por otro, la FAQ acaba diciendo
+     "263 € para un contrato de 60 meses" cuando esos 263 € son de otra versión. */
+  const masBarato = model.vehicles.length
+    ? model.vehicles.reduce((a, b) => (b.monthlyPriceCents < a.monthlyPriceCents ? b : a))
+    : null;
+  const cuotaDesde = masBarato ? Math.round(masBarato.monthlyPriceCents / 100) : null;
+
+  /**
+   * Preguntas construidas con los datos reales de la ficha, no con texto
+   * genérico: cuota, plazo, kilometraje y servicios salen del propio registro.
+   * Sirven para dos cosas a la vez — resolver la duda al visitante y dar
+   * FAQPage, que es el resultado enriquecido más accesible para estas páginas.
+   */
+  const faqModelo = [
+    cuotaDesde && {
+      q: `¿Cuánto cuesta el renting de un ${nombreCompleto}?`,
+      a: `Desde ${cuotaDesde} € al mes con IVA incluido y sin entrada${
+        masBarato
+          ? `, para un contrato de ${masBarato.contractMonths} meses y ${masBarato.annualKm.toLocaleString("es-ES")} km al año`
+          : ""
+      }. La cuota varía según la versión, el plazo y el kilometraje que elijas.`,
+    },
+    services.length > 0 && {
+      q: `¿Qué incluye la cuota del ${nombreCompleto}?`,
+      a: `${services.join(", ")}. Solo tienes que poner el combustible.`,
+    },
+    {
+      q: `¿Hay que dar entrada para el renting del ${nombreCompleto}?`,
+      a: "No. Todas nuestras cuotas son sin entrada: el día que recibes el coche no pagas nada por adelantado.",
+    },
+    primary && {
+      q: `¿Cuántos kilómetros al año incluye?`,
+      a: `Las cuotas publicadas se calculan sobre ${primary.annualKm.toLocaleString("es-ES")} km al año, pero adaptamos el kilometraje a tu uso real. Si haces más, te pasamos la cuota ajustada.`,
+    },
+    {
+      q: `¿Cuánto se tarda en tener el coche?`,
+      a: "Damos respuesta a la solicitud en menos de 48 horas laborables. Después, la entrega depende de la disponibilidad del modelo, y te lo llevamos a donde nos digas.",
+    },
+    model.vehicles.length > 1 && {
+      q: `¿Qué versiones del ${nombreCompleto} hay disponibles?`,
+      a: `Ahora mismo ${model.vehicles.length} versiones: ${model.vehicles
+        .map((v) => v.version)
+        .join(", ")}.`,
+    },
+  ].filter(Boolean) as { q: string; a: string }[];
   const imagenes = [
     ...(primary?.images ?? []).map((i) => i.url),
     ...(primary?.imageUrl ? [primary.imageUrl] : []),
@@ -207,6 +260,7 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
           { name: model.model.name, path: `/${model.model.slug}` },
         ]}
       />
+      {faqModelo.length > 0 && <FaqJsonLd items={faqModelo} />}
 
       {/* ── Hero producto ── */}
       <section className="surface-black ambient-blue-top relative overflow-hidden pt-32 pb-20">
@@ -505,6 +559,66 @@ function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<typeof get
                     <CheckIcon />
                     <span className="text-sm font-medium text-white/70">{service}</span>
                   </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
+      )}
+
+      {/* ── Preguntas frecuentes del modelo ──
+           Con datos reales de la ficha. Resuelven la duda antes de tener que
+           preguntar y dan FAQPage, que es el resultado enriquecido más
+           alcanzable para estas páginas. */}
+      {faqModelo.length > 0 && (
+        <section className="bg-white py-24">
+          <div className="mx-auto max-w-3xl px-6 sm:px-10">
+            <Reveal className="mb-10">
+              <p className="section-label section-label-on-light">Dudas frecuentes</p>
+              <h2 className="display-sm mt-4 text-[#0A0A0A]">
+                Sobre el renting del {nombreCompleto}
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div className="rounded-3xl border border-[#E5E9F0] bg-[#F8FAFC] px-8 py-3 sm:px-10">
+                <FAQAccordion items={faqModelo} />
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
+      {/* ── Otros modelos de la misma marca ──
+           La ficha no enlazaba a ningún hermano: quien entraba buscando este
+           modelo no podía llegar al resto de la marca sin volver al catálogo,
+           y el rastreador tampoco. */}
+      {hermanos.length > 0 && (
+        <section className="bg-[#F4F6FA] py-24">
+          <div className="mx-auto max-w-7xl px-6 sm:px-10">
+            <Reveal className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="section-label section-label-on-light">Más de {model.brandName}</p>
+                <h2 className="display-sm mt-4 text-[#0A0A0A]">
+                  Otros {model.brandName} en renting
+                </h2>
+              </div>
+              <Link
+                href={`/catalogo?brand=${marcaSlug}`}
+                className="group flex min-h-[40px] items-center gap-2 text-[12px] font-bold uppercase tracking-[0.14em] text-[#0057D6] transition-colors hover:text-[#0A0A0A]"
+              >
+                Ver todos los {model.brandName}
+                <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+            </Reveal>
+            <RevealGroup
+              stagger={0.06}
+              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+            >
+              {hermanos.map((v) => (
+                <RevealItem key={v.id}>
+                  <VehicleCard vehicle={v} />
                 </RevealItem>
               ))}
             </RevealGroup>

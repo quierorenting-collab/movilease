@@ -467,3 +467,43 @@ export async function getVehiclesByBrand(): Promise<VehiclesByBrand> {
 
   return { brands, vehiclesByBrand: map };
 }
+
+/**
+ * Otros modelos de la misma marca, para enlazar desde una ficha.
+ *
+ * La ficha no enlazaba a ningún modelo de su propia marca: quien entraba
+ * buscando "renting seat ibiza" no tenía forma de llegar al resto de SEAT sin
+ * volver al catálogo, y el rastreador tampoco.
+ */
+export async function getSameBrandModels(
+  brandName: string,
+  excludeSlug: string,
+  limit = 4
+): Promise<VehicleCardData[]> {
+  try {
+    const { vehiclesByBrand } = await getVehiclesByBrand();
+    const delaMarca = vehiclesByBrand[brandName] ?? [];
+
+    const vistos = new Set<string>([excludeSlug]);
+    const unicos: VehicleCardData[] = [];
+    for (const v of delaMarca) {
+      if (!v.modelSlug || vistos.has(v.modelSlug)) continue;
+      vistos.add(v.modelSlug);
+      unicos.push(v);
+      if (unicos.length >= limit) break;
+    }
+    return unicos;
+  } catch {
+    return [];
+  }
+}
+
+/** Nombre real de la marca a partir del slug en minúsculas (SEAT, no Seat). */
+export async function getBrandDisplayName(slugMinusculas: string): Promise<string | null> {
+  try {
+    const { brands } = await getVehiclesByBrand();
+    return brands.find((b) => b.brandName.toLowerCase() === slugMinusculas)?.brandName ?? null;
+  } catch {
+    return null;
+  }
+}
