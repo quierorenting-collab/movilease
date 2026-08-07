@@ -113,6 +113,11 @@ export default function RentingAutonomosPage() {
         <VideoBackdrop
           poster="/autonomos-bg.webp"
           base="#071A3D"
+          // El hero es una franja ancha y baja: con el encuadre centrado, el
+          // cover se comía la parte de abajo y el coche salía cortado por las
+          // ruedas. Bajando el punto de anclaje la imagen sube y el coche
+          // entra entero.
+          position="center bottom"
           veil="linear-gradient(100deg, rgba(7,26,61,0.95) 0%, rgba(7,26,61,0.90) 40%, rgba(7,26,61,0.66) 72%, rgba(7,26,61,0.76) 100%)"
         />
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">

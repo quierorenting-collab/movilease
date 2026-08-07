@@ -29,7 +29,7 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
               src={vehicle.imageUrl}
               alt={`${vehicle.brandName} ${vehicle.modelName}`}
               fill
-              className="object-cover transition-all duration-700 ease-out group-hover:scale-[1.06]"
+              className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             />
           ) : (

@@ -81,6 +81,9 @@
   --easing: cubic-bezier(0.25, 0.1, 0.25, 1);
   --easing-out: cubic-bezier(0.0, 0, 0.2, 1);
   --easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Salida muy larga, sin rebote: la curva que usan Apple/Polestar para que
+     un elemento "aterrice" en lugar de frenar de golpe. */
+  --easing-premium: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 200ms;
   --duration-normal: 350ms;
   --duration-slow: 600ms;
@@ -112,14 +115,40 @@
   opacity: 1;
   transform: translateY(0);
   transition:
-    opacity var(--reveal-duration, 0.8s) var(--easing) var(--reveal-delay, 0s),
-    transform var(--reveal-duration, 0.8s) var(--easing) var(--reveal-delay, 0s);
+    opacity var(--reveal-duration, 0.8s) var(--easing-premium) var(--reveal-delay, 0s),
+    transform var(--reveal-duration, 0.8s) var(--easing-premium) var(--reveal-delay, 0s);
   will-change: auto;
 }
 
 /* Sin animación: el contenido debe estar visible igualmente */
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
+}
+
+/* ══════════════════════════════════════════════════
+   FONDO VIVO — vídeo y velo
+   El vídeo nunca queda del todo quieto: un zoom de 20s tan lento que no se
+   percibe como movimiento, sólo como profundidad. El velo respira con él.
+   Ambos son transform/opacity puros, compuestos en GPU.
+   ══════════════════════════════════════════════════ */
+@keyframes cinematic-zoom {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1); }
+}
+.cinematic-zoom {
+  animation: cinematic-zoom 20s var(--easing-out) forwards;
+}
+
+@keyframes veil-breathe {
+  0%, 100% { opacity: 0.92; }
+  50%      { opacity: 1; }
+}
+.veil-breathe {
+  animation: veil-breathe 14s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-zoom, .veil-breathe { animation: none !important; }
 }
 
 /* Entrada del botón flotante sin JavaScript */
@@ -442,11 +471,21 @@ summary:focus-visible,
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: background var(--duration-fast) var(--easing),
-              border-color var(--duration-fast) var(--easing),
-              color var(--duration-fast) var(--easing),
-              transform var(--duration-fast) var(--easing),
-              box-shadow var(--duration-normal) var(--easing);
+  transition: background var(--duration-normal) var(--easing-premium),
+              border-color var(--duration-normal) var(--easing-premium),
+              color var(--duration-normal) var(--easing-premium),
+              transform var(--duration-normal) var(--easing-premium),
+              box-shadow var(--duration-normal) var(--easing-premium);
+}
+
+/* El click comprime ligeramente en vez de sólo volver a su sitio: da la
+   sensación física de pulsar. Se aplica a los cuatro estilos de botón. */
+.btn-primary:active,
+.btn-ghost:active,
+.btn-white:active,
+.btn-whatsapp:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 120ms;
 }
 
 .btn-primary {
@@ -464,11 +503,10 @@ summary:focus-visible,
 }
 .btn-primary:hover {
   background: #0052CC;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(0,104,255,0.38), 0 0 50px rgba(0,104,255,0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0,104,255,0.36), 0 0 60px rgba(0,104,255,0.14);
 }
 .btn-primary:hover::after { opacity: 1; }
-.btn-primary:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(0,104,255,0.28); }
 
 .btn-ghost {
   border: 1px solid rgba(255,255,255,0.22);
@@ -480,12 +518,10 @@ summary:focus-visible,
   border-color: rgba(255,255,255,0.5);
   background: rgba(255,255,255,0.09);
   color: #fff;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
 }
-.btn-ghost:active {
-  transform: translateY(0);
-  background: rgba(255,255,255,0.12);
-}
+.btn-ghost:active { background: rgba(255,255,255,0.12); }
 
 /* Para secciones claras, donde btn-ghost es invisible */
 .btn-white {
@@ -497,10 +533,9 @@ summary:focus-visible,
 .btn-white:hover {
   border-color: rgba(0,104,255,0.4);
   color: var(--blue);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
 }
-.btn-white:active { transform: translateY(0); }
 
 /* WhatsApp con su color reconocible: convierte mucho mejor que un CTA neutro */
 .btn-whatsapp {
@@ -511,10 +546,9 @@ summary:focus-visible,
 .btn-whatsapp:hover {
   background: var(--whatsapp-dark);
   color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(37,211,102,0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(37,211,102,0.35);
 }
-.btn-whatsapp:active { transform: translateY(0); }
 
 .btn-lg {
   min-height: 62px;
@@ -547,8 +581,8 @@ summary:focus-visible,
 .vehicle-card {
   position: relative;
   cursor: pointer;
-  transition: transform var(--duration-normal) var(--easing),
-              box-shadow var(--duration-slow) var(--easing);
+  transition: transform var(--duration-normal) var(--easing-premium),
+              box-shadow var(--duration-slow) var(--easing-premium);
 }
 .vehicle-card:hover {
   transform: translateY(-8px);
@@ -567,18 +601,30 @@ summary:focus-visible,
 .vehicle-card:hover::after { transform: scaleX(1); }
 
 .hover-lift {
-  transition: transform var(--duration-normal) var(--easing),
-              box-shadow var(--duration-slow) var(--easing);
+  transition: transform var(--duration-normal) var(--easing-premium),
+              box-shadow var(--duration-slow) var(--easing-premium);
 }
 .hover-lift:hover { transform: translateY(-4px); }
 
 /* Levantamiento de tarjeta (sustituye al whileHover de framer-motion) */
 .card-lift {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s var(--easing-premium),
+              box-shadow 0.4s var(--easing-premium);
 }
-.card-lift:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover) !important; }
-.card-lift:focus-within { transform: translateY(-8px); }
+.card-lift:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover) !important; }
+.card-lift:focus-within { transform: translateY(-6px); }
+/* Pulsar una tarjeta también responde, igual que un botón */
+.card-lift:active { transform: translateY(-2px) scale(0.995); transition-duration: 140ms; }
+
+/* ══════════════════════════════════════════════════
+   MICROINTERACCIÓN DE ENLACE
+   La flecha de "Ver ficha" / "Catálogo completo" se adelanta con la misma
+   curva que todo lo demás, no con la lineal por defecto de Tailwind.
+   ══════════════════════════════════════════════════ */
+.group\/link .group-hover\/link\:translate-x-1,
+.group .group-hover\:translate-x-1\.5 {
+  transition-timing-function: var(--easing-premium);
+}
 
 /* ══════════════════════════════════════════════════
    MARQUEE ANIMATION

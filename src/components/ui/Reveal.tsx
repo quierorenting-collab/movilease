@@ -99,7 +99,7 @@ interface RevealProps {
   y?: number;
 }
 
-export function Reveal({ children, className, delay = 0, duration = 0.8, y = 28 }: RevealProps) {
+export function Reveal({ children, className, delay = 0, duration = 0.9, y = 40 }: RevealProps) {
   const { ref, shown } = useReveal<HTMLDivElement>();
 
   return (
@@ -203,7 +203,9 @@ export function AnimatedCounter({
       const totalMs = duration * 1000;
       const tick = (now: number) => {
         const progress = Math.min((now - startTime) / totalMs, 1);
-        setCurrent((1 - Math.pow(1 - progress, 3)) * value);
+        // Quinta potencia: arranca rápido y aterriza muy lento, igual que el
+        // resto de curvas de la web. La cúbica frenaba demasiado pronto.
+        setCurrent((1 - Math.pow(1 - progress, 5)) * value);
         if (progress < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
@@ -217,9 +219,12 @@ export function AnimatedCounter({
   }, [value, duration]);
 
   return (
-    <span ref={ref}>
+    <span ref={ref} className="tabular-nums">
       {prefix}
-      {current.toFixed(decimals)}
+      {current.toLocaleString("es-ES", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      })}
       {suffix}
     </span>
   );

@@ -375,7 +375,7 @@ export default async function HomePage() {
                             alt={`${vehicle.brandName} ${vehicle.modelName}`}
                             fill
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                            className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                           />
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1B4080] via-transparent to-transparent" />
@@ -477,6 +477,59 @@ export default async function HomePage() {
           </RevealGroup>
         </div>
       </section>
+
+      {/* ══ DESTACADOS — dark graphite con vídeo de fondo ══
+          Coches en un parking en penumbra: encaja con "los más solicitados",
+          pero a brillo bajo para que sean las tarjetas (con los coches reales
+          del catálogo) las que se vean bien, no el vídeo. */}
+      {dedupedFeatured.length > 0 && (
+        <section id="catalogo" className="surface-graphite relative overflow-hidden section-y">
+          <VideoBackdrop
+            mp4="/videos/destacados.mp4"
+            webm="/videos/destacados.webm"
+            poster="/videos/destacados-poster.webp"
+            base="#16407F"
+            filter="brightness(1.05) saturate(0.95) contrast(1.02)"
+            veil="linear-gradient(180deg, rgba(45,105,200,0.4) 0%, rgba(25,68,135,0.5) 45%, rgba(19,58,120,0.7) 100%)"
+          />
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
+            <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="section-label mb-5">Selección de la semana</p>
+                <h2 className="display-md text-white">
+                  Los más
+                  <br />
+                  solicitados.
+                </h2>
+              </div>
+              <Link
+                href="/catalogo"
+                className="group hidden items-center gap-2 py-3 text-[12px] font-bold uppercase tracking-[0.14em] text-white/70 transition-colors hover:text-white sm:flex"
+              >
+                Ver todos
+                <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+              </Link>
+            </Reveal>
+
+            <RevealGroup
+              stagger={0.06}
+              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+            >
+              {dedupedFeatured.map((vehicle) => (
+                <RevealItem key={vehicle.id}>
+                  <VehicleCard vehicle={vehicle} />
+                </RevealItem>
+              ))}
+            </RevealGroup>
+
+            <Reveal delay={0.2} className="mt-16 text-center">
+              <Link href="/catalogo" className="btn-primary">
+                Explorar todo el catálogo
+              </Link>
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       {/* ══ PROCESO — premium white contrast ══════════════ */}
       <section id="por-que" className="relative overflow-hidden bg-white bg-texture-light section-y">
@@ -672,58 +725,6 @@ export default async function HomePage() {
       </section>
 
 
-      {/* ══ DESTACADOS — dark graphite con vídeo de fondo ══
-          Coches en un parking en penumbra: encaja con "los más solicitados",
-          pero a brillo bajo para que sean las tarjetas (con los coches reales
-          del catálogo) las que se vean bien, no el vídeo. */}
-      {dedupedFeatured.length > 0 && (
-        <section id="catalogo" className="surface-graphite relative overflow-hidden section-y">
-          <VideoBackdrop
-            mp4="/videos/destacados.mp4"
-            webm="/videos/destacados.webm"
-            poster="/videos/destacados-poster.webp"
-            base="#16407F"
-            filter="brightness(1.05) saturate(0.95) contrast(1.02)"
-            veil="linear-gradient(180deg, rgba(45,105,200,0.4) 0%, rgba(25,68,135,0.5) 45%, rgba(19,58,120,0.7) 100%)"
-          />
-          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
-            <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="section-label mb-5">Selección de la semana</p>
-                <h2 className="display-md text-white">
-                  Los más
-                  <br />
-                  solicitados.
-                </h2>
-              </div>
-              <Link
-                href="/catalogo"
-                className="group hidden items-center gap-2 py-3 text-[12px] font-bold uppercase tracking-[0.14em] text-white/70 transition-colors hover:text-white sm:flex"
-              >
-                Ver todos
-                <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-              </Link>
-            </Reveal>
-
-            <RevealGroup
-              stagger={0.06}
-              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
-            >
-              {dedupedFeatured.map((vehicle) => (
-                <RevealItem key={vehicle.id}>
-                  <VehicleCard vehicle={vehicle} />
-                </RevealItem>
-              ))}
-            </RevealGroup>
-
-            <Reveal delay={0.2} className="mt-16 text-center">
-              <Link href="/catalogo" className="btn-primary">
-                Explorar todo el catálogo
-              </Link>
-            </Reveal>
-          </div>
-        </section>
-      )}
 
       {/* ══ TESTIMONIOS — fondo azul claro, tarjetas oscuras ══
           Mismo recurso que la sección de ofertas: las tarjetas oscuras

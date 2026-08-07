@@ -127,14 +127,20 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
       <motion.header
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.45, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.7, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
         onMouseLeave={() => closeMega()}
-        className={`fixed left-0 right-0 top-0 z-50 bg-white transition-all duration-500 ${
-          scrolled ? "shadow-[0_8px_28px_rgba(10,10,10,0.12)]" : "shadow-[0_2px_16px_rgba(10,10,10,0.06)]"
+        /* Al hacer scroll el fondo se vuelve translúcido con blur en vez de
+           blanco sólido: la página que pasa por debajo se intuye, que es lo
+           que hace que la barra se sienta una capa de cristal y no un bloque.
+           700ms para que el cambio nunca se perciba como un salto. */
+        className={`fixed left-0 right-0 top-0 z-50 backdrop-blur-xl transition-[background-color,box-shadow] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          scrolled
+            ? "bg-white/85 shadow-[0_8px_28px_rgba(10,10,10,0.10)]"
+            : "bg-white shadow-[0_2px_16px_rgba(10,10,10,0.06)]"
         }`}
       >
         <div
-          className={`mx-auto flex w-full max-w-7xl items-center justify-between px-5 transition-[height] duration-500 sm:px-10 ${
+          className={`mx-auto flex w-full max-w-7xl items-center justify-between px-5 transition-[height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-10 ${
             scrolled ? "h-[72px]" : "h-[88px]"
           }`}
         >
@@ -145,11 +151,11 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
           <Link
             href="/"
             aria-label="MoviLease — ir a la portada"
-            className="flex shrink-0 items-center transition-all duration-500"
+            className="flex shrink-0 items-center"
           >
             <Logo
               variant="color"
-              className={`w-auto transition-all duration-500 ${
+              className={`w-auto transition-[height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 scrolled
                   ? "h-8 sm:h-10 lg:h-[52px]"
                   : "h-9 sm:h-12 lg:h-[60px]"

@@ -6,6 +6,15 @@ import { buildWhatsAppLink } from "@/lib/constants";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
+/**
+ * Secuencia de entrada del hero. El contenido arranca en 0.45s: después de
+ * que el vídeo haya empezado su fade (1.4s) y del header (0.05s), para que
+ * nada compita por la atención al mismo tiempo. Cada peldaño entra 200ms
+ * después del anterior — el ritmo de keynote, no el de una animación web.
+ */
+const STEP = 0.2;
+const BASE_DELAY = 0.45;
+
 function rise(i: number, distance = 44) {
   return {
     hidden: { opacity: 0, y: distance, filter: "blur(8px)" },
@@ -13,7 +22,7 @@ function rise(i: number, distance = 44) {
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
-      transition: { duration: 1.1, delay: 0.15 + i * 0.11, ease },
+      transition: { duration: 1.1, delay: BASE_DELAY + i * STEP, ease },
     },
   };
 }
@@ -44,7 +53,7 @@ export function HeroContent() {
           <motion.span
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 1, delay: 0.5, ease }}
+            transition={{ duration: 1.1, delay: BASE_DELAY + 0.35, ease }}
             className="h-px w-10 origin-left bg-[#0068FF]"
           />
           <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#5AA0FF]">
