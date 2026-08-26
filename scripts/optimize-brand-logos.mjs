@@ -3,9 +3,9 @@
  * mostrarse a 64 px de alto. Se reescalan a 240 px de ancho (cubre 64 px a 3x)
  * y se recomprimen. Los SVG con rásters incrustados se rasterizan a PNG.
  */
-const fs = require("fs");
-const path = require("path");
-const sharp = require("sharp");
+import sharp from "sharp";
+import fs from "node:fs";
+import path from "node:path";
 
 const DIR = path.join(process.cwd(), "public", "brands");
 const MAX_WIDTH = 240;
