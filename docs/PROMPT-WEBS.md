@@ -16,8 +16,8 @@ Cuatro webs, un mismo dueño, **cuatro situaciones distintas**:
 |---|---|---|
 | **movilease.es** | Renting de coches para particulares. Marca premium. | **Este repositorio** (`quierorenting-collab/movilease`) |
 | **quierorenting.es** | Misma web, misma base de datos, otra marca de captación. | **Este repositorio.** Se sirve por dominio, ver `src/lib/brand.ts` |
-| **laponce.es** | Eventos de música urbana en directo en Madrid (Oh My Club). | ⚠️ **No está en este repositorio ni en ningún repo accesible desde aquí.** Ver §4 |
-| **adridaganzo.com** | Portfolio personal que agrupa las marcas: La Ponce, Hypeland, Quiero Renting, First Class Booking y VIP Concierge. | ⚠️ **No está en este repositorio ni en ningún repo accesible desde aquí.** Ver §4 |
+| **laponce.es** | Eventos de música urbana en directo en Madrid (Oh My Club). | ⚠️ Fuera de este repositorio. HTML estático en Vercel — ver §4 |
+| **adridaganzo.com** | Portfolio personal que agrupa las marcas: La Ponce, Hypeland, Quiero Renting, First Class Booking y VIP Concierge. | ⚠️ Fuera de este repositorio. HTML estático en Vercel — ver §4 |
 
 Es decir: **de las cuatro, ahora mismo desde este repo sólo se pueden modificar
 movilease.es y quierorenting.es**, que son la misma aplicación. Para las otras
@@ -285,33 +285,59 @@ Nada que no sea público lleva el prefijo `NEXT_PUBLIC_`. Jamás.
 
 ---
 
-## 4. laponce.es y adridaganzo.com — lo que falta
+## 4. laponce.es y adridaganzo.com — situación real
 
-Las dos webs están **en producción y funcionando** (La Ponce: eventos de música
-urbana en Oh My Club con cuenta atrás, artistas, entradas por Vivaticket y
-FourVenues. adridaganzo.com: portfolio que agrupa La Ponce, Hypeland, Quiero
-Renting, First Class Booking y VIP Concierge). Por lo que se ve, ninguna es
-WordPress: parecen aplicaciones modernas tipo Next/React.
+Las dos están **en producción y funcionando**, y son mucho más simples de lo
+que parecen. Comprobado el 26/08/2026 leyendo cabeceras, DNS y HTML servido:
 
-Pero **su código no está en este repositorio**, y el único repositorio al que
-esta sesión tiene acceso es `quierorenting-collab/movilease`. Sin el código no
-se puede escribir un traspaso técnico honesto de ellas: cualquier detalle de
-arquitectura que pusiera aquí sería inventado.
+| | laponce.es | adridaganzo.com |
+|---|---|---|
+| Alojamiento | **Vercel** (`server: Vercel`, A → 76.76.21.21) | **Vercel** (igual) |
+| Dominio | **DonDominio** (`ns1/ns2.dondominio.com`) | **DonDominio** (igual) |
+| Tecnología | **HTML estático a mano.** Sin framework, sin build | **HTML estático a mano.** Igual |
+| Estructura | 1 página (~105 KB, 1.334 líneas) | ~28 páginas + versión inglesa (home ~211 KB, 2.973 líneas) |
+| CSS y JS | **Todo inline** (2 `<style>`, 3 `<script>`) | **Todo inline** (1 `<style>`, 13 `<script>`) |
+| Ficheros propios `.js`/`.css` | Ninguno | Ninguno |
+| Sitemap | No tiene | `sitemap.xml` con ~30 URLs |
 
-**Para que un Claude nuevo pueda modificarlas, hace falta una de estas cosas:**
+**No son Next.js ni React.** No hay `/_next/`, ni bundle, ni paso de
+compilación. El HTML que sirve Vercel viene sin minificar y con comentarios
+(`<!-- Open Graph -->`): **lo que se descarga del dominio ES el código
+fuente**. Eso hace que recuperar el control sea cuestión de horas, no de
+reescribir nada.
 
-1. El nombre del repositorio de cada una (`owner/repo`) y que esté autorizado
-   para Claude. Con eso se añade a la sesión y se documentan igual que §2.
-2. O, si no están en Git, subirlas a un repositorio primero.
-3. Y en cualquier caso, saber: dónde están desplegadas (¿Vercel?), de dónde
-   salen los datos de eventos y artistas (¿base de datos, CMS, o escritos a
-   mano en el código?), y qué integraciones llevan (FourVenues, Vivaticket,
-   Instagram, WhatsApp).
+adridaganzo.com tiene además bastante SEO programático hecho a mano:
+`/discotecas-madrid/`, `/despedida-soltero-madrid/`, `/fiesta-perreo-madrid/`,
+`/reggaeton-madrid/`, `/entradas/`, `/reservados/`… y sus equivalentes en
+`/en/`. Integra FourVenues, Instagram, WhatsApp (el mismo número que MoviLease,
+34613267375), Google Tag Manager y el píxel de Facebook.
 
-Cuando eso exista, este documento se amplía con una sección por web con el
-mismo nivel de detalle que la de movilease.
+### Las tres piezas del control
 
----
+Son independientes, y se pueden tener unas sin otras:
+
+1. **El dominio** — cuenta de **DonDominio**. Es la palanca definitiva: quien
+   controla el DNS decide a dónde apunta la web, pase lo que pase con el resto.
+2. **El despliegue** — cuenta de **Vercel** donde viven los dos proyectos.
+   Comprobar en vercel.com si están bajo una cuenta propia o de un tercero.
+   En *Project → Settings → Git* se ve si el proyecto está conectado a un
+   repositorio (y a cuál) o si se subió por CLI / arrastrando una carpeta.
+3. **El código** — hoy, fuera de este repositorio. Puede que exista ya un repo
+   conectado en Vercel; si no, se crea desde el HTML publicado.
+
+### Para que un Claude pueda modificarlas
+
+- Si en Vercel hay repo conectado: pasar ese repo a la organización propia y
+  autorizarlo para Claude.
+- Si no lo hay: crear `laponce` y `adridaganzo` en la organización, volcar el
+  HTML publicado (más imágenes, `manifest.json`, iconos y `sitemap.xml`),
+  conectar el proyecto de Vercel a ese repo y autorizarlo para Claude.
+- A partir de ahí, cada cambio es editar un `.html` y desplegar. Sin
+  `npm install`, sin build.
+
+**Aviso:** mientras otra persona conserve acceso al proyecto de Vercel, puede
+volver a desplegar desde su copia y pisar los cambios. Por eso el orden
+correcto es cuenta primero, código después.
 
 ## 5. Frase corta para arrancar una sesión
 
