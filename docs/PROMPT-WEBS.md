@@ -228,7 +228,7 @@ Los de Python necesitan `scripts/_env.py` con `SUPABASE_URL` y `SERVICE_KEY`.
 | `build-galleries.mjs` | Escribe el bloque `images` y separa exterior de interior midiendo el fondo de estudio. |
 | `galerias_quecoche.py [--aplicar]` | Rellena galerías desde quecochemecompro.com. **Por debajo del listón de parecido no toca el coche**: mejor una foto que las de otro modelo. |
 | `build-section-video.mjs` | Convierte un clip de stock en fondo de sección (~1 MB) + póster. |
-| `optimize-brand-logos.js` | Reescala los logos de marca a 240 px. |
+| `optimize-brand-logos.mjs` | Reescala los logos de marca a 240 px. |
 | `seed_db.py`, `generate-catalog-seed.mjs`, `upload_images.py` | Siembra inicial desde el catálogo de quierorenting.es. |
 
 El formato de ficha está en `scripts/fichas/*.json` (`opel-corsa-gs.json` sirve
