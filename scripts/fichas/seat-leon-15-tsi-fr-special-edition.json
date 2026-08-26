@@ -1,0 +1,61 @@
+{
+  "brand": "SEAT",
+  "model": "León",
+  "version": "1.5 TSI FR Special Edition",
+  "category": "turismo",
+  "fuel_type": "gasolina",
+  "transmission": "manual",
+  "monthly_price_cents": 35800,
+  "contract_months": 48,
+  "annual_km": 10000,
+  "horsepower": 150,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "c",
+  "colors": [
+    "Gris Grafeno",
+    "Gris Magnetic",
+    "Negro Metalizado",
+    "Rojo Metalizado"
+  ],
+  "body_type": "Hatchback",
+  "short_description": "Acabado FR Special Edition con motor 1.5 TSI de 150 CV",
+  "description": "Acabado FR Special Edition: llantas de 18\", suspensión deportiva y detalles exteriores FR.\nMotor 1.5 TSI de 150 CV con cambio manual.\nEtiqueta ambiental C: libertad para moverte por la ciudad.\nCompacto de 5 plazas y 5 puertas, con pantalla grande y modos de conducción.\nTodo incluido en una única cuota mensual.",
+  "equipment": [
+    "Llantas de 18\"",
+    "Suspensión deportiva",
+    "Volante deportivo",
+    "Iluminación ambiental",
+    "Pantalla grande",
+    "Modos de conducción",
+    "Detalles exteriores FR"
+  ],
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    { "url": "/coches-nuevos/seat-leon-fr-01.webp", "alt": "SEAT León FR en renting — vista exterior delantera" },
+    { "url": "/coches-nuevos/seat-leon-fr-02.webp", "alt": "SEAT León FR en renting — vista exterior trasera" },
+    { "url": "/coches-nuevos/seat-leon-fr-03.webp", "alt": "SEAT León FR en renting — perfil lateral" },
+    { "url": "/coches-nuevos/seat-leon-fr-04.webp", "alt": "SEAT León FR en renting — frontal" },
+    { "url": "/coches-nuevos/seat-leon-fr-05.webp", "alt": "SEAT León FR en renting — trasera" },
+    { "url": "/coches-nuevos/seat-leon-fr-06.webp", "alt": "SEAT León FR en renting — interior y puesto de conducción" },
+    { "url": "/coches-nuevos/seat-leon-fr-07.webp", "alt": "SEAT León FR en renting — maletero" }
+  ],
+  "pricing": [
+    { "contract_months": 36, "annual_km": 10000, "monthly_price_cents": 35900 },
+    { "contract_months": 36, "annual_km": 15000, "monthly_price_cents": 38800 },
+    { "contract_months": 36, "annual_km": 20000, "monthly_price_cents": 41300 },
+    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 35800 },
+    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 37700 },
+    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 40300 }
+  ]
+}
