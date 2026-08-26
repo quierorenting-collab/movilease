@@ -29,6 +29,10 @@ export function VideoBackdrop({
   /** Pensado para fondo claro (aclara y desatura). Secciones oscuras pasan
    *  algo más apagado, p. ej. "brightness(0.55) saturate(0.7) contrast(1.1)". */
   filter = "saturate(0.55) brightness(1.08) contrast(0.95)",
+  /** Punto de anclaje del póster y del vídeo. Por defecto centrado, pero un
+   *  coche recortado a ras de ruedas necesita "center bottom": anclando abajo
+   *  la imagen sube dentro del marco y entra entero. */
+  position = "center",
   className = "",
 }: {
   mp4?: string;
@@ -37,6 +41,7 @@ export function VideoBackdrop({
   veil?: string;
   base?: string;
   filter?: string;
+  position?: string;
   className?: string;
 }) {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -97,7 +102,7 @@ export function VideoBackdrop({
       aria-hidden="true"
       className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
       style={{
-        background: poster ? `${base} center/cover no-repeat url(${poster})` : base,
+        background: poster ? `${base} ${position}/cover no-repeat url(${poster})` : base,
       }}
     >
       {shouldLoad && (mp4 || webm) && (
@@ -111,7 +116,7 @@ export function VideoBackdrop({
           tabIndex={-1}
           onPlaying={() => setPlaying(true)}
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000"
-          style={{ opacity: playing ? 1 : 0, filter }}
+          style={{ opacity: playing ? 1 : 0, filter, objectPosition: position }}
         >
           {webm && <source src={webm} type="video/webm" />}
           {mp4 && <source src={mp4} type="video/mp4" />}
