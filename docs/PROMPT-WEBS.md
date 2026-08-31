@@ -1,5 +1,12 @@
 # Prompt de continuidad — las cuatro webs
 
+> ⚠️ **Documento superado.** Desde el 31/08/2026 el documento de referencia es
+> **`docs/HANDOFF-MAESTRO.md`**, mucho más completo y con dos correcciones que
+> aquí están mal: **quierorenting.es NO sirve esta aplicación Next.js** (es un
+> HTML estático independiente, ver §7 del maestro) y **en producción no hay ISR**
+> pese a los `export const revalidate` (§5.7 del maestro). Este archivo se
+> conserva como registro de lo que se sabía el 26/08/2026.
+
 > **Cómo se usa:** abre una sesión nueva de Claude Code y di *"lee
 > `docs/PROMPT-WEBS.md` entero antes de tocar nada"*, o pega el bloque de la
 > web que vayas a modificar. Está escrito para que un Claude que no ha visto
