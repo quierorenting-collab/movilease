@@ -1,0 +1,109 @@
+{
+  "brand": "Peugeot",
+  "model": "Boxer",
+  "version": "3.3 L2 H2 BHDi 140CV",
+  "category": "furgoneta",
+  "fuel_type": "diesel",
+  "transmission": "manual",
+  "monthly_price_cents": 57800,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 140,
+  "seats": 3,
+  "environmental_label": "c",
+  "colors": [
+    "Blanco"
+  ],
+  "short_description": "Furgón L2 H2 con motor BHDi de 140 CV y 3 plazas",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/peugeot-boxer-01.webp",
+      "alt": "Peugeot Boxer en renting — vista exterior delantera"
+    },
+    {
+      "url": "/coches-nuevos/peugeot-boxer-02.webp",
+      "alt": "Peugeot Boxer en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/peugeot-boxer-03.webp",
+      "alt": "Peugeot Boxer en renting — vista exterior trasera"
+    },
+    {
+      "url": "/coches-nuevos/peugeot-boxer-04.webp",
+      "alt": "Peugeot Boxer en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/peugeot-boxer-05.webp",
+      "alt": "Peugeot Boxer en renting — lateral"
+    },
+    {
+      "url": "/coches-nuevos/peugeot-boxer-06.webp",
+      "alt": "Peugeot Boxer en renting — interior y puesto de conducción"
+    },
+    {
+      "url": "/coches-nuevos/peugeot-boxer-07.webp",
+      "alt": "Peugeot Boxer en renting — trasera"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 60100
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 63700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 67300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 71700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 75500
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 57800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 61300
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 66000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 70400
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 75000
+    }
+  ]
+}

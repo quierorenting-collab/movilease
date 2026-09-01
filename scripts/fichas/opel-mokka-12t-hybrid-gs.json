@@ -1,0 +1,135 @@
+{
+  "brand": "Opel",
+  "model": "Mokka",
+  "version": "1.2 T XHT Hybrid eDCT6 GS",
+  "category": "suv",
+  "fuel_type": "gasolina",
+  "transmission": "automatico",
+  "monthly_price_cents": 39300,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 146,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "colors": [
+    "Negro"
+  ],
+  "short_description": "1.2 T Hybrid de 146 CV con cambio automático eDCT6, acabado GS",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/opel-mokka-01.webp",
+      "alt": "Opel Mokka en renting — vista exterior delantera"
+    },
+    {
+      "url": "/coches-nuevos/opel-mokka-02.webp",
+      "alt": "Opel Mokka en renting — vista exterior trasera"
+    },
+    {
+      "url": "/coches-nuevos/opel-mokka-03.webp",
+      "alt": "Opel Mokka en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/opel-mokka-04.webp",
+      "alt": "Opel Mokka en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/opel-mokka-05.webp",
+      "alt": "Opel Mokka en renting — trasera"
+    },
+    {
+      "url": "/coches-nuevos/opel-mokka-06.webp",
+      "alt": "Opel Mokka en renting — interior y puesto de conducción"
+    },
+    {
+      "url": "/coches-nuevos/opel-mokka-07.webp",
+      "alt": "Opel Mokka en renting — maletero"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 41700
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 43300
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 45000
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 47300
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 49700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 40300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 41700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 43200
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 45500
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 48000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 39300
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 40500
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 41700
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 44000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 46800
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "brand": "Nissan",
+  "model": "Interstar",
+  "version": "Furgón N1 L2 H2 dCi 130CV 6 M/T FWD Acenta",
+  "category": "furgoneta",
+  "fuel_type": "diesel",
+  "transmission": "manual",
+  "monthly_price_cents": 55500,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 130,
+  "environmental_label": "c",
+  "colors": [
+    "Blanco Mineral Sólido"
+  ],
+  "short_description": "Furgón L2 H2 de 3,5 t con motor dCi de 130 CV, acabado Acenta",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/nissan-interstar-01.webp",
+      "alt": "Nissan Interstar en renting — vista exterior delantera"
+    },
+    {
+      "url": "/coches-nuevos/nissan-interstar-02.webp",
+      "alt": "Nissan Interstar en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/nissan-interstar-03.webp",
+      "alt": "Nissan Interstar en renting — vista exterior trasera"
+    },
+    {
+      "url": "/coches-nuevos/nissan-interstar-04.webp",
+      "alt": "Nissan Interstar en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/nissan-interstar-05.webp",
+      "alt": "Nissan Interstar en renting — lateral"
+    },
+    {
+      "url": "/coches-nuevos/nissan-interstar-06.webp",
+      "alt": "Nissan Interstar en renting — interior y puesto de conducción"
+    },
+    {
+      "url": "/coches-nuevos/nissan-interstar-07.webp",
+      "alt": "Nissan Interstar en renting — trasera"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 57400
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 61200
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 65100
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 69700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 73800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 55500
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 59200
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 64300
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 68800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 73600
+    }
+  ]
+}

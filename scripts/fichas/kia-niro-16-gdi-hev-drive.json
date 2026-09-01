@@ -1,0 +1,135 @@
+{
+  "brand": "Kia",
+  "model": "Niro",
+  "version": "1.6 GDi HEV 139CV Drive",
+  "category": "suv",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "monthly_price_cents": 38100,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 139,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "colors": [
+    "Snow White Pearl (Metalizado)"
+  ],
+  "short_description": "1.6 GDi HEV de 139 CV con cambio automático, nuevo modelo MY27",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/kia-niro-01.webp",
+      "alt": "Kia Niro en renting — vista exterior delantera"
+    },
+    {
+      "url": "/coches-nuevos/kia-niro-02.webp",
+      "alt": "Kia Niro en renting — vista exterior trasera"
+    },
+    {
+      "url": "/coches-nuevos/kia-niro-03.webp",
+      "alt": "Kia Niro en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/kia-niro-04.webp",
+      "alt": "Kia Niro en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/kia-niro-05.webp",
+      "alt": "Kia Niro en renting — trasera"
+    },
+    {
+      "url": "/coches-nuevos/kia-niro-06.webp",
+      "alt": "Kia Niro en renting — interior y puesto de conducción"
+    },
+    {
+      "url": "/coches-nuevos/kia-niro-07.webp",
+      "alt": "Kia Niro en renting — maletero"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 39200
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 41300
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 43400
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 46100
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 48900
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 38700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 40700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 42500
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 45000
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 47800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 38100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 39000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 41700
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 44300
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 46900
+    }
+  ]
+}

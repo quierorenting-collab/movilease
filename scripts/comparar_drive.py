@@ -69,6 +69,8 @@ ALIAS = {
     "POLO": ("Volkswagen", "Polo"),
     "SEAT IBIZA 80CV": ("SEAT", "Ibiza"),
     "SEAT IBIZA 80cv": ("SEAT", "Ibiza"),
+    "SEAT IBIZA 95cv": ("SEAT", "Ibiza"),
+    "SEAT LEON AUTOMATICO": ("SEAT", "León"),
     "SEAT IBIZA 115CV": ("SEAT", "Ibiza"),
     "SEAT LEON": ("SEAT", "León"),
     "SEAT LEON FR": ("SEAT", "León"),
@@ -116,8 +118,13 @@ def recorrer_drive():
                 continue
             if not es_hoja(actual):
                 continue
-            nombre = os.path.basename(actual)
-            if nombre not in ALIAS:
+            # Desde el 01/09 algunos modelos cuelgan de una subcarpeta de color
+            # ("MG HS/ARTIC BLUE"), asi que si la hoja no se reconoce se prueba con
+            # su carpeta padre antes de darla por desconocida. Sin esto, un coche
+            # que sigue a la venta aparece como retirado.
+            partes = [os.path.basename(actual)] + rel.split(os.sep)[::-1]
+            nombre = next((n for n in partes if n in ALIAS), None)
+            if nombre is None:
                 desconocidas.append(os.path.join(prov, rel))
                 continue
             marca, modelo = ALIAS[nombre]
