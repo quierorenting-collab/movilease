@@ -33,6 +33,7 @@ const MODELOS_RETIRADOS = [
   "renting-mazda-3",
   "renting-mazda-6e",
   "renting-mazda-cx-5",
+  "renting-mg-zs",
   "renting-mitsubishi-outlander",
   "renting-nissan-interstar",
   "renting-nissan-x-trail",
