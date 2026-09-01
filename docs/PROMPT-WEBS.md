@@ -9,6 +9,15 @@
 > Todo lo que hay aquí está verificado leyendo el código y las webs en
 > producción (26/08/2026). Lo que no se ha podido comprobar se dice.
 
+> ⚠️ **CORRECCIÓN (01/09/2026).** La tabla del §0 y el §2.2 dicen que
+> **quierorenting.es sirve esta misma aplicación Next.js. No es cierto.**
+> Comprobado con `curl -I https://quierorenting.es`: devuelve un **HTML
+> estático de 133 KB** (con `etag`/`last-modified` y sin `x-powered-by:
+> Next.js`), con marca verde `#18a05a`. Es una web del **sistema B**, no del A.
+> `src/lib/brand.ts` **está preparado** para servirla con esta aplicación,
+> pero el dominio no apunta ahí. Detalle completo, y el resto del traspaso
+> ampliado, en **`docs/HANDOFF-MAESTRO.md`**.
+
 ---
 
 ## 0. Mapa: cuatro webs, dos sistemas técnicos
