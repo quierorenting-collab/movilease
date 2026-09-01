@@ -28,28 +28,12 @@
   ],
   "images": [
     {
-      "url": "https://fotos.quecochemecompro.com/nissan-qashqai/nissan-qashqai-maletero.jpg?size=1200x800",
-      "alt": "Nissan Qashqai en renting"
+      "url": "/coches-nuevos/nissan-qashqai-01.webp",
+      "alt": "Nissan Qashqai Deep Ocean Blue en renting — vista exterior delantera"
     },
     {
-      "url": "https://fotos.quecochemecompro.com/nissan-qashqai/nissan-qashqai-en-movimiento-carretera.jpg?size=1200x800",
-      "alt": "Nissan Qashqai en renting"
-    },
-    {
-      "url": "https://fotos.quecochemecompro.com/nissan-qashqai/nissan-qashqai-vista-frontal.jpg?size=1200x800",
-      "alt": "Nissan Qashqai en renting"
-    },
-    {
-      "url": "https://fotos.quecochemecompro.com/nissan-qashqai/sistema-infotainment-nissan-qashqai.jpg?size=1200x800",
-      "alt": "Nissan Qashqai en renting"
-    },
-    {
-      "url": "https://fotos.quecochemecompro.com/nissan-qashqai/nissan-qashqai-urbano.jpg?size=1200x800",
-      "alt": "Nissan Qashqai en renting"
-    },
-    {
-      "url": "https://fotos.quecochemecompro.com/nissan-qashqai/asientos-traseros-nissan-qashqai-1.jpg?size=1200x800",
-      "alt": "Nissan Qashqai en renting"
+      "url": "/coches-nuevos/nissan-qashqai-02.webp",
+      "alt": "Nissan Qashqai Deep Ocean Blue en renting — perfil delantero"
     }
   ],
   "pricing": [
@@ -128,5 +112,6 @@
       "annual_km": 30000,
       "monthly_price_cents": 46500
     }
-  ]
+  ],
+  "update_vehicle_id": "4bc90755-2700-48bd-9d00-c52ffb44bee9"
 }
