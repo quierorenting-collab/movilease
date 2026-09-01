@@ -482,6 +482,18 @@ async function AllVehiclesSection({ maxPrice }: { maxPrice?: number }) {
               Quitar filtro de precio
             </Link>
           )}
+          {/*
+            Con los coches delante, la rejilla de marcas queda detrás de unas
+            setenta tarjetas: en un móvil de 375 px son casi 40.000 px de
+            scroll, o sea inalcanzable. Este salto la deja a un toque desde
+            arriba. El enlace de abajo se queda para quien llegue al final.
+          */}
+          <a
+            href="#marcas"
+            className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-white/20 px-4 text-[13px] font-semibold text-white/80 transition-colors hover:border-white/45 hover:text-white"
+          >
+            Buscar por marca
+          </a>
         </Reveal>
         <RevealGroup
           stagger={0.03}
