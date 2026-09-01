@@ -350,21 +350,20 @@ export default async function CatalogoPage({
       </div>
 
       {/*
-        Quien llega con presupuesto viene de pulsar en la calculadora y lo que
-        quiere ver es su resultado. Estaba detrás de las treinta marcas, o sea
-        una pantalla larga de scroll antes de saber si había algo por su
-        dinero. Con presupuesto, el resultado va primero y las marcas después
-        para seguir mirando; sin presupuesto se queda el orden de siempre,
-        porque entonces la entrada natural al catálogo sí es la marca.
+        Los coches van primero, siempre. A esta página se llega de dos sitios y
+        en los dos las marcas delante sobran: con presupuesto, porque vienes de
+        la calculadora y lo que quieres saber es qué entra por tu dinero; y sin
+        él, porque "Ver todos los coches" está dentro del propio panel de
+        marcas del menú, así que enseñarlas otra vez es hacerte elegir dos
+        veces lo mismo. Quedan debajo como segunda vía para quien sí quiera
+        filtrar por marca.
       */}
-      {maxPrice && <AllVehiclesSection maxPrice={maxPrice} />}
+      <AllVehiclesSection maxPrice={maxPrice} />
 
       {/* All brands, same treatment for every one */}
       <section id="marcas" className="surface-dark py-20">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
-          <h2 className="display-sm mb-10 text-white">
-            {maxPrice ? "O elige marca" : "Elige marca"}
-          </h2>
+          <h2 className="display-sm mb-10 text-white">O búscalo por marca</h2>
           <RevealGroup
             stagger={0.03}
             className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
@@ -377,9 +376,6 @@ export default async function CatalogoPage({
           </RevealGroup>
         </div>
       </section>
-
-      {/* All vehicles flat view for SEO */}
-      {!maxPrice && <AllVehiclesSection maxPrice={maxPrice} />}
 
       <CatalogCta
         title="Dinos qué coche quieres y te lo calculamos"
