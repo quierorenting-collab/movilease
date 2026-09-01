@@ -1,5 +1,5 @@
 import "server-only";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/server";
 import { formatPriceFromCents } from "@/lib/utils";
 import { getBrandLogoUrl } from "@/lib/brand-logos";
 import type {
@@ -53,7 +53,7 @@ type CardRow = {
  */
 async function attachModelsAndBrands(vehicles: CardRow[]): Promise<VehicleCardData[]> {
   if (vehicles.length === 0) return [];
-  const supabase = await createClient();
+  const supabase = createPublicClient();
 
   const modelIds = [...new Set(vehicles.map((v) => v.model_id))];
   const { data: models } = await supabase
@@ -91,7 +91,7 @@ async function attachModelsAndBrands(vehicles: CardRow[]): Promise<VehicleCardDa
 export async function getVehiclesByIds(ids: string[]): Promise<VehicleCardData[]> {
   if (ids.length === 0) return [];
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data, error } = await supabase
       .from("vehicles")
       .select(CARD_COLUMNS)
@@ -127,7 +127,7 @@ export interface ComparisonVehicle {
 export async function getComparisonVehicles(ids: string[]): Promise<ComparisonVehicle[]> {
   if (ids.length === 0) return [];
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data, error } = await supabase
       .from("vehicles")
       .select(
@@ -178,7 +178,7 @@ export async function getComparisonVehicles(ids: string[]): Promise<ComparisonVe
 /** Nunca lanza: si Supabase no está configurado todavía, devuelve []. */
 export async function getOfferVehicles(limit = 8): Promise<VehicleCardData[]> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data, error } = await supabase
       .from("vehicles")
       .select(CARD_COLUMNS)
@@ -195,7 +195,7 @@ export async function getOfferVehicles(limit = 8): Promise<VehicleCardData[]> {
 
 export async function getFeaturedVehicles(limit = 6): Promise<VehicleCardData[]> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data, error } = await supabase
       .from("vehicles")
       .select(CARD_COLUMNS)
@@ -299,7 +299,7 @@ type VehicleDetailRow = {
 
 export async function getModelBySlugWithVehicles(slug: string): Promise<ModelDetail | null> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data: model } = await supabase
       .from("models")
       .select("id, name, slug, description, cover_image_url, brand_id")
@@ -414,7 +414,7 @@ export async function getModelBySlugWithVehicles(slug: string): Promise<ModelDet
 
 export async function getCatalogVehicles(filters: CatalogFilters = {}): Promise<VehicleCardData[]> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     let query = supabase.from("vehicles").select(CARD_COLUMNS).eq("is_active", true);
 
     if (filters.category) query = query.eq("category", filters.category);
