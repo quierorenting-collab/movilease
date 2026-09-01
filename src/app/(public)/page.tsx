@@ -31,7 +31,7 @@ const OFERTAS_VIDEO = false;
 export const metadata: Metadata = pageMetadata({
   title: "Renting de coches sin entrada | Todo incluido",
   description:
-    "Renting de coches para particulares, autónomos y empresas: sin entrada, con seguro a todo riesgo, mantenimiento e impuestos incluidos. Más de 30 marcas y respuesta en 48 h.",
+    "Renting de coches para particulares, autónomos y empresas: sin entrada, con seguro a todo riesgo, mantenimiento e impuestos incluidos. Respuesta en 48 h.",
   path: "/",
 });
 

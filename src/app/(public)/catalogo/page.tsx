@@ -379,7 +379,7 @@ export default async function CatalogoPage({
 
       <CatalogCta
         title="Dinos qué coche quieres y te lo calculamos"
-        body="Más de 30 marcas y stock que no siempre está publicado. Cuéntanos qué buscas y te mandamos una propuesta con la cuota cerrada."
+        body="Hay stock que no siempre está publicado. Cuéntanos qué buscas y te mandamos una propuesta con la cuota cerrada."
         whatsappMessage="Hola, quiero información sobre el catálogo de renting."
       />
     </>
