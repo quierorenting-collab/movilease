@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 import {
   getModelBySlugWithVehicles,
   getSameBrandModels,
+  getCatalogVehicles,
   type VehicleDetailData,
 } from "@/lib/data/vehicles";
-import { getLandingPageBySlug } from "@/lib/data/landing";
+import { getLandingPageBySlug, getActiveLandingSlugs } from "@/lib/data/landing";
 import {
   FUEL_TYPE_LABELS,
   TRANSMISSION_LABELS,
@@ -30,6 +31,32 @@ import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
 export const revalidate = 1800;
+
+/**
+ * Sin esto no hay ISR aqui, y son las paginas que mas trafico reciben.
+ * revalidate por si solo no basta en un segmento dinamico: si Next no
+ * prerenderiza ninguna ruta, la trata como dinamica y la vuelve a renderizar
+ * en cada visita. Medido en produccion: la home, ya estatica, respondia en
+ * 37 ms con x-vercel-cache HIT mientras una ficha seguia en 1.038 ms y MISS.
+ *
+ * Las rutas que no esten en esta lista siguen sirviendose bajo demanda
+ * (dynamicParams por defecto), asi que un coche dado de alta despues del
+ * despliegue se ve igual, sin esperar a reconstruir.
+ */
+export async function generateStaticParams(): Promise<Params[]> {
+  try {
+    const [vehiculos, landings] = await Promise.all([
+      getCatalogVehicles({}),
+      getActiveLandingSlugs(),
+    ]);
+    const fichas = [...new Set(vehiculos.map((v) => v.modelSlug).filter(Boolean))];
+    return [...fichas, ...landings].map((slug) => ({ slug }));
+  } catch {
+    // La capa de datos nunca lanza, pero si algo fallara es preferible
+    // construir sin prerenderizar que romper el despliegue entero.
+    return [];
+  }
+}
 
 type Params = { slug: string };
 
