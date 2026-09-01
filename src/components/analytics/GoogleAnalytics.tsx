@@ -1,5 +1,4 @@
 import Script from "next/script";
-import { getCurrentBrand } from "@/lib/brand";
 import { COOKIE_PREF_KEY } from "@/lib/analytics/consent";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
@@ -10,11 +9,14 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
  * y no lleva analítica). Arranca con Consent Mode v2 y el CookieBanner
  * actualiza el consentimiento con updateAnalyticsConsent().
  */
-export async function GoogleAnalytics() {
+export function GoogleAnalytics() {
+  // Ya no se comprueba el dominio con getCurrentBrand(). Esa comprobacion leia
+  // headers(), y este componente va en el layout raiz: bastaba con eso para
+  // que ninguna pagina del sitio se cachease. Como quierorenting.es no se
+  // sirve desde aqui, la comprobacion no filtraba nada y costaba el TTFB de
+  // toda la web. Si algun dia se sirve, se vuelve a poner el filtro sabiendo
+  // lo que cuesta, o se usa una variable de entorno por despliegue.
   if (process.env.NODE_ENV !== "production" || !GA_MEASUREMENT_ID) return null;
-
-  const brand = await getCurrentBrand();
-  if (brand.domain !== "movilease.es") return null;
 
   return (
     <>

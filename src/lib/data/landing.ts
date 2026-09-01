@@ -1,5 +1,5 @@
 import "server-only";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/server";
 import { getCatalogVehicles, type VehicleCardData } from "@/lib/data/vehicles";
 import type {
   LandingPageTypeEnum,
@@ -20,7 +20,7 @@ export interface LandingPageDetail {
 
 export async function getLandingPageBySlug(slug: string): Promise<LandingPageDetail | null> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data } = await supabase
       .from("landing_pages")
       .select("type, title, h1, intro_content, meta_description, faq, filter_json")
@@ -59,7 +59,7 @@ export async function getLandingPageBySlug(slug: string): Promise<LandingPageDet
  *  datos, nunca lanza: si Supabase falla el sitemap sale sin ellas. */
 export async function getActiveLandingSlugs(): Promise<string[]> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data } = await supabase
       .from("landing_pages")
       .select("slug")
@@ -76,7 +76,7 @@ export async function getFooterLandings(): Promise<{
   ciudades: { slug: string; title: string }[];
 }> {
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data } = await supabase
       .from("landing_pages")
       .select("slug, title, type")
