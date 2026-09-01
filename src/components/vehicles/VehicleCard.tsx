@@ -29,7 +29,7 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
               src={vehicle.imageUrl}
               alt={`${vehicle.brandName} ${vehicle.modelName}`}
               fill
-              className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+              className="object-contain p-3 transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             />
           ) : (
@@ -41,6 +41,15 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
                 {vehicle.brandName.charAt(0)}
               </span>
             </div>
+          )}
+
+          {/* Las fotos son de estudio del fabricante y el acabado real puede
+              variar. Va en cada tarjeta, no solo en la ficha, porque la tarjeta
+              es donde se ve el precio. */}
+          {vehicle.imageUrl && (
+            <p className="pointer-events-none absolute inset-x-0 bottom-0 px-2 pb-1 text-center text-[8px] leading-tight text-[#0A0A0A]/35">
+              Imagen no contractual: puede no coincidir con el modelo ofertado
+            </p>
           )}
 
           {/* Offer badge */}

@@ -47,9 +47,14 @@ export function VehicleGallery({
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover"
+          className="object-contain p-4"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        {/* Mismo aviso que en la tarjeta del catalogo: el color y el acabado de
+            la foto de estudio no tienen por que ser los del coche entregado. */}
+        <p className="pointer-events-none absolute inset-x-0 bottom-0 px-3 pb-2 text-center text-[9px] leading-tight text-white/35">
+          Imagen no contractual: puede no coincidir con el modelo ofertado
+        </p>
 
         {hasMultiple && (
           <>
