@@ -3,8 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-
-const STORAGE_KEY = "ml_cookie_pref";
+import { COOKIE_PREF_KEY as STORAGE_KEY, updateAnalyticsConsent } from "@/lib/analytics/consent";
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
@@ -41,10 +40,12 @@ export function CookieBanner() {
 
   function accept() {
     localStorage.setItem(STORAGE_KEY, "accept");
+    updateAnalyticsConsent(true);
     setVisible(false);
   }
   function reject() {
     localStorage.setItem(STORAGE_KEY, "reject");
+    updateAnalyticsConsent(false);
     setVisible(false);
   }
 

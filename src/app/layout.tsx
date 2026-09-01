@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { getCurrentBrand } from "@/lib/brand";
 import { SITE_URL } from "@/lib/constants";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import "./globals.css";
 
 // El peso 300 no aparece en ningún sitio del proyecto (0 usos de font-light):
@@ -76,7 +77,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#0B2A5E] text-white">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#0B2A5E] text-white">
+        {children}
+        <GoogleAnalytics />
+      </body>
     </html>
   );
 }
