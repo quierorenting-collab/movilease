@@ -1,0 +1,113 @@
+{
+  "brand": "Škoda",
+  "model": "Fabia",
+  "version": "1.5 TSI 150CV DSG Plus",
+  "category": "turismo",
+  "fuel_type": "gasolina",
+  "transmission": "automatico",
+  "monthly_price_cents": 34600,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 150,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "c",
+  "colors": [
+    "Negro Mágico (Metalizado)"
+  ],
+  "body_type": "Hatchback",
+  "short_description": "1.5 TSI de 150 CV con cambio automático DSG, acabado Plus",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/skoda-fabia-01.webp",
+      "alt": "Škoda Fabia en renting — vista exterior delantera"
+    },
+    {
+      "url": "/coches-nuevos/skoda-fabia-02.webp",
+      "alt": "Škoda Fabia en renting — vista exterior trasera"
+    },
+    {
+      "url": "/coches-nuevos/skoda-fabia-03.webp",
+      "alt": "Škoda Fabia en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/skoda-fabia-04.webp",
+      "alt": "Škoda Fabia en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/skoda-fabia-05.webp",
+      "alt": "Škoda Fabia en renting — trasera"
+    },
+    {
+      "url": "/coches-nuevos/skoda-fabia-06.webp",
+      "alt": "Škoda Fabia en renting — interior y puesto de conducción"
+    },
+    {
+      "url": "/coches-nuevos/skoda-fabia-07.webp",
+      "alt": "Škoda Fabia en renting — maletero"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 35600
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 37600
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 40200
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 43300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 46100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 34600
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 36900
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 40200
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 43300
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 46500
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "brand": "Ebro",
+  "model": "S400",
+  "version": "1.5 DHE HEV Premium CVT",
+  "category": "suv",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "monthly_price_cents": 48800,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 197,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "colors": [
+    "Rojo Blood Stone"
+  ],
+  "short_description": "Acabado Premium con 197 CV, híbrido HEV y cambio CVT",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/ebro-s400-01.webp",
+      "alt": "Ebro S400 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-02.webp",
+      "alt": "Ebro S400 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-03.webp",
+      "alt": "Ebro S400 en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-04.webp",
+      "alt": "Ebro S400 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-05.webp",
+      "alt": "Ebro S400 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-06.webp",
+      "alt": "Ebro S400 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-07.webp",
+      "alt": "Ebro S400 en renting — vista exterior"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 54000
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 55500
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 57000
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 59700
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 62900
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 51000
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 52400
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 53700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 56300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 59600
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 48800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 50100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 51300
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 54400
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 57400
+    }
+  ]
+}

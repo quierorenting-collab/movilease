@@ -1,0 +1,130 @@
+{
+  "brand": "Mazda",
+  "model": "CX-60",
+  "version": "3.3 e-SKYACTIV D MHEV 200CV 8AT RWD Prime-Line",
+  "category": "suv",
+  "fuel_type": "diesel",
+  "transmission": "automatico",
+  "monthly_price_cents": 51900,
+  "contract_months": 36,
+  "annual_km": 10000,
+  "horsepower": 200,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "short_description": "3.3 diésel de 200 CV con microhibridación, 8AT y tracción trasera",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-cx-60/mazda-cx60-vista-lateral.jpg?size=1200x800",
+      "alt": "Mazda CX-60 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-cx-60/cx60-entorno-natural.jpg?size=1200x800",
+      "alt": "Mazda CX-60 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-cx-60/cx60-dinamismo-carretera.jpg?size=1200x800",
+      "alt": "Mazda CX-60 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-cx-60/cx60-conduccion-montanas.jpg?size=1200x800",
+      "alt": "Mazda CX-60 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-cx-60/nuevo-mazda-cx60-trasera.jpg?size=1200x800",
+      "alt": "Mazda CX-60 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-cx-60/mazda-cx60-paisaje-montano.jpg?size=1200x800",
+      "alt": "Mazda CX-60 en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 51900
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 55637
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 59429
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 56135
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 60458
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 53826
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 57240
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 60652
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 58190
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 62031
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 54380
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 57450
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 60551
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 57856
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 61362
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "update_vehicle_id": "28e2b181-9b28-48b2-8fd6-2b13030ff96b",
+  "brand": "Mazda",
+  "model": "CX-30",
+  "version": "e-SKYACTIV G MHEV 140CV MT",
+  "category": "hibrido",
+  "fuel_type": "hibrido",
+  "transmission": "manual",
+  "monthly_price_cents": 33800,
+  "contract_months": 36,
+  "annual_km": 10000,
+  "horsepower": 140,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "colors": [
+    "Arctic White Solid"
+  ],
+  "short_description": "2.5 e-SKYACTIV G M-HEV de 140 CV, acabado Prime-Line",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-cx-30/43528145.jpg?size=1200x800",
+      "alt": "Mazda CX-30 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-cx-30/43528146.jpg?size=1200x800",
+      "alt": "Mazda CX-30 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-cx-30/43528147.jpg?size=1200x800",
+      "alt": "Mazda CX-30 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-cx-30/43528156.jpg?size=1200x800",
+      "alt": "Mazda CX-30 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-cx-30/43528148.jpg?size=1200x800",
+      "alt": "Mazda CX-30 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-cx-30/43528149.jpg?size=1200x800",
+      "alt": "Mazda CX-30 en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 33800
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 35559
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 37362
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 34440
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 36027
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 37512
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 34507
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 35913
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 37319
+    }
+  ]
+}

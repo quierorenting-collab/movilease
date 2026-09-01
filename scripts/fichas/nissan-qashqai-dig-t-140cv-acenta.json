@@ -1,0 +1,132 @@
+{
+  "brand": "Nissan",
+  "model": "Qashqai",
+  "version": "DIG-T 103kW 140CV mHEV 4x2 Acenta",
+  "category": "suv",
+  "fuel_type": "gasolina",
+  "transmission": "manual",
+  "monthly_price_cents": 38100,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 140,
+  "seats": 5,
+  "environmental_label": "eco",
+  "colors": [
+    "Deep Ocean Blue"
+  ],
+  "short_description": "DIG-T de 140 CV con microhibridación y etiqueta ECO",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "https://fotos.quecochemecompro.com/nissan-qashqai/nissan-qashqai-maletero.jpg?size=1200x800",
+      "alt": "Nissan Qashqai en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/nissan-qashqai/nissan-qashqai-en-movimiento-carretera.jpg?size=1200x800",
+      "alt": "Nissan Qashqai en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/nissan-qashqai/nissan-qashqai-vista-frontal.jpg?size=1200x800",
+      "alt": "Nissan Qashqai en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/nissan-qashqai/sistema-infotainment-nissan-qashqai.jpg?size=1200x800",
+      "alt": "Nissan Qashqai en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/nissan-qashqai/nissan-qashqai-urbano.jpg?size=1200x800",
+      "alt": "Nissan Qashqai en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/nissan-qashqai/asientos-traseros-nissan-qashqai-1.jpg?size=1200x800",
+      "alt": "Nissan Qashqai en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 38600
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 40400
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 42200
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 45000
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 47800
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 38500
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 40200
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 41700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 44400
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 47400
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 38100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 39600
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 41000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 43800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 46500
+    }
+  ]
+}

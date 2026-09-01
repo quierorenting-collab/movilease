@@ -1,0 +1,133 @@
+{
+  "brand": "Ebro",
+  "model": "s700",
+  "version": "1.5 TGDI PHEV Luxury E-CVT",
+  "category": "suv",
+  "fuel_type": "phev",
+  "transmission": "automatico",
+  "monthly_price_cents": 63400,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 347,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "0",
+  "colors": [
+    "Blanco Khakí"
+  ],
+  "short_description": "Híbrido enchufable de 347 CV con cambio E-CVT",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega a domicilio",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "https://fotos.quecochemecompro.com/ebro-s700/38895767.jpg?size=1200x800",
+      "alt": "Ebro s700 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/ebro-s700/38895722.jpg?size=1200x800",
+      "alt": "Ebro s700 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/ebro-s700/ebro-s700-logo-color.jpg?size=1200x800",
+      "alt": "Ebro s700 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/ebro-s700/ebro-s700-frontal.jpg?size=1200x800",
+      "alt": "Ebro s700 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/ebro-s700/ebro-s700-lateral.jpg?size=1200x800",
+      "alt": "Ebro s700 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/ebro-s700/ebro-s700-trasera.jpg?size=1200x800",
+      "alt": "Ebro s700 en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 71600
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 73800
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 75900
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 79400
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 83500
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 66800
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 68700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 70600
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 73900
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 78000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 63400
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 65000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 66700
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 70600
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 74200
+    }
+  ]
+}
