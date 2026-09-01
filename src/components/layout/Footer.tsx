@@ -3,6 +3,7 @@ import { CONTACT, buildWhatsAppLink } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
 import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { getVehiclesByBrand } from "@/lib/data/vehicles";
+import { getFooterLandings } from "@/lib/data/landing";
 
 export async function Footer() {
   /**
@@ -23,6 +24,14 @@ export async function Footer() {
   } catch {
     topBrands = [];
   }
+
+  /**
+   * Las landings de categoria y ciudad son paginas indexables por derecho
+   * propio, pero sin un enlace desde algun sitio son huerfanas: Google no
+   * las rastrea y no posicionan. El pie es el unico bloque que sale en todas
+   * las paginas, asi que es donde tienen que estar.
+   */
+  const landings = await getFooterLandings();
 
   return (
     <footer className="relative overflow-hidden bg-[#04102A] text-white/70">
@@ -195,6 +204,42 @@ export async function Footer() {
             </ul>
           </nav>
         </div>
+
+        {landings.categorias.length > 0 && (
+          <nav aria-label="Renting por tipo de coche" className="mt-16 border-t border-white/10 pt-10">
+            <p className="eyebrow mb-5">Renting por tipo</p>
+            <ul role="list" className="flex flex-wrap gap-x-2 gap-y-2">
+              {landings.categorias.map((l) => (
+                <li key={l.slug}>
+                  <Link
+                    href={`/${l.slug}`}
+                    className="inline-flex min-h-[36px] items-center rounded-full border border-white/12 px-3.5 text-[13px] text-white/70 transition-colors hover:border-[#5AA0FF]/50 hover:text-white"
+                  >
+                    {l.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+
+        {landings.ciudades.length > 0 && (
+          <nav aria-label="Renting por ciudad" className="mt-16 border-t border-white/10 pt-10">
+            <p className="eyebrow mb-5">Renting por ciudad</p>
+            <ul role="list" className="flex flex-wrap gap-x-2 gap-y-2">
+              {landings.ciudades.map((l) => (
+                <li key={l.slug}>
+                  <Link
+                    href={`/${l.slug}`}
+                    className="inline-flex min-h-[36px] items-center rounded-full border border-white/12 px-3.5 text-[13px] text-white/70 transition-colors hover:border-[#5AA0FF]/50 hover:text-white"
+                  >
+                    {l.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
 
         {/* Marcas destacadas — enlazado interno hacia las vistas por marca */}
         {topBrands.length > 0 && (

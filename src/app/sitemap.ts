@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/constants";
 import { getCatalogVehicles, getVehiclesByBrand } from "@/lib/data/vehicles";
 import { getPublishedPosts } from "@/lib/data/blog";
+import { getActiveLandingSlugs } from "@/lib/data/landing";
 
 export const revalidate = 3600;
 
@@ -39,10 +40,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Si Supabase no responde, el sitemap estático sigue sirviéndose igual.
   let dynamicEntries: MetadataRoute.Sitemap = [];
   try {
-    const [vehicles, { brands }, posts] = await Promise.all([
+    const [vehicles, { brands }, posts, landings] = await Promise.all([
       getCatalogVehicles({}),
       getVehiclesByBrand(),
       getPublishedPosts(200),
+      getActiveLandingSlugs(),
     ]);
 
     const modelSlugs = [...new Set(vehicles.map((v) => v.modelSlug).filter(Boolean))];
@@ -59,6 +61,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: post.publishedAt ? new Date(post.publishedAt) : now,
         changeFrequency: "monthly" as const,
         priority: 0.6,
+      })),
+      // Las landings de categoria y ciudad son paginas indexables por derecho
+      // propio: sin esta linea existen pero Google no las descubre.
+      ...landings.map((slug) => ({
+        url: `${SITE_URL}/${slug}`,
+        lastModified: now,
+        changeFrequency: "weekly" as const,
+        priority: 0.75,
       })),
       ...brands.map((brand) => ({
         url: `${SITE_URL}/catalogo?brand=${encodeURIComponent(brand.brandName.toLowerCase())}`,

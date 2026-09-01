@@ -214,6 +214,9 @@ export async function getFeaturedVehicles(limit = 6): Promise<VehicleCardData[]>
 export interface CatalogFilters {
   category?: VehicleCategoryEnum;
   fuelType?: FuelTypeEnum;
+  /** "renting coche automatico" es de las busquedas mas repetidas del sector
+   *  y no habia forma de filtrar por cambio: sin esto no hay landing posible. */
+  transmission?: TransmissionEnum;
   maxPriceEuros?: number;
 }
 
@@ -416,6 +419,7 @@ export async function getCatalogVehicles(filters: CatalogFilters = {}): Promise<
 
     if (filters.category) query = query.eq("category", filters.category);
     if (filters.fuelType) query = query.eq("fuel_type", filters.fuelType);
+    if (filters.transmission) query = query.eq("transmission", filters.transmission);
     if (filters.maxPriceEuros) {
       query = query.lte("monthly_price_cents", filters.maxPriceEuros * 100);
     }
