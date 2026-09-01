@@ -1,5 +1,67 @@
 import type { NextConfig } from "next";
 
+/**
+ * Coches que se han retirado del catálogo porque ya no están en stock: sus
+ * fichas quedan inactivas en la base de datos y su URL, que Google tiene
+ * indexada, pasaría a devolver 404. En vez de eso se manda al catálogo.
+ *
+ * La redirección es TEMPORAL a propósito. Un 308 le diría a Google que la
+ * dirección ha desaparecido para siempre y la sacaría del índice; estos coches
+ * pueden volver a entrar en stock, y entonces basta con reactivarlos y quitar
+ * su línea de aquí para recuperar la ficha con su posicionamiento intacto.
+ */
+const MODELOS_RETIRADOS = [
+  "renting-alfa-romeo-junior",
+  "renting-audi-a3-sportback",
+  "renting-citroen-c4",
+  "renting-dacia-sandero",
+  "renting-ebro-s800-phev",
+  "renting-fiat-ducato",
+  "renting-ford-kuga",
+  "renting-ford-puma",
+  "renting-foton-tunland",
+  "renting-jaecoo-7",
+  "renting-jeep-avenger",
+  "renting-jeep-compass",
+  "renting-kgm-korando",
+  "renting-kgm-musso",
+  "renting-kgm-rexton",
+  "renting-kgm-tivoli",
+  "renting-kia-stonic",
+  "renting-maxus-deliver-9",
+  "renting-maxus-t60-max",
+  "renting-mazda-3",
+  "renting-mazda-6e",
+  "renting-mazda-cx-5",
+  "renting-mitsubishi-outlander",
+  "renting-nissan-interstar",
+  "renting-nissan-x-trail",
+  "renting-omoda-5",
+  "renting-omoda-7",
+  "renting-omoda-9",
+  "renting-opel-combo-cargo",
+  "renting-peugeot-2008",
+  "renting-peugeot-3008",
+  "renting-peugeot-partner",
+  "renting-peugeot-rifter",
+  "renting-renault-austral",
+  "renting-renault-captur",
+  "renting-renault-espace",
+  "renting-renault-rafale",
+  "renting-renault-symbioz",
+  "renting-skoda-elroq",
+  "renting-skoda-karoq",
+  "renting-skoda-octavia",
+  "renting-subaru-crosstrek",
+  "renting-subaru-forester",
+  "renting-subaru-outback",
+  "renting-toyota-hilux",
+  "renting-toyota-proace",
+  "renting-volkswagen-golf",
+  "renting-volkswagen-t-cross",
+  "renting-volkswagen-t-roc",
+];
+
 const nextConfig: NextConfig = {
   /**
    * www servía el sitio entero en paralelo al dominio sin www, con 200 en las
@@ -15,6 +77,11 @@ const nextConfig: NextConfig = {
         destination: "https://movilease.es/:path*",
         permanent: true,
       },
+      ...MODELOS_RETIRADOS.map((slug) => ({
+        source: `/${slug}`,
+        destination: "/catalogo",
+        permanent: false,
+      })),
     ];
   },
   images: {
