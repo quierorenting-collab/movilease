@@ -196,6 +196,101 @@ export type Redirect = {
   created_at: string;
 };
 
+/* --- Asesor IA (migración 0005) ---------------------------------------- */
+
+export type MessageRoleEnum = "user" | "assistant";
+export type ExpedienteStatusEnum =
+  | "conversacion"
+  | "contacto_recibido"
+  | "documentacion_pendiente"
+  | "documentacion_completa"
+  | "derivado_asesor"
+  | "cerrado";
+export type ExpedienteDocStatusEnum = "sin_iniciar" | "incompleta" | "completa";
+export type DocumentStatusEnum = "pendiente" | "recibido" | "revisado" | "rechazado";
+export type DocPeriodRuleEnum =
+  | "ninguna"
+  | "ultima_renta_presentada"
+  | "ultimo_iva_anual"
+  | "ultimo_impuesto_sociedades"
+  | "trimestres_ano_en_curso";
+
+export type Conversation = {
+  id: string;
+  session_token_hash: string;
+  client_type: ClientTypeEnum | null;
+  vehicle_id: string | null;
+  message_count: number;
+  created_at: string;
+  last_activity_at: string;
+};
+
+export type Message = {
+  id: string;
+  conversation_id: string;
+  role: MessageRoleEnum;
+  content: string;
+  tool_calls: Record<string, unknown>[] | null;
+  created_at: string;
+};
+
+export type Expediente = {
+  id: string;
+  conversation_id: string;
+  lead_id: string | null;
+  client_type: ClientTypeEnum;
+  vehicle_id: string | null;
+  status: ExpedienteStatusEnum;
+  doc_status: ExpedienteDocStatusEnum;
+  assigned_to: string | null;
+  notes: string | null;
+  stalled_notified_at: string | null;
+  created_at: string;
+  updated_at: string;
+  completed_at: string | null;
+};
+
+export type DocumentRequirement = {
+  id: string;
+  client_type: ClientTypeEnum;
+  key: string;
+  label: string;
+  help_text: string | null;
+  /** null = número variable de archivos (trimestres de IVA, varios apoderados). */
+  expected_count: number | null;
+  period_rule: DocPeriodRuleEnum;
+  sort_order: number;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+};
+
+export type ExpedienteDocument = {
+  id: string;
+  expediente_id: string;
+  requirement_key: string;
+  storage_path: string;
+  original_name: string;
+  mime_type: string;
+  size_bytes: number;
+  status: DocumentStatusEnum;
+  uploaded_at: string;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
+  review_notes: string | null;
+};
+
+export type KnowledgeEntry = {
+  id: string;
+  category: string;
+  question: string;
+  answer: string;
+  sort_order: number;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+};
+
 /**
  * `Relationships: []` y las claves `Views`/`Functions` son obligatorias para
  * que los tipos de @supabase/postgrest-js infieran Row/Insert/Update en vez
@@ -259,6 +354,41 @@ export type Database = {
       redirects: Table<
         Redirect,
         Partial<Redirect> & { source_path: string; destination_path: string }
+      >;
+      conversations: Table<
+        Conversation,
+        Partial<Conversation> & { session_token_hash: string }
+      >;
+      messages: Table<
+        Message,
+        Partial<Message> & { conversation_id: string; role: MessageRoleEnum; content: string }
+      >;
+      expedientes: Table<
+        Expediente,
+        Partial<Expediente> & { conversation_id: string; client_type: ClientTypeEnum }
+      >;
+      document_requirements: Table<
+        DocumentRequirement,
+        Partial<DocumentRequirement> & {
+          client_type: ClientTypeEnum;
+          key: string;
+          label: string;
+        }
+      >;
+      documents: Table<
+        ExpedienteDocument,
+        Partial<ExpedienteDocument> & {
+          expediente_id: string;
+          requirement_key: string;
+          storage_path: string;
+          original_name: string;
+          mime_type: string;
+          size_bytes: number;
+        }
+      >;
+      knowledge_entries: Table<
+        KnowledgeEntry,
+        Partial<KnowledgeEntry> & { category: string; question: string; answer: string }
       >;
     };
     Views: Record<string, never>;
