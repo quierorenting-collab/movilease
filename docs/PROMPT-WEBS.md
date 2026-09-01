@@ -1,7 +1,9 @@
 # Prompt de continuidad — las cuatro webs
 
-> ⚠️ **Documento superado.** Desde el 31/08/2026 el documento de referencia es
-> **`docs/HANDOFF-MAESTRO.md`**, mucho más completo y con dos correcciones que
+> ⚠️ **Documento superado.** Desde el 01/09/2026 los documentos de referencia son
+> **`docs/CONTEXTO-MAESTRO.md`** (contexto de trabajo),
+> **`docs/MIGRACION-NUEVO-CLAUDE.md`** (accesos) y
+> **`docs/HANDOFF-MAESTRO.md`** (detalle exhaustivo), con dos correcciones que
 > aquí están mal: **quierorenting.es NO sirve esta aplicación Next.js** (es un
 > HTML estático independiente, ver §7 del maestro) y **en producción no hay ISR**
 > pese a los `export const revalidate` (§5.7 del maestro). Este archivo se

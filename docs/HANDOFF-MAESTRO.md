@@ -16,6 +16,19 @@
 > casi todo pero **contiene un error importante ya corregido aquí**: decía que
 > quierorenting.es servía esta misma aplicación Next.js, y no es así (§2.2, §7).
 
+
+> **Dónde encaja este documento (01/09/2026).** Es la **referencia larga y
+> exhaustiva**. Para el día a día hay dos documentos más cortos:
+>
+> - `docs/CONTEXTO-MAESTRO.md` — el contexto que se le pega a un Claude nuevo.
+>   Se carga solo en cada sesión desde `CLAUDE.md`.
+> - `docs/MIGRACION-NUEVO-CLAUDE.md` — guía de accesos para el propietario.
+>
+> Todo lo que este documento afirmaba se ha vuelto a comprobar el **01/09/2026**
+> y **sigue siendo cierto**: quierorenting.es continúa sin servir la aplicación
+> Next.js, sigue sin haber ISR en producción, el SEAT León sigue devolviendo 404,
+> las páginas legales siguen sin redactar y movilease.es sigue sin analítica.
+
 ---
 
 ## Índice
