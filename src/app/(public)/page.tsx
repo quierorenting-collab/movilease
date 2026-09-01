@@ -35,12 +35,24 @@ export const metadata: Metadata = pageMetadata({
   path: "/",
 });
 
-const STATS = [
-  { value: 10000, prefix: "+",  suffix: "",  decimals: 0, label: "Clientes satisfechos" },
-  { value: 4.9,   prefix: "",   suffix: "",  decimals: 1, label: "Valoración Google" },
-  { value: 30,    prefix: "+",  suffix: "",  decimals: 0, label: "Marcas disponibles" },
-  { value: 48,    prefix: "",   suffix: "h", decimals: 0, label: "Gestión garantizada" },
-];
+/**
+ * La barra de cifras prometía "+10.000 clientes satisfechos" y "4,9 de
+ * valoración en Google" con la empresa recién arrancando, y "+30 marcas"
+ * cuando el catálogo se quedó en dieciséis al cuadrarlo con el stock real.
+ * Tres de las cuatro eran falsas, y la de Google es la peor: es una nota que
+ * cualquiera puede contrastar en un clic.
+ *
+ * Ahora son datos verificables, y las dos primeras salen de la base de datos
+ * para que no vuelvan a quedarse desfasadas al cambiar el stock.
+ */
+function stats(marcas: number, modelos: number) {
+  return [
+    { value: modelos, prefix: "", suffix: "", decimals: 0, label: "Modelos disponibles" },
+    { value: marcas, prefix: "", suffix: "", decimals: 0, label: "Marcas en catálogo" },
+    { value: 48, prefix: "", suffix: "h", decimals: 0, label: "Respuesta a tu solicitud" },
+    { value: 0, prefix: "", suffix: " €", decimals: 0, label: "De entrada" },
+  ];
+}
 
 const MARQUEE_BRANDS = [
   "Audi", "BMW", "Mercedes-Benz", "Volkswagen", "Toyota", "Hyundai",
@@ -193,7 +205,7 @@ const FAQ_ITEMS = [
 ];
 
 export default async function HomePage() {
-  const [featured, offers, { brands }] = await Promise.all([
+  const [featured, offers, { brands, vehiclesByBrand }] = await Promise.all([
     getFeaturedVehicles(200),
     // Seis, las que marca Adrián: Ibiza, Polo, Taigo, Ebro S400, GLC Coupé y
     // CR-V. Con el tope en cuatro que había antes no llegaban a verse el GLC ni
@@ -202,6 +214,12 @@ export default async function HomePage() {
     getOfferVehicles(6),
     getVehiclesByBrand(),
   ]);
+
+  // Modelos, no versiones: dos acabados del mismo coche son una sola ficha,
+  // y es lo que cuenta el visitante cuando mira cuántos coches hay.
+  const totalModelos = new Set(
+    Object.values(vehiclesByBrand).flatMap((vs) => vs.map((v) => v.modelSlug))
+  ).size;
 
   const seenModels = new Set<string>();
   const dedupedFeatured = featured
@@ -235,7 +253,7 @@ export default async function HomePage() {
       <section className="surface-graphite relative overflow-hidden bg-texture-dark section-y">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
           <div className="grid grid-cols-2 gap-14 sm:grid-cols-4 sm:gap-0">
-            {STATS.map((s, i) => (
+            {stats(brands.length, totalModelos).map((s, i) => (
               <Reveal
                 key={s.label}
                 delay={i * 0.08}

@@ -59,11 +59,14 @@ const WHY_CHOOSE = [
   "Entrega en toda España.",
 ];
 
+// Mismo criterio que en la home: fuera las cifras que no se pueden sostener
+// —clientes y nota de Google con la empresa recién arrancando— y fuera el
+// "+30 marcas", que dejó de ser cierto al cuadrar el catálogo con el stock.
 const STATS = [
-  { value: 10000, prefix: "+", suffix: "", decimals: 0, label: "Clientes satisfechos" },
-  { value: 4.9, prefix: "", suffix: "", decimals: 1, label: "Valoración Google" },
-  { value: 30, prefix: "+", suffix: "", decimals: 0, label: "Marcas disponibles" },
-  { value: 48, prefix: "", suffix: "h", decimals: 0, label: "Gestión garantizada" },
+  { value: 48, prefix: "", suffix: "h", decimals: 0, label: "Respuesta a tu solicitud" },
+  { value: 0, prefix: "", suffix: " €", decimals: 0, label: "De entrada" },
+  { value: 3, prefix: "", suffix: "", decimals: 0, label: "Proveedores de renting" },
+  { value: 8, prefix: "", suffix: "", decimals: 0, label: "Servicios en la cuota" },
 ];
 
 function CheckIcon() {

@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { buildWhatsAppLink } from "@/lib/constants";
-import { AnimatedCounter } from "@/components/ui/Reveal";
 
 const SESSION_KEY = "qr_popup_v4";
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -156,17 +155,12 @@ export function LeadPopup() {
                 style={{ background: "linear-gradient(180deg, transparent 0%, rgba(20,52,112,0.85) 70%, #143470 100%)" }}
               />
 
-              {/* Prueba social flotante sobre la foto */}
-              <div className="absolute bottom-3 left-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/40 py-1.5 pl-2 pr-3.5 backdrop-blur-md">
-                <span className="flex gap-0.5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <svg key={i} viewBox="0 0 12 12" fill="#8FBEFF" className="h-3 w-3">
-                      <path d="M6 0l1.5 4h4.5l-3.5 2.5 1.5 4L6 8.5 2 10.5l1.5-4L0 4h4.5z" />
-                    </svg>
-                  ))}
-                </span>
+              {/* Antes iban cinco estrellas y "4,9/5 · +10.000 clientes". Las
+                  estrellas se van con la nota: pintar una valoración sin nota
+                  detrás sigue insinuando lo mismo. Se queda lo que sí es cierto. */}
+              <div className="absolute bottom-3 left-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/40 py-1.5 pl-3 pr-3.5 backdrop-blur-md">
                 <span className="text-[11.5px] font-semibold text-white">
-                  4,9/5 · <AnimatedCounter value={10000} prefix="+" duration={1.4} /> clientes
+                  Sin entrada · Respuesta en 48 h
                 </span>
               </div>
             </div>
