@@ -6,7 +6,7 @@
 export const DEFAULT_BRAND_NAME = "MoviLease";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://movilease.es";
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "34613267375";
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "34644156797";
 
 export const CONTACT = {
   whatsappNumber: WHATSAPP_NUMBER,
@@ -17,7 +17,7 @@ export const CONTACT = {
   instagram: "https://www.instagram.com/quierorenting",
 } as const;
 
-/** "34613267375" -> "+34 613 26 73 75" */
+/** "34644156797" -> "+34 644 15 67 97" */
 function formatSpanishPhone(raw: string) {
   const digits = raw.replace(/\D/g, "");
   if (digits.startsWith("34") && digits.length === 11) {
