@@ -415,12 +415,26 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
                   </p>
                   <p className="mt-1 text-[11px] text-on-dark-3">IVA incluido</p>
 
+                  {/* Tres CTAs, tres tratamientos, tres destinos reales.
+                      Antes eran cuatro en una rejilla 2x2, y dos de ellos
+                      —"Solicitar oferta" y "Solicitar información"— llevaban
+                      literalmente el mismo href="#solicitar": el visitante
+                      tenía que leer las dos etiquetas para descubrir que
+                      hacían lo mismo. Y los tres secundarios usaban .btn-ghost,
+                      así que salían como tres cajas grises indistinguibles: no
+                      había ninguna señal de que una abre un chat y otra marca
+                      un teléfono. El de WhatsApp pasa a .btn-whatsapp, igual
+                      que en el cierre de la home, para que se reconozca de un
+                      vistazo.
+
+                      La rejilla no es de tres columnas iguales: a 1440 px eso
+                      deja 165 px por botón y "Solicitar oferta" parte en dos
+                      líneas, justo el CTA que no debe romperse. Ocupa la fila
+                      entera y los dos secundarios se reparten la siguiente,
+                      que además es la jerarquía correcta. */}
                   <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                    <a href="#solicitar" className="btn-primary justify-center">
+                    <a href="#solicitar" className="btn-primary justify-center sm:col-span-2">
                       Solicitar oferta
-                    </a>
-                    <a href="#solicitar" className="btn-ghost justify-center">
-                      Solicitar información
                     </a>
                     <a
                       href={buildWhatsAppLink(
@@ -428,7 +442,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
                       )}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-ghost justify-center"
+                      className="btn-whatsapp justify-center"
                     >
                       WhatsApp
                     </a>
