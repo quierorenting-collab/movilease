@@ -4,7 +4,6 @@ import {
   Reveal,
   RevealGroup,
   RevealItem,
-  AnimatedCounter,
 } from "@/components/ui/Reveal";
 import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { pageMetadata } from "@/lib/metadata";
@@ -59,14 +58,27 @@ const WHY_CHOOSE = [
   "Entrega en toda España.",
 ];
 
-// Mismo criterio que en la home: fuera las cifras que no se pueden sostener
-// —clientes y nota de Google con la empresa recién arrancando— y fuera el
-// "+30 marcas", que dejó de ser cierto al cuadrar el catálogo con el stock.
-const STATS = [
-  { value: 48, prefix: "", suffix: "h", decimals: 0, label: "Respuesta a tu solicitud" },
-  { value: 0, prefix: "", suffix: " €", decimals: 0, label: "De entrada" },
-  { value: 3, prefix: "", suffix: "", decimals: 0, label: "Proveedores de renting" },
-  { value: 8, prefix: "", suffix: "", decimals: 0, label: "Servicios en la cuota" },
+/**
+ * Ventajas, no cifras. Mismo criterio que la barra de la home, para que las
+ * dos páginas cuenten lo mismo: primero se fueron las cifras falsas —clientes
+ * y nota de Google—, luego el tamaño del catálogo, y ahora también el recuento
+ * de proveedores y de servicios. Contar cuántos proveedores hay no le dice
+ * nada a quien está decidiendo; lo que le dice algo es qué gana él.
+ *
+ * Van casi todas distintas de las de la home a propósito: repetir las mismas
+ * cuatro en dos páginas seguidas se lee como relleno. La del asesor sí se
+ * repite, porque es la ventaja que Adrián señala como la real frente a una
+ * comercializadora grande y merece decirse dos veces.
+ *
+ * NO se publica NADA sobre los proveedores de renting: ni cuántos son ni
+ * quiénes. Es información interna de la empresa (indicación expresa de Adrián,
+ * 02/09/2026). Verificado que no aparece ningún nombre en toda la web.
+ */
+const VENTAJAS = [
+  { titulo: "Sin entrada", detalle: "0 € de desembolso al empezar" },
+  { titulo: "Te acompañamos", detalle: "También cuando ya tienes el coche" },
+  { titulo: "Entrega a domicilio", detalle: "Donde nos digas, en toda España" },
+  { titulo: "El mismo asesor", detalle: "La misma persona de principio a fin" },
 ];
 
 function CheckIcon() {
@@ -196,31 +208,27 @@ export default function SobreNosotrosPage() {
       <section className="bg-white py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
-            <p className="section-label section-label-on-light">En cifras</p>
-            <h2 className="display-md mt-4 text-[#0A0A0A]">La confianza se mide</h2>
+            {/* Ya no son cifras, así que el encabezado tampoco puede decirlo. */}
+            <p className="section-label section-label-on-light">Lo que nos diferencia</p>
+            <h2 className="display-md mt-4 text-[#0A0A0A]">Por qué con nosotros</h2>
           </Reveal>
           <RevealGroup
             stagger={0.08}
             className="mt-14 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4"
           >
-            {STATS.map((s) => (
-              <RevealItem key={s.label}>
+            {VENTAJAS.map((v) => (
+              <RevealItem key={v.titulo}>
                 <p
-                  className="text-5xl font-bold text-[#0A0A0A] sm:text-6xl"
+                  className="text-3xl font-bold text-[#0A0A0A] sm:text-4xl"
                   style={{
                     fontFamily: "var(--font-space-grotesk)",
-                    lineHeight: 1,
+                    lineHeight: 1.1,
                     letterSpacing: "-0.03em",
                   }}
                 >
-                  <AnimatedCounter
-                    value={s.value}
-                    prefix={s.prefix}
-                    suffix={s.suffix}
-                    decimals={s.decimals}
-                  />
+                  {v.titulo}
                 </p>
-                <p className="mt-3 text-sm text-[#6B7280]">{s.label}</p>
+                <p className="mt-3 text-sm text-[#6B7280]">{v.detalle}</p>
               </RevealItem>
             ))}
           </RevealGroup>

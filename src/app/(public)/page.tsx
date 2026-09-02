@@ -9,7 +9,7 @@ import { HeroVideo } from "@/components/home/HeroVideo";
 import { HeroContent } from "@/components/home/HeroContent";
 import { FAQAccordion } from "@/components/home/FAQAccordion";
 import { LeadForm } from "@/components/forms/LeadForm";
-import { Reveal, RevealGroup, RevealItem, AnimatedCounter } from "@/components/ui/Reveal";
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import {
   FaqJsonLd,
@@ -36,25 +36,33 @@ export const metadata: Metadata = pageMetadata({
 });
 
 /**
- * La barra de cifras de la home.
+ * La barra de ventajas de la home.
  *
- * Antes contaba modelos y marcas del catálogo. Fuera a petición de Adrián: con
- * un catálogo pequeño, enseñar su tamaño juega en contra. Lo que vende aquí es
- * lo que entra en la cuota, no cuántos coches hay en la lista.
+ * Empezó siendo una barra de cifras y ha ido perdiendo todas: primero
+ * "+10.000 clientes" y "4,9 en Google", que eran falsas; después el tamaño del
+ * catálogo, cierto pero que juega en contra cuando hay pocos coches. Adrián
+ * pide ahora ventajas del servicio, y encaja con lo que decide de verdad una
+ * contratación de renting: no cuántos coches hay en la lista, sino qué entra
+ * en la cuota y quién te coge el teléfono.
  *
- * Son las mismas cuatro que ya usa "Quiénes somos", para que las dos páginas no
- * se contradigan. Los servicios se cuentan de INCLUDED en lugar de escribir el
- * número a mano: así fue como el "+30 marcas" se quedó viejo sin que nadie se
- * diera cuenta.
+ * Ya no usa AnimatedCounter: estos valores no son números. El contador sigue
+ * vivo en "Quiénes somos", que sí tiene cifras que contar.
+ *
+ * Las cuatro son defendibles si alguien pregunta: lo incluido está enumerado
+ * más abajo en esta misma página, la cuota más baja es la regla con la que se
+ * eligen los precios del catálogo, y las 48 h se repiten en el hero y en la FAQ.
+ *
+ * La del asesor la señaló Adrián como la ventaja real frente a una gran
+ * comercializadora: allí cada llamada la coge otra persona y el cliente repite
+ * su caso desde cero. Aquí le atiende siempre el mismo, y eso sí que no lo
+ * puede copiar una web con más catálogo.
  */
-function stats() {
-  return [
-    { value: 48, prefix: "", suffix: "h", decimals: 0, label: "Respuesta a tu solicitud" },
-    { value: 0, prefix: "", suffix: " €", decimals: 0, label: "De entrada" },
-    { value: 3, prefix: "", suffix: "", decimals: 0, label: "Proveedores de renting" },
-    { value: INCLUDED.length, prefix: "", suffix: "", decimals: 0, label: "Servicios en la cuota" },
-  ];
-}
+const VENTAJAS = [
+  { titulo: "Todo incluido", detalle: "Seguro, mantenimiento e impuestos" },
+  { titulo: "Mejores ofertas", detalle: "Buscamos la cuota más baja" },
+  { titulo: "El mismo asesor", detalle: "Antes, durante y después de la entrega" },
+  { titulo: "48 h", detalle: "Respuesta a tu solicitud" },
+];
 
 const MARQUEE_BRANDS = [
   "Audi", "BMW", "Mercedes-Benz", "Volkswagen", "Toyota", "Hyundai",
@@ -249,23 +257,15 @@ export default async function HomePage() {
       <section className="surface-graphite relative overflow-hidden bg-texture-dark section-y">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
           <div className="grid grid-cols-2 gap-14 sm:grid-cols-4 sm:gap-0">
-            {stats().map((s, i) => (
+            {VENTAJAS.map((v, i) => (
               <Reveal
-                key={s.label}
+                key={v.titulo}
                 delay={i * 0.08}
                 className={`text-center sm:px-8 ${i > 0 ? "sm:border-l sm:border-white/10" : ""}`}
               >
-                <p className="display-md text-white">
-                  <AnimatedCounter
-                    value={s.value}
-                    prefix={s.prefix}
-                    suffix={s.suffix}
-                    decimals={s.decimals}
-                    duration={2.2}
-                  />
-                </p>
+                <p className="display-sm text-white">{v.titulo}</p>
                 <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">
-                  {s.label}
+                  {v.detalle}
                 </p>
               </Reveal>
             ))}
