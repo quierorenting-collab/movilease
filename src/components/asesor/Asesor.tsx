@@ -20,8 +20,17 @@ import { buildWhatsAppLink, CLIENT_TYPE_LABELS } from "@/lib/constants";
  * sentido. La capa conversacional se puede añadir encima el día que aporte
  * algo, sin tirar nada de esto.
  *
- * REGLA DEL RECORRIDO: no se pide un solo dato personal hasta que el visitante
- * ha visto coches y ha elegido uno.
+ * ORDEN DEL RECORRIDO: perfil → contacto → coches. El contacto va delante por
+ * decisión expresa de Adrián: quiere que todo el que empiece a hablar con el
+ * asesor le llegue como lead, incluido quien abandona a mitad. La contrapartida
+ * conocida es que pedir el teléfono antes de enseñar nada reduce cuánta gente
+ * empieza, así que se pueden capturar más de los que entran y entrar menos.
+ * Si el ritmo de leads baja, mover el paso "contacto" detrás de "coches" es lo
+ * primero que hay que probar.
+ *
+ * El perfil va antes que el contacto por dos razones: es un clic y no es dato
+ * personal, y `expedientes.client_type` es NOT NULL, así que sin él no hay
+ * expediente que abrir.
  */
 
 type Paso =
@@ -88,6 +97,7 @@ export function Asesor() {
   const [error, setError] = useState<string | null>(null);
   const [requisitos, setRequisitos] = useState<Requisito[]>([]);
   const [whatsappFinal, setWhatsappFinal] = useState<string | null>(null);
+  const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
     let vivo = true;
@@ -122,6 +132,27 @@ export function Asesor() {
     }
   }
 
+  /**
+   * Anota el coche en el expediente que ya existe. Si la llamada falla, el
+   * recorrido sigue igual: el lead está guardado desde el paso del contacto y
+   * lo único que se pierde es el dato de qué coche miraba. Bloquear al
+   * visitante por eso sería cambiar un dato útil por un cliente.
+   */
+  async function elegirCoche(s: Sugerencia) {
+    setElegido(s);
+    setPaso("final");
+    if (!token) return;
+    try {
+      await fetch("/api/asesor/vehiculo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token, vehicleId: s.id }),
+      });
+    } catch {
+      /* Ver comentario de arriba. */
+    }
+  }
+
   async function enviar(e: React.FormEvent) {
     e.preventDefault();
     if (!rgpd || !clientType) return;
@@ -136,7 +167,8 @@ export function Asesor() {
           phone: form.telefono,
           email: form.email,
           clientType,
-          vehicleId: elegido?.id,
+          // Sin vehicleId: en este punto todavía no ha visto coches. Se anota
+          // después, cuando elige, con /api/asesor/vehiculo.
           pageUrl: pathname ?? "",
           rgpd: true,
         }),
@@ -149,13 +181,16 @@ export function Asesor() {
       setRequisitos(data.requisitos ?? []);
       setWhatsappFinal(data.whatsappLink ?? null);
       if (data.token) {
+        setToken(data.token);
         try {
           sessionStorage.setItem("ml_asesor_token", data.token);
         } catch {
           /* Navegación privada: el expediente ya está creado igualmente. */
         }
       }
-      setPaso("final");
+      // A partir de aquí el lead YA está guardado y notificado. Si el visitante
+      // abandona en cualquier paso siguiente, Adrián tiene su teléfono igual.
+      setPaso("presupuesto");
     } catch {
       setError("No hemos podido registrar tu solicitud.");
     } finally {
@@ -207,7 +242,7 @@ export function Asesor() {
                 key={k}
                 onClick={() => {
                   setClientType(k);
-                  setPaso("presupuesto");
+                  setPaso("contacto");
                 }}
               >
                 {CLIENT_TYPE_LABELS[k]}
@@ -257,10 +292,7 @@ export function Asesor() {
               <button
                 key={s.id}
                 type="button"
-                onClick={() => {
-                  setElegido(s);
-                  setPaso("contacto");
-                }}
+                onClick={() => void elegirCoche(s)}
                 className="flex w-full items-center gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-3 text-left transition-colors hover:border-[#5AA0FF]/40 hover:bg-white/[0.07]"
               >
                 {s.imagen ? (
@@ -293,9 +325,8 @@ export function Asesor() {
         {paso === "contacto" && (
           <form onSubmit={enviar} className="flex flex-col gap-3">
             <p className="text-[15px] leading-relaxed text-white/80">
-              {elegido
-                ? `Perfecto, el ${elegido.titulo}. Déjanos tus datos y te preparamos la oferta.`
-                : "Déjanos tus datos y te preparamos la oferta."}
+              Déjanos tu nombre y tu teléfono y seguimos: te enseñamos los coches
+              que encajan y, si te interesa alguno, te preparamos la oferta.
             </p>
             <input
               required
@@ -342,13 +373,19 @@ export function Asesor() {
               )}
             </div>
             <button type="submit" disabled={cargando || !rgpd} className="btn-primary btn-block">
-              {cargando ? "Enviando…" : "Quiero mi oferta"}
+              {cargando ? "Enviando…" : "Continuar y ver coches"}
             </button>
           </form>
         )}
 
         {paso === "final" && (
-          <Bloque texto="Recibido. Te contactamos en menos de 48 horas laborables.">
+          <Bloque
+            texto={
+              elegido
+                ? `Anotado el ${elegido.titulo}. Te contactamos en menos de 48 horas laborables.`
+                : "Recibido. Te contactamos en menos de 48 horas laborables."
+            }
+          >
             {requisitos.length > 0 && (
               <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
                 <p className="mb-2 text-[14px] font-semibold text-white">

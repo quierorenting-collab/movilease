@@ -283,6 +283,63 @@ export async function crearExpediente(opts: {
   }
 }
 
+/**
+ * Anota el coche que el visitante ha elegido, en su expediente y en su lead.
+ *
+ * Hace falta porque ahora el contacto se pide ANTES de enseñar coches: cuando
+ * elige, el lead ya existe desde hace tres pasos. Sin esto, a Adrián le
+ * llegaría el aviso sin saber qué coche mira, que es justo el dato que hace
+ * útil la llamada.
+ *
+ * Se identifica por el hash del token de sesión, nunca por el id del
+ * expediente: el id viaja al navegador y es adivinable como cualquier UUID
+ * expuesto; el token no se guarda en claro en ninguna parte.
+ */
+export async function asignarVehiculo(
+  sessionTokenHash: string,
+  vehicleId: string
+): Promise<boolean> {
+  try {
+    const supabase = createAdminClient();
+
+    const { data: conv } = await supabase
+      .from("conversations")
+      .select("id")
+      .eq("session_token_hash", sessionTokenHash)
+      .maybeSingle();
+    if (!conv) return false;
+
+    const convId = (conv as { id: string }).id;
+
+    const { data: exp } = await supabase
+      .from("expedientes")
+      .select("id, lead_id")
+      .eq("conversation_id", convId)
+      .maybeSingle();
+    if (!exp) return false;
+
+    const fila = exp as { id: string; lead_id: string | null };
+
+    await supabase
+      .from("conversations")
+      .update({ vehicle_id: vehicleId })
+      .eq("id", convId);
+
+    await supabase
+      .from("expedientes")
+      .update({ vehicle_id: vehicleId, updated_at: new Date().toISOString() })
+      .eq("id", fila.id);
+
+    if (fila.lead_id) {
+      await supabase.from("leads").update({ vehicle_id: vehicleId }).eq("id", fila.lead_id);
+    }
+
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export interface EstadoDocumental {
   requisito: RequisitoResuelto;
   recibidos: number;
