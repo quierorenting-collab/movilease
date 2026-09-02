@@ -15,7 +15,7 @@ const SILENCED_PATHS = ["/contacto", "/favoritos"];
 export function LeadPopup() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [form, setForm] = useState({ nombre: "", telefono: "", email: "" });
   const [gdpr, setGdpr] = useState(false);
   const firstFieldRef = useRef<HTMLInputElement>(null);
@@ -89,15 +89,40 @@ export function LeadPopup() {
     if (!gdpr || !form.telefono) return;
     setStatus("sending");
     try {
-      await fetch("/api/leads", {
+      // Los nombres de campo son los del esquema zod (name/phone/rgpd), no los
+      // del estado local en español: el pop-up mandaba `nombre`/`telefono` y
+      // createLead los recibía como null, así que TODOS los leads del pop-up se
+      // perdían con un 400 mientras el cliente leía "Mensaje recibido".
+      //
+      // email, message y website van SIEMPRE aunque estén vacíos: leads.ts los
+      // lee sin `|| undefined`, y una clave ausente llega como null, que zod
+      // rechaza. Omitirlos vuelve a romper el envío entero.
+      const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, source: "contact_form" }),
+        body: JSON.stringify({
+          name: form.nombre,
+          phone: form.telefono,
+          email: form.email,
+          message: "",
+          website: "",
+          rgpd: "on",
+          source: "contact_form",
+          pageUrl: pathname ?? "",
+        }),
       });
+      const data = (await res.json().catch(() => null)) as { success?: boolean } | null;
+      if (!res.ok || !data?.success) {
+        setStatus("error");
+        return;
+      }
     } catch {
-      // silent fail
+      setStatus("error");
+      return;
     }
     setStatus("sent");
+    // Solo se silencia el pop-up cuando el lead ha entrado de verdad. Si falló,
+    // el cliente puede reintentar en lugar de quedarse sin vía de contacto.
     sessionStorage.setItem(SESSION_KEY, "1");
   }
 
@@ -284,6 +309,28 @@ export function LeadPopup() {
                         </a>
                       </span>
                     </label>
+                    {/* Antes un envío fallido enseñaba "Mensaje recibido" igual.
+                        Si algo falla, el cliente tiene que enterarse y tener una
+                        salida: perder el lead en silencio es lo peor de todo. */}
+                    <div aria-live="polite" aria-atomic="true">
+                      {status === "error" && (
+                        <p className="rounded-xl border border-red-400/30 bg-red-500/[0.12] px-4 py-3 text-[13.5px] text-red-200">
+                          No hemos podido enviar tus datos. Inténtalo otra vez o
+                          escríbenos por{" "}
+                          <a
+                            href={buildWhatsAppLink(
+                              "Hola, he intentado dejar mis datos en la web y me daba error."
+                            )}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline"
+                          >
+                            WhatsApp
+                          </a>
+                          .
+                        </p>
+                      )}
+                    </div>
                     <button
                       type="submit"
                       disabled={status === "sending" || !gdpr}

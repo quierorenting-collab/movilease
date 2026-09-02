@@ -67,6 +67,8 @@ export default function PoliticaCookiesPage() {
             <li>
               <span className="text-white">qr_popup_v4</span> — recuerda que ya
               se te ha mostrado el aviso de asesoramiento, para no repetirlo.
+              Este se guarda en el almacenamiento <em>de sesión</em>: se borra
+              solo al cerrar la pestaña.
             </li>
           </ul>
 
