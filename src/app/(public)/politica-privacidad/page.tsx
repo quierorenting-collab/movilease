@@ -18,7 +18,7 @@ export default function PoliticaPrivacidadPage() {
           <p className="section-label mb-6">Legal</p>
           <h1 className="display-md text-white">Política de privacidad</h1>
           <p className="mt-6 text-sm text-white/70">
-            Última actualización: 1 de septiembre de 2026
+            Última actualización: 2 de septiembre de 2026
           </p>
         </div>
       </section>
@@ -58,8 +58,10 @@ export default function PoliticaPrivacidadPage() {
             2. Qué datos recogemos
           </h2>
           <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
-            Solo tratamos los datos que nos facilitas al rellenar un formulario
-            de la web, junto con unos pocos datos técnicos de la propia petición:
+            Tratamos los datos que nos facilitas al rellenar un formulario o al
+            hablar con nuestro asesor, unos pocos datos técnicos de la propia
+            petición, y —solo si decides seguir adelante con un renting— la
+            documentación necesaria para tramitarlo:
           </p>
           <ul className="mt-4 space-y-2 text-[15px] leading-[1.8] text-white/70">
             <li>
@@ -82,8 +84,41 @@ export default function PoliticaPrivacidadPage() {
             </li>
           </ul>
           <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
-            No pedimos datos bancarios, ni documentos de identidad, ni ninguna
-            categoría especial de datos a través de la web.
+            <span className="text-white">Documentación para tramitar tu solicitud.</span>{" "}
+            Si decides seguir adelante con un renting concreto, te pediremos la
+            documentación que la entidad de renting exige para estudiar la
+            operación. Nunca antes: primero eliges coche y sabes la cuota, y solo
+            después entra la documentación.
+          </p>
+          <ul className="mt-4 space-y-2 text-[15px] leading-[1.8] text-white/70">
+            <li>
+              <span className="text-white">Si eres particular:</span> DNI, carnet
+              de conducir, tus dos últimas nóminas, la última declaración de la
+              renta, la vida laboral y un certificado de titularidad bancaria.
+            </li>
+            <li>
+              <span className="text-white">Si eres autónomo:</span> DNI o NIE,
+              carnet de conducir, vida laboral, la última declaración de la renta,
+              los modelos de IVA (390 anual y 303 trimestrales), el alta censal
+              (modelo 036 o 037) y un certificado de titularidad bancaria.
+            </li>
+            <li>
+              <span className="text-white">Si representas a una empresa:</span>{" "}
+              CIF, DNI o NIE de los apoderados, carnet de conducir, escrituras de
+              constitución, balance de pérdidas y ganancias, el último impuesto de
+              sociedades, los modelos de IVA y un recibo de titularidad bancaria.
+            </li>
+          </ul>
+          <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
+            Puedes enviárnosla por el asistente de la web, por correo electrónico
+            o por WhatsApp, como prefieras. La lista exacta puede variar según lo
+            que pida la entidad de renting en cada caso, y te la indicaremos
+            siempre antes de que envíes nada.
+          </p>
+          <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
+            No tratamos ninguna categoría especial de datos de las previstas en el
+            artículo 9 del RGPD: no te pedimos información sobre tu salud, tus
+            creencias, tu afiliación sindical ni datos biométricos.
           </p>
 
           <h2
@@ -101,6 +136,17 @@ export default function PoliticaPrivacidadPage() {
               legal: tu consentimiento, que otorgas al marcar la casilla del
               formulario (art. 6.1.a del RGPD), y la aplicación de medidas
               precontractuales a petición tuya (art. 6.1.b).
+            </li>
+            <li>
+              <span className="text-white">
+                Estudiar y tramitar tu solicitud de renting
+              </span>{" "}
+              con la entidad correspondiente, para lo cual recabamos la
+              documentación indicada en el apartado anterior. Base legal: la
+              aplicación de medidas precontractuales a petición tuya (art. 6.1.b
+              del RGPD). Sin esa documentación la entidad no puede estudiar la
+              operación, así que no facilitarla significa que la solicitud no
+              puede seguir adelante.
             </li>
             <li>
               <span className="text-white">
@@ -161,9 +207,10 @@ export default function PoliticaPrivacidadPage() {
           <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
             Si eliges continuar la conversación por WhatsApp, ese canal se rige
             además por las condiciones de su propio proveedor. Cuando la gestión
-            de tu renting lo requiera, comunicaremos los datos necesarios a la
-            entidad financiera o al proveedor del vehículo que corresponda, y te
-            informaremos de ello. También pueden comunicarse datos a las
+            de tu renting lo requiera, comunicaremos los datos y la documentación
+            necesarios a la entidad de renting o al proveedor del vehículo que
+            corresponda, que es quien estudia y aprueba la operación. Te diremos
+            siempre a quién se envía tu expediente antes de hacerlo. También pueden comunicarse datos a las
             administraciones públicas cuando una norma lo exija.
           </p>
           <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
@@ -189,12 +236,46 @@ export default function PoliticaPrivacidadPage() {
             responsabilidades. Los datos de analítica se conservan de forma
             agregada según los plazos configurados en Google Analytics.
           </p>
+          <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
+            <span className="text-white">
+              La documentación que nos envíes tiene un plazo más corto:
+            </span>{" "}
+            si finalmente no se formaliza ningún renting, la eliminamos a los{" "}
+            <span className="text-white">seis meses</span> desde que nos la
+            enviaste. Si sí se formaliza, se conserva durante la vigencia del
+            contrato y los plazos legales que resulten aplicables. Puedes pedirnos
+            que la borremos antes en cualquier momento, y lo haremos salvo que
+            estemos obligados a conservarla.
+          </p>
 
           <h2
             className="mt-14 text-xl text-white"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
-            6. Tus derechos
+            6. Cómo protegemos tu documentación
+          </h2>
+          <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
+            Los archivos que nos envías por la web se guardan cifrados en un
+            almacenamiento privado, nunca en una carpeta pública ni en una
+            dirección que se pueda adivinar. No existe ningún enlace permanente a
+            ellos: cuando alguien de nuestro equipo necesita abrir un documento,
+            el sistema genera un enlace temporal que caduca a los pocos minutos.
+          </p>
+          <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
+            El acceso está limitado a las personas de MOVILEASE RENTING que
+            gestionan tu solicitud, cada una con su propia cuenta. Comprobamos
+            además el tipo y el tamaño real de cada archivo antes de aceptarlo.
+          </p>
+          <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
+            Si prefieres no enviar documentación por internet, puedes entregárnosla
+            por cualquier otra vía que acordemos contigo.
+          </p>
+
+          <h2
+            className="mt-14 text-xl text-white"
+            style={{ fontFamily: "var(--font-space-grotesk)" }}
+          >
+            7. Tus derechos
           </h2>
           <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
             Puedes ejercer en cualquier momento los derechos de acceso,
@@ -227,7 +308,7 @@ export default function PoliticaPrivacidadPage() {
             className="mt-14 text-xl text-white"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
-            7. Menores de edad
+            8. Menores de edad
           </h2>
           <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
             Este sitio no está dirigido a menores de 14 años y no recogemos sus
@@ -239,7 +320,7 @@ export default function PoliticaPrivacidadPage() {
             className="mt-14 text-xl text-white"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
-            8. Cookies y cambios en esta política
+            9. Cookies y cambios en esta política
           </h2>
           <p className="mt-4 text-[15px] leading-[1.8] text-white/70">
             El detalle de las cookies y del almacenamiento local que usa el sitio
