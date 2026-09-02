@@ -12,17 +12,27 @@ const ease = [0.16, 1, 0.3, 1] as const;
  * nada compita por la atención al mismo tiempo. Cada peldaño entra 200ms
  * después del anterior — el ritmo de keynote, no el de una animación web.
  */
-const STEP = 0.2;
+const STEP = 0.12;
 const BASE_DELAY = 0.45;
 
+/**
+ * Sin `filter: blur()`: no es transform ni opacity, así que obliga a rasterizar
+ * la capa de nuevo en cada fotograma, seis elementos a la vez, y uno de ellos
+ * es el h1 —el LCP de la portada— justo mientras el vídeo arranca su fundido.
+ * Con 44 px de desplazamiento el desenfoque no se echa en falta.
+ *
+ * Y el escalonado se acorta: con STEP 0,2 y 1,1 s de duración el último bloque
+ * no terminaba hasta 2,55 s y el CTA principal no estaba a plena opacidad
+ * hasta pasado el segundo y medio. Ahora cierra en 1,95 s conservando el ritmo
+ * de keynote.
+ */
 function rise(i: number, distance = 44) {
   return {
-    hidden: { opacity: 0, y: distance, filter: "blur(8px)" },
+    hidden: { opacity: 0, y: distance },
     visible: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 1.1, delay: BASE_DELAY + i * STEP, ease },
+      transition: { duration: 0.9, delay: BASE_DELAY + i * STEP, ease },
     },
   };
 }

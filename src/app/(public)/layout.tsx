@@ -4,6 +4,7 @@ import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { ComparisonBar } from "@/components/vehicles/ComparisonBar";
 import { LeadPopup } from "@/components/home/LeadPopup";
 import { CookieBanner } from "@/components/home/CookieBanner";
+import { MotionProvider } from "@/components/ui/MotionProvider";
 import { getVehiclesByBrand } from "@/lib/data/vehicles";
 
 export default async function PublicLayout({ children }: { children: React.ReactNode }) {
@@ -18,7 +19,7 @@ export default async function PublicLayout({ children }: { children: React.React
   }));
 
   return (
-    <>
+    <MotionProvider>
       <Header brands={navBrands} />
       <main id="contenido" className="flex-1 pt-0">
         {children}
@@ -28,6 +29,6 @@ export default async function PublicLayout({ children }: { children: React.React
       <ComparisonBar />
       <LeadPopup />
       <CookieBanner />
-    </>
+    </MotionProvider>
   );
 }

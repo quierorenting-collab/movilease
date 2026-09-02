@@ -181,9 +181,14 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
                   }`}
                 >
                   {link.label}
+                  {/* scaleX y no width: animar el ancho provoca layout y paint
+                      en cada fotograma, y aquí eso arrastra además el repintado
+                      del backdrop-blur de la barra fija. Mismo resultado
+                      visual. El patrón está copiado de .vehicle-card::after en
+                      globals.css, que ya lo resolvía así. */}
                   <span
-                    className={`absolute bottom-0 left-0 h-[1.5px] bg-[#0068FF] transition-all duration-300 group-hover:w-full ${
-                      isCurrent(link.href) || (hasMega && megaOpen) ? "w-full" : "w-0"
+                    className={`absolute bottom-0 left-0 h-[1.5px] w-full origin-left bg-[#0068FF] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 ${
+                      isCurrent(link.href) || (hasMega && megaOpen) ? "scale-x-100" : "scale-x-0"
                     }`}
                   />
                 </Link>
