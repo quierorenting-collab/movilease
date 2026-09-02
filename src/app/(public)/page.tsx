@@ -439,7 +439,7 @@ export default async function HomePage() {
 
                       <Link
                         href={`/${vehicle.modelSlug}`}
-                        className="group/link mt-4 flex items-center justify-between gap-2 border-t border-white/12 pt-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#8FBEFF] transition-colors hover:text-white"
+                        className="group/link mt-4 flex min-h-[44px] items-center justify-between gap-2 border-t border-white/12 pt-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#8FBEFF] transition-colors hover:text-white"
                       >
                         <span className="whitespace-nowrap">Ver ficha</span>
                         <span
@@ -679,17 +679,17 @@ export default async function HomePage() {
           <Reveal delay={0.15}>
             <div className="overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] backdrop-blur">
               {/* Header */}
-              <div className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-white/[0.08] bg-white/[0.02] px-6 py-5 sm:px-10">
+              <div className="grid grid-cols-[1fr_auto_auto] items-center gap-2 border-b border-white/[0.08] bg-white/[0.02] px-4 py-5 sm:gap-4 sm:px-10">
                 <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-white/90">
                   Comparativa
                 </span>
                 <span
-                  className="w-[100px] text-center text-[12px] font-bold uppercase tracking-[0.12em] text-[#5AA0FF] sm:w-[140px]"
+                  className="w-[84px] text-center text-[12px] font-bold uppercase tracking-[0.12em] text-[#5AA0FF] sm:w-[140px]"
                   style={{ fontFamily: "var(--font-space-grotesk)" }}
                 >
                   MoviLease
                 </span>
-                <span className="w-[100px] text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-white/90 sm:w-[140px]">
+                <span className="w-[84px] text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-white/90 sm:w-[140px]">
                   Compra
                 </span>
               </div>
@@ -698,10 +698,10 @@ export default async function HomePage() {
               {COMPARISON.map((row) => (
                 <div
                   key={row.feature}
-                  className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-white/5 px-6 py-5 transition-colors last:border-0 hover:bg-white/[0.03] sm:px-10"
+                  className="grid grid-cols-[1fr_auto_auto] items-center gap-2 border-b border-white/5 px-4 py-5 transition-colors last:border-0 hover:bg-white/[0.03] sm:gap-4 sm:px-10"
                 >
                   <span className="text-[14.5px] font-medium text-white/95">{row.feature}</span>
-                  <span className="flex w-[100px] items-center justify-center gap-1.5 sm:w-[140px]">
+                  <span className="flex w-[84px] items-center justify-center gap-1.5 sm:w-[140px]">
                     <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0">
                       <circle cx="8" cy="8" r="8" fill="#0068FF" fillOpacity="0.15" />
                       <path
@@ -714,7 +714,7 @@ export default async function HomePage() {
                     </svg>
                     <span className="text-[13px] font-semibold text-white">{row.movilease}</span>
                   </span>
-                  <span className="w-[100px] text-center text-[13px] text-white/90 sm:w-[140px]">
+                  <span className="w-[84px] text-center text-[13px] text-white/90 sm:w-[140px]">
                     {row.dealer}
                   </span>
                 </div>

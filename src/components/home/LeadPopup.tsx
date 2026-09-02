@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { buildWhatsAppLink } from "@/lib/constants";
+import { COOKIE_PREF_KEY } from "@/lib/analytics/consent";
 
 const SESSION_KEY = "qr_popup_v4";
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -36,8 +37,25 @@ export function LeadPopup() {
     if (SILENCED_PATHS.some((p) => pathname?.startsWith(p))) return;
 
     let done = false;
+    let reintento = 0;
     const trigger = () => {
       if (done) return;
+      /* El banner de cookies ocupa el mismo carril y va a z-50; este pop-up es
+         un modal a pantalla completa con z-[60], así que su velo deja el
+         banner detrás e inaccesible: el visitante no puede ni aceptar ni
+         rechazar, y en una primera visita coinciden siempre (banner a los
+         900 ms, pop-up a los 5 s). Mientras esa decisión siga pendiente, el
+         pop-up espera su turno en vez de pisarla. */
+      let decidido: string | null = "1";
+      try {
+        decidido = localStorage.getItem(COOKIE_PREF_KEY);
+      } catch {
+        /* Almacenamiento bloqueado: no se puede saber, así que no se estorba. */
+      }
+      if (!decidido) {
+        reintento = window.setTimeout(trigger, 2000);
+        return;
+      }
       done = true;
       cleanup();
       setOpen(true);
@@ -55,6 +73,7 @@ export function LeadPopup() {
 
     function cleanup() {
       window.clearTimeout(timer);
+      window.clearTimeout(reintento);
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("mouseout", onLeave);
     }

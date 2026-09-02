@@ -18,6 +18,13 @@ import { formatPriceFromCents } from "@/lib/utils";
  *
  * Si algún día se vuelve a aclarar la escala oscura, hay que volver a medir
  * esto: es lo que no se hizo la vez anterior.
+ *
+ * Y el ancho mínimo es responsivo por un motivo de negocio, no de maquetación:
+ * con min-w-[480px] fijo, a 375 px la tabla se salía 155 px de su contenedor y
+ * lo que quedaba fuera era justo la columna destacada — la del precio que
+ * anuncian el título de la página y el hero. El visitante de móvil llegaba
+ * buscando esa cifra y no la veía, salvo que descubriera que la tabla se
+ * desliza. A 320 px y con las celdas compactas, entra entera.
  */
 
 export function VehiclePricingTable({
@@ -36,16 +43,16 @@ export function VehiclePricingTable({
 
   return (
     <div className="overflow-x-auto rounded-2xl border border-white/20">
-      <table className="w-full min-w-[480px] border-collapse text-left">
+      <table className="w-full min-w-[320px] border-collapse text-left sm:min-w-[480px]">
         <thead>
           <tr className="border-b border-white/20">
-            <th className="px-5 py-4 text-[10px] font-bold uppercase tracking-[0.16em] text-on-dark-2">
+            <th className="px-3 py-4 text-[10px] font-bold uppercase tracking-[0.16em] text-on-dark-2 sm:px-5">
               Km / año
             </th>
             {months.map((m) => (
               <th
                 key={m}
-                className={`px-5 py-4 text-center text-[12px] font-bold uppercase tracking-[0.1em] ${
+                className={`px-3 py-4 text-center text-[12px] font-bold uppercase tracking-[0.1em] sm:px-5 ${
                   m === highlighted ? "bg-[#0068FF]/25 text-white" : "text-on-dark-2"
                 }`}
               >
@@ -58,7 +65,7 @@ export function VehiclePricingTable({
         <tbody>
           {kms.map((km, i) => (
             <tr key={km} className={i % 2 === 1 ? "bg-white/[0.02]" : undefined}>
-              <td className="px-5 py-3.5 text-[13px] font-medium text-on-dark-2">
+              <td className="px-3 py-3.5 text-[13px] font-medium text-on-dark-2 sm:px-5">
                 {km.toLocaleString("es-ES")} km
               </td>
               {months.map((m) => {
@@ -66,7 +73,7 @@ export function VehiclePricingTable({
                 return (
                   <td
                     key={m}
-                    className={`px-5 py-3.5 text-center text-[13.5px] font-semibold ${
+                    className={`px-3 py-3.5 text-center text-[13.5px] font-semibold sm:px-5 ${
                       m === highlighted ? "bg-[#0068FF]/25 text-white" : "text-on-dark-2"
                     }`}
                   >

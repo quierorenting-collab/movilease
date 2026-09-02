@@ -124,7 +124,7 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
           <CompareButton vehicleId={vehicle.id} />
           <Link
             href={`/${vehicle.modelSlug}`}
-            className="group/link flex min-h-[40px] items-center gap-1.5 px-1 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#0057D6] transition-colors hover:text-[#0A0A0A]"
+            className="group/link flex min-h-[44px] items-center gap-1.5 px-1 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#0057D6] transition-colors hover:text-[#0A0A0A]"
           >
             Ver ficha
             <span

@@ -491,6 +491,19 @@ summary:focus-visible,
               opacity var(--duration-fast) var(--easing-premium);
 }
 
+/* Estas cuatro clases fijan `display: inline-flex` fuera de toda @layer, así
+   que ganan a las utilidades de Tailwind por la regla de las capas: una regla
+   sin capa gana a una que está en capa, sea cual sea la especificidad. El
+   síntoma real era que el CTA de WhatsApp del header, marcado
+   `hidden sm:inline-flex`, se pintaba igualmente a 375 px y se comía la última
+   letra del logotipo. Esto le devuelve la prioridad a la utilidad. */
+.btn-primary.hidden,
+.btn-ghost.hidden,
+.btn-white.hidden,
+.btn-whatsapp.hidden {
+  display: none;
+}
+
 /* El click comprime ligeramente en vez de sólo volver a su sitio: da la
    sensación física de pulsar. Se aplica a los cuatro estilos de botón. */
 .btn-primary:active,
