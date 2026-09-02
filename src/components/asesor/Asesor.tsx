@@ -382,8 +382,8 @@ export function Asesor() {
           <Bloque
             texto={
               elegido
-                ? `Anotado el ${elegido.titulo}. Te contactamos en menos de 48 horas laborables.`
-                : "Recibido. Te contactamos en menos de 48 horas laborables."
+                ? `Anotado el ${elegido.titulo}. Te contactamos en menos de 24 horas.`
+                : "Recibido. Te contactamos en menos de 24 horas."
             }
           >
             {requisitos.length > 0 && (

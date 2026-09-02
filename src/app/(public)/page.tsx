@@ -61,7 +61,7 @@ const VENTAJAS = [
   { titulo: "Todo incluido", detalle: "Seguro, mantenimiento e impuestos" },
   { titulo: "Mejores ofertas", detalle: "Buscamos la cuota más baja" },
   { titulo: "El mismo asesor", detalle: "Antes, durante y después de la entrega" },
-  { titulo: "48 h", detalle: "Respuesta a tu solicitud" },
+  { titulo: "Menos de 24 h", detalle: "Te contactamos" },
 ];
 
 const MARQUEE_BRANDS = [
