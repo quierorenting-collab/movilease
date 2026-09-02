@@ -178,7 +178,7 @@ function SpecRow({ label, value }: { label: string; value: string | null | undef
     <div className="flex items-center gap-3 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-3">
       <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#0068FF]" />
       <span className="text-[13px] font-medium text-white/80">{value}</span>
-      <span className="ml-auto text-[10px] uppercase tracking-[0.1em] text-white/30">{label}</span>
+      <span className="ml-auto text-[10px] uppercase tracking-[0.1em] text-on-dark-3">{label}</span>
     </div>
   );
 }
@@ -398,7 +398,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
 
               {primary?.colors && primary.colors.length > 0 && (
                 <p className="mt-4 text-[13px] text-white/50">
-                  <span className="text-white/30">Colores disponibles: </span>
+                  <span className="text-on-dark-3">Colores disponibles: </span>
                   {primary.colors.join(" · ")}
                 </p>
               )}
@@ -413,7 +413,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
                     {primary.priceLabel}
                     <span className="ml-2 text-lg font-medium text-white/50">/mes</span>
                   </p>
-                  <p className="mt-1 text-[11px] text-white/30">IVA incluido</p>
+                  <p className="mt-1 text-[11px] text-on-dark-3">IVA incluido</p>
 
                   <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
                     <a href="#solicitar" className="btn-primary justify-center">
@@ -556,7 +556,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
 
                       <div className="flex flex-col items-start gap-4 sm:items-end">
                         <p
-                          className="text-2xl font-bold text-[#0068FF]"
+                          className="text-2xl font-bold text-[#8FBEFF]"
                           style={{ fontFamily: "var(--font-space-grotesk)" }}
                         >
                           {vehicle.priceLabel}
@@ -568,7 +568,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
                           )}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full border border-[#0068FF]/40 px-5 py-2 text-sm font-semibold text-[#0068FF] transition-colors duration-300 hover:bg-[#0068FF] hover:text-white"
+                          className="inline-flex items-center gap-2 rounded-full border border-[#5AA0FF]/55 px-5 py-2 text-sm font-semibold text-[#5AA0FF] transition-colors duration-300 hover:bg-[#0068FF] hover:text-white"
                         >
                           Me interesa
                           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">

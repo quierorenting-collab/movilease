@@ -338,7 +338,7 @@ export default async function CatalogoPage({
           <h1 className="display-lg text-white">
             {brands.length} marcas.
             <br />
-            <span className="text-[#0068FF]">
+            <span className="text-[#5AA0FF]">
               {brands.reduce((sum, b) => sum + b.vehicleCount, 0)} vehículos.
             </span>
           </h1>

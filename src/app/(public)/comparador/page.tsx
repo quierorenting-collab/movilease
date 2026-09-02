@@ -25,7 +25,7 @@ const ROWS: {
     emphasized: true,
     render: (v) => (
       <span
-        className="text-xl font-bold text-[#0068FF]"
+        className="text-xl font-bold text-[#5AA0FF]"
         style={{ fontFamily: "var(--font-space-grotesk)" }}
       >
         {v.priceLabel}

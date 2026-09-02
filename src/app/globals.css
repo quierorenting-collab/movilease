@@ -160,6 +160,18 @@
   animation: fab-in 420ms var(--easing-spring) 900ms both;
 }
 
+/* Tailwind aplica 150ms y su propia cubic-bezier(.4,0,.2,1) a cualquier
+   `transition-*` que no lleve `duration-`. Hay 39 sitios así frente a 33 con
+   duration-300, y se nota donde conviven: en un mismo enlace del mega-menú el
+   fondo cambiaba en 150 ms, el logo en 300 y el texto otra vez en 150. Aquí se
+   fija el valor por defecto a la curva de la casa. 220 ms y no 300 porque lo
+   que se anima sin duración explícita es casi siempre un color de enlace, no
+   un desplazamiento. Cualquier `duration-*` explícito sigue ganando. */
+@theme {
+  --default-transition-duration: 220ms;
+  --default-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
@@ -475,7 +487,8 @@ summary:focus-visible,
               border-color var(--duration-normal) var(--easing-premium),
               color var(--duration-normal) var(--easing-premium),
               transform var(--duration-normal) var(--easing-premium),
-              box-shadow var(--duration-normal) var(--easing-premium);
+              box-shadow var(--duration-normal) var(--easing-premium),
+              opacity var(--duration-fast) var(--easing-premium);
 }
 
 /* El click comprime ligeramente en vez de sólo volver a su sitio: da la
@@ -543,9 +556,12 @@ summary:focus-visible,
   color: #04240F;
   box-shadow: 0 2px 10px rgba(37,211,102,0.25);
 }
+/* Sin `color: #fff`: el blanco sobre --whatsapp-dark cae a 3,10:1, o sea que
+   el estado que confirma la pulsación era el que peor se leía. Heredando el
+   #04240F del estado normal sube a 5,36:1 y además desaparece el parpadeo de
+   tinta oscura a blanca. */
 .btn-whatsapp:hover {
   background: var(--whatsapp-dark);
-  color: #fff;
   transform: translateY(-4px);
   box-shadow: 0 14px 34px rgba(37,211,102,0.35);
 }
@@ -700,6 +716,21 @@ summary:focus-visible,
   color: var(--blue);
 }
 
+/* --blue-light se midió contra #071A3D, donde da 5,6:1. Después se aclaró toda
+   la escala oscura —surface-graphite arranca en #2358B4 y surface-carbon en
+   #2A62BE— y esta etiqueta no se volvió a medir: sobre ellas se queda en
+   2,53:1 y 2,20:1, y siempre se coloca en lo alto de la sección, que es el
+   punto más claro del degradado. Es texto de 11px en negrita, necesita 4,5:1.
+   #CFE4FF pasa AA en el peor punto de las dos: 5,18:1 y 4,51:1.
+
+   Va como selector descendiente (0,2,0) porque una utilidad de Tailwind en el
+   JSX no ganaría: globals.css no tiene @layer y todo lo de aquí pisa a las
+   utilidades. */
+.surface-graphite .section-label,
+.surface-carbon .section-label {
+  color: #CFE4FF;
+}
+
 /* Micro-etiquetas: legibles (11px) en lugar de 9px con tracking extremo */
 .eyebrow {
   display: block;
@@ -787,9 +818,9 @@ summary:focus-visible,
   color: #fff;
   outline: none;
   backdrop-filter: blur(8px);
-  transition: border-color var(--duration-normal) var(--easing),
-              background var(--duration-normal) var(--easing),
-              box-shadow var(--duration-normal) var(--easing);
+  transition: border-color var(--duration-normal) var(--easing-premium),
+              background var(--duration-normal) var(--easing-premium),
+              box-shadow var(--duration-normal) var(--easing-premium);
 }
 .input-glass::placeholder { color: rgba(255, 255, 255, 0.42); }
 .input-glass:hover { border-color: rgba(255, 255, 255, 0.26); }
@@ -819,8 +850,8 @@ select.input-glass option { background: var(--dark-2); color: #fff; }
   font-size: 1rem;
   color: var(--ink);
   outline: none;
-  transition: border-color var(--duration-normal) var(--easing),
-              box-shadow var(--duration-normal) var(--easing);
+  transition: border-color var(--duration-normal) var(--easing-premium),
+              box-shadow var(--duration-normal) var(--easing-premium);
 }
 .input-light::placeholder { color: #9AA2AE; }
 .input-light:focus {
@@ -858,14 +889,24 @@ select.input-glass option { background: var(--dark-2); color: #fff; }
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: linear-gradient(180deg, #1B4080 0%, #0C2454 100%);
-  transition: border-color var(--duration-slow) var(--easing),
-              transform var(--duration-normal) var(--easing),
-              box-shadow var(--duration-slow) var(--easing);
+  /* Antes: 600 ms para borde y sombra frente a 350 para el transform, así que
+     la tarjeta se despegaba antes de encenderse. Y con var(--easing), que es
+     el `ease` del navegador, no la curva de la casa. */
+  transition: border-color var(--duration-normal) var(--easing-premium),
+              transform var(--duration-normal) var(--easing-premium),
+              box-shadow var(--duration-normal) var(--easing-premium);
 }
-.card-dark:hover {
+.card-dark:hover,
+.card-dark:focus-within {
   border-color: rgba(90, 160, 255, 0.4);
   transform: translateY(-6px);
   box-shadow: 0 20px 60px rgba(0, 104, 255, 0.16);
+}
+/* Mismo patrón que .card-lift: quien navega con teclado ve el mismo estado, y
+   al pulsar la tarjeta responde en vez de quedarse quieta. */
+.card-dark:active {
+  transform: translateY(-2px) scale(0.995);
+  transition-duration: 140ms;
 }
 
 /* Divider for dark surfaces */
