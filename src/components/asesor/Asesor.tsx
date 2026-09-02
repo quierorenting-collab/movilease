@@ -78,7 +78,20 @@ const CARROCERIAS = [
   { valor: "4x4", etiqueta: "4x4" },
 ];
 
-export function Asesor() {
+/**
+ * `variante` decide quien pone el marco.
+ *
+ * En "pagina" el componente se pinta su propia tarjeta, como hasta ahora.
+ * En "ventana" NO se la pinta: el contenedor flotante ya aporta fondo opaco,
+ * borde y relleno, y duplicarlos daba doble marco y doble padding.
+ *
+ * Hay un motivo concreto para quitar el relleno aqui y no desde fuera: el
+ * `p-5 sm:p-7` de la raiz usa `sm:`, que mira el ancho del NAVEGADOR, no el de
+ * la ventana flotante. En un escritorio se aplicaba siempre, aunque el panel
+ * midiera 380 px, y se comia 56 de esos 380. Desde el className de fuera no
+ * habia forma de anularlo.
+ */
+export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana" }) {
   const pathname = usePathname();
 
   const [paso, setPaso] = useState<Paso>("inicio");
@@ -199,7 +212,13 @@ export function Asesor() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-2xl rounded-2xl border border-white/12 bg-white/[0.03] p-5 sm:p-7">
+    <div
+      className={
+        variante === "ventana"
+          ? "w-full"
+          : "mx-auto w-full max-w-2xl rounded-2xl border border-white/12 bg-white/[0.03] p-5 sm:p-7"
+      }
+    >
       {/* aria-live: quien use lector de pantalla tiene que enterarse de que el
           panel ha cambiado de paso, porque no hay navegación real entre ellos. */}
       <div aria-live="polite" className="flex flex-col gap-3">

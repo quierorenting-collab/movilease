@@ -649,6 +649,33 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
                 <FAQAccordion items={faqModelo} />
               </div>
             </Reveal>
+
+            {/* Misma salida que al pie de la FAQ de la home. Va aqui y no en el
+                panel del precio por dos razones: arriba competiria con
+                "Solicitar oferta", que es el CTA que tiene que ganar, y ese
+                panel se acaba de dejar en tres botones justo por eso. Y aqui
+                el visitante ya ha leido las dudas frecuentes sin resolver la
+                suya, asi que llega al asesor con la pregunta concreta hecha.
+
+                Los colores no son los de la home: alli el fondo es oscuro.
+                Sobre blanco, #0057D6 da 6,30:1 y #4B5563 da 7,56:1; el
+                #5AA0FF de la home se quedaria en 2,4:1 e ilegible.
+
+                La seccion entera es condicional, pero faqModelo nunca baja de
+                cuatro preguntas (dos son incondicionales y la pagina solo se
+                renderiza con vehiculos activos), asi que esto sale en todas
+                las fichas. */}
+            <Reveal delay={0.15}>
+              <p className="mt-8 text-center text-[15px] text-[#4B5563]">
+                ¿Tu duda no está aquí?{" "}
+                <Link
+                  href="/asesor"
+                  className="font-semibold text-[#0057D6] underline underline-offset-4"
+                >
+                  Habla con nuestro asesor
+                </Link>
+              </p>
+            </Reveal>
           </div>
         </section>
       )}

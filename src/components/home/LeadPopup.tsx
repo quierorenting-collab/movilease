@@ -56,6 +56,15 @@ export function LeadPopup() {
         reintento = window.setTimeout(trigger, 2000);
         return;
       }
+      /* Misma cortesia con la ventana del asesor: este pop-up va a z-[60] y la
+         ventana a z-[35], asi que saltar encima taparia al visitante justo
+         mientras esta conversando. Espera a que la cierre en vez de
+         interrumpirle; si nunca la cierra, es que el asesor ya esta haciendo
+         el trabajo que este pop-up venia a hacer. */
+      if (document.documentElement.dataset.asesorAbierto) {
+        reintento = window.setTimeout(trigger, 2000);
+        return;
+      }
       done = true;
       cleanup();
       setOpen(true);

@@ -103,6 +103,34 @@
 .bottom-bar { bottom: calc(1rem + var(--bottom-inset)); }
 .bottom-dock { bottom: var(--bottom-inset); }
 
+/* Segundo peldano del carril: se apoya SOBRE el boton de WhatsApp en vez de
+   compartir sitio con el. 1,5rem de suelo + 3,5rem que mide el de abajo
+   (h-14) + 0,75rem de aire = 5,75rem. Comparte --bottom-inset, asi que los
+   dos suben juntos cuando el banner de cookies reserva su franja.
+
+   Tiene que ser una clase de este archivo y no una utilidad `bottom-*` de
+   Tailwind: globals.css no tiene ni una @layer, asi que .bottom-fab gana a
+   cualquier utilidad por mucho que se escriba despues en el className. */
+.bottom-fab-2 { bottom: calc(5.75rem + var(--bottom-inset)); }
+
+/* En pantallas muy bajas (movil apaisado, teclado abierto) el segundo boton
+   se meteria debajo de la cabecera. Antes que solaparse, no se pinta. */
+@media (max-height: 480px) {
+  .bottom-fab-2 { display: none; }
+}
+
+/* La ventana del asesor se apoya sobre su propio boton: 5,75rem donde empieza
+   el boton + 3,5rem que mide + 0,75rem de aire = 10rem. Sube con el carril.
+
+   El alto maximo se calcula aqui y no con una utilidad de Tailwind porque
+   tiene que restar --bottom-inset: cuando el banner de cookies reserva su
+   franja, la ventana no solo sube, tambien tiene menos sitio. Con 100dvh (no
+   100vh) para que en el movil cuente la barra del navegador. */
+.asesor-ventana {
+  bottom: calc(10rem + var(--bottom-inset));
+  max-height: min(560px, calc(100dvh - 17rem - var(--bottom-inset)));
+}
+
 /* ══════════════════════════════════════════════════
    REVEAL AL HACER SCROLL (ver components/ui/Reveal.tsx)
    ══════════════════════════════════════════════════ */
@@ -158,6 +186,13 @@
 }
 .fab-enter {
   animation: fab-in 420ms var(--easing-spring) 900ms both;
+}
+/* 180 ms mas tarde que el de WhatsApp para que los dos botones no aparezcan
+   en el mismo fotograma: primero el verde, despues el asesor apoyandose
+   encima. Aparecer a la vez se lee como un bloque; escalonado se lee como
+   dos cosas distintas. */
+.fab-enter-2 {
+  animation: fab-in 420ms var(--easing-spring) 1080ms both;
 }
 
 /* Tailwind aplica 150ms y su propia cubic-bezier(.4,0,.2,1) a cualquier

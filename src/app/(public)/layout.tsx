@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { AsesorFlotante } from "@/components/asesor/AsesorFlotante";
 import { ComparisonBar } from "@/components/vehicles/ComparisonBar";
 import { LeadPopup } from "@/components/home/LeadPopup";
 import { CookieBanner } from "@/components/home/CookieBanner";
@@ -26,6 +27,7 @@ export default async function PublicLayout({ children }: { children: React.React
       </main>
       <Footer />
       <WhatsAppButton />
+      <AsesorFlotante />
       <ComparisonBar />
       <LeadPopup />
       <CookieBanner />
