@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 /**
  * Fondo de vídeo para secciones, pensado para no costar nada a quien no llega
@@ -101,10 +102,29 @@ export function VideoBackdrop({
       ref={hostRef}
       aria-hidden="true"
       className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
-      style={{
-        background: poster ? `${base} ${position}/cover no-repeat url(${poster})` : base,
-      }}
+      style={{ background: base }}
     >
+      {/* El póster iba como `background: url(...)` en línea. Un fondo CSS no
+          pasa por /_next/image —ni AVIF ni ancho adaptado— y no admite carga
+          diferida: el navegador lo pide en cuanto el elemento se renderiza,
+          esté donde esté en la página. La home usa seis de estos y cinco están
+          muy por debajo del pliegue: 421 KB pedidos en los primeros 91 ms,
+          compitiendo con el recurso del LCP.
+
+          Con <Image> y sin `priority`, los de abajo esperan a acercarse.
+          Importante: aquí NO va `filter`. El filtro es del vídeo, y aplicarlo
+          también al póster cambiaría el aspecto del fondo antes y después de
+          que el vídeo arranque. */}
+      {poster && (
+        <Image
+          src={poster}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectPosition: position }}
+        />
+      )}
       {shouldLoad && (mp4 || webm) && (
         <video
           ref={videoRef}

@@ -30,6 +30,14 @@ export function Logo({
     <img
       src="/logo.svg"
       alt="MoviLease — Smart Mobility Platform"
+      /* Sin width/height el navegador no conoce la proporción hasta que llegan
+         los 13 KB del SVG, así que el ancho usado es 0 y la fila del header
+         —un flex con justify-between— se recoloca de golpe al llegar. Es un
+         salto de maquetación encima del pliegue, en todas las páginas. Los dos
+         números salen del viewBox del propio fichero: "193 315 1131 266". Con
+         un alto fijado por CSS y width auto, el ancho queda reservado. */
+      width={1131}
+      height={266}
       style={{
         height,
         width: "auto",

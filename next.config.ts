@@ -85,6 +85,35 @@ const nextConfig: NextConfig = {
       })),
     ];
   },
+  /**
+   * Vercel sirve todo lo de public/ con `max-age=0, must-revalidate`, así que
+   * en cada visita repetida hay una ida y vuelta de red por imagen —devuelven
+   * 304 con 300 B, pero se paga la latencia— y /_next/image copia esa cabecera
+   * del origen.
+   *
+   * Los plazos son distintos a propósito, porque el riesgo no es el mismo:
+   * los vídeos y los logos de marca no cambian nunca, pero las fotos de coche
+   * SÍ se reemplazan conservando el nombre cuando se actualiza el catálogo
+   * desde el Drive. Con siete días ahí, una foto nueva tardaría una semana en
+   * verse; con un día, como mucho hasta mañana.
+   */
+  async headers() {
+    return [
+      {
+        source: "/coches-nuevos/:file*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=86400" }],
+      },
+      {
+        source: "/videos/:file*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=604800" }],
+      },
+      {
+        source: "/brands/:file*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=604800" }],
+      },
+    ];
+  },
+
   images: {
     // AVIF primero: en fotos de coche baja un 20-30 % respecto a WebP
     formats: ["image/avif", "image/webp"],

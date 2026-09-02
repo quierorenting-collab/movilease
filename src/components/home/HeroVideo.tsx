@@ -20,18 +20,58 @@ export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [loaded, setLoaded] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+  /* La <source> no se monta en el primer render. Con autoPlay, es montarla lo
+     que dispara la descarga, así que este estado es el interruptor. */
+  const [fuenteLista, setFuenteLista] = useState(false);
 
   useEffect(() => {
     setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }, []);
 
+
+  /* El vídeo son 840 KB —el 54 % de todo lo que pide la home— y con
+     preload="auto" el navegador los pedía a los 65 ms, ANTES de que terminara
+     de llegar el póster, que es el recurso del LCP. O sea que el fondo
+     decorativo competía con lo que el visitante ha venido a leer.
+     Se espera a que el navegador esté ocioso: el póster ya está pintado desde
+     el primer render, así que el hero se ve igual mientras tanto. */
   useEffect(() => {
+    if (reducedMotion) return;
+    const arranca = () => setFuenteLista(true);
+    const w = window as typeof window & {
+      requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
+    };
+    if (typeof w.requestIdleCallback === "function") {
+      w.requestIdleCallback(arranca, { timeout: 1200 });
+      return;
+    }
+    const t = window.setTimeout(arranca, 1200);
+    return () => window.clearTimeout(t);
+  }, [reducedMotion]);
+
+  /* Todo el arranque del vídeo va aquí, y no en un efecto de montaje, porque
+     al montar todavía no hay <source>: un escuchador registrado entonces no
+     sirve de nada, y para cuando la fuente aparece el evento puede haber
+     pasado ya. Por eso además del evento se comprueba el readyState, que es lo
+     que ocurría en la práctica — el vídeo llegaba a HAVE_ENOUGH_DATA pero se
+     quedaba en pausa y con opacidad 0, o sea que el hero se quedaba sin fondo.
+     Y montar la <source> tampoco basta: un <video> que ya intentó cargar no
+     vuelve a hacerlo solo porque le aparezca una fuente nueva. */
+  useEffect(() => {
+    if (!fuenteLista) return;
     const v = videoRef.current;
     if (!v) return;
-    const onCanPlay = () => setLoaded(true);
-    v.addEventListener("canplay", onCanPlay, { once: true });
-    return () => v.removeEventListener("canplay", onCanPlay);
-  }, []);
+    const listo = () => {
+      setLoaded(true);
+      // Va muted, así que la política de autorreproducción lo permite. Si aun
+      // así lo rechaza, se traga: el póster ya está pintado.
+      v.play().catch(() => {});
+    };
+    v.addEventListener("canplay", listo);
+    v.load();
+    if (v.readyState >= 3) listo();
+    return () => v.removeEventListener("canplay", listo);
+  }, [fuenteLista]);
 
   return (
     <div className="absolute inset-0 overflow-hidden bg-[#071A3D]">
@@ -61,11 +101,11 @@ export function HeroVideo() {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="none"
             className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-out"
             style={{ opacity: loaded ? 1 : 0, filter: FILTER }}
           >
-            <source src="/videos/hero.mp4" type="video/mp4" />
+            {fuenteLista && <source src="/videos/hero.mp4" type="video/mp4" />}
           </video>
         </div>
       )}

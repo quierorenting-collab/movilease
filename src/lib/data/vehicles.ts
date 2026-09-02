@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import { createPublicClient } from "@/lib/supabase/server";
 import { formatPriceFromCents } from "@/lib/utils";
 import { getBrandLogoUrl } from "@/lib/brand-logos";
@@ -412,7 +413,11 @@ export async function getModelBySlugWithVehicles(slug: string): Promise<ModelDet
   }
 }
 
-export async function getCatalogVehicles(filters: CatalogFilters = {}): Promise<VehicleCardData[]> {
+/* Memorizada por petición con el cache() de React. /catalogo ejecutaba nueve
+   idas y vueltas a Supabase por visita en lugar de tres, porque el layout, el
+   Footer y la propia página piden lo mismo por separado. No cambia el
+   comportamiento: solo evita repetir la misma consulta dentro de un render. */
+export const getCatalogVehicles = cache(async (filters: CatalogFilters = {}): Promise<VehicleCardData[]> => {
   try {
     const supabase = createPublicClient();
     let query = supabase.from("vehicles").select(CARD_COLUMNS).eq("is_active", true);
@@ -430,7 +435,7 @@ export async function getCatalogVehicles(filters: CatalogFilters = {}): Promise<
   } catch {
     return [];
   }
-}
+});
 
 export interface BrandSummary {
   brandName: string;
@@ -448,7 +453,7 @@ export interface VehiclesByBrand {
 
 const PREMIUM_BRANDS = new Set(["BMW", "Mercedes", "Audi", "Tesla", "Volvo", "Lexus", "Porsche"]);
 
-export async function getVehiclesByBrand(): Promise<VehiclesByBrand> {
+export const getVehiclesByBrand = cache(async (): Promise<VehiclesByBrand> => {
   const all = await getCatalogVehicles({});
 
   const map: Record<string, VehicleCardData[]> = {};
@@ -470,7 +475,7 @@ export async function getVehiclesByBrand(): Promise<VehiclesByBrand> {
     .sort((a, b) => a.brandName.localeCompare(b.brandName));
 
   return { brands, vehiclesByBrand: map };
-}
+});
 
 /**
  * Otros modelos de la misma marca, para enlazar desde una ficha.

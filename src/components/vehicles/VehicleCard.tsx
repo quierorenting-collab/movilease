@@ -30,7 +30,7 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
               alt={`${vehicle.brandName} ${vehicle.modelName}`}
               fill
               className="object-contain p-3 transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 384px"
             />
           ) : (
             <div className="flex h-full items-center justify-center">
