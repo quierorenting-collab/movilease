@@ -826,6 +826,17 @@ export default async function HomePage() {
               <FAQAccordion items={FAQ_ITEMS} />
             </div>
           </Reveal>
+          {/* Salida para quien llega hasta el final de la FAQ sin resolver lo
+              suyo: ahí ya sabemos que tiene una duda concreta, y el asesor la
+              atiende sin que tenga que dejar el teléfono por delante. */}
+          <Reveal delay={0.15}>
+            <p className="mt-8 text-center text-[15px] text-white/70">
+              ¿Tu duda no está aquí?{" "}
+              <Link href="/asesor" className="font-semibold text-[#5AA0FF] underline underline-offset-4">
+                Habla con nuestro asesor
+              </Link>
+            </p>
+          </Reveal>
         </div>
       </section>
 

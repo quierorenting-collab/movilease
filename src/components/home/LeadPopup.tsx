@@ -10,7 +10,7 @@ const SESSION_KEY = "qr_popup_v4";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 /** Páginas que ya tienen el formulario delante: interrumpir ahí solo estorba. */
-const SILENCED_PATHS = ["/contacto", "/favoritos"];
+const SILENCED_PATHS = ["/contacto", "/favoritos", "/asesor"];
 
 export function LeadPopup() {
   const pathname = usePathname();

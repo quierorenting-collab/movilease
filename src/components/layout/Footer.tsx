@@ -120,6 +120,7 @@ export async function Footer() {
             <ul role="list" className="flex flex-col gap-3.5">
               {[
                 { label: "Catálogo", href: "/catalogo" },
+                { label: "Asesor", href: "/asesor" },
                 { label: "Calculadora", href: "/calculadora" },
                 { label: "Comparador", href: "/comparador" },
                 { label: "Blog", href: "/blog" },

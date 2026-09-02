@@ -11,6 +11,13 @@ export interface CreateLeadResult {
   success: boolean;
   error?: string;
   whatsappLink?: string;
+  /**
+   * Id de la fila insertada. Lo necesita el asesor guiado para enlazar el
+   * expediente con su lead (`expedientes.lead_id`); sin esto habría que
+   * reconsultar por teléfono, que no identifica de forma única.
+   * Añadido, no sustituido: quien no lo mire sigue funcionando igual.
+   */
+  leadId?: string;
 }
 
 export async function createLead(formData: FormData): Promise<CreateLeadResult> {
@@ -123,6 +130,7 @@ export async function createLead(formData: FormData): Promise<CreateLeadResult> 
 
     return {
       success: true,
+      leadId: insertedLead.id,
       whatsappLink: buildWhatsAppLink(`Hola, soy ${name}, me gustaría más información sobre renting.`),
     };
   } catch {

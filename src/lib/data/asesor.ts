@@ -230,6 +230,59 @@ export async function getExpedientePorConversacion(
   }
 }
 
+/**
+ * Crea la conversación y su expediente en un solo paso.
+ *
+ * Los dos van juntos porque `expedientes.conversation_id` es NOT NULL y UNIQUE:
+ * un expediente sin conversación no se puede insertar, y dos expedientes sobre
+ * la misma conversación tampoco. Si el expediente falla, se borra la
+ * conversación recién creada para no dejar filas huérfanas — Postgres no puede
+ * darnos atomicidad aquí porque PostgREST no expone transacciones.
+ */
+export async function crearExpediente(opts: {
+  sessionTokenHash: string;
+  clientType: ClientTypeEnum;
+  vehicleId?: string | null;
+  leadId?: string | null;
+}): Promise<{ expediente: Expediente; conversation: Conversation } | null> {
+  try {
+    const supabase = createAdminClient();
+
+    const { data: conv, error: errConv } = await supabase
+      .from("conversations")
+      .insert({
+        session_token_hash: opts.sessionTokenHash,
+        client_type: opts.clientType,
+        vehicle_id: opts.vehicleId ?? null,
+      })
+      .select()
+      .single();
+    if (errConv || !conv) return null;
+
+    const { data: exp, error: errExp } = await supabase
+      .from("expedientes")
+      .insert({
+        conversation_id: (conv as Conversation).id,
+        lead_id: opts.leadId ?? null,
+        client_type: opts.clientType,
+        vehicle_id: opts.vehicleId ?? null,
+        status: "contacto_recibido",
+        doc_status: "sin_iniciar",
+      })
+      .select()
+      .single();
+
+    if (errExp || !exp) {
+      await supabase.from("conversations").delete().eq("id", (conv as Conversation).id);
+      return null;
+    }
+
+    return { expediente: exp as Expediente, conversation: conv as Conversation };
+  } catch {
+    return null;
+  }
+}
+
 export interface EstadoDocumental {
   requisito: RequisitoResuelto;
   recibidos: number;
