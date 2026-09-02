@@ -60,8 +60,8 @@ export const metadata: Metadata = pageMetadata({
 const VENTAJAS = [
   { titulo: "Todo incluido", detalle: "Seguro, mantenimiento e impuestos" },
   { titulo: "Mejores ofertas", detalle: "Buscamos la cuota más baja" },
-  { titulo: "El mismo asesor", detalle: "Antes, durante y después de la entrega" },
-  { titulo: "Menos de 24 h", detalle: "Te contactamos" },
+  { titulo: "El mismo asesor", detalle: "No hablas con uno distinto cada vez" },
+  { titulo: "48 h", detalle: "Respuesta a tu solicitud" },
 ];
 
 const MARQUEE_BRANDS = [

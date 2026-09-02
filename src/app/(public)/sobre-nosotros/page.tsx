@@ -78,7 +78,7 @@ const VENTAJAS = [
   { titulo: "Sin entrada", detalle: "0 € de desembolso al empezar" },
   { titulo: "Te acompañamos", detalle: "También cuando ya tienes el coche" },
   { titulo: "Entrega a domicilio", detalle: "Donde nos digas, en toda España" },
-  { titulo: "El mismo asesor", detalle: "La misma persona de principio a fin" },
+  { titulo: "El mismo asesor", detalle: "No hablas con uno distinto cada vez" },
 ];
 
 function CheckIcon() {
