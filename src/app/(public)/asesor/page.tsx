@@ -19,8 +19,8 @@ export default function AsesorPage() {
           <h1 className="display-md text-white">Te ayudamos a elegir</h1>
           <p className="mx-auto mt-6 max-w-xl text-[16px] leading-relaxed text-white/70">
             Unas pocas preguntas y te enseñamos los coches que encajan de verdad
-            con lo que buscas, con su cuota real. Sin dejar ningún dato hasta que
-            veas algo que te interese.
+            con lo que buscas, con su cuota real y sin compromiso. Te damos
+            respuesta en menos de 48 horas laborables.
           </p>
         </div>
       </section>
