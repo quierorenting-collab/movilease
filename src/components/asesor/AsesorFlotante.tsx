@@ -4,6 +4,9 @@ import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
+import { EVENTO_ABRIR_ASESOR, type ContextoCoche, type DetalleAbrirAsesor } from "./abrirAsesor";
+import { ContextoCocheCard } from "./ContextoCocheCard";
+
 /* El asesor compilado son unos 11 KB, pero lo caro no son los bytes: su efecto
    de arranque pide /api/asesor/faq nada mas montarse. Importado de forma
    normal, cada visita a cada pagina publica pagaria esa peticion aunque nadie
@@ -52,6 +55,11 @@ export function AsesorFlotante() {
      expediente con los mismos datos. */
   const [montado, setMontado] = useState(false);
   const [abierto, setAbierto] = useState(false);
+  /* De que coche venia quien abrio la ventana. Solo se usa para el subtitulo:
+     el recorrido del asesor empieza igual, pero quien pincha desde un coche
+     concreto necesita ver que la ventana sabe de cual habla, y poder consultar
+     sus cuotas sin salir de la conversacion. */
+  const [cocheOrigen, setCocheOrigen] = useState<ContextoCoche | undefined>();
   const botonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -60,6 +68,21 @@ export function AsesorFlotante() {
     setMontado(true);
     setAbierto(true);
   }
+
+  /* Cualquier boton de la web puede abrir esta ventana lanzando el evento.
+     Se escucha aqui y no se expone un contexto porque las paginas que llevan
+     esos botones —home, ficha, catalogo— son de servidor: un proveedor las
+     obligaria a hacerse de cliente enteras. */
+  useEffect(() => {
+    const onAbrir = (e: Event) => {
+      const detalle = (e as CustomEvent<DetalleAbrirAsesor>).detail;
+      setCocheOrigen(detalle?.coche);
+      setMontado(true);
+      setAbierto(true);
+    };
+    window.addEventListener(EVENTO_ABRIR_ASESOR, onAbrir);
+    return () => window.removeEventListener(EVENTO_ABRIR_ASESOR, onAbrir);
+  }, []);
 
   useEffect(() => {
     if (!abierto) return;
@@ -159,7 +182,9 @@ export function AsesorFlotante() {
           <div className="flex items-center justify-between gap-3 border-b border-white/10 px-5 py-3.5">
             <div>
               <p className="text-[13px] font-semibold text-white">Asesor MoviLease</p>
-              <p className="text-[11px] text-white/55">Siempre el mismo asesor</p>
+              <p className="text-[11px] text-white/55">
+                {cocheOrigen ? `Sobre el ${cocheOrigen.nombre}` : "Siempre el mismo asesor"}
+              </p>
             </div>
             <button
               type="button"
@@ -184,6 +209,7 @@ export function AsesorFlotante() {
               alto, y sin scroll el boton de WhatsApp del cierre se quedaria
               fuera de la ventana justo en el momento de convertir. */}
           <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4">
+            {cocheOrigen && <ContextoCocheCard coche={cocheOrigen} />}
             <Asesor variante="ventana" />
           </div>
         </div>

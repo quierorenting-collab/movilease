@@ -1,4 +1,6 @@
 import Image from "next/image";
+
+import { BotonAsesor } from "@/components/asesor/BotonAsesor";
 import Link from "next/link";
 import type { VehicleCardData } from "@/lib/data/vehicles";
 import { FUEL_TYPE_LABELS, TRANSMISSION_LABELS, buildWhatsAppLink } from "@/lib/constants";
@@ -119,9 +121,39 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
           </a>
         </div>
 
-        {/* Comparador + acceso directo a la ficha */}
+        {/* Comparador + asesor + acceso directo a la ficha */}
         <div className="mt-4 flex items-center justify-between gap-3 border-t border-[#EDEFF2] pt-3.5">
           <CompareButton vehicleId={vehicle.id} />
+          <div className="flex items-center gap-1">
+          {/* Solo el icono: en una rejilla de tarjetas no hay sitio para un
+              cuarto boton con texto, y "Lo quiero" y "Ver ficha" tienen que
+              seguir mandando. Al pulsarlo se abre la ventana sabiendo de que
+              coche se habla, asi que el visitante no tiene que explicarlo.
+
+              La tarjeta no conoce la tabla de cuotas —VehicleCardData es un
+              resumen del catalogo, sin pricing_tiers—, asi que viaja lo que si
+              tiene. La tarjeta de contexto se adapta y no enseña el desplegable
+              de cuotas cuando no las recibe.
+
+              #0057D6 y no el azul de marca: esta tarjeta es blanca, y ahi el
+              #0068FF se queda corto mientras que este da 6,30:1. */}
+          <BotonAsesor
+            coche={{
+              nombre: `${vehicle.brandName} ${vehicle.modelName}`,
+              marca: vehicle.brandName,
+              modelo: vehicle.modelName,
+              version: vehicle.version,
+              slug: vehicle.modelSlug,
+              desde: vehicle.priceLabel,
+            }}
+            conIcono={false}
+            className="flex h-11 w-11 items-center justify-center rounded-full text-[#0057D6] transition-colors duration-200 hover:bg-[#0057D6]/10"
+          >
+            <svg viewBox="0 0 24 24" className="h-[18px] w-[18px] fill-current" aria-hidden="true">
+              <path d="M12 3c-4.97 0-9 3.36-9 7.5 0 2.3 1.25 4.36 3.2 5.73-.13.98-.5 2.2-1.4 3.28-.2.24-.02.6.29.55 1.9-.3 3.4-1.15 4.35-1.83.82.17 1.68.27 2.56.27 4.97 0 9-3.36 9-7.5S16.97 3 12 3z" />
+            </svg>
+            <span className="sr-only">Preguntar al asesor sobre el {vehicle.brandName} {vehicle.modelName}</span>
+          </BotonAsesor>
           <Link
             href={`/${vehicle.modelSlug}`}
             className="group/link flex min-h-[44px] items-center gap-1.5 px-1 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#0057D6] transition-colors hover:text-[#0A0A0A]"
@@ -134,6 +166,7 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
               →
             </span>
           </Link>
+          </div>
         </div>
       </div>
     </div>

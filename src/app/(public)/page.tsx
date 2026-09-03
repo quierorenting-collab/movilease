@@ -9,6 +9,7 @@ import { HeroVideo } from "@/components/home/HeroVideo";
 import { HeroContent } from "@/components/home/HeroContent";
 import { FAQAccordion } from "@/components/home/FAQAccordion";
 import { LeadForm } from "@/components/forms/LeadForm";
+import { BotonAsesor } from "@/components/asesor/BotonAsesor";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import {
@@ -834,14 +835,35 @@ export default async function HomePage() {
           </Reveal>
           {/* Salida para quien llega hasta el final de la FAQ sin resolver lo
               suyo: ahí ya sabemos que tiene una duda concreta, y el asesor la
-              atiende sin que tenga que dejar el teléfono por delante. */}
+              atiende sin que tenga que dejar el teléfono por delante.
+
+              Era una línea de texto pequeña al 83% de la página, el único
+              acceso al asesor que tenía la home. Ahora es un bloque de verdad,
+              y el botón ABRE LA VENTANA en vez de mandar a otra página: quien
+              ha bajado hasta aquí leyendo no debería perder el sitio.
+
+              Se mantiene además el enlace a /asesor porque es una página real
+              e indexable, y un botón que solo funciona con JavaScript no la
+              sustituye. */}
           <Reveal delay={0.15}>
-            <p className="mt-8 text-center text-[15px] text-white/70">
-              ¿Tu duda no está aquí?{" "}
-              <Link href="/asesor" className="font-semibold text-[#5AA0FF] underline underline-offset-4">
-                Habla con nuestro asesor
-              </Link>
-            </p>
+            <div className="mt-10 rounded-2xl border border-white/12 bg-white/[0.04] px-6 py-8 text-center sm:px-10">
+              <p className="display-sm text-white">¿Tu duda no está aquí?</p>
+              <p className="mx-auto mt-3 max-w-xl text-[15px] leading-relaxed text-white/70">
+                Te ayudamos a encontrar tu coche y la cuota de renting que mejor
+                encaja contigo. Sin compromiso y sin dejar la página.
+              </p>
+              <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <BotonAsesor className="btn-primary justify-center">
+                  Habla con nuestro asesor
+                </BotonAsesor>
+                <Link
+                  href="/asesor"
+                  className="text-[14px] font-semibold text-[#5AA0FF] underline underline-offset-4 transition-colors hover:text-white"
+                >
+                  o abre el asesor en su página
+                </Link>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

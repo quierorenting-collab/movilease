@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+
+import { BotonAsesor } from "@/components/asesor/BotonAsesor";
 import Link from "next/link";
 import { buildWhatsAppLink } from "@/lib/constants";
 
@@ -122,10 +124,21 @@ export function HeroContent() {
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-ghost justify-center"
+            className="btn-whatsapp justify-center"
           >
             Hablar por WhatsApp
           </a>
+          {/* Tercera salida del hero, y por eso WhatsApp pasa aqui a verde:
+              con tres botones, dos en .btn-ghost habrian quedado como dos
+              cajas gemelas y nada indicaria que una abre un chat de WhatsApp y
+              otra el asesor. Es el mismo criterio que ya se aplico en el panel
+              de precio de la ficha. El verde ademas no es ajeno a esta pagina:
+              el cierre de la home ya lo usa.
+
+              Abre la ventana sin salir de la home. */}
+          <BotonAsesor className="btn-ghost justify-center">
+            Habla con el asesor
+          </BotonAsesor>
         </motion.div>
 
         {/* Trust indicators */}

@@ -29,6 +29,7 @@ import {
 } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
+import { BotonAsesor } from "@/components/asesor/BotonAsesor";
 
 export const revalidate = 1800;
 
@@ -450,6 +451,45 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
                       Llamar
                     </a>
                   </div>
+
+                  {/* Cuarta salida, pero NO un cuarto boton: los tres de arriba
+                      son de peso completo y competir con ellos volveria a
+                      diluir "Solicitar oferta". Esto es una linea discreta.
+
+                      Abre la ventana en vez de llevar a /asesor: quien esta
+                      mirando este coche sigue viendolo mientras pregunta. Y le
+                      pasa el nombre del modelo, asi que la ventana se abre
+                      diciendo de que coche habla.
+
+                      #5AA0FF y no el azul de marca: sobre este fondo oscuro el
+                      #0068FF se queda en 3,1:1 y no pasa AA; el claro llega a
+                      5,6:1. Esta en la regla de contraste del contexto
+                      maestro. */}
+                  <BotonAsesor
+                    coche={{
+                      nombre: fullName,
+                      marca: model.brandName,
+                      modelo: model.model.name,
+                      version: primary.version,
+                      slug: model.model.slug,
+                      desde: primary.priceLabel,
+                      kmAnuales: primary.annualKm,
+                      meses: primary.contractMonths,
+                      serviciosIncluidos: services,
+                      /* Van TODAS las filas de la tabla, ya formateadas. Es el
+                         mismo array que pinta VehiclePricingTable mas abajo,
+                         asi que la ventana no puede enseñar una cuota distinta
+                         de la que el visitante tiene delante. */
+                      cuotas: primary.pricingTiers.map((t) => ({
+                        meses: t.contractMonths,
+                        km: t.annualKm,
+                        precio: t.priceLabel,
+                      })),
+                    }}
+                    className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 py-2.5 text-[13px] font-medium text-[#5AA0FF] transition-colors duration-200 hover:border-white/20 hover:bg-white/5"
+                  >
+                    Pregúntale al asesor sobre este coche
+                  </BotonAsesor>
                 </div>
               )}
             </Reveal>
