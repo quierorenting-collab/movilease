@@ -1,40 +1,63 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Parallax } from "@/components/ui/Parallax";
 
-const FILTER = "brightness(0.6) saturate(0.75) contrast(1.05)";
+/* Mismo brillo en los dos, y no por comodidad: subirlo a 0,74 en móvil dejaba
+   la etiqueta "SMART MOBILITY PLATFORM" —azul claro, 11 px— en 2,99:1 sobre el
+   cielo del clip, por debajo del 4,5 que exige AA. Medido en el navegador
+   componiendo el fotograma real con su velo, no estimado. Lo que sí sube en
+   móvil es la saturación: el clip vertical es de exterior y aguanta más color
+   sin que el texto pierda. */
+const FILTRO_ESCRITORIO = "brightness(0.6) saturate(0.75) contrast(1.05)";
+const FILTRO_MOVIL = "brightness(0.6) saturate(0.9) contrast(1.04)";
 
 /**
- * Fondo de vídeo del hero — mismo tratamiento de contraste que tenía
- * HeroImage (velo fuerte a la izquierda, donde va el texto; se aclara hacia
- * la derecha) pero a pantalla completa, porque aquí no hay un coche que
- * aislar en una columna: es ambiente urbano, no producto.
+ * Fondo de vídeo del hero.
  *
- * Clip propio (no Pexels), generado con scripts/build-section-video.mjs a
- * partir de public/videos/hero.mp4. El póster es el primer fotograma del
- * propio vídeo, así no hay salto de escena al empezar a reproducir.
+ * DOS CLIPS, NO UNO RECORTADO. En escritorio va el ambiente urbano apaisado de
+ * siempre. En móvil va un clip VERTICAL propio (720x1228), porque un 16:9
+ * dentro de una pantalla 9:19,5 pierde el 74 % del ancho: se veía una franja
+ * estrecha del centro, y de ahí la sensación de que "en móvil no se aprecia".
+ *
+ * La elección se hace en JavaScript y no con dos <video> y clases `lg:hidden`
+ * porque los dos se descargarían: son 800 KB cada uno. Se lee una sola vez al
+ * montar y NO se reacciona al `resize` a propósito — cambiar el `src` de un
+ * <video> lo reinicia y enseña el póster un instante, y la única forma real de
+ * cruzar los 1024 px en un dispositivo es girar una tablet grande. Estabilidad
+ * antes que exactitud en un caso que casi no ocurre.
+ *
+ * El PÓSTER sí va en el HTML inicial, con <picture>, para que el primer pintado
+ * ya sea el correcto en cada tamaño y no haya salto del apaisado al vertical.
+ * Es el único sitio del proyecto, junto al logo, donde no se usa next/image:
+ * hace falta dirección de arte real (dos ficheros distintos según el ancho) y
+ * eso es exactamente lo que resuelve <picture>. Con dos next/image y clases de
+ * Tailwind el móvil se bajaría también los 144 KB del póster de escritorio,
+ * compitiendo con su propio LCP.
  */
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [loaded, setLoaded] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+  /* null = todavía no se sabe. Las <source> no se montan hasta saberlo, para
+     no llegar a pedir el clip que no toca. */
+  const [esMovil, setEsMovil] = useState<boolean | null>(null);
   /* La <source> no se monta en el primer render. Con autoPlay, es montarla lo
      que dispara la descarga, así que este estado es el interruptor. */
   const [fuenteLista, setFuenteLista] = useState(false);
 
   useEffect(() => {
     setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    // El corte coincide con el `lg:` de Tailwind, que es el que separa los dos
+    // velos de aquí abajo. Si se cambia uno hay que cambiar el otro.
+    setEsMovil(window.matchMedia("(max-width: 1023px)").matches);
   }, []);
 
-
-  /* El vídeo son 840 KB —el 54 % de todo lo que pide la home— y con
-     preload="auto" el navegador los pedía a los 65 ms, ANTES de que terminara
-     de llegar el póster, que es el recurso del LCP. O sea que el fondo
-     decorativo competía con lo que el visitante ha venido a leer.
-     Se espera a que el navegador esté ocioso: el póster ya está pintado desde
-     el primer render, así que el hero se ve igual mientras tanto. */
+  /* El vídeo son ~800 KB y con preload="auto" el navegador los pedía a los
+     65 ms, ANTES de que terminara de llegar el póster, que es el recurso del
+     LCP. O sea que el fondo decorativo competía con lo que el visitante ha
+     venido a leer. Se espera a que el navegador esté ocioso: el póster ya está
+     pintado desde el primer render, así que el hero se ve igual mientras tanto. */
   useEffect(() => {
     if (reducedMotion) return;
     const arranca = () => setFuenteLista(true);
@@ -58,7 +81,7 @@ export function HeroVideo() {
      Y montar la <source> tampoco basta: un <video> que ya intentó cargar no
      vuelve a hacerlo solo porque le aparezca una fuente nueva. */
   useEffect(() => {
-    if (!fuenteLista) return;
+    if (!fuenteLista || esMovil === null) return;
     const v = videoRef.current;
     if (!v) return;
     const listo = () => {
@@ -71,7 +94,9 @@ export function HeroVideo() {
     v.load();
     if (v.readyState >= 3) listo();
     return () => v.removeEventListener("canplay", listo);
-  }, [fuenteLista]);
+  }, [fuenteLista, esMovil]);
+
+  const filtro = esMovil ? FILTRO_MOVIL : FILTRO_ESCRITORIO;
 
   return (
     <div className="absolute inset-0 overflow-hidden bg-[#071A3D]">
@@ -79,58 +104,96 @@ export function HeroVideo() {
           bajar, el texto se despega del vídeo. El -10%/120% extra evita que
           asome el borde inferior mientras el fondo se desplaza. */}
       <Parallax speed={0.18} className="absolute inset-x-0 -top-[10%] h-[120%]">
-      {/* Póster — visible desde el primer render y resultado final si se pide menos movimiento */}
-      <Image
-        src="/videos/hero-poster.webp"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="absolute inset-0 object-cover"
-        style={{ filter: FILTER }}
-      />
+        {/* Póster — visible desde el primer render y resultado final si se pide
+            menos movimiento. Cada ancho se lleva solo su fichero. */}
+        <picture>
+          <source
+            media="(max-width: 1023px)"
+            srcSet="/videos/hero-movil-poster.webp"
+            type="image/webp"
+          />
+          {/* Dirección de arte: dos ficheros distintos según el ancho, que es
+              justo lo que next/image no sabe hacer y <picture> sí. La regla
+              no-img-element no salta aquí porque el <img> va dentro de un
+              <picture>, que es el uso legítimo. Ver la cabecera. */}
+          <img
+            src="/videos/hero-poster.webp"
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ filter: filtro }}
+          />
+        </picture>
 
-      {!reducedMotion && (
-        /* El zoom vive en un envoltorio propio: si fuese en el mismo elemento
-           que el fade, la transición de opacity y la animación de scale se
-           pisarían la una a la otra en la misma propiedad `transform`. */
-        <div className={loaded ? "absolute inset-0 cinematic-zoom" : "absolute inset-0"}>
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-            className="cinematic-pan absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-out"
-            style={{ opacity: loaded ? 1 : 0, filter: FILTER }}
-          >
-            {fuenteLista && <source src="/videos/hero.mp4" type="video/mp4" />}
-          </video>
-        </div>
-      )}
+        {!reducedMotion && esMovil !== null && (
+          /* El zoom vive en un envoltorio propio: si fuese en el mismo elemento
+             que el fade, la transición de opacity y la animación de scale se
+             pisarían la una a la otra en la misma propiedad `transform`. */
+          <div className={loaded ? "absolute inset-0 cinematic-zoom" : "absolute inset-0"}>
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              /* La panorámica existía SOLO para rescatar el encuadre del clip
+                 apaisado en una pantalla vertical. Con el clip vertical sobra,
+                 y además descentraría el coche, que va en el eje. */
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-out ${
+                esMovil ? "" : "cinematic-pan"
+              }`}
+              style={{ opacity: loaded ? 1 : 0, filter: filtro }}
+            >
+              {fuenteLista &&
+                (esMovil ? (
+                  <>
+                    {/* WebM primero: Chrome, Android y Firefox se lo llevan y
+                        pesa 691 KB frente a los 807 KB del MP4, con mejor
+                        SSIM. Safari cae al MP4, que es H.264 y lo reproduce
+                        cualquier iPhone. */}
+                    <source src="/videos/hero-movil.webm" type="video/webm" />
+                    <source src="/videos/hero-movil.mp4" type="video/mp4" />
+                  </>
+                ) : (
+                  <source src="/videos/hero.mp4" type="video/mp4" />
+                ))}
+            </video>
+          </div>
+        )}
       </Parallax>
 
       {/* Móvil — velo VERTICAL, no un lavado plano.
 
-          Antes era `bg-[#071A3D]/78` sobre toda la pantalla: el vídeo estaba
-          ahí, reproduciéndose, y se veía al 22 % de brillo. Sumado al 74 % de
-          ancho que se pierde por el object-cover en vertical, el visitante de
-          móvil veía una franja estrecha y casi negra. De ahí la sensación de
-          que "en móvil no se aprecia".
+          Antes el vídeo era apaisado y había que taparlo casi entero (0,82 y
+          0,93 en la mitad inferior); ahora el encuadre es el bueno, así que la
+          banda del coche pasa a 0,26-0,56 y el coche se ve de verdad.
 
-          Ahora el velo hace lo mismo que el de escritorio pero en el eje que
-          tiene sentido en un teléfono: una franja densa arriba para el logo y
-          el menú, luego se abre casi del todo (0,14) en el tramo del 20 % al
-          33 %, que es donde el vídeo por fin se ve, y a partir del 42 % vuelve
-          a cerrarse para sostener el titular y los botones, que ahora van
-          abajo. Los tramos densos caen exactamente sobre el texto, medido, no
-          estimado. */}
+          Los valores no son de ojo. Se midió en el navegador, componiendo el
+          fotograma real con su filtro y este degradado, y leyendo la ratio de
+          contraste bajo cada texto:
+
+            etiqueta 11 px      5,64:1   (AA pide 4,5)
+            párrafo 16 px       6,98:1
+            titular 34 px      muy por encima
+
+          Medido en los CUATRO extremos del bucle, no en un fotograma suelto:
+          el cielo del clip cambia de brillo y la etiqueta oscilaba entre 3,70
+          y 4,28, o sea que a ratos NO pasaba AA. Estas cifras son la peor de
+          las cuatro.
+
+          La forma de la curva es deliberada. La etiqueta va en el 22-24 % y el
+          coche en el 45-70 %, así que se aprieta arriba (0,84 hasta el 24 %)
+          y se abre justo donde está el coche (0,20 en el 48 %). Es la
+          combinación que da MÁS luz al coche de todas las probadas y a la vez
+          la que más contraste da al texto: apretar en el centro habría hecho
+          lo contrario en las dos cosas. */}
       <div
         className="absolute inset-0 lg:hidden"
         style={{
           background:
-            "linear-gradient(180deg, rgba(7,26,61,0.92) 0%, rgba(7,26,61,0.55) 9%, rgba(7,26,61,0.18) 20%, rgba(7,26,61,0.14) 33%, rgba(7,26,61,0.42) 42%, rgba(7,26,61,0.82) 52%, rgba(7,26,61,0.93) 64%, rgba(7,26,61,0.96) 100%)",
+            "linear-gradient(180deg, rgba(7,26,61,0.96) 0%, rgba(7,26,61,0.90) 12%, rgba(7,26,61,0.84) 24%, rgba(7,26,61,0.46) 34%, rgba(7,26,61,0.20) 48%, rgba(7,26,61,0.50) 60%, rgba(7,26,61,0.86) 72%, rgba(7,26,61,0.95) 100%)",
         }}
       />
 
