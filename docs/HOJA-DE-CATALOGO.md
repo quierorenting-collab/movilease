@@ -121,8 +121,13 @@ color. El Nissan Qashqai salió publicado en rojo cuando el que se contrata es
 Deep Ocean Blue, porque heredó las fotos de otra versión.
 
 Y ojo con los colores que cuestan más: la hoja de fotos del Mazda 2 se llama
-literalmente **«FOTO COCHE GRIS +5€ MES EN TODAS LAS CUOTAS»**. Si el color
+literalmente **«FOTOS GRIS (+5 EUR MES EN TODAS LAS CUOTAS)»**. Si el color
 que se publica no es el del precio de la tabla, el precio está mal.
+
+Desde el 03/09/2026 los ficheros del Drive siguen un convenio fijo —`PRECIO.png`,
+`EQUIPAMIENTO.png`, `FOTOS.png`— y los matices como ese solo aparecen cuando la
+hoja los lleva de verdad. Lo hizo `scripts/renombrar_drive.py`, que guarda el
+mapa de vuelta en `scripts/renombrado_drive.json`.
 
 ---
 
