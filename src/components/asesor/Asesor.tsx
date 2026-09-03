@@ -80,10 +80,12 @@ const CARROCERIAS = [
   { valor: "turismo", etiqueta: "Turismo" },
   { valor: "suv", etiqueta: "SUV" },
   { valor: "furgoneta", etiqueta: "Furgoneta" },
-  /* "4x4" estaba aquí y era un callejón sin salida garantizado: no hay ni un
-     solo coche con esa categoría en el catálogo, así que con cualquier
-     presupuesto la respuesta era siempre "no tenemos nada". Se quita hasta que
-     haya stock; quien busca un todoterreno encuentra SUV, que es lo que hay. */
+  /* "4x4" se quitó el 03/09 porque no había ni un coche con esa categoría y
+     era un callejón sin salida garantizado. Vuelve el mismo día: el Toyota
+     Hilux, dado de alta esa tarde, es un pick-up doble cabina 4x4 y estrena
+     la categoría. Si algún día vuelve a quedarse a cero, hay que volver a
+     quitarla: una opción que nunca devuelve nada es peor que no ofrecerla. */
+  { valor: "4x4", etiqueta: "4x4 y pick-up" },
 ];
 
 /**

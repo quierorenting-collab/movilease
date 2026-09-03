@@ -60,6 +60,34 @@ MOSAICOS = {
             (0.750, 0.751, 1.000, 1.000),   # trasera
         ],
     },
+    "jaecoo-7": {
+        "hoja": r"M AUTOMOCION\ARVAL\JAECOO 7 PHEV BUSINESS\FOTOS COCHE.png",
+        "recortes": [
+            (0.000, 0.000, 0.620, 0.525),   # 3/4 delantero — portada
+            (0.625, 0.000, 1.000, 0.325),   # 3/4 trasero
+            (0.625, 0.330, 1.000, 0.525),   # perfil
+            (0.000, 0.532, 0.207, 0.765),   # frontal
+            (0.212, 0.532, 0.415, 0.765),   # trasera
+            (0.420, 0.532, 0.715, 0.765),   # salpicadero
+            (0.720, 0.532, 1.000, 0.765),   # asientos
+        ],
+    },
+    "toyota-hilux": {
+        # El iconario de su lamina se contradice: pone "6AT AUTOMATICO" en el
+        # titulo y "MANUAL" en un icono suelto. Esta hoja lo resuelve: la foto
+        # de la consola es una palanca de cambio automatico. Gana el titulo.
+        "hoja": r"M AUTOMOCION\TOYOTA HILUX\FOTOS TOYOTA HILUX.png",
+        "recortes": [
+            (0.000, 0.000, 0.610, 0.500),   # 3/4 delantero — portada
+            (0.615, 0.000, 1.000, 0.297),   # 3/4 trasero
+            (0.615, 0.302, 1.000, 0.500),   # perfil
+            (0.000, 0.505, 0.270, 0.780),   # frontal
+            (0.275, 0.505, 0.610, 0.780),   # trasera
+            (0.615, 0.505, 1.000, 0.780),   # salpicadero
+            (0.000, 0.785, 0.330, 1.000),   # asientos
+            (0.615, 0.785, 1.000, 1.000),   # caja de carga
+        ],
+    },
     "seat-arona": {
         "hoja": r"MOVENTO\ARVAL\SEAT ARONA\FOTOS COCHE.png",
         # OJO: la foto grande de esta hoja lleva el logo de MoviLease y

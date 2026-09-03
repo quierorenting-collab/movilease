@@ -1,0 +1,138 @@
+{
+  "brand": "Omoda",
+  "model": "5",
+  "version": "HEV 1.5 TGDI 224CV Business",
+  "category": "suv",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "horsepower": 224,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "c",
+  "colors": [
+    "Gris"
+  ],
+  "consumption_value": 7.0,
+  "consumption_unit": "l/100km",
+  "short_description": "Híbrido de 224 CV con cambio automático",
+  "monthly_price_cents": 42479,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 45579
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 48659
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 51469
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 54694
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 58071
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 44080
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 46883
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 50509
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 54146
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 58044
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 42479
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 45814
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 49811
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 53728
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 58011
+    }
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/omoda-5-01.webp",
+      "alt": "Coche en renting"
+    },
+    {
+      "url": "/coches-nuevos/omoda-5-02.webp",
+      "alt": "Coche en renting"
+    },
+    {
+      "url": "/coches-nuevos/omoda-5-03.webp",
+      "alt": "Coche en renting"
+    },
+    {
+      "url": "/coches-nuevos/omoda-5-04.webp",
+      "alt": "Coche en renting"
+    },
+    {
+      "url": "/coches-nuevos/omoda-5-05.webp",
+      "alt": "Coche en renting"
+    },
+    {
+      "url": "/coches-nuevos/omoda-5-06.webp",
+      "alt": "Coche en renting"
+    },
+    {
+      "url": "/coches-nuevos/omoda-5-07.webp",
+      "alt": "Coche en renting"
+    }
+  ]
+}

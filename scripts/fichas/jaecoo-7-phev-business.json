@@ -1,0 +1,138 @@
+{
+  "brand": "Jaecoo",
+  "model": "7",
+  "version": "PHEV 1.5 TGDI 347CV Business",
+  "category": "suv",
+  "fuel_type": "phev",
+  "transmission": "automatico",
+  "horsepower": 347,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "0",
+  "colors": [
+    "Blanco Aura",
+    "Gris Acero",
+    "Negro Carbón"
+  ],
+  "short_description": "Híbrido enchufable de 347 CV con 90 km eléctricos y etiqueta 0",
+  "monthly_price_cents": 53505,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 60593
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 63837
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 66856
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 70440
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 74144
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 56651
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 59622
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 63596
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 67494
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 71812
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 53505
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 57084
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 61345
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 65638
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 70324
+    }
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/jaecoo-7-01.webp",
+      "alt": "Coche en renting"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-7-02.webp",
+      "alt": "Coche en renting"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-7-03.webp",
+      "alt": "Coche en renting"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-7-04.webp",
+      "alt": "Coche en renting"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-7-05.webp",
+      "alt": "Coche en renting"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-7-06.webp",
+      "alt": "Coche en renting"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-7-07.webp",
+      "alt": "Coche en renting"
+    }
+  ]
+}

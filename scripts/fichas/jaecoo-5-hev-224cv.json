@@ -5,7 +5,7 @@
   "category": "hibrido",
   "fuel_type": "hibrido",
   "transmission": "automatico",
-  "monthly_price_cents": 44700,
+  "monthly_price_cents": 47350,
   "contract_months": 60,
   "annual_km": 10000,
   "horsepower": 224,
@@ -62,77 +62,79 @@
     {
       "contract_months": 36,
       "annual_km": 10000,
-      "monthly_price_cents": 48100
+      "monthly_price_cents": 51876
     },
     {
       "contract_months": 36,
       "annual_km": 15000,
-      "monthly_price_cents": 51400
+      "monthly_price_cents": 55116
     },
     {
       "contract_months": 36,
       "annual_km": 20000,
-      "monthly_price_cents": 54500
+      "monthly_price_cents": 58091
     },
     {
       "contract_months": 36,
       "annual_km": 25000,
-      "monthly_price_cents": 58000
+      "monthly_price_cents": 61501
     },
     {
       "contract_months": 36,
       "annual_km": 30000,
-      "monthly_price_cents": 61700
+      "monthly_price_cents": 65052
     },
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 46400
+      "monthly_price_cents": 49512
     },
     {
       "contract_months": 48,
       "annual_km": 15000,
-      "monthly_price_cents": 49500
+      "monthly_price_cents": 52457
     },
     {
       "contract_months": 48,
       "annual_km": 20000,
-      "monthly_price_cents": 53400
+      "monthly_price_cents": 56257
     },
     {
       "contract_months": 48,
       "annual_km": 25000,
-      "monthly_price_cents": 57400
+      "monthly_price_cents": 60049
     },
     {
       "contract_months": 48,
       "annual_km": 30000,
-      "monthly_price_cents": 61600
+      "monthly_price_cents": 64178
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 44700
+      "monthly_price_cents": 47350
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 48400
+      "monthly_price_cents": 50831
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 52700
+      "monthly_price_cents": 54970
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 57000
+      "monthly_price_cents": 59107
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 61600
+      "monthly_price_cents": 63587
     }
-  ]
+  ],
+  "version": "HEV 1.5 TGDI 224CV Exclusive",
+  "environmental_label": "c"
 }

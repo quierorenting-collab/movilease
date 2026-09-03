@@ -1,11 +1,11 @@
 {
   "brand": "SEAT",
   "model": "León",
-  "version": "1.5 TSI 150CV FR Special Edition",
+  "version": "1.5 TSI 110kW 150CV FR Special Edition",
   "category": "turismo",
   "fuel_type": "gasolina",
   "transmission": "manual",
-  "monthly_price_cents": 35933,
+  "monthly_price_cents": 35687,
   "contract_months": 60,
   "annual_km": 10000,
   "horsepower": 150,
@@ -13,9 +13,9 @@
   "doors": 5,
   "environmental_label": "c",
   "colors": [
-    "Gris Grafeno",
+    "Midnight Black",
     "Gris Magnetic",
-    "Negro Metalizado",
+    "Gris Graphene",
     "Rojo Metalizado"
   ],
   "body_type": "Hatchback",
@@ -75,47 +75,47 @@
     {
       "contract_months": 36,
       "annual_km": 10000,
-      "monthly_price_cents": 38372
+      "monthly_price_cents": 38081
     },
     {
       "contract_months": 36,
       "annual_km": 15000,
-      "monthly_price_cents": 41300
+      "monthly_price_cents": 40998
     },
     {
       "contract_months": 36,
       "annual_km": 20000,
-      "monthly_price_cents": 43679
+      "monthly_price_cents": 43368
     },
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 36112
+      "monthly_price_cents": 35851
     },
     {
       "contract_months": 48,
       "annual_km": 15000,
-      "monthly_price_cents": 38835
+      "monthly_price_cents": 38583
     },
     {
       "contract_months": 48,
       "annual_km": 20000,
-      "monthly_price_cents": 40499
+      "monthly_price_cents": 40217
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 35933
+      "monthly_price_cents": 35687
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 39759
+      "monthly_price_cents": 39504
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 42247
+      "monthly_price_cents": 41983
     }
   ]
 }
