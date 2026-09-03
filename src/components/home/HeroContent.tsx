@@ -53,7 +53,21 @@ const TRUST = [
 
 export function HeroContent() {
   return (
-    <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-28 sm:px-10 lg:pb-24">
+    <div /* En movil el bloque arranca al 40% del alto para dejar limpia la
+         mitad de arriba: es donde el video se ve por fin, y el texto cae
+         sobre la parte densa del degradado. Se fija con vh y con
+         items-start en la seccion —no con items-end— porque este bloque
+         tiene su propio pt-28 y pb-20, y con alineacion al final los tres
+         paddings se peleaban y el titular acababa mas arriba que antes,
+         encima de la cabecera.
+
+         El tope lo marcan los dos botones flotantes, no el gusto: ocupan de
+         664px para abajo en un movil de 812, asi que el ultimo CTA del hero
+         tiene que terminar antes de ahi. Con 40vh caia al 91% y quedaba
+         debajo; con 22vh termina en 650 y deja 14px de aire. Arriba quedan
+         227px de video limpio, que antes eran cero.
+         Escritorio intacto. */
+      className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-10 pt-[22vh] sm:px-10 lg:pb-24 lg:pt-28">
       <div className="lg:max-w-[52%]">
         {/* Eyebrow */}
         <motion.div

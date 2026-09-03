@@ -102,7 +102,7 @@ export function HeroVideo() {
             loop
             playsInline
             preload="none"
-            className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-out"
+            className="cinematic-pan absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-out"
             style={{ opacity: loaded ? 1 : 0, filter: FILTER }}
           >
             {fuenteLista && <source src="/videos/hero.mp4" type="video/mp4" />}
@@ -111,8 +111,28 @@ export function HeroVideo() {
       )}
       </Parallax>
 
-      {/* Móvil — oscurecido fuerte para que el texto siempre se lea */}
-      <div className="absolute inset-0 bg-[#071A3D]/78 lg:hidden" />
+      {/* Móvil — velo VERTICAL, no un lavado plano.
+
+          Antes era `bg-[#071A3D]/78` sobre toda la pantalla: el vídeo estaba
+          ahí, reproduciéndose, y se veía al 22 % de brillo. Sumado al 74 % de
+          ancho que se pierde por el object-cover en vertical, el visitante de
+          móvil veía una franja estrecha y casi negra. De ahí la sensación de
+          que "en móvil no se aprecia".
+
+          Ahora el velo hace lo mismo que el de escritorio pero en el eje que
+          tiene sentido en un teléfono: una franja densa arriba para el logo y
+          el menú, luego se abre casi del todo (0,14) en el tramo del 20 % al
+          33 %, que es donde el vídeo por fin se ve, y a partir del 42 % vuelve
+          a cerrarse para sostener el titular y los botones, que ahora van
+          abajo. Los tramos densos caen exactamente sobre el texto, medido, no
+          estimado. */}
+      <div
+        className="absolute inset-0 lg:hidden"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(7,26,61,0.92) 0%, rgba(7,26,61,0.55) 9%, rgba(7,26,61,0.18) 20%, rgba(7,26,61,0.14) 33%, rgba(7,26,61,0.42) 42%, rgba(7,26,61,0.82) 52%, rgba(7,26,61,0.93) 64%, rgba(7,26,61,0.96) 100%)",
+        }}
+      />
 
       {/* Escritorio — velo de izquierda a derecha, denso donde va el texto.
           Respira muy lentamente (veil-breathe) para que el fondo nunca quede

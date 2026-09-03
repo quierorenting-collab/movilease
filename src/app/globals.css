@@ -175,8 +175,32 @@
   animation: veil-breathe 14s ease-in-out infinite;
 }
 
+/* Panoramica de movil. Un video 16:9 dentro de una pantalla 9:19,5 pierde el
+   74% del ancho con object-cover: se ve una franja estrecha del centro y el
+   resto del plano no existe. En vez de pelearse con eso, se aprovecha: el
+   encuadre recorre el fotograma muy despacio, asi que a lo largo del bucle se
+   acaba viendo todo el plano y el movil deja de ser un recorte del escritorio
+   para tener su propio lenguaje.
+
+   40 segundos ida y vuelta. Es tan lento que no se lee como animacion, solo
+   como que la imagen esta viva. Y anima object-position, no transform, para
+   no pelearse con el cinematic-zoom del envoltorio. */
+@keyframes cinematic-pan {
+  from { object-position: 32% center; }
+  to   { object-position: 68% center; }
+}
+/* Solo hasta 1023px, y el limite se pone AQUI y no con una utilidad `lg:` de
+   Tailwind: este archivo no tiene ninguna @layer, asi que .cinematic-pan
+   ganaria a cualquier `lg:animate-none` y la panoramica saldria tambien en
+   escritorio, donde el encuadre ya es el bueno y Adrian ha pedido no tocarlo. */
+@media (max-width: 1023px) {
+  .cinematic-pan {
+    animation: cinematic-pan 40s ease-in-out infinite alternate;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .cinematic-zoom, .veil-breathe { animation: none !important; }
+  .cinematic-zoom, .veil-breathe, .cinematic-pan { animation: none !important; }
 }
 
 /* Entrada del botón flotante sin JavaScript */

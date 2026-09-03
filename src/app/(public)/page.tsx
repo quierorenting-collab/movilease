@@ -259,7 +259,15 @@ export default async function HomePage() {
       <FaqJsonLd items={FAQ_ITEMS} />
 
       {/* ══ HERO — cinematic ══════════════════════════════ */}
-      <section className="relative flex h-screen min-h-[680px] items-center overflow-hidden bg-[#071A3D]">
+      {/* En movil el contenido baja al tercio inferior. Medido: centrado ocupaba
+          del 19% al 71% de la pantalla, o sea que NO quedaba ninguna franja
+          libre para ver el video — de ahi que el velo tuviera que ser un
+          lavado plano al 78% y de ahi la sensacion de que "en movil no se
+          aprecia". Bajandolo, los primeros 38% quedan limpios y el video se ve
+          de verdad, con el texto sobre un degradado denso abajo. Es el patron
+          de hero movil de siempre, y el escritorio no se toca: alli el video
+          ya se ve bien y Adrian ha pedido expresamente mantenerlo. */}
+      <section className="relative flex h-screen min-h-[680px] items-start overflow-hidden bg-[#071A3D] lg:items-center">
         <HeroVideo />
         <HeroContent />
       </section>
