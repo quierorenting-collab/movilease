@@ -35,7 +35,6 @@ const MODELOS_RETIRADOS = [
   "renting-mg-zs",
   "renting-mitsubishi-outlander",
   "renting-nissan-x-trail",
-  "renting-omoda-7",
   "renting-omoda-9",
   "renting-opel-combo-cargo",
   "renting-peugeot-2008",

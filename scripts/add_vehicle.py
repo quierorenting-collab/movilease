@@ -16,6 +16,7 @@ no romper la URL ya publicada).
 """
 
 import json
+import os
 import re
 import sys
 import unicodedata
@@ -191,6 +192,29 @@ def main():
         print(f"  + {len(rows)} fotos insertadas")
 
     print(f"\nListo: https://movilease.es/{model_slug}")
+
+
+
+def avisar_si_esta_retirado(slug):
+    """Avisa si el slug sigue en la lista de redirecciones de next.config.ts.
+
+    Esa lista manda a /catalogo los modelos que se dieron de baja. Es una
+    redireccion del edge, o sea que se aplica ANTES de renderizar: un coche
+    recien publicado con el slug ahi dentro responde 307 y no se ve, sin que
+    nada falle ni avise. Se comprueba leyendo el fichero como texto a
+    proposito: no hay forma de importar una constante de TypeScript desde
+    Python, y una copia de la lista aqui se quedaria desincronizada.
+    """
+    ruta = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "next.config.ts")
+    try:
+        with open(ruta, encoding="utf-8") as f:
+            conf = f.read()
+    except OSError:
+        return
+    if f'"{slug}"' in conf:
+        print("")
+        print(f"  AVISO: '{slug}' sigue en MODELOS_RETIRADOS de next.config.ts.")
+        print("  La ficha respondera 307 a /catalogo hasta que se quite esa linea.")
 
 
 if __name__ == "__main__":

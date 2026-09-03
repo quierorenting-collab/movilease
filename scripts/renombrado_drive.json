@@ -1,0 +1,466 @@
+[
+  {
+    "antes": "M AUTOMOCION/ARVAL/JAECCO 5 EXCLUSIVE/FOTOS JAECCO 5.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/JAECCO 5 EXCLUSIVE/PRECIO (1).png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/JAECOO 7 PHEV BUSINESS/FOTOS COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/JAECOO 7 PHEV BUSINESS/Precio.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/OMODA 5 HEV BUSINESS/bd183937-143f-4300-9fd4-a1f3fceb8cea.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/OMODA 5 HEV BUSINESS/FOTO COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/OMODA 7 MATE PREMIUM/EQUIPACION OMODA 7.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/OMODA 7 MATE PREMIUM/FOTOS OMODA 7.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/OMODA 7 MATE PREMIUM/OMODA 7 MATE PREMIUM.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/SEAT IBIZA 115CV/EQUIPAMIENTO SEAT IBIZA 115.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/SEAT IBIZA 115CV/FOTOS SEAT IBIZA.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/SEAT IBIZA 115CV/SEAT IBIZA 115CV.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/SEAT IBIZA 80CV/EQUIPAMIENTO IBIZA.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/SEAT IBIZA 80CV/FOTOS IBIZA 80CV.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/SEAT IBIZA 80CV/SEAT IBIZA.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/TOYOTA CHR/FOTOS TOYOTA CHR.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/TOYOTA HILUX/FOTOS TOYOTA HILUX.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/TOYOTA HILUX/TOYOTA HYLUX.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/TOYOTA YARIS CROSS/EQUIPAMIENTO YARIS CROSS.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/TOYOTA YARIS CROSS/FOTOS TOYOTA YARIS CROSS.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/TOYOTA YARIS CROSS/PRECIO YARIS CROSS.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/TOYOTA YARIS/EQUIPAMIENTO TOYOTA YARIS.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/TOYOTA YARIS/FOTOS TOYOTA YARIS.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/TOYOTA YARIS/TOYOTA YARIS.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/AYVENS/EBRO S400/b266f9a8-07fb-4a4d-9bbd-a592f12c8520.png",
+    "despues": "AMBIENTE.png"
+  },
+  {
+    "antes": "M AUTOMOCION/AYVENS/EBRO S400/FOTOS EBRO S400.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/AYVENS/HYUNDAI TUCSON 239CV ECO/EQUIPAMIENTO TUCSON.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/AYVENS/HYUNDAI TUCSON 239CV ECO/FOTOS TUCSON.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/AYVENS/HYUNDAI TUCSON 239CV ECO/TUCSON 239CV.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/AYVENS/MAZDA 2/FOTO COCHE BLANCO.png",
+    "despues": "FOTOS BLANCO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/AYVENS/MAZDA 2/FOTO COCHE GRIS +5€  MES EN TODAS LAS CUOTAS.png",
+    "despues": "FOTOS GRIS (+5 EUR MES EN TODAS LAS CUOTAS).png"
+  },
+  {
+    "antes": "M AUTOMOCION/AYVENS/MAZDA 3/FOTOS COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/AYVENS/POLO/FOTOS POLO.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/AYVENS/TIGUAN/FOTOS TIGUAN.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/FUERA DE STOCK/AUDI A1/AUDI A1.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/FUERA DE STOCK/AUDI A1/FOTOS A1.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/VOLKSWAGEN FINANCE/T ROC/VOLKSWAGEN T ROC.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/VOLKSWAGEN FINANCE/T ROC/BLANCO/FOTOS T-ROC BLANCO.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/VOLKSWAGEN FINANCE/T ROC/GRIS LOBO/FOTOS T-ROC GRIS.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/VOLKSWAGEN FINANCE/TAIGO/FOTOS TAIGO.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/VOLKSWAGEN FINANCE/TIGUAN/FOTOS TIGUAN.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "M AUTOMOCION/VOLKSWAGEN FINANCE/TIGUAN/VOLKSWAGEN TIGUAN.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "MOVENTO/ARVAL/SEAT ARONA/FOTOS COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/MAZDA RENITNG/MAZDA CX 30/FOTO COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/MAZDA RENITNG/MAZDA CX 30/FOTO PRECIO.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "MOVENTO/MAZDA RENITNG/MAZDA CX60/FOTOS COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/SANTANDER/MG HS/ARTIC BLUE/COLOR.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/SANTANDER/MG HS/WHITE PEARL/FOTOS DEL COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/SIN STOCK/AUDI A1/AUDI A1",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "MOVENTO/SIN STOCK/EBRO S400/EBRO S400",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "MOVENTO/SIN STOCK/EBRO S700/EBRO S700",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "MOVENTO/SIN STOCK/HYUNDAI KONA/HYUNDAI KONA",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "MOVENTO/SIN STOCK/SKODA FABIA/FOTOS SKODA FABIA",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/CUPRA FORMENTOR/CUPRA FORMENTOR.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/CUPRA FORMENTOR/FOTOS CUPRA.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT IBIZA 95cv/FOTOS COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON AUTOMATICO/BLANCO Y GRIS/FOTO GRIS +2 EUROS AL MES.png",
+    "despues": "FOTOS GRIS (+2 EUR MES).png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON AUTOMATICO/BLANCO Y GRIS/FOTO PRECIO.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON AUTOMATICO/BLANCO Y GRIS/FOTOS COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON FR/SEAT LEON FR",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON FR/EQUIPAMIENTO SEAT LEON FR",
+    "despues": "PRECIO (SOLO EMPRESAS Y AUTONOMOS).png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON FR/EQUIPAMIENTO VALIDO PARA TODOS LOS COLORES.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON FR/FOTOS DEL SEAT LEON FR",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON FR/GRIS GRAFENNE/EQUIPAMIENTO VALIDO PARA TODOS LOS COLORES.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON FR/GRIS GRAFENNE/FOTOS COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON FR/GRIS MAGNETIC/EQUIPAMIENTO VALIDO PARA TODOS LOS COLORES.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON FR/GRIS MAGNETIC/FOTO COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON FR/NEGRO/EQUIPAMIENTO VALIDO PARA TODOS LOS COLORES.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON FR/NEGRO/FOTO COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON FR/ROJO METALIZADO/EQUIPAMIENTO VALIDO PARA TODOS LOS COLORES.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE/SEAT LEON FR/ROJO METALIZADO/FOTO COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/ALPHABET/OPEL CORSA GS/FOTOS CORSA BLANCO.png",
+    "despues": "FOTOS BLANCO.png"
+  },
+  {
+    "antes": "QUADIS/ALPHABET/OPEL CORSA GS/OPEL CORSA CON IVA.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/AUDI A1/FOTOS AUDI.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/MERCEDES/GLC COUPE/EQUIPAMIENTO GLC.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/MERCEDES/GLC COUPE/FOTOS GLC.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/MERCEDES/GLC COUPE/GLC COUPE.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/MERCEDES/GLE 300D 4MATIC COUPE ECO/GLE 300D 4MATIC COUPE ECO.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/MERCEDES/GLE 300D 4MATIC COUPE ECO/GLE 300D SIN IVA.png",
+    "despues": "PRECIO SIN IVA.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/MERCEDES/MERCEDES CITAN CARGA/EQUIPAMIENTO MERCEDES CITAN.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/MERCEDES/MERCEDES CITAN CARGA/FOTOS MERCEDES CITAN CARGA.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/MERCEDES/MERCEDES CITAN CARGA/MERCEDES CITAN CARGA.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/NISSAN INTERSTAR FURGON L2H2/EQUIPAMIENTO NISSAN INSTERSTAR FURGÓN L2H2.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/NISSAN INTERSTAR FURGON L2H2/FOTOS NISSAN INSTERSTAR FURGÓN L2H2.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/NISSAN INTERSTAR FURGON L2H2/NISSAN INSTERSTAR FURGÓN L2H2.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/NISSAN QASHQAI ARVAL/FOTO COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/OPEL CORSA/COLOR NEGRO.png",
+    "despues": "FOTOS NEGRO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/OPEL CORSA/EQUIPAMIENTO OPEL CORSA.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/OPEL CORSA/GRIS/COLOR GRIS CORSA.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/PEUGEOT 208/EQUIPAMIENTO PEUGEOT 208.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/PEUGEOT 208/FOTOS PEUGEOT 208.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/PEUGEOT BOXER L2H2/EQUIPAMIENTO PEUGEOT BOXER L2H2.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/PEUGEOT BOXER L2H2/FOTOS PEUGEOT BOXER L2H2.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/PEUGEOT BOXER L2H2/PEUGEOT BOXER L2H2.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/SKODA FABIA/FOTOS FABIA.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/SKODA FABIA/SKODA FABIA CON IVA.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "QUADIS/ARVAL/SKODA FABIA/SKODA FABIA SIN IVA.png",
+    "despues": "PRECIO SIN IVA.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/HONDA CR V/EQUIPAMIENTO HONDA.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/HONDA CR V/FOTOS HONDA.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/HONDA CR V/HONDA CR V.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/KIA NIRO/FOTOS KIA NIRO.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/KIA NIRO/KIA NIRO PRECIO.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/MERCEDES GLA 200D/FOTOS COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/NISSAN JUKE/EQUIPAMIENTO NISSAN JUKE.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/NISSAN JUKE/FOTOS NISSAN JUKE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/NISSAN JUKE/NISSAN JUKE 145CV.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/NISSAN QASHQAI AYVENS/FOTOS COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/NISSAN QASHQAI AYVENS/NISSAN QASHQAI SIN IVA.png",
+    "despues": "PRECIO SIN IVA.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/NISSAN QASHQAI AYVENS/PRECIO CON IVA.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "QUADIS/AYVENS/OPEL MOKKA/FOTOS DEL COCHE.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/FUERA DE STOCK/MG ZS/EQUIPAMIENTO MG ZS.png",
+    "despues": "EQUIPAMIENTO.png"
+  },
+  {
+    "antes": "QUADIS/FUERA DE STOCK/MG ZS/FOTOS DEL MG ZS.png",
+    "despues": "FOTOS.png"
+  },
+  {
+    "antes": "QUADIS/FUERA DE STOCK/MG ZS/MG ZS.png",
+    "despues": "PRECIO.png"
+  },
+  {
+    "antes": "M AUTOMOCION/ARVAL/JAECCO 5 EXCLUSIVE",
+    "despues": "JAECOO 5 EXCLUSIVE"
+  },
+  {
+    "antes": "MOVENTO/MAZDA RENITNG",
+    "despues": "MAZDA RENTING"
+  },
+  {
+    "antes": "MOVENTO/VOLKWAGUEN FINANCE",
+    "despues": "VOLKSWAGEN FINANCE"
+  }
+]

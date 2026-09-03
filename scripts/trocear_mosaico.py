@@ -26,7 +26,7 @@ DRIVE = os.environ.get("MOVILEASE_DRIVE", r"G:\Unidades compartidas\MoviLease")
 # El orden es el de la galería, y el primero es la portada.
 MOSAICOS = {
     "mazda-2": {
-        "hoja": r"M AUTOMOCION\AYVENS\MAZDA 2\FOTO COCHE BLANCO.png",
+        "hoja": r"M AUTOMOCION\AYVENS\MAZDA 2\FOTOS BLANCO.png",
         # El gris cuesta 5 EUR/mes mas en TODAS las cuotas (lo dice el nombre
         # del fichero del Drive), asi que la ficha va con el blanco, que es el
         # precio publicado.
@@ -51,7 +51,7 @@ MOSAICOS = {
         # De la lamina se quito antes el rotulo "HASTA FIN DE EXISTENCIAS",
         # que caia sobre el fondo —no sobre el coche—, estirando hacia abajo
         # la fila de encima para conservar las vetas del degradado.
-        "hoja": r"QUADIS\ALPHABET\OPEL CORSA GS\FOTOS CORSA BLANCO.png",
+        "hoja": r"QUADIS\ALPHABET\OPEL CORSA GS\FOTOS BLANCO.png",
         "recortes": [
             (0.000, 0.000, 1.000, 0.751),   # 3/4 delantero — portada
             (0.000, 0.751, 0.250, 1.000),   # frontal
@@ -61,7 +61,7 @@ MOSAICOS = {
         ],
     },
     "jaecoo-7": {
-        "hoja": r"M AUTOMOCION\ARVAL\JAECOO 7 PHEV BUSINESS\FOTOS COCHE.png",
+        "hoja": r"M AUTOMOCION\ARVAL\JAECOO 7 PHEV BUSINESS\FOTOS.png",
         "recortes": [
             (0.000, 0.000, 0.620, 0.525),   # 3/4 delantero — portada
             (0.625, 0.000, 1.000, 0.325),   # 3/4 trasero
@@ -76,7 +76,7 @@ MOSAICOS = {
         # El iconario de su lamina se contradice: pone "6AT AUTOMATICO" en el
         # titulo y "MANUAL" en un icono suelto. Esta hoja lo resuelve: la foto
         # de la consola es una palanca de cambio automatico. Gana el titulo.
-        "hoja": r"M AUTOMOCION\TOYOTA HILUX\FOTOS TOYOTA HILUX.png",
+        "hoja": r"M AUTOMOCION\ARVAL\TOYOTA HILUX\FOTOS.png",
         "recortes": [
             (0.000, 0.000, 0.610, 0.500),   # 3/4 delantero — portada
             (0.615, 0.000, 1.000, 0.297),   # 3/4 trasero
@@ -88,8 +88,30 @@ MOSAICOS = {
             (0.615, 0.785, 1.000, 1.000),   # caja de carga
         ],
     },
+    "omoda-7": {
+        # Las calles de esta hoja NO se estimaron a ojo: se detectaron por
+        # brillo (la franja separadora es la unica linea cuyo punto mas oscuro
+        # sigue siendo claro). Tres bandas horizontales en 0,521 y 0,759, y
+        # dentro de cada una sus propias verticales, que no coinciden entre
+        # bandas: por eso una deteccion global no encontraba ninguna.
+        #
+        # Se descartan cuatro recortes de la banda inferior (capo, faro, llanta
+        # y consola): son planos de detalle que en la galeria de la ficha se
+        # leen como fotos repetidas del mismo morro.
+        "hoja": r"M AUTOMOCION\ARVAL\OMODA 7 MATE PREMIUM\FOTOS.png",
+        "recortes": [
+            (0.000, 0.000, 0.602, 0.521),   # 3/4 delantero — portada
+            (0.605, 0.000, 1.000, 0.316),   # 3/4 trasero
+            (0.605, 0.320, 1.000, 0.521),   # perfil
+            (0.000, 0.524, 0.249, 0.758),   # frontal
+            (0.251, 0.524, 0.466, 0.758),   # trasera
+            (0.469, 0.524, 0.731, 0.758),   # salpicadero
+            (0.733, 0.524, 1.000, 0.758),   # asientos
+            (0.745, 0.762, 1.000, 1.000),   # maletero
+        ],
+    },
     "seat-arona": {
-        "hoja": r"MOVENTO\ARVAL\SEAT ARONA\FOTOS COCHE.png",
+        "hoja": r"MOVENTO\ARVAL\SEAT ARONA\FOTOS.png",
         # OJO: la foto grande de esta hoja lleva el logo de MoviLease y
         # "SEAT ARONA 1.0 TSI 115 CV" INCRUSTADOS en la imagen. Como portada
         # duplicaria el titular de la ficha y se leeria como una captura, asi

@@ -47,11 +47,11 @@ ALIAS = {
     # y vacia por la manana: ya traen lamina.
     "JAECOO 7 PHEV BUSINESS": ("Jaecoo", "7"),
     "OMODA 5 HEV BUSINESS": ("Omoda", "5"),
+    "OMODA 7 MATE PREMIUM": ("Omoda", "7"),
     "TOYOTA HILUX": ("Toyota", "Hilux"),
     "T ROC": ("Volkswagen", "T-Roc"),
-    # Carpetas nuevas del 02/09. "JAECCO" con doble C es una errata de la
-    # carpeta, no del coche: sus hermanas son JAECOO 7 y JAECOO 8.
-    "JAECCO 5 EXCLUSIVE": ("Jaecoo", "5"),
+    # Carpetas nuevas del 02/09.
+    "JAECOO 5 EXCLUSIVE": ("Jaecoo", "5"),
     "MAZDA 2": ("Mazda", "2"),
     "MAZDA 3": ("Mazda", "3"),
     "SEAT ARONA": ("Seat", "Arona"),
@@ -63,11 +63,13 @@ ALIAS = {
     "HONDA CR V": ("Honda", "CR-V"),
     "HYUNDAI KONA": ("Hyundai", "Kona"),
     "HYUNDAI TUCSON 239CV ECO": ("Hyundai", "Tucson"),
-    "JAECCO 5": ("Jaecoo", "5"),
+    "JAECCO 5": ("Jaecoo", "5"),   # errata antigua, por si reaparece
+    "JAECOO 5": ("Jaecoo", "5"),
     "KIA NIRO": ("Kia", "Niro"),
     "MAZDA CX 30": ("Mazda", "CX-30"),
     "MAZDA CX60": ("Mazda", "CX-60"),
     "MERCEDES CITAN CARGA": ("Mercedes-Benz", "Citan"),
+    "MERCEDES GLA 200D": ("Mercedes-Benz", "GLA"),
     "MG HS": ("MG", "HS"),
     "MG ZS": ("MG", "ZS"),
     "NISSAN INTERSTAR FURGON L2H2": ("Nissan", "Interstar"),
@@ -123,8 +125,15 @@ def es_hoja(ruta):
         hijos = os.listdir(ruta)
     except OSError:
         return False
-    ficheros = [h for h in hijos if h != "desktop.ini" and os.path.isfile(os.path.join(ruta, h))]
-    return bool(ficheros)
+    laminas = [
+        h for h in hijos
+        if h.lower().endswith((".png", ".jpg", ".jpeg", ".webp"))
+        and os.path.isfile(os.path.join(ruta, h))
+    ]
+    # Solo imagenes: los dosieres en PDF y las hojas de campana en xlsx viven
+    # sueltos en carpetas que NO son de coche (la raiz de QUADIS, CIRCULARES),
+    # y contarlos convertia esas carpetas en un coche fantasma del informe.
+    return bool(laminas)
 
 
 
