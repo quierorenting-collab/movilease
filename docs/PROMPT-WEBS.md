@@ -30,7 +30,8 @@ build. Dos dominios sobre el mismo código.
 framework, sin bundler, sin `npm install`, sin build. Todo el CSS y el JS van
 **inline dentro de cada `.html`**.
 
-Las dos de renting usan **34644156797**; laponce.es sigue con **34613267375**.
+Renting → **34644156797**. La Ponce y adridaganzo → **34613267375**. Dos
+líneas distintas a propósito.
 
 ---
 

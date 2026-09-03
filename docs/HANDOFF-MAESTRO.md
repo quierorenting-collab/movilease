@@ -78,9 +78,10 @@ inline dentro de cada `.html`**, así que lo que sirve el dominio *es* el códig
 fuente.
 
 **Objetivo de negocio de las cuatro:** generar contactos (leads) que acaben en
-una conversación de WhatsApp. **El número dejó de ser común**: las dos webs de
-renting usan **+34 644 15 67 97** (`34644156797`) y laponce.es sigue con el
-antiguo `34613267375`.
+una conversación de WhatsApp, pero **no al mismo número y es a propósito**: las
+dos webs de renting usan **+34 644 15 67 97** (`34644156797`) y laponce.es y
+adridaganzo.com usan **+34 613 26 73 75** (`34613267375`). Ninguno es "el
+antiguo" — son las dos líneas del negocio.
 
 **Punto crítico a entender desde el minuto uno:** MoviLease y QuieroRenting
 **no son la misma web con otra marca**. El código de este repositorio *soporta*
@@ -2249,8 +2250,9 @@ multimarca por dominio (`src/lib/brand.ts`), pero **quierorenting.es apunta hoy 
 otro proyecto de Vercel con HTML estático**. Si te piden tocar Quiero Renting,
 probablemente **no se toque este repositorio**.
 
-Las dos webs de renting usan **34644156797**; laponce.es sigue con el antiguo
-**34613267375** y adridaganzo.com no muestra teléfono (04/09/2026).
+Renting (movilease.es y quierorenting.es) → **34644156797**.
+La Ponce y adridaganzo.com → **34613267375**. Son dos líneas distintas a
+propósito; no unificarlas (criterio de Adrián, 04/09/2026).
 
 ## Antes de escribir una línea de código
 

@@ -99,10 +99,21 @@ toque este repositorio.** Ver §6.
 
 ## El ecosistema completo
 
-Hay **cuatro webs** en producción, todas alojadas en Vercel. **Ya no comparten
-teléfono**: movilease.es y quierorenting.es usan el **+34 644 15 67 97**
-(`34644156797`), laponce.es sigue con el antiguo **+34 613 26 73 75** y
-adridaganzo.com no muestra ninguno. Comprobado en las cuatro el 04/09/2026.
+Hay **cuatro webs** en producción, todas alojadas en Vercel. **Son DOS
+teléfonos distintos, y es a propósito** (criterio de Adrián, 04/09/2026):
+
+| Teléfono | Marcas |
+|---|---|
+| **+34 644 15 67 97** (`34644156797`) | movilease.es · quierorenting.es |
+| **+34 613 26 73 75** (`34613267375`) | laponce.es · adridaganzo.com |
+
+**Ninguno de los dos es "el antiguo".** Son las dos líneas del negocio: el 644
+es el de renting y el 613 el del resto. Unificarlos sería un error.
+
+⚠️ **adridaganzo.com devolvía 404 el 04/09/2026** (Vercel, NOT_FOUND en la
+raíz, con el dominio correctamente apuntado a un despliegue Ready de
+producción: el build no genera nada en `/`). No se pudo comprobar qué teléfono
+muestra.
 
 | Web | Qué es | Sistema |
 |---|---|---|
