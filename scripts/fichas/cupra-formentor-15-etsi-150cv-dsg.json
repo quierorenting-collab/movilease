@@ -2,21 +2,21 @@
   "update_vehicle_id": "676b3aa3-f07c-4d3e-845f-c72400c66021",
   "brand": "Cupra",
   "model": "Formentor",
-  "version": "1.5 eTSI 150CV DSG",
+  "version": "1.5 eTSI 110kW 150CV DSG",
   "category": "turismo",
   "fuel_type": "gasolina",
   "transmission": "automatico",
-  "monthly_price_cents": 35937,
-  "contract_months": 60,
+  "monthly_price_cents": 42775,
+  "contract_months": 36,
   "annual_km": 10000,
   "horsepower": 150,
   "seats": 5,
   "doors": 5,
   "environmental_label": "eco",
   "colors": [
-    "Midnight Black"
+    "Gris Magnetic metalizado"
   ],
-  "short_description": "1.5 eTSI de 150 CV con cambio DSG y etiqueta ECO",
+  "short_description": "1.5 eTSI de 110 kW (150 CV) con cambio DSG y etiqueta ECO",
   "included_services": [
     "Seguro a todo riesgo",
     "Mantenimiento y revisiones",
@@ -58,77 +58,48 @@
     {
       "contract_months": 36,
       "annual_km": 10000,
-      "monthly_price_cents": 36210
+      "monthly_price_cents": 42775
     },
     {
       "contract_months": 36,
       "annual_km": 15000,
-      "monthly_price_cents": 38150
+      "monthly_price_cents": 46307
     },
     {
       "contract_months": 36,
       "annual_km": 20000,
-      "monthly_price_cents": 39479
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 25000,
-      "monthly_price_cents": 42705
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 30000,
-      "monthly_price_cents": 45794
+      "monthly_price_cents": 49704
     },
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 36290
+      "monthly_price_cents": 43810
     },
     {
       "contract_months": 48,
       "annual_km": 15000,
-      "monthly_price_cents": 38448
+      "monthly_price_cents": 46769
     },
     {
       "contract_months": 48,
       "annual_km": 20000,
-      "monthly_price_cents": 41988
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 25000,
-      "monthly_price_cents": 45519
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 30000,
-      "monthly_price_cents": 48010
+      "monthly_price_cents": 49128
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 35937
+      "monthly_price_cents": 43821
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 38395
+      "monthly_price_cents": 46124
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 42639
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 25000,
-      "monthly_price_cents": 46251
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 30000,
-      "monthly_price_cents": 49362
+      "monthly_price_cents": 50208
     }
-  ]
+  ],
+  "is_offer": true
 }
