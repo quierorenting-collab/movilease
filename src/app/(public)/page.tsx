@@ -208,10 +208,20 @@ const TESTIMONIALS = [
 const FAQ_ITEMS = [
   { q: "¿Qué incluye la cuota mensual?",   a: "Coche nuevo, seguro a todo riesgo, mantenimiento y revisiones en talleres oficiales, averías, cambio de neumáticos, asistencia en carretera 24 h, impuesto de circulación y matriculación. Una cuota fija con IVA incluido, sin entrada y sin sorpresas." },
   { q: "¿Necesito dar una entrada?",        a: "No. Todos los coches del catálogo se ofrecen sin entrada inicial. 0 € de desembolso al comenzar." },
-  { q: "¿A cuántos kilómetros al año?",     a: "Los precios se calculan para contratos de 36 meses y 10.000 km/año. Adaptamos el kilometraje a tu uso real." },
+  /* El plazo decia "36 meses" y era falso: de 40 fichas publicadas, la
+     inmensa mayoria cotiza a 60 y unas pocas a 36. Ninguna a 36 en
+     exclusiva. Ahora dice el rango real. Los 10.000 km si eran ciertos:
+     salen asi en todas las fichas menos una. */
+  { q: "¿A cuántos kilómetros al año?",     a: "Las cuotas publicadas se calculan sobre 10.000 km al año, y el kilometraje se adapta a tu uso real. El plazo va de 36 a 60 meses y la cuota cambia según el que elijas: cada coche tiene su tabla completa." },
   { q: "¿Cuánto tarda la aprobación?",      a: "En menos de 48 horas laborables tramitamos tu solicitud y te damos respuesta." },
   { q: "¿Puedo cancelar antes de tiempo?",  a: "Cada caso se estudia de forma individual. Contáctanos por WhatsApp y te asesoramos sin compromiso." },
-  { q: "¿Es solo para particulares?",       a: "Principalmente sí, aunque también tramitamos renting para autónomos y pequeñas empresas." },
+  /* Decia "principalmente si" y espantaba al cliente de empresa justo antes
+     del formulario, teniendo /renting-empresas y /renting-autonomos
+     montadas. Ademas era falso: Adrian confirmo el 03/09/2026 que los tres
+     perfiles contratan igual. Lo unico que cambia es la documentacion, que
+     esta en docs/DOCUMENTACION-POR-PERFIL.md: 6 documentos el particular,
+     8 el autonomo y 9 la empresa. */
+  { q: "¿Es solo para particulares?",       a: "No. Particulares, autónomos y empresas contratan igual, con el mismo proceso y las mismas condiciones. Lo único que cambia es la documentación que hay que aportar, y te acompañamos con ella." },
 ];
 
 export default async function HomePage() {

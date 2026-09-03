@@ -84,7 +84,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Qué duración tienen los contratos?",
-    a: "Trabajamos principalmente contratos de 24 a 48 meses. Cuéntanos tu caso y vemos qué plazo encaja mejor con tu actividad.",
+    /* Decia "24 a 48 meses" y no lo cumple ninguna ficha: las publicadas van
+       de 36 a 60. Los 24 existen en algun modelo suelto, pero Adrian avisa
+       de que son "muy pocos, casi ninguno", asi que anunciarlos crearia una
+       expectativa que casi nunca se puede cumplir. */
+    a: "De 36 a 60 meses. La cuota cambia según el plazo, así que lo ajustamos al uso que le vaya a dar tu flota.",
   },
 ];
 

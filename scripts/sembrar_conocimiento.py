@@ -7,8 +7,19 @@ publicado en movilease.es y por tanto ya aprobado por Adrián. Si el asesor
 tiene que responder algo que no esté aquí, la respuesta correcta es decir que
 lo consulta con un asesor humano, no improvisar.
 
-Se puede reejecutar: hace upsert por (category, question), así que corrige el
-texto de una entrada existente en vez de duplicarla.
+Se puede reejecutar sin miedo: corrige el texto de una entrada existente en
+vez de duplicarla.
+
+Ese "se puede reejecutar" era MENTIRA hasta el 03/09/2026. El docstring decía
+upsert pero el código hacía un POST plano, sin `on_conflict` y sin
+`Prefer: resolution=merge-duplicates`, y la tabla no tiene UNIQUE sobre
+(category, question). Resultado: cada ejecución DUPLICABA las seis entradas, y
+el asesor podía servir la versión antigua de una respuesta ya corregida.
+
+Ahora el upsert se hace aquí, leyendo primero lo que ya existe: lo que
+coincide por (category, question) se PATCHea y solo lo nuevo se inserta. Se
+resuelve en el script y no con una migración porque añadir el UNIQUE es DDL, y
+en este proyecto las migraciones se pegan a mano en el editor SQL.
 
     python scripts/sembrar_conocimiento.py
 """
@@ -42,25 +53,53 @@ ENTRADAS = [
     ("renting_general", "¿Necesito dar una entrada?",
      "No. Todos los coches del catálogo se ofrecen sin entrada inicial. 0 € de desembolso al comenzar.", 2),
     ("renting_general", "¿A cuántos kilómetros al año?",
-     "Los precios se calculan para contratos de 36 meses y 10.000 km/año. "
-     "Adaptamos el kilometraje a tu uso real.", 3),
+     "Las cuotas publicadas se calculan sobre 10.000 km al año, y el kilometraje se "
+     "adapta a tu uso real. El plazo va de 36 a 60 meses y la cuota cambia según el "
+     "que elijas: cada coche tiene su tabla completa.", 3),
     ("proceso", "¿Cuánto tarda la aprobación?",
      "En menos de 48 horas laborables tramitamos tu solicitud y te damos respuesta.", 1),
     ("proceso", "¿Puedo cancelar antes de tiempo?",
      "Cada caso se estudia de forma individual. Contáctanos por WhatsApp y te asesoramos sin compromiso.", 2),
     ("perfiles", "¿Es solo para particulares?",
-     "Principalmente sí, aunque también tramitamos renting para autónomos y pequeñas empresas.", 1),
+     "No. Particulares, autónomos y empresas contratan igual, con el mismo proceso y "
+     "las mismas condiciones. Lo único que cambia es la documentación que hay que "
+     "aportar, y te acompañamos con ella.", 1),
 ]
 
 
-def main():
-    filas = [{"category": c, "question": q, "answer": a, "sort_order": o, "is_active": True}
-             for c, q, a, o in ENTRADAS]
-
+def _existentes():
+    """Lo que ya hay en la base, indexado por (category, question)."""
     req = urllib.request.Request(
-        f"{URL}/rest/v1/knowledge_entries", method="POST",
-        headers=H, data=json.dumps(filas).encode())
-    urllib.request.urlopen(req)
+        f"{URL}/rest/v1/knowledge_entries?select=id,category,question",
+        headers={"apikey": KEY, "Authorization": f"Bearer {KEY}"})
+    return {(e["category"], e["question"]): e["id"]
+            for e in json.load(urllib.request.urlopen(req))}
+
+
+def main():
+    ya = _existentes()
+    nuevas, corregidas = [], 0
+
+    for c, q, a, o in ENTRADAS:
+        fila = {"category": c, "question": q, "answer": a, "sort_order": o, "is_active": True}
+        ident = ya.get((c, q))
+        if ident is None:
+            nuevas.append(fila)
+            continue
+        # Ya estaba: se corrige su texto en vez de crear una segunda copia.
+        req = urllib.request.Request(
+            f"{URL}/rest/v1/knowledge_entries?id=eq.{ident}", method="PATCH",
+            headers=H, data=json.dumps(fila).encode())
+        urllib.request.urlopen(req)
+        corregidas += 1
+
+    if nuevas:
+        req = urllib.request.Request(
+            f"{URL}/rest/v1/knowledge_entries", method="POST",
+            headers=H, data=json.dumps(nuevas).encode())
+        urllib.request.urlopen(req)
+
+    print(f"corregidas: {corregidas}   nuevas: {len(nuevas)}")
 
     ver = urllib.request.Request(
         f"{URL}/rest/v1/knowledge_entries?select=category,question&order=category,sort_order",

@@ -290,9 +290,9 @@ export default async function CatalogoPage({
               .
             </p>
             <p className="mt-5 text-[17px] leading-[1.8] text-[#33415C]">
-              Las cuotas publicadas se calculan sobre contratos de 36 meses y 10.000 km
-              al año, pero el plazo y el kilometraje se adaptan a tu caso. Si no sabes
-              cuántos kilómetros contratar, te ayudamos a{" "}
+              Las cuotas publicadas se calculan sobre 10.000 km al año, con plazos de 36
+              a 60 meses según el coche, y tanto el plazo como el kilometraje se adaptan
+              a tu caso. Si no sabes cuántos kilómetros contratar, te ayudamos a{" "}
               <Link
                 href="/blog/cuantos-kilometros-contratar-renting"
                 className="font-medium text-[#0057D6] underline underline-offset-2 hover:text-[#0A0A0A]"
