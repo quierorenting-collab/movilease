@@ -47,7 +47,14 @@ DRIVE = os.environ.get("MOVILEASE_DRIVE", r"G:\Unidades compartidas\MoviLease")
 # Hoja del Drive -> prefijo de las fotos. Añadir un coche es una línea.
 HOJAS = {
     "kia-niro": r"QUADIS\AYVENS\KIA NIRO\FOTOS KIA NIRO.png",
-    "mazda-3": r"M AUTOMOCION\AYVENS\MAZDA 3\FOTOS COCHE.png"  # OJO: mosaico irregular, el troceador se niega; pendiente a mano,
+    # La hoja del Mazda 3 es un mosaico irregular y el troceador se niega
+    # a cortarla; sus fotos siguen siendo de archivo. Pendiente a mano.
+    "mazda-3": r"M AUTOMOCION\AYVENS\MAZDA 3\FOTOS COCHE.png",
+    # El gris del Mazda 2 cuesta 5 EUR/mes mas en TODAS las cuotas (lo dice
+    # el propio nombre del fichero del Drive), asi que la ficha publica el
+    # blanco, que es el precio base.
+    "mazda-2": r"M AUTOMOCION\AYVENS\MAZDA 2\FOTO COCHE BLANCO.png",
+    "seat-arona": r"MOVENTO\SEAT ARONA\FOTOS COCHE.png",
     "mercedes-citan": r"QUADIS\ARVAL\MERCEDES\MERCEDES CITAN CARGA\FOTOS MERCEDES CITAN CARGA.png",
     "nissan-interstar": r"QUADIS\ARVAL\NISSAN INTERSTAR FURGON L2H2\FOTOS NISSAN INSTERSTAR FURGÓN L2H2.png",
     "opel-mokka": r"QUADIS\AYVENS\OPEL MOKKA\FOTOS DEL COCHE.png",

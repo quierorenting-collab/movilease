@@ -1,0 +1,138 @@
+{
+  "brand": "Mazda",
+  "model": "2",
+  "version": "1.5 85kW 116CV CVT Centre-line",
+  "category": "turismo",
+  "fuel_type": "gasolina",
+  "transmission": "automatico",
+  "monthly_price_cents": 34340,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 116,
+  "consumption_value": 4.7,
+  "consumption_unit": "l/100km",
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "colors": [
+    "Blanco"
+  ],
+  "short_description": "1.5 de 116 CV con cambio automático CVT y etiqueta ECO",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 36500
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 38082
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 39664
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 42257
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 44792
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 35425
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 36825
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 38225
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 40579
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 43735
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 34340
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 35690
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 37041
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 40089
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 42775
+    }
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/mazda-2-01.webp",
+      "alt": "Mazda 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-2-02.webp",
+      "alt": "Mazda 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-2-03.webp",
+      "alt": "Mazda 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-2-04.webp",
+      "alt": "Mazda 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-2-05.webp",
+      "alt": "Mazda 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-2-06.webp",
+      "alt": "Mazda 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-2-07.webp",
+      "alt": "Mazda 2 en renting"
+    }
+  ]
+}

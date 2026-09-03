@@ -1,0 +1,105 @@
+{
+  "update_vehicle_id": "1a5594e7-ce48-4b2b-9aee-3de212716181",
+  "is_active": true,
+  "is_offer": true,
+  "brand": "Seat",
+  "model": "Arona",
+  "version": "1.0 TSI 85kW 115CV Start&Stop Style+",
+  "category": "suv",
+  "fuel_type": "gasolina",
+  "transmission": "manual",
+  "monthly_price_cents": 29104,
+  "contract_months": 36,
+  "annual_km": 10000,
+  "horsepower": 115,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "c",
+  "colors": [
+    "Blanco con techo negro"
+  ],
+  "short_description": "1.0 TSI de 115 CV, SUV compacto con etiqueta C",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 29104
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 30974
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 33403
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 29651
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 31913
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 34220
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 29436
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 32006
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 35585
+    }
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/seat-arona-01.webp",
+      "alt": "Seat Arona en renting"
+    },
+    {
+      "url": "/coches-nuevos/seat-arona-02.webp",
+      "alt": "Seat Arona en renting"
+    },
+    {
+      "url": "/coches-nuevos/seat-arona-03.webp",
+      "alt": "Seat Arona en renting"
+    },
+    {
+      "url": "/coches-nuevos/seat-arona-04.webp",
+      "alt": "Seat Arona en renting"
+    },
+    {
+      "url": "/coches-nuevos/seat-arona-05.webp",
+      "alt": "Seat Arona en renting"
+    },
+    {
+      "url": "/coches-nuevos/seat-arona-06.webp",
+      "alt": "Seat Arona en renting"
+    }
+  ]
+}
