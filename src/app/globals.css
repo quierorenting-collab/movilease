@@ -199,8 +199,43 @@
   }
 }
 
+/* Entrada del hero, en CSS y no en JavaScript.
+
+   El contenido del hero se animaba con framer-motion, lo que significa que el
+   HTML servido lo traia con opacity:0 y NO se veia hasta que React hidrataba.
+   Trece elementos, el titular y los botones incluidos. En un movil eso es lo
+   que se percibe como "la web se queda pillada un segundo": el fondo esta,
+   pero encima no hay nada, y aparece de golpe cuando termina de ejecutarse el
+   JavaScript.
+
+   Una animacion CSS arranca en el primer pintado del navegador, sin esperar a
+   nada. El contenido entra igual, con el mismo escalonado, pero empieza a
+   verse en cuanto llega el HTML. El retardo de cada peldaño va en la variable
+   --d para no repetir la regla seis veces. */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(var(--hero-rise-y, 44px)); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-rise {
+  animation: hero-rise 0.7s var(--easing-premium, cubic-bezier(.16,1,.3,1)) var(--d, 0s) both;
+}
+@keyframes hero-line {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.hero-line {
+  animation: hero-line 1s var(--easing-premium, cubic-bezier(.16,1,.3,1)) var(--d, 0s) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cinematic-zoom, .veil-breathe, .cinematic-pan { animation: none !important; }
+  /* Aqui no basta con quitar la animacion: sin ella los elementos se
+     quedarian en el estado inicial del keyframe. Se fuerza el final. */
+  .hero-rise, .hero-line {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* Entrada del botón flotante sin JavaScript */

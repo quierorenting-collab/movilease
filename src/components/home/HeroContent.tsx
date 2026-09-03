@@ -1,12 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 import { BotonAsesor } from "@/components/asesor/BotonAsesor";
 import Link from "next/link";
 import { buildWhatsAppLink } from "@/lib/constants";
-
-const ease = [0.16, 1, 0.3, 1] as const;
 
 /**
  * Secuencia de entrada del hero. El contenido arranca en 0.45s: después de
@@ -14,8 +10,13 @@ const ease = [0.16, 1, 0.3, 1] as const;
  * nada compita por la atención al mismo tiempo. Cada peldaño entra 200ms
  * después del anterior — el ritmo de keynote, no el de una animación web.
  */
-const STEP = 0.12;
-const BASE_DELAY = 0.45;
+/* Los retardos ya no se cuentan desde que hidrata React, sino desde el primer
+   pintado del navegador, que llega mucho antes. Por eso la espera inicial baja
+   de 0,45 s a 0,06: la de antes esperaba a que el vídeo arrancase su fundido,
+   pero el vídeo ahora se carga cuando el navegador está ocioso, así que ya no
+   hay con qué competir. El escalonado se conserva: mismo ritmo. */
+const STEP = 0.09;
+const BASE_DELAY = 0.06;
 
 /**
  * Sin `filter: blur()`: no es transform ni opacity, así que obliga a rasterizar
@@ -28,15 +29,18 @@ const BASE_DELAY = 0.45;
  * hasta pasado el segundo y medio. Ahora cierra en 1,95 s conservando el ritmo
  * de keynote.
  */
-function rise(i: number, distance = 44) {
+/**
+ * El peldaño `i` de la entrada, como variables CSS.
+ *
+ * Antes devolvía variantes de framer-motion, y ESE era el problema: el HTML
+ * llegaba con opacity:0 y el hero no se veía hasta que React hidrataba. Ahora
+ * la animación es CSS y empieza en el primer pintado del navegador.
+ */
+function rise(i: number, distance = 44): React.CSSProperties {
   return {
-    hidden: { opacity: 0, y: distance },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.9, delay: BASE_DELAY + i * STEP, ease },
-    },
-  };
+    ["--d" as string]: (BASE_DELAY + i * STEP).toFixed(2) + "s",
+    ["--hero-rise-y" as string]: distance + "px",
+  } as React.CSSProperties;
 }
 
 /**
@@ -70,55 +74,47 @@ export function HeroContent() {
       className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-10 pt-[22vh] sm:px-10 lg:pb-24 lg:pt-28">
       <div className="lg:max-w-[52%]">
         {/* Eyebrow */}
-        <motion.div
-          variants={rise(0, 20)}
-          initial="hidden"
-          animate="visible"
-          className="mb-8 flex items-center gap-4"
+        <div
+          style={rise(0, 20)}
+          className="hero-rise mb-8 flex items-center gap-4"
         >
-          <motion.span
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1.1, delay: BASE_DELAY + 0.35, ease }}
-            className="h-px w-10 origin-left bg-[#0068FF]"
+          <span
+            style={{ ["--d" as string]: (BASE_DELAY + 0.3).toFixed(2) + "s" } as React.CSSProperties}
+            className="hero-line h-px w-10 origin-left bg-[#0068FF]"
           />
           <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#5AA0FF]">
             Smart Mobility Platform
           </span>
-        </motion.div>
+        </div>
 
         {/* Headline — massive editorial. El slogan de marca, aquí en
             grande, en vez de como texto pequeño junto al logo del header. */}
         <h1 className="hero-headline text-white">
           <span className="block overflow-hidden">
-            <motion.span variants={rise(1)} initial="hidden" animate="visible" className="block">
+            <span style={rise(1)} className="hero-rise block">
               Hazlo fácil.
-            </motion.span>
+            </span>
           </span>
           <span className="block overflow-hidden">
-            <motion.span variants={rise(2)} initial="hidden" animate="visible" className="block">
+            <span style={rise(2)} className="hero-rise block">
               Hazlo <span className="text-[#0068FF]">MoviLease.</span>
-            </motion.span>
+            </span>
           </span>
         </h1>
 
         {/* Subtitle */}
-        <motion.p
-          variants={rise(3, 28)}
-          initial="hidden"
-          animate="visible"
-          className="mt-6 max-w-lg text-[16px] leading-[1.7] text-white/80 sm:text-[17px]"
+        <p
+          style={rise(3, 28)}
+          className="hero-rise mt-6 max-w-lg text-[16px] leading-[1.7] text-white/80 sm:text-[17px]"
         >
           Renting inteligente para particulares, autónomos y empresas.
           Todo incluido en una cuota fija. Sin entrada. Sin sorpresas.
-        </motion.p>
+        </p>
 
         {/* CTAs */}
-        <motion.div
-          variants={rise(4, 28)}
-          initial="hidden"
-          animate="visible"
-          className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4"
+        <div
+          style={rise(4, 28)}
+          className="hero-rise mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4"
         >
           <Link href="/catalogo" className="btn-primary justify-center">
             Explorar catálogo
@@ -153,14 +149,12 @@ export function HeroContent() {
           <BotonAsesor className="btn-ghost justify-center">
             Habla con el asesor
           </BotonAsesor>
-        </motion.div>
+        </div>
 
         {/* Trust indicators */}
-        <motion.div
-          variants={rise(5, 24)}
-          initial="hidden"
-          animate="visible"
-          className="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/15 pt-7"
+        <div
+          style={rise(5, 24)}
+          className="hero-rise mt-10 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/15 pt-7"
         >
           {TRUST.map((t) => (
             <span key={t.label} className="flex items-baseline gap-2 text-[14px] sm:text-[15px]">
@@ -188,7 +182,7 @@ export function HeroContent() {
               <span className="text-white/70">{t.label}</span>
             </span>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
