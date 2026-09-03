@@ -56,7 +56,6 @@ const MODELOS_RETIRADOS = [
   "renting-toyota-proace",
   "renting-volkswagen-golf",
   "renting-volkswagen-t-cross",
-  "renting-volkswagen-t-roc",
 ];
 
 const nextConfig: NextConfig = {
