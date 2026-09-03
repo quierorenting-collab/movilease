@@ -60,12 +60,17 @@ interface Requisito {
   esperados: number | null;
 }
 
-/** Tramos de cuota. El último no lleva tope: "de 600 en adelante". */
-const PRESUPUESTOS: { etiqueta: string; max?: number }[] = [
+/* Tramos de cuota, ahora CON SUELO. Antes solo mandaban techo, y como el
+   catálogo se ordena por cuota ascendente, quien decía "entre 450 y 600" o
+   "más de 600" recibía los tres coches más baratos de toda la web: un Ibiza
+   de 263 €, un 208 de 296 € y un Corsa de 303 €. Es decir, justo al cliente
+   con más presupuesto —el lead más valioso— se le enseñaba lo más barato que
+   hay. El último tramo no lleva techo, a propósito. */
+const PRESUPUESTOS: { etiqueta: string; min?: number; max?: number }[] = [
   { etiqueta: "Hasta 300 €", max: 300 },
-  { etiqueta: "Entre 300 y 450 €", max: 450 },
-  { etiqueta: "Entre 450 y 600 €", max: 600 },
-  { etiqueta: "Más de 600 €" },
+  { etiqueta: "Entre 300 y 450 €", min: 300, max: 450 },
+  { etiqueta: "Entre 450 y 600 €", min: 450, max: 600 },
+  { etiqueta: "Más de 600 €", min: 600 },
 ];
 
 /* Solo carrocerías. El enum `vehicle_category` mezcla carrocería y
@@ -75,7 +80,10 @@ const CARROCERIAS = [
   { valor: "turismo", etiqueta: "Turismo" },
   { valor: "suv", etiqueta: "SUV" },
   { valor: "furgoneta", etiqueta: "Furgoneta" },
-  { valor: "4x4", etiqueta: "4x4" },
+  /* "4x4" estaba aquí y era un callejón sin salida garantizado: no hay ni un
+     solo coche con esa categoría en el catálogo, así que con cualquier
+     presupuesto la respuesta era siempre "no tenemos nada". Se quita hasta que
+     haya stock; quien busca un todoterreno encuentra SUV, que es lo que hay. */
 ];
 
 /**
@@ -102,6 +110,12 @@ export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana
 
   const [clientType, setClientType] = useState<ClientType | null>(null);
   const [maxPrice, setMaxPrice] = useState<number | undefined>();
+  const [minPrice, setMinPrice] = useState<number | undefined>();
+  /* Cuando el tramo del visitante no da resultados se le enseñan coches de
+     fuera de su tramo. Hay que decírselo: presentarlos como si fueran lo que
+     pidió sería engañarle. */
+  const [esAlternativa, setEsAlternativa] = useState(false);
+  const [falloDeRed, setFalloDeRed] = useState(false);
   const [sugerencias, setSugerencias] = useState<Sugerencia[]>([]);
   const [elegido, setElegido] = useState<Sugerencia | null>(null);
 
@@ -134,12 +148,23 @@ export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana
       const res = await fetch("/api/asesor/coches", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ maxPriceEuros: maxPrice, category: categoria }),
+        body: JSON.stringify({
+          maxPriceEuros: maxPrice,
+          minPriceEuros: minPrice,
+          category: categoria,
+        }),
       });
       const data = await res.json();
       setSugerencias(data?.ok ? data.sugerencias : []);
+      setEsAlternativa(Boolean(data?.ok && data.esAlternativa));
+      setFalloDeRed(!data?.ok);
     } catch {
+      /* Distinguir el fallo de red del "no hay coches" importa: decirle "no
+         tenemos nada" a alguien cuyo móvil ha perdido cobertura un segundo es
+         mentirle sobre el catálogo y perder la venta por un problema que no
+         existe. */
       setSugerencias([]);
+      setFalloDeRed(true);
     } finally {
       setCargando(false);
     }
@@ -277,6 +302,7 @@ export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana
                 key={p.etiqueta}
                 onClick={() => {
                   setMaxPrice(p.max);
+                  setMinPrice(p.min);
                   setPaso("carroceria");
                 }}
               >
@@ -302,9 +328,13 @@ export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana
             texto={
               cargando
                 ? "Mirando el catálogo…"
-                : sugerencias.length
-                  ? "Esto es lo que tenemos disponible ahora mismo:"
-                  : "No tenemos nada que encaje justo con eso."
+                : falloDeRed
+                  ? "No he podido consultar el catálogo ahora mismo. Vuelve a intentarlo o escríbenos y lo miramos contigo."
+                  : esAlternativa
+                    ? "En tu tramo de cuota no tengo nada publicado ahora mismo, pero esto es lo más cercano que sí tengo:"
+                    : sugerencias.length
+                      ? "Esto es lo que tenemos disponible ahora mismo:"
+                      : "En el catálogo público no tengo nada que encaje justo con eso."
             }
           >
             {sugerencias.map((s) => (
@@ -332,10 +362,29 @@ export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana
                 </span>
               </button>
             ))}
-            {!cargando && !sugerencias.length && (
+            {/* Regla de Adrián: nunca dejar al cliente sin alternativa. Se le
+                dice la verdad —que el catálogo publicado es una selección— y
+                se le abre la puerta, en vez de despedirle con un "no". */}
+            {!cargando && (esAlternativa || !sugerencias.length) && !falloDeRed && (
+              <div className="rounded-xl border border-[#5AA0FF]/25 bg-[#5AA0FF]/10 p-3.5">
+                <p className="text-[13px] leading-relaxed text-white/85">
+                  En el catálogo enseñamos una selección, pero trabajamos con más
+                  opciones y a veces conseguimos vehículos u ofertas que no están
+                  publicados. Dinos qué buscas y qué cuota tienes en mente y te lo
+                  buscamos.
+                </p>
+              </div>
+            )}
+            {!cargando && (
               <>
-                <Opcion onClick={() => setPaso("presupuesto")}>Probar con otro presupuesto</Opcion>
-                <EnlaceWhatsApp texto="Cuéntanos qué buscas por WhatsApp" />
+                {(esAlternativa || !sugerencias.length) && (
+                  <Opcion onClick={() => setPaso("presupuesto")}>
+                    Probar con otro presupuesto
+                  </Opcion>
+                )}
+                {(esAlternativa || !sugerencias.length || falloDeRed) && (
+                  <EnlaceWhatsApp texto="Cuéntanos qué buscas por WhatsApp" />
+                )}
               </>
             )}
           </Bloque>

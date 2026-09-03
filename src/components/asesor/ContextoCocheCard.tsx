@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { CONTACT, buildWhatsAppLink } from "@/lib/constants";
 import type { ContextoCoche } from "./abrirAsesor";
@@ -8,20 +8,67 @@ import type { ContextoCoche } from "./abrirAsesor";
 /**
  * Lo que ve quien abre la ventana desde un coche concreto.
  *
- * Empieza PLEGADA, en dos lineas. Es deliberado: la ventana mide 380 px de
- * ancho y unos 560 de alto, y un coche con seis filas de cuotas empujaria la
- * primera pregunta del asesor fuera de la vista. Plegada, el visitante ve que
- * la ventana sabe que coche esta mirando y tiene las cuotas a un clic.
+ * DOS DECISIONES DE DISENO, LAS DOS POR EL MISMO MOTIVO: no saturar.
  *
- * TODOS los datos vienen ya formateados desde la ficha. Aqui no se calcula ni
- * se estima ningun precio: se repiten los mismos textos que el visitante
- * acaba de ver, que es la unica forma de garantizar que el asesor no le diga
- * una cuota distinta de la que pone la pagina.
+ * 1. No se listan las diez o veinte combinaciones de golpe. Se enseñan las
+ *    TRES mas cercanas a la cuota anunciada del coche, que es la que el
+ *    visitante acaba de ver en grande y con la que ha entrado. El resto vive
+ *    detras de un selector.
+ *
+ * 2. El selector es de km y meses, no una lista. Elegir "20.000 km" y
+ *    "48 meses" es como piensa el cliente; leerse una tabla de veinte filas no.
+ *
+ * REGLA QUE NO SE PUEDE ROMPER: aqui no se calcula, no se estima y no se
+ * interpola NINGUN precio. Solo se busca la fila exacta en lo que la ficha ya
+ * publica. Si esa combinacion no existe, se dice y se ofrece preguntarla, que
+ * es lo unico honesto: inventar una cuota es anunciar un precio que la empresa
+ * no tiene por que poder cumplir.
  */
 export function ContextoCocheCard({ coche }: { coche: ContextoCoche }) {
-  const [abierto, setAbierto] = useState(false);
-  const cuotas = coche.cuotas ?? [];
+  const cuotas = useMemo(() => coche.cuotas ?? [], [coche.cuotas]);
   const servicios = coche.serviciosIncluidos ?? [];
+
+  const [personalizando, setPersonalizando] = useState(false);
+  const [km, setKm] = useState<number | undefined>(coche.kmAnuales);
+  const [meses, setMeses] = useState<number | undefined>(coche.meses);
+
+  const kmDisponibles = useMemo(
+    () => [...new Set(cuotas.map((c) => c.km))].sort((a, b) => a - b),
+    [cuotas]
+  );
+  const mesesDisponibles = useMemo(
+    () => [...new Set(cuotas.map((c) => c.meses))].sort((a, b) => a - b),
+    [cuotas]
+  );
+
+  /* Las tres mas cercanas a la cuota anunciada, por distancia absoluta de
+     precio. Se ordenan luego por importe para que se lean de menor a mayor. */
+  const destacadas = useMemo(() => {
+    if (!cuotas.length) return [];
+    const referencia =
+      coche.desdeCents ?? Math.min(...cuotas.map((c) => c.precioCents ?? Infinity));
+    return [...cuotas]
+      .sort(
+        (a, b) =>
+          Math.abs((a.precioCents ?? 0) - referencia) -
+          Math.abs((b.precioCents ?? 0) - referencia)
+      )
+      .slice(0, 3)
+      .sort((a, b) => (a.precioCents ?? 0) - (b.precioCents ?? 0));
+  }, [cuotas, coche.desdeCents]);
+
+  const elegida =
+    km !== undefined && meses !== undefined
+      ? cuotas.find((c) => c.km === km && c.meses === meses)
+      : undefined;
+
+  const mensajeWhatsApp = buildWhatsAppLink(
+    `Hola, estoy viendo el ${coche.nombre}` +
+      (km !== undefined ? `, hago unos ${km.toLocaleString("es-ES")} km al año` : "") +
+      (meses !== undefined ? ` y quiero ${meses} meses` : "") +
+      (elegida ? ` (cuota publicada ${elegida.precio}/mes)` : "") +
+      ". ¿Me podéis pasar oferta?"
+  );
 
   return (
     <div className="mb-3 rounded-xl border border-[#5AA0FF]/25 bg-[#5AA0FF]/10">
@@ -37,29 +84,10 @@ export function ContextoCocheCard({ coche }: { coche: ContextoCoche }) {
         </p>
       </div>
 
-      {cuotas.length > 0 && (
-        <button
-          type="button"
-          onClick={() => setAbierto((v) => !v)}
-          aria-expanded={abierto}
-          className="mt-1.5 flex w-full items-center justify-between px-3.5 pb-3 text-left text-[12.5px] font-medium text-[#8FC0FF] transition-colors duration-200 hover:text-white"
-        >
-          {abierto
-            ? "Ocultar las cuotas"
-            : `Ver las ${cuotas.length} cuotas disponibles`}
-          <span aria-hidden="true" className="ml-2 text-[15px] leading-none">
-            {abierto ? "−" : "+"}
-          </span>
-        </button>
-      )}
-
-      {abierto && (
-        <div className="border-t border-[#5AA0FF]/20 px-3.5 py-3">
-          {/* Una fila por combinacion de plazo y kilometraje, igual que la
-              tabla de la ficha. Nada de "desde": todas las opciones, que es
-              justo lo que se pidio. */}
+      {destacadas.length > 0 && !personalizando && (
+        <div className="px-3.5 pb-3 pt-2.5">
           <ul className="flex flex-col gap-1.5">
-            {cuotas.map((c) => (
+            {destacadas.map((c) => (
               <li
                 key={`${c.meses}-${c.km}`}
                 className="flex items-baseline justify-between gap-3 text-[12.5px]"
@@ -71,42 +99,130 @@ export function ContextoCocheCard({ coche }: { coche: ContextoCoche }) {
               </li>
             ))}
           </ul>
-
-          <p className="mt-3 text-[11.5px] leading-relaxed text-white/60">
-            IVA incluido y sin entrada. La cuota cambia según el plazo que elijas.
-          </p>
-
-          {servicios.length > 0 && (
-            <p className="mt-2 text-[11.5px] leading-relaxed text-white/60">
-              <span className="text-white/80">Incluye:</span> {servicios.join(" · ")}.
-            </p>
+          {cuotas.length > destacadas.length && (
+            <button
+              type="button"
+              onClick={() => setPersonalizando(true)}
+              className="mt-2.5 text-[12.5px] font-medium text-[#8FC0FF] transition-colors duration-200 hover:text-white"
+            >
+              Ver más opciones · elegir km y duración
+            </button>
           )}
-
-          {/* Salida directa desde aqui: quien ya ha visto la cuota que le
-              encaja no deberia tener que recorrer el cuestionario entero para
-              preguntar por ella. El mensaje va prerrellenado con el coche. */}
-          <div className="mt-3 flex flex-col gap-2">
-            <a
-              href={buildWhatsAppLink(
-                `Hola, estoy viendo el ${coche.nombre}${
-                  coche.desde ? ` (desde ${coche.desde}/mes)` : ""
-                }. ¿Me podéis pasar oferta y decirme qué cuotas tenéis?`
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg bg-[#25D366] px-3 py-2 text-center text-[12.5px] font-semibold text-[#04240F] transition-colors duration-200 hover:bg-[#1DA851] hover:text-white"
-            >
-              Pedir oferta por WhatsApp
-            </a>
-            <a
-              href={`tel:${CONTACT.phone}`}
-              className="rounded-lg border border-white/15 px-3 py-2 text-center text-[12.5px] font-medium text-white/85 transition-colors duration-200 hover:bg-white/5"
-            >
-              Prefiero que me llaméis
-            </a>
-          </div>
         </div>
       )}
+
+      {personalizando && (
+        <div className="px-3.5 pb-3 pt-2.5">
+          <Selector
+            titulo="Kilómetros al año"
+            opciones={kmDisponibles}
+            valor={km}
+            onChange={setKm}
+            formato={(v) => v.toLocaleString("es-ES")}
+          />
+          <Selector
+            titulo="Duración"
+            opciones={mesesDisponibles}
+            valor={meses}
+            onChange={setMeses}
+            formato={(v) => `${v} meses`}
+          />
+
+          <div className="mt-3 rounded-lg border border-white/12 bg-white/[0.05] px-3 py-2.5 text-center">
+            {elegida ? (
+              <>
+                <p className="text-[19px] font-semibold text-white">{elegida.precio}/mes</p>
+                <p className="mt-0.5 text-[11.5px] text-white/60">
+                  {elegida.meses} meses · {elegida.km.toLocaleString("es-ES")} km/año · IVA
+                  incluido
+                </p>
+              </>
+            ) : (
+              /* Ni se interpola ni se aproxima: si esa combinacion no esta
+                 publicada, no existe una cuota que se pueda dar. */
+              <p className="text-[12.5px] leading-relaxed text-white/75">
+                Esa combinación no está publicada para este coche. Dinos la que
+                necesitas y te la conseguimos.
+              </p>
+            )}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setPersonalizando(false)}
+            className="mt-2.5 text-[12.5px] font-medium text-[#8FC0FF] transition-colors duration-200 hover:text-white"
+          >
+            Volver a las cuotas destacadas
+          </button>
+        </div>
+      )}
+
+      <div className="border-t border-[#5AA0FF]/20 px-3.5 py-3">
+        {servicios.length > 0 && (
+          <p className="mb-2.5 text-[11.5px] leading-relaxed text-white/60">
+            <span className="text-white/80">Incluye:</span> {servicios.join(" · ")}.
+          </p>
+        )}
+        {/* El mensaje llega al asesor con el coche, los km y el plazo ya
+            escritos. Es la diferencia entre "hola, información" y una consulta
+            que se puede atender en un minuto. */}
+        <div className="flex flex-col gap-2">
+          <a
+            href={mensajeWhatsApp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg bg-[#25D366] px-3 py-2 text-center text-[12.5px] font-semibold text-[#04240F] transition-colors duration-200 hover:bg-[#1DA851] hover:text-white"
+          >
+            Pedir oferta por WhatsApp
+          </a>
+          <a
+            href={`tel:${CONTACT.phone}`}
+            className="rounded-lg border border-white/15 px-3 py-2 text-center text-[12.5px] font-medium text-white/85 transition-colors duration-200 hover:bg-white/5"
+          >
+            Prefiero que me llaméis
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Selector({
+  titulo,
+  opciones,
+  valor,
+  onChange,
+  formato,
+}: {
+  titulo: string;
+  opciones: number[];
+  valor: number | undefined;
+  onChange: (v: number) => void;
+  formato: (v: number) => string;
+}) {
+  if (opciones.length === 0) return null;
+  return (
+    <div className="mb-2.5">
+      <p className="mb-1.5 text-[11.5px] font-medium uppercase tracking-[0.08em] text-white/50">
+        {titulo}
+      </p>
+      <div className="flex flex-wrap gap-1.5">
+        {opciones.map((o) => (
+          <button
+            key={o}
+            type="button"
+            onClick={() => onChange(o)}
+            aria-pressed={valor === o}
+            className={
+              valor === o
+                ? "rounded-lg bg-[#0068FF] px-2.5 py-1.5 text-[12px] font-semibold text-white"
+                : "rounded-lg border border-white/15 px-2.5 py-1.5 text-[12px] text-white/80 transition-colors duration-200 hover:bg-white/10"
+            }
+          >
+            {formato(o)}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

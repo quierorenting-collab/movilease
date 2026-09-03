@@ -16,6 +16,9 @@ export type CuotaCoche = {
   km: number;
   /** Ya formateado ("263 €"): el asesor NUNCA calcula un precio, solo repite el publicado. */
   precio: string;
+  /** El mismo importe en centimos. Solo se usa para ORDENAR por cercania a la
+   *  cuota anunciada y para elegir cuales destacar; nunca para operar con el. */
+  precioCents?: number;
 };
 
 /**
@@ -35,6 +38,8 @@ export type ContextoCoche = {
   slug?: string;
   /** La cuota mas baja publicada, formateada. */
   desde?: string;
+  /** La misma, en centimos, para saber que filas destacar. */
+  desdeCents?: number;
   kmAnuales?: number;
   meses?: number;
   serviciosIncluidos?: string[];

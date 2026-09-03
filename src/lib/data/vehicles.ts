@@ -219,6 +219,10 @@ export interface CatalogFilters {
    *  y no habia forma de filtrar por cambio: sin esto no hay landing posible. */
   transmission?: TransmissionEnum;
   maxPriceEuros?: number;
+  /** Suelo de precio. Sin el, un tramo como "entre 450 y 600" solo aplicaba el
+   *  techo y devolvia los coches mas baratos del catalogo, porque la consulta
+   *  ordena por cuota ascendente. Quien decia tener 600 EUR veia uno de 263. */
+  minPriceEuros?: number;
 }
 
 export interface VehicleGalleryImage {
@@ -427,6 +431,9 @@ export const getCatalogVehicles = cache(async (filters: CatalogFilters = {}): Pr
     if (filters.transmission) query = query.eq("transmission", filters.transmission);
     if (filters.maxPriceEuros) {
       query = query.lte("monthly_price_cents", filters.maxPriceEuros * 100);
+    }
+    if (filters.minPriceEuros) {
+      query = query.gte("monthly_price_cents", filters.minPriceEuros * 100);
     }
 
     const { data, error } = await query.order("monthly_price_cents").limit(300);

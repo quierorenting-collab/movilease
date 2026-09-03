@@ -473,6 +473,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
                       version: primary.version,
                       slug: model.model.slug,
                       desde: primary.priceLabel,
+                      desdeCents: primary.monthlyPriceCents,
                       kmAnuales: primary.annualKm,
                       meses: primary.contractMonths,
                       serviciosIncluidos: services,
@@ -484,6 +485,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
                         meses: t.contractMonths,
                         km: t.annualKm,
                         precio: t.priceLabel,
+                        precioCents: t.monthlyPriceCents,
                       })),
                     }}
                     className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 py-2.5 text-[13px] font-medium text-[#5AA0FF] transition-colors duration-200 hover:border-white/20 hover:bg-white/5"
