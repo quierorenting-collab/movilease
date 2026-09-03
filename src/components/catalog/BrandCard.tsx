@@ -32,11 +32,25 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
             className="max-h-16 w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.06]"
           />
         ) : (
-          <span
-            className="text-center text-2xl font-bold uppercase tracking-wide text-[#0A0A0A]/70"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
-          >
-            {brand.brandName}
+          /* Sin logo. Hoy le pasa a Honda y a Mercedes-Benz: no hay fichero en
+             public/brands/ para esas dos, y el resto de la rejilla sí lo
+             tiene, así que la tarjeta cantaba. En vez de un nombre suelto en
+             gris, se compone como una placa: el nombre bien espaciado sobre
+             una línea de acento. Deja de parecer un hueco y pasa por una
+             decisión.
+
+             El arreglo de verdad es el fichero: en cuanto haya
+             public/brands/honda.svg y public/brands/mercedes-benz.svg, y su
+             línea en EXTENSION_BY_SLUG de src/lib/brand-logos.ts, salen solos
+             y esto no se ve. */
+          <span className="flex flex-col items-center gap-2.5">
+            <span
+              className="text-center text-[22px] font-bold uppercase leading-none tracking-[0.14em] text-[#0A0A0A]/80"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}
+            >
+              {brand.brandName}
+            </span>
+            <span className="block h-[3px] w-9 rounded-full bg-[#0057D6]/70" />
           </span>
         )}
       </div>
@@ -49,10 +63,11 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
         >
           {brand.brandName}
         </p>
-        <p className="mt-2 text-[13px] text-[#5B6472]">
-          {brand.vehicleCount}{" "}
-          {brand.vehicleCount === 1 ? "vehículo disponible" : "vehículos disponibles"}
-        </p>
+        {/* Contaba los coches de la marca. Casi todas tienen uno o dos, así
+            que la rejilla entera se leía como "1 vehículo disponible" repetido
+            y eso encoge la empresa a ojos del visitante. Misma regla que en el
+            resto de la web: nada de cifras de tamaño. */}
+        <p className="mt-2 text-[13px] text-[#5B6472]">Renting con todo incluido</p>
       </div>
 
       {/*

@@ -272,44 +272,11 @@ export default async function HomePage() {
         <HeroContent />
       </section>
 
-      {/* ══ STATS — dark graphite, huge numbers ═══════════ */}
-      <section className="surface-graphite relative overflow-hidden bg-texture-dark section-y">
-        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
-          <div className="grid grid-cols-2 gap-14 sm:grid-cols-4 sm:gap-0">
-            {VENTAJAS.map((v, i) => (
-              <Reveal
-                key={v.titulo}
-                delay={i * 0.08}
-                className={`text-center sm:px-8 ${i > 0 ? "sm:border-l sm:border-white/10" : ""}`}
-              >
-                <p className="display-sm text-white">{v.titulo}</p>
-                <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">
-                  {v.detalle}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ MARQUEE — marcas disponibles ══════════════════ */}
-      <section className="surface-black overflow-hidden section-y-sm">
-        <Reveal className="mb-10 text-center">
-          <p className="section-label">Marcas disponibles</p>
-        </Reveal>
-        <div className="marquee-track" aria-hidden="true">
-          {[...MARQUEE_BRANDS, ...MARQUEE_BRANDS].map((brand, i) => (
-            <span
-              key={`${brand}-${i}`}
-              className="mx-7 whitespace-nowrap text-[15px] font-bold uppercase tracking-[0.28em] text-white/70 sm:mx-10 sm:text-[17px]"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
-            >
-              {brand}
-            </span>
-          ))}
-        </div>
-      </section>
-
+      {/* Las ofertas van AQUI, pegadas al hero, por decision de Adrian:
+          antes venian despues de la banda de ventajas (todo incluido, el
+          mismo asesor, 48 horas) y de la marquesina de marcas, o sea que
+          lo primero que veia el visitante al bajar era un argumentario en
+          vez de un coche con su precio. Ahora lo primero es producto. */}
       {/* ══ OFERTAS — fondo claro con la foto del BMW ═════
           Las tarjetas son azul marino oscuro: sobre claro destacan mucho más
           que sobre el azul oscuro anterior, así que el bloque gana presencia
@@ -318,9 +285,9 @@ export default async function HomePage() {
       {/* El fondo claro va en la propia sección, no sólo en el backdrop: si la
           foto fallase, el texto en tinta oscura quedaría sobre el azul marino
           del body y sería ilegible.
-          Va antes que "Catálogo por marcas": son las 4 ofertas más atractivas
-          del momento (Ibiza 80CV, Polo, Taigo, Ebro S400), pensadas como
-          gancho inmediato antes de que el visitante explore por marca. */}
+          Cuáles son las ofertas NO se decide aquí: sale de is_offer en la base,
+          así que cambia cuando cambia el stock. No poner nombres en este
+          comentario: los que había ya se habían quedado viejos. */}
       {dedupedOffers.length > 0 && (
         <section id="ofertas" className="relative overflow-hidden bg-[#F4F6FA] section-y">
           <VideoBackdrop
@@ -476,6 +443,45 @@ export default async function HomePage() {
           </div>
         </section>
       )}
+
+      {/* ══ STATS — dark graphite, huge numbers ═══════════ */}
+      <section className="surface-graphite relative overflow-hidden bg-texture-dark section-y">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
+          <div className="grid grid-cols-2 gap-14 sm:grid-cols-4 sm:gap-0">
+            {VENTAJAS.map((v, i) => (
+              <Reveal
+                key={v.titulo}
+                delay={i * 0.08}
+                className={`text-center sm:px-8 ${i > 0 ? "sm:border-l sm:border-white/10" : ""}`}
+              >
+                <p className="display-sm text-white">{v.titulo}</p>
+                <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">
+                  {v.detalle}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ MARQUEE — marcas disponibles ══════════════════ */}
+      <section className="surface-black overflow-hidden section-y-sm">
+        <Reveal className="mb-10 text-center">
+          <p className="section-label">Marcas disponibles</p>
+        </Reveal>
+        <div className="marquee-track" aria-hidden="true">
+          {[...MARQUEE_BRANDS, ...MARQUEE_BRANDS].map((brand, i) => (
+            <span
+              key={`${brand}-${i}`}
+              className="mx-7 whitespace-nowrap text-[15px] font-bold uppercase tracking-[0.28em] text-white/70 sm:mx-10 sm:text-[17px]"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}
+            >
+              {brand}
+            </span>
+          ))}
+        </div>
+      </section>
+
 
       {/* ══ MARCAS — premium white ════════════════════════ */}
       <section id="marcas" className="relative overflow-hidden bg-[#FAFAFA] bg-texture-light section-y">

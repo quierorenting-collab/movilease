@@ -170,8 +170,15 @@ export default async function CatalogoPage({
               <div>
                 <p className="section-label mb-3">Catálogo</p>
                 <h1 className="display-lg text-white">{displayName}</h1>
+                {/* Contaba los coches de la marca, y casi todas tienen uno,
+                    dos o tres: "3 vehículos disponibles" es lo primero que
+                    leía el visitante y lo que peor deja a MoviLease frente a
+                    un portal con miles. El precio de entrada dice algo útil y
+                    no envejece con el stock. */}
                 <p className="mt-4 text-[14px] text-white/70">
-                  {filtered.length} vehículo{filtered.length !== 1 ? "s" : ""} disponible{filtered.length !== 1 ? "s" : ""}
+                  {cuotaMinimaMarca
+                    ? `Desde ${cuotaMinimaMarca} € al mes, todo incluido y sin entrada`
+                    : "Renting con todo incluido y sin entrada"}
                 </p>
               </div>
             </div>
@@ -270,8 +277,7 @@ export default async function CatalogoPage({
               Renting de {displayName} sin entrada
             </h2>
             <p className="mt-6 text-[17px] leading-[1.8] text-[#33415C]">
-              Tenemos {filtered.length} {filtered.length === 1 ? "vehículo" : "vehículos"} de{" "}
-              {displayName} disponibles en renting
+              Aquí tienes los {displayName} que podemos ofrecerte en renting
               {cuotaMinimaMarca ? `, desde ${cuotaMinimaMarca} € al mes` : ""}. Todas las
               cuotas van con el IVA incluido y sin entrada: el día que recibes el coche
               no pagas nada por adelantado.
@@ -335,16 +341,21 @@ export default async function CatalogoPage({
       <div className="surface-black ambient-blue-top relative pt-32 pb-16">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
           <p className="section-label mb-4">Catálogo completo</p>
+          {/* Sin cifras. Decía "17 marcas. 33 vehículos." y hacía justo lo
+              contrario de lo que tiene que hacer un titular de catálogo:
+              medirse contra portales que tienen miles y salir perdiendo. Un
+              número que hoy suma 33 además envejece solo cada vez que entra o
+              sale un coche del stock. La misma razón por la que ya se quitaron
+              las cifras de la home y de Quiénes somos. */}
           <h1 className="display-lg text-white">
-            {brands.length} marcas.
+            Elige tu coche.
             <br />
-            <span className="text-[#5AA0FF]">
-              {brands.reduce((sum, b) => sum + b.vehicleCount, 0)} vehículos.
-            </span>
+            <span className="text-[#5AA0FF]">Nosotros nos ocupamos del resto.</span>
           </h1>
           <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/70">
-            Elige tu marca favorita y explora todos los modelos disponibles en renting.
-            Sin entrada, con seguro incluido y gestión en 48 horas.
+            Todo incluido en una cuota fija: seguro a todo riesgo, mantenimiento,
+            averías, neumáticos e impuestos. Sin entrada. Y siempre el mismo asesor
+            de principio a fin.
           </p>
         </div>
       </div>
@@ -469,8 +480,7 @@ async function AllVehiclesSection({ maxPrice }: { maxPrice?: number }) {
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal className="mb-12 flex flex-wrap items-center gap-4">
           <h2 className="display-sm shrink-0 text-white">
-            {maxPrice ? `Hasta ${maxPrice} €/mes` : "Todos los modelos"}{" "}
-            <span className="text-[#5AA0FF]">({deduped.length})</span>
+            {maxPrice ? `Hasta ${maxPrice} €/mes` : "Todos los modelos"}
           </h2>
           <div className="hidden flex-1 border-t border-white/[0.08] sm:block" />
           {maxPrice && (

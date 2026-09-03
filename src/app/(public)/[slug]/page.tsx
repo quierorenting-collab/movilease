@@ -256,9 +256,9 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
     },
     model.vehicles.length > 1 && {
       q: `¿Qué versiones del ${nombreCompleto} hay disponibles?`,
-      a: `Ahora mismo ${model.vehicles.length} versiones: ${model.vehicles
-        .map((v) => v.version)
-        .join(", ")}.`,
+      /* Enumerarlas ya dice cuántas hay; anteponer el número solo sirve
+         para que "2 versiones" suene a poco. */
+      a: `${model.vehicles.map((v) => v.version).join(", ")}. Si buscas otro acabado o otro motor, dínoslo y lo miramos.`,
     },
   ].filter(Boolean) as { q: string; a: string }[];
   const imagenes = [
