@@ -60,6 +60,17 @@ export function HeroVideo() {
      pintado desde el primer render, así que el hero se ve igual mientras tanto. */
   useEffect(() => {
     if (reducedMotion) return;
+    /* Con ahorro de datos activado, o en 2G/3G, el fondo no compensa: son
+       700-800 KB de adorno en la conexión de alguien que ha pedido
+       explícitamente que no se gasten. Se queda el póster, que es el mismo
+       fotograma. Es lo que ya hace VideoBackdrop en el resto de la web; el
+       hero era el único sitio que no lo comprobaba. */
+    const conexion = (navigator as Navigator & {
+      connection?: { saveData?: boolean; effectiveType?: string };
+    }).connection;
+    if (conexion?.saveData === true) return;
+    if (conexion?.effectiveType && /^(slow-2g|2g|3g)$/.test(conexion.effectiveType)) return;
+
     const arranca = () => setFuenteLista(true);
     const w = window as typeof window & {
       requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
