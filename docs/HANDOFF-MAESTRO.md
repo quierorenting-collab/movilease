@@ -78,8 +78,9 @@ inline dentro de cada `.html`**, así que lo que sirve el dominio *es* el códig
 fuente.
 
 **Objetivo de negocio de las cuatro:** generar contactos (leads) que acaben en
-una conversación de WhatsApp. Las cuatro comparten el mismo número:
-**+34 613 26 73 75** (`34613267375`).
+una conversación de WhatsApp. **El número dejó de ser común**: las dos webs de
+renting usan **+34 644 15 67 97** (`34644156797`) y laponce.es sigue con el
+antiguo `34613267375`.
 
 **Punto crítico a entender desde el minuto uno:** MoviLease y QuieroRenting
 **no son la misma web con otra marca**. El código de este repositorio *soporta*
@@ -653,7 +654,7 @@ MoviLease se encarga del resto.
 
 | Dato | Valor |
 |---|---|
-| WhatsApp / teléfono | `34613267375` → mostrado como `+34 613 26 73 75` |
+| WhatsApp / teléfono | `34644156797` → mostrado como `+34 644 15 67 97` |
 | Email | `contacto@movilease.es` |
 | Instagram | `https://www.instagram.com/quierorenting` (heredado de la marca anterior) |
 
@@ -1439,7 +1440,7 @@ Plantilla: **`.env.example`** (está en el repo, sin valores). Copiar a
 - **Propósito:** número de WhatsApp de todos los enlaces y del `tel:`.
 - **Servicio:** WhatsApp.
 - **Dónde se usa:** `src/lib/constants.ts` → `CONTACT` y `buildWhatsAppLink()`.
-- **Obligatoria:** No — respaldo `34613267375`.
+- **Obligatoria:** No — respaldo `34644156797`.
 
 ### `SUPABASE_SERVICE_ROLE_KEY`
 - **Propósito:** clave de servicio; **se salta la RLS por completo**.
@@ -2248,7 +2249,8 @@ multimarca por dominio (`src/lib/brand.ts`), pero **quierorenting.es apunta hoy 
 otro proyecto de Vercel con HTML estático**. Si te piden tocar Quiero Renting,
 probablemente **no se toque este repositorio**.
 
-Las cuatro webs comparten el mismo WhatsApp: **34613267375**.
+Las dos webs de renting usan **34644156797**; laponce.es sigue con el antiguo
+**34613267375** y adridaganzo.com no muestra teléfono (04/09/2026).
 
 ## Antes de escribir una línea de código
 

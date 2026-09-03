@@ -99,8 +99,10 @@ toque este repositorio.** Ver §6.
 
 ## El ecosistema completo
 
-Hay **cuatro webs** en producción, todas alojadas en Vercel y todas con el mismo
-WhatsApp de contacto (**+34 613 26 73 75**):
+Hay **cuatro webs** en producción, todas alojadas en Vercel. **Ya no comparten
+teléfono**: movilease.es y quierorenting.es usan el **+34 644 15 67 97**
+(`34644156797`), laponce.es sigue con el antiguo **+34 613 26 73 75** y
+adridaganzo.com no muestra ninguno. Comprobado en las cuatro el 04/09/2026.
 
 | Web | Qué es | Sistema |
 |---|---|---|
@@ -392,7 +394,7 @@ seguro a todo riesgo, mantenimiento e impuestos incluidos. Gestión en 48 h.
 
 **Contacto — fuente única de verdad, `src/lib/constants.ts`:**
 
-- WhatsApp / teléfono: **+34 613 26 73 75** (`34613267375`)
+- WhatsApp / teléfono: **+34 644 15 67 97** (`34644156797`)
 - Email: **contacto@movilease.es**
 - Instagram: **@quierorenting**
 
@@ -560,7 +562,7 @@ teléfono, email opcional y aceptación de privacidad**. Al enviarlo:
 2. Manda un aviso a **Telegram** con `new Image().src`.
 3. Enseña una confirmación.
 
-Además hay **5 enlaces `wa.me/34613267375`** repartidos por la página.
+Además hay **5 enlaces `wa.me/34644156797`** repartidos por la página.
 
 Email de contacto que aparece en la web: **quierorenting@outlook.es**.
 

@@ -196,7 +196,7 @@ es un fallo, es que esa parte no está construida.
 | 1 | **Supabase** | Base de datos, login del panel y almacenamiento | `src/lib/supabase/*`, `src/lib/data/*` | Cuenta de Supabase (el proyecto ya existe) | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` |
 | 2 | **Web3Forms** | Enviarte **por email** cada cliente que rellena el formulario | `src/lib/notifications/web3forms.ts` | Cuenta en web3forms.com | `WEB3FORMS_API_KEY` |
 | 3 | **Telegram Bot API** | Avisarte **al móvil al instante** de cada cliente nuevo | `src/lib/notifications/telegram.ts` | El bot ya existe (se creó con @BotFather) | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` |
-| 4 | **WhatsApp** (enlaces `wa.me`) | Canal principal de contacto. Botón flotante, botones de ficha, pop-up | `src/lib/constants.ts` → `buildWhatsAppLink()` | Nada que conectar: son enlaces | `NEXT_PUBLIC_WHATSAPP_NUMBER` (por defecto `34613267375`) |
+| 4 | **WhatsApp** (enlaces `wa.me`) | Canal principal de contacto. Botón flotante, botones de ficha, pop-up | `src/lib/constants.ts` → `buildWhatsAppLink()` | Nada que conectar: son enlaces | `NEXT_PUBLIC_WHATSAPP_NUMBER` (por defecto `34644156797`) |
 | 5 | **Google Search Console** | Verificación de propiedad del dominio para SEO | `src/app/layout.tsx` (`verification.google`) | Tu cuenta de Google con la propiedad `movilease.es` | Ninguna (el código de verificación va escrito en el código) |
 | 6 | **fotos.quecochemecompro.com** | CDN de fotos **heredada**, de un tercero. Algunas fichas antiguas cargan imágenes de ahí | Autorizada en `next.config.ts` → `remotePatterns` | ⚠️ **NO CONFIRMADO** si tienes control sobre ese dominio | Ninguna |
 | 7 | **Vercel** | Hosting y despliegue | — | Cuenta de Vercel | Todas las de arriba, cargadas en el panel |
@@ -230,7 +230,7 @@ que nunca se sube.
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Clave pública de lectura | **Sí** | Vercel + `.env.local` |
 | `SUPABASE_SERVICE_ROLE_KEY` | Clave de administración. **Se salta todas las protecciones** | **Sí** para que funcione el formulario | Vercel + `.env.local` |
 | `NEXT_PUBLIC_SITE_URL` | Dirección oficial del sitio | No (por defecto `https://movilease.es`) | Vercel |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Número de WhatsApp | No (por defecto `34613267375`) | Vercel |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Número de WhatsApp | No (por defecto `34644156797`) | Vercel |
 | `WEB3FORMS_API_KEY` | Email de aviso de lead | No | Vercel |
 | `TELEGRAM_BOT_TOKEN` | Aviso de lead por Telegram | No | Vercel |
 | `TELEGRAM_CHAT_ID` | A qué chat de Telegram avisar | No | Vercel |

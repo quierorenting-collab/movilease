@@ -30,7 +30,7 @@ build. Dos dominios sobre el mismo código.
 framework, sin bundler, sin `npm install`, sin build. Todo el CSS y el JS van
 **inline dentro de cada `.html`**.
 
-Las cuatro comparten el mismo WhatsApp de contacto: **34613267375**.
+Las dos de renting usan **34644156797**; laponce.es sigue con **34613267375**.
 
 ---
 
