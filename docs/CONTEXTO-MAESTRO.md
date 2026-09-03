@@ -110,10 +110,17 @@ teléfonos distintos, y es a propósito** (criterio de Adrián, 04/09/2026):
 **Ninguno de los dos es "el antiguo".** Son las dos líneas del negocio: el 644
 es el de renting y el 613 el del resto. Unificarlos sería un error.
 
-⚠️ **adridaganzo.com devolvía 404 el 04/09/2026** (Vercel, NOT_FOUND en la
-raíz, con el dominio correctamente apuntado a un despliegue Ready de
-producción: el build no genera nada en `/`). No se pudo comprobar qué teléfono
-muestra.
+> **Incidencia resuelta el 04/09/2026:** adridaganzo.com devolvía 404 en TODAS
+> sus rutas. El dominio apuntaba correctamente a un despliegue marcado «Ready»
+> de producción, pero ese despliegue estaba **vacío**: se había publicado desde
+> una carpeta sin ficheros. Se restauró desplegando de nuevo desde la carpeta
+> del proyecto (146 ficheros, 54 MB) con el comando de su propio
+> `AI_BRAIN/DEPLOYMENT.md`. Las 42 URLs de su sitemap responden 200 y la web
+> muestra el 613, que es el suyo.
+>
+> **Aviso para el futuro:** en Vercel un despliegue vacío sale «Ready» igual que
+> uno bueno. Que el panel diga Ready no significa que la web esté servida: hay
+> que pedir una URL y mirar el código HTTP.
 
 | Web | Qué es | Sistema |
 |---|---|---|
