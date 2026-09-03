@@ -107,6 +107,7 @@ export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana
 
   const [faq, setFaq] = useState<{ q: string; a: string }[]>([]);
   const [faqAbierta, setFaqAbierta] = useState<number | null>(null);
+  const [cargandoFaq, setCargandoFaq] = useState(true);
 
   const [clientType, setClientType] = useState<ClientType | null>(null);
   const [maxPrice, setMaxPrice] = useState<number | undefined>();
@@ -135,6 +136,9 @@ export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana
       })
       .catch(() => {
         /* Sin FAQ el asesor sigue sirviendo: se ofrece WhatsApp y ya. */
+      })
+      .finally(() => {
+        if (vivo) setCargandoFaq(false);
       });
     return () => {
       vivo = false;
@@ -257,7 +261,18 @@ export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana
 
         {paso === "dudas" && (
           <Bloque texto="Estas son las preguntas que más nos hacen:">
-            {faq.length === 0 && <p className="text-[14px] text-white/50">Cargando…</p>}
+            {/* Antes ponia "Cargando…" y se quedaba asi para siempre si la
+                consulta fallaba o si no habia entradas: la capa de datos nunca
+                lanza y devuelve [], asi que el widget no distinguia "aun no ha
+                llegado" de "no hay nada". Ahora se separan los dos casos y
+                ninguno deja al visitante mirando un mensaje que no cambia. */}
+            {faq.length === 0 && (
+              <p className="text-[14px] text-white/65">
+                {cargandoFaq
+                  ? "Un momento…"
+                  : "No he podido cargar las preguntas frecuentes. Pregúntanos directamente y te contestamos."}
+              </p>
+            )}
             {faq.map((f, i) => (
               <div key={f.q} className="rounded-xl border border-white/10 bg-white/[0.03]">
                 <button
@@ -267,10 +282,13 @@ export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana
                   className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-[14.5px] font-medium text-white"
                 >
                   {f.q}
-                  <span className="text-white/40">{faqAbierta === i ? "−" : "+"}</span>
+                  {/* Era white/40 = 2,3:1. Es la UNICA senal de que la
+                      pregunta se despliega, asi que a ese contraste el
+                      acordeon no parecia un acordeon. */}
+                  <span className="text-[17px] leading-none text-white/70">{faqAbierta === i ? "−" : "+"}</span>
                 </button>
                 {faqAbierta === i && (
-                  <p className="px-4 pb-3 text-[14px] leading-relaxed text-white/70">{f.a}</p>
+                  <p className="px-4 pb-3 text-[14px] leading-relaxed text-white/85">{f.a}</p>
                 )}
               </div>
             ))}
@@ -355,10 +373,17 @@ export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana
                 ) : (
                   <div className="h-[72px] w-[96px] shrink-0 rounded-lg bg-white/5" />
                 )}
+                {/* La cuota iba en #5AA0FF y sobre este fondo se quedaba en
+                    2,7:1: era el texto MENOS legible de todo el recorrido, y
+                    resulta que es el unico dato por el que el visitante ha
+                    contestado cinco preguntas. Ahora va en blanco y un punto
+                    mas grande que el nombre, que es la jerarquia real: primero
+                    cuanto cuesta, despues cual es. El azul se queda donde no
+                    estorba, en el borde al pasar el raton. */}
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate text-[15px] font-semibold text-white">{s.titulo}</span>
-                  <span className="block truncate text-[12.5px] text-white/50">{s.version}</span>
-                  <span className="block text-[15px] font-semibold text-[#5AA0FF]">{s.precio}</span>
+                  <span className="block truncate text-[14px] font-medium text-white/90">{s.titulo}</span>
+                  <span className="block truncate text-[12.5px] text-white/60">{s.version}</span>
+                  <span className="mt-0.5 block text-[17px] font-bold text-white">{s.precio}</span>
                 </span>
               </button>
             ))}
@@ -396,28 +421,53 @@ export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana
               Déjanos tu nombre y tu teléfono y seguimos: te enseñamos los coches
               que encajan y, si te interesa alguno, te preparamos la oferta.
             </p>
-            <input
-              required
-              placeholder="Nombre"
-              value={form.nombre}
-              onChange={(e) => setForm({ ...form, nombre: e.target.value })}
-              className="input-glass"
-            />
-            <input
-              required
-              type="tel"
-              placeholder="Teléfono"
-              value={form.telefono}
-              onChange={(e) => setForm({ ...form, telefono: e.target.value })}
-              className="input-glass"
-            />
-            <input
-              type="email"
-              placeholder="Email (opcional)"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="input-glass"
-            />
+            {/* Los tres campos iban SOLO con placeholder. Tres problemas de
+                golpe: el placeholder se lee a 2,5:1, desaparece en cuanto
+                escribes —asi que quien vuelve a revisar el formulario ya no
+                sabe que le pedian en cada casilla— y un lector de pantalla se
+                queda sin etiqueta. Ahora llevan etiqueta visible encima. El
+                placeholder se queda como ejemplo, no como rotulo.
+
+                autoComplete deja que el navegador los rellene solo, que en un
+                formulario de captacion se nota en cuantos lo terminan. */}
+            <label className="flex flex-col gap-1.5">
+              <span className="text-[12.5px] font-medium text-white/75">Nombre</span>
+              <input
+                required
+                autoComplete="given-name"
+                placeholder="María"
+                value={form.nombre}
+                onChange={(e) => setForm({ ...form, nombre: e.target.value })}
+                className="input-glass"
+              />
+            </label>
+            <label className="flex flex-col gap-1.5">
+              <span className="text-[12.5px] font-medium text-white/75">Teléfono</span>
+              <input
+                required
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                placeholder="600 000 000"
+                value={form.telefono}
+                onChange={(e) => setForm({ ...form, telefono: e.target.value })}
+                className="input-glass"
+              />
+            </label>
+            <label className="flex flex-col gap-1.5">
+              <span className="text-[12.5px] font-medium text-white/75">
+                Email <span className="font-normal text-white/55">(opcional)</span>
+              </span>
+              <input
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                placeholder="maria@correo.com"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="input-glass"
+              />
+            </label>
             <label className="flex items-start gap-3 text-[13.5px] leading-relaxed text-white/75">
               <input
                 type="checkbox"
@@ -433,11 +483,22 @@ export function Asesor({ variante = "pagina" }: { variante?: "pagina" | "ventana
                 </a>
               </span>
             </label>
+            {/* Si el envio falla, el mensaje invitaba a escribir por WhatsApp
+                pero NO habia enlace: el visitante acababa de escribir su
+                nombre y su telefono, se encontraba un error, y para seguir
+                tenia que buscarse la vida. Ahora la salida esta ahi mismo, y
+                lleva escrito lo que ya nos habia dicho para que no lo repita. */}
             <div aria-live="polite" aria-atomic="true">
               {error && (
-                <p className="rounded-xl border border-red-400/30 bg-red-500/[0.12] px-4 py-3 text-[13.5px] text-red-200">
-                  {error}
-                </p>
+                <div className="flex flex-col gap-2.5 rounded-xl border border-red-400/30 bg-red-500/[0.12] px-4 py-3">
+                  <p className="text-[13.5px] leading-relaxed text-red-100">{error}</p>
+                  <EnlaceWhatsApp
+                    texto="Escríbenos por WhatsApp"
+                    mensaje={`Hola, soy ${form.nombre || "un cliente"}${
+                      form.telefono ? ` (${form.telefono})` : ""
+                    }. He intentado dejaros mis datos en la web y no ha funcionado. ¿Me podéis ayudar?`}
+                  />
+                </div>
               )}
             </div>
             <button type="submit" disabled={cargando || !rgpd} className="btn-primary btn-block">
@@ -512,13 +573,26 @@ function Opcion({ onClick, children }: { onClick: () => void; children: React.Re
 
 /** La salida a WhatsApp está en todos los pasos, no solo al final: ante
  *  cualquier duda, que el cliente llame o escriba. */
-function EnlaceWhatsApp({ texto }: { texto: string }) {
+/**
+ * `mensaje` es opcional: sin el sigue mandando el saludo generico de siempre.
+ * Se anade para que la salida de emergencia del formulario pueda llevar el
+ * nombre y el telefono que el visitante YA habia escrito, en vez de obligarle
+ * a repetirlos justo despues de un error.
+ *
+ * El texto pasa de #4ade80 a #86efac: sobre este fondo el verde anterior se
+ * quedaba corto en la parte alta del panel, donde el degradado de
+ * surface-graphite esta mas claro. #86efac da 8,9:1 sobre #10306B y sigue
+ * leyendose como verde de WhatsApp.
+ */
+function EnlaceWhatsApp({ texto, mensaje }: { texto: string; mensaje?: string }) {
   return (
     <a
-      href={buildWhatsAppLink("Hola, estoy mirando el renting en la web y tengo una duda.")}
+      href={buildWhatsAppLink(
+        mensaje ?? "Hola, estoy mirando el renting en la web y tengo una duda."
+      )}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full rounded-xl border border-[#25D366]/30 bg-[#25D366]/10 px-4 py-3 text-center text-[15px] font-medium text-[#4ade80] transition-colors hover:bg-[#25D366]/20"
+      className="w-full rounded-xl border border-[#25D366]/30 bg-[#25D366]/10 px-4 py-3 text-center text-[15px] font-medium text-[#86efac] transition-colors hover:bg-[#25D366]/20"
     >
       {texto}
     </a>
