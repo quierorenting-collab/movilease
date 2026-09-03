@@ -34,7 +34,8 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 RAIZ_DRIVE = os.environ.get("MOVILEASE_DRIVE", r"G:\Unidades compartidas\MoviLease")
 PROVEEDORES = ("QUADIS", "M AUTOMOCION", "MOVENTO")
 # Carpetas que no son catálogo: datos de clientes, marca, y los dos cajones de bajas.
-IGNORAR = {"CLIENTES", "LOGO MOVILEASE", "desktop.ini"}
+# CIRCULARES son dosieres de campanas en PDF, no un coche.
+IGNORAR = {"CLIENTES", "LOGO MOVILEASE", "CIRCULARES", "desktop.ini"}
 SIN_STOCK = {"FUERA DE STOCK", "SIN STOCK"}
 
 # Las carpetas del Drive las nombra una persona, así que ni llevan siempre la
@@ -42,6 +43,12 @@ SIN_STOCK = {"FUERA DE STOCK", "SIN STOCK"}
 # y es lo único que hay que tocar cuando entra un coche nuevo: una línea.
 ALIAS = {
     "AUDI A1": ("Audi", "A1"),
+    # Altas del 03/09 por la tarde. JAECOO 7 y OMODA 5 tenian la carpeta creada
+    # y vacia por la manana: ya traen lamina.
+    "JAECOO 7 PHEV BUSINESS": ("Jaecoo", "7"),
+    "OMODA 5 HEV BUSINESS": ("Omoda", "5"),
+    "TOYOTA HILUX": ("Toyota", "Hilux"),
+    "T ROC": ("Volkswagen", "T-Roc"),
     # Carpetas nuevas del 02/09. "JAECCO" con doble C es una errata de la
     # carpeta, no del coche: sus hermanas son JAECOO 7 y JAECOO 8.
     "JAECCO 5 EXCLUSIVE": ("Jaecoo", "5"),

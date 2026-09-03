@@ -61,7 +61,7 @@ MOSAICOS = {
         ],
     },
     "seat-arona": {
-        "hoja": r"MOVENTO\SEAT ARONA\FOTOS COCHE.png",
+        "hoja": r"MOVENTO\ARVAL\SEAT ARONA\FOTOS COCHE.png",
         # OJO: la foto grande de esta hoja lleva el logo de MoviLease y
         # "SEAT ARONA 1.0 TSI 115 CV" INCRUSTADOS en la imagen. Como portada
         # duplicaria el titular de la ficha y se leeria como una captura, asi
