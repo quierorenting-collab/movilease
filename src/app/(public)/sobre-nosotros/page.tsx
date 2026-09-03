@@ -128,7 +128,7 @@ export default function SobreNosotrosPage() {
               "linear-gradient(100deg, rgba(232,240,252,0.92) 0%, rgba(232,240,252,0.80) 42%, rgba(232,240,252,0.30) 68%, rgba(232,240,252,0.10) 100%)",
           }}
         />
-        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-6">
           <Reveal>
             {/* Azul mas oscuro que el de marca: a 11px sobre este fondo claro,
                 #0057D6 se queda en 3,87:1 y no llega a AA. */}
@@ -153,7 +153,7 @@ export default function SobreNosotrosPage() {
 
       {/* Misión y visión */}
       <section className="relative overflow-hidden bg-white bg-texture-light py-24">
-        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-6">
           <RevealGroup stagger={0.1} className="grid gap-6 md:grid-cols-2">
             <RevealItem>
               <div className="h-full rounded-3xl border border-[#E5E7EB] bg-[#FAFAFA] p-9">
@@ -181,7 +181,7 @@ export default function SobreNosotrosPage() {
 
       {/* Valores */}
       <section className="surface-graphite relative overflow-hidden bg-texture-dark py-24">
-        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-6">
           <Reveal>
             <p className="section-label">Lo que nos define</p>
             <h2 className="display-md mt-4 text-white">Nuestros valores</h2>
@@ -206,7 +206,7 @@ export default function SobreNosotrosPage() {
 
       {/* Stats */}
       <section className="bg-white py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-6 sm:px-6">
           <Reveal>
             {/* Ya no son cifras, así que el encabezado tampoco puede decirlo. */}
             <p className="section-label section-label-on-light">Lo que nos diferencia</p>
@@ -237,7 +237,7 @@ export default function SobreNosotrosPage() {
 
       {/* Por qué elegir MoviLease */}
       <section className="surface-dark relative overflow-hidden bg-texture-dark py-24">
-        <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-6">
           <Reveal className="max-w-xl">
             <p className="section-label">Ventajas</p>
             <h2 className="display-md mt-4 text-white">¿Por qué elegir MoviLease?</h2>
@@ -265,7 +265,7 @@ export default function SobreNosotrosPage() {
           base="#EAF2FD"
           veil="linear-gradient(180deg, rgba(234,242,253,0.45) 0%, rgba(234,242,253,0.3) 50%, rgba(234,242,253,0.5) 100%)"
         />
-        <div className="relative z-10 mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <div className="relative z-10 mx-auto max-w-3xl px-6 text-center sm:px-6">
           <Reveal>
             <h2 className="display-md text-[#0A0A0A]">
               Hazlo fácil.

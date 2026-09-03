@@ -15,7 +15,18 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
   return (
     <Link
       href={href}
-      className="group relative flex flex-col overflow-hidden rounded-2xl bg-white transition-all duration-500 hover:-translate-y-1.5 hover:shadow-hover"
+      /* `hover:shadow-hover` NO EXISTÍA. Comprobado en el CSS servido: genera
+         CERO reglas. `.shadow-hover` es una clase escrita a mano en
+         globals.css, no un valor del tema, así que Tailwind no puede fabricar
+         su variante `hover:`. Resultado: la tarjeta se levantaba 6 px y nada
+         más; en una rejilla de 17 marcas sobre fondo claro ese movimiento solo
+         no basta para saber cuál estás señalando. Ahora la sombra va escrita.
+
+         transition-all pasa a nombrar sus dos propiedades: `all` incluía
+         `filter`, y el logo lleva un filtro CSS que se recalculaba en cada
+         fotograma sin motivo. Y 500 ms baja a 400: por encima de eso el
+         puntero ya se ha ido. */
+      className="group relative flex flex-col overflow-hidden rounded-2xl bg-white transition-[translate,box-shadow] duration-[400ms] hover:-translate-y-1.5 hover:shadow-[0_0_0_1px_rgba(0,87,214,0.18),0_18px_40px_rgba(11,42,94,0.16),0_28px_64px_rgba(0,104,255,0.10)] active:translate-y-0 active:scale-[0.995]"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
       {/* Logo tile */}
@@ -29,7 +40,7 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
             width={240}
             height={64}
             unoptimized={isSvg}
-            className="max-h-16 w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+            className="max-h-16 w-full object-contain transition-transform duration-[400ms] group-hover:scale-[1.06]"
           />
         ) : (
           /* Sin logo. Hoy le pasa a Honda y a Mercedes-Benz: no hay fichero en
@@ -92,7 +103,7 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
           <span className="whitespace-nowrap">Ver modelos</span>
           <span
             aria-hidden="true"
-            className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+            className="shrink-0 transition-transform group-hover:translate-x-1"
           >
             →
           </span>

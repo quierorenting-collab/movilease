@@ -140,7 +140,7 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
         }`}
       >
         <div
-          className={`mx-auto flex w-full max-w-7xl items-center justify-between px-5 transition-[height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-10 ${
+          className={`mx-auto flex w-full max-w-7xl items-center justify-between px-6 transition-[height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-10 ${
             scrolled ? "h-[72px]" : "h-[88px]"
           }`}
         >
@@ -274,7 +274,7 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
                       <span className="text-[14px] font-medium text-[#1A1A1A] transition-colors group-hover:text-[#0068FF]">
                         {brand.name}
                       </span>
-                      <span className="ml-auto text-[12px] tabular-nums text-[#9AA3B2]">
+                      <span className="ml-auto text-[12px] tabular-nums text-[#6B7280]">
                         {brand.count}
                       </span>
                     </Link>

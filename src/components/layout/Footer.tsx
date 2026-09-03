@@ -84,7 +84,15 @@ export async function Footer() {
         <div className="grid grid-cols-2 gap-12 sm:grid-cols-4 lg:gap-16">
           {/* Brand */}
           <div className="col-span-2 flex flex-col gap-6 sm:col-span-1">
-            <Logo height={38} />
+            {/* self-start es obligatorio: este Logo cuelga de un flex-col y
+                ahí el eje transversal es el ANCHO, así que align-items:stretch
+                lo estiraba a todo el ancho de la columna. Con el alto clavado
+                en 38 px, el resultado era la marca deformada: medido 252x38
+                (proporción 6,63) en escritorio y 327x38 (8,61) en móvil,
+                contra 4,25 natural. Un 56 % y un 102 % de más. Y como el de la
+                cabecera sí está bien, se veían los dos y la comparación era
+                inmediata. */}
+            <Logo height={38} className="self-start" />
             <p className="max-w-[220px] text-[14px] leading-[1.75] text-white/70">
               Renting de vehículos para particulares, autónomos y empresas en toda España.
             </p>

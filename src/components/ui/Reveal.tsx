@@ -132,7 +132,13 @@ export function RevealGroup({ children, className, stagger = 0.06 }: RevealGroup
       {items.map((child, i) =>
         React.isValidElement(child)
           ? React.cloneElement(child as React.ReactElement<{ _staggerDelay?: number }>, {
-              _staggerDelay: i * stagger,
+              /* Con tope. Sin él, medido en vivo, la última tarjeta de una
+                 rejilla acumulaba 0,93 s de retardo y, sumando sus 0,65 s de
+                 duración, tardaba 1,58 s en aparecer estando YA en pantalla.
+                 El escalonado está para que la rejilla entre con ritmo, no
+                 para hacer esperar: a partir de la cuarta tarjeta deja de
+                 aportar y solo cuesta. */
+              _staggerDelay: Math.min(i * stagger, 0.24),
             })
           : child,
       )}

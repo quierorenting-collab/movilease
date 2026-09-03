@@ -15,7 +15,7 @@ export function FavoriteButton({ vehicleId }: { vehicleId: string }) {
         event.preventDefault();
         toggle(vehicleId);
       }}
-      className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-110"
+      className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 shadow-sm backdrop-blur-sm transition-[transform,background-color] hover:scale-105"
     >
       <svg
         viewBox="0 0 24 24"

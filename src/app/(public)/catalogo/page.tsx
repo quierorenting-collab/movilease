@@ -350,7 +350,12 @@ export default async function CatalogoPage({
           <h1 className="display-lg text-white">
             Elige tu coche.
             <br />
-            <span className="text-[#5AA0FF]">Nosotros nos ocupamos del resto.</span>
+            {/* Espacio duro entre las dos últimas palabras: sin él, a 1440 px
+                el titular se parte en tres y "resto." se queda sola en una
+                tercera línea de 86 px. text-wrap:balance está puesto en la
+                regla de h1..h6 pero no cruza el <br /> forzado. El nbsp viaja
+                con el texto, así que funciona igual en móvil sin media query. */}
+            <span className="text-[#5AA0FF]">Nosotros nos ocupamos del&nbsp;resto.</span>
           </h1>
           <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/70">
             Todo incluido en una cuota fija: seguro a todo riesgo, mantenimiento,

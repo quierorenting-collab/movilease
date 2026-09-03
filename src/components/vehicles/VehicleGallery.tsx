@@ -52,7 +52,7 @@ export function VehicleGallery({
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         {/* Mismo aviso que en la tarjeta del catalogo: el color y el acabado de
             la foto de estudio no tienen por que ser los del coche entregado. */}
-        <p className="pointer-events-none absolute inset-x-0 bottom-0 px-3 pb-2 text-center text-[9px] leading-tight text-white/35">
+        <p className="pointer-events-none absolute inset-x-0 bottom-0 px-3 pr-16 pb-2 text-center text-[11px] leading-tight text-white/55">
           Imagen no contractual: puede no coincidir con el modelo ofertado
         </p>
 
@@ -62,7 +62,12 @@ export function VehicleGallery({
               type="button"
               onClick={prev}
               aria-label="Foto anterior"
-              className="absolute left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-black/70 group-hover:opacity-100"
+              /* opacity-0 + group-hover:opacity-100 significa que en un móvil,
+               donde no hay hover, estas flechas NO SE VEÍAN NUNCA: la galería
+               parecía una foto fija. Ahora se ven siempre en táctil y siguen
+               apareciendo al pasar el ratón en escritorio. Y 10x10 se queda
+               corto para un pulgar: 44px es el mínimo. */
+            className="absolute left-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white opacity-100 backdrop-blur-sm transition-opacity hover:bg-black/70 sm:opacity-0 sm:group-hover:opacity-100"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path
@@ -78,7 +83,7 @@ export function VehicleGallery({
               type="button"
               onClick={next}
               aria-label="Foto siguiente"
-              className="absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-black/70 group-hover:opacity-100"
+              className="absolute right-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white opacity-100 backdrop-blur-sm transition-opacity hover:bg-black/70 sm:opacity-0 sm:group-hover:opacity-100"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path
@@ -111,7 +116,10 @@ export function VehicleGallery({
                 i === active ? "opacity-100 ring-2 ring-[#0068FF]" : "opacity-50 hover:opacity-80"
               }`}
             >
-              <Image src={img.url} alt={img.alt ?? `${alt} foto ${i + 1}`} fill sizes="96px" className="object-cover" />
+              {/* object-contain, no cover: la foto grande de arriba va en
+                  contain y estas miniaturas iban en cover, así que el MISMO
+                  coche salía entero y recortado a la vez en la misma pantalla. */}
+              <Image src={img.url} alt={img.alt ?? `${alt} foto ${i + 1}`} fill sizes="96px" className="object-contain p-1" />
             </button>
           ))}
         </div>

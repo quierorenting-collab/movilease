@@ -43,16 +43,20 @@ export function VehiclePricingTable({
 
   return (
     <div className="overflow-x-auto rounded-2xl border border-white/20">
-      <table className="w-full min-w-[320px] border-collapse text-left sm:min-w-[480px]">
+      {/* min-w-0 en móvil: con 320px de mínimo, en una pantalla de 320 se
+          ocultaban 50px por la derecha, y esos 50px son la mitad de la columna
+          de 60 meses, que es la marcada con estrella. El mínimo se mantiene a
+          partir de sm, donde sí hay sitio. */}
+      <table className="w-full min-w-0 border-collapse text-left sm:min-w-[480px]">
         <thead>
           <tr className="border-b border-white/20">
-            <th className="px-3 py-4 text-[10px] font-bold uppercase tracking-[0.16em] text-on-dark-2 sm:px-5">
+            <th className="px-2 py-4 text-[11px] sm:px-5 font-bold uppercase tracking-[0.16em] text-on-dark-2 sm:px-5">
               Km / año
             </th>
             {months.map((m) => (
               <th
                 key={m}
-                className={`px-3 py-4 text-center text-[12px] font-bold uppercase tracking-[0.1em] sm:px-5 ${
+                className={`px-2 sm:px-5 py-4 text-center text-[12px] font-bold uppercase tracking-[0.1em] sm:px-5 ${
                   m === highlighted ? "bg-[#0068FF]/25 text-white" : "text-on-dark-2"
                 }`}
               >
@@ -65,7 +69,7 @@ export function VehiclePricingTable({
         <tbody>
           {kms.map((km, i) => (
             <tr key={km} className={i % 2 === 1 ? "bg-white/[0.02]" : undefined}>
-              <td className="px-3 py-3.5 text-[13px] font-medium text-on-dark-2 sm:px-5">
+              <td className="px-2 sm:px-5 py-3.5 text-[13px] font-medium text-on-dark-2 sm:px-5">
                 {km.toLocaleString("es-ES")} km
               </td>
               {months.map((m) => {
@@ -73,7 +77,7 @@ export function VehiclePricingTable({
                 return (
                   <td
                     key={m}
-                    className={`px-3 py-3.5 text-center text-[13.5px] font-semibold sm:px-5 ${
+                    className={`px-2 sm:px-5 py-3.5 text-center text-[13.5px] font-semibold sm:px-5 ${
                       m === highlighted ? "bg-[#0068FF]/25 text-white" : "text-on-dark-2"
                     }`}
                   >

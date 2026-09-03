@@ -31,7 +31,10 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
               src={vehicle.imageUrl}
               alt={`${vehicle.brandName} ${vehicle.modelName}`}
               fill
-              className="object-contain p-3 transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+              /* 900 ms era medio segundo MÁS que la tarjeta, que termina en
+                 400: se veía la caja pararse y la foto seguir creciendo sola.
+                 Igualados, el zoom se lee como parte del mismo gesto. */
+              className="object-contain p-3 transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 384px"
             />
           ) : (
@@ -49,7 +52,11 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
               variar. Va en cada tarjeta, no solo en la ficha, porque la tarjeta
               es donde se ve el precio. */}
           {vehicle.imageUrl && (
-            <p className="pointer-events-none absolute inset-x-0 bottom-0 px-2 pb-1 text-center text-[8px] leading-tight text-[#0A0A0A]/35">
+            /* 2,33:1. Es un aviso legal: tiene que poder leerse. Con el gris
+               que ya usa el resto de la tarjeta sube a 5,53:1. Los 8 px se
+               mantienen a propósito: a 9 la frase salta a dos líneas y se
+               come el morro del coche. */
+            <p className="pointer-events-none absolute inset-x-0 bottom-0 px-2 pb-1 text-center text-[8px] leading-tight text-[#5B6472]">
               Imagen no contractual: puede no coincidir con el modelo ofertado
             </p>
           )}
@@ -64,7 +71,7 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
           )}
 
           {/* Soft reflection at bottom of image */}
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/40 to-transparent opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100" />
         </div>
 
         {/* Info */}
@@ -105,7 +112,7 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
             </p>
             <p
               className="text-[27px] font-bold leading-none text-[#0A0A0A]"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
+              style={{ fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.02em" }}
             >
               {vehicle.priceLabel}
               <span className="ml-1 text-[12px] font-medium text-[#5B6472]">/mes</span>
@@ -115,7 +122,13 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 rounded-full bg-[#0A0A0A] px-5 py-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-white transition-all duration-300 hover:bg-[#0068FF] hover:shadow-lg hover:shadow-[#0068FF]/30"
+            /* transition-all incluía color, transform, filtro y todo lo demás
+               sin necesidad. Y `hover:shadow-lg` + `hover:shadow-[#0068FF]/30`
+               es una sombra genérica teñida: sobre la tarjeta blanca se lee
+               como una mancha gris azulada. Se escribe la sombra: un halo azul
+               ancho y suave, que es lo que hace que el botón parezca encendido
+               en vez de sucio. */
+            className="shrink-0 whitespace-nowrap rounded-full bg-[#0A0A0A] px-5 py-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-white transition-[background-color,box-shadow] hover:bg-[#0068FF] hover:shadow-[0_8px_22px_rgba(0,104,255,0.34),0_0_40px_rgba(0,104,255,0.16)]"
           >
             Lo quiero
           </a>

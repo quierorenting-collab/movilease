@@ -398,7 +398,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
               )}
 
               {primary?.colors && primary.colors.length > 0 && (
-                <p className="mt-4 text-[13px] text-white/50">
+                <p className="mt-4 text-[13px] text-on-dark-3">
                   <span className="text-on-dark-3">Colores disponibles: </span>
                   {primary.colors.join(" · ")}
                 </p>
@@ -406,13 +406,22 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
 
               {primary && (
                 <div className="mt-10 rounded-2xl border border-[#0068FF]/20 bg-[#0068FF]/[0.06] p-6">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">Desde</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-dark-3">Desde</p>
                   <p
                     className="mt-1 text-5xl font-bold text-white sm:text-6xl"
-                    style={{ fontFamily: "var(--font-space-grotesk)" }}
+                    /* letterSpacing: es el único elemento grande de la ficha
+                       sin el tracking de la casa. Va entre dos titulares que sí
+                       lo llevan (-0.03em), y como es un <p> la regla de h1..h6
+                       no lo alcanzaba: quedaba desparramado justo debajo del
+                       nombre del coche. Mismo apaño que ya se hizo a mano en
+                       Footer.tsx y en blog/page.tsx. */
+                    style={{
+                      fontFamily: "var(--font-space-grotesk)",
+                      letterSpacing: "-0.03em",
+                    }}
                   >
                     {primary.priceLabel}
-                    <span className="ml-2 text-lg font-medium text-white/50">/mes</span>
+                    <span className="ml-2 text-lg font-medium text-on-dark-3">/mes</span>
                   </p>
                   <p className="mt-1 text-[11px] text-on-dark-3">IVA incluido</p>
 
@@ -516,7 +525,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
             <Reveal>
               <p className="section-label">Cuotas mensuales</p>
               <h2 className="display-md mt-4 text-white">Elige tu plazo y kilometraje</h2>
-              <p className="mt-3 max-w-xl text-sm text-white/50">IVA incluido en todos los precios.</p>
+              <p className="mt-3 max-w-xl text-sm text-on-dark-3">IVA incluido en todos los precios.</p>
             </Reveal>
             <Reveal delay={0.1} className="mt-10">
               <VehiclePricingTable tiers={primary.pricingTiers} highlightMonths={primary.contractMonths} />

@@ -120,7 +120,7 @@ export default function RentingAutonomosPage() {
           position="center bottom"
           veil="linear-gradient(100deg, rgba(7,26,61,0.95) 0%, rgba(7,26,61,0.90) 40%, rgba(7,26,61,0.66) 72%, rgba(7,26,61,0.76) 100%)"
         />
-        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-6">
           <Reveal>
             <p className="section-label">Renting para autónomos</p>
             <h1 className="display-lg mt-4 max-w-3xl text-white">
@@ -150,7 +150,7 @@ export default function RentingAutonomosPage() {
 
       {/* Ventajas */}
       <section className="surface-graphite py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-6 sm:px-6">
           <Reveal>
             <p className="section-label">Por qué renting</p>
             <h2 className="display-md mt-4 text-white">
@@ -179,7 +179,7 @@ export default function RentingAutonomosPage() {
 
       {/* Cómo funciona */}
       <section className="bg-white py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-6 sm:px-6">
           <Reveal className="max-w-2xl">
             <p className="section-label">El proceso</p>
             <h2 className="display-md mt-4 text-[#0A0A0A]">
@@ -216,7 +216,7 @@ export default function RentingAutonomosPage() {
 
       {/* FAQ */}
       <section className="surface-dark py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="mx-auto max-w-4xl px-6 sm:px-6">
           <Reveal>
             <p className="section-label">FAQ</p>
             <h2 className="display-md mt-4 text-white">
@@ -247,7 +247,7 @@ export default function RentingAutonomosPage() {
 
       {/* Formulario */}
       <section className="surface-black ambient-blue relative min-h-screen pt-24 pb-32">
-        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-6">
           <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr]">
             <div>
               <Reveal>

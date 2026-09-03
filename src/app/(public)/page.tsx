@@ -343,7 +343,10 @@ export default async function HomePage() {
                     fuera del enlace, no se pueden anidar).
                   */}
                   <div
-                    className="card-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#0C2454]/20 bg-gradient-to-b from-[#1B4080] to-[#0C2454] hover:border-[#5AA0FF]/50"
+                    /* card-lift-dark: su sombra en reposo es más densa que la
+                       de hover, así que al pasar el ratón la tarjeta PERDÍA
+                       apoyo en vez de ganarlo. */
+                    className="card-lift card-lift-dark group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#0C2454]/20 bg-gradient-to-b from-[#1B4080] to-[#0C2454] hover:border-[#5AA0FF]/50"
                     style={{ boxShadow: "0 18px 40px rgba(7,26,61,0.22)" }}
                   >
                     <Link
@@ -404,11 +407,15 @@ export default async function HomePage() {
                         <div>
                           <p className="text-[11px] uppercase tracking-[0.16em] text-white/75">desde</p>
                           <p
-                            className="text-[25px] font-bold leading-none text-white"
+                            /* 27px, no 25: esta es la tarjeta DESTACADA, un
+                               36% más ancha que la del catálogo, y llevaba el
+                               precio 2px más pequeño. La jerarquía estaba del
+                               revés. */
+                            className="text-[27px] font-bold leading-none text-white"
                             style={{ fontFamily: "var(--font-space-grotesk)" }}
                           >
                             {vehicle.priceLabel}
-                            <span className="ml-1 text-[12px] font-normal text-white/75">/mes</span>
+                            <span className="ml-1 text-[12px] font-medium text-white/75">/mes</span>
                           </p>
                         </div>
                         <a

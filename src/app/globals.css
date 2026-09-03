@@ -297,9 +297,12 @@ h1, h2, h3, h4, h5, h6 {
 
 p { text-wrap: pretty; }
 
+/* Sin `color`: forzaba blanco sobre un velo azul del 25 %, así que seleccionar
+   un precio en una sección clara lo dejaba en 1,44:1, o sea invisible justo
+   mientras el visitante lo estaba copiando. Dejando que cada texto conserve el
+   suyo, ese mismo precio queda en 13,78:1. */
 ::selection {
   background: rgba(0, 104, 255, 0.25);
-  color: #fff;
 }
 
 /* Scrollbar agarrable (3px era imposible de usar con ratón) */
@@ -327,7 +330,10 @@ summary:focus-visible,
 [tabindex]:focus-visible {
   outline: 2px solid var(--blue-light);
   outline-offset: 3px;
-  border-radius: 4px;
+  /* Aquí había un `border-radius: 4px`. Como este archivo no tiene @layer,
+     esa línea le ganaba a CUALQUIER rounded-* de Tailwind: al tabular, una
+     tarjeta de 16 px de radio se cuadraba a 4. El contorno ya se dibuja con
+     el radio real del elemento. */
 }
 
 /* Enlace de salto al contenido: invisible hasta recibir foco */
@@ -375,7 +381,14 @@ summary:focus-visible,
   .vehicle-card:hover,
   .card-dark:hover,
   .card-lift:hover,
-  .hover-lift:hover { transform: none; }
+  .hover-lift:hover {
+    transform: none;
+    /* La sombra también, no solo el transform. Anulando únicamente el
+       desplazamiento, la tarjeta volvía a su sitio tras el toque pero se
+       quedaba encendida para siempre: en el catálogo, con 32 tarjetas, el
+       móvil acababa con media rejilla iluminada. */
+    box-shadow: var(--shadow-card) !important;
+  }
 }
 
 /* ══════════════════════════════════════════════════
@@ -584,7 +597,10 @@ summary:focus-visible,
   inset: 0;
   background: linear-gradient(135deg, rgba(255,255,255,0.14) 0%, transparent 55%);
   opacity: 0;
-  transition: opacity var(--duration-fast);
+  /* Iba a --duration-fast mientras el botón se levanta en --duration-normal:
+     el brillo terminaba 150 ms antes que el movimiento y se leían como dos
+     cosas distintas. Ahora salen y paran juntos. */
+  transition: opacity var(--duration-normal) var(--easing-premium);
 }
 .btn-primary:hover {
   background: #0052CC;
@@ -663,6 +679,33 @@ summary:focus-visible,
 
 .btn-block { width: 100%; }
 
+/* POR DEBAJO DE 400 px LOS BOTONES SE PARTÍAN.
+   Medido a 320 px: "RECIBIR OFERTAS POR WHATSAPP" ocupaba 272x71 px, o sea
+   dos líneas, y "QUIERO QUE ME ASESOREN" 211x68. El botón que cierra la venta
+   se leía como un bloque de texto roto justo en el móvil más pequeño.
+
+   Se recorta el relleno lateral y se afloja un punto el tracking. NO se toca
+   ni el tamaño de letra, ni el color, ni el min-height: el área táctil sigue
+   siendo la misma.
+
+   Va DESPUÉS de .btn-sm a propósito: tiene su misma especificidad, así que
+   colocado antes perdería por orden de aparición y no haría nada. Este
+   archivo no tiene @layer y aquí el orden ES la regla. */
+@media (max-width: 400px) {
+  .btn-primary,
+  .btn-ghost,
+  .btn-white,
+  .btn-whatsapp {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    letter-spacing: 0.06em;
+  }
+  .btn-sm {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+}
+
 /* ══════════════════════════════════════════════════
    VEHICLE CARD BASE
    ══════════════════════════════════════════════════ */
@@ -703,6 +746,41 @@ summary:focus-visible,
 .card-lift:focus-within { transform: translateY(-6px); }
 /* Pulsar una tarjeta también responde, igual que un botón */
 .card-lift:active { transform: translateY(-2px) scale(0.995); transition-duration: 140ms; }
+
+/* SOBRE FONDO OSCURO EL HOVER NO EXISTÍA.
+   --shadow-hover es una sombra NEGRA, y en /catalogo las 32 tarjetas están
+   sobre #0B2A5E: medido, 1,09:1 contra el fondo. O sea, nada. Justo en la
+   única página donde el visitante compara treinta y dos coches seguidos, la
+   web no le confirmaba cuál estaba mirando.
+
+   Sobre oscuro no se proyecta sombra: se coge luz. Es lo que ya hace
+   .card-dark en esta misma web, así que no se inventa un lenguaje nuevo. El
+   anillo va en rgba(90,160,255,.45) — 2,20:1 sobre #0B2A5E, suficiente para
+   un borde decorativo, que no es texto.
+
+   Lleva !important porque el .card-lift:hover de arriba también lo lleva y
+   si no, gana él. */
+:is(.surface-black, .surface-dark, .surface-graphite, .surface-carbon) .card-lift:hover,
+:is(.surface-black, .surface-dark, .surface-graphite, .surface-carbon) .card-lift:focus-within {
+  box-shadow: 0 0 0 1px rgba(90, 160, 255, 0.45),
+              0 20px 44px rgba(0, 0, 0, 0.34),
+              0 0 52px rgba(0, 104, 255, 0.20) !important;
+}
+
+/* El foco por teclado sobre una tarjeta BLANCA usaba --blue-light, que ahí da
+   2,66:1 y casi no se ve. Y :focus-within levantaba la tarjeta sin encenderla,
+   así que quien navega con teclado veía el movimiento pero no el resalte. */
+.card-lift.bg-white :is(a, button):focus-visible { outline-color: #0057D6; }
+.card-lift:focus-within { box-shadow: var(--shadow-hover) !important; }
+
+/* Tarjeta oscura sobre fondo claro (las ofertas de la home). Su sombra en
+   reposo es más densa que la de hover, así que al pasar el ratón la tarjeta
+   PERDÍA apoyo en vez de ganarlo. */
+.card-lift-dark:hover,
+.card-lift-dark:focus-within {
+  box-shadow: 0 28px 60px rgba(7, 26, 61, 0.42),
+              0 0 0 1px rgba(90, 160, 255, 0.35) !important;
+}
 
 /* ══════════════════════════════════════════════════
    MICROINTERACCIÓN DE ENLACE
@@ -784,8 +862,13 @@ summary:focus-visible,
    En superficies claras la etiqueta vuelve al azul de marca (5,4:1). */
 .section-label-on-light,
 .surface-light .section-label,
-:is(.bg-white, .bg-\[\#FAFAFA\], .bg-\[\#FFFFFF\], .bg-\[\#F5F5F5\], .bg-\[\#F7F8FA\]) .section-label {
-  color: var(--blue);
+:is(.bg-white, .bg-\[\#FAFAFA\], .bg-\[\#FFFFFF\], .bg-\[\#F5F5F5\], .bg-\[\#F7F8FA\],
+    .bg-\[\#F4F6FA\], .bg-\[\#E8F1FD\]) .section-label {
+  /* Faltaban los dos azules claros —el de Ofertas y el de la comparativa—, y
+     encima el azul de marca sobre #E8F1FD se queda en 4,17:1 y no pasa AA.
+     #0057D6 da 5,53:1 sobre #E8F1FD, 5,82:1 sobre #F4F6FA, 6,04:1 sobre
+     #FAFAFA y 6,30:1 sobre blanco: pasa en las cuatro. */
+  color: #0057D6;
 }
 
 /* --blue-light se midió contra #071A3D, donde da 5,6:1. Después se aclaró toda
@@ -894,7 +977,9 @@ summary:focus-visible,
               background var(--duration-normal) var(--easing-premium),
               box-shadow var(--duration-normal) var(--easing-premium);
 }
-.input-glass::placeholder { color: rgba(255, 255, 255, 0.42); }
+/* 0,42 daba 3,45:1 y no pasaba AA. A 0,55 son 4,81:1. Son los 14 campos de
+   formulario de la web, o sea el último paso del embudo. */
+.input-glass::placeholder { color: rgba(255, 255, 255, 0.55); }
 .input-glass:hover { border-color: rgba(255, 255, 255, 0.26); }
 .input-glass:focus {
   border-color: var(--blue-light);
@@ -1021,4 +1106,23 @@ select.input-glass option { background: var(--dark-2); color: #fff; }
 .video-veil { opacity: 1; }
 @media (max-width: 640px) {
   .video-veil { opacity: 0.86; }
+}
+
+/* ══════════════════════════════════════════════════
+   TOQUE EN MÓVIL
+   Android pinta un rectángulo gris sobre cada elemento tocado, y ese
+   rectángulo IGNORA el border-radius: en una rejilla de tarjetas redondeadas
+   se ven esquinas cuadradas apareciendo y desapareciendo. Se quita porque ya
+   hay respuesta propia al toque — los .btn-* y .card-lift tienen su :active—,
+   así que no se pierde el aviso de "te he oído", solo el rectángulo.
+   ══════════════════════════════════════════════════ */
+a,
+button,
+[role="button"],
+summary,
+label,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
 }

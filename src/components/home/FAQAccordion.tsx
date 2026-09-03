@@ -62,7 +62,18 @@ export function FAQAccordion({ items }: { items: FAQItem[] }) {
               }}
             >
               <div className="overflow-hidden">
-                <p className="pb-6 text-[15px] leading-[1.7] text-[#4B5563]">{item.a}</p>
+                {/* max-w: sin límite el párrafo hereda el ancho del
+                    contenedor, y en /renting-empresas y /renting-autonomos eso
+                    son 752 px = 106 caracteres por línea. El límite legible
+                    está en 75-80. Con 34rem quedan 77 en TODAS las páginas.
+                    En móvil no cambia nada, porque 34rem es más ancho que
+                    cualquier pantalla de móvil: el arreglo es de escritorio,
+                    que es donde estaba el problema. Y es el mismo componente en
+                    las 18 landings de SEO, o sea justo las que reciben el
+                    tráfico de buscador. */}
+                <p className="max-w-[34rem] pb-6 text-[15px] leading-[1.7] text-[#4B5563]">
+                  {item.a}
+                </p>
               </div>
             </div>
           </div>
