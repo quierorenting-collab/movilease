@@ -5,7 +5,7 @@
   "category": "turismo",
   "fuel_type": "gasolina",
   "transmission": "manual",
-  "monthly_price_cents": 30300,
+  "monthly_price_cents": 27700,
   "contract_months": 60,
   "annual_km": 10000,
   "horsepower": 100,
@@ -13,8 +13,7 @@
   "doors": 5,
   "environmental_label": "c",
   "colors": [
-    "Karbon Black",
-    "Grafik Grey"
+    "Blanco"
   ],
   "body_type": "Hatchback",
   "included_services": [
@@ -30,11 +29,11 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/opel-corsa-01.webp",
+      "url": "/coches-nuevos/opel-corsa-02.webp",
       "alt": "Opel Corsa en renting — vista exterior"
     },
     {
-      "url": "/coches-nuevos/opel-corsa-02.webp",
+      "url": "/coches-nuevos/opel-corsa-01.webp",
       "alt": "Opel Corsa en renting — vista exterior"
     },
     {
@@ -60,54 +59,80 @@
   ],
   "pricing": [
     {
-      "contract_months": 48,
+      "contract_months": 24,
       "annual_km": 10000,
-      "monthly_price_cents": 31100
+      "monthly_price_cents": 32300
     },
     {
-      "contract_months": 48,
+      "contract_months": 24,
       "annual_km": 15000,
-      "monthly_price_cents": 33200
+      "monthly_price_cents": 33500
     },
     {
-      "contract_months": 48,
+      "contract_months": 24,
       "annual_km": 20000,
-      "monthly_price_cents": 35200
+      "monthly_price_cents": 36200
     },
     {
-      "contract_months": 48,
+      "contract_months": 24,
       "annual_km": 25000,
-      "monthly_price_cents": 38500
+      "monthly_price_cents": 37500
     },
     {
-      "contract_months": 48,
+      "contract_months": 24,
       "annual_km": 30000,
-      "monthly_price_cents": 40800
+      "monthly_price_cents": 40300
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 29400
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 31000
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 33300
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 35100
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 38600
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 30300
+      "monthly_price_cents": 27700
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 32200
+      "monthly_price_cents": 29500
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 35600
+      "monthly_price_cents": 33400
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 38800
+      "monthly_price_cents": 35900
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 41400
+      "monthly_price_cents": 39200
     }
-  ]
+  ],
+  "version": "1.2T XHL 74kW 100CV GS"
 }

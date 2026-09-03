@@ -45,13 +45,21 @@ MOSAICOS = {
         # OJO: la foto grande de esta hoja lleva el logo de MoviLease y
         # "SEAT ARONA 1.0 TSI 115 CV" INCRUSTADOS en la imagen. Como portada
         # duplicaria el titular de la ficha y se leeria como una captura, asi
-        # que se descarta y la portada pasa a ser el perfil, que esta limpio.
-        # Es la unica hoja donde se rompe la norma de "la -01 es el 3/4
-        # delantero", y se rompe por esto.
+        # que se descarta.
+        #
+        # La portada es el FRONTAL, no el 3/4 delantero, porque en esta hoja el
+        # 3/4 delantero ES la foto branded. Se probo recortarla esquivando el
+        # texto y no sale: el bloque se solapa con el morro, asi que el recorte
+        # deja fuera media rejilla y aun asi se cuelan trozos de letras.
+        #
+        # Y no el perfil, que fue el primer intento: mide 535x191, o sea
+        # proporcion 2,8, y en una tarjeta de catalogo se ve aplastado y
+        # diminuto al lado de coches fotografiados en 3/4. El frontal esta en
+        # 1,30 y llena la caja.
         "recortes": [
-            (0.652, 0.348, 1.000, 0.534),   # perfil — portada (limpio)
-            (0.000, 0.543, 0.208, 0.762),   # frontal
-            (0.652, 0.000, 1.000, 0.330),   # 3/4 trasero
+            (0.000, 0.530, 0.212, 0.775),   # frontal — portada
+            (0.652, 0.000, 1.000, 0.335),   # 3/4 trasero
+            (0.652, 0.348, 1.000, 0.534),   # perfil
             (0.212, 0.543, 0.423, 0.762),   # trasera
             (0.427, 0.543, 0.695, 0.762),   # salpicadero
             (0.700, 0.543, 1.000, 0.762),   # asientos
