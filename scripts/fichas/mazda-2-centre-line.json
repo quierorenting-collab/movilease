@@ -1,4 +1,5 @@
 {
+  "update_vehicle_id": "957b5ffb-ce72-4cde-88c3-5491fb4a0329",
   "brand": "Mazda",
   "model": "2",
   "version": "1.5 85kW 116CV CVT Centre-line",
@@ -134,5 +135,31 @@
       "url": "/coches-nuevos/mazda-2-07.webp",
       "alt": "Mazda 2 en renting"
     }
+  ],
+  "body_type": "Berlina con portón",
+  "equipment": [
+    "Confort Y Tecnología: Sistema multimedia Mazda Connect con pantalla central de 8,8\"",
+    "Confort Y Tecnología: Apple CarPlay y Android Auto",
+    "Confort Y Tecnología: Bluetooth® y mandos en el volante",
+    "Confort Y Tecnología: Entrada USB",
+    "Confort Y Tecnología: Aire acondicionado manual",
+    "Confort Y Tecnología: Elevalunas eléctricos delanteros y traseros",
+    "Confort Y Tecnología: Cierre centralizado con mando",
+    "Confort Y Tecnología: Dirección asistida eléctrica",
+    "Confort Y Tecnología: Ordenador de a bordo",
+    "Seguridad: Sistema de asistencia a la frenada inteligente (SBS)",
+    "Seguridad: Control dinámico de estabilidad (DSC)",
+    "Seguridad: Control de tracción (TCS)",
+    "Seguridad: Asistente de arranque en cuesta (HLA)",
+    "Seguridad: Sistema de monitorización de presión de los neumáticos (TPMS)",
+    "Seguridad: 6 airbags (frontales, laterales y de cortina)",
+    "Seguridad: Anclajes ISOFIX en plazas traseras",
+    "Diseño Y Funcionalidad: Llantas de aleación de 15\"",
+    "Diseño Y Funcionalidad: Faros halógenos con luces diurnas LED",
+    "Diseño Y Funcionalidad: Retrovisores exteriores eléctricos y calefactables",
+    "Diseño Y Funcionalidad: Asiento del conductor ajustable en altura",
+    "Diseño Y Funcionalidad: Asientos traseros abatibles 60:40",
+    "Diseño Y Funcionalidad: Volante ajustable en altura y profundidad",
+    "Diseño Y Funcionalidad: Luz de maletero"
   ]
 }

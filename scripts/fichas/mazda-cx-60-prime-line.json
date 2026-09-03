@@ -1,4 +1,5 @@
 {
+  "update_vehicle_id": "393077b3-2947-466e-8797-444a402faaea",
   "brand": "Mazda",
   "model": "CX-60",
   "version": "3.3 e-SKYACTIV D MHEV 200CV 8AT RWD Prime-Line",
@@ -126,5 +127,6 @@
       "annual_km": 30000,
       "monthly_price_cents": 61362
     }
-  ]
+  ],
+  "body_type": "SUV"
 }

@@ -1,4 +1,5 @@
 {
+  "update_vehicle_id": "c1b90be6-631c-49d9-b4ba-771a9122838a",
   "brand": "Toyota",
   "model": "Hilux",
   "version": "MY25 Doble Cabina GX 2.4B 150CV 6AT 4x4",
@@ -136,5 +137,24 @@
       "url": "/coches-nuevos/toyota-hilux-08.webp",
       "alt": "Coche en renting"
     }
+  ],
+  "body_type": "Pick-up doble cabina",
+  "equipment": [
+    "Equipamiento: Luces de circulación diurna",
+    "Equipamiento: Faros con función \"Follow me home\"",
+    "Equipamiento: Faros antiniebla traseros",
+    "Equipamiento: Aviso de apagado de luces",
+    "Equipamiento: Retrovisores exteriores ajustable eléctricamente",
+    "Equipamiento: Anillas en la caja de carga",
+    "Equipamiento: Llantas acero 17\" en negro",
+    "Equipamiento: Luces de freno traseras LED",
+    "Equipamiento: Ajuste manual altura de faros",
+    "Equipamiento: Retrovisores plegables manualmente",
+    "Equipamiento: Retrovisores exteriores calefactables",
+    "Equipamiento: Rueda de repuesto bajo carrocería",
+    "Equipamiento: Aviso de cambio involuntario de carril con asistencia (LTA)",
+    "Equipamiento: Almacenaje bajo asientos traseros",
+    "Equipamiento: Stop & Start",
+    "Equipamiento: Retrovisor interior día/noche"
   ]
 }

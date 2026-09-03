@@ -129,5 +129,6 @@
       "annual_km": 30000,
       "monthly_price_cents": 74200
     }
-  ]
+  ],
+  "body_type": "SUV"
 }

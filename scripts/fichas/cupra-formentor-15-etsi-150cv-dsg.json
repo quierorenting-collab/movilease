@@ -101,5 +101,6 @@
       "monthly_price_cents": 50208
     }
   ],
-  "is_offer": true
+  "is_offer": true,
+  "body_type": "Berlina con portón"
 }

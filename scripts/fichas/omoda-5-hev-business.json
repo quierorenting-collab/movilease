@@ -1,4 +1,5 @@
 {
+  "update_vehicle_id": "8eaace86-fd14-425c-9a7d-4c7d83f1a242",
   "brand": "Omoda",
   "model": "5",
   "version": "HEV 1.5 TGDI 224CV Business",
@@ -134,5 +135,6 @@
       "url": "/coches-nuevos/omoda-5-07.webp",
       "alt": "Coche en renting"
     }
-  ]
+  ],
+  "body_type": "SUV"
 }

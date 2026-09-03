@@ -1,4 +1,5 @@
 {
+  "update_vehicle_id": "ba7a02ed-75d0-488c-9876-b004d4b6c85a",
   "brand": "Volkswagen",
   "model": "T-Roc",
   "version": "\"MÁS\" 1.5 eTSI 85kW 116CV DSG",
@@ -132,5 +133,20 @@
       "url": "/coches-nuevos/vw-t-roc-07.webp",
       "alt": "Volkswagen T-Roc en renting"
     }
+  ],
+  "body_type": "SUV",
+  "equipment": [
+    "Equipamiento: \"Lima\" 7J x 17, en Negro/torneado brillante, neumáticos 225/55 R17",
+    "Equipamiento: Asistente de cambio de carril Side Assist, asistente de salida del aparc. y advertencia de apertura de puerta",
+    "Equipamiento: Autohold: Control de asistencia para arranque en pendientes",
+    "Equipamiento: Lunas laterales traseras y luneta trasera oscurecidas",
+    "Equipamiento: App-Connect Wireless para Apple CarPlay y Android Auto",
+    "Equipamiento: Asistente de aparcamiento inteligente Park Assist Plus incl. ayuda de aparcamiento",
+    "Equipamiento: Asistente de frenada de emergencia Front Assist con sistema de detección de peatones y ciclistas",
+    "Equipamiento: Faros LED con luz de conducción diurna",
+    "Equipamiento: Volante multifunción de cuero con levas de cambio",
+    "Equipamiento: Sistema Start-Stop con recuperación de la energía de frenado",
+    "Equipamiento: Sistema de propulsión híbrida para semihíbrido",
+    "Equipamiento: Revestimiento interior del techo en Ceramique"
   ]
 }

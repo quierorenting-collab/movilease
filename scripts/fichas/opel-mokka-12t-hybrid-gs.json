@@ -1,4 +1,5 @@
 {
+  "update_vehicle_id": "12839dff-3b46-490a-9611-ed7ca810e485",
   "brand": "Opel",
   "model": "Mokka",
   "version": "1.2 T XHT Hybrid eDCT6 GS",
@@ -131,5 +132,6 @@
       "annual_km": 30000,
       "monthly_price_cents": 46800
     }
-  ]
+  ],
+  "body_type": "SUV"
 }

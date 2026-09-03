@@ -1,4 +1,5 @@
 {
+  "update_vehicle_id": "89356d11-4899-4b35-aa4a-2424dad75b03",
   "brand": "Nissan",
   "model": "Interstar",
   "version": "Furgón N1 L2 H2 dCi 130CV 6 M/T FWD Acenta",
@@ -104,5 +105,6 @@
       "annual_km": 30000,
       "monthly_price_cents": 73600
     }
-  ]
+  ],
+  "body_type": "Furgón"
 }
