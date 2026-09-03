@@ -40,6 +40,26 @@ MOSAICOS = {
             (0.705, 0.555, 1.000, 0.775),   # asientos
         ],
     },
+    "opel-corsa-blanco": {
+        # Hoja construida el 03/09/2026 a partir de la propia lamina de
+        # ALPHABET, porque esa carpeta NO tenia hoja de fotos y la oferta que
+        # se publica (277 EUR, la mas barata) es la del coche BLANCO, mientras
+        # que las fotos que habia eran del NEGRO de ARVAL. Publicar un coche
+        # con la foto de otro color es el error que ya hizo salir el Qashqai
+        # en rojo cuando se contrata azul.
+        #
+        # De la lamina se quito antes el rotulo "HASTA FIN DE EXISTENCIAS",
+        # que caia sobre el fondo —no sobre el coche—, estirando hacia abajo
+        # la fila de encima para conservar las vetas del degradado.
+        "hoja": r"QUADIS\ALPHABET\OPEL CORSA GS\FOTOS CORSA BLANCO.png",
+        "recortes": [
+            (0.000, 0.000, 1.000, 0.751),   # 3/4 delantero — portada
+            (0.000, 0.751, 0.250, 1.000),   # frontal
+            (0.250, 0.751, 0.500, 1.000),   # perfil
+            (0.500, 0.751, 0.750, 1.000),   # interior
+            (0.750, 0.751, 1.000, 1.000),   # trasera
+        ],
+    },
     "seat-arona": {
         "hoja": r"MOVENTO\SEAT ARONA\FOTOS COCHE.png",
         # OJO: la foto grande de esta hoja lleva el logo de MoviLease y
