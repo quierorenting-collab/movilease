@@ -116,6 +116,20 @@ def main():
         vehicle_payload["included_services"] = data["included_services"]
 
     if update_id:
+        # La version SI se actualiza al actualizar un coche existente. No lo
+        # hacia, y eso publico un Cupra Formentor con la cuota nueva de la
+        # lamina y la version vieja de la ficha: 68 EUR mas caro pero
+        # anunciado como el modelo anterior. version_slug no es una URL viva
+        # (la ruta /[modelo]/[version] no existe), asi que cambiarlo no rompe
+        # nada indexado; la URL publica es el slug del MODELO y esa no se toca.
+        if data.get("version"):
+            vehicle_payload["version"] = data["version"]
+            vehicle_payload["version_slug"] = slugify(data["version"])
+        # Reactivar un coche que volvio al stock es parte de actualizarlo: si
+        # la ficha dice is_active, mandalo. Sin esto habia que entrar a mano en
+        # Supabase despues de cada alta recuperada.
+        if data.get("is_active") is not None:
+            vehicle_payload["is_active"] = data["is_active"]
         vehicle_payload = {k: v for k, v in vehicle_payload.items() if v is not None}
         rest(
             "PATCH",
@@ -124,10 +138,11 @@ def main():
             headers={**HEADERS, "Prefer": "return=minimal"},
         )
         vehicle_id = update_id
-        vehicle_row = rest("GET", f"vehicles?id=eq.{update_id}&select=version,model_id")[0]
+        vehicle_row = rest("GET", f"vehicles?id=eq.{update_id}&select=version,model_id,is_active")[0]
         model_row = rest("GET", f"models?id=eq.{vehicle_row['model_id']}&select=slug")[0]
         model_slug = model_row["slug"]
-        print(f"  * Vehiculo actualizado: {data['brand']} {data['model']} {vehicle_row['version']} (id={vehicle_id})")
+        estado = "activo" if vehicle_row.get("is_active") else "INACTIVO"
+        print(f"  * Vehiculo actualizado: {data['brand']} {data['model']} {vehicle_row['version']} ({estado}, id={vehicle_id})")
         rest("DELETE", f"vehicle_pricing?vehicle_id=eq.{vehicle_id}")
         rest("DELETE", f"vehicle_images?vehicle_id=eq.{vehicle_id}")
     else:

@@ -42,6 +42,12 @@ SIN_STOCK = {"FUERA DE STOCK", "SIN STOCK"}
 # y es lo único que hay que tocar cuando entra un coche nuevo: una línea.
 ALIAS = {
     "AUDI A1": ("Audi", "A1"),
+    # Carpetas nuevas del 02/09. "JAECCO" con doble C es una errata de la
+    # carpeta, no del coche: sus hermanas son JAECOO 7 y JAECOO 8.
+    "JAECCO 5 EXCLUSIVE": ("Jaecoo", "5"),
+    "MAZDA 2": ("Mazda", "2"),
+    "MAZDA 3": ("Mazda", "3"),
+    "SEAT ARONA": ("Seat", "Arona"),
     "CUPRA FORMENTOR": ("Cupra", "Formentor"),
     "EBRO S400": ("Ebro", "S400"),
     "EBRO S700": ("Ebro", "s700"),
@@ -92,14 +98,27 @@ def clave(marca, modelo):
 
 
 def es_hoja(ruta):
-    """Una carpeta de coche es la que tiene láminas dentro y ninguna subcarpeta."""
+    """Una carpeta de coche es la que tiene láminas dentro.
+
+    Antes exigía además NO tener subcarpetas, y eso dejaba fuera a
+    MOVENTO/SEAT LEON FR, que tiene sus cuatro láminas propias Y cuatro
+    subcarpetas de color a la vez. Sus precios no se miraban nunca: si Adrián
+    los cambiaba ahí, nadie se enteraba. Ahora basta con que tenga láminas.
+
+    Las subcarpetas de color (NEGRO, GRIS MAGNETIC, ROJO METALIZADO...) también
+    pasan este filtro, y no pasa nada: recorrer_drive() sube por las carpetas
+    padre buscando un nombre conocido, así que una carpeta "NEGRO" acaba
+    contando como una lámina más de su modelo, no como un coche nuevo. Lo que
+    NUNCA se puede hacer es usar el nombre de la carpeta final como clave:
+    "GRIS MAGNETIC" existe bajo dos modelos distintos.
+    """
     try:
         hijos = os.listdir(ruta)
     except OSError:
         return False
-    subcarpetas = [h for h in hijos if os.path.isdir(os.path.join(ruta, h))]
     ficheros = [h for h in hijos if h != "desktop.ini" and os.path.isfile(os.path.join(ruta, h))]
-    return not subcarpetas and bool(ficheros)
+    return bool(ficheros)
+
 
 
 def recorrer_drive():

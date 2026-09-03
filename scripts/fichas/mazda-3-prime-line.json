@@ -1,0 +1,133 @@
+{
+  "update_vehicle_id": "4c9ba50f-6b88-4d16-bf4c-970d10f83f1f",
+  "is_active": true,
+  "brand": "Mazda",
+  "model": "3",
+  "version": "2.5L e-SKY G MHEV 103kW 140CV Prime-line",
+  "category": "turismo",
+  "fuel_type": "gasolina",
+  "transmission": "manual",
+  "monthly_price_cents": 32205,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 140,
+  "consumption_value": 5.5,
+  "consumption_unit": "l/100km",
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "short_description": "2.5L e-SKYACTIV G MHEV de 140 CV con etiqueta ECO",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 33383
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 35155
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 36928
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 39643
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 42303
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 32937
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 34524
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 36112
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 38576
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 41809
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 32205
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 33749
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 35293
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 38416
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 41202
+    }
+  ],
+  "images": [
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-3/mazda-3-vista-delantera-lateral.jpg?size=1200x800",
+      "alt": "Mazda 3 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-3/dos-mazda-3-frente-puente.jpg?size=1200x800",
+      "alt": "Mazda 3 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-3/mazda-3-lateral-playa.jpg?size=1200x800",
+      "alt": "Mazda 3 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-3/trasera-mazda-3-monumento.jpg?size=1200x800",
+      "alt": "Mazda 3 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-3/mazda-3-palanca-manual.jpg?size=1200x800",
+      "alt": "Mazda 3 en renting"
+    },
+    {
+      "url": "https://fotos.quecochemecompro.com/mazda-3/perspectiva-asientos-mazda-3.jpg?size=1200x800",
+      "alt": "Mazda 3 en renting"
+    }
+  ]
+}

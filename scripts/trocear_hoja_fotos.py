@@ -47,6 +47,7 @@ DRIVE = os.environ.get("MOVILEASE_DRIVE", r"G:\Unidades compartidas\MoviLease")
 # Hoja del Drive -> prefijo de las fotos. Añadir un coche es una línea.
 HOJAS = {
     "kia-niro": r"QUADIS\AYVENS\KIA NIRO\FOTOS KIA NIRO.png",
+    "mazda-3": r"M AUTOMOCION\AYVENS\MAZDA 3\FOTOS COCHE.png"  # OJO: mosaico irregular, el troceador se niega; pendiente a mano,
     "mercedes-citan": r"QUADIS\ARVAL\MERCEDES\MERCEDES CITAN CARGA\FOTOS MERCEDES CITAN CARGA.png",
     "nissan-interstar": r"QUADIS\ARVAL\NISSAN INTERSTAR FURGON L2H2\FOTOS NISSAN INSTERSTAR FURGÓN L2H2.png",
     "opel-mokka": r"QUADIS\AYVENS\OPEL MOKKA\FOTOS DEL COCHE.png",

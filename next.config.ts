@@ -31,7 +31,6 @@ const MODELOS_RETIRADOS = [
   "renting-kia-stonic",
   "renting-maxus-deliver-9",
   "renting-maxus-t60-max",
-  "renting-mazda-3",
   "renting-mazda-6e",
   "renting-mazda-cx-5",
   "renting-mg-zs",
