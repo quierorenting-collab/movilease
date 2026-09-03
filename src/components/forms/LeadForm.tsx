@@ -12,7 +12,12 @@ export function LeadForm({
   vehicleId,
   modelId,
   source = "contact_form",
-  submitLabel = "Solicitar mi oferta sin compromiso",
+  /* "Solicitar mi oferta sin compromiso" ocupaba dos lineas y 79 px de alto a
+     320 px: el boton que cierra la venta se leia como un bloque de texto roto
+     en el movil mas pequeno, y ningun relleno lo arreglaba porque la frase es
+     larga de verdad. Acortado por Adrian el 03/09/2026. El "sin compromiso" no
+     se pierde: sigue estando en la linea de debajo del formulario. */
+  submitLabel = "Solicitar mi oferta",
 }: {
   vehicleId?: string;
   modelId?: string;
