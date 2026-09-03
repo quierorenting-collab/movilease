@@ -28,6 +28,7 @@ import {
   VehicleModelJsonLd,
 } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
+import { formatEuros } from "@/lib/utils";
 import Link from "next/link";
 import { BotonAsesor } from "@/components/asesor/BotonAsesor";
 
@@ -80,7 +81,9 @@ export async function generateMetadata({
     // genericos: Google los trunca menos, pero tampoco dicen nada que invite a
     // pulsar. El precio y "sin entrada" son lo que decide el clic.
     const partes = [
-      desde ? `Renting ${nombre} desde ${desde} €/mes sin entrada.` : `Renting ${nombre} sin entrada.`,
+      desde
+        ? `Renting ${nombre} desde ${formatEuros(desde)} €/mes sin entrada.`
+        : `Renting ${nombre} sin entrada.`,
       "Seguro a todo riesgo, mantenimiento e impuestos incluidos.",
       versiones > 1 ? `${versiones} versiones disponibles.` : null,
       "Respuesta en 48 h.",
@@ -89,7 +92,7 @@ export async function generateMetadata({
     if (description.length > 158) description = description.slice(0, 155).trimEnd() + "…";
 
     return pageMetadata({
-      title: desde ? `Renting ${nombre} desde ${desde} €/mes` : `Renting ${nombre}`,
+      title: desde ? `Renting ${nombre} desde ${formatEuros(desde)} €/mes` : `Renting ${nombre}`,
       description,
       path: `/${slug}`,
       // La foto del coche como imagen al compartir, en vez de la generica
@@ -232,7 +235,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
   const faqModelo = [
     cuotaDesde && {
       q: `¿Cuánto cuesta el renting de un ${nombreCompleto}?`,
-      a: `Desde ${cuotaDesde} € al mes con IVA incluido y sin entrada${
+      a: `Desde ${formatEuros(cuotaDesde)} € al mes con IVA incluido y sin entrada${
         masBarato
           ? `, para un contrato de ${masBarato.contractMonths} meses y ${masBarato.annualKm.toLocaleString("es-ES")} km al año`
           : ""

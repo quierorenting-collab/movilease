@@ -12,6 +12,7 @@ import { BrandCard } from "@/components/catalog/BrandCard";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { BreadcrumbJsonLd, ItemListJsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
+import { formatEuros } from "@/lib/utils";
 
 export const revalidate = 900;
 
@@ -177,7 +178,7 @@ export default async function CatalogoPage({
                     no envejece con el stock. */}
                 <p className="mt-4 text-[14px] text-white/70">
                   {cuotaMinimaMarca
-                    ? `Desde ${cuotaMinimaMarca} € al mes, todo incluido y sin entrada`
+                    ? `Desde ${formatEuros(cuotaMinimaMarca)} € al mes, todo incluido y sin entrada`
                     : "Renting con todo incluido y sin entrada"}
                 </p>
               </div>
@@ -278,7 +279,7 @@ export default async function CatalogoPage({
             </h2>
             <p className="mt-6 text-[17px] leading-[1.8] text-[#33415C]">
               Aquí tienes los {displayName} que podemos ofrecerte en renting
-              {cuotaMinimaMarca ? `, desde ${cuotaMinimaMarca} € al mes` : ""}. Todas las
+              {cuotaMinimaMarca ? `, desde ${formatEuros(cuotaMinimaMarca)} € al mes` : ""}. Todas las
               cuotas van con el IVA incluido y sin entrada: el día que recibes el coche
               no pagas nada por adelantado.
             </p>
@@ -448,7 +449,7 @@ async function AllVehiclesSection({ maxPrice }: { maxPrice?: number }) {
     return (
       <section className="surface-black py-24">
         <div className="mx-auto max-w-xl px-6 text-center sm:px-10">
-          <h2 className="display-sm text-white">Nada por debajo de {maxPrice} €/mes</h2>
+          <h2 className="display-sm text-white">Nada por debajo de {formatEuros(maxPrice)} €/mes</h2>
           <p className="mt-4 text-[15px] leading-relaxed text-white/75">
             Ajusta el presupuesto o dinos qué buscas y te proponemos alternativas.
           </p>
@@ -485,7 +486,7 @@ async function AllVehiclesSection({ maxPrice }: { maxPrice?: number }) {
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal className="mb-12 flex flex-wrap items-center gap-4">
           <h2 className="display-sm shrink-0 text-white">
-            {maxPrice ? `Hasta ${maxPrice} €/mes` : "Todos los modelos"}
+            {maxPrice ? `Hasta ${formatEuros(maxPrice)} €/mes` : "Todos los modelos"}
           </h2>
           <div className="hidden flex-1 border-t border-white/[0.08] sm:block" />
           {maxPrice && (
