@@ -15,10 +15,10 @@ const FILTRO_MOVIL = "brightness(0.6) saturate(0.9) contrast(1.04)";
 /**
  * Fondo de vídeo del hero.
  *
- * DOS CLIPS, NO UNO RECORTADO. En escritorio va el ambiente urbano apaisado de
- * siempre. En móvil va un clip VERTICAL propio (720x1228), porque un 16:9
- * dentro de una pantalla 9:19,5 pierde el 74 % del ancho: se veía una franja
- * estrecha del centro, y de ahí la sensación de que "en móvil no se aprecia".
+ * DOS CLIPS, NO UNO RECORTADO. En escritorio va un clip apaisado (1276x646) y
+ * en móvil uno VERTICAL propio (720x1228), porque un 16:9 dentro de una
+ * pantalla 9:19,5 pierde el 74 % del ancho: se veía una franja estrecha del
+ * centro, y de ahí la sensación de que "en móvil no se aprecia".
  *
  * La elección se hace en JavaScript y no con dos <video> y clases `lg:hidden`
  * porque los dos se descargarían: son 800 KB cada uno. Se lee una sola vez al
@@ -128,7 +128,7 @@ export function HeroVideo() {
               no-img-element no salta aquí porque el <img> va dentro de un
               <picture>, que es el uso legítimo. Ver la cabecera. */}
           <img
-            src="/videos/hero-poster.webp"
+            src="/videos/hero-escritorio-poster.webp"
             alt=""
             fetchPriority="high"
             decoding="async"
@@ -168,7 +168,13 @@ export function HeroVideo() {
                     <source src="/videos/hero-movil.mp4" type="video/mp4" />
                   </>
                 ) : (
-                  <source src="/videos/hero.mp4" type="video/mp4" />
+                  <>
+                    {/* Mismo criterio que en móvil: el WebM va primero porque
+                        pesa 942 KB frente a los 1.029 KB del MP4 y además da
+                        mejor SSIM (0,985 contra 0,975). Safari cae al MP4. */}
+                    <source src="/videos/hero-escritorio.webm" type="video/webm" />
+                    <source src="/videos/hero-escritorio.mp4" type="video/mp4" />
+                  </>
                 ))}
             </video>
           </div>
