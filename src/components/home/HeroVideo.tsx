@@ -22,7 +22,7 @@ import { Parallax } from "@/components/ui/Parallax";
  * este número es una URL nueva y una descarga nueva. Es preferible a renombrar
  * los ficheros porque no hay que tocar dos webs y un Drive cada vez.
  */
-const V = "4";
+const V = "5";
 
 const FILTRO_ESCRITORIO = "brightness(0.95) saturate(1.02) contrast(1.02)";
 const FILTRO_MOVIL = "brightness(0.6) saturate(0.9) contrast(1.04)";
