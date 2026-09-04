@@ -9,6 +9,21 @@ import { Parallax } from "@/components/ui/Parallax";
    el 0,6, porque el texto cae encima del coche y no hay a dónde apartarlo; con
    0,74 la etiqueta de 11 px se quedaba en 2,99:1, por debajo del 4,5 de AA.
    Todo medido en el navegador componiendo el fotograma real con su velo. */
+/**
+ * Versión de los ficheros del hero. Se sube UN número cada vez que se
+ * reemplaza un vídeo o un póster conservando el nombre.
+ *
+ * Sin esto, reemplazar el clip no llega a nadie: /videos/ se sirve con
+ * `max-age=604800` (siete días, en next.config.ts), así que cualquiera que ya
+ * hubiera entrado seguía viendo el vídeo viejo durante una semana. Pasó con el
+ * cambio a Full HD: el fichero estaba publicado y no se veía.
+ *
+ * El navegador cachea por URL completa, interrogante incluido, así que cambiar
+ * este número es una URL nueva y una descarga nueva. Es preferible a renombrar
+ * los ficheros porque no hay que tocar dos webs y un Drive cada vez.
+ */
+const V = "4";
+
 const FILTRO_ESCRITORIO = "brightness(0.95) saturate(1.02) contrast(1.02)";
 const FILTRO_MOVIL = "brightness(0.6) saturate(0.9) contrast(1.04)";
 
@@ -37,6 +52,7 @@ const FILTRO_MOVIL = "brightness(0.6) saturate(0.9) contrast(1.04)";
  */
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const posterRef = useRef<HTMLImageElement>(null);
   const [loaded, setLoaded] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   /* null = todavía no se sabe. Las <source> no se montan hasta saberlo, para
@@ -53,11 +69,14 @@ export function HeroVideo() {
     setEsMovil(window.matchMedia("(max-width: 1023px)").matches);
   }, []);
 
-  /* El vídeo son ~800 KB y con preload="auto" el navegador los pedía a los
-     65 ms, ANTES de que terminara de llegar el póster, que es el recurso del
-     LCP. O sea que el fondo decorativo competía con lo que el visitante ha
-     venido a leer. Se espera a que el navegador esté ocioso: el póster ya está
-     pintado desde el primer render, así que el hero se ve igual mientras tanto. */
+  /* El vídeo se pide EN CUANTO el póster está cargado, ni antes ni después.
+     Antes se esperaba a que el navegador estuviese ocioso, con hasta 1,2 s de
+     margen, y eso es lo que se notaba como "tarda un segundo en arrancar": no
+     era la descarga, era la espera.
+     El póster es el recurso del LCP. Mientras no ha llegado, pedir 700 KB de
+     fondo decorativo le quita ancho de banda a lo que el visitante ha venido a
+     ver; en cuanto ha llegado, ya no compite con nada crítico. Así que ese es
+     el momento exacto, y además es un hecho medible y no un plazo inventado. */
   useEffect(() => {
     if (reducedMotion) return;
     /* Con ahorro de datos activado, o en 2G/3G, el fondo no compensa: son
@@ -72,15 +91,19 @@ export function HeroVideo() {
     if (conexion?.effectiveType && /^(slow-2g|2g|3g)$/.test(conexion.effectiveType)) return;
 
     const arranca = () => setFuenteLista(true);
-    const w = window as typeof window & {
-      requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
-    };
-    if (typeof w.requestIdleCallback === "function") {
-      w.requestIdleCallback(arranca, { timeout: 1200 });
+    const img = posterRef.current;
+    // Si viene de caché el evento `load` ya ha pasado y no volverá a dispararse.
+    if (img?.complete) {
+      arranca();
       return;
     }
-    const t = window.setTimeout(arranca, 1200);
-    return () => window.clearTimeout(t);
+    img?.addEventListener("load", arranca, { once: true });
+    // Red de seguridad: si el póster falla, el vídeo no se queda esperándolo.
+    const t = window.setTimeout(arranca, 1500);
+    return () => {
+      img?.removeEventListener("load", arranca);
+      window.clearTimeout(t);
+    };
   }, [reducedMotion]);
 
   /* Todo el arranque del vídeo va aquí, y no en un efecto de montaje, porque
@@ -120,7 +143,7 @@ export function HeroVideo() {
         <picture>
           <source
             media="(max-width: 1023px)"
-            srcSet="/videos/hero-movil-poster.webp"
+            srcSet={`/videos/hero-movil-poster.webp?v=${V}`}
             type="image/webp"
           />
           {/* Dirección de arte: dos ficheros distintos según el ancho, que es
@@ -128,7 +151,8 @@ export function HeroVideo() {
               no-img-element no salta aquí porque el <img> va dentro de un
               <picture>, que es el uso legítimo. Ver la cabecera. */}
           <img
-            src="/videos/hero-escritorio-poster.webp"
+            ref={posterRef}
+            src={`/videos/hero-escritorio-poster.webp?v=${V}`}
             alt=""
             fetchPriority="high"
             decoding="async"
@@ -152,7 +176,13 @@ export function HeroVideo() {
               /* La panorámica existía SOLO para rescatar el encuadre del clip
                  apaisado en una pantalla vertical. Con el clip vertical sobra,
                  y además descentraría el coche, que va en el eje. */
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-out ${
+              /* Sin transición de opacidad. El póster y el primer fotograma
+                 del vídeo son la MISMA imagen —1,8/255 de diferencia, medido—,
+                 así que el fundido de 1,4 s que había aquí estaba fundiendo una
+                 foto consigo misma: no disimulaba ningún salto y retrasaba el
+                 momento en que el movimiento se ve a plena intensidad. Ahora el
+                 relevo es instantáneo y, por ser el mismo fotograma, invisible. */
+              className={`absolute inset-0 h-full w-full object-cover ${
                 esMovil ? "" : "cinematic-pan"
               }`}
               style={{ opacity: loaded ? 1 : 0, filter: filtro }}
@@ -164,16 +194,16 @@ export function HeroVideo() {
                         pesa 691 KB frente a los 807 KB del MP4, con mejor
                         SSIM. Safari cae al MP4, que es H.264 y lo reproduce
                         cualquier iPhone. */}
-                    <source src="/videos/hero-movil.webm" type="video/webm" />
-                    <source src="/videos/hero-movil.mp4" type="video/mp4" />
+                    <source src={`/videos/hero-movil.webm?v=${V}`} type="video/webm" />
+                    <source src={`/videos/hero-movil.mp4?v=${V}`} type="video/mp4" />
                   </>
                 ) : (
                   <>
                     {/* Mismo criterio que en móvil: el WebM va primero porque
                         pesa 942 KB frente a los 1.029 KB del MP4 y además da
                         mejor SSIM (0,985 contra 0,975). Safari cae al MP4. */}
-                    <source src="/videos/hero-escritorio.webm" type="video/webm" />
-                    <source src="/videos/hero-escritorio.mp4" type="video/mp4" />
+                    <source src={`/videos/hero-escritorio.webm?v=${V}`} type="video/webm" />
+                    <source src={`/videos/hero-escritorio.mp4?v=${V}`} type="video/mp4" />
                   </>
                 ))}
             </video>
