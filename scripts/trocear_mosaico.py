@@ -135,8 +135,25 @@ MOSAICOS = {
             (0.700, 0.543, 1.000, 0.762),   # asientos
         ],
     },
+    "mercedes-gla": {
+        "hoja": r"QUADIS\AYVENS\MERCEDES GLA 200D\FOTOS.png",
+        # Fracciones MEDIDAS sobre la hoja (1536x1024), no estimadas a ojo: se
+        # localizaron las calles buscando las filas y columnas donde mas del
+        # 85 % de los pixeles pasan de 235 de brillo. Las calles de esta hoja
+        # son lineas finas de 1-3 px y no llegan a blanco puro, asi que el
+        # metodo del minimo por fila (el de trocear_hoja_fotos.py) no las ve.
+        "recortes": [
+            (0.000, 0.000, 0.621, 0.545),   # 3/4 delantero — portada
+            (0.625, 0.000, 1.000, 0.330),   # 3/4 trasero
+            (0.625, 0.334, 1.000, 0.545),   # perfil
+            (0.000, 0.549, 0.221, 0.784),   # frontal
+            (0.226, 0.549, 0.426, 0.784),   # trasera
+            (0.430, 0.549, 0.717, 0.784),   # salpicadero
+            (0.722, 0.549, 1.000, 0.784),   # asientos
+            (0.722, 0.789, 1.000, 1.000),   # maletero
+        ],
+    },
 }
-
 
 def trocear(clave):
     cfg = MOSAICOS[clave]
