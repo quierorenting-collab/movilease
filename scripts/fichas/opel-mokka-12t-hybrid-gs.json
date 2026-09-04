@@ -4,19 +4,19 @@
   "model": "Mokka",
   "version": "1.2 T XHT Hybrid eDCT6 GS",
   "category": "suv",
-  "fuel_type": "gasolina",
+  "fuel_type": "hibrido",
   "transmission": "automatico",
   "monthly_price_cents": 39300,
   "contract_months": 60,
   "annual_km": 10000,
-  "horsepower": 146,
+  "horsepower": 145,
   "seats": 5,
   "doors": 5,
   "environmental_label": "eco",
   "colors": [
     "Negro"
   ],
-  "short_description": "1.2 T Hybrid de 146 CV con cambio automático eDCT6, acabado GS",
+  "short_description": "1.2 T Hybrid de 145 CV con cambio automático eDCT6, acabado GS",
   "included_services": [
     "Seguro a todo riesgo",
     "Mantenimiento y revisiones",
