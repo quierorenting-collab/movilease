@@ -1,0 +1,224 @@
+{
+  "brand": "Citroën",
+  "model": "Berlingo",
+  "version": "Van Furgón M 1.5 BlueHDi 100 CV",
+  "category": "furgoneta",
+  "fuel_type": "diesel",
+  "transmission": "manual",
+  "horsepower": 100,
+  "seats": 2,
+  "doors": 4,
+  "environmental_label": "c",
+  "body_type": "Furgón",
+  "monthly_price_cents": 40535,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "short_description": "Furgón de 100 CV",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 50941
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 52393
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 53724
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 55297
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 58443
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 60500
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 63646
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 65945
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 67881
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 45617
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 46948
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 48521
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 50457
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 52877
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 55176
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 58201
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 60379
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 63767
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 40535
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 42108
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 44286
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 46706
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 49005
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 52030
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 55176
+    }
+  ],
+  "equipment": [
+    "CONFORT Y TECNOLOGÍA: All In One Radio (Pantalla SD 10\" + WiFi Mirroring + Reconocimiento de Voz Smartphone + USB Tipo C Datos + USB Tipo C de carga)",
+    "CONFORT Y TECNOLOGÍA: Pack Visibilidad (Limpiaparabrisas delantero automático MagicWash + Faros antiniebla con función Cornering Light)",
+    "CONFORT Y TECNOLOGÍA: Rueda de repuesto homogénea",
+    "CONFORT Y TECNOLOGÍA: Asiento Conductor Confort con reglaje de altura, lumbar y apoyabrazos",
+    "CONFORT Y TECNOLOGÍA: Freno de Estacionamiento Eléctrico",
+    "CONFORT Y TECNOLOGÍA: 2 elevalunas eléctricos (1a fila) y retrovisor exterior eléctrico calefactable con sonda de temperatura",
+    "CONFORT Y TECNOLOGÍA: Aire acondicionado manual",
+    "CONFORT Y TECNOLOGÍA: Asiento del pasajero (individual) ajustable en 4 direcciones",
+    "CONFORT Y TECNOLOGÍA: Reposacabezas ajustable",
+    "CONFORT Y TECNOLOGÍA: Bandeja Portaobjetos Bajo Techo Cabina",
+    "SEGURIDAD Y FUNCIONALIDAD: Airbag de copiloto, airbags laterales conductor y pasajero y airbags de cortina",
+    "SEGURIDAD Y FUNCIONALIDAD: Sensores de Aparcamiento traseros",
+    "SEGURIDAD Y FUNCIONALIDAD: Servicios Telemáticos – E-Call / B-Call",
+    "SEGURIDAD Y FUNCIONALIDAD: Retrovisores exteriores abatibles manualmente",
+    "SEGURIDAD Y FUNCIONALIDAD: Faros ECOLED",
+    "SEGURIDAD Y FUNCIONALIDAD: Puertas traseras batientes cerradas sin ventana",
+    "SEGURIDAD Y FUNCIONALIDAD: Puerta lateral derecha deslizante, sin ventana",
+    "SEGURIDAD Y FUNCIONALIDAD: 6 Anillas en Zona de Carga para Sujeción de la Carga",
+    "SEGURIDAD Y FUNCIONALIDAD: Panel de Separación de Carga"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/citroen-berlingo-01.webp",
+      "alt": "Citroën Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-02.webp",
+      "alt": "Citroën Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-03.webp",
+      "alt": "Citroën Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-04.webp",
+      "alt": "Citroën Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-05.webp",
+      "alt": "Citroën Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-06.webp",
+      "alt": "Citroën Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-07.webp",
+      "alt": "Citroën Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-08.webp",
+      "alt": "Citroën Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-09.webp",
+      "alt": "Citroën Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-10.webp",
+      "alt": "Citroën Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-11.webp",
+      "alt": "Citroën Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-12.webp",
+      "alt": "Citroën Berlingo en renting"
+    }
+  ]
+}

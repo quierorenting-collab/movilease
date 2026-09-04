@@ -1,0 +1,194 @@
+{
+  "brand": "Mercedes-Benz",
+  "model": "GLE 350d Coupé",
+  "version": "4MATIC 333 CV",
+  "category": "suv",
+  "fuel_type": "phev",
+  "transmission": "automatico",
+  "horsepower": 333,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "0",
+  "body_type": "SUV Coupé",
+  "monthly_price_cents": 151300,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "short_description": "SUV Coupé de 333 CV",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 179800
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 188200
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 193800
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 199200
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 209600
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 162400
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 169600
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 175200
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 184900
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 191100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 151300
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 156500
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 166000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 175600
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 183300
+    }
+  ],
+  "equipment": [
+    "Confort y tecnología: Sistema multimedia MBUX con pantalla central táctil",
+    "Confort y tecnología: Navegación por disco duro",
+    "Confort y tecnología: Cuadro de instrumentos digital",
+    "Confort y tecnología: Conectividad Apple CarPlay y Android Auto",
+    "Confort y tecnología: Bluetooth y puertos USB",
+    "Confort y tecnología: Climatizador automótico THERMATIC de 2 zonas [sic, \"automótico\" tal cual en la lámina]",
+    "Confort y tecnología: Asientos delanteros con ajuste eléctrico y memoria",
+    "Confort y tecnología: Tapicería en cuero / símil cuero",
+    "Confort y tecnología: Paquete de iluminación ambiental",
+    "Confort y tecnología: Keyless-Go (arranque sin llave)",
+    "Confort y tecnología: Portón trasero eléctrico",
+    "Seguridad y asistencia: Paquete de asistentes a la conducción",
+    "Seguridad y asistencia: Control de crucero adaptativo (Distronic)",
+    "Seguridad y asistencia: Asistente de mantenimiento de carril",
+    "Seguridad y asistencia: Asistente de frenada activa con detección de peatones",
+    "Seguridad y asistencia: Asistente de ángulo muerto",
+    "Seguridad y asistencia: Cámara de visión trasera",
+    "Seguridad y asistencia: Sensores de aparcamiento delanteros y traseros",
+    "Seguridad y asistencia: Reconocimiento de señales de tráfico",
+    "Seguridad y asistencia: Faros LED High Performance",
+    "Seguridad y asistencia: Sistema PRE-SAFE®",
+    "Seguridad y asistencia: Múltiples airbags (frontales, laterales y de cortina)",
+    "Seguridad y asistencia: Control de presión de neumáticos",
+    "Ficha de iconos (cabecera, no es epígrafe de equipamiento): 5 plazas",
+    "Ficha de iconos (cabecera, no es epígrafe de equipamiento): 5 puertas",
+    "Ficha de iconos (cabecera, no es epígrafe de equipamiento): 333 CV",
+    "Ficha de iconos (cabecera, no es epígrafe de equipamiento): Híbrido enchufable",
+    "Ficha de iconos (cabecera, no es epígrafe de equipamiento): Automático",
+    "Ficha de iconos (cabecera, no es epígrafe de equipamiento): 4MATIC tracción total",
+    "Ficha de iconos (cabecera, no es epígrafe de equipamiento): Etiqueta 0",
+    "Ficha de iconos (cabecera, no es epígrafe de equipamiento): SUV Coupé Premium",
+    "Todo incluido (servicios del renting, no equipamiento del coche): Seguro a todo riesgo",
+    "Todo incluido (servicios del renting, no equipamiento del coche): Mantenimiento y revisiones",
+    "Todo incluido (servicios del renting, no equipamiento del coche): Neumáticos incluidos",
+    "Todo incluido (servicios del renting, no equipamiento del coche): Asistencia 24h",
+    "Todo incluido (servicios del renting, no equipamiento del coche): Averías y reparaciones",
+    "Todo incluido (servicios del renting, no equipamiento del coche): ITV e impuestos",
+    "Todo incluido (servicios del renting, no equipamiento del coche): Gestión de multas",
+    "Todo incluido (servicios del renting, no equipamiento del coche): Entrega en provincia"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/mercedes-gle-350d-01.webp",
+      "alt": "Mercedes-Benz GLE 350d Coupé en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-350d-02.webp",
+      "alt": "Mercedes-Benz GLE 350d Coupé en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-350d-03.webp",
+      "alt": "Mercedes-Benz GLE 350d Coupé en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-350d-04.webp",
+      "alt": "Mercedes-Benz GLE 350d Coupé en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-350d-05.webp",
+      "alt": "Mercedes-Benz GLE 350d Coupé en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-350d-06.webp",
+      "alt": "Mercedes-Benz GLE 350d Coupé en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-350d-07.webp",
+      "alt": "Mercedes-Benz GLE 350d Coupé en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-350d-08.webp",
+      "alt": "Mercedes-Benz GLE 350d Coupé en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-350d-09.webp",
+      "alt": "Mercedes-Benz GLE 350d Coupé en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-350d-10.webp",
+      "alt": "Mercedes-Benz GLE 350d Coupé en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-350d-11.webp",
+      "alt": "Mercedes-Benz GLE 350d Coupé en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-gle-350d-12.webp",
+      "alt": "Mercedes-Benz GLE 350d Coupé en renting"
+    }
+  ]
+}

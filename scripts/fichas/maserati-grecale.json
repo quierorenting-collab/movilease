@@ -1,0 +1,197 @@
+{
+  "brand": "Maserati",
+  "model": "Grecale",
+  "version": "L4 MHEV 300 CV AWD",
+  "category": "suv",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "horsepower": 300,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "body_type": "SUV",
+  "monthly_price_cents": 136600,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "short_description": "SUV de 300 CV",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 158400
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 170000
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 176100
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 159100
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 147000
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 153100
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 158400
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 164400
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 172400
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 136600
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 141000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 147000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 153100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 159600
+    }
+  ],
+  "equipment": [
+    "Ficha técnica (iconos cabecera): 5 plazas",
+    "Ficha técnica (iconos cabecera): 5 puertas",
+    "Ficha técnica (iconos cabecera): 300 CV",
+    "Ficha técnica (iconos cabecera): Híbrido microhíbrido (MHEV)",
+    "Ficha técnica (iconos cabecera): Automático",
+    "Ficha técnica (iconos cabecera): Tracción AWD",
+    "Ficha técnica (iconos cabecera): Etiqueta ECO",
+    "Ficha técnica (iconos cabecera): SUV Premium",
+    "Confort y tecnología: Sistema de infoentretenimiento Maserati Intelligent Assistant con pantalla central táctil de 12,3\" (en la lámina blanca aparece como \"Sistema multimedia Maserati Intelligent Assistant con pantalla central táctil de 12,3\\\"\")",
+    "Confort y tecnología: Cuadro de instrumentos digital de 12,3\"",
+    "Confort y tecnología: Navegación conectada con servicios online",
+    "Confort y tecnología: Apple CarPlay y Android Auto inalámbricos",
+    "Confort y tecnología: Sistema de sonido premium Sonus faber (en la lámina blanca solo pone \"Sistema de sonido premium\")",
+    "Confort y tecnología: Climatizador automático bizona",
+    "Confort y tecnología: Asientos delanteros eléctricos con memoria",
+    "Confort y tecnología: Tapicería de cuero de alta calidad",
+    "Confort y tecnología: Volante multifunción en cuero con levas de cambio",
+    "Confort y tecnología: Cargador inalámbrico para smartphone",
+    "Confort y tecnología: Iluminación ambiental LED",
+    "Confort y tecnología: Portón trasero eléctrico",
+    "Confort y tecnología: Keyless Entry & Go (acceso y arranque sin llave)",
+    "Seguridad y asistencia: Control de crucero adaptativo (ACC)",
+    "Seguridad y asistencia: Asistente de mantenimiento de carril (LKA)",
+    "Seguridad y asistencia: Asistente de ángulo muerto (BSA)",
+    "Seguridad y asistencia: Frenado automático de emergencia (AEB) con detección de peatones y ciclistas (en la lámina blanca solo \"Frenado automático de emergencia (AEB)\")",
+    "Seguridad y asistencia: Reconocimiento de señales de tráfico (TSR)",
+    "Seguridad y asistencia: Sensores de aparcamiento delanteros y traseros",
+    "Seguridad y asistencia: Cámara de visión trasera",
+    "Seguridad y asistencia: Detector de fatiga del conductor",
+    "Seguridad y asistencia: Sistema de alerta de tráfico cruzado trasero",
+    "Seguridad y asistencia: Control de descenso en pendientes (HDC)",
+    "Seguridad y asistencia: Suspensión adaptativa",
+    "Seguridad y asistencia: Faros Full LED Matrix con luces altas automáticas (en la lámina blanca \"Faros LED Matrix con luces altas automáticas\")",
+    "Seguridad y asistencia: Múltiples airbags (frontales, laterales y de cortina)",
+    "Seguridad y asistencia: Sistema de control de presión de neumáticos (TPMS) (en la lámina blanca \"Control de presión de neumáticos (TPMS)\")",
+    "Todo incluido (servicios del renting): Seguro a todo riesgo",
+    "Todo incluido (servicios del renting): Mantenimiento y revisiones",
+    "Todo incluido (servicios del renting): Neumáticos incluidos",
+    "Todo incluido (servicios del renting): Asistencia 24h",
+    "Todo incluido (servicios del renting): Averías y reparaciones",
+    "Todo incluido (servicios del renting): ITV e impuestos",
+    "Todo incluido (servicios del renting): Gestión de multas",
+    "Todo incluido (servicios del renting): Entrega en provincia",
+    "Diseño en cada detalle (bloque de fotos): Diseño frontal",
+    "Diseño en cada detalle (bloque de fotos): Perfil lateral",
+    "Diseño en cada detalle (bloque de fotos): Interior premium",
+    "Diseño en cada detalle (bloque de fotos): Diseño trasero"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/maserati-grecale-01.webp",
+      "alt": "Maserati Grecale en renting"
+    },
+    {
+      "url": "/coches-nuevos/maserati-grecale-02.webp",
+      "alt": "Maserati Grecale en renting"
+    },
+    {
+      "url": "/coches-nuevos/maserati-grecale-03.webp",
+      "alt": "Maserati Grecale en renting"
+    },
+    {
+      "url": "/coches-nuevos/maserati-grecale-04.webp",
+      "alt": "Maserati Grecale en renting"
+    },
+    {
+      "url": "/coches-nuevos/maserati-grecale-05.webp",
+      "alt": "Maserati Grecale en renting"
+    },
+    {
+      "url": "/coches-nuevos/maserati-grecale-06.webp",
+      "alt": "Maserati Grecale en renting"
+    },
+    {
+      "url": "/coches-nuevos/maserati-grecale-07.webp",
+      "alt": "Maserati Grecale en renting"
+    },
+    {
+      "url": "/coches-nuevos/maserati-grecale-08.webp",
+      "alt": "Maserati Grecale en renting"
+    },
+    {
+      "url": "/coches-nuevos/maserati-grecale-09.webp",
+      "alt": "Maserati Grecale en renting"
+    },
+    {
+      "url": "/coches-nuevos/maserati-grecale-10.webp",
+      "alt": "Maserati Grecale en renting"
+    },
+    {
+      "url": "/coches-nuevos/maserati-grecale-11.webp",
+      "alt": "Maserati Grecale en renting"
+    },
+    {
+      "url": "/coches-nuevos/maserati-grecale-12.webp",
+      "alt": "Maserati Grecale en renting"
+    }
+  ]
+}

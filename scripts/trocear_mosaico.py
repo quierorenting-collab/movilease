@@ -153,7 +153,106 @@ MOSAICOS = {
             (0.722, 0.789, 1.000, 1.000),   # maletero
         ],
     },
+    "citroen-berlingo": {
+        # Misma plantilla que la hoja del GLA (1536x1024).
+        "hoja": r"M AUTOMOCION\ALPHABET\BERLINGO\FOTOS COCHE.png",
+        "recortes": [
+            (0.000, 0.000, 0.621, 0.545),   # 3/4 delantero — portada
+            (0.625, 0.000, 1.000, 0.330),   # 3/4 trasero
+            (0.625, 0.334, 1.000, 0.545),   # perfil
+            (0.000, 0.549, 0.221, 0.784),   # frontal
+            (0.226, 0.549, 0.426, 0.784),   # trasera
+            (0.430, 0.549, 0.717, 0.784),   # salpicadero / interior
+            (0.722, 0.549, 1.000, 0.784),   # asientos
+            (0.722, 0.789, 1.000, 1.000),   # maletero
+        ],
+    },
+    "alfa-romeo-junior": {
+        # Misma plantilla que la hoja del GLA (1536x1024).
+        "hoja": r"M AUTOMOCION\ALPHABET\ALFA ROMEO JUNIOR\FOTOS COCHE.png",
+        "recortes": [
+            (0.000, 0.000, 0.621, 0.545),   # 3/4 delantero — portada
+            (0.625, 0.000, 1.000, 0.330),   # 3/4 trasero
+            (0.625, 0.334, 1.000, 0.545),   # perfil
+            (0.000, 0.549, 0.221, 0.784),   # frontal
+            (0.226, 0.549, 0.426, 0.784),   # trasera
+            (0.430, 0.549, 0.717, 0.784),   # salpicadero / interior
+            (0.722, 0.549, 1.000, 0.784),   # asientos
+            (0.722, 0.789, 1.000, 1.000),   # maletero
+        ],
+    },
+    "byd-atto-2": {
+        # Misma plantilla que la hoja del GLA (1536x1024).
+        "hoja": r"M AUTOMOCION\ALPHABET\HIBRIDOS ENCHUFABLE\BYD ATTO 2\FOTO COCHE.png",
+        "recortes": [
+            (0.000, 0.000, 0.621, 0.545),   # 3/4 delantero — portada
+            (0.625, 0.000, 1.000, 0.330),   # 3/4 trasero
+            (0.625, 0.334, 1.000, 0.545),   # perfil
+            (0.000, 0.549, 0.221, 0.784),   # frontal
+            (0.226, 0.549, 0.426, 0.784),   # trasera
+            (0.430, 0.549, 0.717, 0.784),   # salpicadero / interior
+            (0.722, 0.549, 1.000, 0.784),   # asientos
+            (0.722, 0.789, 1.000, 1.000),   # maletero
+        ],
+    },
+    "lynk-co-01": {
+        # Misma plantilla que la hoja del GLA (1536x1024).
+        "hoja": r"M AUTOMOCION\ALPHABET\HIBRIDOS ENCHUFABLE\LYNK&CO 01\FOTO COCHE.png",
+        "recortes": [
+            (0.000, 0.000, 0.621, 0.545),   # 3/4 delantero — portada
+            (0.625, 0.000, 1.000, 0.330),   # 3/4 trasero
+            (0.625, 0.334, 1.000, 0.545),   # perfil
+            (0.000, 0.549, 0.221, 0.784),   # frontal
+            (0.226, 0.549, 0.426, 0.784),   # trasera
+            (0.430, 0.549, 0.717, 0.784),   # salpicadero / interior
+            (0.722, 0.549, 1.000, 0.784),   # asientos
+            (0.722, 0.789, 1.000, 1.000),   # maletero
+        ],
+    },
+    "lynk-co-08": {
+        # Misma plantilla que la hoja del GLA (1536x1024).
+        "hoja": r"M AUTOMOCION\ALPHABET\HIBRIDOS ENCHUFABLE\LINK&CO 08\FOTOS.png",
+        "recortes": [
+            (0.000, 0.000, 0.621, 0.545),   # 3/4 delantero — portada
+            (0.625, 0.000, 1.000, 0.330),   # 3/4 trasero
+            (0.625, 0.334, 1.000, 0.545),   # perfil
+            (0.000, 0.549, 0.221, 0.784),   # frontal
+            (0.226, 0.549, 0.426, 0.784),   # trasera
+            (0.430, 0.549, 0.717, 0.784),   # salpicadero / interior
+            (0.722, 0.549, 1.000, 0.784),   # asientos
+            (0.722, 0.789, 1.000, 1.000),   # maletero
+        ],
+    },
+    "maserati-grecale": {
+        # Misma plantilla que la hoja del GLA (1536x1024).
+        "hoja": r"QUADIS\ARVAL\MASERATTI GRECALE\FOTO GRIS.png",
+        "recortes": [
+            (0.000, 0.000, 0.621, 0.545),   # 3/4 delantero — portada
+            (0.625, 0.000, 1.000, 0.330),   # 3/4 trasero
+            (0.625, 0.334, 1.000, 0.545),   # perfil
+            (0.000, 0.549, 0.221, 0.784),   # frontal
+            (0.226, 0.549, 0.426, 0.784),   # trasera
+            (0.430, 0.549, 0.717, 0.784),   # salpicadero / interior
+            (0.722, 0.549, 1.000, 0.784),   # asientos
+            (0.722, 0.789, 1.000, 1.000),   # maletero
+        ],
+    },
+    "mercedes-gle-350d": {
+        # Misma plantilla que la hoja del GLA (1536x1024).
+        "hoja": r"QUADIS\ARVAL\MERCEDES\MERCEDES GLE 350D 4 MATIC COUPE\FOTOS COCHE.png",
+        "recortes": [
+            (0.000, 0.000, 0.621, 0.545),   # 3/4 delantero — portada
+            (0.625, 0.000, 1.000, 0.330),   # 3/4 trasero
+            (0.625, 0.334, 1.000, 0.545),   # perfil
+            (0.000, 0.549, 0.221, 0.784),   # frontal
+            (0.226, 0.549, 0.426, 0.784),   # trasera
+            (0.430, 0.549, 0.717, 0.784),   # salpicadero / interior
+            (0.722, 0.549, 1.000, 0.784),   # asientos
+            (0.722, 0.789, 1.000, 1.000),   # maletero
+        ],
+    },
 }
+
 
 def trocear(clave):
     cfg = MOSAICOS[clave]

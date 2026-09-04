@@ -1,0 +1,243 @@
+{
+  "brand": "Lynk & Co",
+  "model": "01",
+  "version": "Core 1.5 PHEV 261 CV",
+  "category": "suv",
+  "fuel_type": "phev",
+  "transmission": "automatico",
+  "horsepower": 261,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "0",
+  "body_type": "SUV",
+  "monthly_price_cents": 56749,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "short_description": "SUV de 261 CV",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 63041
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 65945
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 68728
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 71511
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 74899
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 78529
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 83006
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 87120
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 90871
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 59290
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 62315
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 65098
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 68123
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 71874
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 75625
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 79860
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 84942
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 88814
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 56749
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 59895
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 63041
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 66550
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 70180
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 75020
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 79376
+    }
+  ],
+  "equipment": [
+    "Confort y tecnologia: Cristal acustico en las ventanas delanteras",
+    "Confort y tecnologia: Retrovisores exteriores - Retractiles electricos y calefactados",
+    "Confort y tecnologia: Faros - LED con control activo de las luces largas",
+    "Confort y tecnologia: Asientos traseros abatibles con separacion 60/40",
+    "Confort y tecnologia: Asientos delanteros calefactados",
+    "Confort y tecnologia: ISOFIX - asientos traseros exteriores",
+    "Confort y tecnologia: Apple Carplay y Android Auto",
+    "Confort y tecnologia: Pantalla central 15,4\" y del conductor 10,2\", 8 altavoces, navegacion y bluetooth",
+    "Confort y tecnologia: Puertos USB - 2 tipo C delante, 2 tipo C detras",
+    "Confort y tecnologia: Asistente de voz",
+    "Confort y tecnologia: Climatizador automatico bizona",
+    "Confort y tecnologia: Sistema de recuperacion de energia de frenado",
+    "Confort y tecnologia: Programa antivuelco (ARP)",
+    "Seguridad y asistencia: Airbags de Conductor, entre asientos delanteros, laterales conductor y copiloto, y laterales de cortina",
+    "Seguridad y asistencia: Advertencia de presion de neumaticos en pantalla",
+    "Seguridad y asistencia: Camara de vision trasera",
+    "Seguridad y asistencia: Control de alerta del conductor (DAC) y Asistencia en carretera (HWA)",
+    "Seguridad y asistencia: Asistencia de mantenimiento de carril (LKA) y salida de carril (LDW)",
+    "Seguridad y asistencia: Asistencia al estacionamiento - Sensores de estacionamiento delanteros y traseros",
+    "Seguridad y asistencia: Reconocimiento de senales de trafico (TSR)",
+    "Seguridad y asistencia: Cable de cargador de CA Modelo 2 (para uso domestico, 230 V) y Modelo 3 (para uso publico)",
+    "Seguridad y asistencia: Kit de reparacion de neumaticos",
+    "Seguridad y asistencia: Llantas de aleacion 19\"",
+    "Ficha tecnica (cabecera, ambas laminas): 5 plazas",
+    "Ficha tecnica (cabecera, ambas laminas): 5 puertas",
+    "Ficha tecnica (cabecera, ambas laminas): 261 CV",
+    "Ficha tecnica (cabecera, ambas laminas): Hibrido enchufable (PHEV)",
+    "Ficha tecnica (cabecera, ambas laminas): Automatico",
+    "Ficha tecnica (cabecera, ambas laminas): Etiqueta 0",
+    "Ficha tecnica (cabecera, ambas laminas): Version 1.5 PHEV 261CV (Hibrido Enchufable), acabado Core",
+    "Todo incluido (servicios del renting, solo en PRECIO.png): Seguro a todo riesgo sin franquicia",
+    "Todo incluido (servicios del renting, solo en PRECIO.png): Mantenimiento y revisiones",
+    "Todo incluido (servicios del renting, solo en PRECIO.png): Neumaticos incluidos",
+    "Todo incluido (servicios del renting, solo en PRECIO.png): Asistencia en carretera 24h",
+    "Todo incluido (servicios del renting, solo en PRECIO.png): Averias y reparaciones",
+    "Todo incluido (servicios del renting, solo en PRECIO.png): ITV e impuestos",
+    "Todo incluido (servicios del renting, solo en PRECIO.png): Gestion de multas",
+    "Todo incluido (servicios del renting, solo en PRECIO.png): Entrega en provincia"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/lynk-co-01-01.webp",
+      "alt": "Lynk & Co 01 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-01-02.webp",
+      "alt": "Lynk & Co 01 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-01-03.webp",
+      "alt": "Lynk & Co 01 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-01-04.webp",
+      "alt": "Lynk & Co 01 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-01-05.webp",
+      "alt": "Lynk & Co 01 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-01-06.webp",
+      "alt": "Lynk & Co 01 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-01-07.webp",
+      "alt": "Lynk & Co 01 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-01-08.webp",
+      "alt": "Lynk & Co 01 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-01-09.webp",
+      "alt": "Lynk & Co 01 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-01-10.webp",
+      "alt": "Lynk & Co 01 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-01-11.webp",
+      "alt": "Lynk & Co 01 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-01-12.webp",
+      "alt": "Lynk & Co 01 en renting"
+    }
+  ]
+}

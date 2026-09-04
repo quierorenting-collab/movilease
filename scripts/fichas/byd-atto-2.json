@@ -1,0 +1,228 @@
+{
+  "brand": "BYD",
+  "model": "Atto 2",
+  "version": "1.5 DM-i 212 CV",
+  "category": "suv",
+  "fuel_type": "phev",
+  "transmission": "automatico",
+  "horsepower": 212,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "0",
+  "body_type": "SUV",
+  "monthly_price_cents": 49005,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "short_description": "SUV de 212 CV",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 54813
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 56628
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 59290
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 63283
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 66066
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 69091
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 72116
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 76109
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 79255
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 51183
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 52877
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 56628
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 60016
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 62557
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 66187
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 70059
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 73084
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 76593
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 49005
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 51304
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 54692
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 57354
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 61347
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 65098
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 68486
+    }
+  ],
+  "equipment": [
+    "EQUIPAMIENTO DESTACADO: Equipado con la innovadora Blade Battery de BYD",
+    "EQUIPAMIENTO DESTACADO: Ultima tecnologia de ADAS",
+    "EQUIPAMIENTO DESTACADO: Actualizaciones via OTA",
+    "Ficha tecnica (bloque de iconos, sin epigrafe impreso): 5 PLAZAS",
+    "Ficha tecnica (bloque de iconos, sin epigrafe impreso): 5 PUERTAS",
+    "Ficha tecnica (bloque de iconos, sin epigrafe impreso): 212 CV",
+    "Ficha tecnica (bloque de iconos, sin epigrafe impreso): AUTOMATICO",
+    "Ficha tecnica (bloque de iconos, sin epigrafe impreso): HIBRIDO ENCHUFABLE (DM-i)",
+    "Ficha tecnica (bloque de iconos, sin epigrafe impreso): ETIQUETA 0",
+    "Ficha tecnica (bloque de iconos, sin epigrafe impreso): GASOLINA",
+    "Titular / version: BYD Atto 2 DM-i - 1.5 DM-i 212CV (Hibrido Enchufable)",
+    "TODO INCLUIDO (servicios del renting, NO equipamiento del coche): Seguro a todo riesgo",
+    "TODO INCLUIDO (servicios del renting, NO equipamiento del coche): Mantenimiento y revisiones",
+    "TODO INCLUIDO (servicios del renting, NO equipamiento del coche): Neumaticos incluidos",
+    "TODO INCLUIDO (servicios del renting, NO equipamiento del coche): Asistencia 24H",
+    "TODO INCLUIDO (servicios del renting, NO equipamiento del coche): Averias y reparaciones",
+    "TODO INCLUIDO (servicios del renting, NO equipamiento del coche): ITV e impuestos",
+    "TODO INCLUIDO (servicios del renting, NO equipamiento del coche): Gestion de multas",
+    "TODO INCLUIDO (servicios del renting, NO equipamiento del coche): Entrega en provincia",
+    "DISENO EN CADA DETALLE (pies de foto, sin contenido de equipamiento): Diseno frontal",
+    "DISENO EN CADA DETALLE (pies de foto, sin contenido de equipamiento): Perfil lateral",
+    "DISENO EN CADA DETALLE (pies de foto, sin contenido de equipamiento): Interior tecnologico",
+    "DISENO EN CADA DETALLE (pies de foto, sin contenido de equipamiento): Diseno trasero"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/byd-atto-2-01.webp",
+      "alt": "BYD Atto 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/byd-atto-2-02.webp",
+      "alt": "BYD Atto 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/byd-atto-2-03.webp",
+      "alt": "BYD Atto 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/byd-atto-2-04.webp",
+      "alt": "BYD Atto 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/byd-atto-2-05.webp",
+      "alt": "BYD Atto 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/byd-atto-2-06.webp",
+      "alt": "BYD Atto 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/byd-atto-2-07.webp",
+      "alt": "BYD Atto 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/byd-atto-2-08.webp",
+      "alt": "BYD Atto 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/byd-atto-2-09.webp",
+      "alt": "BYD Atto 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/byd-atto-2-10.webp",
+      "alt": "BYD Atto 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/byd-atto-2-11.webp",
+      "alt": "BYD Atto 2 en renting"
+    },
+    {
+      "url": "/coches-nuevos/byd-atto-2-12.webp",
+      "alt": "BYD Atto 2 en renting"
+    }
+  ]
+}

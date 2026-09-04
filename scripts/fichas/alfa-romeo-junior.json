@@ -1,0 +1,248 @@
+{
+  "brand": "Alfa Romeo",
+  "model": "Junior",
+  "version": "Ibrida TI 1.2 VGT 145 CV",
+  "category": "suv",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "horsepower": 145,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "body_type": "SUV",
+  "monthly_price_cents": 44165,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "short_description": "SUV de 145 CV",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 47311
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 49489
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 52635
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 56265
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 59411
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 63162
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 66550
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 70785
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 74294
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 45133
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 47674
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 51183
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 55176
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 58080
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 62073
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 66550
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 70180
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 74173
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 44165
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 46948
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 50941
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 54087
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 58564
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 62920
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 66913
+    }
+  ],
+  "equipment": [
+    "Confort y tecnologia: Pintura Metalizada",
+    "Confort y tecnologia: Pack tech lite",
+    "Confort y tecnologia: Control de crucero adaptativo",
+    "Confort y tecnologia: Espejo retrovisor interior electrocromico.",
+    "Confort y tecnologia: Camara trasera con rejillas dinamicas",
+    "Confort y tecnologia: Centrado de carail y asistencia en atascos",
+    "Confort y tecnologia: Sistema de entrada sin llave",
+    "Confort y tecnologia: Retrovisores exteriores plegables electricamente y calefactados + Blind Spot Monitoring",
+    "Confort y tecnologia: Porton trasero electrico con funcion manos libres",
+    "Confort y tecnologia: Faros Full LED Matrix",
+    "Confort y tecnologia: Sistema de audio con 6 altavoces",
+    "Confort y tecnologia: Cargador inalambrico para smartphone",
+    "Confort y tecnologia: USB (2o) - Carga 2,5A (Tipo C)",
+    "Confort y tecnologia: Sensor de aparcamiento delantero, trasero y lateral",
+    "Confort y tecnologia: Informacion sobre señales de trafico.",
+    "Confort y tecnologia: Cristales traseros tintados",
+    "Confort y tecnologia: Iluminacion ambiental",
+    "Confort y tecnologia: Luz de techo delantera y trasera LED tactil",
+    "Seguridad y asistencia: Sistema de infoentretenimiento de 10,25\" con navegacion, 2 puertos USB, Bluetooth y comandos de voz",
+    "Seguridad y asistencia: Reposabrazos delantero ajustable con compartimento",
+    "Seguridad y asistencia: Climatizador automatico",
+    "Seguridad y asistencia: Control de velocidad",
+    "Seguridad y asistencia: Asiento trasero abatible 60/40",
+    "Seguridad y asistencia: Retrovisores electricos",
+    "Seguridad y asistencia: Keyless Go",
+    "Seguridad y asistencia: Luces con ajuste de altura altas automaticas",
+    "Seguridad y asistencia: Camara delantera para frenado de emergencia autonomo (AEB)",
+    "Seguridad y asistencia: Sensor de lluvia para limpiaparabrisas.",
+    "Seguridad y asistencia: Sensores de aparcamiento traseros",
+    "Seguridad y asistencia: Faros antideslumbrantes y traseros LED",
+    "Seguridad y asistencia: Scudtto calandra Leggenda",
+    "Seguridad y asistencia: Espejo retrovisor interior manual dia/noche",
+    "Seguridad y asistencia: Kit Reparacion Pinchazos",
+    "Seguridad y asistencia: Frenado de emergencia autonomo (AEB) con reconocimiento de peatones",
+    "Seguridad y asistencia: Alfa Connect Box",
+    "Todo incluido (servicios del renting): Seguro a todo riesgo",
+    "Todo incluido (servicios del renting): Mantenimiento y revisiones",
+    "Todo incluido (servicios del renting): Neumaticos incluidos",
+    "Todo incluido (servicios del renting): Asistencia 24h",
+    "Todo incluido (servicios del renting): Averias y reparaciones",
+    "Todo incluido (servicios del renting): ITV e impuestos",
+    "Todo incluido (servicios del renting): Gestion de multas",
+    "Todo incluido (servicios del renting): Entrega en provincia"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-01.webp",
+      "alt": "Alfa Romeo Junior en renting"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-02.webp",
+      "alt": "Alfa Romeo Junior en renting"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-03.webp",
+      "alt": "Alfa Romeo Junior en renting"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-04.webp",
+      "alt": "Alfa Romeo Junior en renting"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-05.webp",
+      "alt": "Alfa Romeo Junior en renting"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-06.webp",
+      "alt": "Alfa Romeo Junior en renting"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-07.webp",
+      "alt": "Alfa Romeo Junior en renting"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-08.webp",
+      "alt": "Alfa Romeo Junior en renting"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-09.webp",
+      "alt": "Alfa Romeo Junior en renting"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-10.webp",
+      "alt": "Alfa Romeo Junior en renting"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-11.webp",
+      "alt": "Alfa Romeo Junior en renting"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-12.webp",
+      "alt": "Alfa Romeo Junior en renting"
+    }
+  ]
+}

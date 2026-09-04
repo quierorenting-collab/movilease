@@ -1,0 +1,242 @@
+{
+  "brand": "Lynk & Co",
+  "model": "08",
+  "version": "Core 1.5 PHEV 350 CV",
+  "category": "suv",
+  "fuel_type": "phev",
+  "transmission": "automatico",
+  "horsepower": 350,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "0",
+  "body_type": "SUV",
+  "monthly_price_cents": 70059,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "short_description": "SUV de 350 CV",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 75746
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 79013
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 82522
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 85305
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 88209
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 92323
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 95227
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 100672
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 103576
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 71753
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 75383
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 78287
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 80949
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 83611
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 88451
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 92686
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 96195
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 101519
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 70059
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 73447
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 76351
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 79134
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 82280
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 86636
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 91839
+    }
+  ],
+  "equipment": [
+    "Ficha técnica (recuadro superior sin epígrafe): 5 PLAZAS",
+    "Ficha técnica (recuadro superior sin epígrafe): 5 PUERTAS",
+    "Ficha técnica (recuadro superior sin epígrafe): 350 CV",
+    "Ficha técnica (recuadro superior sin epígrafe): AUTOMÁTICO",
+    "Ficha técnica (recuadro superior sin epígrafe): HÍBRIDO ENCHUFABLE (PHEV)",
+    "Ficha técnica (recuadro superior sin epígrafe): ETIQUETA 0",
+    "CONFORT Y TECNOLOGÍA: Cristal acústico en las ventanas delanteras",
+    "CONFORT Y TECNOLOGÍA: Retrovisores exteriores - Retráctiles eléctricos y calefactados",
+    "CONFORT Y TECNOLOGÍA: Faros - LED con control activo de las luces largas",
+    "CONFORT Y TECNOLOGÍA: Asientos traseros abatibles con separación 60/40",
+    "CONFORT Y TECNOLOGÍA: Asientos delanteros calefactados",
+    "CONFORT Y TECNOLOGÍA: ISOFIX - asientos traseros exteriores",
+    "CONFORT Y TECNOLOGÍA: Apple Carplay y Android Auto",
+    "CONFORT Y TECNOLOGÍA: Pantalla central 15,4\" y del conductor 10,2\", 8 altavoces, navegación y bluetooth",
+    "CONFORT Y TECNOLOGÍA: Puertos USB - 2 tipo C delante, 2 tipo C detrás",
+    "CONFORT Y TECNOLOGÍA: Asistente de voz",
+    "CONFORT Y TECNOLOGÍA: Climatizador automático bizona",
+    "CONFORT Y TECNOLOGÍA: Sistema de recuperación de energía de frenado",
+    "CONFORT Y TECNOLOGÍA: Programa antivuelco (ARP)",
+    "SEGURIDAD Y ASISTENCIA: Airbags de Conductor, entre asientos delanteros, laterales conductor y copiloto, y laterales de cortina",
+    "SEGURIDAD Y ASISTENCIA: Advertencia de presión de neumáticos en pantalla",
+    "SEGURIDAD Y ASISTENCIA: Cámara de visión trasera",
+    "SEGURIDAD Y ASISTENCIA: Control de alerta del conductor (DAC) y Asistencia en carretera (HWA)",
+    "SEGURIDAD Y ASISTENCIA: Asistencia de mantenimiento de carril (LKA) y salida de carril (LDW)",
+    "SEGURIDAD Y ASISTENCIA: Asistencia al estacionamiento - Sensores de estacionamiento delanteros y traseros",
+    "SEGURIDAD Y ASISTENCIA: Reconocimiento de señales de tráfico (TSR)",
+    "SEGURIDAD Y ASISTENCIA: Cable de cargador de CA Modelo 2 (para uso doméstico, 230 V) y Modelo 3 (para uso público)",
+    "SEGURIDAD Y ASISTENCIA: Kit de reparación de neumáticos",
+    "SEGURIDAD Y ASISTENCIA: Llantas de aleación 19\"",
+    "TODO INCLUIDO: Seguro a todo riesgo",
+    "TODO INCLUIDO: Mantenimiento y revisiones",
+    "TODO INCLUIDO: Neumáticos incluidos",
+    "TODO INCLUIDO: Asistencia 24h",
+    "TODO INCLUIDO: Averías y reparaciones",
+    "TODO INCLUIDO: ITV e impuestos",
+    "TODO INCLUIDO: Gestión de multas",
+    "TODO INCLUIDO: Entrega en provincia"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/lynk-co-08-01.webp",
+      "alt": "Lynk & Co 08 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-02.webp",
+      "alt": "Lynk & Co 08 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-03.webp",
+      "alt": "Lynk & Co 08 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-04.webp",
+      "alt": "Lynk & Co 08 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-05.webp",
+      "alt": "Lynk & Co 08 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-06.webp",
+      "alt": "Lynk & Co 08 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-07.webp",
+      "alt": "Lynk & Co 08 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-08.webp",
+      "alt": "Lynk & Co 08 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-09.webp",
+      "alt": "Lynk & Co 08 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-10.webp",
+      "alt": "Lynk & Co 08 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-11.webp",
+      "alt": "Lynk & Co 08 en renting"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-12.webp",
+      "alt": "Lynk & Co 08 en renting"
+    }
+  ]
+}

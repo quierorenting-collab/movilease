@@ -12,7 +12,6 @@ import type { NextConfig } from "next";
  */
 const MODELOS_RETIRADOS = [
   "renting-ebro-s700",
-  "renting-alfa-romeo-junior",
   "renting-audi-a3-sportback",
   "renting-citroen-c4",
   "renting-dacia-sandero",
