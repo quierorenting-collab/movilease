@@ -6,7 +6,7 @@
   "category": "suv",
   "fuel_type": "hibrido",
   "transmission": "automatico",
-  "monthly_price_cents": 38600,
+  "monthly_price_cents": 38800,
   "contract_months": 60,
   "annual_km": 10000,
   "horsepower": 145,
@@ -110,7 +110,7 @@
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 38600
+      "monthly_price_cents": 38800
     },
     {
       "contract_months": 60,
