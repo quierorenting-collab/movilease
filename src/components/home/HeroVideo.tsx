@@ -135,9 +135,22 @@ export function HeroVideo() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-[#071A3D]">
       {/* El fondo se mueve una fracción de lo que se mueve el contenido: al
-          bajar, el texto se despega del vídeo. El -10%/120% extra evita que
-          asome el borde inferior mientras el fondo se desplaza. */}
-      <Parallax speed={0.18} className="absolute inset-x-0 -top-[10%] h-[120%]">
+          bajar, el texto se despega del vídeo. El margen extra de arriba y
+          abajo evita que asome el borde mientras el fondo se desplaza.
+
+          Ese margen se bajó del 20 % al 10 % (y el desplazamiento del 0,18 al
+          0,10, que es lo que lo hace posible) por una razón que no es de
+          movimiento sino de NITIDEZ: el margen obliga a que la caja del vídeo
+          sea más alta que la pantalla, y con `object-fit: cover` eso se paga
+          ampliando el clip y recortándole los lados. Con el 20 % el navegador
+          ampliaba y se veía el coche encima; con el 10 % la caja baja lo
+          bastante como para que el navegador REDUZCA, que siempre sale más
+          limpio, y además entra más encuadre.
+
+          Es exactamente lo que ya pasaba en quierorenting.es, cuyo hero no
+          lleva parallax: Adrián notó que allí "se ve más alejado y con mejor
+          calidad" y tenía razón, era esto. */}
+      <Parallax speed={0.10} className="absolute inset-x-0 -top-[5%] h-[110%]">
         {/* Póster — visible desde el primer render y resultado final si se pide
             menos movimiento. Cada ancho se lleva solo su fichero. */}
         <picture>
