@@ -6,7 +6,7 @@
   "category": "suv",
   "fuel_type": "diesel",
   "transmission": "automatico",
-  "monthly_price_cents": 51900,
+  "monthly_price_cents": 53782,
   "contract_months": 36,
   "annual_km": 10000,
   "horsepower": 200,
@@ -55,77 +55,47 @@
     {
       "contract_months": 36,
       "annual_km": 10000,
-      "monthly_price_cents": 51900
+      "monthly_price_cents": 53782
     },
     {
       "contract_months": 36,
       "annual_km": 15000,
-      "monthly_price_cents": 55637
+      "monthly_price_cents": 57527
     },
     {
       "contract_months": 36,
       "annual_km": 20000,
-      "monthly_price_cents": 59429
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 25000,
-      "monthly_price_cents": 56135
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 30000,
-      "monthly_price_cents": 60458
+      "monthly_price_cents": 61273
     },
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 53826
+      "monthly_price_cents": 55383
     },
     {
       "contract_months": 48,
       "annual_km": 15000,
-      "monthly_price_cents": 57240
+      "monthly_price_cents": 58753
     },
     {
       "contract_months": 48,
       "annual_km": 20000,
-      "monthly_price_cents": 60652
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 25000,
-      "monthly_price_cents": 58190
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 30000,
-      "monthly_price_cents": 62031
+      "monthly_price_cents": 62123
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 54380
+      "monthly_price_cents": 55673
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 57450
+      "monthly_price_cents": 58733
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 60551
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 25000,
-      "monthly_price_cents": 57856
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 30000,
-      "monthly_price_cents": 61362
+      "monthly_price_cents": 61793
     }
   ],
   "body_type": "SUV"

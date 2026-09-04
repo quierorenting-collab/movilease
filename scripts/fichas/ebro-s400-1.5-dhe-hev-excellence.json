@@ -6,7 +6,7 @@
   "category": "hibrido",
   "fuel_type": "hibrido",
   "transmission": "automatico",
-  "monthly_price_cents": 43817,
+  "monthly_price_cents": 44212,
   "contract_months": 60,
   "annual_km": 10000,
   "horsepower": 150,
@@ -84,77 +84,77 @@
     {
       "contract_months": 36,
       "annual_km": 10000,
-      "monthly_price_cents": 47548
+      "monthly_price_cents": 47870
     },
     {
       "contract_months": 36,
       "annual_km": 15000,
-      "monthly_price_cents": 49148
+      "monthly_price_cents": 49483
     },
     {
       "contract_months": 36,
       "annual_km": 20000,
-      "monthly_price_cents": 50749
+      "monthly_price_cents": 51097
     },
     {
       "contract_months": 36,
       "annual_km": 25000,
-      "monthly_price_cents": 53510
+      "monthly_price_cents": 53872
     },
     {
       "contract_months": 36,
       "annual_km": 30000,
-      "monthly_price_cents": 56811
+      "monthly_price_cents": 57185
     },
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 45542
+      "monthly_price_cents": 45848
     },
     {
       "contract_months": 48,
       "annual_km": 15000,
-      "monthly_price_cents": 46946
+      "monthly_price_cents": 47263
     },
     {
       "contract_months": 48,
       "annual_km": 20000,
-      "monthly_price_cents": 48349
+      "monthly_price_cents": 48678
     },
     {
       "contract_months": 48,
       "annual_km": 25000,
-      "monthly_price_cents": 51085
+      "monthly_price_cents": 51323
     },
     {
       "contract_months": 48,
       "annual_km": 30000,
-      "monthly_price_cents": 54360
+      "monthly_price_cents": 54710
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 43817
+      "monthly_price_cents": 44212
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 45161
+      "monthly_price_cents": 45465
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 46404
+      "monthly_price_cents": 46718
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 49615
+      "monthly_price_cents": 49937
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 52617
+      "monthly_price_cents": 52950
     }
   ]
 }
