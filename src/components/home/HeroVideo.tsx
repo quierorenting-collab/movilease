@@ -3,13 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Parallax } from "@/components/ui/Parallax";
 
-/* Mismo brillo en los dos, y no por comodidad: subirlo a 0,74 en móvil dejaba
-   la etiqueta "SMART MOBILITY PLATFORM" —azul claro, 11 px— en 2,99:1 sobre el
-   cielo del clip, por debajo del 4,5 que exige AA. Medido en el navegador
-   componiendo el fotograma real con su velo, no estimado. Lo que sí sube en
-   móvil es la saturación: el clip vertical es de exterior y aguanta más color
-   sin que el texto pierda. */
-const FILTRO_ESCRITORIO = "brightness(0.6) saturate(0.75) contrast(1.05)";
+/* Escritorio va casi sin oscurecer (0,95) porque ahí el texto se apoya en el
+   degradado lateral, no en el filtro: bajarlo a 0,6 apagaba el vídeo entero
+   para sostener una columna de texto que ya estaba sostenida. Móvil sí necesita
+   el 0,6, porque el texto cae encima del coche y no hay a dónde apartarlo; con
+   0,74 la etiqueta de 11 px se quedaba en 2,99:1, por debajo del 4,5 de AA.
+   Todo medido en el navegador componiendo el fotograma real con su velo. */
+const FILTRO_ESCRITORIO = "brightness(0.95) saturate(1.02) contrast(1.02)";
 const FILTRO_MOVIL = "brightness(0.6) saturate(0.9) contrast(1.04)";
 
 /**
@@ -215,6 +215,23 @@ export function HeroVideo() {
       />
 
       {/* Escritorio — velo de izquierda a derecha, denso donde va el texto.
+
+          Antes empezaba con DIECIOCHO POR CIENTO del ancho en #071A3D opaco:
+          una banda azul sólida que tapaba el vídeo por completo, y encima el
+          filtro lo bajaba al 60 % de brillo. Entre las dos cosas el clip se
+          veía apagado y arrinconado a la derecha.
+
+          Ahora no hay ningún tramo opaco: arranca en 0,86 y se abre. Medido en
+          el navegador sobre el fotograma real, el hero pasa de brillo medio 39
+          a 61 —un 56 % más de vídeo visible— y el texto sigue holgado:
+
+            titular 34 px      15,74:1
+            párrafo 16 px      10,89:1
+            etiqueta 11 px      6,41:1   (AA pide 4,5)
+
+          La etiqueta es la que marca el suelo, como siempre: es azul claro y
+          pequeña. Aflojar más el arranque del degradado la baja de AA.
+
           Respira muy lentamente (veil-breathe) para que el fondo nunca quede
           del todo estático; el rango es tan corto que no se lee como cambio
           de brillo, sólo como profundidad. */}
@@ -222,7 +239,7 @@ export function HeroVideo() {
         className="veil-breathe absolute inset-0 hidden lg:block"
         style={{
           background:
-            "linear-gradient(90deg, #071A3D 0%, #071A3D 18%, rgba(7,26,61,0.88) 34%, rgba(7,26,61,0.5) 50%, rgba(7,26,61,0.2) 66%, rgba(7,26,61,0.06) 80%, transparent 100%)",
+            "linear-gradient(90deg, rgba(7,26,61,0.86) 0%, rgba(7,26,61,0.78) 20%, rgba(7,26,61,0.48) 38%, rgba(7,26,61,0.18) 54%, rgba(7,26,61,0.04) 70%, transparent 100%)",
         }}
       />
 
