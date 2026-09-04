@@ -135,5 +135,6 @@
       "monthly_price_cents": 57400
     }
   ],
-  "body_type": "SUV"
+  "body_type": "SUV",
+  "is_active": false
 }

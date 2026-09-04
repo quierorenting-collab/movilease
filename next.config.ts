@@ -11,6 +11,7 @@ import type { NextConfig } from "next";
  * su línea de aquí para recuperar la ficha con su posicionamiento intacto.
  */
 const MODELOS_RETIRADOS = [
+  "renting-seat-arona",
   "renting-ebro-s700",
   "renting-audi-a3-sportback",
   "renting-citroen-c4",
