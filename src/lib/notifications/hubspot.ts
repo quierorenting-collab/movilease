@@ -21,11 +21,13 @@ import type { LeadNotificationPayload } from "./types";
  * Dos cosas que conviene saber de este código:
  *
  * - El contacto se busca antes de crearlo, por email y por teléfono. HubSpot
- *   solo deduplica solo por email; si el lead no deja email —en el formulario
- *   corto es opcional— sin esta búsqueda tendríamos un contacto nuevo por cada
- *   solicitud de la misma persona. La búsqueda por teléfono es aproximada:
- *   compara la cadena tal cual, así que un mismo número escrito con y sin
- *   prefijo no casa. Aun así quita la mayoría de los duplicados.
+ *   deduplica solo por email; si el lead no deja email —en el formulario corto
+ *   es opcional— sin esta búsqueda tendríamos un contacto nuevo por cada
+ *   solicitud de la misma persona. Y la búsqueda de HubSpot compara la cadena
+ *   tal cual, así que se prueban las formas en que puede estar guardado el
+ *   mismo número: en los leads que ya hay conviven "654371940",
+ *   "+34677664324" y "610 55 42 76". Al escribir se normaliza a +34…, para
+ *   que a partir de ahora dejen de bailar.
  * - La etapa del embudo no se codifica aquí. Si no se configuran
  *   HUBSPOT_PIPELINE_ID y HUBSPOT_DEALSTAGE_ID, se pregunta a HubSpot por su
  *   embudo por defecto y se coge su primera etapa. Así funciona el día uno sin
@@ -94,6 +96,31 @@ async function resolverEtapa(token: string): Promise<Etapa | null> {
   return etapaCacheada;
 }
 
+/**
+ * Las formas en que puede estar guardado un mismo telefono.
+ *
+ * La busqueda de HubSpot compara la cadena tal cual, y en los leads que ya hay
+ * conviven "654371940", "+34677664324" y "610 55 42 76". Sin esto, la misma
+ * persona que vuelve a preguntar entra como contacto nuevo.
+ */
+export function variantesTelefono(telefono: string): string[] {
+  const limpio = telefono.replace(/[\s.()-]/g, "");
+  const digitos = limpio.replace(/\D/g, "");
+  const nueve = digitos.slice(-9);
+  const salida = [telefono, limpio, digitos, nueve];
+  // El +34 solo se da por hecho con nueve digitos, que es el numero espanol.
+  if (digitos.length === 9) salida.push("+34" + nueve);
+  return [...new Set(salida.filter(Boolean))];
+}
+
+/** El formato con el que se ESCRIBE en HubSpot, para que no siga el baile. */
+export function telefonoNormalizado(telefono: string): string {
+  const limpio = telefono.replace(/[\s.()-]/g, "");
+  if (limpio.startsWith("+")) return limpio;
+  const digitos = limpio.replace(/\D/g, "");
+  return digitos.length === 9 ? "+34" + digitos : telefono.trim();
+}
+
 async function buscarContacto(
   token: string,
   email?: string | null,
@@ -101,7 +128,12 @@ async function buscarContacto(
 ): Promise<string | null> {
   const grupos: Array<{ filters: Array<{ propertyName: string; operator: string; value: string }> }> = [];
   if (email) grupos.push({ filters: [{ propertyName: "email", operator: "EQ", value: email }] });
-  if (telefono) grupos.push({ filters: [{ propertyName: "phone", operator: "EQ", value: telefono }] });
+  // HubSpot admite como mucho cinco grupos, y el del email ya ocupa uno.
+  if (telefono) {
+    for (const v of variantesTelefono(telefono).slice(0, email ? 4 : 5)) {
+      grupos.push({ filters: [{ propertyName: "phone", operator: "EQ", value: v }] });
+    }
+  }
   if (grupos.length === 0) return null;
 
   const datos = (await llamar(token, "/crm/v3/objects/contacts/search", {
@@ -114,7 +146,10 @@ async function buscarContacto(
 }
 
 function propiedadesContacto(lead: LeadNotificationPayload): Record<string, string> {
-  const props: Record<string, string> = { firstname: lead.name, phone: lead.phone };
+  const props: Record<string, string> = {
+    firstname: lead.name,
+    phone: telefonoNormalizado(lead.phone),
+  };
   if (lead.lastName) props.lastname = lead.lastName;
   if (lead.email) props.email = lead.email;
   if (lead.company) props.company = lead.company;
