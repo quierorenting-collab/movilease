@@ -22,21 +22,30 @@ export interface CreateLeadResult {
 }
 
 export async function createLead(formData: FormData): Promise<CreateLeadResult> {
+  /* `formData.get` devuelve null cuando el campo no viene, y zod no acepta null
+     en un `.optional()`: espera undefined. Los formularios de la web siempre
+     mandan todos los campos —incluido el honeypot, que es un input oculto— asi
+     que nunca se noto. Pero /api/leads existe precisamente para integraciones
+     que no son nuestro formulario, y ahi cualquier peticion que no mandara el
+     campo trampa se rechazaba con un escueto "Invalid input". Salio probando
+     el volcado a HubSpot con una peticion JSON normal. */
+  const campo = (nombre: string) => formData.get(nombre) ?? undefined;
+
   const parsed = leadFormSchema.safeParse({
-    name: formData.get("name"),
-    lastName: formData.get("lastName") || undefined,
-    phone: formData.get("phone"),
-    email: formData.get("email"),
-    company: formData.get("company") || undefined,
-    province: formData.get("province") || undefined,
-    clientType: formData.get("clientType") || undefined,
-    message: formData.get("message"),
-    modelId: formData.get("modelId") || undefined,
-    vehicleId: formData.get("vehicleId") || undefined,
-    source: formData.get("source") || "contact_form",
-    pageUrl: formData.get("pageUrl") || undefined,
-    rgpd: formData.get("rgpd") || undefined,
-    website: formData.get("website"),
+    name: campo("name"),
+    lastName: campo("lastName") || undefined,
+    phone: campo("phone"),
+    email: campo("email"),
+    company: campo("company") || undefined,
+    province: campo("province") || undefined,
+    clientType: campo("clientType") || undefined,
+    message: campo("message"),
+    modelId: campo("modelId") || undefined,
+    vehicleId: campo("vehicleId") || undefined,
+    source: campo("source") || "contact_form",
+    pageUrl: campo("pageUrl") || undefined,
+    rgpd: campo("rgpd") || undefined,
+    website: campo("website") ?? "",
   });
 
   if (!parsed.success) {
