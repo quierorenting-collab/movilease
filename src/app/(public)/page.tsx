@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { getFeaturedVehicles, getOfferVehicles, getVehiclesByBrand } from "@/lib/data/vehicles";
+import {
+  getFeaturedVehicles,
+  getOfferVehicles,
+  getVehiclesByBrand,
+  getVehiclesByModelSlugs,
+} from "@/lib/data/vehicles";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { BrandCard } from "@/components/catalog/BrandCard";
@@ -28,6 +33,22 @@ export const revalidate = 3600;
  * siguen aquí sin tocar por si se retoma más adelante.
  */
 const OFERTAS_VIDEO = false;
+
+/**
+ * Los tres coches del apartado de exclusivos, elegidos por Adrián: Grecale
+ * blanco, GLC Coupé gris y X1 negro.
+ *
+ * Va como lista de slugs y no como columna de la tabla —al estilo de is_offer—
+ * porque para añadir una columna hace falta el script de migraciones, y ese
+ * necesita SUPABASE_DB_URL, que este entorno todavía no tiene. Cambiar el trío
+ * es cambiar esta lista. El orden de aquí es el orden en que se ven, y si un
+ * modelo dejara de estar publicado simplemente no aparece.
+ */
+const EXCLUSIVOS = [
+  "renting-maserati-grecale",
+  "renting-mercedes-benz-glc-coupe",
+  "renting-bmw-x1",
+];
 
 export const metadata: Metadata = pageMetadata({
   title: "Renting de coches sin entrada | Todo incluido",
@@ -226,7 +247,7 @@ const FAQ_ITEMS = [
 ];
 
 export default async function HomePage() {
-  const [featured, offers, { brands }] = await Promise.all([
+  const [featured, offers, { brands }, exclusivos] = await Promise.all([
     getFeaturedVehicles(200),
     // Seis, las que marca Adrián: Ibiza, Polo, Taigo, Ebro S400, GLC Coupé y
     // CR-V. Con el tope en cuatro que había antes no llegaban a verse el GLC ni
@@ -234,6 +255,7 @@ export default async function HomePage() {
     // caros de la selección.
     getOfferVehicles(6),
     getVehiclesByBrand(),
+    getVehiclesByModelSlugs(EXCLUSIVOS),
   ]);
 
   const seenModels = new Set<string>();
@@ -421,6 +443,135 @@ export default async function HomePage() {
                         <a
                           href={buildWhatsAppLink(
                             `Hola, me interesa la oferta del ${vehicle.brandName} ${vehicle.modelName}`
+                          )}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="shrink-0 rounded-full bg-[#0068FF] px-5 py-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-white shadow-lg shadow-[#0068FF]/25 transition-all duration-300 hover:bg-[#0052CC] hover:shadow-xl hover:shadow-[#0068FF]/35"
+                        >
+                          Lo quiero
+                        </a>
+                      </div>
+
+                      <Link
+                        href={`/${vehicle.modelSlug}`}
+                        className="group/link mt-4 flex min-h-[44px] items-center justify-between gap-2 border-t border-white/12 pt-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#8FBEFF] transition-colors hover:text-white"
+                      >
+                        <span className="whitespace-nowrap">Ver ficha</span>
+                        <span
+                          aria-hidden="true"
+                          className="shrink-0 transition-transform duration-300 group-hover/link:translate-x-1"
+                        >
+                          →
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
+      )}
+
+      {/* ══ EXCLUSIVOS — la gama alta, sobre el azul mas oscuro ══
+          Va pegada a ofertas y antes de los argumentos, por lo mismo que las
+          ofertas se subieron al hero: lo primero que ve quien baja es coche y
+          precio. Fondo #0B2A5E, el mas oscuro de la escala, para que estas
+          tres destaquen sin repetir el bloque claro de arriba.
+          Cuales son los tres se decide en EXCLUSIVOS, arriba del fichero. */}
+      {exclusivos.length > 0 && (
+        <section id="exclusivos" className="surface-black relative overflow-hidden bg-texture-dark section-y">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
+            <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                {/* Sobre #0B2A5E, --blue-light da 5,25:1 y pasa AA sin tener
+                    que forzar el color como en las secciones de fondo claro. */}
+                <p className="section-label mb-5">Alta gama</p>
+                <h2 className="display-md text-white">
+                  Coches
+                  <br />
+                  <span className="text-[#8FBEFF]">exclusivos.</span>
+                </h2>
+              </div>
+              <p className="max-w-sm text-[14.5px] leading-relaxed text-white/75 sm:text-right">
+                Las mismas condiciones que el resto del catalogo —todo incluido y
+                el mismo asesor de principio a fin— en coches de gama alta.
+              </p>
+            </Reveal>
+
+            <RevealGroup
+              stagger={0.08}
+              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {exclusivos.map((vehicle) => (
+                <RevealItem key={vehicle.id}>
+                  <div className="card-lift card-dark group relative flex h-full flex-col overflow-hidden">
+                    <Link
+                      href={`/${vehicle.modelSlug}`}
+                      className="flex flex-1 flex-col"
+                      aria-label={`Ver ficha del ${vehicle.brandName} ${vehicle.modelName}`}
+                    >
+                      {/* El respaldo con la inicial va SIEMPRE debajo, no solo
+                          cuando falta la foto: si la imagen tarda o falla, la
+                          tarjeta no se queda en un rectangulo vacio. */}
+                      <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#1B4080] to-[#15315F]">
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-0 flex items-center justify-center text-7xl font-bold text-white/15"
+                          style={{ fontFamily: "var(--font-space-grotesk)" }}
+                        >
+                          {vehicle.brandName.charAt(0)}
+                        </span>
+                        {vehicle.imageUrl && (
+                          <Image
+                            src={vehicle.imageUrl}
+                            alt={`${vehicle.brandName} ${vehicle.modelName}`}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0C2454] via-transparent to-transparent" />
+                        <div className="absolute left-4 top-4">
+                          <span className="rounded-full bg-white/12 px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm ring-1 ring-white/25">
+                            Exclusivo
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="px-6 pb-2 pt-5">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/75">
+                          {vehicle.brandName}
+                        </p>
+                        <h3
+                          className="mt-1 text-[20px] font-bold leading-tight text-white"
+                          style={{ fontFamily: "var(--font-space-grotesk)" }}
+                        >
+                          {vehicle.modelName}
+                        </h3>
+                        {/* La version si se enseña aqui y no en ofertas: en gama
+                            alta el acabado es parte de lo que se compra. */}
+                        <p className="mt-1.5 text-[12.5px] leading-snug text-white/70">
+                          {vehicle.version}
+                        </p>
+                      </div>
+                    </Link>
+
+                    <div className="mt-auto px-6 pb-5 pt-4">
+                      <div className="flex items-end justify-between gap-3">
+                        <div>
+                          <p className="text-[11px] uppercase tracking-[0.16em] text-white/75">desde</p>
+                          <p
+                            className="text-[27px] font-bold leading-none text-white"
+                            style={{ fontFamily: "var(--font-space-grotesk)" }}
+                          >
+                            {vehicle.priceLabel}
+                            <span className="ml-1 text-[12px] font-medium text-white/75">/mes</span>
+                          </p>
+                        </div>
+                        <a
+                          href={buildWhatsAppLink(
+                            `Hola, me interesa el ${vehicle.brandName} ${vehicle.modelName}`
                           )}
                           target="_blank"
                           rel="noopener noreferrer"

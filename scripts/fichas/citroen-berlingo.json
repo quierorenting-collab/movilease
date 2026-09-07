@@ -174,51 +174,35 @@
   "images": [
     {
       "url": "/coches-nuevos/citroen-berlingo-01.webp",
-      "alt": "Citroën Berlingo en renting"
+      "alt": "Citroen Berlingo en renting, frontal"
     },
     {
       "url": "/coches-nuevos/citroen-berlingo-02.webp",
-      "alt": "Citroën Berlingo en renting"
+      "alt": "Citroen Berlingo en renting, tres cuartos trasero"
     },
     {
       "url": "/coches-nuevos/citroen-berlingo-03.webp",
-      "alt": "Citroën Berlingo en renting"
+      "alt": "Citroen Berlingo en renting, trasera"
     },
     {
       "url": "/coches-nuevos/citroen-berlingo-04.webp",
-      "alt": "Citroën Berlingo en renting"
+      "alt": "Citroen Berlingo en renting, zona de carga"
     },
     {
       "url": "/coches-nuevos/citroen-berlingo-05.webp",
-      "alt": "Citroën Berlingo en renting"
+      "alt": "Citroen Berlingo en renting, zona de carga, lateral"
     },
     {
       "url": "/coches-nuevos/citroen-berlingo-06.webp",
-      "alt": "Citroën Berlingo en renting"
+      "alt": "Citroen Berlingo en renting, salpicadero"
     },
     {
       "url": "/coches-nuevos/citroen-berlingo-07.webp",
-      "alt": "Citroën Berlingo en renting"
+      "alt": "Citroen Berlingo en renting, llanta"
     },
     {
       "url": "/coches-nuevos/citroen-berlingo-08.webp",
-      "alt": "Citroën Berlingo en renting"
-    },
-    {
-      "url": "/coches-nuevos/citroen-berlingo-09.webp",
-      "alt": "Citroën Berlingo en renting"
-    },
-    {
-      "url": "/coches-nuevos/citroen-berlingo-10.webp",
-      "alt": "Citroën Berlingo en renting"
-    },
-    {
-      "url": "/coches-nuevos/citroen-berlingo-11.webp",
-      "alt": "Citroën Berlingo en renting"
-    },
-    {
-      "url": "/coches-nuevos/citroen-berlingo-12.webp",
-      "alt": "Citroën Berlingo en renting"
+      "alt": "Citroen Berlingo en renting, faro"
     }
   ]
 }

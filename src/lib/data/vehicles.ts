@@ -106,6 +106,48 @@ export async function getVehiclesByIds(ids: string[]): Promise<VehicleCardData[]
   }
 }
 
+/**
+ * Los coches de un puñado de modelos concretos, en el orden pedido.
+ *
+ * La sección de exclusivos de la portada no se puede resolver como las ofertas
+ * (`is_offer`) porque no hay columna equivalente en la tabla y este proyecto no
+ * tiene todavía la variable SUPABASE_DB_URL que necesita el script de
+ * migraciones, así que no se puede añadir. Mientras tanto la selección viaja
+ * como lista de slugs de modelo desde la página, que es explícito y no calla
+ * un fallo: si un modelo no está publicado, simplemente no sale.
+ *
+ * De cada modelo se coge su versión más barata, igual que en el catálogo, para
+ * que el "desde" de la tarjeta no prometa un precio que no es el de entrada.
+ */
+export async function getVehiclesByModelSlugs(slugs: string[]): Promise<VehicleCardData[]> {
+  if (slugs.length === 0) return [];
+  try {
+    const supabase = createPublicClient();
+    const { data: models } = await supabase.from("models").select("id, slug").in("slug", slugs);
+    if (!models || models.length === 0) return [];
+
+    const { data, error } = await supabase
+      .from("vehicles")
+      .select(CARD_COLUMNS)
+      .eq("is_active", true)
+      .in(
+        "model_id",
+        models.map((m) => m.id)
+      )
+      .order("monthly_price_cents");
+    if (error || !data) return [];
+
+    const coches = await attachModelsAndBrands(data as CardRow[]);
+    const masBarato = new Map<string, VehicleCardData>();
+    for (const c of coches) {
+      if (!masBarato.has(c.modelSlug)) masBarato.set(c.modelSlug, c);
+    }
+    return slugs.map((s) => masBarato.get(s)).filter((c): c is VehicleCardData => Boolean(c));
+  } catch {
+    return [];
+  }
+}
+
 export interface ComparisonVehicle {
   id: string;
   brandName: string;

@@ -198,51 +198,27 @@
   "images": [
     {
       "url": "/coches-nuevos/alfa-romeo-junior-01.webp",
-      "alt": "Alfa Romeo Junior en renting"
+      "alt": "Alfa Romeo Junior en renting, frontal"
     },
     {
       "url": "/coches-nuevos/alfa-romeo-junior-02.webp",
-      "alt": "Alfa Romeo Junior en renting"
+      "alt": "Alfa Romeo Junior en renting, tres cuartos trasero"
     },
     {
       "url": "/coches-nuevos/alfa-romeo-junior-03.webp",
-      "alt": "Alfa Romeo Junior en renting"
+      "alt": "Alfa Romeo Junior en renting, trasera"
     },
     {
       "url": "/coches-nuevos/alfa-romeo-junior-04.webp",
-      "alt": "Alfa Romeo Junior en renting"
+      "alt": "Alfa Romeo Junior en renting, asientos"
     },
     {
       "url": "/coches-nuevos/alfa-romeo-junior-05.webp",
-      "alt": "Alfa Romeo Junior en renting"
+      "alt": "Alfa Romeo Junior en renting, salpicadero"
     },
     {
       "url": "/coches-nuevos/alfa-romeo-junior-06.webp",
-      "alt": "Alfa Romeo Junior en renting"
-    },
-    {
-      "url": "/coches-nuevos/alfa-romeo-junior-07.webp",
-      "alt": "Alfa Romeo Junior en renting"
-    },
-    {
-      "url": "/coches-nuevos/alfa-romeo-junior-08.webp",
-      "alt": "Alfa Romeo Junior en renting"
-    },
-    {
-      "url": "/coches-nuevos/alfa-romeo-junior-09.webp",
-      "alt": "Alfa Romeo Junior en renting"
-    },
-    {
-      "url": "/coches-nuevos/alfa-romeo-junior-10.webp",
-      "alt": "Alfa Romeo Junior en renting"
-    },
-    {
-      "url": "/coches-nuevos/alfa-romeo-junior-11.webp",
-      "alt": "Alfa Romeo Junior en renting"
-    },
-    {
-      "url": "/coches-nuevos/alfa-romeo-junior-12.webp",
-      "alt": "Alfa Romeo Junior en renting"
+      "alt": "Alfa Romeo Junior en renting, maletero"
     }
   ]
 }

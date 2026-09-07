@@ -1,0 +1,182 @@
+{
+  "brand": "BMW",
+  "model": "X1",
+  "version": "sDrive20d 163 CV MHEV",
+  "category": "suv",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "horsepower": 163,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "body_type": "SUV",
+  "monthly_price_cents": 56200,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "short_description": "SUV híbrido diésel de 163 CV",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Cambio de neumáticos",
+    "Asistencia en carretera 24h",
+    "Gestión de multas e impuestos",
+    "Entrega en provincia"
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 58200
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 61800
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 67200
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 71500
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 74800
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 58600
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 62300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 66200
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 69300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 73800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 56200
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 60000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 62900
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 67800
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 72000
+    }
+  ],
+  "equipment": [
+    "Sistema de recuperación Mild-Hybrid 48V",
+    "Caja de cambios Steptronic con doble embrague",
+    "Depósito de combustible de mayor capacidad",
+    "Reglaje eléctrico de los asientos delanteros, con memoria en el conductor",
+    "Calefacción de los asientos delanteros",
+    "Acceso confort",
+    "Paquete de retrovisores interior y exteriores",
+    "Retrovisor interior con ajuste automático antideslumbramiento",
+    "Bandeja para Wireless Charging",
+    "Cuadro de instrumentos Luxury",
+    "Radio DAB+",
+    "TeleServices",
+    "eSIM personal",
+    "Molduras interiores Negro brillo",
+    "Faros LED adaptativos",
+    "Asistente para luz de carretera",
+    "Active Guard",
+    "Parking Assistant",
+    "Preparación del Driving Assistant Plus",
+    "Control de presión de neumáticos",
+    "Dispositivo de alarma con mando a distancia",
+    "Juego de reparación de neumáticos Plus",
+    "Sistema de fijación para asiento infantil i-Size o ISOFIX para el acompañante",
+    "Triángulo de emergencia y botiquín de primeros auxilios",
+    "Llamada de emergencia obligatoria",
+    "Tornillos antirrobo para las llantas",
+    "Llantas M de 18\" estilo 865 M",
+    "Cristales tintados para protección solar",
+    "Molduras exteriores en aluminio satinado (xLine)",
+    "Carriles longitudinales para la baca Aluminium satinado (xLine)",
+    "Carriles longitudinales M para baca en negro brillo Shadow Line",
+    "Contenido especial específico X (xLine)"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/bmw-x1-01.webp",
+      "alt": "BMW X1 en renting"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x1-02.webp",
+      "alt": "BMW X1 en renting"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x1-03.webp",
+      "alt": "BMW X1 en renting"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x1-04.webp",
+      "alt": "BMW X1 en renting"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x1-05.webp",
+      "alt": "BMW X1 en renting"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x1-06.webp",
+      "alt": "BMW X1 en renting"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x1-07.webp",
+      "alt": "BMW X1 en renting"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x1-08.webp",
+      "alt": "BMW X1 en renting"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x1-09.webp",
+      "alt": "BMW X1 en renting"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x1-10.webp",
+      "alt": "BMW X1 en renting"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x1-11.webp",
+      "alt": "BMW X1 en renting"
+    }
+  ]
+}

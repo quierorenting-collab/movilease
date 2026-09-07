@@ -193,51 +193,43 @@
   "images": [
     {
       "url": "/coches-nuevos/lynk-co-01-01.webp",
-      "alt": "Lynk & Co 01 en renting"
+      "alt": "Lynk & Co 01 en renting, frontal"
     },
     {
       "url": "/coches-nuevos/lynk-co-01-02.webp",
-      "alt": "Lynk & Co 01 en renting"
+      "alt": "Lynk & Co 01 en renting, tres cuartos trasero"
     },
     {
       "url": "/coches-nuevos/lynk-co-01-03.webp",
-      "alt": "Lynk & Co 01 en renting"
+      "alt": "Lynk & Co 01 en renting, trasera"
     },
     {
       "url": "/coches-nuevos/lynk-co-01-04.webp",
-      "alt": "Lynk & Co 01 en renting"
+      "alt": "Lynk & Co 01 en renting, asientos"
     },
     {
       "url": "/coches-nuevos/lynk-co-01-05.webp",
-      "alt": "Lynk & Co 01 en renting"
+      "alt": "Lynk & Co 01 en renting, salpicadero"
     },
     {
       "url": "/coches-nuevos/lynk-co-01-06.webp",
-      "alt": "Lynk & Co 01 en renting"
+      "alt": "Lynk & Co 01 en renting, maletero"
     },
     {
       "url": "/coches-nuevos/lynk-co-01-07.webp",
-      "alt": "Lynk & Co 01 en renting"
+      "alt": "Lynk & Co 01 en renting, faro"
     },
     {
       "url": "/coches-nuevos/lynk-co-01-08.webp",
-      "alt": "Lynk & Co 01 en renting"
+      "alt": "Lynk & Co 01 en renting, piloto trasero"
     },
     {
       "url": "/coches-nuevos/lynk-co-01-09.webp",
-      "alt": "Lynk & Co 01 en renting"
+      "alt": "Lynk & Co 01 en renting, llanta"
     },
     {
       "url": "/coches-nuevos/lynk-co-01-10.webp",
-      "alt": "Lynk & Co 01 en renting"
-    },
-    {
-      "url": "/coches-nuevos/lynk-co-01-11.webp",
-      "alt": "Lynk & Co 01 en renting"
-    },
-    {
-      "url": "/coches-nuevos/lynk-co-01-12.webp",
-      "alt": "Lynk & Co 01 en renting"
+      "alt": "Lynk & Co 01 en renting, cambio automatico"
     }
   ]
 }
