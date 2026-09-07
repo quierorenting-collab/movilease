@@ -1,0 +1,150 @@
+{
+  "update_vehicle_id": "50f97b58-3df6-4997-a401-026fbdea421b",
+  "brand": "Mercedes-Benz",
+  "model": "GLC Coupé",
+  "version": "220 d 4MATIC AMG Advanced Plus",
+  "category": "suv",
+  "fuel_type": "diesel",
+  "transmission": "automatico",
+  "seats": 5,
+  "doors": 5,
+  "body_type": "SUV Coupé",
+  "monthly_price_cents": 100600,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "short_description": "SUV coupé diésel con tracción total 4MATIC",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia"
+  ],
+  "pricing": [
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 107900
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 112400
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 118100
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 124400
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 130900
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 100600
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 105500
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 112000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 118900
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 125700
+    }
+  ],
+  "equipment": [
+    "Paquete AMG Advanced Plus",
+    "Paquete AMG Line exterior",
+    "Paquete AMG Line interior",
+    "Llantas de aleación AMG de 19\" y 5 radios, gris tántalo pulidas",
+    "Volante deportivo multifunción forrado en cuero napa",
+    "Asientos calefactados para conductor y acompañante",
+    "Paquete de memorias",
+    "Tablero de instrumentos y líneas de cintura en símil de cuero ÁRTICO",
+    "Techo interior de tela gris cristal",
+    "Iluminación de ambiente",
+    "Climatización automática THERMATIC",
+    "Apple CarPlay",
+    "Android Auto",
+    "Integración de smartphone",
+    "Asistente de aparcamiento plus con cámara de marcha atrás",
+    "Control de ángulo muerto",
+    "Asistente para señales de tráfico",
+    "Luces de carretera automáticas",
+    "Tren de rodaje AGILITY CONTROL con amortiguación selectiva",
+    "Sistema de frenos con discos de mayores dimensiones en el eje delantero"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-01.webp",
+      "alt": "Mercedes GLC Coupé 220d en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-02.webp",
+      "alt": "Mercedes GLC Coupé 220d en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-03.webp",
+      "alt": "Mercedes GLC Coupé 220d en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-04.webp",
+      "alt": "Mercedes GLC Coupé 220d en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-05.webp",
+      "alt": "Mercedes GLC Coupé 220d en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-06.webp",
+      "alt": "Mercedes GLC Coupé 220d en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-07.webp",
+      "alt": "Mercedes GLC Coupé 220d en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-08.webp",
+      "alt": "Mercedes GLC Coupé 220d en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-09.webp",
+      "alt": "Mercedes GLC Coupé 220d en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-10.webp",
+      "alt": "Mercedes GLC Coupé 220d en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-11.webp",
+      "alt": "Mercedes GLC Coupé 220d en renting"
+    },
+    {
+      "url": "/coches-nuevos/mercedes-glc-coupe-12.webp",
+      "alt": "Mercedes GLC Coupé 220d en renting"
+    }
+  ]
+}
