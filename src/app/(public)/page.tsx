@@ -258,6 +258,13 @@ export default async function HomePage() {
     getVehiclesByModelSlugs(EXCLUSIVOS),
   ]);
 
+  /* De la cuota más baja a la más alta, como el resto de bloques de la web y
+     como pidió Adrián. El orden de la constante EXCLUSIVOS ya no manda: si
+     mañana cambia un precio, la sección se recoloca sola. */
+  const exclusivosPorPrecio = [...exclusivos].sort(
+    (a, b) => (a.monthlyPriceCents ?? 0) - (b.monthlyPriceCents ?? 0)
+  );
+
   const seenModels = new Set<string>();
   const dedupedFeatured = featured
     .filter((v) => {
@@ -503,7 +510,7 @@ export default async function HomePage() {
               stagger={0.08}
               className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
             >
-              {exclusivos.map((vehicle) => (
+              {exclusivosPorPrecio.map((vehicle) => (
                 <RevealItem key={vehicle.id}>
                   <div className="card-lift card-dark group relative flex h-full flex-col overflow-hidden">
                     <Link
@@ -528,7 +535,11 @@ export default async function HomePage() {
                             alt={`${vehicle.brandName} ${vehicle.modelName}`}
                             fill
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                            /* contain y no cover: estas fotos vienen recortadas
+                               al coche, y al llenar la caja se le comen el
+                               morro y la cola. Aquí interesa que el coche se
+                               vea entero, aunque sobre aire arriba y abajo. */
+                            className="object-contain p-3 transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                           />
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0C2454] via-transparent to-transparent" />
