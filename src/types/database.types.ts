@@ -143,6 +143,9 @@ export type Lead = {
   page_url: string | null;
   notified_web3forms: boolean;
   notified_telegram: boolean;
+  /** Opcional a propósito: la columna llega en la migración 0006 y el código
+   *  puede desplegarse antes de aplicarla. */
+  notified_hubspot?: boolean | null;
   created_at: string;
 };
 

@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { notifyWeb3Forms } from "@/lib/notifications/web3forms";
 import { notifyTelegram } from "@/lib/notifications/telegram";
+import { notifyHubSpot } from "@/lib/notifications/hubspot";
 import { leadFormSchema } from "@/lib/validations/lead";
 import { buildWhatsAppLink } from "@/lib/constants";
 
@@ -103,6 +104,37 @@ export async function createLead(formData: FormData): Promise<CreateLeadResult> 
     }
 
     const createdAt = new Date();
+
+    /* La etiqueta del vehículo (marca, modelo y versión) la esperaban ya el
+       aviso de Telegram y el de correo, pero nunca se rellenaba: llegaba
+       siempre vacía. La necesita además el nombre de la negociación de
+       HubSpot, porque "Juan — solicitud web" no sirve para trabajar un embudo.
+       Va en su propio try: si falla la consulta, el lead sigue su camino sin
+       etiqueta, que es exactamente lo que pasaba hasta ahora. */
+    let vehicleLabel: string | null = null;
+    if (vehicleId) {
+      try {
+        const { data: v } = await supabase
+          .from("vehicles")
+          .select("version, model_id")
+          .eq("id", vehicleId)
+          .single();
+        if (v) {
+          const { data: m } = await supabase
+            .from("models")
+            .select("name, brand_id")
+            .eq("id", v.model_id)
+            .single();
+          const { data: b } = m
+            ? await supabase.from("brands").select("name").eq("id", m.brand_id).single()
+            : { data: null };
+          vehicleLabel = [b?.name, m?.name, v.version].filter(Boolean).join(" ") || null;
+        }
+      } catch {
+        vehicleLabel = null;
+      }
+    }
+
     const notificationPayload = {
       name,
       lastName,
@@ -112,21 +144,36 @@ export async function createLead(formData: FormData): Promise<CreateLeadResult> 
       province,
       clientType,
       message,
+      vehicleLabel,
       createdAt,
       ipAddress,
       userAgent,
       pageUrl,
     };
 
-    const [web3formsOk, telegramOk] = await Promise.allSettled([
+    const [web3formsOk, telegramOk, hubspotOk] = await Promise.allSettled([
       notifyWeb3Forms(notificationPayload),
       notifyTelegram(notificationPayload),
+      notifyHubSpot(notificationPayload),
     ]).then((results) => results.map((r) => (r.status === "fulfilled" ? r.value : false)));
 
     await supabase
       .from("leads")
       .update({ notified_web3forms: web3formsOk, notified_telegram: telegramOk })
       .eq("id", insertedLead.id);
+
+    /* La marca de HubSpot va en su propia consulta y no junto a las otras dos:
+       la columna llega en la migración 0006 y este despliegue puede ir por
+       delante. Si todavía no existe, esta línea falla sola y las otras dos
+       marcas quedan escritas igual. */
+    try {
+      await supabase
+        .from("leads")
+        .update({ notified_hubspot: hubspotOk })
+        .eq("id", insertedLead.id);
+    } catch {
+      /* columna aún no migrada */
+    }
 
     return {
       success: true,

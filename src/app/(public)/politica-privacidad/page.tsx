@@ -200,6 +200,11 @@ export default function PoliticaPrivacidadPage() {
               equipo comercial de que hay una solicitud nueva.
             </li>
             <li>
+              <span className="text-white">HubSpot:</span> herramienta de gestión
+              comercial donde queda registrada tu solicitud para poder atenderla
+              y hacerle seguimiento. Sus servidores están en la Unión Europea.
+            </li>
+            <li>
               <span className="text-white">Google (Analytics 4):</span> medición
               de uso de la web, únicamente si aceptas las cookies analíticas.
             </li>
