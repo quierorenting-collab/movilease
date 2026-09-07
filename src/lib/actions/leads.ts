@@ -3,7 +3,7 @@
 import { headers } from "next/headers";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { notifyWeb3Forms } from "@/lib/notifications/web3forms";
-import { notifyTelegram } from "@/lib/notifications/telegram";
+import { notifyTelegram, avisarFalloHubSpot } from "@/lib/notifications/telegram";
 import { notifyHubSpot } from "@/lib/notifications/hubspot";
 import { leadFormSchema } from "@/lib/validations/lead";
 import { buildWhatsAppLink } from "@/lib/constants";
@@ -171,17 +171,16 @@ export async function createLead(formData: FormData): Promise<CreateLeadResult> 
       .update({ notified_web3forms: web3formsOk, notified_telegram: telegramOk })
       .eq("id", insertedLead.id);
 
-    /* La marca de HubSpot va en su propia consulta y no junto a las otras dos:
-       la columna llega en la migración 0006 y este despliegue puede ir por
-       delante. Si todavía no existe, esta línea falla sola y las otras dos
-       marcas quedan escritas igual. */
-    try {
-      await supabase
-        .from("leads")
-        .update({ notified_hubspot: hubspotOk })
-        .eq("id", insertedLead.id);
-    } catch {
-      /* columna aún no migrada */
+    /* Si HubSpot no lo ha cogido, se avisa por Telegram en el acto.
+       La idea inicial era una columna `notified_hubspot`, pero crear una
+       columna necesita acceso directo a la base de datos —que este entorno no
+       tiene— y sobre todo: una columna solo sirve si alguien la mira, y aquí
+       los leads se leen en Telegram, no en la tabla. El aviso solo sale cuando
+       falla; si todo va bien no hay ruido.
+       Se comprueba que hay token para no avisar de un canal apagado a
+       propósito. */
+    if (!hubspotOk && process.env.HUBSPOT_TOKEN) {
+      await avisarFalloHubSpot(notificationPayload);
     }
 
     return {
