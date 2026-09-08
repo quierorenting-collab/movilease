@@ -80,7 +80,12 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿El renting empresarial incluye un kilometraje limitado?",
-    a: "Los contratos se calculan sobre un kilometraje anual pactado (habitualmente 15.000 km por vehículo), que ajustamos según el uso real de tu flota.",
+    /* Decia "habitualmente 15.000 km" y contradecia al resto de la web:
+       las cuotas publicadas se calculan TODAS sobre 10.000 km al ano, los
+       48 vehiculos activos sin excepcion. Un cliente de empresa que leyera
+       esto y luego mirara una ficha veria dos cifras distintas. Adrian lo
+       confirmo el 08/09/2026: tambien 10.000 en empresas. */
+    a: "Los contratos se calculan sobre un kilometraje anual pactado (10.000 km por vehículo en las cuotas publicadas), que ajustamos según el uso real de tu flota.",
   },
   {
     q: "¿Qué duración tienen los contratos?",
