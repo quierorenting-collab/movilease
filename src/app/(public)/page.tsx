@@ -407,7 +407,10 @@ export default async function HomePage() {
                             alt={`${vehicle.brandName} ${vehicle.modelName}`}
                             fill
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                            className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                            /* contain, igual que la tarjeta del catalogo y la de
+                               exclusivos: con cover, cualquier foto que no sea
+                               exactamente 4:3 pierde un poco de morro o de cola. */
+                            className="object-contain p-3 transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                           />
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1B4080] via-transparent to-transparent" />
