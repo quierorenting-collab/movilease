@@ -182,7 +182,12 @@ function SpecRow({ label, value }: { label: string; value: string | null | undef
     <div className="flex flex-col items-start gap-1 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-3 sm:flex-row sm:items-center sm:gap-3">
       <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#0068FF]" />
       <span className="text-[13px] font-medium text-white/80">{value}</span>
-      <span className="text-[10px] uppercase tracking-[0.1em] text-on-dark-3 sm:ml-auto">{label}</span>
+      {/* 12px en movil: a 10px, con mayusculas y espaciado, estas etiquetas
+          (Combustible, Potencia, Etiqueta...) no se leen en un telefono.
+          En escritorio se mantiene el tamano pequeno, que ahi funciona. */}
+      <span className="text-[12px] uppercase tracking-[0.1em] text-on-dark-3 sm:ml-auto sm:text-[10px]">
+        {label}
+      </span>
     </div>
   );
 }

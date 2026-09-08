@@ -50,7 +50,7 @@ export function VehiclePricingTable({
       <table className="w-full min-w-0 border-collapse text-left sm:min-w-[480px]">
         <thead>
           <tr className="border-b border-white/20">
-            <th className="px-2 py-4 text-[11px] sm:px-5 font-bold uppercase tracking-[0.16em] text-on-dark-2 sm:px-5">
+            <th className="px-2 py-4 text-[12px] font-bold uppercase tracking-[0.16em] text-on-dark-2 sm:px-5 sm:text-[11px]">
               Km / año
             </th>
             {months.map((m) => (
@@ -60,7 +60,10 @@ export function VehiclePricingTable({
                   m === highlighted ? "bg-[#0068FF]/25 text-white" : "text-on-dark-2"
                 }`}
               >
-                {m} meses
+                {/* En movil la celda mide 78 px y "60 meses" se partia en dos
+                    lineas, dejando la cabecera desalineada con el resto. */}
+                <span className="sm:hidden">{m} m</span>
+                <span className="hidden sm:inline">{m} meses</span>
                 {m === highlighted && <span className="ml-1">★</span>}
               </th>
             ))}

@@ -53,7 +53,13 @@ export function VehicleGallery({
         {/* Mismo aviso que en la tarjeta del catalogo: el color y el acabado de
             la foto de estudio no tienen por que ser los del coche entregado. */}
         <p className="pointer-events-none absolute inset-x-0 bottom-0 px-3 pr-16 pb-2 text-center text-[11px] leading-tight text-white/55">
-          Imagen no contractual: puede no coincidir con el modelo ofertado
+          {/* En movil el texto largo se partia en dos lineas sobre el capo del
+              coche. Ahi se deja lo imprescindible y la frase entera vuelve a
+              partir de sm, donde cabe en una linea. */}
+          <span className="sm:hidden">Imagen no contractual</span>
+          <span className="hidden sm:inline">
+            Imagen no contractual: puede no coincidir con el modelo ofertado
+          </span>
         </p>
 
         {hasMultiple && (
