@@ -6,6 +6,8 @@
 const EXTENSION_BY_SLUG: Record<string, string> = {
   "alfa-romeo": "png",
   audi: "png",
+  bmw: "png",
+  byd: "png",
   citroen: "png",
   cupra: "png",
   dacia: "png",
@@ -13,13 +15,17 @@ const EXTENSION_BY_SLUG: Record<string, string> = {
   fiat: "png",
   ford: "png",
   foton: "png",
+  honda: "png",
   hyundai: "png",
   jaecoo: "png",
   jeep: "png",
   kgm: "png",
   kia: "png",
+  "lynk-co": "png",
+  maserati: "png",
   maxus: "png",
   mazda: "png",
+  "mercedes-benz": "png",
   mg: "png",
   mitsubishi: "png",
   nissan: "png",
@@ -39,7 +45,11 @@ function slugify(brandName: string) {
     .toLowerCase()
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")
-    .replace(/\s+/g, "-");
+    // Todo lo que no sea letra o numero pasa a guion: "Lynk & Co" tiene que dar
+    // "lynk-co" y no "lynk-&-co", que no es un nombre de fichero valido y dejaba
+    // a la marca sin logo en el catalogo y en el menu.
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 /** Logo oficial de la marca, servido desde public/brands/. Null si no tenemos un logo libre de derechos para esa marca. */

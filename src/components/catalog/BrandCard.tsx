@@ -43,17 +43,12 @@ export function BrandCard({ brand }: { brand: BrandSummary }) {
             className="max-h-16 w-full object-contain transition-transform duration-[400ms] group-hover:scale-[1.06]"
           />
         ) : (
-          /* Sin logo. Hoy le pasa a Honda y a Mercedes-Benz: no hay fichero en
-             public/brands/ para esas dos, y el resto de la rejilla sí lo
-             tiene, así que la tarjeta cantaba. En vez de un nombre suelto en
-             gris, se compone como una placa: el nombre bien espaciado sobre
-             una línea de acento. Deja de parecer un hueco y pasa por una
-             decisión.
-
-             El arreglo de verdad es el fichero: en cuanto haya
-             public/brands/honda.svg y public/brands/mercedes-benz.svg, y su
-             línea en EXTENSION_BY_SLUG de src/lib/brand-logos.ts, salen solos
-             y esto no se ve. */
+          /* Sin logo. Hoy no le pasa a ninguna marca del catalogo: las 34
+             tienen fichero en public/brands/ y su linea en EXTENSION_BY_SLUG.
+             Esto se queda como red: cuando entre una marca nueva, la tarjeta
+             no debe cantar mientras llega su logo. En vez de un nombre suelto
+             en gris se compone como una placa —nombre espaciado sobre una
+             linea de acento—, que pasa por decision y no por hueco. */
           <span className="flex flex-col items-center gap-2.5">
             <span
               className="text-center text-[22px] font-bold uppercase leading-none tracking-[0.14em] text-[#0A0A0A]/80"

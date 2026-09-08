@@ -64,12 +64,41 @@ async function main() {
     .readdirSync(DIR)
     .filter((f) => /\.(svg|png|jpg|jpeg|webp)$/i.test(f));
 
+  // La copia de seguridad se hace por MARCA, no por nombre de fichero. Comparar
+  // el nombre exacto hacia que marca.png (la salida de la pasada anterior) se
+  // colara en _origen junto a marca.svg, y a partir de ahi el script se comia su
+  // propio resultado: cada pasada renormalizaba lo ya normalizado.
+  const yaGuardadas = new Set(
+    fs.readdirSync(ORIGEN)
+      .filter((f) => /\.(svg|png|jpg|jpeg|webp)$/i.test(f))
+      .map((f) => path.basename(f, path.extname(f)))
+  );
   for (const f of ficheros) {
-    const guardado = path.join(ORIGEN, f);
-    if (!fs.existsSync(guardado)) fs.copyFileSync(path.join(DIR, f), guardado);
+    const base = path.basename(f, path.extname(f));
+    if (yaGuardadas.has(base)) continue;
+    fs.copyFileSync(path.join(DIR, f), path.join(ORIGEN, f));
+    yaGuardadas.add(base);
   }
 
   const fuentes = fs.readdirSync(ORIGEN).filter((f) => /\.(svg|png|jpg|jpeg|webp)$/i.test(f));
+
+  // Una marca, un fichero de origen. Si conviven marca.svg y marca.png el bucle
+  // procesa los dos y el segundo pisa al primero por orden alfabetico: asi se
+  // perdieron en silencio los logos de Renault, SEAT y Foton que mando Adrian,
+  // que quedaron tapados por los SVG viejos. Mejor parar que publicar el que no
+  // es. Lo que se retira se guarda en _origen/_reemplazados/.
+  const porMarca = new Map();
+  for (const f of fuentes) {
+    const b = path.basename(f, path.extname(f));
+    porMarca.set(b, [...(porMarca.get(b) ?? []), f]);
+  }
+  const chocan = [...porMarca].filter(([, fs_]) => fs_.length > 1);
+  if (chocan.length) {
+    console.error("  Hay marcas con mas de un fichero de origen; deja solo uno:");
+    for (const [b, fs_] of chocan) console.error(`    ${b}: ${fs_.join(", ")}`);
+    process.exitCode = 1;
+    return;
+  }
   const informe = [];
 
   for (const f of fuentes) {
