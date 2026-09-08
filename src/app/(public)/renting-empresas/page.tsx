@@ -266,7 +266,7 @@ export default function RentingEmpresasPage() {
               <Reveal delay={0.15}>
                 <ul className="mt-10 space-y-4">
                   {[
-                    "Respuesta en menos de 24 horas",
+                    "Respuesta en 48 h",
                     "Propuesta ajustada al volumen de tu empresa",
                     "Un único interlocutor para toda la flota",
                   ].map((item) => (

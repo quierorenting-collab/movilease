@@ -164,6 +164,11 @@ export interface ComparisonVehicle {
   consumptionUnit: string | null;
   seats: number | null;
   doors: number | null;
+  /* Plazo y kilometraje del vehiculo. Sin ellos el comparador ponia una cuota
+     de 36 meses al lado de otra de 60 bajo la misma etiqueta "Precio /mes",
+     como si fueran comparables, y no lo son. */
+  contractMonths: number;
+  annualKm: number;
   includedServices: string[];
 }
 
@@ -174,7 +179,7 @@ export async function getComparisonVehicles(ids: string[]): Promise<ComparisonVe
     const { data, error } = await supabase
       .from("vehicles")
       .select(
-        "id, model_id, version, monthly_price_cents, main_image_url, category, fuel_type, transmission, horsepower, consumption_value, consumption_unit, seats, doors, included_services"
+        "id, model_id, version, monthly_price_cents, contract_months, annual_km, main_image_url, category, fuel_type, transmission, horsepower, consumption_value, consumption_unit, seats, doors, included_services"
       )
       .eq("is_active", true)
       .in("id", ids);
@@ -210,6 +215,8 @@ export async function getComparisonVehicles(ids: string[]): Promise<ComparisonVe
         consumptionUnit: v.consumption_unit,
         seats: v.seats,
         doors: v.doors,
+        contractMonths: v.contract_months,
+        annualKm: v.annual_km,
         includedServices: v.included_services,
       };
     });
@@ -380,6 +387,10 @@ export async function getModelBySlugWithVehicles(slug: string): Promise<ModelDet
               .from("vehicle_pricing")
               .select("vehicle_id, contract_months, annual_km, monthly_price_cents")
               .in("vehicle_id", vehicleIds)
+              // Un 0 en la lamina del proveedor significa "ese kilometraje no se
+              // ofrece", no "sale gratis". Si llega a la tabla, la celda imprime
+              // "0 €" y estariamos anunciando un renting sin cuota.
+              .gt("monthly_price_cents", 0)
               .order("contract_months")
               .order("annual_km"),
           ])

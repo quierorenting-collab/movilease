@@ -69,8 +69,13 @@ export function RentingCalculator() {
       </div>
 
       <p id="budget-ayuda" className="mt-8 text-[13.5px] leading-relaxed text-white/75">
-        Precio calculado para un contrato de {RENTING_DEFAULTS.contractMonths} meses ·{" "}
-        {RENTING_DEFAULTS.annualKm.toLocaleString("es-ES")} km/año · sin entrada.
+        {/* Aqui NO va el plazo. Decia "para un contrato de 36 meses" sacado de
+            RENTING_DEFAULTS, y el 81 % del catalogo cotiza a 60: la frase describia
+            mal justo las cuotas que el visitante ve un clic despues, al pulsar el
+            boton que lleva a /catalogo?maxPrice=. El plazo lo dice cada ficha, que
+            es la unica que lo sabe. Los km si valen para todos: 10.000 en los 48. */}
+        Cuotas con IVA incluido · {RENTING_DEFAULTS.annualKm.toLocaleString("es-ES")} km/año · sin
+        entrada. El plazo cambia según el coche y lo ves en su ficha.
       </p>
 
       <Link

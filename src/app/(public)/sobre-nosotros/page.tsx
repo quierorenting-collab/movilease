@@ -50,7 +50,7 @@ const VALUES = [
 ];
 
 const WHY_CHOOSE = [
-  "Amplio catálogo de vehículos de todas las marcas.",
+  "Catálogo con las principales marcas del mercado, generalistas y premium.",
   "Ofertas competitivas para particulares, autónomos y empresas.",
   "Asesoramiento personalizado.",
   "Proceso de contratación 100 % online o con atención personalizada.",

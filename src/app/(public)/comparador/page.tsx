@@ -9,7 +9,8 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = pageMetadata({
   title: "Comparador de coches en renting",
   description:
-    "Compara hasta cuatro coches en renting lado a lado: cuota, potencia, consumo, plazas y servicios incluidos.",
+    // Son TRES (MAX_COMPARISON_ITEMS), y la tabla no tiene fila de servicios.
+    "Compara hasta tres coches en renting lado a lado: cuota, plazo, kilometraje, potencia, consumo y plazas.",
   path: "/comparador",
   // El contenido depende de los ids que elige el visitante: nada que indexar.
   noIndex: true,
@@ -30,9 +31,17 @@ const ROWS: {
       >
         {v.priceLabel}
         <span className="text-sm font-medium text-white/70">/mes</span>
+        <span className="ml-1.5 text-[11px] font-medium uppercase tracking-wide text-white/50">
+          IVA incl.
+        </span>
       </span>
     ),
   },
+  /* El plazo y los km van justo debajo del precio porque sin ellos la fila de
+     arriba no se puede leer: la cuota de un coche a 36 meses y la de otro a 60
+     no son la misma cosa aunque ocupen la misma casilla. */
+  { label: "Plazo", render: (v) => `${v.contractMonths} meses` },
+  { label: "Km/año", render: (v) => v.annualKm.toLocaleString("es-ES") },
   { label: "Categoría", render: (v) => VEHICLE_CATEGORY_LABELS[v.category] },
   { label: "Combustible", render: (v) => FUEL_TYPE_LABELS[v.fuelType] },
   { label: "Cambio", render: (v) => TRANSMISSION_LABELS[v.transmission] },

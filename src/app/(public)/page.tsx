@@ -106,7 +106,7 @@ const HOW_STEPS = [
   {
     n: "03",
     title: "Gestionamos todo",
-    body: "Tramitamos la financiación, el seguro y todos los trámites en menos de 48 horas laborables.",
+    body: "Nos ocupamos de la financiación, el seguro y todos los trámites. Te damos respuesta a tu solicitud en menos de 48 horas laborables.",
   },
   {
     n: "04",
@@ -213,8 +213,12 @@ const COMPARISON = [
   { feature: "Seguro a todo riesgo",        movilease: "Incluido",      dealer: "Aparte (+1.200 €/año)" },
   { feature: "Mantenimiento",               movilease: "Incluido",      dealer: "Por tu cuenta" },
   { feature: "Impuestos y gestiones",       movilease: "Incluidos",     dealer: "Por tu cuenta" },
-  { feature: "Tiempo de gestión",           movilease: "48 horas",      dealer: "Semanas" },
-  { feature: "Renovar coche cada 3 años",   movilease: "Sí, sin coste", dealer: "Vender y recomprar" },
+  /* "Tiempo de gestion: 48 horas" se leia como que en dos dias esta todo hecho,
+     y lo que hay en 48 h es RESPUESTA a la solicitud. Y "renovar cada 3 anos"
+     solo encaja con un contrato de 36 meses, que hoy es la excepcion: 39 de los
+     48 coches van a 60. Se renueva al acabar el contrato, dure lo que dure. */
+  { feature: "Respuesta a tu solicitud",     movilease: "48 horas",      dealer: "Semanas" },
+  { feature: "Renovar al acabar",            movilease: "Sí, sin coste", dealer: "Vender y recomprar" },
   { feature: "Riesgo de depreciación",      movilease: "Cero",          dealer: "Asumes la pérdida" },
 ];
 

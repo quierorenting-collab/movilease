@@ -791,7 +791,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
 
               <ul className="mt-10 space-y-5">
                 {[
-                  "Respuesta en menos de 24 horas",
+                  "Respuesta en 48 h",
                   "Sin entrada inicial y todo incluido en una cuota",
                   "Asesoramiento sin compromiso",
                 ].map((bullet) => (

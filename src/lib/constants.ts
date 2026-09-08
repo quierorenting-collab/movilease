@@ -105,7 +105,10 @@ export const USER_ROLE_LABELS = {
 export type UserRole = keyof typeof USER_ROLE_LABELS;
 
 export const RENTING_DEFAULTS = {
-  contractMonths: 36,
+  /* Aqui habia un contractMonths: 36 que se publicaba tal cual en la
+     calculadora. No hay un plazo por defecto que sea cierto: 39 de los 48
+     coches activos cotizan a 60 meses, 6 a 36, 2 a 48 y 1 a 72. El plazo sale
+     del vehiculo, nunca de aqui. Los km si son iguales en los 48. */
   annualKm: 10000,
   includedServices: [
     "Seguro a todo riesgo",

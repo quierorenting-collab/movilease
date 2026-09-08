@@ -22,7 +22,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/catalogo", priority: 0.9, changeFrequency: "daily" as const },
     { path: "/asesor", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/calculadora", priority: 0.7, changeFrequency: "monthly" as const },
-    { path: "/comparador", priority: 0.6, changeFrequency: "monthly" as const },
+    /* /comparador no va aqui: robots.ts lo tiene en disallow y la propia pagina
+       se declara noIndex. Ofrecerselo a Google y prohibirselo a la vez es el
+       aviso de "URL enviada bloqueada por robots.txt" de Search Console.
+       /favoritos ya estaba fuera por lo mismo. */
     { path: "/contacto", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/renting-empresas", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/renting-autonomos", priority: 0.75, changeFrequency: "monthly" as const },

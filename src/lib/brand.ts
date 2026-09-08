@@ -18,7 +18,7 @@ export const BRANDS = {
     name: "QuieroRenting",
     domain: "quierorenting.es",
     description:
-      "Renting de coches para particulares desde 264€/mes. Sin entrada, seguro incluido, gestión en 48h.",
+      "Renting de coches para particulares sin entrada, con seguro incluido y respuesta en 48 h.",
   },
 } as const;
 

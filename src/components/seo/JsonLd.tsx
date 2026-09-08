@@ -195,7 +195,12 @@ export function VehicleModelJsonLd({
                   price: validos[0],
                   priceCurrency: "EUR",
                   unitCode: "MON",
-                  billingDuration: 36,
+                  /* Sin billingDuration a proposito. Estaba fijo en 36 meses y el
+                     precio que lo acompana es la cuota base del vehiculo, que en 39
+                     de los 48 coches es de 60 meses. Aqui solo llegan importes, no
+                     plazos, asi que no se puede emitir el real. unitCode MON e
+                     billingIncrement 1 ya dicen que la cuota es mensual, que es lo
+                     unico cierto para todos. */
                   billingIncrement: 1,
                 },
               },

@@ -84,7 +84,9 @@ export function VehiclePricingTable({
                       m === highlighted ? "bg-[#0068FF]/25 text-white" : "text-on-dark-2"
                     }`}
                   >
-                    {cell ? formatPriceFromCents(cell.monthlyPriceCents) : "—"}
+                    {cell && cell.monthlyPriceCents > 0
+                  ? formatPriceFromCents(cell.monthlyPriceCents)
+                  : "—"}
                   </td>
                 );
               })}

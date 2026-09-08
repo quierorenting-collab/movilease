@@ -255,7 +255,7 @@ export function LeadForm({
 
       {/* Reduce la ansiedad justo donde se decide el envío */}
       <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-[12.5px] text-white/70">
-        {["Sin compromiso", "Respuesta en menos de 24 h", "No cedemos tus datos"].map((item) => (
+        {["Sin compromiso", "Respuesta en 48 h", "No cedemos tus datos"].map((item) => (
           <li key={item} className="flex items-center gap-1.5">
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="h-3.5 w-3.5 shrink-0">
               <circle cx="8" cy="8" r="8" fill="#5AA0FF" fillOpacity="0.2" />

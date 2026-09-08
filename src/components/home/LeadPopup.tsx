@@ -367,7 +367,7 @@ export function LeadPopup() {
                       {status === "sending" ? "Enviando…" : "Quiero que me asesoren"}
                     </button>
                     <p className="text-center text-[11.5px] text-white/40">
-                      Sin compromiso · Respuesta en menos de 24 h
+                      Sin compromiso · Respuesta en 48 h
                     </p>
                   </form>
                 </div>

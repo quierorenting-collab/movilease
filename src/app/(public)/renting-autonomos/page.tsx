@@ -261,7 +261,7 @@ export default function RentingAutonomosPage() {
               <Reveal delay={0.15}>
                 <ul className="mt-10 space-y-4">
                   {[
-                    "Respuesta en menos de 24 horas",
+                    "Respuesta en 48 h",
                     "Sin compromiso",
                     "Trámites simplificados",
                   ].map((item) => (
