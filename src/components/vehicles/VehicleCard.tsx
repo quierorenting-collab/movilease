@@ -4,6 +4,7 @@ import { BotonAsesor } from "@/components/asesor/BotonAsesor";
 import Link from "next/link";
 import type { VehicleCardData } from "@/lib/data/vehicles";
 import { FUEL_TYPE_LABELS, TRANSMISSION_LABELS, buildWhatsAppLink } from "@/lib/constants";
+import { fotoTarjeta } from "@/lib/utils";
 import { FavoriteButton } from "@/components/vehicles/FavoriteButton";
 import { CompareButton } from "@/components/vehicles/CompareButton";
 
@@ -28,7 +29,7 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
         <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#F5F6F8] to-[#EAECEF]">
           {vehicle.imageUrl ? (
             <Image
-              src={vehicle.imageUrl}
+              src={fotoTarjeta(vehicle.imageUrl)!}
               alt={`${vehicle.brandName} ${vehicle.modelName}`}
               fill
               /* 900 ms era medio segundo MÁS que la tarjeta, que termina en

@@ -5,6 +5,7 @@ import { getComparisonVehicles, type ComparisonVehicle } from "@/lib/data/vehicl
 import { FUEL_TYPE_LABELS, TRANSMISSION_LABELS, VEHICLE_CATEGORY_LABELS } from "@/lib/constants";
 import { Reveal } from "@/components/ui/Reveal";
 import { pageMetadata } from "@/lib/metadata";
+import { fotoTarjeta } from "@/lib/utils";
 
 export const metadata: Metadata = pageMetadata({
   title: "Comparador de coches en renting",
@@ -116,7 +117,7 @@ export default async function ComparadorPage({
                             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/[0.04]">
                               {v.imageUrl ? (
                                 <Image
-                                  src={v.imageUrl}
+                                  src={fotoTarjeta(v.imageUrl)!}
                                   alt={`${v.brandName} ${v.modelName}`}
                                   fill
                                   sizes="(max-width: 640px) 60vw, 220px"

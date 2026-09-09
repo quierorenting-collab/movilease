@@ -28,7 +28,7 @@ import {
   VehicleModelJsonLd,
 } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
-import { formatEuros } from "@/lib/utils";
+import { formatEuros, fotoTarjeta } from "@/lib/utils";
 import Link from "next/link";
 import { BotonAsesor } from "@/components/asesor/BotonAsesor";
 
@@ -609,7 +609,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
                       <div className="relative h-[80px] w-[120px] shrink-0 overflow-hidden rounded-xl bg-white/[0.04]">
                         {vehicle.imageUrl ? (
                           <Image
-                            src={vehicle.imageUrl}
+                            src={fotoTarjeta(vehicle.imageUrl)!}
                             alt={`${model.brandName} ${model.model.name} ${vehicle.version}`}
                             fill
                             sizes="120px"

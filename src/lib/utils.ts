@@ -38,3 +38,22 @@ export function formatEuros(euros: number): string {
     useGrouping: true,
   }).format(euros);
 }
+
+/**
+ * La version de TARJETA de una portada.
+ *
+ * Desde que Vercel dejo de optimizar imagenes (cuota agotada, 402 en
+ * /_next/image) las fotos se sirven tal cual desde public/. Una tarjeta se ve
+ * a unos 400 px y estaba bajandose el fichero de 1.000: 3,5 MB al abrir el
+ * catalogo. scripts/generar-miniaturas.mjs deja al lado de cada portada un
+ * "-card.webp" de 500 px, y esto devuelve su ruta.
+ *
+ * Solo toca las portadas locales que acaban en -01.webp. Cualquier otra cosa
+ * —una url externa, una foto de galeria— se devuelve sin tocar, asi que si
+ * alguna vez no hay miniatura se ve la grande y no una imagen rota.
+ */
+export function fotoTarjeta(url: string | null | undefined): string | null {
+  if (!url) return null;
+  if (!url.startsWith("/coches-nuevos/") || !url.endsWith("-01.webp")) return url;
+  return url.replace(/\.webp$/, "-card.webp");
+}

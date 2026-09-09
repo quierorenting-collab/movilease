@@ -8,6 +8,7 @@ import {
   getVehiclesByModelSlugs,
 } from "@/lib/data/vehicles";
 import { buildWhatsAppLink } from "@/lib/constants";
+import { fotoTarjeta } from "@/lib/utils";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { BrandCard } from "@/components/catalog/BrandCard";
 import { HeroVideo } from "@/components/home/HeroVideo";
@@ -412,7 +413,7 @@ export default async function HomePage() {
                              al tamaño real de la tarjeta en vez de la foto
                              original completa. */
                           <Image
-                            src={vehicle.imageUrl}
+                            src={fotoTarjeta(vehicle.imageUrl)!}
                             alt={`${vehicle.brandName} ${vehicle.modelName}`}
                             fill
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -543,7 +544,7 @@ export default async function HomePage() {
                         </span>
                         {vehicle.imageUrl && (
                           <Image
-                            src={vehicle.imageUrl}
+                            src={fotoTarjeta(vehicle.imageUrl)!}
                             alt={`${vehicle.brandName} ${vehicle.modelName}`}
                             fill
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
