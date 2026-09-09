@@ -57,3 +57,25 @@ export function fotoTarjeta(url: string | null | undefined): string | null {
   if (!url.startsWith("/coches-nuevos/") || !url.endsWith("-01.webp")) return url;
   return url.replace(/\.webp$/, "-card.webp");
 }
+
+/**
+ * La version intermedia (800 px) de una portada, para el hero de la ficha.
+ *
+ * Existe aparte de fotoTarjeta porque no es el mismo caso aunque las cajas
+ * midan parecido. La tarjeta es una de cincuenta en una rejilla y ahi manda el
+ * peso total de la pagina; el hero de la ficha es LA foto, se mira de cerca y
+ * en un movil de gama alta (3x) la de 500 se notaba blanda.
+ *
+ * No es la version movil: la ficha la ofrece junto con la original en un
+ * srcset y es el navegador quien elige. En un movil de 375 px se lleva esta;
+ * en un escritorio de densidad normal, tambien; solo en pantallas de mucha
+ * densidad se baja la de 1.000.
+ *
+ * Mismo salvavidas que fotoTarjeta: si la url no es una portada local se
+ * devuelve tal cual, asi que en el peor caso se ve la grande, nunca un hueco.
+ */
+export function fotoHeroMovil(url: string | null | undefined): string | null {
+  if (!url) return null;
+  if (!url.startsWith("/coches-nuevos/") || !url.endsWith("-01.webp")) return url;
+  return url.replace(/\.webp$/, "-hero.webp");
+}

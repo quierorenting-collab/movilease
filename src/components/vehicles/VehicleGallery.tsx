@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { fotoTarjeta } from "@/lib/utils";
+import { fotoHeroMovil } from "@/lib/utils";
 import type { VehicleGalleryImage } from "@/lib/data/vehicles";
 
 export function VehicleGallery({
@@ -41,38 +41,42 @@ export function VehicleGallery({
         className="group relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-[#0E0E0E]"
         style={{ boxShadow: "0 40px 80px -20px rgba(0, 0, 0, 0.7)" }}
       >
-        {/* En movil se pide la version de 500 px, no la de 1.000.
+        {/* Aqui NO se usa next/image, y es a proposito.
 
-            Desde que no hay optimizador (Vercel devolvia 402, cuota agotada) el
-            navegador se baja el fichero tal cual, y esta foto son 100 KB de los
-            284 que pesa la ficha entera. En un movil se muestra a unos 327 px, o
-            sea que se estaban bajando tres veces mas pixeles de los que se ven.
+            Desde que Vercel dejo de optimizar imagenes (cuota agotada, 402 en
+            /_next/image) next/image no redimensiona nada: se limita a pintar
+            un <img> con la foto original. Lo unico que seguia aportando era el
+            preload de `priority`... y ese preload era justo el problema: Next
+            lo escribe SIN media query, apuntando siempre a la foto de 1.000 px.
+            Con un <picture> el movil acababa bajandose las dos, la de 800 que
+            se ve y la de 1.000 que no, o sea mas peso que antes de optimizar.
+            Medido en local: 136 KB en vez de 35.
 
-            El <picture> va con display:contents a proposito: sin eso generaria
-            una caja propia y la imagen, que se posiciona con fill (absolute),
-            perderia su contenedor y se saldria del marco.
+            Con srcset/sizes nativos el navegador elige UN fichero y baja solo
+            ese: en un movil de 375 px la caja mide 327 y a 2x pide la de 800;
+            en escritorio, donde se ve a 568, pide la de 1.000. El preload de
+            `priority` no hace falta para el LCP porque esta foto va en el HTML
+            inicial y el preload scanner la encuentra igual; fetchPriority alto
+            y loading eager le dan la misma prioridad sin atarla a una medida.
 
-            Si no hay miniatura —una foto de galeria que no sea la portada—,
-            fotoTarjeta devuelve la misma ruta y esto no pinta el <source>. */}
+            Si no hay version reducida —una foto de galeria, que no es portada—
+            fotoHeroMovil devuelve la misma ruta y se sirve sin srcset. */}
         {(() => {
-          const foto = (
-            <Image
+          const pequena = fotoHeroMovil(current.url);
+          const hayDosMedidas = pequena && pequena !== current.url;
+          return (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
               key={current.url}
               src={current.url}
+              srcSet={hayDosMedidas ? `${pequena} 800w, ${current.url} 1008w` : undefined}
+              sizes={hayDosMedidas ? "(max-width: 1024px) 100vw, 50vw" : undefined}
               alt={current.alt ?? alt}
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-contain p-4"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-contain p-4"
             />
-          );
-          const pequena = fotoTarjeta(current.url);
-          if (!pequena || pequena === current.url) return foto;
-          return (
-            <picture style={{ display: "contents" }}>
-              <source media="(max-width: 640px)" srcSet={pequena} />
-              {foto}
-            </picture>
           );
         })()}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
