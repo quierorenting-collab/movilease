@@ -17,6 +17,11 @@ export interface NavBrand {
 const NAV_LINKS = [
   { href: "/catalogo", label: "Catálogo" },
   { href: "/#ofertas", label: "Ofertas" },
+  /* Las furgonetas son su propia decision de compra —autonomo que necesita
+     carga— y no se encuentran hurgando en el catalogo. Apunta a la landing
+     que ya existe, no a /catalogo?category=furgoneta: la landing tiene texto
+     propio y la indexa Google. Igual que en quierorenting.es. */
+  { href: "/renting-furgoneta", label: "Furgonetas" },
   { href: "/calculadora", label: "Calculadora" },
   { href: "/renting-empresas", label: "Empresas" },
   { href: "/renting-autonomos", label: "Autónomos" },
@@ -164,7 +169,7 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
           </Link>
 
           {/* Desktop nav */}
-          <nav aria-label="Navegación principal" className="hidden items-center gap-6 lg:flex xl:gap-7">
+          <nav aria-label="Navegación principal" className="hidden items-center gap-6 xl:flex xl:gap-7">
             {NAV_LINKS.map((link) => {
               const hasMega = link.href === "/catalogo" && brands.length > 0;
               return (
@@ -218,7 +223,7 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
               aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={mobileOpen}
               aria-controls="menu-movil"
-              className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-lg border border-[#0A0A0A]/15 bg-[#0A0A0A]/[0.03] lg:hidden"
+              className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-lg border border-[#0A0A0A]/15 bg-[#0A0A0A]/[0.03] xl:hidden"
             >
               <motion.span
                 animate={mobileOpen ? { rotate: 45, y: 6.5 } : { rotate: 0, y: 0 }}
@@ -312,7 +317,7 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
             role="dialog"
             aria-modal="true"
             aria-label="Menú de navegación"
-            className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-[#071A3D]/98 px-7 pb-10 pt-[104px] backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-[#071A3D]/98 px-7 pb-10 pt-[104px] backdrop-blur-xl xl:hidden"
           >
             <nav aria-label="Navegación principal" className="flex flex-1 flex-col justify-center">
               <ul className="flex flex-col">

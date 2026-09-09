@@ -1,0 +1,50 @@
+{
+  "brand": "Renault",
+  "model": "Austral",
+  "version": "Evolution e-Tech Full Hybrid 200 CV",
+  "category": "suv",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "monthly_price_cents": 49700,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 200,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "body_type": "SUV",
+  "colors": ["Gris Pizarra"],
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Asistencia en carretera 24h",
+    "Gestión de multas e impuestos",
+    "Entrega en provincia",
+    "Cambio de neumáticos"
+  ],
+  "images": [
+    { "url": "/coches-nuevos/renault-austral-01.webp", "alt": "Renault Austral en renting — vista exterior" },
+    { "url": "/coches-nuevos/renault-austral-02.webp", "alt": "Renault Austral en renting — trasera" },
+    { "url": "/coches-nuevos/renault-austral-03.webp", "alt": "Renault Austral en renting — perfil" },
+    { "url": "/coches-nuevos/renault-austral-04.webp", "alt": "Renault Austral en renting — frontal" },
+    { "url": "/coches-nuevos/renault-austral-05.webp", "alt": "Renault Austral en renting — interior" },
+    { "url": "/coches-nuevos/renault-austral-06.webp", "alt": "Renault Austral en renting — detalle" }
+  ],
+  "pricing": [
+    { "contract_months": 36, "annual_km": 10000, "monthly_price_cents": 52500 },
+    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 51800 },
+    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 49700 },
+    { "contract_months": 36, "annual_km": 15000, "monthly_price_cents": 54900 },
+    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 54300 },
+    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 52900 },
+    { "contract_months": 36, "annual_km": 20000, "monthly_price_cents": 57500 },
+    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 57400 },
+    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 56200 },
+    { "contract_months": 36, "annual_km": 25000, "monthly_price_cents": 60400 },
+    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 60400 },
+    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 59300 },
+    { "contract_months": 36, "annual_km": 30000, "monthly_price_cents": 65200 },
+    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 64300 },
+    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 64000 }
+  ]
+}

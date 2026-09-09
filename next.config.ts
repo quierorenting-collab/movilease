@@ -31,7 +31,6 @@ const MODELOS_RETIRADOS = [
   "renting-maxus-deliver-9",
   "renting-maxus-t60-max",
   "renting-mazda-6e",
-  "renting-mazda-cx-5",
   "renting-mg-zs",
   "renting-mitsubishi-outlander",
   "renting-nissan-x-trail",
@@ -43,7 +42,6 @@ const MODELOS_RETIRADOS = [
   /* El Rifter estuvo retirado y volvio al catalogo el 09/09/2026 desde la
      lamina del Drive. Sale de esta lista: si no, su ficha nueva redirige a
      /catalogo con un 307 y no se puede ver. */
-  "renting-renault-austral",
   "renting-renault-captur",
   "renting-renault-espace",
   "renting-renault-rafale",
