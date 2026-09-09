@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { fotoTarjeta } from "@/lib/utils";
 import type { VehicleGalleryImage } from "@/lib/data/vehicles";
 
 export function VehicleGallery({
@@ -40,15 +41,40 @@ export function VehicleGallery({
         className="group relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-[#0E0E0E]"
         style={{ boxShadow: "0 40px 80px -20px rgba(0, 0, 0, 0.7)" }}
       >
-        <Image
-          key={current.url}
-          src={current.url}
-          alt={current.alt ?? alt}
-          fill
-          priority
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-contain p-4"
-        />
+        {/* En movil se pide la version de 500 px, no la de 1.000.
+
+            Desde que no hay optimizador (Vercel devolvia 402, cuota agotada) el
+            navegador se baja el fichero tal cual, y esta foto son 100 KB de los
+            284 que pesa la ficha entera. En un movil se muestra a unos 327 px, o
+            sea que se estaban bajando tres veces mas pixeles de los que se ven.
+
+            El <picture> va con display:contents a proposito: sin eso generaria
+            una caja propia y la imagen, que se posiciona con fill (absolute),
+            perderia su contenedor y se saldria del marco.
+
+            Si no hay miniatura —una foto de galeria que no sea la portada—,
+            fotoTarjeta devuelve la misma ruta y esto no pinta el <source>. */}
+        {(() => {
+          const foto = (
+            <Image
+              key={current.url}
+              src={current.url}
+              alt={current.alt ?? alt}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-contain p-4"
+            />
+          );
+          const pequena = fotoTarjeta(current.url);
+          if (!pequena || pequena === current.url) return foto;
+          return (
+            <picture style={{ display: "contents" }}>
+              <source media="(max-width: 640px)" srcSet={pequena} />
+              {foto}
+            </picture>
+          );
+        })()}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         {/* Mismo aviso que en la tarjeta del catalogo: el color y el acabado de
             la foto de estudio no tienen por que ser los del coche entregado. */}
