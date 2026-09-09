@@ -45,9 +45,14 @@ const OFERTAS_VIDEO = false;
  * modelo dejara de estar publicado simplemente no aparece.
  */
 const EXCLUSIVOS = [
-  "renting-maserati-grecale",
-  "renting-mercedes-benz-glc-coupe",
+  /* La lista no manda el orden: la seccion los pinta de menos a mas
+     precio (exclusivosPorPrecio). Aqui solo se dice CUALES son. */
+  "renting-mercedes-benz-gla",
+  "renting-bmw-x1",
   "renting-bmw-x3",
+  "renting-mercedes-benz-glc-coupe",
+  "renting-maserati-grecale",
+  "renting-mercedes-benz-gle-coupe",
 ];
 
 export const metadata: Metadata = pageMetadata({
