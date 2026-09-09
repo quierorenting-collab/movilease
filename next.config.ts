@@ -40,7 +40,9 @@ const MODELOS_RETIRADOS = [
   "renting-peugeot-2008",
   "renting-peugeot-3008",
   "renting-peugeot-partner",
-  "renting-peugeot-rifter",
+  /* El Rifter estuvo retirado y volvio al catalogo el 09/09/2026 desde la
+     lamina del Drive. Sale de esta lista: si no, su ficha nueva redirige a
+     /catalogo con un 307 y no se puede ver. */
   "renting-renault-austral",
   "renting-renault-captur",
   "renting-renault-espace",
