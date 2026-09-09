@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# movilease.es
 
-## Getting Started
+Renting de coches. **Next.js 15 (App Router) + Supabase**, desplegada en Vercel.
 
-First, run the development server:
+La documentación de verdad está en otro sitio y hay que leerla antes de tocar
+nada; esto es solo la portada:
+
+| Documento | Para qué |
+|---|---|
+| [`docs/CONTEXTO-MAESTRO.md`](docs/CONTEXTO-MAESTRO.md) | **Empieza aquí.** Cómo funciona todo, qué no se debe romper y por qué. |
+| [`docs/HANDOFF-MAESTRO.md`](docs/HANDOFF-MAESTRO.md) | La versión larga: historial de decisiones e inventario componente a componente. |
+| [`AGENTS.md`](AGENTS.md) | Este no es el Next.js que recuerdas: `cookies()`, `headers()` y `params` son asíncronos. |
+
+## Comandos
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install      # obligatorio en sesión nueva: node_modules no viene en el repo
+npm run dev      # http://localhost:3000
+npm run lint     # tiene que salir limpio
+npm run build    # tiene que compilar
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Sin `.env.local` la web arranca igual: la capa de datos nunca lanza, así que el
+catálogo sale vacío pero el diseño se ve entero. Suficiente para maquetar.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Cómo se publica
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Haciendo push a `master`.** El repositorio está conectado al proyecto
+`movilease` de Vercel, que construye y publica solo. Cualquier otra rama sale
+como vista previa con su propia URL.
 
-## Learn More
+**Publicar un coche NO es desplegar.** El catálogo vive en Supabase, no en el
+código, así que un coche nuevo no aparece por hacer push:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+python scripts/add_vehicle.py scripts/fichas/<coche>.json
+curl -X POST https://movilease.es/api/revalidate \
+  -H "x-revalidate-secret: <REVALIDATE_SECRET>" \
+  -H "Content-Type: application/json" -d '{"path":"/catalogo"}'
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+El procedimiento completo, con las reglas de precio y el aviso de `annual_km`,
+está en el §7.1 del contexto maestro.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Dos trampas de las fotos
 
-## Deploy on Vercel
+Las dos vienen de que **Vercel dejó de optimizar imágenes el 09/09/2026**: se
+agotó la cuota del plan, `/_next/image` empezó a devolver 402 y la web se quedó
+entera sin fotos.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **`next.config.ts` lleva `images: { unoptimized: true }`.** No lo quites sin
+   comprobar antes que la cuenta vuelve a tener cuota, o la web se queda otra
+   vez sin una sola foto.
+2. **Las versiones reducidas se generan en el build**, con el `prebuild` que
+   llama a `scripts/generar-miniaturas.mjs`: por cada portada `-01.webp` deja un
+   `-card.webp` de 500 px para las tarjetas y un `-hero.webp` de 800 px para la
+   foto grande de la ficha. Si alguna vez se salta ese paso, las tarjetas
+   apuntan a ficheros que no existen.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Secretos
+
+Ninguno vive en el repositorio, y tiene que seguir siendo así: **es público**.
+`.env.local` está en `.gitignore` y los valores reales están en Vercel. La
+plantilla de las variables, sin valores, está en `.env.example`.
