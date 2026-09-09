@@ -1,0 +1,49 @@
+{
+  "brand": "BMW",
+  "model": "X3",
+  "version": "30e xDrive 299 CV",
+  "category": "suv",
+  "fuel_type": "phev",
+  "transmission": "automatico",
+  "monthly_price_cents": 89200,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 299,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "0",
+  "body_type": "SUV",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia",
+    "Cargador y soluciones de carga"
+  ],
+  "images": [
+    { "url": "/coches-nuevos/bmw-x3-01.webp", "alt": "BMW X3 en renting — vista exterior" },
+    { "url": "/coches-nuevos/bmw-x3-02.webp", "alt": "BMW X3 en renting — trasera" },
+    { "url": "/coches-nuevos/bmw-x3-03.webp", "alt": "BMW X3 en renting — perfil" },
+    { "url": "/coches-nuevos/bmw-x3-04.webp", "alt": "BMW X3 en renting — frontal" },
+    { "url": "/coches-nuevos/bmw-x3-05.webp", "alt": "BMW X3 en renting — vista trasera" },
+    { "url": "/coches-nuevos/bmw-x3-06.webp", "alt": "BMW X3 en renting — puesto de conducción" },
+    { "url": "/coches-nuevos/bmw-x3-07.webp", "alt": "BMW X3 en renting — asientos" },
+    { "url": "/coches-nuevos/bmw-x3-08.webp", "alt": "BMW X3 en renting — maletero" }
+  ],
+  "pricing": [
+    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 96700 },
+    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 89200 },
+    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 100200 },
+    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 92900 },
+    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 104700 },
+    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 98300 },
+    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 109700 },
+    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 103900 },
+    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 114800 },
+    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 109400 }
+  ]
+}

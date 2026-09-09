@@ -47,7 +47,7 @@ const OFERTAS_VIDEO = false;
 const EXCLUSIVOS = [
   "renting-maserati-grecale",
   "renting-mercedes-benz-glc-coupe",
-  "renting-bmw-x1",
+  "renting-bmw-x3",
 ];
 
 export const metadata: Metadata = pageMetadata({
