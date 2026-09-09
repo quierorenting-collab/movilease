@@ -109,6 +109,23 @@ const nextConfig: NextConfig = {
   },
 
   images: {
+    /* SIN OPTIMIZADOR, y no por gusto.
+
+       El 09/09/2026 Vercel empezo a devolver 402
+       OPTIMIZED_IMAGE_REQUEST_PAYMENT_REQUIRED en /_next/image: se agoto la
+       cuota de optimizacion del plan. El efecto no era una foto suelta, era
+       la web ENTERA sin imagenes, porque todas pasan por ahi. Los ficheros
+       de public/ seguian sirviendose con 200; lo que fallaba era el paso
+       intermedio.
+
+       Con unoptimized el navegador se descarga el fichero tal cual. Se puede
+       asumir porque las portadas ya son WebP de ~1.000 px y 80-100 KB, no
+       originales de camara. Lo que se pierde es el redimensionado por
+       pantalla y el AVIF: en una tarjeta de 400 px se baja el de 1.000.
+
+       ESTO ES UN PARCHE. La solucion de verdad es ampliar la cuota en
+       Vercel; cuando este, se quita esta linea y vuelve todo lo de abajo. */
+    unoptimized: true,
     // AVIF primero: en fotos de coche baja un 20-30 % respecto a WebP
     formats: ["image/avif", "image/webp"],
     // El hero pide quality=92; declararlo quita el aviso y en Next 16 será obligatorio
