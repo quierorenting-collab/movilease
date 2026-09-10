@@ -54,7 +54,6 @@ const EXCLUSIVOS = [
   "renting-mercedes-benz-glc-coupe",
   "renting-maserati-grecale",
   "renting-mercedes-benz-gle-coupe",
-  "renting-cupra-formentor-manual",
 ];
 
 export const metadata: Metadata = pageMetadata({
