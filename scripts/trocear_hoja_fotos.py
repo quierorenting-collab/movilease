@@ -81,7 +81,11 @@ HOJAS = {
     "toyota-yaris-cross": r"M AUTOMOCION\ARVAL\TOYOTA YARIS CROSS\FOTOS TOYOTA YARIS CROSS.png",
     "vw-polo": r"M AUTOMOCION\AYVENS\POLO\FOTOS POLO.png",
     "vw-t-roc": r"M AUTOMOCION\VOLKSWAGEN FINANCE\T ROC\GRIS LOBO\FOTOS T-ROC GRIS.png",
-    "vw-taigo": r"M AUTOMOCION\VOLKSWAGEN FINANCE\TAIGO\FOTOS TAIGO.png",
+    # vw-taigo NO va en este mapa, a proposito. La hoja que habia aqui
+    # (VOLKSWAGEN FINANCE) era un T-Cross con el rotulo TAIGO pegado. La buena,
+    # subida el 14/09/2026 a M AUTOMOCION/AYVENS/TAIGO, es un mosaico de diez
+    # celdas que esta plantilla no reconoce, asi que se corto a mano. Y si
+    # --todas regenerara vw-taigo-01 machacaria la portada, que se eligio a mano.
     "vw-tiguan": r"M AUTOMOCION\TIGUAN\FOTOS TIGUAN.png",
 }
 

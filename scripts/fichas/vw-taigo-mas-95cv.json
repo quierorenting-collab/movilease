@@ -13,13 +13,13 @@
   "consumption_unit": "l/100km",
   "seats": 5,
   "doors": 5,
-  "environmental_label": "eco",
+  "environmental_label": "c",
   "colors": [
     "Blanco"
   ],
   "body_type": "SUV Coupé",
-  "short_description": "Motor eficiente de 95 CV con etiqueta ECO",
-  "description": "Motor eficiente de 95 CV: ideal para el día a día con bajo consumo (5,4L/100km).\nDiseño SUV coupé moderno y deportivo con gran personalidad.\nEquipamiento completo en confort, tecnología y seguridad.\nEtiqueta ECO: más ventajas, menos restricciones.\nTodo incluido en una única cuota mensual, sin gastos imprevistos.",
+  "short_description": "Motor eficiente de 95 CV con etiqueta C",
+  "description": "Motor eficiente de 95 CV: ideal para el día a día con bajo consumo (5,4L/100km).\nDiseño SUV coupé moderno y deportivo con gran personalidad.\nEquipamiento completo en confort, tecnología y seguridad.\nEtiqueta ambiental C.\nTodo incluido en una única cuota mensual, sin gastos imprevistos.",
   "equipment": [
     "2 conectores USB tipo C delantero",
     "2 conectores USB tipo C en la consola central detrás, potencia carga hasta 45kW",
@@ -47,6 +47,42 @@
     {
       "url": "/coches-nuevos/vw-taigo-01.webp",
       "alt": "Volkswagen Taigo en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-02.webp",
+      "alt": "Volkswagen Taigo en renting — frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-03.webp",
+      "alt": "Volkswagen Taigo en renting — trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-04.webp",
+      "alt": "Volkswagen Taigo en renting — lateral"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-05.webp",
+      "alt": "Volkswagen Taigo en renting — faro delantero"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-06.webp",
+      "alt": "Volkswagen Taigo en renting — llanta"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-07.webp",
+      "alt": "Volkswagen Taigo en renting — puesto de conducción"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-08.webp",
+      "alt": "Volkswagen Taigo en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-09.webp",
+      "alt": "Volkswagen Taigo en renting — plazas traseras"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-10.webp",
+      "alt": "Volkswagen Taigo en renting — maletero"
     }
   ],
   "pricing": [
