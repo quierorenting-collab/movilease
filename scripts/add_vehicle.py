@@ -192,7 +192,45 @@ def main():
         print(f"  + {len(rows)} fotos insertadas")
 
     print(f"\nListo: https://movilease.es/{model_slug}")
+    avisar_si_esta_retirado(model_slug)
+    revalidar(model_slug)
 
+
+
+def revalidar(slug):
+    """Refresca en produccion la ficha, el catalogo y la home tras publicar.
+
+    Sin esto un coche recien publicado puede seguir dando 404 durante dias.
+    La ficha usa ISR y Vercel puede tener guardado un 404 de esa URL, que sigue
+    sirviendo como HIT aunque el coche ya exista. Paso con el Cupra Formentor
+    manual: se publico el 10/09 con sus 15 cuotas y sus 11 fotos, la home lo
+    enlazaba cuatro veces desde Ofertas, y el 14/09 su ficha seguia en 404.
+    Revalidar solo /catalogo, que es lo que decia el manual, no toca esa cache.
+
+    La home tambien entra porque Ofertas sale de is_offer: un cambio de precio
+    o de oferta no se veria hasta que caducara la pagina.
+
+    No lanza si falla: el alta en la base de datos ya esta hecha y no se debe
+    dar por fallida por un problema de red al refrescar.
+    """
+    secreto = os.environ.get("REVALIDATE_SECRET")
+    if not secreto:
+        print("")
+        print("  AVISO: falta REVALIDATE_SECRET en .env.local y no se ha refrescado la web.")
+        print(f"  /{slug} puede seguir en 404 o con el precio viejo hasta revalidarla a mano.")
+        return
+    for ruta in (f"/{slug}", "/catalogo", "/"):
+        try:
+            r = requests.post(
+                "https://movilease.es/api/revalidate",
+                headers={"x-revalidate-secret": secreto, "Content-Type": "application/json"},
+                json={"path": ruta},
+                timeout=30,
+            )
+            estado = "ok" if r.ok else f"FALLO {r.status_code}"
+        except requests.RequestException as e:
+            estado = f"FALLO ({e.__class__.__name__})"
+        print(f"  ~ revalidado {ruta}: {estado}")
 
 
 def avisar_si_esta_retirado(slug):
