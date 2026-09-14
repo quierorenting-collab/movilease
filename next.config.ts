@@ -55,6 +55,9 @@ const MODELOS_RETIRADOS = [
   "renting-toyota-proace",
   "renting-volkswagen-golf",
   "renting-volkswagen-t-cross",
+  // Skoda Fabia: el Drive solo lo tiene en FUERA DE STOCK y SIN STOCK
+  // (revision del 14/09/2026).
+  "renting-skoda-fabia",
 ];
 
 const nextConfig: NextConfig = {

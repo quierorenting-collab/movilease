@@ -15,9 +15,7 @@
   "environmental_label": "c",
   "colors": [
     "Midnight Black",
-    "Gris Magnetic",
-    "Gris Graphene",
-    "Rojo Metalizado"
+    "Gris Magnetic"
   ],
   "body_type": "Hatchback",
   "short_description": "Acabado FR Special Edition con motor 1.5 TSI de 150 CV",
@@ -79,9 +77,29 @@
       "monthly_price_cents": 38081
     },
     {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 35851
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 35687
+    },
+    {
       "contract_months": 36,
       "annual_km": 15000,
       "monthly_price_cents": 40998
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 38583
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 39504
     },
     {
       "contract_months": 36,
@@ -90,28 +108,8 @@
     },
     {
       "contract_months": 48,
-      "annual_km": 10000,
-      "monthly_price_cents": 35851
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 15000,
-      "monthly_price_cents": 38583
-    },
-    {
-      "contract_months": 48,
       "annual_km": 20000,
       "monthly_price_cents": 40217
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 10000,
-      "monthly_price_cents": 35687
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 15000,
-      "monthly_price_cents": 39504
     },
     {
       "contract_months": 60,

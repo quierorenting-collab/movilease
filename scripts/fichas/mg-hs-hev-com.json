@@ -24,7 +24,32 @@
     "Entrega a domicilio",
     "Cambio de neumáticos"
   ],
-  "images": [],
+  "images": [
+    {
+      "url": "/coches-nuevos/mg-hs-01.webp",
+      "alt": "MG HS en renting — vista 1"
+    },
+    {
+      "url": "/coches-nuevos/mg-hs-02.webp",
+      "alt": "MG HS en renting — vista 2"
+    },
+    {
+      "url": "/coches-nuevos/mg-hs-03.webp",
+      "alt": "MG HS en renting — vista 3"
+    },
+    {
+      "url": "/coches-nuevos/mg-hs-04.webp",
+      "alt": "MG HS en renting — vista 4"
+    },
+    {
+      "url": "/coches-nuevos/mg-hs-05.webp",
+      "alt": "MG HS en renting — vista 5"
+    },
+    {
+      "url": "/coches-nuevos/mg-hs-06.webp",
+      "alt": "MG HS en renting — vista 6"
+    }
+  ],
   "pricing": [
     {
       "contract_months": 36,
@@ -32,9 +57,39 @@
       "monthly_price_cents": 43676
     },
     {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 43873
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 40500
+    },
+    {
+      "contract_months": 72,
+      "annual_km": 10000,
+      "monthly_price_cents": 43925
+    },
+    {
       "contract_months": 36,
       "annual_km": 15000,
       "monthly_price_cents": 45620
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 45480
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 45523
+    },
+    {
+      "contract_months": 72,
+      "annual_km": 15000,
+      "monthly_price_cents": 46320
     },
     {
       "contract_months": 36,
@@ -42,9 +97,39 @@
       "monthly_price_cents": 47691
     },
     {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 47397
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 48002
+    },
+    {
+      "contract_months": 72,
+      "annual_km": 20000,
+      "monthly_price_cents": 48601
+    },
+    {
       "contract_months": 36,
       "annual_km": 25000,
       "monthly_price_cents": 49526
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 50207
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 50490
+    },
+    {
+      "contract_months": 72,
+      "annual_km": 25000,
+      "monthly_price_cents": 51148
     },
     {
       "contract_months": 36,
@@ -53,53 +138,18 @@
     },
     {
       "contract_months": 48,
-      "annual_km": 10000,
-      "monthly_price_cents": 43873
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 15000,
-      "monthly_price_cents": 45480
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 20000,
-      "monthly_price_cents": 47397
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 25000,
-      "monthly_price_cents": 50207
-    },
-    {
-      "contract_months": 48,
       "annual_km": 30000,
       "monthly_price_cents": 52658
     },
     {
       "contract_months": 60,
-      "annual_km": 10000,
-      "monthly_price_cents": 40500
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 15000,
-      "monthly_price_cents": 45523
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 20000,
-      "monthly_price_cents": 48002
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 25000,
-      "monthly_price_cents": 50490
-    },
-    {
-      "contract_months": 60,
       "annual_km": 30000,
       "monthly_price_cents": 53085
+    },
+    {
+      "contract_months": 72,
+      "annual_km": 30000,
+      "monthly_price_cents": 54611
     }
   ],
   "body_type": "SUV"

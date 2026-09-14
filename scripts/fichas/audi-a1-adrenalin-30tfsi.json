@@ -6,8 +6,8 @@
   "category": "turismo",
   "fuel_type": "gasolina",
   "transmission": "automatico",
-  "monthly_price_cents": 39850,
-  "contract_months": 60,
+  "monthly_price_cents": 37500,
+  "contract_months": 36,
   "annual_km": 10000,
   "horsepower": 116,
   "seats": 5,
@@ -59,77 +59,80 @@
     {
       "contract_months": 36,
       "annual_km": 10000,
-      "monthly_price_cents": 42377
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 15000,
-      "monthly_price_cents": 44592
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 20000,
-      "monthly_price_cents": 46807
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 25000,
-      "monthly_price_cents": 49623
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 30000,
-      "monthly_price_cents": 52490
+      "monthly_price_cents": 37500
     },
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 41220
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 15000,
-      "monthly_price_cents": 43165
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 20000,
-      "monthly_price_cents": 45112
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 25000,
-      "monthly_price_cents": 47764
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 30000,
-      "monthly_price_cents": 50632
+      "monthly_price_cents": 38800
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 39850
+      "monthly_price_cents": 38900
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 39700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 40800
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 41722
+      "monthly_price_cents": 40800
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 42000
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 42800
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 43515
+      "monthly_price_cents": 42700
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 44800
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 45400
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 46509
+      "monthly_price_cents": 45600
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 47700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 48300
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 49332
+      "monthly_price_cents": 48500
     }
+  ],
+  "colors": [
+    "Blanco Glaciar metalizado con techo Negro Mito"
   ]
 }

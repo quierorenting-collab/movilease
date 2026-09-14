@@ -6,7 +6,7 @@
   "category": "suv",
   "fuel_type": "phev",
   "transmission": "automatico",
-  "monthly_price_cents": 54000,
+  "monthly_price_cents": 53500,
   "contract_months": 36,
   "annual_km": 10000,
   "horsepower": 184,
@@ -14,8 +14,7 @@
   "doors": 5,
   "environmental_label": "0",
   "colors": [
-    "Negro Cristal",
-    "Diamond Dust"
+    "Negro Cristal"
   ],
   "body_type": "SUV",
   "badge_text": "Etiqueta CERO",
@@ -89,77 +88,77 @@
     {
       "contract_months": 36,
       "annual_km": 10000,
-      "monthly_price_cents": 54000
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 15000,
-      "monthly_price_cents": 57400
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 20000,
-      "monthly_price_cents": 60600
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 25000,
-      "monthly_price_cents": 64000
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 30000,
-      "monthly_price_cents": 67400
+      "monthly_price_cents": 53500
     },
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 55800
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 15000,
-      "monthly_price_cents": 58800
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 20000,
-      "monthly_price_cents": 61800
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 25000,
-      "monthly_price_cents": 64700
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 30000,
-      "monthly_price_cents": 67800
+      "monthly_price_cents": 55700
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 56100
+      "monthly_price_cents": 56300
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 57200
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 58900
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 58800
+      "monthly_price_cents": 59000
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 60900
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 62200
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 61500
+      "monthly_price_cents": 62100
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 65600
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 68600
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 64100
+      "monthly_price_cents": 66700
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 70200
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 71500
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 66800
+      "monthly_price_cents": 71300
     }
   ],
   "is_offer": true,

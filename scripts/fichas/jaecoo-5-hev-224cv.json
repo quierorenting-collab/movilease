@@ -65,9 +65,29 @@
       "monthly_price_cents": 51876
     },
     {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 49512
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 47350
+    },
+    {
       "contract_months": 36,
       "annual_km": 15000,
       "monthly_price_cents": 55116
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 52457
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 50831
     },
     {
       "contract_months": 36,
@@ -75,9 +95,29 @@
       "monthly_price_cents": 58091
     },
     {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 56257
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 54970
+    },
+    {
       "contract_months": 36,
       "annual_km": 25000,
       "monthly_price_cents": 61501
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 60049
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 59107
     },
     {
       "contract_months": 36,
@@ -86,48 +126,8 @@
     },
     {
       "contract_months": 48,
-      "annual_km": 10000,
-      "monthly_price_cents": 49512
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 15000,
-      "monthly_price_cents": 52457
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 20000,
-      "monthly_price_cents": 56257
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 25000,
-      "monthly_price_cents": 60049
-    },
-    {
-      "contract_months": 48,
       "annual_km": 30000,
       "monthly_price_cents": 64178
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 10000,
-      "monthly_price_cents": 47350
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 15000,
-      "monthly_price_cents": 50831
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 20000,
-      "monthly_price_cents": 54970
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 25000,
-      "monthly_price_cents": 59107
     },
     {
       "contract_months": 60,
@@ -136,7 +136,7 @@
     }
   ],
   "version": "HEV 1.5 TGDI 224CV Exclusive",
-  "environmental_label": "c",
+  "environmental_label": "eco",
   "equipment": [
     "Seguridad: Control de crucero adaptativo (ACC)",
     "Seguridad: Frenada automática de emergencia (AEB)",

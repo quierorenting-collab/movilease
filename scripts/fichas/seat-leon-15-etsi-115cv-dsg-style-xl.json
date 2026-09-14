@@ -12,7 +12,7 @@
   "horsepower": 115,
   "seats": 5,
   "doors": 5,
-  "environmental_label": "c",
+  "environmental_label": "eco",
   "colors": [
     "Blanco Suave"
   ],
@@ -29,7 +29,12 @@
     "Entrega a domicilio",
     "Cambio de neumáticos"
   ],
-  "images": [],
+  "images": [
+    {
+      "url": "/coches-nuevos/seat-leon-01.webp",
+      "alt": "SEAT León en renting — vista exterior"
+    }
+  ],
   "pricing": [
     {
       "contract_months": 36,
@@ -37,9 +42,29 @@
       "monthly_price_cents": 33939
     },
     {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 33046
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 33727
+    },
+    {
       "contract_months": 36,
       "annual_km": 15000,
       "monthly_price_cents": 36674
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 35610
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 37510
     },
     {
       "contract_months": 36,
@@ -48,28 +73,8 @@
     },
     {
       "contract_months": 48,
-      "annual_km": 10000,
-      "monthly_price_cents": 33046
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 15000,
-      "monthly_price_cents": 35610
-    },
-    {
-      "contract_months": 48,
       "annual_km": 20000,
       "monthly_price_cents": 37260
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 10000,
-      "monthly_price_cents": 33727
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 15000,
-      "monthly_price_cents": 37510
     },
     {
       "contract_months": 60,

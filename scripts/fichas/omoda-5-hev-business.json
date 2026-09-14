@@ -9,7 +9,7 @@
   "horsepower": 224,
   "seats": 5,
   "doors": 5,
-  "environmental_label": "c",
+  "environmental_label": "eco",
   "colors": [
     "Gris"
   ],
@@ -36,9 +36,29 @@
       "monthly_price_cents": 45579
     },
     {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 44080
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 42479
+    },
+    {
       "contract_months": 36,
       "annual_km": 15000,
       "monthly_price_cents": 48659
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 46883
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 45814
     },
     {
       "contract_months": 36,
@@ -46,9 +66,29 @@
       "monthly_price_cents": 51469
     },
     {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 50509
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 49811
+    },
+    {
       "contract_months": 36,
       "annual_km": 25000,
       "monthly_price_cents": 54694
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 54146
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 53728
     },
     {
       "contract_months": 36,
@@ -57,48 +97,8 @@
     },
     {
       "contract_months": 48,
-      "annual_km": 10000,
-      "monthly_price_cents": 44080
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 15000,
-      "monthly_price_cents": 46883
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 20000,
-      "monthly_price_cents": 50509
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 25000,
-      "monthly_price_cents": 54146
-    },
-    {
-      "contract_months": 48,
       "annual_km": 30000,
       "monthly_price_cents": 58044
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 10000,
-      "monthly_price_cents": 42479
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 15000,
-      "monthly_price_cents": 45814
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 20000,
-      "monthly_price_cents": 49811
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 25000,
-      "monthly_price_cents": 53728
     },
     {
       "contract_months": 60,

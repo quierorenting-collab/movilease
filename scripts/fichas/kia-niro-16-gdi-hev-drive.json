@@ -63,9 +63,29 @@
       "monthly_price_cents": 39200
     },
     {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 38700
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 38100
+    },
+    {
       "contract_months": 36,
       "annual_km": 15000,
       "monthly_price_cents": 41300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 40700
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 39900
     },
     {
       "contract_months": 36,
@@ -73,9 +93,29 @@
       "monthly_price_cents": 43400
     },
     {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 42500
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 41700
+    },
+    {
       "contract_months": 36,
       "annual_km": 25000,
       "monthly_price_cents": 46100
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 45000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 44300
     },
     {
       "contract_months": 36,
@@ -84,48 +124,8 @@
     },
     {
       "contract_months": 48,
-      "annual_km": 10000,
-      "monthly_price_cents": 38700
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 15000,
-      "monthly_price_cents": 40700
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 20000,
-      "monthly_price_cents": 42500
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 25000,
-      "monthly_price_cents": 45000
-    },
-    {
-      "contract_months": 48,
       "annual_km": 30000,
       "monthly_price_cents": 47800
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 10000,
-      "monthly_price_cents": 38100
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 15000,
-      "monthly_price_cents": 39000
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 20000,
-      "monthly_price_cents": 41700
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 25000,
-      "monthly_price_cents": 44300
     },
     {
       "contract_months": 60,
