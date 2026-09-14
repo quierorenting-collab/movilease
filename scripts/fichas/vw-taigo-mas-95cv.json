@@ -46,23 +46,23 @@
   "images": [
     {
       "url": "/coches-nuevos/vw-taigo-01.webp",
-      "alt": "Volkswagen Taigo en renting — vista exterior"
-    },
-    {
-      "url": "/coches-nuevos/vw-taigo-02.webp",
       "alt": "Volkswagen Taigo en renting — frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/vw-taigo-03.webp",
+      "url": "/coches-nuevos/vw-taigo-02.webp",
       "alt": "Volkswagen Taigo en renting — trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/vw-taigo-04.webp",
+      "url": "/coches-nuevos/vw-taigo-03.webp",
       "alt": "Volkswagen Taigo en renting — lateral"
     },
     {
+      "url": "/coches-nuevos/vw-taigo-04.webp",
+      "alt": "Volkswagen Taigo en renting — frontal"
+    },
+    {
       "url": "/coches-nuevos/vw-taigo-05.webp",
-      "alt": "Volkswagen Taigo en renting — faro delantero"
+      "alt": "Volkswagen Taigo en renting — trasera"
     },
     {
       "url": "/coches-nuevos/vw-taigo-06.webp",
@@ -82,6 +82,10 @@
     },
     {
       "url": "/coches-nuevos/vw-taigo-10.webp",
+      "alt": "Volkswagen Taigo en renting — palanca de cambios"
+    },
+    {
+      "url": "/coches-nuevos/vw-taigo-11.webp",
       "alt": "Volkswagen Taigo en renting — maletero"
     }
   ],
