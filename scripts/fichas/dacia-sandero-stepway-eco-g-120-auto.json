@@ -1,0 +1,198 @@
+{
+  "update_vehicle_id": "aeddb397-291c-4ef3-a4ab-50f96c928ddf",
+  "is_active": true,
+  "brand": "Dacia",
+  "model": "Sandero",
+  "version": "Stepway Expression ECO-G 120 Auto",
+  "category": "turismo",
+  "fuel_type": "gasolina",
+  "transmission": "automatico",
+  "monthly_price_cents": 30900,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 120,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "body_type": "Hatchback",
+  "short_description": "Bifuel gasolina y GLP de 120 CV, automático y con etiqueta ECO",
+  "description": "Motor ECO-G bifuel (gasolina y GLP) de 120 CV con cambio automático.\nEtiqueta ambiental ECO.\nPantalla táctil de 10\", cámara de visión trasera y sensores de aparcamiento traseros.\nTodo incluido en una única cuota mensual con IVA incluido, sin entrada.",
+  "included_services": [
+    "Seguro a todo riesgo sin franquicia",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas"
+  ],
+  "equipment": [
+    "Llantas de acero de 16\" Atara",
+    "Sistema de mantenimiento de carril",
+    "Airbags laterales delanteros y de cortina",
+    "Alerta de fatiga y aviso de cinturón",
+    "Media Display con pantalla táctil de 10\"",
+    "Encendido automático de luces y sensor de lluvia",
+    "Sensores de aparcamiento traseros",
+    "Frenada de emergencia asistida",
+    "Cámara de visión trasera",
+    "Climatización manual",
+    "Limitador de velocidad"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/dacia-sandero-01.webp",
+      "alt": "Dacia Sandero Stepway en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/dacia-sandero-02.webp",
+      "alt": "Dacia Sandero Stepway en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/dacia-sandero-03.webp",
+      "alt": "Dacia Sandero Stepway en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/dacia-sandero-04.webp",
+      "alt": "Dacia Sandero Stepway en renting — faro delantero"
+    },
+    {
+      "url": "/coches-nuevos/dacia-sandero-05.webp",
+      "alt": "Dacia Sandero Stepway en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/dacia-sandero-06.webp",
+      "alt": "Dacia Sandero Stepway en renting — palanca de cambio automático"
+    },
+    {
+      "url": "/coches-nuevos/dacia-sandero-07.webp",
+      "alt": "Dacia Sandero Stepway en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/dacia-sandero-08.webp",
+      "alt": "Dacia Sandero Stepway en renting — maletero"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 36300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 33600
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 30900
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 37500
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 35000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 32800
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 39000
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 36700
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 34500
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 41000
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 38700
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 37400
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 43300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 41100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 40300
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 45700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 44400
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 42300
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 49400
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 47900
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 52900
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 51000
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 55600
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 53800
+    }
+  ]
+}

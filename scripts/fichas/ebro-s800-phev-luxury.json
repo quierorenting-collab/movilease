@@ -1,0 +1,183 @@
+{
+  "update_vehicle_id": "13700d0b-4fdd-4a9b-9e02-d9832e541fbf",
+  "is_active": true,
+  "brand": "Ebro",
+  "model": "s800 PHEV",
+  "version": "1.5 TGDI PHEV Luxury E-CVT",
+  "category": "suv",
+  "fuel_type": "phev",
+  "transmission": "automatico",
+  "monthly_price_cents": 61000,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 279,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "0",
+  "body_type": "SUV",
+  "colors": [
+    "Blanco (metalizado)"
+  ],
+  "short_description": "Híbrido enchufable de 279 CV con cambio E-CVT y etiqueta 0",
+  "description": "Híbrido enchufable 1.5 TGDI de 279 CV con cambio automático E-CVT.\nEtiqueta ambiental 0 emisiones.\nAcabado Luxury: pantalla central de gran formato, cuadro digital, Apple CarPlay y Android Auto y climatizador bizona.\nTodo incluido en una única cuota mensual con IVA incluido, sin entrada.",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia",
+    "Cambio de neumáticos"
+  ],
+  "equipment": [
+    "Pantalla central táctil de gran formato",
+    "Cuadro de instrumentos digital",
+    "Apple CarPlay y Android Auto",
+    "Cámara de visión trasera",
+    "Sensores de aparcamiento traseros",
+    "Climatizador automático bizona",
+    "Llave inteligente y arranque sin llave",
+    "Control de crucero",
+    "Asistente de mantenimiento de carril",
+    "Asistente de frenada de emergencia",
+    "Reconocimiento de señales de tráfico",
+    "Faros LED",
+    "Llantas de aleación",
+    "Cristales traseros oscurecidos",
+    "Modos de conducción",
+    "Asientos delanteros ajustables",
+    "Volante multifunción en cuero",
+    "Sistema de conectividad online",
+    "Puerto de carga AC y cable de carga",
+    "Kit de reparación de neumáticos"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/ebro-s800-01.webp",
+      "alt": "Ebro S800 en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s800-02.webp",
+      "alt": "Ebro S800 en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s800-03.webp",
+      "alt": "Ebro S800 en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s800-04.webp",
+      "alt": "Ebro S800 en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s800-05.webp",
+      "alt": "Ebro S800 en renting — trasera"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s800-06.webp",
+      "alt": "Ebro S800 en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s800-07.webp",
+      "alt": "Ebro S800 en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s800-08.webp",
+      "alt": "Ebro S800 en renting — faro delantero"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s800-09.webp",
+      "alt": "Ebro S800 en renting — llanta de aleación"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s800-10.webp",
+      "alt": "Ebro S800 en renting — piloto trasero"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s800-11.webp",
+      "alt": "Ebro S800 en renting — insignia PHEV"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s800-12.webp",
+      "alt": "Ebro S800 en renting — maletero"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 66100
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 63200
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 61000
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 69300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 66400
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 64400
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 73800
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 70700
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 68700
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 77900
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 74700
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 73200
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 82300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 79100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 78300
+    }
+  ]
+}

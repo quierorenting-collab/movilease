@@ -15,8 +15,6 @@ const MODELOS_RETIRADOS = [
   "renting-ebro-s700",
   "renting-audi-a3-sportback",
   "renting-citroen-c4",
-  "renting-dacia-sandero",
-  "renting-ebro-s800-phev",
   "renting-fiat-ducato",
   "renting-ford-kuga",
   "renting-ford-puma",

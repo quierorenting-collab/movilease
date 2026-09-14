@@ -1,0 +1,148 @@
+{
+  "brand": "BYD",
+  "model": "Dolphin Surf",
+  "version": "Boost 65kW 88CV",
+  "category": "turismo",
+  "fuel_type": "electrico",
+  "transmission": "automatico",
+  "monthly_price_cents": 46100,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 88,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "0",
+  "body_type": "Hatchback",
+  "short_description": "Eléctrico de 88 CV con hasta 322 km de autonomía WLTP",
+  "description": "Motor eléctrico de 65 kW (88 CV) con cambio automático.\nHasta 322 km de autonomía WLTP y carga en corriente continua hasta 85 kW.\nEtiqueta ambiental 0 emisiones.\nTodo incluido en una única cuota mensual con IVA incluido, sin entrada.",
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia",
+    "Cambio de neumáticos"
+  ],
+  "equipment": [
+    "Pantalla táctil de 10,1\"",
+    "Cuadro de instrumentos digital de 7\"",
+    "Sistema operativo BYD OS",
+    "Apple CarPlay y Android Auto",
+    "Bluetooth",
+    "Radio digital (DAB)",
+    "2 puertos USB delanteros",
+    "Actualizaciones vía OTA",
+    "Carga en corriente continua hasta 85 kW",
+    "Bomba de calor",
+    "Funciones inteligentes BYD (Drive App)",
+    "Asientos deportivos en tela",
+    "Asiento del conductor ajustable en altura",
+    "Asientos traseros abatibles 60/40",
+    "Climatización automática",
+    "Volante multifunción en cuero",
+    "Acceso y arranque sin llave",
+    "Elevalunas eléctricos delanteros y traseros",
+    "Retrovisores exteriores eléctricos y calefactables",
+    "Iluminación ambiental",
+    "Frenada de emergencia autónoma (AEB)",
+    "Asistente de mantenimiento de carril",
+    "Control inteligente de luces de carretera",
+    "Control de crucero adaptativo",
+    "Sensor de aparcamiento trasero",
+    "Cámara de visión trasera",
+    "Reconocimiento de señales de tráfico",
+    "Alerta de tráfico cruzado trasero",
+    "Control de estabilidad (ESP)",
+    "6 airbags",
+    "Llantas de aleación de 16\"",
+    "Faros Full LED",
+    "Luces diurnas LED",
+    "Pilotos traseros LED",
+    "Cristales tintados"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/byd-dolphin-surf-01.webp",
+      "alt": "BYD Dolphin Surf en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/byd-dolphin-surf-02.webp",
+      "alt": "BYD Dolphin Surf en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/byd-dolphin-surf-03.webp",
+      "alt": "BYD Dolphin Surf en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/byd-dolphin-surf-04.webp",
+      "alt": "BYD Dolphin Surf en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/byd-dolphin-surf-05.webp",
+      "alt": "BYD Dolphin Surf en renting — trasera"
+    },
+    {
+      "url": "/coches-nuevos/byd-dolphin-surf-06.webp",
+      "alt": "BYD Dolphin Surf en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/byd-dolphin-surf-07.webp",
+      "alt": "BYD Dolphin Surf en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/byd-dolphin-surf-08.webp",
+      "alt": "BYD Dolphin Surf en renting — faro delantero"
+    },
+    {
+      "url": "/coches-nuevos/byd-dolphin-surf-09.webp",
+      "alt": "BYD Dolphin Surf en renting — llanta de aleación"
+    },
+    {
+      "url": "/coches-nuevos/byd-dolphin-surf-10.webp",
+      "alt": "BYD Dolphin Surf en renting — toma de carga"
+    },
+    {
+      "url": "/coches-nuevos/byd-dolphin-surf-11.webp",
+      "alt": "BYD Dolphin Surf en renting — piloto trasero"
+    },
+    {
+      "url": "/coches-nuevos/byd-dolphin-surf-12.webp",
+      "alt": "BYD Dolphin Surf en renting — maletero"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 46100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 48000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 50300
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 53100
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 56000
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 59200
+    }
+  ]
+}
