@@ -57,6 +57,8 @@ const MODELOS_RETIRADOS = [
   // Cupra Formentor manual: fuera de stock (15/09/2026). La version
   // automatica, renting-cupra-formentor, sigue en el catalogo.
   "renting-cupra-formentor-manual",
+  // Hyundai Tucson: se ha acabado el stock (15/09/2026).
+  "renting-hyundai-tucson",
 ];
 
 const nextConfig: NextConfig = {

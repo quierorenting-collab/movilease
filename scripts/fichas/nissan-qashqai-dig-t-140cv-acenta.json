@@ -134,5 +134,6 @@
     }
   ],
   "update_vehicle_id": "4bc90755-2700-48bd-9d00-c52ffb44bee9",
-  "body_type": "SUV"
+  "body_type": "SUV",
+  "is_offer": false
 }

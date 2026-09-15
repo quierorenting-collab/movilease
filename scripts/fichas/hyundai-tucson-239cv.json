@@ -135,5 +135,7 @@
       "monthly_price_cents": 53422
     }
   ],
-  "environmental_label": "eco"
+  "environmental_label": "eco",
+  "is_offer": false,
+  "is_active": false
 }
