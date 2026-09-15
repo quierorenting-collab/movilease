@@ -4,7 +4,7 @@
   "model": "Hilux",
   "version": "MY25 Doble Cabina GX 2.4B 150CV 6AT 4x4",
   "category": "4x4",
-  "fuel_type": "gasolina",
+  "fuel_type": "diesel",
   "transmission": "automatico",
   "horsepower": 150,
   "seats": 5,
