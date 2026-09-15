@@ -148,5 +148,6 @@
     "Equipamiento: Sistema Start-Stop con recuperación de la energía de frenado",
     "Equipamiento: Sistema de propulsión híbrida para semihíbrido",
     "Equipamiento: Revestimiento interior del techo en Ceramique"
-  ]
+  ],
+  "is_active": false
 }

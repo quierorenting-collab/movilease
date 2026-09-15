@@ -56,6 +56,10 @@ const MODELOS_RETIRADOS = [
   // Skoda Fabia: el Drive solo lo tiene en FUERA DE STOCK y SIN STOCK
   // (revision del 14/09/2026).
   "renting-skoda-fabia",
+  // Kia Niro y VW T-Roc: sus carpetas han pasado a FUERA DE STOCK en el Drive
+  // (revision del 15/09/2026).
+  "renting-kia-niro",
+  "renting-volkswagen-t-roc",
 ];
 
 const nextConfig: NextConfig = {
