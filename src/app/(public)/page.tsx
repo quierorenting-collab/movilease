@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   getFeaturedVehicles,
   getOfferVehicles,
+  getCatalogVehicles,
   getVehiclesByBrand,
   getVehiclesByModelSlugs,
 } from "@/lib/data/vehicles";
@@ -257,7 +258,7 @@ const FAQ_ITEMS = [
 ];
 
 export default async function HomePage() {
-  const [featured, offers, { brands }, exclusivos] = await Promise.all([
+  const [featured, offers, { brands }, exclusivos, electricos] = await Promise.all([
     getFeaturedVehicles(200),
     // Seis, las que marca Adrián: Ibiza, Polo, Taigo, Ebro S400, GLC Coupé y
     // CR-V. Con el tope en cuatro que había antes no llegaban a verse el GLC ni
@@ -266,6 +267,8 @@ export default async function HomePage() {
     getOfferVehicles(6),
     getVehiclesByBrand(),
     getVehiclesByModelSlugs(EXCLUSIVOS),
+    // El mismo filtro que la landing /renting-electrico: todos llevan etiqueta CERO.
+    getCatalogVehicles({ fuelType: ["electrico", "phev"] }),
   ]);
 
   /* De la cuota más baja a la más alta, como el resto de bloques de la web y
@@ -290,6 +293,19 @@ export default async function HomePage() {
     seenOfferModels.add(v.modelSlug);
     return true;
   });
+
+  /* Los que ya salen en Ofertas o en Exclusivos no se repiten en la misma
+     pantalla, y se enseñan los seis más baratos (dos filas de tres): el resto
+     está en la landing, a la que lleva «Ver todos». */
+  const yaEnPortada = new Set([...dedupedOffers, ...exclusivos].map((v) => v.modelSlug));
+  const seenElectricModels = new Set<string>();
+  const electricosPortada = electricos
+    .filter((v) => {
+      if (yaEnPortada.has(v.modelSlug) || seenElectricModels.has(v.modelSlug)) return false;
+      seenElectricModels.add(v.modelSlug);
+      return true;
+    })
+    .slice(0, 6);
 
   return (
     <>
@@ -578,6 +594,134 @@ export default async function HomePage() {
                         <p className="mt-1.5 text-[12.5px] leading-snug text-white/70">
                           {vehicle.version}
                         </p>
+                      </div>
+                    </Link>
+
+                    <div className="mt-auto px-6 pb-5 pt-4">
+                      <div className="flex items-end justify-between gap-3">
+                        <div>
+                          <p className="text-[11px] uppercase tracking-[0.16em] text-white/75">desde</p>
+                          <p
+                            className="text-[27px] font-bold leading-none text-white"
+                            style={{ fontFamily: "var(--font-space-grotesk)" }}
+                          >
+                            {vehicle.priceLabel}
+                            <span className="ml-1 text-[12px] font-medium text-white/75">/mes</span>
+                          </p>
+                        </div>
+                        <a
+                          href={buildWhatsAppLink(
+                            `Hola, me interesa el ${vehicle.brandName} ${vehicle.modelName}`
+                          )}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="shrink-0 rounded-full bg-[#0068FF] px-5 py-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-white shadow-lg shadow-[#0068FF]/25 transition-all duration-300 hover:bg-[#0052CC] hover:shadow-xl hover:shadow-[#0068FF]/35"
+                        >
+                          Lo quiero
+                        </a>
+                      </div>
+
+                      <Link
+                        href={`/${vehicle.modelSlug}`}
+                        className="group/link mt-4 flex min-h-[44px] items-center justify-between gap-2 border-t border-white/12 pt-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#8FBEFF] transition-colors hover:text-white"
+                      >
+                        <span className="whitespace-nowrap">Ver ficha</span>
+                        <span
+                          aria-hidden="true"
+                          className="shrink-0 transition-transform duration-300 group-hover/link:translate-x-1"
+                        >
+                          →
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
+      )}
+
+      {/* ══ ELÉCTRICOS Y ENCHUFABLES — etiqueta CERO ══
+          En claro, entre exclusivos (oscuro) y las ventajas (grafito), para no
+          encadenar tres bloques oscuros. La tarjeta es la de ofertas, que ya
+          está pensada para este mismo fondo gris azulado. Qué coches salen lo
+          decide fuel_type en la base, como en la landing. */}
+      {electricosPortada.length > 0 && (
+        <section id="electricos" className="relative overflow-hidden bg-[#F4F6FA] section-y">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
+            <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                {/* Mismo color forzado que en ofertas y por lo mismo: #0068FF
+                    sobre este gris se queda por debajo de AA. */}
+                <p className="section-label mb-5" style={{ color: "#0057D6" }}>
+                  Etiqueta CERO
+                </p>
+                <h2 className="display-md text-[#0A0A0A]">
+                  Eléctricos y
+                  <br />
+                  <span className="text-[#0057D6]">enchufables.</span>
+                </h2>
+              </div>
+              <Link
+                href="/renting-electrico"
+                className="group flex items-center gap-2 py-3 text-[12px] font-bold uppercase tracking-[0.14em] text-[#4B5563] transition-colors hover:text-[#0057D6]"
+              >
+                Ver todos
+                <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+              </Link>
+            </Reveal>
+
+            <RevealGroup
+              stagger={0.08}
+              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {electricosPortada.map((vehicle) => (
+                <RevealItem key={vehicle.id}>
+                  <div
+                    className="card-lift card-lift-dark group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#0C2454]/20 bg-gradient-to-b from-[#1B4080] to-[#0C2454] hover:border-[#5AA0FF]/50"
+                    style={{ boxShadow: "0 18px 40px rgba(7,26,61,0.22)" }}
+                  >
+                    <Link
+                      href={`/${vehicle.modelSlug}`}
+                      className="flex flex-1 flex-col"
+                      aria-label={`Ver ficha del ${vehicle.brandName} ${vehicle.modelName}`}
+                    >
+                      <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#1B4080] to-[#15315F]">
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-0 flex items-center justify-center text-7xl font-bold text-white/15"
+                          style={{ fontFamily: "var(--font-space-grotesk)" }}
+                        >
+                          {vehicle.brandName.charAt(0)}
+                        </span>
+                        {vehicle.imageUrl && (
+                          <Image
+                            src={fotoTarjeta(vehicle.imageUrl)!}
+                            alt={`${vehicle.brandName} ${vehicle.modelName}`}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-contain p-3 transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1B4080] via-transparent to-transparent" />
+                        <div className="absolute left-4 top-4">
+                          <span className="rounded-full bg-white/12 px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm ring-1 ring-white/25">
+                            Etiqueta CERO
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="px-6 pb-2 pt-5">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/75">
+                          {vehicle.brandName}
+                        </p>
+                        <h3
+                          className="mt-1 text-[20px] font-bold leading-tight text-white"
+                          style={{ fontFamily: "var(--font-space-grotesk)" }}
+                        >
+                          {vehicle.modelName}
+                        </h3>
                       </div>
                     </Link>
 
