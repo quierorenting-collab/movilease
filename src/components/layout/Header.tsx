@@ -22,6 +22,9 @@ const NAV_LINKS = [
      que ya existe, no a /catalogo?category=furgoneta: la landing tiene texto
      propio y la indexa Google. Igual que en quierorenting.es. */
   { href: "/renting-furgoneta", label: "Furgonetas" },
+  /* Eléctricos e híbridos enchufables: la landing junta fuel_type "electrico"
+     y "phev" (todos con etiqueta CERO). Tambien en el menu de quierorenting.es. */
+  { href: "/renting-electrico", label: "Eléctricos" },
   { href: "/calculadora", label: "Calculadora" },
   { href: "/renting-empresas", label: "Empresas" },
   { href: "/renting-autonomos", label: "Autónomos" },
@@ -168,8 +171,11 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
             />
           </Link>
 
-          {/* Desktop nav */}
-          <nav aria-label="Navegación principal" className="hidden items-center gap-6 xl:flex xl:gap-7">
+          {/* Desktop nav. Al entrar «Eléctricos» (nueve enlaces en el ancho fijo de
+              max-w-7xl) «Quiénes somos» se partía en dos líneas y, sin partir, el menú
+              se pegaba al logo. Con hueco de 16 px y tracking 0.1em, medido a 1280 px,
+              quedan 11 px con el logo y 11 a la derecha: los 12 y 12 que había con ocho. */}
+          <nav aria-label="Navegación principal" className="hidden items-center gap-6 xl:flex xl:gap-4">
             {NAV_LINKS.map((link) => {
               const hasMega = link.href === "/catalogo" && brands.length > 0;
               return (
@@ -181,7 +187,7 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
                   aria-expanded={hasMega ? megaOpen : undefined}
                   onMouseEnter={hasMega ? openMega : () => closeMega(0)}
                   onFocus={hasMega ? openMega : () => closeMega(0)}
-                  className={`group relative py-2 text-[12px] font-semibold uppercase tracking-[0.12em] transition-colors duration-300 hover:text-[#0068FF] ${
+                  className={`group relative whitespace-nowrap py-2 text-[12px] font-semibold uppercase tracking-[0.1em] transition-colors duration-300 hover:text-[#0068FF] ${
                     isCurrent(link.href) ? "text-[#0A0A0A]" : "text-[#4B5563]"
                   }`}
                 >
