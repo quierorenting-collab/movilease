@@ -32,7 +32,7 @@ export async function getLandingPageBySlug(slug: string): Promise<LandingPageDet
 
     const filterJson = (data.filter_json ?? {}) as {
       category?: VehicleCategoryEnum;
-      fuel_type?: FuelTypeEnum;
+      fuel_type?: FuelTypeEnum | FuelTypeEnum[];
       transmission?: TransmissionEnum;
     };
     const vehicles = await getCatalogVehicles({

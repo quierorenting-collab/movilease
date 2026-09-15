@@ -263,7 +263,9 @@ export async function getFeaturedVehicles(limit = 6): Promise<VehicleCardData[]>
 
 export interface CatalogFilters {
   category?: VehicleCategoryEnum;
-  fuelType?: FuelTypeEnum;
+  /** Una landing puede juntar varios combustibles: la de electricos y
+   *  enchufables filtra por ["electrico", "phev"]. */
+  fuelType?: FuelTypeEnum | FuelTypeEnum[];
   /** "renting coche automatico" es de las busquedas mas repetidas del sector
    *  y no habia forma de filtrar por cambio: sin esto no hay landing posible. */
   transmission?: TransmissionEnum;
@@ -480,7 +482,11 @@ export const getCatalogVehicles = cache(async (filters: CatalogFilters = {}): Pr
     let query = supabase.from("vehicles").select(CARD_COLUMNS).eq("is_active", true);
 
     if (filters.category) query = query.eq("category", filters.category);
-    if (filters.fuelType) query = query.eq("fuel_type", filters.fuelType);
+    if (Array.isArray(filters.fuelType)) {
+      if (filters.fuelType.length > 0) query = query.in("fuel_type", filters.fuelType);
+    } else if (filters.fuelType) {
+      query = query.eq("fuel_type", filters.fuelType);
+    }
     if (filters.transmission) query = query.eq("transmission", filters.transmission);
     if (filters.maxPriceEuros) {
       query = query.lte("monthly_price_cents", filters.maxPriceEuros * 100);
