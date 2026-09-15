@@ -12,12 +12,9 @@ import type { NextConfig } from "next";
  */
 const MODELOS_RETIRADOS = [
   "renting-seat-arona",
-  "renting-ebro-s700",
   "renting-audi-a3-sportback",
-  "renting-citroen-c4",
   "renting-fiat-ducato",
   "renting-ford-kuga",
-  "renting-ford-puma",
   "renting-foton-tunland",
   "renting-jeep-avenger",
   "renting-jeep-compass",
@@ -40,7 +37,6 @@ const MODELOS_RETIRADOS = [
   /* El Rifter estuvo retirado y volvio al catalogo el 09/09/2026 desde la
      lamina del Drive. Sale de esta lista: si no, su ficha nueva redirige a
      /catalogo con un 307 y no se puede ver. */
-  "renting-renault-captur",
   "renting-renault-espace",
   "renting-renault-rafale",
   "renting-renault-symbioz",

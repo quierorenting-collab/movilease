@@ -1,0 +1,175 @@
+{
+  "update_vehicle_id": "015a2c7c-c5fe-4302-8f10-371e270ff175",
+  "is_active": true,
+  "brand": "Ford",
+  "model": "Puma",
+  "version": "Titanium 1.0 EcoBoost MHEV 125 CV",
+  "category": "hibrido",
+  "fuel_type": "hibrido",
+  "transmission": "manual",
+  "body_type": "SUV",
+  "monthly_price_cents": 35627,
+  "contract_months": 36,
+  "horsepower": 125,
+  "environmental_label": "eco",
+  "annual_km": 10000,
+  "seats": 5,
+  "doors": 5,
+  "is_offer": false,
+  "is_featured": false,
+  "short_description": "Microhíbrido de 125 CV con cambio manual y etiqueta ECO",
+  "description": "Motor 1.0 EcoBoost MHEV de 125 CV con cambio manual.\nAcabado Titanium: pantalla táctil de 12\" SYNC 4, cuadro digital de 12,8\" y ayuda de aparcamiento delantera y trasera.\nEtiqueta ambiental ECO.\nTodo incluido en una única cuota mensual con IVA incluido, sin entrada.",
+  "included_services": [
+    "Seguro a todo riesgo sin franquicia",
+    "Mantenimiento y revisiones",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Vehículo de sustitución"
+  ],
+  "equipment": [
+    "Asistente de precolisión basado en cámara",
+    "Ayuda de aparcamiento delantero y trasero",
+    "Cámara de visión trasera",
+    "Cuadro de instrumentos digital de 12,8\"",
+    "Pantalla táctil de 12\" SYNC 4",
+    "FordPass Connect (vehículo conectado)",
+    "Reconocimiento de señales de tráfico",
+    "Alerta de cambio involuntario de carril",
+    "Control de crucero y limitador de velocidad",
+    "Faros Full LED con luces diurnas LED",
+    "Asientos delanteros con ajuste lumbar",
+    "Volante multifunción en cuero",
+    "Climatizador automático",
+    "Llantas de aleación de 17\"",
+    "Cristales traseros oscurecidos"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/ford-puma-01.webp",
+      "alt": "Ford Puma en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/ford-puma-02.webp",
+      "alt": "Ford Puma en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/ford-puma-03.webp",
+      "alt": "Ford Puma en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/ford-puma-04.webp",
+      "alt": "Ford Puma en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/ford-puma-05.webp",
+      "alt": "Ford Puma en renting — trasera"
+    },
+    {
+      "url": "/coches-nuevos/ford-puma-06.webp",
+      "alt": "Ford Puma en renting — faro delantero"
+    },
+    {
+      "url": "/coches-nuevos/ford-puma-07.webp",
+      "alt": "Ford Puma en renting — llanta"
+    },
+    {
+      "url": "/coches-nuevos/ford-puma-08.webp",
+      "alt": "Ford Puma en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/ford-puma-09.webp",
+      "alt": "Ford Puma en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/ford-puma-10.webp",
+      "alt": "Ford Puma en renting — plazas traseras"
+    },
+    {
+      "url": "/coches-nuevos/ford-puma-11.webp",
+      "alt": "Ford Puma en renting — palanca de cambio manual"
+    },
+    {
+      "url": "/coches-nuevos/ford-puma-12.webp",
+      "alt": "Ford Puma en renting — maletero"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 35627
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 37374
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 37136
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 38413
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 38742
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 38482
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 39778
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 40086
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 39827
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 41353
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 41584
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 41274
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 42989
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 43151
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 42781
+    }
+  ]
+}

@@ -1,134 +1,160 @@
 {
+  "update_vehicle_id": "8fdd620e-31fb-4c38-a13a-83470b54c3d0",
+  "is_active": true,
   "brand": "Ebro",
   "model": "s700",
-  "version": "1.5 TGDI PHEV Luxury E-CVT",
+  "version": "1.5 TGDI PHEV 1DHT 2WD Luxury",
   "category": "suv",
   "fuel_type": "phev",
   "transmission": "automatico",
-  "monthly_price_cents": 63400,
-  "contract_months": 60,
+  "body_type": "SUV",
+  "monthly_price_cents": 50081,
+  "contract_months": 36,
+  "environmental_label": "0",
   "annual_km": 10000,
-  "horsepower": 347,
   "seats": 5,
   "doors": 5,
-  "environmental_label": "0",
-  "colors": [
-    "Blanco Khakí"
-  ],
-  "short_description": "Híbrido enchufable de 347 CV con cambio E-CVT",
+  "is_offer": false,
+  "is_featured": false,
+  "short_description": "Híbrido enchufable con cambio automático 1DHT y etiqueta 0",
+  "description": "Híbrido enchufable 1.5 TGDI con cambio automático 1DHT y tracción 2WD.\nAcabado Luxury: techo panorámico, asientos eléctricos calefactados y ventilados y doble pantalla de 12,3\".\nEtiqueta ambiental 0 emisiones.\nTodo incluido en una única cuota mensual con IVA incluido, sin entrada.",
   "included_services": [
-    "Seguro a todo riesgo",
+    "Seguro a todo riesgo sin franquicia",
     "Mantenimiento y revisiones",
+    "Asistencia en carretera 24h",
     "Neumáticos incluidos",
-    "Asistencia 24h",
     "Averías y reparaciones",
-    "ITV e impuestos",
-    "Gestión de multas",
-    "Entrega a domicilio",
-    "Cambio de neumáticos"
+    "Gestión de impuestos"
+  ],
+  "equipment": [
+    "Asientos eléctricos con 3 niveles de calefacción y ventilación",
+    "Panel de instrumentos LCD de 12,3\" + pantalla central de 12,3\"",
+    "Reconocimiento de señales de tráfico ampliado",
+    "Techo panorámico con parasol",
+    "EBROAUTO App (control remoto del vehículo y del aire acondicionado, localización, centro de energía y estado del vehículo)",
+    "Llantas de aluminio de 18\" (225/60 R18)"
   ],
   "images": [
     {
-      "url": "https://fotos.quecochemecompro.com/ebro-s700/38895767.jpg?size=1200x800",
-      "alt": "Ebro s700 en renting"
+      "url": "/coches-nuevos/ebro-s700-01.webp",
+      "alt": "Ebro S700 en renting — vista frontal tres cuartos"
     },
     {
-      "url": "https://fotos.quecochemecompro.com/ebro-s700/38895722.jpg?size=1200x800",
-      "alt": "Ebro s700 en renting"
+      "url": "/coches-nuevos/ebro-s700-02.webp",
+      "alt": "Ebro S700 en renting — vista trasera tres cuartos"
     },
     {
-      "url": "https://fotos.quecochemecompro.com/ebro-s700/ebro-s700-logo-color.jpg?size=1200x800",
-      "alt": "Ebro s700 en renting"
+      "url": "/coches-nuevos/ebro-s700-03.webp",
+      "alt": "Ebro S700 en renting — perfil lateral"
     },
     {
-      "url": "https://fotos.quecochemecompro.com/ebro-s700/ebro-s700-frontal.jpg?size=1200x800",
-      "alt": "Ebro s700 en renting"
+      "url": "/coches-nuevos/ebro-s700-04.webp",
+      "alt": "Ebro S700 en renting — frontal"
     },
     {
-      "url": "https://fotos.quecochemecompro.com/ebro-s700/ebro-s700-lateral.jpg?size=1200x800",
-      "alt": "Ebro s700 en renting"
+      "url": "/coches-nuevos/ebro-s700-05.webp",
+      "alt": "Ebro S700 en renting — trasera"
     },
     {
-      "url": "https://fotos.quecochemecompro.com/ebro-s700/ebro-s700-trasera.jpg?size=1200x800",
-      "alt": "Ebro s700 en renting"
+      "url": "/coches-nuevos/ebro-s700-06.webp",
+      "alt": "Ebro S700 en renting — faro delantero"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s700-07.webp",
+      "alt": "Ebro S700 en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s700-08.webp",
+      "alt": "Ebro S700 en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s700-09.webp",
+      "alt": "Ebro S700 en renting — plazas traseras"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s700-10.webp",
+      "alt": "Ebro S700 en renting — selector del cambio automático"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s700-11.webp",
+      "alt": "Ebro S700 en renting — maletero"
     }
   ],
   "pricing": [
     {
       "contract_months": 36,
       "annual_km": 10000,
-      "monthly_price_cents": 71600
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 15000,
-      "monthly_price_cents": 73800
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 20000,
-      "monthly_price_cents": 75900
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 25000,
-      "monthly_price_cents": 79400
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 30000,
-      "monthly_price_cents": 83500
+      "monthly_price_cents": 50081
     },
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 66800
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 15000,
-      "monthly_price_cents": 68700
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 20000,
-      "monthly_price_cents": 70600
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 25000,
-      "monthly_price_cents": 73900
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 30000,
-      "monthly_price_cents": 78000
+      "monthly_price_cents": 52018
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 63400
+      "monthly_price_cents": 51628
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 54231
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 54052
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 65000
+      "monthly_price_cents": 53598
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 56947
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 56085
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 66700
+      "monthly_price_cents": 55561
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 59252
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 58259
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 70600
+      "monthly_price_cents": 57661
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 61547
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 60443
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 74200
+      "monthly_price_cents": 59753
     }
-  ],
-  "body_type": "SUV"
+  ]
 }

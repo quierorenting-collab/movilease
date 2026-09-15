@@ -1,0 +1,165 @@
+{
+  "update_vehicle_id": "ee256b7b-0839-470d-b5f6-923f208c3f89",
+  "is_active": true,
+  "brand": "Citroën",
+  "model": "C4",
+  "version": "Hybrid 145 CV Business Edition e-DCS6",
+  "category": "hibrido",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "monthly_price_cents": 37378,
+  "contract_months": 60,
+  "horsepower": 145,
+  "environmental_label": "eco",
+  "annual_km": 10000,
+  "seats": 5,
+  "doors": 5,
+  "is_offer": false,
+  "is_featured": false,
+  "short_description": "Híbrido de 145 CV con cambio automático e-DCS6 y etiqueta ECO",
+  "description": "Motor Hybrid de 145 CV con cambio automático e-DCS6.\nAcabado Business Edition: navegación conectada 3D en pantalla de 10\", cámara de visión trasera de 180° y sensores de aparcamiento delanteros, traseros y laterales.\nEtiqueta ambiental ECO.\nTodo incluido en una única cuota mensual con IVA incluido, sin entrada.",
+  "included_services": [
+    "Seguro a todo riesgo sin franquicia",
+    "Mantenimiento y revisiones",
+    "Asistencia en carretera 24h",
+    "Neumáticos incluidos",
+    "Averías y reparaciones",
+    "Gestión de impuestos",
+    "Vehículo de sustitución"
+  ],
+  "equipment": [
+    "Android Auto y Apple CarPlay",
+    "Navegación conectada 3D en pantalla táctil de 10\"",
+    "Sensores de aparcamiento delanteros, traseros y laterales",
+    "Cámara de visión trasera 180°",
+    "Reconocimiento de señales de tráfico",
+    "Active Safety Brake (frenada automática)",
+    "Alerta de cambio involuntario de carril",
+    "Control de crucero y limitador de velocidad",
+    "Faros LED con luces diurnas LED",
+    "Climatizador automático bizona",
+    "Cuadro de instrumentos digital de 7\"",
+    "Asientos Advanced Comfort",
+    "Llantas de aleación de 18\" AMBER",
+    "Cristales traseros sobretintados"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/citroen-c4-01.webp",
+      "alt": "Citroën C4 en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/citroen-c4-02.webp",
+      "alt": "Citroën C4 en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/citroen-c4-03.webp",
+      "alt": "Citroën C4 en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/citroen-c4-04.webp",
+      "alt": "Citroën C4 en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/citroen-c4-05.webp",
+      "alt": "Citroën C4 en renting — trasera"
+    },
+    {
+      "url": "/coches-nuevos/citroen-c4-06.webp",
+      "alt": "Citroën C4 en renting — faro delantero"
+    },
+    {
+      "url": "/coches-nuevos/citroen-c4-07.webp",
+      "alt": "Citroën C4 en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/citroen-c4-08.webp",
+      "alt": "Citroën C4 en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/citroen-c4-09.webp",
+      "alt": "Citroën C4 en renting — plazas traseras"
+    },
+    {
+      "url": "/coches-nuevos/citroen-c4-10.webp",
+      "alt": "Citroën C4 en renting — maletero"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 38816
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 39415
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 37378
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 42270
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 41133
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 40427
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 44054
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 42852
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 42089
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 46239
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 44898
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 44031
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 48404
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 46924
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 45973
+    }
+  ]
+}
