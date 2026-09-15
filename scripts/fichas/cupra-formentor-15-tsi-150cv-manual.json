@@ -1,4 +1,5 @@
 {
+  "update_vehicle_id": "ec3ebdbf-570b-49e7-8e7c-985c961536e6",
   "brand": "Cupra",
   "model": "Formentor Manual",
   "version": "1.5 TSI 110kW 150CV",
@@ -204,5 +205,6 @@
     "Respaldo trasero abatible 1/3 - 2/3",
     "Compartimento de carga 0,45 m³",
     "Sujeción de carga"
-  ]
+  ],
+  "is_active": false
 }

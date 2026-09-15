@@ -54,6 +54,9 @@ const MODELOS_RETIRADOS = [
   // VW T-Roc: su carpeta ha pasado a FUERA DE STOCK en el Drive
   // (revision del 15/09/2026).
   "renting-volkswagen-t-roc",
+  // Cupra Formentor manual: fuera de stock (15/09/2026). La version
+  // automatica, renting-cupra-formentor, sigue en el catalogo.
+  "renting-cupra-formentor-manual",
 ];
 
 const nextConfig: NextConfig = {
