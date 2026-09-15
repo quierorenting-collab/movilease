@@ -23,6 +23,20 @@
     "Averías y reparaciones",
     "Gestión de impuestos"
   ],
+  "equipment": [
+    "Pantalla táctil de 8\" con Apple CarPlay y Android Auto",
+    "Cámara de visión trasera",
+    "Sensores de aparcamiento traseros",
+    "Control y limitador de velocidad",
+    "Asistente de mantenimiento de carril",
+    "Reconocimiento de señales de tráfico",
+    "Aire acondicionado",
+    "Volante multifunción",
+    "Llantas de aleación de 16\"",
+    "Faros LED de circulación diurna",
+    "Bluetooth y USB",
+    "Sistema de ayuda al arranque en pendiente"
+  ],
   "images": [
     {
       "url": "/coches-nuevos/kia-stonic-01.webp",
