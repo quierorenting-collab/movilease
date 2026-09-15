@@ -8,7 +8,7 @@ import {
   getVehiclesByBrand,
   getVehiclesByModelSlugs,
 } from "@/lib/data/vehicles";
-import { buildWhatsAppLink } from "@/lib/constants";
+import { buildWhatsAppLink, ENTREGA_RAPIDA_ETIQUETA, ENTREGA_RAPIDA_MODELOS } from "@/lib/constants";
 import { fotoTarjeta } from "@/lib/utils";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { BrandCard } from "@/components/catalog/BrandCard";
@@ -260,11 +260,10 @@ const FAQ_ITEMS = [
 export default async function HomePage() {
   const [featured, offers, { brands }, exclusivos, electricos] = await Promise.all([
     getFeaturedVehicles(200),
-    // Seis, las que marca Adrián: Ibiza, Polo, Taigo, Ebro S400, GLC Coupé y
-    // CR-V. Con el tope en cuatro que había antes no llegaban a verse el GLC ni
-    // el CR-V, porque la consulta ordena por cuota ascendente y son los dos más
-    // caros de la selección.
-    getOfferVehicles(6),
+    // Todas las que marca Adrián con is_offer. El tope es solo una red: la
+    // consulta ordena por cuota ascendente, y con el de seis que había se
+    // quedaban fuera sin avisar las más caras al entrar las de entrega rápida.
+    getOfferVehicles(12),
     getVehiclesByBrand(),
     getVehiclesByModelSlugs(EXCLUSIVOS),
     // El mismo filtro que la landing /renting-electrico: todos llevan etiqueta CERO.
@@ -380,16 +379,23 @@ export default async function HomePage() {
               </a>
             </Reveal>
 
-            {/* Tres columnas, no cuatro: son seis ofertas y en rejilla de
-                cuatro quedaba una segunda fila con dos huecos. A tres salen
-                dos filas llenas y cada foto se ve bastante más grande, que es
-                justo lo que hay que enseñar. */}
+            {/* Tres columnas, no cuatro: cada foto se ve bastante más grande,
+                que es justo lo que hay que enseñar. Si la última tarjeta queda
+                sola en su fila (diez ofertas, por ejemplo), se centra en vez de
+                quedarse colgando a la izquierda. */}
             <RevealGroup
               stagger={0.08}
               className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
             >
-              {dedupedOffers.map((vehicle) => (
-                <RevealItem key={vehicle.id}>
+              {dedupedOffers.map((vehicle, i) => (
+                <RevealItem
+                  key={vehicle.id}
+                  className={
+                    i === dedupedOffers.length - 1 && dedupedOffers.length % 3 === 1
+                      ? "lg:col-start-2"
+                      : undefined
+                  }
+                >
                   {/*
                     La tarjeta era un <div> con un único enlace a WhatsApp:
                     pinchar la foto o el nombre no llevaba a la ficha. Ahora la
@@ -440,10 +446,15 @@ export default async function HomePage() {
                           />
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1B4080] via-transparent to-transparent" />
-                        <div className="absolute left-4 top-4">
+                        <div className="absolute left-4 top-4 flex flex-col items-start gap-1.5">
                           <span className="rounded-full bg-[#0068FF] px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.14em] text-white shadow-lg shadow-[#0068FF]/30">
                             Oferta
                           </span>
+                          {ENTREGA_RAPIDA_MODELOS.has(vehicle.modelSlug) && (
+                            <span className="rounded-full bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-[#0C2454] shadow-lg shadow-black/20">
+                              {ENTREGA_RAPIDA_ETIQUETA}
+                            </span>
+                          )}
                         </div>
                       </div>
 

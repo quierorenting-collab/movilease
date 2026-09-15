@@ -118,3 +118,18 @@ export const RENTING_DEFAULTS = {
     "Neumáticos",
   ],
 } as const;
+
+/** Entrega rápida (5-15 días): la marca Adrián por modelo, igual que EXCLUSIVOS
+ *  en la portada. Va en código y no en badge_text porque ese campo no se pinta
+ *  en ninguna parte y hay etiquetas viejas en otros coches que saldrían de golpe.
+ *  Todos estos modelos están además en ofertas (is_offer en la base). */
+export const ENTREGA_RAPIDA_ETIQUETA = "Entrega rápida · 5-15 días";
+export const ENTREGA_RAPIDA_MODELOS: ReadonlySet<string> = new Set([
+  "renting-seat-leon",
+  "renting-seat-leon-fr",
+  "renting-cupra-formentor",
+  "renting-mg-hs",
+  "renting-seat-ibiza",
+  "renting-citroen-c4",
+  "renting-ebro-s700",
+]);

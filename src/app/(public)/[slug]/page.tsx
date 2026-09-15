@@ -14,6 +14,8 @@ import {
   ENVIRONMENTAL_LABEL_LABELS,
   CONTACT,
   buildWhatsAppLink,
+  ENTREGA_RAPIDA_ETIQUETA,
+  ENTREGA_RAPIDA_MODELOS,
 } from "@/lib/constants";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { VehicleGallery } from "@/components/vehicles/VehicleGallery";
@@ -432,6 +434,11 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
                     <span className="ml-2 text-lg font-medium text-on-dark-3">/mes</span>
                   </p>
                   <p className="mt-1 text-[11px] text-on-dark-3">IVA incluido</p>
+                  {ENTREGA_RAPIDA_MODELOS.has(model.model.slug) && (
+                    <p className="mt-4 inline-flex rounded-full bg-white px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.1em] text-[#0C2454]">
+                      {ENTREGA_RAPIDA_ETIQUETA}
+                    </p>
+                  )}
 
                   {/* Tres CTAs, tres tratamientos, tres destinos reales.
                       Antes eran cuatro en una rejilla 2x2, y dos de ellos

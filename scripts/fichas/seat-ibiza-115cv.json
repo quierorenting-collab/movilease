@@ -127,5 +127,6 @@
       "annual_km": 30000,
       "monthly_price_cents": 40199
     }
-  ]
+  ],
+  "is_offer": true
 }

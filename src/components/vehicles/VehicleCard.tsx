@@ -3,7 +3,7 @@ import Image from "next/image";
 import { BotonAsesor } from "@/components/asesor/BotonAsesor";
 import Link from "next/link";
 import type { VehicleCardData } from "@/lib/data/vehicles";
-import { FUEL_TYPE_LABELS, TRANSMISSION_LABELS, buildWhatsAppLink } from "@/lib/constants";
+import { FUEL_TYPE_LABELS, TRANSMISSION_LABELS, buildWhatsAppLink, ENTREGA_RAPIDA_ETIQUETA, ENTREGA_RAPIDA_MODELOS } from "@/lib/constants";
 import { fotoTarjeta } from "@/lib/utils";
 import { FavoriteButton } from "@/components/vehicles/FavoriteButton";
 import { CompareButton } from "@/components/vehicles/CompareButton";
@@ -12,6 +12,7 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
   const waLink = buildWhatsAppLink(
     `Hola, me interesa el ${vehicle.brandName} ${vehicle.modelName} desde ${vehicle.priceLabel}/mes`
   );
+  const entregaRapida = ENTREGA_RAPIDA_MODELOS.has(vehicle.modelSlug);
 
   return (
     /* El levantamiento al pasar el ratón era framer-motion: en el catálogo
@@ -62,12 +63,20 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
             </p>
           )}
 
-          {/* Offer badge */}
-          {vehicle.isOffer && (
-            <div className="absolute left-4 top-4">
-              <span className="rounded-full bg-[#0068FF] px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.14em] text-white shadow-lg shadow-[#0068FF]/25">
-                Oferta
-              </span>
+          {/* Oferta y, debajo, la entrega rápida: apiladas en la misma esquina
+              para no tapar el coche ni chocar con el botón de favoritos. */}
+          {(vehicle.isOffer || entregaRapida) && (
+            <div className="absolute left-4 top-4 flex flex-col items-start gap-1.5">
+              {vehicle.isOffer && (
+                <span className="rounded-full bg-[#0068FF] px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.14em] text-white shadow-lg shadow-[#0068FF]/25">
+                  Oferta
+                </span>
+              )}
+              {entregaRapida && (
+                <span className="rounded-full bg-[#0A0A0A] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white">
+                  {ENTREGA_RAPIDA_ETIQUETA}
+                </span>
+              )}
             </div>
           )}
 
