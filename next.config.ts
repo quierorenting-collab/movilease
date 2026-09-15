@@ -22,7 +22,6 @@ const MODELOS_RETIRADOS = [
   "renting-kgm-musso",
   "renting-kgm-rexton",
   "renting-kgm-tivoli",
-  "renting-kia-stonic",
   "renting-maxus-deliver-9",
   "renting-maxus-t60-max",
   "renting-mazda-6e",
