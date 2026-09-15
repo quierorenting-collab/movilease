@@ -21,10 +21,11 @@
     "Seguro a todo riesgo",
     "Mantenimiento y revisiones",
     "Neumáticos incluidos",
-    "Asistencia 24h",
+    "Asistencia en carretera 24h",
     "Averías y reparaciones",
     "ITV e impuestos",
-    "Gestión de multas"
+    "Gestión de multas",
+    "Entrega en provincia"
   ],
   "images": [
     {
@@ -134,5 +135,5 @@
     }
   ],
   "body_type": "SUV",
-  "is_active": false
+  "is_active": true
 }
