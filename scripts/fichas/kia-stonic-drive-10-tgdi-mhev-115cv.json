@@ -165,7 +165,7 @@
     }
   ],
   "body_type": "SUV",
-  "is_offer": false,
+  "is_offer": true,
   "is_featured": false,
   "is_active": true
 }
