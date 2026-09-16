@@ -395,13 +395,13 @@ Reglas que se han pagado caras y no se deben repetir:
 - **No hay CLI de Supabase.** Las migraciones se aplican **pegándolas en el SQL
   Editor** del proyecto, en orden.
 
+## 4.5 ⚠️ Hoy NO hay ISR en producción
+
 > **Actualizado el 16/09/2026: resuelto desde el 01/09/2026** (commits
 > `443d224` y `8f6fe3d`). Medido el 16/09: 95 de las 122 direcciones del
 > sitemap salen de caché en unos 100 ms. Solo `/catalogo` y sus vistas por
 > marca (`?brand=`) se siguen generando en cada visita. Lo que sigue en este
 > apartado es el diagnóstico original.
-
-## 4.5 ⚠️ Hoy NO hay ISR en producción
 
 Los archivos declaran `export const revalidate = 3600 / 1800 / 900`, pero
 **ninguna página se cachea**. Verificado el 01/09/2026, dos peticiones seguidas:
