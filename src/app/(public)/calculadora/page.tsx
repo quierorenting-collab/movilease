@@ -35,13 +35,13 @@ export default function CalculadoraPage() {
         />
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <Reveal>
+            <Reveal alCargar>
               <p className="section-label">Calculadora</p>
             </Reveal>
-            <Reveal delay={0.1}>
+            <Reveal alCargar delay={0.1}>
               <h1 className="display-lg mt-4 text-white">¿Cuánto quieres pagar al mes?</h1>
             </Reveal>
-            <Reveal delay={0.2}>
+            <Reveal alCargar delay={0.2}>
               <p className="mt-5 text-lg text-white/70">
                 Ajusta tu presupuesto mensual y descubre qué coches encajan — todo incluido en una
                 sola cuota.
@@ -49,7 +49,7 @@ export default function CalculadoraPage() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.3} className="mx-auto mt-14 max-w-2xl">
+          <Reveal alCargar delay={0.3} className="mx-auto mt-14 max-w-2xl">
             <RentingCalculator />
           </Reveal>
         </div>

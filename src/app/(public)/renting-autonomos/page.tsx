@@ -121,11 +121,19 @@ export default function RentingAutonomosPage() {
           veil="linear-gradient(100deg, rgba(7,26,61,0.95) 0%, rgba(7,26,61,0.90) 40%, rgba(7,26,61,0.66) 72%, rgba(7,26,61,0.76) 100%)"
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-6">
-          <Reveal>
-            <p className="section-label">Renting para autónomos</p>
+          <Reveal alCargar>
+            <p className="section-label">Autónomos</p>
+            {/* Mismo cambio que en /renting-empresas: el h1 dice lo que se
+                busca y el lema pasa a subtítulo. */}
             <h1 className="display-lg mt-4 max-w-3xl text-white">
-              Tu herramienta de trabajo, sin tocar tu tesorería.
+              Renting de coches para autónomos.
             </h1>
+            <p
+              className="mt-5 max-w-2xl text-[22px] font-bold leading-snug text-white/90 sm:text-[26px]"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}
+            >
+              Tu herramienta de trabajo, sin tocar tu tesorería.
+            </p>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
               Renting pensado para autónomos: sin entrada, cuota fija con todo
               incluido y trámites simplificados. Así puedes centrarte en tu

@@ -5,6 +5,19 @@ import { SITE_URL, CONTACT } from "@/lib/constants";
  * organización, ni mostrar las FAQ como resultado enriquecido, ni entender las
  * migas de pan del catálogo.
  */
+/**
+ * La organización solo se declara entera en la portada. En el resto de páginas
+ * un `{ "@id": … }` suelto no dice ni el nombre: la prueba de resultados
+ * enriquecidos daba el vendedor de las fichas y el autor de los artículos como
+ * vacíos. Con tipo, nombre y url cada página se entiende sola.
+ */
+const ORGANIZACION = {
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organizacion`,
+  name: "MoviLease",
+  url: SITE_URL,
+};
+
 function Script({ data }: { data: Record<string, unknown> }) {
   return (
     <script
@@ -20,11 +33,14 @@ export function OrganizationJsonLd() {
     <Script
       data={{
         "@context": "https://schema.org",
-        "@type": "AutoRental",
-        "@id": `${SITE_URL}/#organizacion`,
-        name: "MoviLease",
-        url: SITE_URL,
-        logo: `${SITE_URL}/logo.svg`,
+        /* Organization y no AutoRental: AutoRental es un negocio local y Google
+           le pide dirección, que aquí no se publica. Tampoco lleva priceRange,
+           que es propio de negocio local.
+
+           Logo en PNG cuadrado de 512 px: Google no admite SVG para el logo de
+           la organización y pide al menos 112 px. */
+        ...ORGANIZACION,
+        logo: `${SITE_URL}/logo-cuadrado.png`,
         image: `${SITE_URL}/opengraph-image`,
         description:
           "Renting de coches para particulares, autónomos y empresas en toda España. Sin entrada, con seguro y mantenimiento incluidos.",
@@ -32,7 +48,6 @@ export function OrganizationJsonLd() {
         email: CONTACT.email,
         areaServed: { "@type": "Country", name: "España" },
         sameAs: [CONTACT.instagram],
-        priceRange: "€€",
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "customer service",
@@ -55,7 +70,7 @@ export function WebSiteJsonLd() {
         url: SITE_URL,
         name: "MoviLease",
         inLanguage: "es-ES",
-        publisher: { "@id": `${SITE_URL}/#organizacion` },
+        publisher: ORGANIZACION,
       }}
     />
   );
@@ -189,7 +204,7 @@ export function VehicleModelJsonLd({
                 offerCount: validos.length,
                 availability: "https://schema.org/InStock",
                 url: `${SITE_URL}/${slug}`,
-                seller: { "@id": `${SITE_URL}/#organizacion` },
+                seller: ORGANIZACION,
                 priceSpecification: {
                   "@type": "UnitPriceSpecification",
                   price: validos[0],
@@ -233,7 +248,7 @@ export function WebPageJsonLd({
         url: `${SITE_URL}${path === "/" ? "" : path}`,
         inLanguage: "es-ES",
         isPartOf: { "@id": `${SITE_URL}/#web` },
-        publisher: { "@id": `${SITE_URL}/#organizacion` },
+        publisher: ORGANIZACION,
       }}
     />
   );
@@ -262,13 +277,15 @@ export function ArticleJsonLd({
         "@type": "Article",
         headline: title.slice(0, 110),
         ...(excerpt ? { description: excerpt } : {}),
-        ...(image ? { image: [image] } : {}),
+        /* Google no muestra un artículo como resultado enriquecido sin imagen, y
+           ninguno de los artículos tiene portada propia: se usa la de la web. */
+        image: [image ?? `${SITE_URL}/opengraph-image`],
         ...(publishedAt ? { datePublished: publishedAt } : {}),
         ...(updatedAt ? { dateModified: updatedAt } : {}),
         inLanguage: "es-ES",
         mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${slug}` },
-        author: { "@id": `${SITE_URL}/#organizacion` },
-        publisher: { "@id": `${SITE_URL}/#organizacion` },
+        author: ORGANIZACION,
+        publisher: ORGANIZACION,
       }}
     />
   );

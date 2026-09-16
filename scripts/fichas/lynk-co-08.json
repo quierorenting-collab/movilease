@@ -151,12 +151,6 @@
     }
   ],
   "equipment": [
-    "Ficha técnica (recuadro superior sin epígrafe): 5 PLAZAS",
-    "Ficha técnica (recuadro superior sin epígrafe): 5 PUERTAS",
-    "Ficha técnica (recuadro superior sin epígrafe): 350 CV",
-    "Ficha técnica (recuadro superior sin epígrafe): AUTOMÁTICO",
-    "Ficha técnica (recuadro superior sin epígrafe): HÍBRIDO ENCHUFABLE (PHEV)",
-    "Ficha técnica (recuadro superior sin epígrafe): ETIQUETA 0",
     "CONFORT Y TECNOLOGÍA: Cristal acústico en las ventanas delanteras",
     "CONFORT Y TECNOLOGÍA: Retrovisores exteriores - Retráctiles eléctricos y calefactados",
     "CONFORT Y TECNOLOGÍA: Faros - LED con control activo de las luces largas",
@@ -179,15 +173,7 @@
     "SEGURIDAD Y ASISTENCIA: Reconocimiento de señales de tráfico (TSR)",
     "SEGURIDAD Y ASISTENCIA: Cable de cargador de CA Modelo 2 (para uso doméstico, 230 V) y Modelo 3 (para uso público)",
     "SEGURIDAD Y ASISTENCIA: Kit de reparación de neumáticos",
-    "SEGURIDAD Y ASISTENCIA: Llantas de aleación 19\"",
-    "TODO INCLUIDO: Seguro a todo riesgo",
-    "TODO INCLUIDO: Mantenimiento y revisiones",
-    "TODO INCLUIDO: Neumáticos incluidos",
-    "TODO INCLUIDO: Asistencia 24h",
-    "TODO INCLUIDO: Averías y reparaciones",
-    "TODO INCLUIDO: ITV e impuestos",
-    "TODO INCLUIDO: Gestión de multas",
-    "TODO INCLUIDO: Entrega en provincia"
+    "SEGURIDAD Y ASISTENCIA: Llantas de aleación 19\""
   ],
   "images": [
     {

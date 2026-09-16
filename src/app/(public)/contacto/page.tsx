@@ -42,7 +42,7 @@ export default function ContactoPage() {
               En móvil va DESPUÉS del formulario (order-2): antes había que
               recorrer toda la introducción y los canales antes de ver un campo. */}
           <div className="order-2 lg:order-1">
-            <Reveal>
+            <Reveal alCargar>
               <p className="section-label">Contacto</p>
               <h1 className="display-lg mt-4 text-white">Hablemos.</h1>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-white/75">
@@ -52,7 +52,7 @@ export default function ContactoPage() {
               </p>
             </Reveal>
 
-            <Reveal delay={0.15} className="mt-12 space-y-4">
+            <Reveal alCargar delay={0.15} className="mt-12 space-y-4">
               <a
                 href={`tel:${CONTACT.phone}`}
                 className="flex items-center gap-4 rounded-2xl border border-white/15 bg-white/[0.04] p-5 transition-colors hover:border-[#5AA0FF]/50"
@@ -144,7 +144,7 @@ export default function ContactoPage() {
           </div>
 
           {/* Right: lead form */}
-          <Reveal delay={0.2} className="order-1 lg:order-2">
+          <Reveal alCargar delay={0.2} className="order-1 lg:order-2">
             <div className="shadow-float rounded-3xl border border-white/12 bg-white/[0.04] p-7 backdrop-blur-xl sm:p-9">
               <h2
                 className="text-[22px] font-bold text-white"

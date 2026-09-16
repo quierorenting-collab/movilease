@@ -129,7 +129,7 @@ export default function SobreNosotrosPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-6">
-          <Reveal>
+          <Reveal alCargar>
             {/* Azul mas oscuro que el de marca: a 11px sobre este fondo claro,
                 #0057D6 se queda en 3,87:1 y no llega a AA. */}
             <p className="section-label" style={{ color: "#00409E" }}>

@@ -33,6 +33,7 @@ export async function generateMetadata({
     description: post.excerpt ?? `${post.title}. Guía de renting de coches de MoviLease.`,
     path: `/blog/${post.slug}`,
     images: post.coverImageUrl ? [post.coverImageUrl] : undefined,
+    article: { publishedTime: post.publishedAt, modifiedTime: post.updatedAt },
   });
 }
 
@@ -104,7 +105,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             </ol>
           </nav>
 
-          <Reveal>
+          <Reveal alCargar>
             <h1 className="display-md text-white">{post.title}</h1>
             {post.excerpt && (
               <p className="mt-6 text-[18px] leading-[1.7] text-white/80">{post.excerpt}</p>

@@ -125,11 +125,20 @@ export default function RentingEmpresasPage() {
           veil="linear-gradient(100deg, rgba(7,26,61,0.94) 0%, rgba(7,26,61,0.88) 38%, rgba(7,26,61,0.62) 70%, rgba(7,26,61,0.72) 100%)"
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-6">
-          <Reveal>
-            <p className="section-label">Renting para empresas</p>
+          <Reveal alCargar>
+            <p className="section-label">Empresas</p>
+            {/* El h1 dice lo que se busca; el lema pasa a subtítulo. Antes el h1
+                era solo el lema y la página no decía «renting de coches para
+                empresas» en ningún titular. */}
             <h1 className="display-lg mt-4 max-w-3xl text-white">
-              Moviliza tu equipo sin inmovilizar capital.
+              Renting de coches para empresas.
             </h1>
+            <p
+              className="mt-5 max-w-2xl text-[22px] font-bold leading-snug text-white/90 sm:text-[26px]"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}
+            >
+              Moviliza tu equipo sin inmovilizar capital.
+            </p>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
               Renting de flotas para empresas de cualquier tamaño: cuota fija con
               todo incluido, sin entrada y sin sorpresas. Tú te centras en el

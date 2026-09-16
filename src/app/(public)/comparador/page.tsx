@@ -68,13 +68,13 @@ export default async function ComparadorPage({
     <section className="surface-black ambient-blue-top relative overflow-hidden pt-32 pb-24">
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
-          <Reveal>
+          <Reveal alCargar>
             <p className="section-label">Comparador</p>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Reveal alCargar delay={0.1}>
             <h1 className="display-lg mt-4 text-white">Compara antes de decidir</h1>
           </Reveal>
-          <Reveal delay={0.2}>
+          <Reveal alCargar delay={0.2}>
             <p className="mt-5 text-lg text-white/70">
               Pon hasta tres coches lado a lado y elige con datos, no con intuición.
             </p>
@@ -82,7 +82,7 @@ export default async function ComparadorPage({
         </div>
 
         {vehicles.length === 0 ? (
-          <Reveal delay={0.3}>
+          <Reveal alCargar delay={0.3}>
             <div className="glass mt-14 rounded-3xl px-8 py-16 text-center">
               <p className="mx-auto max-w-md text-white/75">
                 Añade coches al comparador desde el catálogo pulsando &ldquo;+ Comparar&rdquo; en
@@ -94,7 +94,7 @@ export default async function ComparadorPage({
             </div>
           </Reveal>
         ) : (
-          <Reveal delay={0.3}>
+          <Reveal alCargar delay={0.3}>
             <div className="mt-14 overflow-hidden rounded-3xl border border-white/8 bg-white/[0.02]">
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[640px] border-collapse">

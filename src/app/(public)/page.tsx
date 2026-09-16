@@ -8,6 +8,7 @@ import {
   getVehiclesByBrand,
   getVehiclesByModelSlugs,
 } from "@/lib/data/vehicles";
+import { getFooterLandings } from "@/lib/data/landing";
 import { buildWhatsAppLink, ENTREGA_RAPIDA_ETIQUETA, ENTREGA_RAPIDA_MODELOS } from "@/lib/constants";
 import { fotoTarjeta } from "@/lib/utils";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
@@ -247,7 +248,9 @@ const FAQ_ITEMS = [
      salen asi en todas las fichas menos una. */
   { q: "¿A cuántos kilómetros al año?",     a: "Las cuotas publicadas se calculan sobre 10.000 km al año, y el kilometraje se adapta a tu uso real. El plazo va de 36 a 60 meses y la cuota cambia según el que elijas: cada coche tiene su tabla completa." },
   { q: "¿Cuánto tarda la aprobación?",      a: "En menos de 48 horas laborables tramitamos tu solicitud y te damos respuesta." },
-  { q: "¿Puedo cancelar antes de tiempo?",  a: "Cada caso se estudia de forma individual. Contáctanos por WhatsApp y te asesoramos sin compromiso." },
+  /* Igual que el articulo «Qué pasa al final del renting»: antes aqui no se
+     decia que tiene coste y el blog si, y las dos cosas se leen juntas. */
+  { q: "¿Puedo cancelar antes de tiempo?",  a: "Sí, se estudia caso por caso y tiene coste, porque la cuota está calculada sobre un plazo concreto. Escríbenos por WhatsApp y te decimos cuánto sería en tu caso, sin compromiso." },
   /* Decia "principalmente si" y espantaba al cliente de empresa justo antes
      del formulario, teniendo /renting-empresas y /renting-autonomos
      montadas. Ademas era falso: Adrian confirmo el 03/09/2026 que los tres
@@ -258,7 +261,7 @@ const FAQ_ITEMS = [
 ];
 
 export default async function HomePage() {
-  const [featured, offers, { brands }, exclusivos, electricos, entregaRapida] = await Promise.all([
+  const [featured, offers, { brands }, exclusivos, electricos, entregaRapida, { categorias }] = await Promise.all([
     getFeaturedVehicles(200),
     // Todas las que marca Adrián con is_offer. El tope es solo una red: la
     // consulta ordena por cuota ascendente, y con el de seis que había se
@@ -271,7 +274,18 @@ export default async function HomePage() {
     // Los de entrega rápida tienen zona propia encima de ofertas, así que ya no
     // van marcados como oferta: la lista de modelos es la que manda.
     getVehiclesByModelSlugs([...ENTREGA_RAPIDA_MODELOS]),
+    getFooterLandings(),
   ]);
+
+  /* Enlaces a las páginas que venden, con el nombre de cada una como texto. Hasta
+     el 16/09/2026 las landings solo se enlazaban desde el pie. Las de ciudad no
+     van aquí: son la misma plantilla con otro nombre y no conviene empujarlas
+     hasta que tengan contenido propio. */
+  const rentingPorTipo = [
+    ...categorias,
+    { slug: "renting-empresas", title: "Renting de coches para empresas" },
+    { slug: "renting-autonomos", title: "Renting de coches para autónomos" },
+  ];
 
   /* De la cuota más baja a la más alta, como el resto de bloques de la web y
      como pidió Adrián. El orden de la constante EXCLUSIVOS ya no manda: si
@@ -1012,6 +1026,29 @@ export default async function HomePage() {
               </RevealItem>
             ))}
           </RevealGroup>
+
+          {rentingPorTipo.length > 0 && (
+            <Reveal className="mt-16 border-t border-[#E5E7EB] pt-12">
+              <h3
+                className="text-[22px] font-bold text-[#0A0A0A] sm:text-[26px]"
+                style={{ fontFamily: "var(--font-space-grotesk)" }}
+              >
+                Renting por tipo de coche
+              </h3>
+              <ul className="mt-6 flex flex-wrap gap-3">
+                {rentingPorTipo.map((l) => (
+                  <li key={l.slug}>
+                    <Link
+                      href={`/${l.slug}`}
+                      className="inline-flex min-h-[44px] items-center rounded-full border border-[#0057D6]/25 bg-white px-4 text-[14px] font-semibold text-[#0057D6] transition-colors hover:border-[#0057D6] hover:bg-[#0057D6] hover:text-white"
+                    >
+                      {l.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          )}
         </div>
       </section>
 

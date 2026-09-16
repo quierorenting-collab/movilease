@@ -73,20 +73,20 @@ function observe({ el, onEnter }: Observed) {
   };
 }
 
-function useReveal<T extends HTMLElement>() {
+function useReveal<T extends HTMLElement>(alCargar = false) {
   const ref = useRef<T>(null);
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || shown) return;
+    if (!el || shown || alCargar) return;
     // Si ya está en pantalla al montar (contenido sobre el pliegue), no esperes
     if (inViewport(el)) {
       setShown(true);
       return;
     }
     return observe({ el, onEnter: () => setShown(true) });
-  }, [shown]);
+  }, [shown, alCargar]);
 
   return { ref, shown };
 }
@@ -97,10 +97,37 @@ interface RevealProps {
   delay?: number;
   duration?: number;
   y?: number;
+  /**
+   * Para lo que se ve nada más abrir la página: titular, foto y precio del
+   * hero. Con .reveal ese bloque llega en el HTML con opacity 0 y no se ve
+   * hasta que React hidrata y el observador añade la clase; en un móvil lento
+   * medido eso retrasaba lo principal de la ficha de 3,8 s a 5,9-7,3 s, y sin
+   * JavaScript la página salía en blanco. Con .hero-rise la misma entrada la
+   * hace CSS desde el primer pintado, como ya hace el hero de la portada.
+   */
+  alCargar?: boolean;
 }
 
-export function Reveal({ children, className, delay = 0, duration = 0.9, y = 40 }: RevealProps) {
-  const { ref, shown } = useReveal<HTMLDivElement>();
+export function Reveal({
+  children,
+  className,
+  delay = 0,
+  duration = 0.9,
+  y = 40,
+  alCargar = false,
+}: RevealProps) {
+  const { ref, shown } = useReveal<HTMLDivElement>(alCargar);
+
+  if (alCargar) {
+    return (
+      <div
+        className={`hero-rise${className ? ` ${className}` : ""}`}
+        style={{ "--d": `${delay}s`, "--hero-rise-y": `${y}px` } as React.CSSProperties}
+      >
+        {children}
+      </div>
+    );
+  }
 
   return (
     <div

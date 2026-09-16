@@ -91,3 +91,61 @@ export async function getFooterLandings(): Promise<{
     return { categorias: [], ciudades: [] };
   }
 }
+
+/**
+ * Landings de categoría con su filtro, para enlazarlas desde cada ficha. Solo
+ * las que filtran algo: /renting-barato no tiene filtro y encajaría con todos.
+ */
+export interface CategoryLanding {
+  slug: string;
+  title: string;
+  category?: VehicleCategoryEnum;
+  fuelTypes?: FuelTypeEnum[];
+  transmission?: TransmissionEnum;
+}
+
+export async function getCategoryLandings(): Promise<CategoryLanding[]> {
+  try {
+    const supabase = createPublicClient();
+    const { data } = await supabase
+      .from("landing_pages")
+      .select("slug, title, filter_json")
+      .eq("is_active", true)
+      .eq("type", "category")
+      .order("slug");
+    return (data ?? []).flatMap((l) => {
+      const f = (l.filter_json ?? {}) as {
+        category?: VehicleCategoryEnum;
+        fuel_type?: FuelTypeEnum | FuelTypeEnum[];
+        transmission?: TransmissionEnum;
+      };
+      if (!f.category && !f.fuel_type && !f.transmission) return [];
+      return [
+        {
+          slug: l.slug,
+          title: l.title,
+          category: f.category,
+          fuelTypes: f.fuel_type ? (Array.isArray(f.fuel_type) ? f.fuel_type : [f.fuel_type]) : undefined,
+          transmission: f.transmission,
+        },
+      ];
+    });
+  } catch {
+    return [];
+  }
+}
+
+/** Las landings en las que sale al menos una versión del modelo. */
+export function landingsDelModelo(
+  landings: CategoryLanding[],
+  versiones: { category: VehicleCategoryEnum; fuelType: FuelTypeEnum; transmission: TransmissionEnum }[]
+): CategoryLanding[] {
+  return landings.filter((l) =>
+    versiones.some(
+      (v) =>
+        (!l.category || l.category === v.category) &&
+        (!l.fuelTypes || l.fuelTypes.includes(v.fuelType)) &&
+        (!l.transmission || l.transmission === v.transmission)
+    )
+  );
+}

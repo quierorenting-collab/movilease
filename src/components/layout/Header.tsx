@@ -132,16 +132,17 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
         Saltar al contenido
       </a>
 
-      <motion.header
-        initial={{ y: -40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+      <header
+        /* La entrada la hace CSS (.hero-rise) desde el primer pintado. Con
+           framer-motion la cabecera llegaba en el HTML con opacity 0 y no
+           aparecía hasta hidratar: en móvil lento, segundos sin menú. */
+        style={{ "--d": "0.05s", "--hero-rise-y": "-40px" } as React.CSSProperties}
         onMouseLeave={() => closeMega()}
         /* Al hacer scroll el fondo se vuelve translúcido con blur en vez de
            blanco sólido: la página que pasa por debajo se intuye, que es lo
            que hace que la barra se sienta una capa de cristal y no un bloque.
            700ms para que el cambio nunca se perciba como un salto. */
-        className={`fixed left-0 right-0 top-0 z-50 backdrop-blur-xl transition-[background-color,box-shadow] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`hero-rise fixed left-0 right-0 top-0 z-50 backdrop-blur-xl transition-[background-color,box-shadow] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           scrolled
             ? "bg-white/85 shadow-[0_8px_28px_rgba(10,10,10,0.10)]"
             : "bg-white shadow-[0_2px_16px_rgba(10,10,10,0.06)]"
@@ -317,7 +318,7 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.header>
+      </header>
 
       {/* Mobile menu overlay */}
       <AnimatePresence>

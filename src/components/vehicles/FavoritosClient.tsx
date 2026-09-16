@@ -34,7 +34,7 @@ export function FavoritosClient() {
   return (
     <section className="surface-black ambient-blue-top relative min-h-screen pt-32 pb-32">
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <Reveal>
+        <Reveal alCargar>
           <p className="section-label">Favoritos</p>
           <h1 className="display-lg mt-4 text-white">Tus favoritos.</h1>
           <p className="mt-4 max-w-xl text-white/70">

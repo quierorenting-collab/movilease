@@ -58,7 +58,7 @@ export default async function BlogPage() {
         <div className="ambient-blue-top" aria-hidden />
 
         <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-10">
-          <Reveal className="max-w-2xl">
+          <Reveal alCargar className="max-w-2xl">
             <p className="section-label">Blog</p>
             <h1 className="display-lg mt-4 text-white">Guías de renting.</h1>
             <p className="mt-5 max-w-xl text-[17px] leading-[1.7] text-white/80">

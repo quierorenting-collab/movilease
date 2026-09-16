@@ -7,7 +7,13 @@ import {
   getCatalogVehicles,
   type VehicleDetailData,
 } from "@/lib/data/vehicles";
-import { getLandingPageBySlug, getActiveLandingSlugs } from "@/lib/data/landing";
+import {
+  getLandingPageBySlug,
+  getActiveLandingSlugs,
+  getCategoryLandings,
+  landingsDelModelo,
+} from "@/lib/data/landing";
+import { getPostBySlug } from "@/lib/data/blog";
 import {
   FUEL_TYPE_LABELS,
   TRANSMISSION_LABELS,
@@ -94,7 +100,15 @@ export async function generateMetadata({
     if (description.length > 158) description = description.slice(0, 155).trimEnd() + "…";
 
     return pageMetadata({
-      title: desde ? `Renting ${nombre} desde ${formatEuros(desde)} €/mes` : `Renting ${nombre}`,
+      /* «sin entrada» en el título: en «renting seat ibiza particulares» los 7
+         primeros resultados lo llevan, o «particulares», y el nuestro no. En los
+         nombres largos (Mercedes-Benz GLE 350d Coupé) se cae antes que el precio. */
+      title: desde
+        ? [
+            `Renting ${nombre} sin entrada desde ${formatEuros(desde)} €/mes`,
+            `Renting ${nombre} desde ${formatEuros(desde)} €/mes`,
+          ]
+        : [`Renting ${nombre} sin entrada`, `Renting ${nombre}`],
       description,
       path: `/${slug}`,
       // La foto del coche como imagen al compartir, en vez de la generica
@@ -153,7 +167,17 @@ export default async function SlugResolverPage({
   if (model?.vehicles.length) return <ModelPage model={model} />;
 
   const landing = await getLandingPageBySlug(slug);
-  if (landing) return <LandingPage landing={landing} slug={slug} />;
+  if (landing) {
+    const guiaSlug = GUIA_DE_LANDING[slug] ?? (landing.type === "city" ? GUIA_CIUDADES : null);
+    const guia = guiaSlug ? await getPostBySlug(guiaSlug) : null;
+    return (
+      <LandingPage
+        landing={landing}
+        slug={slug}
+        guia={guia ? { slug: guia.slug, title: guia.title } : null}
+      />
+    );
+  }
 
   notFound();
 }
@@ -223,7 +247,14 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
 
   const marcaSlug = encodeURIComponent(model.brandName.toLowerCase());
   const nombreCompleto = `${model.brandName} ${model.model.name}`;
-  const hermanos = await getSameBrandModels(model.brandName, model.model.slug, 4);
+  const [hermanos, landingsTipo] = await Promise.all([
+    getSameBrandModels(model.brandName, model.model.slug, 4),
+    getCategoryLandings(),
+  ]);
+  /* Las landings de tipo solo se enlazaban desde el pie, y Google da poco peso a
+     esos enlaces. Desde la ficha, con el nombre de la landing como texto, cada
+     coche empuja a las páginas de categoría en las que sale. */
+  const tiposDelCoche = landingsDelModelo(landingsTipo, model.vehicles);
 
   /* Precio y condiciones tienen que salir del MISMO vehículo: si se coge el
      mínimo por un lado y el plazo de `primary` por otro, la FAQ acaba diciendo
@@ -359,7 +390,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
           </nav>
 
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
-            <Reveal delay={0.05} y={36}>
+            <Reveal alCargar delay={0.05} y={36}>
               {primary ? (
                 <VehicleGallery images={primary.images} alt={fullName} />
               ) : (
@@ -372,7 +403,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
               )}
             </Reveal>
 
-            <Reveal>
+            <Reveal alCargar>
               <p className="section-label">{model.brandName}</p>
               <h1 className="display-lg mt-4 text-white">
                 <span className="block text-[0.45em] font-bold uppercase tracking-[0.18em] text-[#8FBEFF]">
@@ -746,6 +777,29 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
         </section>
       )}
 
+      {/* ── Renting por tipo ── */}
+      {tiposDelCoche.length > 0 && (
+        <nav aria-label="Categorías de este coche" className="border-b border-[#E5E7EB] bg-white py-12">
+          <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 sm:flex-row sm:items-center sm:px-10">
+            <p className="shrink-0 text-[12px] font-bold uppercase tracking-[0.14em] text-[#4B5563]">
+              El {nombreCompleto} también está en
+            </p>
+            <ul className="flex flex-wrap gap-3">
+              {tiposDelCoche.map((l) => (
+                <li key={l.slug}>
+                  <Link
+                    href={`/${l.slug}`}
+                    className="inline-flex min-h-[44px] items-center rounded-full border border-[#0057D6]/25 px-4 text-[14px] font-semibold text-[#0057D6] transition-colors hover:border-[#0057D6] hover:bg-[#0057D6] hover:text-white"
+                  >
+                    {l.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+      )}
+
       {/* ── Otros modelos de la misma marca ──
            La ficha no enlazaba a ningún hermano: quien entraba buscando este
            modelo no podía llegar al resto de la marca sin volver al catálogo,
@@ -824,12 +878,29 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
 
 /* ─────────────────────────── landing view ─────────────────────────── */
 
+/* La guía del blog que resuelve la duda típica de quien llega a cada landing.
+   Los artículos no enlazaban a las landings ni al revés, así que ni el visitante
+   ni el rastreador pasaban de una a otra. Si un artículo no existe o no está
+   publicado, getPostBySlug devuelve null y el bloque no se pinta. */
+const GUIA_DE_LANDING: Record<string, string> = {
+  "renting-electrico": "renting-coche-electrico-hibrido",
+  "renting-hibrido": "renting-coche-electrico-hibrido",
+  "renting-furgoneta": "renting-para-autonomos",
+  "renting-diesel": "cuantos-kilometros-contratar-renting",
+  "renting-barato": "renting-sin-entrada",
+  "renting-suv": "que-incluye-la-cuota-de-un-renting",
+  "renting-automatico": "que-incluye-la-cuota-de-un-renting",
+};
+const GUIA_CIUDADES = "requisitos-para-contratar-un-renting";
+
 function LandingPage({
   landing,
   slug,
+  guia,
 }: {
   landing: NonNullable<Awaited<ReturnType<typeof getLandingPageBySlug>>>;
   slug: string;
+  guia: { slug: string; title: string } | null;
 }) {
   return (
     <>
@@ -847,7 +918,7 @@ function LandingPage({
       {/* ── Hero ── */}
       <section className="surface-black ambient-blue-top relative overflow-hidden pt-32 pb-20">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
-          <Reveal>
+          <Reveal alCargar>
             <p className="section-label">Renting</p>
             <h1 className="display-lg mt-4 max-w-4xl text-white">{landing.h1}</h1>
             {landing.introContent && (
@@ -888,6 +959,23 @@ function LandingPage({
               <div className="rounded-3xl border border-dashed border-white/10 p-14 text-center text-white/70">
                 Estamos ampliando el catálogo de esta categoría — vuelve pronto.
               </div>
+            </Reveal>
+          )}
+
+          {guia && (
+            <Reveal className="mt-14 border-t border-white/10 pt-8">
+              <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-white/60">
+                Antes de elegir
+              </p>
+              <Link
+                href={`/blog/${guia.slug}`}
+                className="group mt-3 inline-flex items-center gap-3 text-[18px] font-semibold text-[#8FBEFF] transition-colors hover:text-white"
+              >
+                {guia.title}
+                <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
             </Reveal>
           )}
         </div>

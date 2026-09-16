@@ -78,12 +78,36 @@ def get_or_create_model(brand_id, brand_name, model_name):
     return created[0]["id"], slug
 
 
+# Notas de quien transcribe una lámina que acabaron publicadas tal cual en el
+# equipamiento: «Ficha tecnica (cabecera, ambas laminas): 261 CV», «[sic, ...]»,
+# «(en la lámina blanca solo pone ...)». Se ven en la ficha y Google las indexa.
+NOTA_INTERNA = re.compile(
+    r"l[aá]minas?\b|\[sic\b|tal cual|cabecera|servicios del renting|ep[ií]grafe|"
+    r"ficha t[eé]cnica \(|ficha de iconos|bloque de iconos|recuadro superior|"
+    r"^\s*todo incluido\b|\.(png|jpe?g|pdf)\b",
+    re.I,
+)
+
+
+def rechazar_notas_internas(data):
+    campos = [("version", data.get("version")), ("description", data.get("description")),
+              ("short_description", data.get("short_description"))]
+    campos += [(f"equipment[{i}]", e) for i, e in enumerate(data.get("equipment") or [])]
+    campos += [(f"included_services[{i}]", s) for i, s in enumerate(data.get("included_services") or [])]
+    malos = [(k, v) for k, v in campos if isinstance(v, str) and NOTA_INTERNA.search(v)]
+    if malos:
+        detalle = "\n".join(f"  {k}: {v}" for k, v in malos)
+        raise SystemExit(f"La ficha lleva notas internas que saldrían publicadas:\n{detalle}")
+
+
 def main():
     if len(sys.argv) != 2:
         raise SystemExit("Uso: python scripts/add_vehicle.py <ficha.json>")
 
     with open(sys.argv[1], encoding="utf-8") as f:
         data = json.load(f)
+
+    rechazar_notas_internas(data)
 
     images = data.get("images", [])
     main_image_url = images[0]["url"] if images else data.get("main_image_url")

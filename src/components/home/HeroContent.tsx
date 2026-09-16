@@ -70,45 +70,57 @@ export function HeroContent() {
          tiene que terminar antes de ahi. Con 40vh caia al 91% y quedaba
          debajo; con 22vh termina en 650 y deja 14px de aire. Arriba quedan
          227px de video limpio, que antes eran cero.
+         Desde el 16/09/2026 el titular («Renting de coches sin entrada, todo
+         incluido») ocupa tres lineas en vez de dos, 35px mas: con 22vh el
+         tercer boton acababa en 687, debajo del flotante que empieza en 672.
+         Con 18vh vuelve a caber y quedan unos 195px de video limpio.
          Escritorio intacto. */
-      className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-10 pt-[22vh] sm:px-10 lg:pb-24 lg:pt-28">
+      className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-10 pt-[18vh] sm:px-10 lg:pb-24 lg:pt-28">
       <div className="lg:max-w-[52%]">
-        {/* Eyebrow */}
+        {/* Eslogan, encima del titular y en el hueco del antiguo antetítulo.
+            Hasta el 16/09/2026 era el h1, y la portada no decía «renting de
+            coches» ni una vez fuera del menú y el pie: Google no tenía de qué
+            fiarse para asociarla a esa búsqueda. Sigue a la vista, con los
+            mismos colores de marca, pero el titular ya dice qué vendemos. */}
         <div
           style={rise(0, 20)}
-          className="hero-rise mb-8 flex items-center gap-4"
+          className="hero-rise mb-6 flex items-center gap-4"
         >
           <span
             style={{ ["--d" as string]: (BASE_DELAY + 0.3).toFixed(2) + "s" } as React.CSSProperties}
-            className="hero-line h-px w-10 origin-left bg-[#0068FF]"
+            className="hero-line h-px w-10 shrink-0 origin-left bg-[#0068FF]"
           />
-          <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#5AA0FF]">
-            Smart Mobility Platform
-          </span>
+          <p
+            className="text-[17px] font-bold tracking-[-0.01em] text-white sm:text-[20px]"
+            style={{ fontFamily: "var(--font-space-grotesk)" }}
+          >
+            {/* #5AA0FF y no el azul de marca: a este tamaño #0068FF sobre el
+                fondo oscuro se queda en 3,1:1 y no llega a AA. */}
+            Hazlo fácil. Hazlo <span className="text-[#5AA0FF]">MoviLease.</span>
+          </p>
         </div>
 
-        {/* Headline — massive editorial. El slogan de marca, aquí en
-            grande, en vez de como texto pequeño junto al logo del header. */}
         <h1 className="hero-headline text-white">
           <span className="block overflow-hidden">
             <span style={rise(1)} className="hero-rise block">
-              Hazlo fácil.
+              Renting de coches
             </span>
           </span>
           <span className="block overflow-hidden">
             <span style={rise(2)} className="hero-rise block">
-              Hazlo <span className="text-[#0068FF]">MoviLease.</span>
+              sin entrada, <span className="text-[#0068FF]">todo incluido.</span>
             </span>
           </span>
         </h1>
 
-        {/* Subtitle */}
+        {/* Subtitle. Ya no repite «sin entrada» ni «todo incluido», que
+            ahora dice el titular: cuenta qué entra en la cuota. */}
         <p
           style={rise(3, 28)}
           className="hero-rise mt-6 max-w-lg text-[16px] leading-[1.7] text-white/80 sm:text-[17px]"
         >
-          Renting inteligente para particulares, autónomos y empresas.
-          Todo incluido en una cuota fija. Sin entrada. Sin sorpresas.
+          Para particulares, autónomos y empresas. Coche nuevo, seguro y
+          mantenimiento en una cuota fija con IVA incluido.
         </p>
 
         {/* CTAs */}

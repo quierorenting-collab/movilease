@@ -15,7 +15,7 @@
   "annual_km": 10000,
   "short_description": "SUV de 261 CV",
   "included_services": [
-    "Seguro a todo riesgo",
+    "Seguro a todo riesgo sin franquicia",
     "Mantenimiento y revisiones",
     "Neumáticos incluidos",
     "Asistencia en carretera 24h",
@@ -173,22 +173,7 @@
     "Seguridad y asistencia: Reconocimiento de senales de trafico (TSR)",
     "Seguridad y asistencia: Cable de cargador de CA Modelo 2 (para uso domestico, 230 V) y Modelo 3 (para uso publico)",
     "Seguridad y asistencia: Kit de reparacion de neumaticos",
-    "Seguridad y asistencia: Llantas de aleacion 19\"",
-    "Ficha tecnica (cabecera, ambas laminas): 5 plazas",
-    "Ficha tecnica (cabecera, ambas laminas): 5 puertas",
-    "Ficha tecnica (cabecera, ambas laminas): 261 CV",
-    "Ficha tecnica (cabecera, ambas laminas): Hibrido enchufable (PHEV)",
-    "Ficha tecnica (cabecera, ambas laminas): Automatico",
-    "Ficha tecnica (cabecera, ambas laminas): Etiqueta 0",
-    "Ficha tecnica (cabecera, ambas laminas): Version 1.5 PHEV 261CV (Hibrido Enchufable), acabado Core",
-    "Todo incluido (servicios del renting, solo en PRECIO.png): Seguro a todo riesgo sin franquicia",
-    "Todo incluido (servicios del renting, solo en PRECIO.png): Mantenimiento y revisiones",
-    "Todo incluido (servicios del renting, solo en PRECIO.png): Neumaticos incluidos",
-    "Todo incluido (servicios del renting, solo en PRECIO.png): Asistencia en carretera 24h",
-    "Todo incluido (servicios del renting, solo en PRECIO.png): Averias y reparaciones",
-    "Todo incluido (servicios del renting, solo en PRECIO.png): ITV e impuestos",
-    "Todo incluido (servicios del renting, solo en PRECIO.png): Gestion de multas",
-    "Todo incluido (servicios del renting, solo en PRECIO.png): Entrega en provincia"
+    "Seguridad y asistencia: Llantas de aleacion 19\""
   ],
   "images": [
     {
