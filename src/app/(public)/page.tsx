@@ -359,7 +359,21 @@ export default async function HomePage() {
           constants.ts, y estos coches NO llevan is_offer: si no, saldrían dos
           veces seguidas. Misma tarjeta que ofertas, pensada para este fondo. */}
       {entregaRapidaPorPrecio.length > 0 && (
-        <section id="entrega-rapida" className="relative overflow-hidden bg-[#FAFAFA] bg-texture-light section-y">
+        <section id="entrega-rapida" className="relative overflow-hidden bg-[#FAFAFA] section-y">
+          {/* Foto de calle de fondo: la sección hablaba de entrega y era la única
+              grande de la home sin imagen. Este póster estaba sin usar —ofertas
+              tira de hero-car.webp porque su vídeo está apagado—, así que no
+              repite ninguna de las que ya salen al bajar. Se probaron antes dos
+              fondos claros (cierre-bg y la carretera al atardecer) y el velo los
+              dejaba en blanco: con una foto de más contraste sí se ve. Velo
+              fuerte arriba, donde va el titular en tinta oscura, y flojo en la
+              banda de las tarjetas, que son opacas y no lo necesitan. */}
+          <VideoBackdrop
+            poster="/videos/ofertas-poster.webp"
+            base="#FAFAFA"
+            veil="linear-gradient(180deg, rgba(250,250,250,0.88) 0%, rgba(250,250,250,0.72) 30%, rgba(250,250,250,0.40) 48%, rgba(250,250,250,0.56) 100%)"
+          />
+
           <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
             <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
