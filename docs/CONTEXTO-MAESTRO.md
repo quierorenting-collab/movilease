@@ -68,6 +68,28 @@ indicados en este documento.
 
 # 1. LO PRIMERO QUE TIENES QUE ENTENDER
 
+## ⚠️ Desde el 16/09/2026 quierorenting.es redirige entera a movilease.es
+
+Decisión de Adrián tras la auditoría SEO de ese día: las dos webs competían por
+las mismas búsquedas (69 direcciones iguales, mismos precios) y ninguna salía en
+Google. Toda la autoridad va ahora a movilease.es.
+
+- Cada página de quierorenting.es responde **308** a su equivalente en
+  movilease.es (cinco Mercedes y las dos políticas cambian de nombre). Los
+  modelos retirados van con **307** a `/catalogo`. Todo lo demás, con 308 a la
+  portada.
+- Se siguen sirviendo en quierorenting.es, a propósito: `robots.txt`,
+  `sitemap.xml` (para que Google recorra las direcciones viejas y encuentre
+  las redirecciones), `api/` (leads), `fotos/`, `videos/` y el fichero de
+  verificación de Search Console `googleacde89a916f33c87.html`. **No los metas
+  en las redirecciones ni borres ese fichero.**
+- Las reglas están en `sitio-nuevo/vercel.json` de su repositorio. Los HTML de
+  las páginas siguen ahí: deshacer la fusión es revertir el commit `6e65536`.
+- **Consecuencia práctica:** los cambios de catálogo, precios y contenido se
+  hacen solo en movilease.es. Lo que dicen §1, §6 y §9 sobre mantener
+  quierorenting.es describe el estado anterior. Si movilease cambia el slug de
+  una ficha, hay que actualizar su redirección en `vercel.json`.
+
 ## MoviLease y QuieroRenting NO son la misma web
 
 Es el error de partida más caro y hay que quitárselo de encima antes de nada:
@@ -372,6 +394,12 @@ Reglas que se han pagado caras y no se deben repetir:
   (`attachModelsAndBrands`). No lo "modernices" sin regenerar los tipos.
 - **No hay CLI de Supabase.** Las migraciones se aplican **pegándolas en el SQL
   Editor** del proyecto, en orden.
+
+> **Actualizado el 16/09/2026: resuelto desde el 01/09/2026** (commits
+> `443d224` y `8f6fe3d`). Medido el 16/09: 95 de las 122 direcciones del
+> sitemap salen de caché en unos 100 ms. Solo `/catalogo` y sus vistas por
+> marca (`?brand=`) se siguen generando en cada visita. Lo que sigue en este
+> apartado es el diagnóstico original.
 
 ## 4.5 ⚠️ Hoy NO hay ISR en producción
 
