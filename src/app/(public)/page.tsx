@@ -258,7 +258,7 @@ const FAQ_ITEMS = [
 ];
 
 export default async function HomePage() {
-  const [featured, offers, { brands }, exclusivos, electricos] = await Promise.all([
+  const [featured, offers, { brands }, exclusivos, electricos, entregaRapida] = await Promise.all([
     getFeaturedVehicles(200),
     // Todas las que marca Adrián con is_offer. El tope es solo una red: la
     // consulta ordena por cuota ascendente, y con el de seis que había se
@@ -268,12 +268,20 @@ export default async function HomePage() {
     getVehiclesByModelSlugs(EXCLUSIVOS),
     // El mismo filtro que la landing /renting-electrico: todos llevan etiqueta CERO.
     getCatalogVehicles({ fuelType: ["electrico", "phev"] }),
+    // Los de entrega rápida tienen zona propia encima de ofertas, así que ya no
+    // van marcados como oferta: la lista de modelos es la que manda.
+    getVehiclesByModelSlugs([...ENTREGA_RAPIDA_MODELOS]),
   ]);
 
   /* De la cuota más baja a la más alta, como el resto de bloques de la web y
      como pidió Adrián. El orden de la constante EXCLUSIVOS ya no manda: si
      mañana cambia un precio, la sección se recoloca sola. */
   const exclusivosPorPrecio = [...exclusivos].sort(
+    (a, b) => (a.monthlyPriceCents ?? 0) - (b.monthlyPriceCents ?? 0)
+  );
+
+  /* De la cuota más baja a la más alta, como el resto de bloques. */
+  const entregaRapidaPorPrecio = [...entregaRapida].sort(
     (a, b) => (a.monthlyPriceCents ?? 0) - (b.monthlyPriceCents ?? 0)
   );
 
@@ -296,7 +304,9 @@ export default async function HomePage() {
   /* Los que ya salen en Ofertas o en Exclusivos no se repiten en la misma
      pantalla, y se enseñan los seis más baratos (dos filas de tres): el resto
      está en la landing, a la que lleva «Ver todos». */
-  const yaEnPortada = new Set([...dedupedOffers, ...exclusivos].map((v) => v.modelSlug));
+  const yaEnPortada = new Set(
+    [...dedupedOffers, ...exclusivos, ...entregaRapida].map((v) => v.modelSlug)
+  );
   const seenElectricModels = new Set<string>();
   const electricosPortada = electricos
     .filter((v) => {
@@ -342,6 +352,143 @@ export default async function HomePage() {
           Cuáles son las ofertas NO se decide aquí: sale de is_offer en la base,
           así que cambia cuando cambia el stock. No poner nombres en este
           comentario: los que había ya se habían quedado viejos. */}
+      {/* ══ ENTREGA RÁPIDA — 5-15 días ══════════════════
+          Va encima de ofertas, que es lo primero que se ve al bajar del hero:
+          el plazo de entrega es el argumento que más pesa cuando el coche ya
+          se ha elegido. Cuáles son sale de ENTREGA_RAPIDA_MODELOS, en
+          constants.ts, y estos coches NO llevan is_offer: si no, saldrían dos
+          veces seguidas. Misma tarjeta que ofertas, pensada para este fondo. */}
+      {entregaRapidaPorPrecio.length > 0 && (
+        <section id="entrega-rapida" className="relative overflow-hidden bg-[#FAFAFA] bg-texture-light section-y">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
+            <Reveal className="section-head flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                {/* Mismo color forzado que en ofertas: #0068FF sobre este gris
+                    se queda por debajo de AA. */}
+                <p className="section-label mb-5" style={{ color: "#0057D6" }}>
+                  Entrega rápida
+                </p>
+                <h2 className="display-md text-[#0A0A0A]">
+                  Tu coche en
+                  <br />
+                  <span className="text-[#0057D6]">5-15 días.</span>
+                </h2>
+              </div>
+              <p className="max-w-sm text-[14.5px] leading-relaxed text-[#4B5563] sm:text-right">
+                Estos modelos se entregan entre 5 y 15 días, con las mismas
+                condiciones que el resto del catálogo.
+              </p>
+            </Reveal>
+
+            <RevealGroup
+              stagger={0.08}
+              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {entregaRapidaPorPrecio.map((vehicle, i) => (
+                <RevealItem
+                  key={vehicle.id}
+                  className={
+                    i === entregaRapidaPorPrecio.length - 1 &&
+                    entregaRapidaPorPrecio.length % 3 === 1
+                      ? "lg:col-start-2"
+                      : undefined
+                  }
+                >
+                  <div
+                    className="card-lift card-lift-dark group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#0C2454]/20 bg-gradient-to-b from-[#1B4080] to-[#0C2454] hover:border-[#5AA0FF]/50"
+                    style={{ boxShadow: "0 18px 40px rgba(7,26,61,0.22)" }}
+                  >
+                    <Link
+                      href={`/${vehicle.modelSlug}`}
+                      className="flex flex-1 flex-col"
+                      aria-label={`Ver ficha del ${vehicle.brandName} ${vehicle.modelName}`}
+                    >
+                      <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#1B4080] to-[#15315F]">
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-0 flex items-center justify-center text-7xl font-bold text-white/15"
+                          style={{ fontFamily: "var(--font-space-grotesk)" }}
+                        >
+                          {vehicle.brandName.charAt(0)}
+                        </span>
+                        {vehicle.imageUrl && (
+                          <Image
+                            src={fotoTarjeta(vehicle.imageUrl)!}
+                            alt={`${vehicle.brandName} ${vehicle.modelName}`}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-contain p-3 transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1B4080] via-transparent to-transparent" />
+                        <div className="absolute left-4 top-4">
+                          <span className="rounded-full bg-white px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-[#0C2454] shadow-lg shadow-black/20">
+                            {ENTREGA_RAPIDA_ETIQUETA}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="px-6 pb-2 pt-5">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/75">
+                          {vehicle.brandName}
+                        </p>
+                        <h3
+                          className="mt-1 text-[20px] font-bold leading-tight text-white"
+                          style={{ fontFamily: "var(--font-space-grotesk)" }}
+                        >
+                          {vehicle.modelName}
+                        </h3>
+                        <p className="mt-1.5 text-[12.5px] leading-snug text-white/70">
+                          {vehicle.version}
+                        </p>
+                      </div>
+                    </Link>
+
+                    <div className="mt-auto px-6 pb-5 pt-4">
+                      <div className="flex items-end justify-between gap-3">
+                        <div>
+                          <p className="text-[11px] uppercase tracking-[0.16em] text-white/75">desde</p>
+                          <p
+                            className="text-[27px] font-bold leading-none text-white"
+                            style={{ fontFamily: "var(--font-space-grotesk)" }}
+                          >
+                            {vehicle.priceLabel}
+                            <span className="ml-1 text-[12px] font-medium text-white/75">/mes</span>
+                          </p>
+                        </div>
+                        <a
+                          href={buildWhatsAppLink(
+                            `Hola, me interesa el ${vehicle.brandName} ${vehicle.modelName} con entrega en 5-15 días`
+                          )}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="shrink-0 rounded-full bg-[#0068FF] px-5 py-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-white shadow-lg shadow-[#0068FF]/25 transition-all duration-300 hover:bg-[#0052CC] hover:shadow-xl hover:shadow-[#0068FF]/35"
+                        >
+                          Lo quiero
+                        </a>
+                      </div>
+
+                      <Link
+                        href={`/${vehicle.modelSlug}`}
+                        className="group/link mt-4 flex min-h-[44px] items-center justify-between gap-2 border-t border-white/12 pt-3.5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#8FBEFF] transition-colors hover:text-white"
+                      >
+                        <span className="whitespace-nowrap">Ver ficha</span>
+                        <span
+                          aria-hidden="true"
+                          className="shrink-0 transition-transform duration-300 group-hover/link:translate-x-1"
+                        >
+                          →
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
+      )}
+
       {dedupedOffers.length > 0 && (
         <section id="ofertas" className="relative overflow-hidden bg-[#F4F6FA] section-y">
           <VideoBackdrop
