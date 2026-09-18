@@ -200,15 +200,16 @@ function CheckIcon() {
   );
 }
 
-/* El plural del tipo de coche para el titular de las alternativas: los
-   VEHICLE_CATEGORY_LABELS de constants.ts están en singular y para el catálogo. */
-const PLURAL_CATEGORIA: Record<string, string> = {
-  turismo: "turismos",
-  suv: "SUV",
-  furgoneta: "furgonetas",
-  hibrido: "híbridos",
-  "4x4": "4x4",
-  diesel: "coches diésel",
+/* El titular de las alternativas, entero: los VEHICLE_CATEGORY_LABELS de
+   constants.ts están en singular y para el catálogo, y aquí hace falta también
+   el artículo — «Otros furgonetas» era lo que salía con solo el plural. */
+const TITULO_ALTERNATIVAS: Record<string, string> = {
+  turismo: "Otros turismos",
+  suv: "Otros SUV",
+  furgoneta: "Otras furgonetas",
+  hibrido: "Otros híbridos",
+  "4x4": "Otros 4x4",
+  diesel: "Otros coches diésel",
 };
 
 /* ─────────────────────────── model view ─────────────────────────── */
@@ -834,7 +835,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
               <div>
                 <p className="section-label section-label-on-light">Alternativas</p>
                 <h2 className="display-sm mt-4 text-[#0A0A0A]">
-                  Otros {PLURAL_CATEGORIA[primary.category]} en renting
+                  {TITULO_ALTERNATIVAS[primary.category]} en renting
                 </h2>
               </div>
               <Link
