@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   getModelBySlugWithVehicles,
-  getSameBrandModels,
+  getAlternativeModels,
   getCatalogVehicles,
   type VehicleDetailData,
 } from "@/lib/data/vehicles";
@@ -200,6 +200,17 @@ function CheckIcon() {
   );
 }
 
+/* El plural del tipo de coche para el titular de las alternativas: los
+   VEHICLE_CATEGORY_LABELS de constants.ts están en singular y para el catálogo. */
+const PLURAL_CATEGORIA: Record<string, string> = {
+  turismo: "turismos",
+  suv: "SUV",
+  furgoneta: "furgonetas",
+  hibrido: "híbridos",
+  "4x4": "4x4",
+  diesel: "coches diésel",
+};
+
 /* ─────────────────────────── model view ─────────────────────────── */
 
 function SpecRow({ label, value }: { label: string; value: string | null | undefined }) {
@@ -247,14 +258,26 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
 
   const marcaSlug = encodeURIComponent(model.brandName.toLowerCase());
   const nombreCompleto = `${model.brandName} ${model.model.name}`;
-  const [hermanos, landingsTipo] = await Promise.all([
-    getSameBrandModels(model.brandName, model.model.slug, 4),
+  /* Alternativas del mismo tipo de coche, no de la misma marca. El bloque
+     decía «Otros Kia en renting» y enseñaba una furgoneta debajo de un SUV
+     compacto: quien compara un SUV compara otros SUV, le dé igual la marca. */
+  const [alternativas, landingsTipo] = await Promise.all([
+    primary
+      ? getAlternativeModels(primary.category, model.model.slug, primary.monthlyPriceCents, 4)
+      : Promise.resolve([]),
     getCategoryLandings(),
   ]);
   /* Las landings de tipo solo se enlazaban desde el pie, y Google da poco peso a
      esos enlaces. Desde la ficha, con el nombre de la landing como texto, cada
      coche empuja a las páginas de categoría en las que sale. */
   const tiposDelCoche = landingsDelModelo(landingsTipo, model.vehicles);
+  /* «Ver todos» va a la landing de su categoría si existe; si no, al catálogo
+     filtrado, que es la única página que enseña ese tipo entero. */
+  const enlaceCategoria = primary
+    ? (tiposDelCoche.find((l) => l.category === primary.category)?.slug
+        ? `/${tiposDelCoche.find((l) => l.category === primary.category)!.slug}`
+        : `/catalogo?category=${primary.category}`)
+    : "/catalogo";
 
   /* Precio y condiciones tienen que salir del MISMO vehículo: si se coge el
      mínimo por un lado y el plazo de `primary` por otro, la FAQ acaba diciendo
@@ -800,25 +823,25 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
         </nav>
       )}
 
-      {/* ── Otros modelos de la misma marca ──
-           La ficha no enlazaba a ningún hermano: quien entraba buscando este
-           modelo no podía llegar al resto de la marca sin volver al catálogo,
-           y el rastreador tampoco. */}
-      {hermanos.length > 0 && (
+      {/* ── Alternativas del mismo tipo ──
+           La ficha no enlazaba a ningún coche parecido: quien entraba buscando
+           este modelo y no le encajaba, se iba. Son del mismo tipo y de cuota
+           parecida, que es como se compara de verdad. */}
+      {alternativas.length > 0 && primary && (
         <section className="bg-[#F4F6FA] py-24">
           <div className="mx-auto max-w-7xl px-6 sm:px-10">
             <Reveal className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="section-label section-label-on-light">Más de {model.brandName}</p>
+                <p className="section-label section-label-on-light">Alternativas</p>
                 <h2 className="display-sm mt-4 text-[#0A0A0A]">
-                  Otros {model.brandName} en renting
+                  Otros {PLURAL_CATEGORIA[primary.category]} en renting
                 </h2>
               </div>
               <Link
-                href={`/catalogo?brand=${marcaSlug}`}
+                href={enlaceCategoria}
                 className="group flex min-h-[40px] items-center gap-2 text-[12px] font-bold uppercase tracking-[0.14em] text-[#0057D6] transition-colors hover:text-[#0A0A0A]"
               >
-                Ver todos los {model.brandName}
+                Ver todos
                 <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
@@ -828,7 +851,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
               stagger={0.06}
               className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
             >
-              {hermanos.map((v) => (
+              {alternativas.map((v) => (
                 <RevealItem key={v.id}>
                   <VehicleCard vehicle={v} />
                 </RevealItem>

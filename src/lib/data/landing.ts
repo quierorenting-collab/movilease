@@ -1,6 +1,10 @@
 import "server-only";
 import { createPublicClient } from "@/lib/supabase/server";
-import { getCatalogVehicles, type VehicleCardData } from "@/lib/data/vehicles";
+import {
+  getCatalogVehicles,
+  getVehiclesByModelSlugs,
+  type VehicleCardData,
+} from "@/lib/data/vehicles";
 import type {
   LandingPageTypeEnum,
   VehicleCategoryEnum,
@@ -34,12 +38,19 @@ export async function getLandingPageBySlug(slug: string): Promise<LandingPageDet
       category?: VehicleCategoryEnum;
       fuel_type?: FuelTypeEnum | FuelTypeEnum[];
       transmission?: TransmissionEnum;
+      model_slugs?: string[];
     };
-    const vehicles = await getCatalogVehicles({
-      category: filterJson.category,
-      fuelType: filterJson.fuel_type,
-      transmission: filterJson.transmission,
-    });
+    /* Una lista de modelos escrita a mano es el único filtro posible cuando lo
+       que agrupa a esos coches no está en ninguna columna: la entrega en 5-15
+       días la marca el proveedor, no el vehículo. Sale de la misma constante
+       que usa la portada, así que las dos listas no se pueden desincronizar. */
+    const vehicles = filterJson.model_slugs?.length
+      ? await getVehiclesByModelSlugs(filterJson.model_slugs)
+      : await getCatalogVehicles({
+          category: filterJson.category,
+          fuelType: filterJson.fuel_type,
+          transmission: filterJson.transmission,
+        });
 
     return {
       type: data.type,
@@ -119,7 +130,7 @@ export async function getCategoryLandings(): Promise<CategoryLanding[]> {
         fuel_type?: FuelTypeEnum | FuelTypeEnum[];
         transmission?: TransmissionEnum;
       };
-      if (!f.category && !f.fuel_type && !f.transmission) return [];
+      if (!f.category && !f.fuel_type && !f.transmission) return [];  // sin filtro encajaría con todos
       return [
         {
           slug: l.slug,

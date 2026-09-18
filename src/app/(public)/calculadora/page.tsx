@@ -55,6 +55,49 @@ export default function CalculadoraPage() {
         </div>
       </section>
 
+      {/* De qué depende la cuota. La página era la calculadora y una rejilla de
+          servicios: 75 palabras en total, sin explicar nada de lo que el
+          visitante ha venido a entender. Todo lo que se dice aquí sale de cómo
+          funciona el catálogo: la tabla plazo × kilometraje de cada ficha, los
+          servicios incluidos y los 10.000 km/año de referencia. */}
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-3xl px-6 sm:px-10">
+          <Reveal>
+            <p className="section-label section-label-on-light">Cómo se calcula</p>
+            <h2 className="display-md mt-4 text-[#0A0A0A]">De qué depende tu cuota</h2>
+          </Reveal>
+          <Reveal delay={0.1} className="mt-8 space-y-5 text-[16px] leading-[1.75] text-[#4B5563]">
+            <p>
+              En un renting no se financia el coche entero: se paga el uso durante
+              un plazo. Por eso la cuota no sale de un porcentaje sobre el precio
+              del coche, sino de cuánto valor pierde en ese tiempo y de lo que
+              cuesta mantenerlo mientras lo usas. De ahí que dos coches de precio
+              parecido puedan tener cuotas muy distintas.
+            </p>
+            <p>
+              Sobre esa base pesan tres cosas. <strong className="text-[#0A0A0A]">El plazo</strong>:
+              cuanto más largo, más reparto y normalmente menos cuota al mes.{" "}
+              <strong className="text-[#0A0A0A]">Los kilómetros al año</strong>: más
+              kilómetros significan más desgaste y menos valor al devolverlo, así
+              que suben la cuota. Y <strong className="text-[#0A0A0A]">la versión</strong>:
+              motor, cambio y acabado cambian tanto el precio de partida como el
+              mantenimiento. Las cuotas que ves aquí están calculadas sobre{" "}
+              {RENTING_DEFAULTS.annualKm.toLocaleString("es-ES")} km al año, y cada
+              ficha trae su tabla completa con las combinaciones de plazo y
+              kilometraje que ofrece ese coche.
+            </p>
+            <p>
+              Lo que no cambia es qué entra: seguro a todo riesgo, mantenimiento,
+              neumáticos, asistencia, ITV e impuestos van dentro de la cuota, con
+              el IVA incluido y sin entrada. Tú pones el combustible o la recarga.
+              Por eso, para comparar con una compra a plazos, hay que sumarle a
+              esta todos esos gastos, que en un coche propio se pagan igual pero
+              por separado.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="surface-graphite relative py-24">
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">

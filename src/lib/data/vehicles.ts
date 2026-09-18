@@ -573,6 +573,48 @@ export async function getSameBrandModels(
   }
 }
 
+/**
+ * Alternativas a un modelo: mismo tipo de coche y cuota parecida, de cualquier
+ * marca. Sustituye a los hermanos de marca en la ficha, que es lo que había:
+ * quien mira un SUV compacto casi nunca busca «otro Kia», busca otro SUV. Se
+ * ordenan por distancia de cuota para que la comparación sea creíble.
+ */
+export async function getAlternativeModels(
+  category: VehicleCategoryEnum,
+  excludeSlug: string,
+  referenceCents: number,
+  limit = 4
+): Promise<VehicleCardData[]> {
+  try {
+    const supabase = createPublicClient();
+    const { data, error } = await supabase
+      .from("vehicles")
+      .select(CARD_COLUMNS)
+      .eq("is_active", true)
+      .eq("category", category)
+      .gt("monthly_price_cents", 0)
+      .order("monthly_price_cents");
+    if (error || !data) return [];
+
+    const coches = await attachModelsAndBrands(data as CardRow[]);
+    const unaPorModelo = new Map<string, VehicleCardData>();
+    for (const c of coches) {
+      if (!c.modelSlug || c.modelSlug === excludeSlug || unaPorModelo.has(c.modelSlug)) continue;
+      unaPorModelo.set(c.modelSlug, c);
+    }
+    return [...unaPorModelo.values()]
+      .sort(
+        (a, b) =>
+          Math.abs((a.monthlyPriceCents ?? 0) - referenceCents) -
+          Math.abs((b.monthlyPriceCents ?? 0) - referenceCents)
+      )
+      .slice(0, limit)
+      .sort((a, b) => (a.monthlyPriceCents ?? 0) - (b.monthlyPriceCents ?? 0));
+  } catch {
+    return [];
+  }
+}
+
 /** Nombre real de la marca a partir del slug en minúsculas (SEAT, no Seat). */
 export async function getBrandDisplayName(slugMinusculas: string): Promise<string | null> {
   try {

@@ -402,10 +402,21 @@ export default async function HomePage() {
                   <span className="text-[#0057D6]">5-15 días.</span>
                 </h2>
               </div>
-              <p className="max-w-sm text-[14.5px] leading-relaxed text-[#4B5563] sm:text-right">
-                Estos modelos se entregan entre 5 y 15 días, con las mismas
-                condiciones que el resto del catálogo.
-              </p>
+              {/* El texto y el enlace van juntos a la derecha: la sección ya
+                  tiene su página propia y sin enlace era un callejón. */}
+              <div className="sm:text-right">
+                <p className="max-w-sm text-[14.5px] leading-relaxed text-[#4B5563]">
+                  Estos modelos se entregan entre 5 y 15 días, con las mismas
+                  condiciones que el resto del catálogo.
+                </p>
+                <Link
+                  href="/renting-entrega-rapida"
+                  className="group mt-4 inline-flex items-center gap-2 py-3 text-[12px] font-bold uppercase tracking-[0.14em] text-[#4B5563] transition-colors hover:text-[#0057D6]"
+                >
+                  Ver todos
+                  <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                </Link>
+              </div>
             </Reveal>
 
             <RevealGroup

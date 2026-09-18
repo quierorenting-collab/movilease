@@ -7,6 +7,10 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Cuéntanos qué buscas y te decimos qué coches encajan con tu presupuesto, qué incluye la cuota y qué documentación necesitas. Sin entrada y sin compromiso.",
   path: "/asesor",
+  /* Herramienta, no contenido: la página son 55 palabras y un formulario de
+     conversación. Sigue enlazada y usable; lo que no tiene sentido es pedirle
+     a Google que la indexe. Los enlaces de dentro sí se siguen. */
+  noIndex: true,
 });
 
 export default function AsesorPage() {

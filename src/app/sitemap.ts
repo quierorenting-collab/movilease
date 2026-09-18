@@ -20,7 +20,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticEntries: MetadataRoute.Sitemap = [
     { path: "", priority: 1, changeFrequency: "daily" as const },
     { path: "/catalogo", priority: 0.9, changeFrequency: "daily" as const },
-    { path: "/asesor", priority: 0.8, changeFrequency: "monthly" as const },
+    /* /asesor no va aqui: son 55 palabras y una conversacion; la pagina se
+       declara noIndex. Ofrecer a Google una pagina sin contenido propio solo
+       reparte peor el rastreo del resto. */
     { path: "/calculadora", priority: 0.7, changeFrequency: "monthly" as const },
     /* /comparador no va aqui: robots.ts lo tiene en disallow y la propia pagina
        se declara noIndex. Ofrecerselo a Google y prohibirselo a la vez es el

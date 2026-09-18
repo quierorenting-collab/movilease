@@ -86,6 +86,22 @@ CATEGORIAS = [
      "Renting barato sin entrada, ordenado por cuota. Seguro, mantenimiento, ITV e impuestos incluidos. Disponibilidad real y respuesta en 48 horas.",
      [{"question": "¿Por qué el renting puede salir más barato que comprar?",
        "answer": "Porque en la cuota ya van el seguro a todo riesgo, el mantenimiento, los neumáticos y los impuestos. Si sumas todo eso por tu cuenta, más lo que pierde el coche de valor, la comparación cambia bastante."}]),
+    ("renting-entrega-rapida",
+     {"model_slugs": ["renting-seat-leon", "renting-seat-leon-fr", "renting-cupra-formentor",
+                      "renting-mg-hs", "renting-seat-ibiza", "renting-citroen-c4", "renting-ebro-s700"]},
+     "Renting con entrega en 5-15 días",
+     "Renting de coches con entrega en 5-15 días",
+     "Estos modelos se entregan entre 5 y 15 días, con las mismas condiciones que el resto del "
+     "catálogo: sin entrada, cuota fija con IVA incluido y seguro, mantenimiento e impuestos "
+     "dentro. Son los coches disponibles ahora mismo para entrega rápida.",
+     "Coches de renting con entrega en 5 a 15 días, sin entrada y con seguro, mantenimiento e "
+     "impuestos incluidos. Respuesta en 48 horas.",
+     [{"question": "¿En cuánto tiempo tendría el coche?",
+       "answer": "Entre 5 y 15 días. Es el plazo de entrega de los modelos que aparecen en esta página."},
+      {"question": "¿La cuota es distinta por tener entrega rápida?",
+       "answer": "No. Son las mismas cuotas que ves en la ficha de cada coche, sin entrada y con el IVA incluido."},
+      {"question": "¿Puedo elegir el plazo y los kilómetros?",
+       "answer": "Sí. Cada ficha tiene su tabla de cuotas por plazo y kilometraje, y el kilometraje se ajusta a tu uso real."}]),
 ]
 
 CIUDADES = [("madrid", "Madrid"), ("barcelona", "Barcelona"), ("valencia", "Valencia"),
@@ -95,6 +111,13 @@ CIUDADES = [("madrid", "Madrid"), ("barcelona", "Barcelona"), ("valencia", "Vale
 
 
 def main():
+    """Sin argumentos actualiza todas; con slugs, solo esos.
+
+    Con el catálogo ya publicado, volver a subir las dieciocho para tocar una
+    sola es pedir un accidente: basta con `python scripts/crear_landings.py
+    renting-entrega-rapida`.
+    """
+    pedidos = set(sys.argv[1:])
     filas = []
     for slug, filtro, titulo, h1, intro, desc, faq in CATEGORIAS:
         filas.append({"type": "category", "slug": slug, "title": titulo, "h1": h1,
@@ -114,6 +137,12 @@ def main():
                                  "answer": f"Sí. Entregamos en toda España y coordinamos la entrega en {nombre} "
                                            "en la dirección que nos indiques, sin que tengas que desplazarte."}],
             "filter_json": None, "is_active": True})
+
+    if pedidos:
+        filas = [f for f in filas if f["slug"] in pedidos]
+        faltan = pedidos - {f["slug"] for f in filas}
+        if faltan:
+            raise SystemExit("no están en el script: " + ", ".join(sorted(faltan)))
 
     req = urllib.request.Request(f"{URL}/rest/v1/landing_pages?on_conflict=slug",
                                  method="POST", headers=H, data=json.dumps(filas).encode())
