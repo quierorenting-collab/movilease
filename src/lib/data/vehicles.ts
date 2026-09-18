@@ -615,6 +615,51 @@ export async function getAlternativeModels(
   }
 }
 
+/**
+ * Cuándo cambió por última vez cada modelo, para el lastmod del sitemap.
+ *
+ * Sin disparadores en la base, la fecha se compone de lo que sí es cierto:
+ * `vehicles.updated_at`, que ahora escriben los scripts al publicar, y el
+ * `created_at` de sus cuotas, que se borran y se reinsertan enteras en cada
+ * actualización de precio. Antes el sitemap ponía la hora de generación en 113
+ * de sus 122 direcciones, así que decía que todo había cambiado hace un rato y
+ * Google acaba ignorando el campo.
+ *
+ * Como el resto de la capa de datos, nunca lanza: si falla, el sitemap sale sin
+ * fechas en vez de romperse.
+ */
+export async function getModelLastModified(): Promise<Map<string, Date>> {
+  const fechas = new Map<string, Date>();
+  try {
+    const supabase = createPublicClient();
+    const [{ data: modelos }, { data: vehiculos }, { data: cuotas }] = await Promise.all([
+      supabase.from("models").select("id, slug").eq("is_active", true),
+      supabase.from("vehicles").select("id, model_id, updated_at, created_at").eq("is_active", true),
+      supabase.from("vehicle_pricing").select("vehicle_id, created_at"),
+    ]);
+    if (!modelos || !vehiculos) return fechas;
+
+    const slugPorModelo = new Map(modelos.map((m) => [m.id, m.slug]));
+    const modeloPorVehiculo = new Map(vehiculos.map((v) => [v.id, v.model_id]));
+
+    const anota = (modelId: string | null | undefined, iso: string | null | undefined) => {
+      if (!modelId || !iso) return;
+      const slug = slugPorModelo.get(modelId);
+      if (!slug) return;
+      const fecha = new Date(iso);
+      if (Number.isNaN(fecha.getTime())) return;
+      const previa = fechas.get(slug);
+      if (!previa || fecha > previa) fechas.set(slug, fecha);
+    };
+
+    for (const v of vehiculos) anota(v.model_id, v.updated_at ?? v.created_at);
+    for (const c of cuotas ?? []) anota(modeloPorVehiculo.get(c.vehicle_id), c.created_at);
+    return fechas;
+  } catch {
+    return fechas;
+  }
+}
+
 /** Nombre real de la marca a partir del slug en minúsculas (SEAT, no Seat). */
 export async function getBrandDisplayName(slugMinusculas: string): Promise<string | null> {
   try {

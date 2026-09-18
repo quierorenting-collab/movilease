@@ -15,6 +15,7 @@ de coches, que las lee de la base de datos. Escribirlas en el texto es
 garantizar que se queden desfasadas, que es exactamente el agujero que tenia
 quierorenting.es: tres juegos de precios distintos en la misma web.
 """
+import datetime
 import json
 import os
 import sys
@@ -143,6 +144,12 @@ def main():
         faltan = pedidos - {f["slug"] for f in filas}
         if faltan:
             raise SystemExit("no están en el script: " + ", ".join(sorted(faltan)))
+
+    # Igual que en add_vehicle.py: la fecha de cambio la escribe el script, que
+    # es lo que luego publica el sitemap como lastmod de cada landing.
+    ahora = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    for f in filas:
+        f["updated_at"] = ahora
 
     req = urllib.request.Request(f"{URL}/rest/v1/landing_pages?on_conflict=slug",
                                  method="POST", headers=H, data=json.dumps(filas).encode())

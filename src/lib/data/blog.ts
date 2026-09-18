@@ -8,14 +8,15 @@ export interface BlogPostCard {
   excerpt: string | null;
   coverImageUrl: string | null;
   publishedAt: string | null;
+  /** Para el lastmod del sitemap: cuándo se tocó el artículo por última vez. */
+  updatedAt: string | null;
 }
 
 export interface BlogPost extends BlogPostCard {
   content: string;
-  updatedAt: string | null;
 }
 
-const CARD_COLUMNS = "id, title, slug, excerpt, cover_image_url, published_at";
+const CARD_COLUMNS = "id, title, slug, excerpt, cover_image_url, published_at, updated_at";
 
 type Row = {
   id: string;
@@ -36,6 +37,7 @@ function toCard(r: Row): BlogPostCard {
     excerpt: r.excerpt,
     coverImageUrl: r.cover_image_url,
     publishedAt: r.published_at,
+    updatedAt: r.updated_at ?? null,
   };
 }
 
@@ -62,14 +64,14 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     const supabase = createPublicClient();
     const { data } = await supabase
       .from("blog_posts")
-      .select(`${CARD_COLUMNS}, content, updated_at`)
+      .select(`${CARD_COLUMNS}, content`)
       .eq("slug", slug)
       .eq("status", "published")
       .maybeSingle();
 
     if (!data) return null;
     const r = data as Row;
-    return { ...toCard(r), content: r.content ?? "", updatedAt: r.updated_at ?? null };
+    return { ...toCard(r), content: r.content ?? "" };
   } catch {
     return null;
   }

@@ -69,13 +69,18 @@ export async function getLandingPageBySlug(slug: string): Promise<LandingPageDet
 /** Slugs de landings activas, para el sitemap. Como el resto de la capa de
  *  datos, nunca lanza: si Supabase falla el sitemap sale sin ellas. */
 export async function getActiveLandingSlugs(): Promise<string[]> {
+  return (await getActiveLandings()).map((l) => l.slug);
+}
+
+/** Igual, pero con la fecha del último cambio para el lastmod del sitemap. */
+export async function getActiveLandings(): Promise<{ slug: string; updatedAt: string | null }[]> {
   try {
     const supabase = createPublicClient();
     const { data } = await supabase
       .from("landing_pages")
-      .select("slug")
+      .select("slug, updated_at, created_at")
       .eq("is_active", true);
-    return (data ?? []).map((l) => l.slug);
+    return (data ?? []).map((l) => ({ slug: l.slug, updatedAt: l.updated_at ?? l.created_at ?? null }));
   } catch {
     return [];
   }

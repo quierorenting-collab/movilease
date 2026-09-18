@@ -15,6 +15,7 @@ reemplazan sus cuotas/fotos, sin tocar version/version_slug/model_id (para
 no romper la URL ya publicada).
 """
 
+import datetime
 import json
 import os
 import re
@@ -136,6 +137,10 @@ def main():
         "colors": data.get("colors"),
         "body_type": data.get("body_type"),
         "equipment": data.get("equipment", []),
+        # La escribe el script porque en la base no hay ningun disparador que la
+        # mantenga: sin esto updated_at vale lo mismo que created_at y el
+        # sitemap no tiene de donde sacar la fecha real de cambio del coche.
+        "updated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
     }
     if data.get("included_services"):
         vehicle_payload["included_services"] = data["included_services"]

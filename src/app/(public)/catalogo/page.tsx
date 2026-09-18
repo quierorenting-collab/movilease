@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import {
   getVehiclesByBrand,
   getCatalogVehicles,
@@ -29,19 +30,25 @@ export async function generateMetadata({
   const params = await searchParams;
   const brand = params.brand?.toLowerCase();
 
+  /* Cualquier vista filtrada queda fuera del índice, con o sin marca: son
+     recortes del mismo catálogo y varias no devuelven ni un coche
+     (?maxPrice=1 enseñaba una página vacía indexable). El canonical sigue
+     apuntando a la página sin filtrar. */
+  const filtrado = Boolean(params.category || params.fuel || params.maxPrice);
+
   if (!brand) {
     return pageMetadata({
       title: "Catálogo de coches en renting",
       description:
         "Explora todas las marcas y modelos en renting para particulares, autónomos y empresas. Sin entrada, con seguro y mantenimiento incluidos.",
       path: "/catalogo",
+      noIndex: filtrado,
     });
   }
 
   // Capitalizar el slug daba "Seat" y "Kgm" en el título y la descripción, que
   // es lo que ve el usuario en Google. Se usa el nombre real de la marca.
   const nombre = (await getBrandDisplayName(brand)) ?? brand.charAt(0).toUpperCase() + brand.slice(1);
-  const filtrado = Boolean(params.category || params.fuel);
   return pageMetadata({
     title: `Renting ${nombre}: modelos y cuotas`,
     description: `Todos los modelos ${nombre} disponibles en renting sin entrada, con seguro a todo riesgo y mantenimiento incluidos. Consulta cuotas y pide tu propuesta.`,
@@ -83,9 +90,22 @@ export default async function CatalogoPage({
     const matchedBrand = brands.find(
       (b) => b.brandName.toLowerCase() === brandParam
     );
-    const brandVehicles = matchedBrand
-      ? (vehiclesByBrand[matchedBrand.brandName] ?? [])
-      : [];
+    /* Una marca que no está en el catálogo respondía 200 con el titular
+       «Renting Noexiste» y «No hay vehículos con este filtro»: una página
+       indexable que no dice nada, y cualquier enlace roto o inventado creaba
+       una. Ahora es un 404, igual que una ficha sin vehículos activos.
+       Ojo: ?brand=mercedes también da 404, porque la marca es mercedes-benz. */
+    /* Con `brands.length > 0` delante y no a secas: la capa de datos nunca
+       lanza (§4.2 del contexto maestro), así que un corte de Supabase deja
+       `brands` vacío y, sin esta guarda, las 26 vistas de marca del sitemap
+       responderían 404 —y con revalidate de 900 s ese 404 se queda servido
+       desde caché mucho después de que Supabase vuelva. */
+    if (!matchedBrand) {
+      if (brands.length > 0) notFound();
+      /* Sin `brands` no se puede afirmar que la marca no exista: se degrada
+         como antes, con la página vacía, hasta que Supabase vuelva. */
+    }
+    const brandVehicles = matchedBrand ? (vehiclesByBrand[matchedBrand.brandName] ?? []) : [];
 
     // Apply local filters
     const conFiltros = brandVehicles.filter((v) => {
@@ -121,7 +141,11 @@ export default async function CatalogoPage({
         )
       : null;
 
-    const brandPath = `/catalogo?brand=${encodeURIComponent(brandParam)}`;
+    /* Sin codificar, «lynk & co» partía la query en el propio enlace y el
+       filtro llevaba a una página vacía: los nueve filtros de esa marca
+       estaban rotos. Todos los enlaces de esta vista salen de aquí. */
+    const marcaQS = encodeURIComponent(brandParam);
+    const brandPath = `/catalogo?brand=${marcaQS}`;
 
     return (
       <>
@@ -198,8 +222,8 @@ export default async function CatalogoPage({
               </span>
               {CATEGORIES.map(([value, label]) => {
                 const href = value === category
-                  ? `/catalogo?brand=${brandParam}`
-                  : `/catalogo?brand=${brandParam}&category=${value}`;
+                  ? `/catalogo?brand=${marcaQS}`
+                  : `/catalogo?brand=${marcaQS}&category=${value}`;
                 return (
                   <Link
                     key={value}
@@ -217,8 +241,8 @@ export default async function CatalogoPage({
               <span className="mx-1 h-4 w-px bg-white/10" />
               {FUEL_TYPES_MAP.map(([value, label]) => {
                 const href = value === fuelType
-                  ? `/catalogo?brand=${brandParam}${category ? `&category=${category}` : ""}`
-                  : `/catalogo?brand=${brandParam}${category ? `&category=${category}` : ""}&fuel=${value}`;
+                  ? `/catalogo?brand=${marcaQS}${category ? `&category=${category}` : ""}`
+                  : `/catalogo?brand=${marcaQS}${category ? `&category=${category}` : ""}&fuel=${value}`;
                 return (
                   <Link
                     key={value}
@@ -259,7 +283,7 @@ export default async function CatalogoPage({
                 <p className="text-[14px] text-white">
                   No hay vehículos con este filtro.{" "}
                   <Link
-                    href={`/catalogo?brand=${brandParam}`}
+                    href={`/catalogo?brand=${marcaQS}`}
                     className="font-semibold text-[#5AA0FF] underline underline-offset-2 transition-colors hover:text-white"
                   >
                     Ver todos los {displayName}
