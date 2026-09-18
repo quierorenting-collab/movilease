@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { usePresencia } from "@/hooks/usePresencia";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
 
@@ -38,6 +38,10 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+  /* El nodo se queda montado mientras dura la animación de salida; es lo único
+     que hacía falta de framer-motion aquí. Ver hooks/usePresencia.ts. */
+  const mega = usePresencia(megaOpen, 180);
+  const movil = usePresencia(mobileOpen, 300);
   /* Pequeño retardo al salir: sin él, el panel parpadea al pasar el ratón del
      enlace al propio panel o entre dos marcas. */
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -241,17 +245,20 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
               aria-controls="menu-movil"
               className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-lg border border-[#0A0A0A]/15 bg-[#0A0A0A]/[0.03] xl:hidden"
             >
-              <motion.span
-                animate={mobileOpen ? { rotate: 45, y: 6.5 } : { rotate: 0, y: 0 }}
-                className="h-[1.5px] w-[18px] bg-[#0A0A0A]"
+              <span
+                className={`h-[1.5px] w-[18px] bg-[#0A0A0A] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  mobileOpen ? "translate-y-[6.5px] rotate-45" : ""
+                }`}
               />
-              <motion.span
-                animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-                className="h-[1.5px] w-[18px] bg-[#0A0A0A]"
+              <span
+                className={`h-[1.5px] w-[18px] bg-[#0A0A0A] transition-opacity duration-300 ${
+                  mobileOpen ? "opacity-0" : "opacity-100"
+                }`}
               />
-              <motion.span
-                animate={mobileOpen ? { rotate: -45, y: -6.5 } : { rotate: 0, y: 0 }}
-                className="h-[1.5px] w-[18px] bg-[#0A0A0A]"
+              <span
+                className={`h-[1.5px] w-[18px] bg-[#0A0A0A] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  mobileOpen ? "-translate-y-[6.5px] -rotate-45" : ""
+                }`}
               />
             </button>
           </div>
@@ -260,17 +267,14 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
         {/* Mega menú de "Catálogo": las marcas del catálogo, con su logo, sin
             tener que entrar en la página. Sólo en escritorio — en móvil el
             menú a pantalla completa ya cumple esa función. */}
-        <AnimatePresence>
-          {megaOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              onMouseEnter={openMega}
-              onMouseLeave={() => closeMega()}
-              className="absolute left-0 right-0 top-full hidden border-t border-[#E5E7EB] bg-white shadow-[0_24px_48px_rgba(10,10,10,0.12)] lg:block"
-            >
+        {mega.montado && (
+          <div
+            onMouseEnter={openMega}
+            onMouseLeave={() => closeMega()}
+            className={`absolute left-0 right-0 top-full hidden border-t border-[#E5E7EB] bg-white shadow-[0_24px_48px_rgba(10,10,10,0.12)] lg:block ${
+              mega.saliendo ? "anim-bajar-sale" : "anim-bajar"
+            }`}
+          >
               <div className="mx-auto w-full max-w-7xl px-10 py-9">
                 <div className="grid grid-cols-4 gap-x-8 gap-y-1 xl:grid-cols-6">
                   {brands.map((brand) => (
@@ -314,36 +318,30 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
                     Ver todos los coches
                   </Link>
                 </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Mobile menu overlay */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            id="menu-movil"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            ref={panelRef}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Menú de navegación"
-            className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-[#071A3D]/98 px-7 pb-10 pt-[104px] backdrop-blur-xl xl:hidden"
-          >
+      {movil.montado && (
+        <div
+          id="menu-movil"
+          ref={panelRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menú de navegación"
+          className={`fixed inset-0 z-40 flex flex-col overflow-y-auto bg-[#071A3D]/98 px-7 pb-10 pt-[104px] backdrop-blur-xl xl:hidden ${
+            movil.saliendo ? "anim-aparecer-sale" : "anim-aparecer"
+          }`}
+        >
             <nav aria-label="Navegación principal" className="flex flex-1 flex-col justify-center">
               <ul className="flex flex-col">
                 {NAV_LINKS.map((link, i) => (
-                  <motion.li
+                  <li
                     key={link.href}
-                    initial={{ opacity: 0, x: -24 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.06 + i * 0.06, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                    className="border-b border-white/8"
+                    style={{ ["--i" as string]: i } as React.CSSProperties}
+                    className="anim-lista-item border-b border-white/8"
                   >
                     <Link
                       href={link.href}
@@ -354,15 +352,13 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
                     >
                       {link.label}
                     </Link>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
 
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.42, duration: 0.5 }}
-                className="mt-9 flex flex-col gap-3"
+              <div
+                style={{ ["--d" as string]: "0.42s" } as React.CSSProperties}
+                className="anim-subir mt-9 flex flex-col gap-3"
               >
                 <a
                   href={buildWhatsAppLink("Hola, me interesa el renting de coches.")}
@@ -380,11 +376,10 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
                 >
                   Solicitar información
                 </Link>
-              </motion.div>
+              </div>
             </nav>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </>
   );
 }

@@ -3,12 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { usePresencia } from "@/hooks/usePresencia";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { COOKIE_PREF_KEY } from "@/lib/analytics/consent";
 
 const SESSION_KEY = "qr_popup_v4";
-const ease = [0.16, 1, 0.3, 1] as const;
 
 /** Páginas que ya tienen el formulario delante: interrumpir ahí solo estorba. */
 const SILENCED_PATHS = ["/contacto", "/favoritos", "/asesor"];
@@ -16,6 +15,9 @@ const SILENCED_PATHS = ["/contacto", "/favoritos", "/asesor"];
 export function LeadPopup() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  /* Igual que el banner de cookies: la salida la hace CSS y esto solo retrasa
+     el desmontaje lo que dura. */
+  const ventana = usePresencia(open, 320);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [form, setForm] = useState({ nombre: "", telefono: "", email: "" });
   const [gdpr, setGdpr] = useState(false);
@@ -155,25 +157,21 @@ export function LeadPopup() {
   }
 
   return (
-    <AnimatePresence>
-      {open && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.28 }}
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/65 p-4 backdrop-blur-md"
+    <>
+      {ventana.montado && (
+        <div
+          className={`fixed inset-0 z-[60] flex items-center justify-center bg-black/65 p-4 backdrop-blur-md ${
+            ventana.saliendo ? "anim-aparecer-sale" : "anim-aparecer"
+          }`}
           onClick={close}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.98 }}
-            transition={{ duration: 0.45, ease }}
+          <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="popup-titulo"
-            className="relative flex max-h-[92vh] w-full max-w-[560px] flex-col overflow-y-auto rounded-[28px] border border-white/12"
+            className={`relative flex max-h-[92vh] w-full max-w-[560px] flex-col overflow-y-auto rounded-[28px] border border-white/12 ${
+              ventana.saliendo ? "anim-dialogo-sale" : "anim-dialogo"
+            }`}
             style={{
               boxShadow:
                 "0 0 0 1px rgba(255,255,255,0.05), 0 30px 90px rgba(0,0,0,0.65), 0 0 140px rgba(0,104,255,0.12)",
@@ -236,11 +234,7 @@ export function LeadPopup() {
               />
 
               {status === "sent" ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="relative flex h-full flex-col items-center justify-center gap-4 py-6 text-center"
-                >
+                <div className="anim-aparecer relative flex h-full flex-col items-center justify-center gap-4 py-6 text-center">
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#0068FF]/15">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#5AA0FF" strokeWidth="2" className="h-6 w-6">
                       <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -267,7 +261,7 @@ export function LeadPopup() {
                       Cerrar
                     </button>
                   </div>
-                </motion.div>
+                </div>
               ) : (
                 <div className="relative">
                   {/* La imagen ya dice "Hazlo facil. Hazlo Movilease.": aqui
@@ -373,9 +367,9 @@ export function LeadPopup() {
                 </div>
               )}
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       )}
-    </AnimatePresence>
+    </>
   );
 }

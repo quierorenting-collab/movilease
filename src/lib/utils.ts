@@ -79,3 +79,22 @@ export function fotoHeroMovil(url: string | null | undefined): string | null {
   if (!url.startsWith("/coches-nuevos/") || !url.endsWith("-01.webp")) return url;
   return url.replace(/\.webp$/, "-hero.webp");
 }
+
+/**
+ * La miniatura (192 px) de cualquier foto de la galería, para la tira de abajo.
+ *
+ * A diferencia de las dos anteriores vale para TODAS las fotos, no solo para la
+ * portada -01: la tira las enseña todas. Las cajas miden 96x64 px y se estaban
+ * descargando los ficheros enteros —172 KB en la ficha del Corsa—, porque con
+ * `unoptimized: true` en next.config.ts el atributo `sizes` no redimensiona
+ * nada. Las genera scripts/build-thumbs.mjs.
+ *
+ * Mismo salvavidas que las otras dos: si la url no es una foto local se
+ * devuelve tal cual, así que en el peor caso se ve la grande, nunca un hueco.
+ */
+export function fotoMiniatura(url: string | null | undefined): string | null {
+  if (!url) return null;
+  if (!url.startsWith("/coches-nuevos/") || !url.endsWith(".webp")) return url;
+  if (/-(card|hero|thumb)\.webp$/.test(url)) return url;
+  return url.replace(/\.webp$/, "-thumb.webp");
+}

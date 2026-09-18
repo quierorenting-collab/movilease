@@ -2,11 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { usePresencia } from "@/hooks/usePresencia";
 import { COOKIE_PREF_KEY as STORAGE_KEY, updateAnalyticsConsent } from "@/lib/analytics/consent";
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
+  /* Sigue montado mientras se va: la salida la hace CSS (ver usePresencia). */
+  const banner = usePresencia(visible, 320);
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -50,14 +52,12 @@ export function CookieBanner() {
   }
 
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          initial={{ y: 24, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 24, opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-x-4 bottom-4 z-50 sm:left-6 sm:right-auto sm:max-w-md"
+    <>
+      {banner.montado && (
+        <div
+          className={`fixed inset-x-4 bottom-4 z-50 sm:left-6 sm:right-auto sm:max-w-md ${
+            banner.saliendo ? "anim-banner-sale" : "anim-banner"
+          }`}
         >
           <div
             ref={cardRef}
@@ -84,8 +84,8 @@ export function CookieBanner() {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
-    </AnimatePresence>
+    </>
   );
 }

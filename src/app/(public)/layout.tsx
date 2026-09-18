@@ -5,7 +5,6 @@ import { AsesorFlotante } from "@/components/asesor/AsesorFlotante";
 import { ComparisonBar } from "@/components/vehicles/ComparisonBar";
 import { LeadPopup } from "@/components/home/LeadPopup";
 import { CookieBanner } from "@/components/home/CookieBanner";
-import { MotionProvider } from "@/components/ui/MotionProvider";
 import { getVehiclesByBrand } from "@/lib/data/vehicles";
 
 export default async function PublicLayout({ children }: { children: React.ReactNode }) {
@@ -19,8 +18,13 @@ export default async function PublicLayout({ children }: { children: React.React
     logoUrl: b.logoUrl,
   }));
 
+  /* MotionProvider ya no envuelve la web pública: desde el 18/09/2026 la
+     cabecera, el menú móvil, el banner de cookies y el pop-up animan con CSS,
+     así que framer-motion dejó de viajar en el layout —43,9 KB comprimidos en
+     las 42 rutas públicas— y solo lo carga la calculadora, que es quien lo
+     sigue usando y quien se lo envuelve. */
   return (
-    <MotionProvider>
+    <>
       <Header brands={navBrands} />
       <main id="contenido" className="flex-1 pt-0">
         {children}
@@ -31,6 +35,6 @@ export default async function PublicLayout({ children }: { children: React.React
       <ComparisonBar />
       <LeadPopup />
       <CookieBanner />
-    </MotionProvider>
+    </>
   );
 }

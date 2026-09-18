@@ -238,6 +238,44 @@
   }
 }
 
+/* ══════════════════════════════════════════════════
+   ENTRADAS Y SALIDAS SIN framer-motion
+   La cabecera, el banner de cookies y el pop-up animaban con framer-motion, y
+   como la cabecera vive en el layout público esa librería —43,9 KB comprimidos,
+   el 21 % de todo el JavaScript de la portada— se descargaba en las 42 rutas
+   públicas para animar opacidad y desplazamiento. Aquí están las mismas
+   animaciones en CSS; el único hueco que dejaba CSS, esperar a que termine la
+   salida para desmontar, lo cubre el hook usePresencia.
+   ══════════════════════════════════════════════════ */
+@keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
+@keyframes bajar { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
+@keyframes entrar-izquierda { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: none; } }
+@keyframes subir { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes abrir-dialogo { from { opacity: 0; transform: translateY(40px) scale(0.96); } to { opacity: 1; transform: none; } }
+
+.anim-aparecer { animation: aparecer 0.35s var(--easing-premium) both; }
+.anim-aparecer-sale { animation: aparecer 0.28s var(--easing-premium) reverse both; }
+.anim-bajar { animation: bajar 0.22s var(--easing-premium) both; }
+.anim-bajar-sale { animation: bajar 0.18s var(--easing-premium) reverse both; }
+/* El escalonado del menú móvil: el índice llega por --i desde el JSX. */
+.anim-lista-item { animation: entrar-izquierda 0.45s var(--easing-premium) both; animation-delay: calc(0.06s + var(--i, 0) * 0.06s); }
+.anim-subir { animation: subir 0.5s var(--easing-premium) both; animation-delay: var(--d, 0s); }
+.anim-dialogo { animation: abrir-dialogo 0.45s var(--easing-premium) both; }
+.anim-dialogo-sale { animation: abrir-dialogo 0.3s var(--easing-premium) reverse both; }
+/* El banner de cookies entra desde abajo y sale por donde vino. */
+.anim-banner { animation: subir 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-banner-sale { animation: subir 0.32s cubic-bezier(0.22, 1, 0.36, 1) reverse both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-aparecer, .anim-aparecer-sale, .anim-bajar, .anim-bajar-sale,
+  .anim-lista-item, .anim-subir, .anim-dialogo, .anim-dialogo-sale,
+  .anim-banner, .anim-banner-sale {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Entrada del botón flotante sin JavaScript */
 @keyframes fab-in {
   from { opacity: 0; transform: scale(0.7); }
@@ -881,6 +919,15 @@ summary:focus-visible,
    copiados a mano sección a sección, con saltos irregulares en tablet) */
 .section-y { padding-top: clamp(4.5rem, 9vw, 10rem); padding-bottom: clamp(4.5rem, 9vw, 10rem); }
 .section-y-sm { padding-top: clamp(3rem, 6vw, 6rem); padding-bottom: clamp(3rem, 6vw, 6rem); }
+
+/* Aquí se probó content-visibility en las secciones (18/09/2026) y se quitó.
+   La idea era ahorrarle al navegador el estilo y la maquetación del 95 % de la
+   portada que va bajo el pliegue. Medido en local con next start: el ahorro de
+   recálculo no se reprodujo (0 ms en las dos versiones) y el coste sí se vio,
+   porque las secciones que aún no se han pintado se estiman a bulto y el alto
+   del documento pasaba de 19.924 px a 23.850, casi un 20 % de más: la barra de
+   scroll miente y se va corrigiendo a saltos mientras bajas. Si se retoma, hace
+   falta un contain-intrinsic-size por sección, no uno global. */
 .section-head { margin-bottom: clamp(3rem, 6vw, 5.5rem); }
 
 .section-label {

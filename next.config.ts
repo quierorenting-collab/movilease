@@ -109,6 +109,19 @@ const nextConfig: NextConfig = {
         source: "/brands/:file*",
         headers: [{ key: "Cache-Control", value: "public, max-age=604800" }],
       },
+      /* Los estáticos sueltos de la raíz de public/ (los fondos -bg.webp, el
+         logo, los iconos) se servían con max-age=0, must-revalidate: una
+         petición condicional por visita y por fichero para archivos que no se
+         tocan nunca. Siete días, el mismo criterio que vídeos y logos de
+         marca; si alguno se reemplaza conservando el nombre, tarda eso en
+         verse, y para eso está renombrarlo, que es lo que ya se hace con las
+         fotos de coche. */
+      {
+        /* Solo la raíz —sin barras dentro— para no solaparse con las reglas de
+           arriba: si dos reglas casan, Next manda las dos cabeceras. */
+        source: "/:file([^/]+\\.(?:webp|svg|ico|png))",
+        headers: [{ key: "Cache-Control", value: "public, max-age=604800" }],
+      },
     ];
   },
 

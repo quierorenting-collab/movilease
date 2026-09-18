@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { fotoHeroMovil } from "@/lib/utils";
+import { fotoHeroMovil, fotoMiniatura } from "@/lib/utils";
 import type { VehicleGalleryImage } from "@/lib/data/vehicles";
 
 export function VehicleGallery({
@@ -155,7 +155,13 @@ export function VehicleGallery({
               {/* object-contain, no cover: la foto grande de arriba va en
                   contain y estas miniaturas iban en cover, así que el MISMO
                   coche salía entero y recortado a la vez en la misma pantalla. */}
-              <Image src={img.url} alt={img.alt ?? `${alt} foto ${i + 1}`} fill sizes="96px" className="object-contain p-1" />
+              <Image
+                src={fotoMiniatura(img.url) ?? img.url}
+                alt={img.alt ?? `${alt} foto ${i + 1}`}
+                fill
+                sizes="96px"
+                className="object-contain p-1"
+              />
             </button>
           ))}
         </div>

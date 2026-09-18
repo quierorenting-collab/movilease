@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { RENTING_DEFAULTS } from "@/lib/constants";
 import { RentingCalculator } from "@/components/calculator/RentingCalculator";
+import { MotionProvider } from "@/components/ui/MotionProvider";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { pageMetadata } from "@/lib/metadata";
@@ -50,7 +51,12 @@ export default function CalculadoraPage() {
           </div>
 
           <Reveal alCargar delay={0.3} className="mx-auto mt-14 max-w-2xl">
-            <RentingCalculator />
+            {/* El envoltorio vive aquí y no en el layout público: la
+                calculadora es lo único que sigue usando framer-motion, y
+                MotionConfig es lo que hace que respete «reducir movimiento». */}
+            <MotionProvider>
+              <RentingCalculator />
+            </MotionProvider>
           </Reveal>
         </div>
       </section>
