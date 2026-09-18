@@ -2,6 +2,7 @@
   "update_vehicle_id": "7a9bcd9e-be9b-4c04-80d6-6f6d485f38a4",
   "brand": "Toyota",
   "model": "C-HR",
+  "description": "El Toyota C-HR se ofrece en un único acabado: el 1.8 Advance Hybrid 140 e-CVT. No hay más versiones en catálogo, así que la mecánica, la potencia y el cambio vienen dados y no tienes que decidir entre alternativas. Son 140 caballos y el cambio es automático, algo que se agradece en el tráfico diario.\n\nLa mecánica es híbrida y el consumo homologado queda en 4,8 litros cada 100 kilómetros, así que espacias las visitas a la gasolinera si sumas muchos kilómetros al año. Le corresponde la etiqueta ECO de la DGT.\n\nPor carrocería es un SUV de cinco puertas y cinco plazas: los de atrás entran y salen por su propia puerta, sin mover los asientos delanteros. El contrato de renting se firma a 48 o 60 meses y el kilometraje anual se elige entre cinco tramos, de 10.000 a 30.000 kilómetros. Esas dos son las decisiones que tomas tú, así que echa cuentas de lo que conduces de verdad antes de marcar el tramo y ajústalo a tu uso real.",
   "category": "hibrido",
   "fuel_type": "hibrido",
   "transmission": "automatico",

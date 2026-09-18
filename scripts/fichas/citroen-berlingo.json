@@ -2,6 +2,7 @@
   "brand": "Citroën",
   "model": "Berlingo",
   "version": "Van Furgón M 1.5 BlueHDi 100 CV",
+  "description": "El motor es un 1.5 BlueHDi diésel de 100 CV con cambio manual, y homologa la etiqueta C de la DGT. La carrocería es de furgón, con cuatro puertas y dos plazas homologadas. El asiento del conductor se regula en altura, lumbar y apoyabrazos, y el del acompañante es individual y ajustable en cuatro direcciones, así que las jornadas largas se llevan mejor entre dos.\n\nLa zona de carga queda aislada por un panel de separación y cuenta con seis anillas para amarrar los bultos. La puerta lateral derecha es deslizante y las traseras son batientes; ninguna lleva ventana, de modo que lo que transportas queda fuera de la vista. Como no hay cristal detrás, los sensores de aparcamiento traseros te resuelven las maniobras. Los retrovisores exteriores son eléctricos y calefactables, con sonda de temperatura, y se abaten a mano.\n\nEn la cabina del Berlingo tienes pantalla de 10 pulgadas con WiFi Mirroring, reconocimiento de voz del móvil y dos USB tipo C, aire acondicionado manual, elevalunas eléctricos, freno de estacionamiento eléctrico y bandeja portaobjetos bajo el techo. La seguridad suma airbags de copiloto, laterales y de cortina, faros ECOLED, antinieblas con función Cornering Light, limpiaparabrisas automático MagicWash y servicios telemáticos E-Call y B-Call. Monta rueda de repuesto homogénea.",
   "category": "furgoneta",
   "fuel_type": "diesel",
   "transmission": "manual",
