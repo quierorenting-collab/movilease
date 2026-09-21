@@ -7,6 +7,7 @@
   "category": "suv",
   "fuel_type": "phev",
   "transmission": "automatico",
+  "horsepower": 279,
   "body_type": "SUV",
   "monthly_price_cents": 50081,
   "contract_months": 36,

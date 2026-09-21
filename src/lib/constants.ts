@@ -36,7 +36,10 @@ export const FUEL_TYPE_LABELS = {
   hibrido: "Híbrido",
   electrico: "Eléctrico",
   diesel: "Diesel",
-  phev: "PHEV",
+  /* En castellano y no la sigla: «PHEV» no le dice nada a quien no sabe de
+     coches, y el CR-V y el S700 se leían como híbridos a secas. Sale en las
+     tarjetas, en la ficha, en el comparador y en el filtro del catálogo. */
+  phev: "Híbrido enchufable",
 } as const;
 
 export type FuelType = keyof typeof FUEL_TYPE_LABELS;
