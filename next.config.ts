@@ -14,7 +14,6 @@ const MODELOS_RETIRADOS = [
   "renting-seat-arona",
   "renting-audi-a3-sportback",
   "renting-fiat-ducato",
-  "renting-ford-kuga",
   "renting-foton-tunland",
   "renting-jeep-avenger",
   "renting-jeep-compass",
@@ -46,7 +45,6 @@ const MODELOS_RETIRADOS = [
   "renting-subaru-forester",
   "renting-subaru-outback",
   "renting-toyota-proace",
-  "renting-volkswagen-golf",
   "renting-volkswagen-t-cross",
   // Skoda Fabia: el Drive solo lo tiene en FUERA DE STOCK y SIN STOCK
   // (revision del 14/09/2026).
