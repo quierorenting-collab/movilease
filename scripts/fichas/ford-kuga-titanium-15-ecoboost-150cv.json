@@ -1,0 +1,167 @@
+{
+  "update_vehicle_id": "b6f362bf-88cc-4898-b59f-f66c81cffb9e",
+  "brand": "Ford",
+  "model": "Kuga",
+  "version": "Titanium 1.5 EcoBoost 150 CV",
+  "category": "suv",
+  "fuel_type": "gasolina",
+  "transmission": "manual",
+  "monthly_price_cents": 46361,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "horsepower": 150,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "c",
+  "body_type": "SUV",
+  "colors": [
+    "Blanco"
+  ],
+  "is_active": true,
+  "is_offer": false,
+  "equipment": [
+    "Navegador",
+    "Pantalla táctil de 20,3 cm (8\") SYNC",
+    "Ayuda de aparcamiento delantero y trasero",
+    "Cámara de visión trasera",
+    "Cuadro de instrumentos con pantalla de 31,2 cm (12,3\")",
+    "Alerta de cambio involuntario de carril",
+    "Aviso de colisión frontal con reconocimiento de peatones y ciclistas",
+    "Retrovisores exteriores plegables eléctricamente",
+    "Sensor de lluvia y luces automáticas",
+    "Control de crucero y limitador de velocidad",
+    "Climatizador automático bizona"
+  ],
+  "included_services": [
+    "Seguro a todo riesgo sin franquicia",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia en carretera 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/ford-kuga-01.webp",
+      "alt": "Ford Kuga en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/ford-kuga-02.webp",
+      "alt": "Ford Kuga en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/ford-kuga-03.webp",
+      "alt": "Ford Kuga en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/ford-kuga-04.webp",
+      "alt": "Ford Kuga en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/ford-kuga-05.webp",
+      "alt": "Ford Kuga en renting — trasera"
+    },
+    {
+      "url": "/coches-nuevos/ford-kuga-06.webp",
+      "alt": "Ford Kuga en renting — faro delantero"
+    },
+    {
+      "url": "/coches-nuevos/ford-kuga-07.webp",
+      "alt": "Ford Kuga en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/ford-kuga-08.webp",
+      "alt": "Ford Kuga en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/ford-kuga-09.webp",
+      "alt": "Ford Kuga en renting — asientos traseros"
+    },
+    {
+      "url": "/coches-nuevos/ford-kuga-10.webp",
+      "alt": "Ford Kuga en renting — palanca de cambios"
+    },
+    {
+      "url": "/coches-nuevos/ford-kuga-11.webp",
+      "alt": "Ford Kuga en renting — maletero"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 47278
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 47546
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 46361
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 50198
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 49087
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 47872
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 51767
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 50600
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 49384
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 53547
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 52302
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 51006
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 55408
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 54065
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 52699
+    }
+  ],
+  "description": "El Kuga es un SUV de cinco puertas y cinco plazas, aquí en acabado Titanium y en color blanco. Lo mueve un motor 1.5 EcoBoost de gasolina con 150 CV, asociado a un cambio manual. Lleva la etiqueta C de la DGT. Dentro tienes navegador y pantalla táctil SYNC de 20,3 cm (8 pulgadas). Tras el volante, el cuadro de instrumentos es una pantalla de 31,2 cm (12,3 pulgadas). El climatizador automático es bizona: conductor y acompañante regulan cada uno su temperatura.\n\nPara aparcar cuentas con ayuda delantera y trasera y con cámara de visión trasera. Los retrovisores exteriores se pliegan eléctricamente, algo útil en garajes estrechos. El sensor de lluvia y las luces automáticas actúan sin que toques nada. En seguridad incorpora alerta de cambio involuntario de carril y aviso de colisión frontal con reconocimiento de peatones y ciclistas. En viajes largos te apoyas en el control de crucero y el limitador de velocidad.\n\nPuedes contratarlo a 36, 48 o 60 meses. En kilometraje hay cinco opciones: 10.000, 15.000, 20.000, 25.000 o 30.000 km."
+}

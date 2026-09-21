@@ -51,32 +51,44 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/vw-polo-01.webp",
-      "alt": "Volkswagen Polo en renting — vista exterior"
+      "url": "/coches-nuevos/vw-polo-match-01.webp",
+      "alt": "Volkswagen Polo en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/vw-polo-02.webp",
-      "alt": "Volkswagen Polo en renting — vista exterior"
+      "url": "/coches-nuevos/vw-polo-match-02.webp",
+      "alt": "Volkswagen Polo en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/vw-polo-03.webp",
+      "url": "/coches-nuevos/vw-polo-match-03.webp",
       "alt": "Volkswagen Polo en renting — perfil lateral"
     },
     {
-      "url": "/coches-nuevos/vw-polo-04.webp",
-      "alt": "Volkswagen Polo en renting — vista exterior"
+      "url": "/coches-nuevos/vw-polo-match-04.webp",
+      "alt": "Volkswagen Polo en renting — frontal"
     },
     {
-      "url": "/coches-nuevos/vw-polo-05.webp",
-      "alt": "Volkswagen Polo en renting — interior"
+      "url": "/coches-nuevos/vw-polo-match-05.webp",
+      "alt": "Volkswagen Polo en renting — trasera"
     },
     {
-      "url": "/coches-nuevos/vw-polo-06.webp",
-      "alt": "Volkswagen Polo en renting — interior"
+      "url": "/coches-nuevos/vw-polo-match-06.webp",
+      "alt": "Volkswagen Polo en renting — faro delantero"
     },
     {
-      "url": "/coches-nuevos/vw-polo-07.webp",
-      "alt": "Volkswagen Polo en renting — vista exterior"
+      "url": "/coches-nuevos/vw-polo-match-07.webp",
+      "alt": "Volkswagen Polo en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/vw-polo-match-08.webp",
+      "alt": "Volkswagen Polo en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/vw-polo-match-09.webp",
+      "alt": "Volkswagen Polo en renting — asientos traseros"
+    },
+    {
+      "url": "/coches-nuevos/vw-polo-match-10.webp",
+      "alt": "Volkswagen Polo en renting — maletero"
     }
   ],
   "pricing": [

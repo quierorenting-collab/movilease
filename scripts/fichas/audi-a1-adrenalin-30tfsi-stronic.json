@@ -2,32 +2,30 @@
   "update_vehicle_id": "31573bf4-eca2-4aca-9120-ef7c0b038dd2",
   "brand": "Audi",
   "model": "A1",
-  "version": "Sportback Adrenalin 30 TFSI 85 kW (115 CV) S tronic",
-  "description": "El motor es un 30 TFSI de gasolina de 85 kW, es decir, 115 CV. Va unido a un cambio automático S tronic, así que no pisas embrague ni buscas marcha. Se nota en los atascos y en las maniobras de aparcamiento. Su distintivo ambiental es la etiqueta C de la DGT.\n\nLa carrocería es Sportback, con cinco puertas y cinco plazas. Quien viaja detrás entra por su propia puerta, sin abatir los asientos delanteros. El acabado es Adrenalin y el color disponible, Blanco Glaciar metalizado con techo Negro Mito. La combinación de dos tonos viene ya definida, así que no tienes que configurar nada.\n\nEn renting eliges plazo entre 36, 48 y 60 meses, y kilometraje anual en cinco tramos, de 10.000 a 30.000 kilómetros. Si conduces poco, el tramo más bajo evita que pagues por kilómetros que no vas a hacer. Si sumas viajes largos, los tramos altos te dejan margen. Ese par de decisiones, plazo y kilómetros, es lo que define tu contrato del A1.",
+  "version": "Sportback Adrenalin 30 TFSI 85 kW S tronic",
+  "description": "La tabla del Audi A1 combina tres plazos con cinco kilometrajes anuales. Los plazos son de 36, 48 y 60 meses, y marcan cuánto dura el contrato. Los kilometrajes son 10.000, 15.000, 20.000, 25.000 y 30.000 kilómetros al año. En total salen 15 combinaciones. Ajusta el kilometraje a lo que recorres de verdad cada año. Si eliges uno por encima de tu uso, contratas kilómetros que no vas a gastar.\n\nLa versión disponible es la Sportback Adrenalin 30 TFSI 85 kW S tronic. Es un turismo con carrocería Sportback, cinco puertas y cinco plazas. El motor es de gasolina y entrega 116 CV. Va unido a un cambio automático S tronic, así que conduces sin pedal de embrague.\n\nTiene la etiqueta C de la DGT. Se ofrece en un único color, Blanco Candy.",
   "category": "turismo",
   "fuel_type": "gasolina",
   "transmission": "automatico",
-  "monthly_price_cents": 37500,
+  "monthly_price_cents": 38100,
   "contract_months": 36,
   "annual_km": 10000,
-  "horsepower": 115,
+  "horsepower": 116,
   "seats": 5,
   "doors": 5,
   "environmental_label": "c",
   "colors": [
-    "Blanco Glaciar metalizado con techo Negro Mito"
+    "Blanco Candy"
   ],
-  "short_description": "Sportback Adrenalin 30 TFSI de 115 CV con cambio automático S tronic",
+  "short_description": "Sportback Adrenalin 30 TFSI de 116 CV con cambio automático S tronic",
   "included_services": [
-    "Seguro a todo riesgo",
+    "Seguro a todo riesgo sin franquicia",
     "Mantenimiento y revisiones",
     "Neumáticos incluidos",
     "Asistencia 24h",
     "Averías y reparaciones",
     "ITV e impuestos",
-    "Gestión de multas",
-    "Entrega a domicilio",
-    "Cambio de neumáticos"
+    "Gestión de multas"
   ],
   "images": [
     {
@@ -63,78 +61,79 @@
     {
       "contract_months": 36,
       "annual_km": 10000,
-      "monthly_price_cents": 37500
+      "monthly_price_cents": 38100
     },
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 38800
+      "monthly_price_cents": 38700
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 38900
+      "monthly_price_cents": 38500
     },
     {
       "contract_months": 36,
       "annual_km": 15000,
-      "monthly_price_cents": 39700
+      "monthly_price_cents": 40300
     },
     {
       "contract_months": 48,
       "annual_km": 15000,
-      "monthly_price_cents": 40800
+      "monthly_price_cents": 40700
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 40800
+      "monthly_price_cents": 40300
     },
     {
       "contract_months": 36,
       "annual_km": 20000,
-      "monthly_price_cents": 42000
+      "monthly_price_cents": 42500
     },
     {
       "contract_months": 48,
       "annual_km": 20000,
-      "monthly_price_cents": 42800
+      "monthly_price_cents": 42600
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 42700
+      "monthly_price_cents": 42100
     },
     {
       "contract_months": 36,
       "annual_km": 25000,
-      "monthly_price_cents": 44800
+      "monthly_price_cents": 45300
     },
     {
       "contract_months": 48,
       "annual_km": 25000,
-      "monthly_price_cents": 45400
+      "monthly_price_cents": 45300
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 45600
+      "monthly_price_cents": 45000
     },
     {
       "contract_months": 36,
       "annual_km": 30000,
-      "monthly_price_cents": 47700
+      "monthly_price_cents": 48000
     },
     {
       "contract_months": 48,
       "annual_km": 30000,
-      "monthly_price_cents": 48300
+      "monthly_price_cents": 48000
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 48500
+      "monthly_price_cents": 47800
     }
   ],
-  "body_type": "Berlina con portón"
+  "body_type": "Sportback",
+  "equipment": []
 }

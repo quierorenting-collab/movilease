@@ -1,0 +1,157 @@
+{
+  "update_vehicle_id": "b2ccb397-9ad6-4d37-996d-dba1f06fba0c",
+  "brand": "Volkswagen",
+  "model": "Golf",
+  "version": "1.5 eTSI 116CV DSG",
+  "category": "turismo",
+  "fuel_type": "gasolina",
+  "transmission": "automatico",
+  "monthly_price_cents": 37714,
+  "contract_months": 36,
+  "annual_km": 10000,
+  "horsepower": 116,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "body_type": "Hatchback",
+  "colors": [
+    "Gris oscuro"
+  ],
+  "is_active": true,
+  "is_offer": false,
+  "equipment": [
+    "Lane Assist",
+    "Control de crucero adaptativo \"ACC\" + Front Assist",
+    "Rear View: Cámara de visión trasera",
+    "Front Cross Traffic Alert",
+    "e-Call (Llamada de emergencia)",
+    "Faros delanteros \"LED\"",
+    "Aire acondicionado \"Climatronic\"",
+    "Llantas aleación 16\"",
+    "Digital Cockpit con pantalla 10\"",
+    "Radio \"Ready2Discover\" con pantalla 10,4\"",
+    "App-Connect inalámbrico",
+    "Volante multifunción de cuero",
+    "Park Pilot: sensores de aparcamiento delantero y trasero",
+    "Reposabrazos central",
+    "7 airbags"
+  ],
+  "included_services": [
+    "Seguro a todo riesgo sin franquicia",
+    "Mantenimiento y revisiones",
+    "Asistencia en carretera 24h",
+    "Neumáticos incluidos",
+    "Averías y reparaciones",
+    "Gestión de impuestos",
+    "Vehículo de sustitución"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/vw-golf-01.webp",
+      "alt": "Volkswagen Golf en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/vw-golf-02.webp",
+      "alt": "Volkswagen Golf en renting — perfil lateral"
+    },
+    {
+      "url": "/coches-nuevos/vw-golf-03.webp",
+      "alt": "Volkswagen Golf en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/vw-golf-04.webp",
+      "alt": "Volkswagen Golf en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/vw-golf-05.webp",
+      "alt": "Volkswagen Golf en renting — trasera"
+    },
+    {
+      "url": "/coches-nuevos/vw-golf-06.webp",
+      "alt": "Volkswagen Golf en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/vw-golf-07.webp",
+      "alt": "Volkswagen Golf en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/vw-golf-08.webp",
+      "alt": "Volkswagen Golf en renting — asientos traseros"
+    },
+    {
+      "url": "/coches-nuevos/vw-golf-09.webp",
+      "alt": "Volkswagen Golf en renting — llanta"
+    },
+    {
+      "url": "/coches-nuevos/vw-golf-10.webp",
+      "alt": "Volkswagen Golf en renting — faro delantero"
+    },
+    {
+      "url": "/coches-nuevos/vw-golf-11.webp",
+      "alt": "Volkswagen Golf en renting — maletero"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 37714
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 38157
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 39543
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 41259
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 40672
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 42517
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 43968
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 43088
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 45659
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 47004
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 48496
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 50249
+    }
+  ],
+  "description": "El Volkswagen Golf 1.5 eTSI DSG es un turismo con carrocería hatchback, cinco puertas y cinco plazas. Lleva un motor de gasolina de 116 CV y cambio automático DSG. Tiene la etiqueta ECO de la DGT.\n\nEn seguridad trae siete airbags, Lane Assist y control de crucero adaptativo ACC con Front Assist. Añade Front Cross Traffic Alert y llamada de emergencia e-Call. Para aparcar dispones de sensores delanteros y traseros Park Pilot y de cámara de visión trasera. Al volante tienes el Digital Cockpit con pantalla de 10 pulgadas y la radio Ready2Discover con pantalla de 10,4 pulgadas. El móvil se conecta por App-Connect inalámbrico. Suma aire acondicionado Climatronic, faros delanteros LED, llantas de aleación de 16 pulgadas, volante multifunción de cuero y reposabrazos central.\n\nEstá disponible en gris oscuro. Puedes elegir un plazo de 36, 48 o 60 meses y un kilometraje de 10.000, 15.000, 20.000 o 25.000 km."
+}
