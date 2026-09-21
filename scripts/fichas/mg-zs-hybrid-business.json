@@ -2,8 +2,8 @@
   "update_vehicle_id": "9904f33f-173b-4121-9630-778ffb4004cd",
   "brand": "MG",
   "model": "ZS",
-  "version": "HEV 1.5T 197CV Automático",
-  "category": "hibrido",
+  "version": "Hybrid+ Business 197 CV Automático",
+  "category": "suv",
   "fuel_type": "hibrido",
   "transmission": "automatico",
   "monthly_price_cents": 36900,
@@ -13,73 +13,82 @@
   "seats": 5,
   "doors": 5,
   "environmental_label": "eco",
-  "colors": [
-    "Plata"
-  ],
+  "colors": [],
   "body_type": "SUV",
   "badge_text": "Solo empresas",
   "short_description": "Híbrido de 197 CV, acabado Hybrid+ Business, etiqueta ECO",
-  "description": "197 CV en un híbrido que no se enchufa y con etiqueta ECO, por menos de lo que cuesta un compacto de gasolina de la mitad de potencia.\nEl acabado Hybrid+ Business viene lleno de serie: pantalla de 10,1 pulgadas, cuadro digital, climatizador automático y todos los asistentes.\nDisponible solo para empresas y autónomos.",
+  "description": "El MG ZS Hybrid+ Business es un SUV híbrido de 197 CV con cambio automático y etiqueta ECO de la DGT. Tiene cinco puertas y cinco plazas. Es un híbrido sin enchufe, así que no dependes de un punto de carga.\n\nPor dentro tienes una pantalla táctil de 10,25 pulgadas con el sistema MG iSMART, compatible con Apple CarPlay y Android Auto, y un cuadro de instrumentos digital de 7 pulgadas. Suma conexión Bluetooth con reconocimiento de voz y volante multifunción en piel. En seguridad incorpora frenada automática de emergencia, asistente de mantenimiento de carril y reconocimiento de señales de tráfico. También lleva control de crucero con limitador de velocidad. Para aparcar cuentas con cámara de visión trasera y sensores traseros. Completan el equipo los faros y las luces diurnas LED, los retrovisores eléctricos y calefactables, el climatizador manual, las llantas de aleación de 17 pulgadas y un kit de reparación de neumáticos.\n\nEsta oferta de renting es solo para empresas. Puedes contratarla a 48 o 60 meses, con un kilometraje de 10.000, 15.000 o 20.000 km.",
   "equipment": [
-    "Climatizador automático",
-    "Volante multifunción en cuero",
-    "Asientos de tela",
-    "Ajuste manual de asiento del conductor",
-    "Retrovisores exteriores eléctricos y calefactables",
-    "Pantalla táctil de 10,1\"",
+    "Pantalla táctil de 10,25\"",
+    "MG iSMART con Apple CarPlay y Android Auto",
     "Cuadro de instrumentos digital de 7\"",
-    "Conexión Bluetooth",
-    "Apple CarPlay y Android Auto",
-    "2 puertos USB",
-    "Frenado autónomo de emergencia (AEB)",
-    "Asistente de mantenimiento y cambio de carril (LKA)",
-    "Control de crucero",
-    "Reconocimiento de señales de tráfico",
     "Cámara de visión trasera",
     "Sensores de aparcamiento traseros",
-    "Control de estabilidad (ESP)",
-    "Asistente de arranque en pendiente (HHC)",
-    "6 airbags"
+    "Control de crucero con limitador de velocidad",
+    "Asistente de mantenimiento de carril (LKA)",
+    "Frenada automática de emergencia (AEB)",
+    "Reconocimiento de señales de tráfico",
+    "Climatizador manual",
+    "Faros LED",
+    "Luces diurnas LED",
+    "Retrovisores exteriores eléctricos y calefactables",
+    "Volante multifunción en piel",
+    "Llantas de aleación de 17\"",
+    "Conexión Bluetooth con reconocimiento de voz",
+    "Kit de reparación de neumáticos"
   ],
   "included_services": [
-    "Seguro a todo riesgo",
+    "Seguro a todo riesgo sin franquicia",
     "Mantenimiento y revisiones",
-    "Neumáticos incluidos",
-    "Asistencia 24h",
+    "Asistencia en carretera 24h",
     "Averías y reparaciones",
-    "ITV e impuestos",
-    "Gestión de multas",
-    "Entrega a domicilio",
-    "Cambio de neumáticos"
+    "Gestión de impuestos",
+    "Vehículo de sustitución"
   ],
   "images": [
     {
-      "url": "/coches-nuevos/mg-zs-01.webp",
-      "alt": "MG ZS en renting — vista exterior"
+      "url": "/coches-nuevos/mg-zs-2026-01.webp",
+      "alt": "MG ZS en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/mg-zs-02.webp",
-      "alt": "MG ZS en renting — vista exterior"
+      "url": "/coches-nuevos/mg-zs-2026-02.webp",
+      "alt": "MG ZS en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/mg-zs-03.webp",
+      "url": "/coches-nuevos/mg-zs-2026-03.webp",
       "alt": "MG ZS en renting — perfil lateral"
     },
     {
-      "url": "/coches-nuevos/mg-zs-04.webp",
-      "alt": "MG ZS en renting — vista exterior"
+      "url": "/coches-nuevos/mg-zs-2026-04.webp",
+      "alt": "MG ZS en renting — frontal"
     },
     {
-      "url": "/coches-nuevos/mg-zs-05.webp",
-      "alt": "MG ZS en renting — vista exterior"
+      "url": "/coches-nuevos/mg-zs-2026-05.webp",
+      "alt": "MG ZS en renting — faro delantero"
     },
     {
-      "url": "/coches-nuevos/mg-zs-06.webp",
-      "alt": "MG ZS en renting — interior"
+      "url": "/coches-nuevos/mg-zs-2026-06.webp",
+      "alt": "MG ZS en renting — llanta"
     },
     {
-      "url": "/coches-nuevos/mg-zs-07.webp",
-      "alt": "MG ZS en renting — interior"
+      "url": "/coches-nuevos/mg-zs-2026-07.webp",
+      "alt": "MG ZS en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/mg-zs-2026-08.webp",
+      "alt": "MG ZS en renting — palanca de cambios"
+    },
+    {
+      "url": "/coches-nuevos/mg-zs-2026-09.webp",
+      "alt": "MG ZS en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/mg-zs-2026-10.webp",
+      "alt": "MG ZS en renting — asientos traseros"
+    },
+    {
+      "url": "/coches-nuevos/mg-zs-2026-11.webp",
+      "alt": "MG ZS en renting — maletero"
     }
   ],
   "pricing": [
@@ -89,9 +98,19 @@
       "monthly_price_cents": 37300
     },
     {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 36900
+    },
+    {
       "contract_months": 48,
       "annual_km": 15000,
       "monthly_price_cents": 40200
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 39800
     },
     {
       "contract_months": 48,
@@ -100,18 +119,10 @@
     },
     {
       "contract_months": 60,
-      "annual_km": 10000,
-      "monthly_price_cents": 36900
-    },
-    {
-      "contract_months": 60,
-      "annual_km": 15000,
-      "monthly_price_cents": 39800
-    },
-    {
-      "contract_months": 60,
       "annual_km": 20000,
       "monthly_price_cents": 44500
     }
-  ]
+  ],
+  "is_active": true,
+  "is_offer": false
 }

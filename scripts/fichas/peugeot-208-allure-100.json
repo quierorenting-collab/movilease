@@ -5,7 +5,7 @@
   "category": "turismo",
   "fuel_type": "gasolina",
   "transmission": "manual",
-  "monthly_price_cents": 28300,
+  "monthly_price_cents": 28400,
   "contract_months": 60,
   "annual_km": 10000,
   "horsepower": 100,
@@ -41,12 +41,11 @@
     "Seguro a todo riesgo",
     "Mantenimiento y revisiones",
     "Neumáticos incluidos",
-    "Asistencia 24h",
+    "Asistencia en carretera 24h",
     "Averías y reparaciones",
     "ITV e impuestos",
     "Gestión de multas",
-    "Entrega a domicilio",
-    "Cambio de neumáticos"
+    "Entrega en provincia"
   ],
   "images": [
     {
@@ -82,52 +81,52 @@
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 29400
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 15000,
-      "monthly_price_cents": 31200
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 20000,
-      "monthly_price_cents": 33400
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 25000,
-      "monthly_price_cents": 36100
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 30000,
-      "monthly_price_cents": 38400
+      "monthly_price_cents": 29600
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 28300
+      "monthly_price_cents": 28400
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 31500
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 30300
+      "monthly_price_cents": 30500
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 33600
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 33000
+      "monthly_price_cents": 33300
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 36300
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 35700
+      "monthly_price_cents": 35900
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 38600
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 38400
+      "monthly_price_cents": 38600
     }
   ],
   "consumption_value": 5.2,
