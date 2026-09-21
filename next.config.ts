@@ -24,7 +24,8 @@ const MODELOS_RETIRADOS = [
   "renting-maxus-deliver-9",
   "renting-maxus-t60-max",
   "renting-mazda-6e",
-  "renting-mg-zs",
+  /* El MG ZS vuelve al catalogo el 21/09/2026 con lamina nueva en el Drive:
+     sale de la lista, o su ficha redirigiria a /catalogo. */
   "renting-mitsubishi-outlander",
   "renting-nissan-x-trail",
   "renting-omoda-9",
