@@ -136,3 +136,12 @@ export const ENTREGA_RAPIDA_MODELOS: ReadonlySet<string> = new Set([
   "renting-citroen-c4",
   "renting-ebro-s700",
 ]);
+
+/**
+ * Los enchufables que van primero en la zona «Eléctricos y enchufables» (el
+ * bloque de la portada y /renting-electrico), con la etiqueta «Más popular».
+ * Decisión de Adrián del 21/09/2026; el orden es el de la lista. En la portada
+ * salen ahí aunque ya aparezcan en Ofertas o en Entrega rápida.
+ */
+export const ENCHUFABLES_MAS_POPULARES: readonly string[] = ["renting-ebro-s700", "renting-honda-cr-v"];
+export const MAS_POPULAR_ETIQUETA = "Más popular";

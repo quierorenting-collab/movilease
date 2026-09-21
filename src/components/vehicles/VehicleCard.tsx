@@ -8,7 +8,14 @@ import { fotoTarjeta } from "@/lib/utils";
 import { FavoriteButton } from "@/components/vehicles/FavoriteButton";
 import { CompareButton } from "@/components/vehicles/CompareButton";
 
-export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
+export function VehicleCard({
+  vehicle,
+  destacado,
+}: {
+  vehicle: VehicleCardData;
+  /** Etiqueta extra arriba del todo, p. ej. «Más popular» en /renting-electrico. */
+  destacado?: string;
+}) {
   const waLink = buildWhatsAppLink(
     `Hola, me interesa el ${vehicle.brandName} ${vehicle.modelName} desde ${vehicle.priceLabel}/mes`
   );
@@ -65,8 +72,13 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleCardData }) {
 
           {/* Oferta y, debajo, la entrega rápida: apiladas en la misma esquina
               para no tapar el coche ni chocar con el botón de favoritos. */}
-          {(vehicle.isOffer || entregaRapida) && (
+          {(destacado || vehicle.isOffer || entregaRapida) && (
             <div className="absolute left-4 top-4 flex flex-col items-start gap-1.5">
+              {destacado && (
+                <span className="rounded-full bg-[#0A0A0A] px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.14em] text-white shadow-lg shadow-black/20">
+                  ★ {destacado}
+                </span>
+              )}
               {vehicle.isOffer && (
                 <span className="rounded-full bg-[#0068FF] px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.14em] text-white shadow-lg shadow-[#0068FF]/25">
                   Oferta

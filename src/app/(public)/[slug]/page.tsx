@@ -22,6 +22,8 @@ import {
   buildWhatsAppLink,
   ENTREGA_RAPIDA_ETIQUETA,
   ENTREGA_RAPIDA_MODELOS,
+  ENCHUFABLES_MAS_POPULARES,
+  MAS_POPULAR_ETIQUETA,
 } from "@/lib/constants";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { VehicleGallery } from "@/components/vehicles/VehicleGallery";
@@ -926,6 +928,14 @@ function LandingPage({
   slug: string;
   guia: { slug: string; title: string } | null;
 }) {
+  /* En la de eléctricos y enchufables, los más populares van delante y con su
+     etiqueta (ENCHUFABLES_MAS_POPULARES, decisión de Adrián del 21/09/2026).
+     El resto sigue en el orden de siempre, por cuota. */
+  const populares = slug === "renting-electrico" ? ENCHUFABLES_MAS_POPULARES : [];
+  const coches = [
+    ...populares.flatMap((s) => landing.vehicles.filter((v) => v.modelSlug === s)),
+    ...landing.vehicles.filter((v) => !populares.includes(v.modelSlug)),
+  ];
   return (
     <>
       <BreadcrumbJsonLd
@@ -971,9 +981,12 @@ function LandingPage({
                 stagger={0.06}
                 className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
               >
-                {landing.vehicles.map((vehicle) => (
+                {coches.map((vehicle) => (
                   <RevealItem key={vehicle.id}>
-                    <VehicleCard vehicle={vehicle} />
+                    <VehicleCard
+                      vehicle={vehicle}
+                      destacado={populares.includes(vehicle.modelSlug) ? MAS_POPULAR_ETIQUETA : undefined}
+                    />
                   </RevealItem>
                 ))}
               </RevealGroup>

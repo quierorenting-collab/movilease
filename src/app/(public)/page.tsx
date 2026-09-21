@@ -9,7 +9,13 @@ import {
   getVehiclesByModelSlugs,
 } from "@/lib/data/vehicles";
 import { getFooterLandings } from "@/lib/data/landing";
-import { buildWhatsAppLink, ENTREGA_RAPIDA_ETIQUETA, ENTREGA_RAPIDA_MODELOS } from "@/lib/constants";
+import {
+  buildWhatsAppLink,
+  ENTREGA_RAPIDA_ETIQUETA,
+  ENTREGA_RAPIDA_MODELOS,
+  ENCHUFABLES_MAS_POPULARES,
+  MAS_POPULAR_ETIQUETA,
+} from "@/lib/constants";
 import { fotoTarjeta } from "@/lib/utils";
 import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { BrandCard } from "@/components/catalog/BrandCard";
@@ -321,14 +327,24 @@ export default async function HomePage() {
   const yaEnPortada = new Set(
     [...dedupedOffers, ...exclusivos, ...entregaRapida].map((v) => v.modelSlug)
   );
-  const seenElectricModels = new Set<string>();
-  const electricosPortada = electricos
-    .filter((v) => {
+  /* Primero los más populares (ENCHUFABLES_MAS_POPULARES, por decisión de
+     Adrián), aunque ya salgan en Ofertas o en Entrega rápida: aquí se les
+     pidió expresamente. Detrás, el resto sin repetir lo que ya está en la
+     portada. `electricos` va ordenado por cuota, así que la primera versión de
+     cada modelo es la más barata. */
+  const populares = ENCHUFABLES_MAS_POPULARES.map((slug) =>
+    electricos.find((v) => v.modelSlug === slug)
+  ).filter((v): v is (typeof electricos)[number] => Boolean(v));
+  const seenElectricModels = new Set<string>(populares.map((v) => v.modelSlug));
+  const electricosPortada = [
+    ...populares,
+    ...electricos.filter((v) => {
       if (yaEnPortada.has(v.modelSlug) || seenElectricModels.has(v.modelSlug)) return false;
       seenElectricModels.add(v.modelSlug);
       return true;
-    })
-    .slice(0, 6);
+    }),
+  ].slice(0, 6);
+  const esPopular = new Set(populares.map((v) => v.modelSlug));
 
   return (
     <>
@@ -902,7 +918,12 @@ export default async function HomePage() {
                           />
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1B4080] via-transparent to-transparent" />
-                        <div className="absolute left-4 top-4">
+                        <div className="absolute left-4 top-4 flex flex-col items-start gap-1.5">
+                          {esPopular.has(vehicle.modelSlug) && (
+                            <span className="rounded-full bg-white px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.14em] text-[#0C2454] shadow-lg shadow-black/20">
+                              ★ {MAS_POPULAR_ETIQUETA}
+                            </span>
+                          )}
                           <span className="rounded-full bg-white/12 px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm ring-1 ring-white/25">
                             Etiqueta CERO
                           </span>
