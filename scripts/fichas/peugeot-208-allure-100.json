@@ -5,7 +5,7 @@
   "category": "turismo",
   "fuel_type": "gasolina",
   "transmission": "manual",
-  "monthly_price_cents": 28400,
+  "monthly_price_cents": 28500,
   "contract_months": 60,
   "annual_km": 10000,
   "horsepower": 100,
@@ -86,12 +86,12 @@
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 28400
+      "monthly_price_cents": 28500
     },
     {
       "contract_months": 48,
       "annual_km": 15000,
-      "monthly_price_cents": 31500
+      "monthly_price_cents": 31400
     },
     {
       "contract_months": 60,
@@ -106,7 +106,7 @@
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 33300
+      "monthly_price_cents": 33200
     },
     {
       "contract_months": 48,
