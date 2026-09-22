@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Crea las landings de categoria y ciudad en la tabla landing_pages.
+"""Crea las landings de categoria, ciudad y marca en la tabla landing_pages.
 
 La web tenia el mecanismo entero construido —tabla, capa de datos, plantilla
 en [slug] con su hero, su rejilla de coches y su FAQ con JSON-LD— y cero filas.
@@ -105,6 +105,18 @@ CATEGORIAS = [
        "answer": "Sí. Cada ficha tiene su tabla de cuotas por plazo y kilometraje, y el kilometraje se ajusta a tu uso real."}]),
 ]
 
+# Landings de marca (22/09/2026): /renting-<marca>, solo para las marcas con
+# varios modelos (con uno, la landing competiría con la ficha del coche). El
+# texto está en landings_marcas.json, escrito con los datos de sus coches y sin
+# precios, como el resto. Son filas "category" porque el enum de la base no
+# tiene otro tipo; lo que las hace de marca es `filter_json.brand`, que la web
+# lee desde el commit a4e2853 (con código anterior, la landing enseñaría el
+# catálogo entero). No llevan FAQ_COMUN: dice «neumáticos» y hay cuotas que no
+# los incluyen (Škoda Elroq y Kamiq).
+# 🔴 Si un modelo sale del catálogo o entra uno nuevo de una de estas marcas,
+# su texto lo nombra: hay que corregirlo aquí y volver a subir esa landing.
+MARCAS = json.load(open(os.path.join(RAIZ, "scripts", "landings_marcas.json"), encoding="utf-8"))
+
 CIUDADES = [("madrid", "Madrid"), ("barcelona", "Barcelona"), ("valencia", "Valencia"),
             ("sevilla", "Sevilla"), ("zaragoza", "Zaragoza"), ("malaga", "Málaga"),
             ("murcia", "Murcia"), ("palma", "Palma"), ("las-palmas", "Las Palmas"),
@@ -124,6 +136,10 @@ def main():
         filas.append({"type": "category", "slug": slug, "title": titulo, "h1": h1,
                       "intro_content": intro, "meta_description": desc,
                       "faq": FAQ_COMUN + faq, "filter_json": filtro, "is_active": True})
+    for m in MARCAS:
+        filas.append({"type": "category", "slug": m["slug"], "title": m["title"], "h1": m["h1"],
+                      "intro_content": m["intro_content"], "meta_description": m["meta_description"],
+                      "faq": m["faq"], "filter_json": {"brand": m["brand"]}, "is_active": True})
     for s, nombre in CIUDADES:
         filas.append({
             "type": "city", "slug": f"renting-coches-{s}",
