@@ -50,11 +50,11 @@
   "images": [
     {
       "url": "/coches-nuevos/toyota-yaris-01.webp",
-      "alt": "Toyota Yaris en renting — vista exterior"
+      "alt": "Toyota Yaris en renting — vista frontal tres cuartos"
     },
     {
       "url": "/coches-nuevos/toyota-yaris-02.webp",
-      "alt": "Toyota Yaris en renting — vista exterior"
+      "alt": "Toyota Yaris en renting — vista trasera tres cuartos"
     },
     {
       "url": "/coches-nuevos/toyota-yaris-03.webp",
@@ -62,19 +62,19 @@
     },
     {
       "url": "/coches-nuevos/toyota-yaris-04.webp",
-      "alt": "Toyota Yaris en renting — interior"
+      "alt": "Toyota Yaris en renting — frontal"
     },
     {
       "url": "/coches-nuevos/toyota-yaris-05.webp",
-      "alt": "Toyota Yaris en renting — interior"
+      "alt": "Toyota Yaris en renting — trasera"
     },
     {
       "url": "/coches-nuevos/toyota-yaris-06.webp",
-      "alt": "Toyota Yaris en renting — vista exterior"
+      "alt": "Toyota Yaris en renting — salpicadero"
     },
     {
       "url": "/coches-nuevos/toyota-yaris-07.webp",
-      "alt": "Toyota Yaris en renting — vista exterior"
+      "alt": "Toyota Yaris en renting — asientos delanteros"
     }
   ],
   "pricing": [

@@ -55,11 +55,11 @@
   "images": [
     {
       "url": "/coches-nuevos/vw-tiguan-01.webp",
-      "alt": "Volkswagen Tiguan en renting — vista exterior"
+      "alt": "Volkswagen Tiguan en renting — vista frontal tres cuartos"
     },
     {
       "url": "/coches-nuevos/vw-tiguan-02.webp",
-      "alt": "Volkswagen Tiguan en renting — vista exterior"
+      "alt": "Volkswagen Tiguan en renting — vista trasera tres cuartos"
     },
     {
       "url": "/coches-nuevos/vw-tiguan-03.webp",
@@ -67,19 +67,19 @@
     },
     {
       "url": "/coches-nuevos/vw-tiguan-04.webp",
-      "alt": "Volkswagen Tiguan en renting — interior"
+      "alt": "Volkswagen Tiguan en renting — frontal"
     },
     {
       "url": "/coches-nuevos/vw-tiguan-05.webp",
-      "alt": "Volkswagen Tiguan en renting — interior"
+      "alt": "Volkswagen Tiguan en renting — trasera"
     },
     {
       "url": "/coches-nuevos/vw-tiguan-06.webp",
-      "alt": "Volkswagen Tiguan en renting — vista exterior"
+      "alt": "Volkswagen Tiguan en renting — salpicadero"
     },
     {
       "url": "/coches-nuevos/vw-tiguan-07.webp",
-      "alt": "Volkswagen Tiguan en renting — vista exterior"
+      "alt": "Volkswagen Tiguan en renting — asientos delanteros"
     }
   ],
   "pricing": [

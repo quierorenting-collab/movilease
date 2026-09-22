@@ -30,11 +30,11 @@
   "images": [
     {
       "url": "/coches-nuevos/toyota-chr-01.webp",
-      "alt": "Toyota C-HR en renting — vista exterior"
+      "alt": "Toyota C-HR en renting — vista frontal tres cuartos"
     },
     {
       "url": "/coches-nuevos/toyota-chr-02.webp",
-      "alt": "Toyota C-HR en renting — vista exterior"
+      "alt": "Toyota C-HR en renting — vista trasera tres cuartos"
     },
     {
       "url": "/coches-nuevos/toyota-chr-03.webp",
@@ -42,19 +42,19 @@
     },
     {
       "url": "/coches-nuevos/toyota-chr-04.webp",
-      "alt": "Toyota C-HR en renting — interior"
+      "alt": "Toyota C-HR en renting — frontal"
     },
     {
       "url": "/coches-nuevos/toyota-chr-05.webp",
-      "alt": "Toyota C-HR en renting — interior"
+      "alt": "Toyota C-HR en renting — trasera"
     },
     {
       "url": "/coches-nuevos/toyota-chr-06.webp",
-      "alt": "Toyota C-HR en renting — vista exterior"
+      "alt": "Toyota C-HR en renting — salpicadero"
     },
     {
       "url": "/coches-nuevos/toyota-chr-07.webp",
-      "alt": "Toyota C-HR en renting — vista exterior"
+      "alt": "Toyota C-HR en renting — asientos delanteros"
     }
   ],
   "pricing": [

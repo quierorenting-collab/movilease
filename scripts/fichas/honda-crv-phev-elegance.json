@@ -57,11 +57,11 @@
   "images": [
     {
       "url": "/coches-nuevos/honda-crv-01.webp",
-      "alt": "Honda CR-V en renting — vista exterior"
+      "alt": "Honda CR-V en renting — vista frontal tres cuartos"
     },
     {
       "url": "/coches-nuevos/honda-crv-02.webp",
-      "alt": "Honda CR-V en renting — vista exterior"
+      "alt": "Honda CR-V en renting — vista trasera tres cuartos"
     },
     {
       "url": "/coches-nuevos/honda-crv-03.webp",
@@ -69,19 +69,19 @@
     },
     {
       "url": "/coches-nuevos/honda-crv-04.webp",
-      "alt": "Honda CR-V en renting — interior"
+      "alt": "Honda CR-V en renting — frontal"
     },
     {
       "url": "/coches-nuevos/honda-crv-05.webp",
-      "alt": "Honda CR-V en renting — vista exterior"
+      "alt": "Honda CR-V en renting — trasera"
     },
     {
       "url": "/coches-nuevos/honda-crv-06.webp",
-      "alt": "Honda CR-V en renting — vista exterior"
+      "alt": "Honda CR-V en renting — salpicadero"
     },
     {
       "url": "/coches-nuevos/honda-crv-07.webp",
-      "alt": "Honda CR-V en renting — vista exterior"
+      "alt": "Honda CR-V en renting — maletero"
     }
   ],
   "pricing": [
