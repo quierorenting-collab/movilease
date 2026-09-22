@@ -1,0 +1,108 @@
+{
+  "update_vehicle_id": "26dfe3fe-a9ef-4644-b495-760dba67a848",
+  "is_active": true,
+  "brand": "Škoda",
+  "model": "Octavia",
+  "version": "Limo Selection 2.0 TDI 150 CV DSG",
+  "category": "turismo",
+  "fuel_type": "diesel",
+  "transmission": "automatico",
+  "horsepower": 150,
+  "seats": 5,
+  "doors": 5,
+  "body_type": "Berlina",
+  "environmental_label": "c",
+  "colors": [
+    "Blanco Candy"
+  ],
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 45375,
+  "contract_months": 36,
+  "annual_km": 15000,
+  "short_description": "Berlina diésel de 150 CV con cambio automático DSG",
+  "included_services": [
+    "Seguro a todo riesgo sin franquicia",
+    "Mantenimiento en red oficial de concesionarios",
+    "Sin requisitos de edad ni de antigüedad del carné"
+  ],
+  "equipment": [
+    "Sistema de navegación",
+    "Pantalla de 13”",
+    "Cierre y arranque sin llave “Keyless Advanced” con cierre de seguridad",
+    "Sistemas Side Assist y Lane Assist",
+    "ACC - Regulación automática de la distancia",
+    "Alarma antirrobo con vigilancia del habitáculo, sirena de alarma y protección contra remolque",
+    "Apoyo lumbar en el respaldo de los asientos delanteros con ajuste manual",
+    "Volante multifunción de cuero con Tiptronic",
+    "Asientos de confort delanteros",
+    "Llantas de aleación ligera “Matar Aero” 7J x 16",
+    "Lunas tintadas «Sunset»",
+    "Faros delanteros y pilotos trasero LED con funciones de luz animadas",
+    "Apertura del portón del maletero controlada por sensores",
+    "Rueda de emergencia de acero, gato, llave para tornillos de rueda",
+    "Sistema de cámara de marcha atrás Rear View"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/skoda-octavia-01.webp",
+      "alt": "Škoda Octavia en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-octavia-02.webp",
+      "alt": "Škoda Octavia en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-octavia-03.webp",
+      "alt": "Škoda Octavia en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 45375
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 46706
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 48521
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 45617
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 47795
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 51909
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 46343
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 49247
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 53119
+    }
+  ],
+  "description": "Este Škoda Octavia Limo Selection es una berlina diésel con motor 2.0 TDI de 150 CV y cambio automático DSG. Tiene cinco plazas, cinco puertas y etiqueta C, y viene en color Blanco Candy.\n\nDentro tienes sistema de navegación, pantalla de 13” y volante multifunción de cuero con Tiptronic. Los asientos delanteros son de confort, con apoyo lumbar de ajuste manual. En carretera te ayudan el ACC, que regula automáticamente la distancia, y los sistemas Side Assist y Lane Assist. Cierras y arrancas sin llave con el Keyless Advanced, que incluye cierre de seguridad. Para maniobrar marcha atrás cuentas con la cámara Rear View. La apertura del portón del maletero está controlada por sensores. La alarma vigila el habitáculo, tiene sirena y protege contra el remolque. Por fuera lleva faros y pilotos LED con funciones de luz animadas, lunas tintadas «Sunset» y llantas de aleación ligera «Matar Aero» 7J x 16.\n\nPuedes elegir entre 15.000, 20.000 y 25.000 km al año, con contratos de 36, 48 o 60 meses. La ficha incluye también la versión Combi Selection 2.0 TDI 150 CV DSG, con carrocería familiar."
+}

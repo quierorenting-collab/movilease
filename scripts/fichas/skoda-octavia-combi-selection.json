@@ -1,0 +1,102 @@
+{
+  "update_vehicle_id": "45fa69e6-3c28-4068-9e3f-4652b22e8cb9",
+  "brand": "Škoda",
+  "model": "Octavia",
+  "version": "Combi Selection 2.0 TDI 150 CV DSG",
+  "category": "turismo",
+  "fuel_type": "diesel",
+  "transmission": "automatico",
+  "horsepower": 150,
+  "seats": 5,
+  "doors": 5,
+  "body_type": "Familiar",
+  "environmental_label": "c",
+  "colors": [
+    "Blanco Candy"
+  ],
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 46706,
+  "contract_months": 36,
+  "annual_km": 15000,
+  "short_description": "Familiar diésel de 150 CV con cambio automático DSG",
+  "included_services": [
+    "Seguro a todo riesgo sin franquicia",
+    "Mantenimiento en red oficial de concesionarios",
+    "Sin requisitos de edad ni de antigüedad del carné"
+  ],
+  "equipment": [
+    "Sistema de navegación",
+    "Pantalla de 13”",
+    "Cierre y arranque sin llave “Keyless Advanced” con cierre de seguridad",
+    "Sistemas Side Assist y Lane Assist",
+    "ACC - Regulación automática de la distancia",
+    "Alarma antirrobo con vigilancia del habitáculo, sirena de alarma y protección contra remolque",
+    "Apoyo lumbar en el respaldo de los asientos delanteros con ajuste manual"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/skoda-octavia-combi-01.webp",
+      "alt": "Škoda Octavia Combi en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-octavia-combi-02.webp",
+      "alt": "Škoda Octavia Combi en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-octavia-combi-03.webp",
+      "alt": "Škoda Octavia Combi en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-octavia-combi-04.webp",
+      "alt": "Škoda Octavia Combi en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 46706
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 48037
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 49852
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 46706
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 48884
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 52877
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 47190
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 50215
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 54087
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "update_vehicle_id": "57413a2c-0d63-4ca0-8bec-2cd3a71d1f39",
+  "is_active": true,
+  "brand": "Škoda",
+  "model": "Karoq",
+  "version": "2.0 TDI 150 CV DSG",
+  "category": "suv",
+  "fuel_type": "diesel",
+  "transmission": "automatico",
+  "horsepower": 150,
+  "seats": 5,
+  "doors": 5,
+  "body_type": "SUV",
+  "environmental_label": "c",
+  "colors": [
+    "Blanco Luna"
+  ],
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 51788,
+  "contract_months": 60,
+  "annual_km": 15000,
+  "short_description": "SUV diésel de 150 CV con cambio automático DSG",
+  "included_services": [
+    "Seguro a todo riesgo sin franquicia",
+    "Mantenimiento en red oficial de concesionarios",
+    "Sin requisitos de edad ni de antigüedad del carné"
+  ],
+  "equipment": [
+    "Keyless FULL sin SAFELOCK",
+    "Autohold: control de asistencia para arranque en pendientes",
+    "FRONT, LANE, SIDE & EMERGENCY assist",
+    "Lunas tintadas “SUNSET”",
+    "Faros antiniebla + LED",
+    "Cámara trasera y ayuda de aparcamiento delante y detrás",
+    "Control de crucero adaptativo",
+    "Capacidad de maletero de 521 litros"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/skoda-karoq-01.webp",
+      "alt": "Škoda Karoq en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-karoq-02.webp",
+      "alt": "Škoda Karoq en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-karoq-03.webp",
+      "alt": "Škoda Karoq en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 52272
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 53966
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 57112
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 52151
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 53603
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 58564
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 51788
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 56265
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 60863
+    }
+  ],
+  "description": "El Škoda Karoq de esta ficha es un SUV diésel con motor 2.0 TDI de 150 CV y cambio automático DSG. Tiene cinco puertas, cinco plazas y etiqueta ambiental C. El maletero tiene una capacidad de 521 litros. Lo tienes en color Blanco Luna.\n\nEl equipamiento incluye control de crucero adaptativo y los asistentes FRONT, LANE, SIDE & EMERGENCY assist. Para aparcar cuentas con cámara trasera y ayuda de aparcamiento delante y detrás. El Autohold es un control de asistencia para el arranque en pendientes. Lleva también Keyless FULL sin SAFELOCK. Suma faros antiniebla y LED, además de lunas tintadas «SUNSET».\n\nEn este renting eliges contrato de 36, 48 o 60 meses. Los kilometrajes disponibles son 15.000, 20.000 y 25.000 km."
+}

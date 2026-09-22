@@ -1,0 +1,108 @@
+{
+  "update_vehicle_id": "073fa5b4-6aaa-4267-9af7-d121599d6092",
+  "brand": "Škoda",
+  "model": "Kamiq",
+  "version": "Selection 1.0 TSI 115 CV DSG",
+  "category": "suv",
+  "fuel_type": "gasolina",
+  "transmission": "automatico",
+  "horsepower": 115,
+  "seats": 5,
+  "doors": 5,
+  "body_type": "SUV",
+  "environmental_label": "c",
+  "colors": [
+    "Blanco"
+  ],
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 35090,
+  "contract_months": 48,
+  "annual_km": 10000,
+  "short_description": "SUV de gasolina de 115 CV con cambio automático DSG",
+  "included_services": [
+    "Seguro a todo riesgo sin franquicia",
+    "Mantenimiento en red oficial de concesionarios",
+    "Sin requisitos de edad ni de antigüedad del carné"
+  ],
+  "equipment": [
+    "\"FRONT ASSIST\": sistema de vigilancia con radar del espacio frente al vehículo, con función de frenada de emergencia en ciudad y cámara multifuncional (sin ACC)",
+    "Frenos delanteros de disco (Geomet D)",
+    "Llamada de emergencia privada",
+    "Tracción delantera",
+    "8 altavoces (pasivos)",
+    "Asistente de aviso de salida del carril",
+    "Asistente de arranque en pendiente",
+    "Elevalunas eléctricos con interruptor confort y limitador de fuerza",
+    "Faros principales LED",
+    "Infotainment de entrada actualización de la radio (UNECE)",
+    "Luz de marcha diurna con activación automática de la luz de cruce y función Coming Home y Leaving Home manual",
+    "SmartLink+ con cable e inalámbrico",
+    "Llantas de aleación ligera 6J x 16 \"Cortadero\""
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/skoda-kamiq-01.webp",
+      "alt": "Škoda Kamiq en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-kamiq-02.webp",
+      "alt": "Škoda Kamiq en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-kamiq-03.webp",
+      "alt": "Škoda Kamiq en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-kamiq-04.webp",
+      "alt": "Škoda Kamiq en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 35574
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 36784
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 38357
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 35090
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 36784
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 38115
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 35332
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 36542
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 39325
+    }
+  ]
+}

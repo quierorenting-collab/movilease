@@ -1,0 +1,105 @@
+{
+  "update_vehicle_id": "8417f1bc-ceb3-4bbd-a822-e6789c495892",
+  "is_active": true,
+  "brand": "Škoda",
+  "model": "Elroq",
+  "version": "85 82 kWh 210 kW 286 CV",
+  "category": "suv",
+  "fuel_type": "electrico",
+  "transmission": "automatico",
+  "horsepower": 286,
+  "seats": 5,
+  "doors": 5,
+  "body_type": "SUV",
+  "environmental_label": "0",
+  "colors": [
+    "Blanco Luna"
+  ],
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 54934,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "short_description": "SUV eléctrico de 286 CV con etiqueta CERO",
+  "included_services": [
+    "Seguro a todo riesgo sin franquicia",
+    "Mantenimiento en red oficial de concesionarios",
+    "Sin requisitos de edad ni de antigüedad del carné"
+  ],
+  "equipment": [
+    "Sistema de cierre y arranque sin llave \"Keyless Advanced\"",
+    "Pedal virtual",
+    "FRONT, LANE & SIDE assist",
+    "Llantas 19\"",
+    "Matrix LED",
+    "Cámara trasera y sensores de aparcamiento delanteros y traseros",
+    "Control de crucero adaptativo",
+    "Asientos delanteros calefactados"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/skoda-elroq-01.webp",
+      "alt": "Škoda Elroq en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-elroq-02.webp",
+      "alt": "Škoda Elroq en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-elroq-03.webp",
+      "alt": "Škoda Elroq en renting"
+    },
+    {
+      "url": "/coches-nuevos/skoda-elroq-04.webp",
+      "alt": "Škoda Elroq en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 57717
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 59169
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 60500
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 55660
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 57354
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 58685
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 54934
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 56265
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 57233
+    }
+  ],
+  "description": "El Škoda Elroq es un SUV 100 % eléctrico de 286 CV. Es la versión 85, con 210 kW de potencia, y lleva etiqueta CERO. Tiene cambio automático, cinco plazas y cinco puertas. Lo tienes en color Blanco Luna.\n\nAbres y arrancas sin sacar la llave del bolsillo gracias al sistema Keyless Advanced. También incorpora pedal virtual. Para aparcar cuentas con cámara trasera y sensores delanteros y traseros. En carretera te apoyan el control de crucero adaptativo y los asistentes FRONT, LANE & SIDE assist. La iluminación es Matrix LED y monta llantas de 19 pulgadas. Los asientos delanteros son calefactados.\n\nPuedes contratar el renting a 36, 48 o 60 meses, con 10.000, 15.000 o 20.000 km al año. Los neumáticos no están incluidos en la cuota."
+}
