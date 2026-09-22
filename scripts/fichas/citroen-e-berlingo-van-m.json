@@ -1,0 +1,223 @@
+{
+  "update_vehicle_id": "44d65cdb-5cbf-4834-9e6b-e3853b49215b",
+  "brand": "Citroën",
+  "model": "Berlingo",
+  "version": "ë-Berlingo Van Furgón M 130 CV",
+  "category": "furgoneta",
+  "fuel_type": "electrico",
+  "transmission": "automatico",
+  "horsepower": 130,
+  "body_type": "Furgón",
+  "environmental_label": "0",
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 65219,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Cambio de neumáticos",
+    "Asistencia en carretera 24h",
+    "Gestión de multas e impuestos",
+    "Entrega en provincia"
+  ],
+  "equipment": [
+    "All In One Radio con pantalla SD 10”",
+    "WiFi Mirroring",
+    "Reconocimiento de voz Smartphone",
+    "USB Tipo C Datos",
+    "USB Tipo C de carga",
+    "Limpiaparabrisas delantero automático MagicWash",
+    "Faros antiniebla con función Cornering Light",
+    "Rueda de repuesto homogénea",
+    "Asiento Conductor Confort con reglaje de altura, lumbar y apoyabrazos",
+    "Llantas de acero gris de 16”",
+    "Climatizador manual",
+    "Smartphone station",
+    "Puerta corredera lateral derecha",
+    "Puertas traseras asimétricas sin acristalar, con apertura a 180 grados",
+    "Asientos delanteros con ajuste manual en 4 direcciones y reposacabezas regulable",
+    "Volante ajustable en altura y profundidad",
+    "Bandeja de almacenamiento superior en el habitáculo",
+    "Elevalunas eléctricos delanteros",
+    "e-Remote control",
+    "Airbags de conductor y pasajero",
+    "ESP",
+    "ABS",
+    "Control de crucero",
+    "Limitador de velocidad",
+    "Asistente de arranque en pendiente",
+    "Detección del subinflado",
+    "Frenado de seguridad activo con alerta de colisión frontal",
+    "Asistente de mantenimiento de carril",
+    "Cámara de alerta de atención del conductor",
+    "Alerta de somnolencia",
+    "Información de límite de velocidad",
+    "Faros automáticos y asistente de luces de carretera",
+    "Sensores de aparcamiento traseros",
+    "Freno de estacionamiento eléctrico"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/citroen-berlingo-01.webp",
+      "alt": "Citroën ë-Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-02.webp",
+      "alt": "Citroën ë-Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-03.webp",
+      "alt": "Citroën ë-Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-04.webp",
+      "alt": "Citroën ë-Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-05.webp",
+      "alt": "Citroën ë-Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-06.webp",
+      "alt": "Citroën ë-Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-07.webp",
+      "alt": "Citroën ë-Berlingo en renting"
+    },
+    {
+      "url": "/coches-nuevos/citroen-berlingo-08.webp",
+      "alt": "Citroën ë-Berlingo en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 83974
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 86757
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 89056
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 91355
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 94259
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 96921
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 99704
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 102487
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 104907
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 72842
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 75383
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 77803
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 80465
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 83006
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 85668
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 88572
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 91113
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 94017
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 65219
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 67760
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 70543
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 73084
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 75867
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 78771
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 81554
+    }
+  ],
+  "short_description": "Furgoneta eléctrica de 130 CV con etiqueta CERO"
+}

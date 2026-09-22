@@ -1,0 +1,139 @@
+{
+  "update_vehicle_id": "a8a07887-871e-4385-9134-9b6274a4d229",
+  "is_active": true,
+  "brand": "Omoda",
+  "model": "9",
+  "version": "SHS 1.5 TGDI 537 CV AWD Premium",
+  "category": "suv",
+  "fuel_type": "phev",
+  "transmission": "automatico",
+  "horsepower": 537,
+  "body_type": "SUV",
+  "environmental_label": "0",
+  "colors": [
+    "Gris Mate"
+  ],
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 75141,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia"
+  ],
+  "equipment": [
+    "Head Up Display de 127 cm (50\") con realidad aumentada",
+    "Sensor de lluvia con ajuste automático de velocidad",
+    "Sensores de aparcamiento delanteros y traseros",
+    "Techo solar panorámico eléctrico",
+    "Volante multifunción con palanca de cambios integrada",
+    "Sistema de carga bidireccional V2L (Vehicle to Load)",
+    "Conectividad inalámbrica CarPlay & Android Auto",
+    "Faros FULL LED delanteros y traseros",
+    "Llantas aluminio de 51 cm (20\")",
+    "14 altavoces SONY",
+    "Climatizador automático bizona",
+    "Cámara de visión panorámica 540º HD",
+    "Freno de tráfico cruzado trasero (RCTB)",
+    "Sistema de emergencia de mantenimiento de carril (ELK)",
+    "Tracción 4x4",
+    "Frenada de emergencia autónoma avanzada con reconocimiento de peatones y ciclistas (AEBS)",
+    "Panel de instrumentos digital LCD de 31 cm (12,3\")",
+    "Control inteligente de luces altas",
+    "Auto hold",
+    "E-Call (llamada de emergencia)",
+    "Bluetooth"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/omoda-9-01.webp",
+      "alt": "Omoda 9 en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 87362
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 91355
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 95106
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 100188
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 105512
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 80707
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 84095
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 86757
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 93896
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 98615
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 75141
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 78529
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 82280
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 89903
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 94622
+    }
+  ],
+  "short_description": "SUV híbrido enchufable de 537 CV con tracción total y etiqueta CERO",
+  "description": "El Omoda 9 es un SUV híbrido enchufable de 537 CV con tracción total (AWD), acabado Premium y etiqueta CERO de la DGT. Lleva motor 1.5 TGDI y cambio automático, con la palanca integrada en el volante multifunción. Lo recargas enchufándolo y cuenta con sistema de carga bidireccional V2L (Vehicle to Load).\n\nAl volante tienes panel de instrumentos digital LCD de 31 cm (12,3\") y Head Up Display de 127 cm (50\") con realidad aumentada. Conectas el móvil con CarPlay y Android Auto inalámbricos o por Bluetooth. El sonido sale de 14 altavoces SONY. El climatizador automático es bizona y el techo solar panorámico, eléctrico. Por fuera monta faros FULL LED delanteros y traseros y llantas de aluminio de 51 cm (20\"). El color disponible es Gris Mate.\n\nPara aparcar cuentas con sensores delanteros y traseros y cámara de visión panorámica 540° HD. En seguridad incluye frenada de emergencia autónoma avanzada con reconocimiento de peatones y ciclistas (AEBS), freno de tráfico cruzado trasero (RCTB) y sistema de emergencia de mantenimiento de carril (ELK). Suma control inteligente de luces altas, sensor de lluvia con ajuste automático de velocidad, auto hold y E-Call. Puedes contratarlo a 36, 48 o 60 meses, con kilometrajes de 10.000 a 30.000 km."
+}

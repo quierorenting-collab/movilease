@@ -1,0 +1,180 @@
+{
+  "update_vehicle_id": "186f720c-9722-43f9-b300-0267819d7414",
+  "brand": "Opel",
+  "model": "Frontera",
+  "version": "1.2 T Hybrid 145 CV eDCT6 GS",
+  "category": "suv",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "horsepower": 145,
+  "body_type": "SUV",
+  "environmental_label": "eco",
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 38599,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Cambio de neumáticos",
+    "Asistencia en carretera 24h",
+    "Gestión de multas e impuestos",
+    "Entrega en provincia"
+  ],
+  "equipment": [
+    "Faros Lead",
+    "Antinieblas delanteros",
+    "Barras de techo negras",
+    "Apertura y arranque manos libres",
+    "Asientos Intelli-Seats para el conductor y el pasajero delantero - Con Confort Pack",
+    "Llantas de aleación de 17\" diamantadas",
+    "Elevalunas eléctrico delantero y trasero con anulación por parte del conductor",
+    "Cubrecárter delantero y trasero de color plateado",
+    "Espejo retrovisor interior electrocrómico",
+    "Cristal de privacidad",
+    "Carcasas de los retrovisores exteriores en negro brillante",
+    "Retrovisores exteriores plegables eléctricos con función antivaho",
+    "ADAS Pack",
+    "Asistente de estacionamiento GS",
+    "Sistemas de seguridad y acceso",
+    "Faros Eco LED con luz de carretera automática",
+    "Luces antiniebla traseras",
+    "Luces traseras LED"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/opel-frontera-01.webp",
+      "alt": "Opel Frontera en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 41503
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 43076
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 44770
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 47674
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 51425
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 53603
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 57717
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 61347
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 64977
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 39567
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 41624
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 43439
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 46827
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 50215
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 53966
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 57233
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 60984
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 64130
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 38599
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 40898
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 43197
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 46585
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 50820
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 54329
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 57717
+    }
+  ],
+  "short_description": "SUV híbrido de 145 CV con cambio automático y etiqueta ECO",
+  "description": "El Opel Frontera de esta ficha es la versión 1.2 T Hybrid 145 CV eDCT6 GS. Es un SUV híbrido sin enchufe con cambio automático. Lleva la etiqueta ECO de la DGT.\n\nPor fuera monta llantas de aleación de 17\" diamantadas, barras de techo negras y cubrecárter delantero y trasero de color plateado. Las carcasas de los retrovisores exteriores van en negro brillante. Esos retrovisores son plegables eléctricos, con función antivaho. Delante lleva faros Eco LED con luz de carretera automática y antinieblas. Detrás monta luces LED y luces antiniebla. Suma también cristal de privacidad.\n\nDentro, el conductor y el pasajero delantero van en asientos Intelli-Seats con Confort Pack. Cuenta con apertura y arranque manos libres. Los elevalunas eléctricos delanteros y traseros tienen anulación por parte del conductor. El espejo retrovisor interior es electrocrómico. Completan el equipo el ADAS Pack y el asistente de estacionamiento GS. Puedes elegir un plazo de 36, 48 o 60 meses y un kilometraje de entre 10.000 y 50.000 km."
+}

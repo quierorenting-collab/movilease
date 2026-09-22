@@ -1,0 +1,162 @@
+{
+  "update_vehicle_id": "cc869a30-d081-468f-8150-4c26a0e37e55",
+  "brand": "Mazda",
+  "model": "CX-60",
+  "version": "e-SKYACTIV PHEV 327CV 8AT Exclusive-Line",
+  "category": "suv",
+  "fuel_type": "phev",
+  "transmission": "automatico",
+  "horsepower": 327,
+  "seats": 5,
+  "doors": 5,
+  "body_type": "SUV",
+  "environmental_label": "0",
+  "colors": [
+    "Artic White"
+  ],
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 66863,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia"
+  ],
+  "equipment": [
+    "Asistente de arranque en cuesta",
+    "Asistente de velocidad inteligente (ISA)",
+    "Cámara de visión trasera con líneas estáticas",
+    "Sensor de aparcamiento",
+    "Control Cinemático de Posición (KPC)",
+    "Control de ángulo muerto (BSM)",
+    "Detector de tráfico trasero (RCTA)",
+    "e-Call con GPS",
+    "Apple CarPlay y Android Auto inalámbricos",
+    "Bluetooth",
+    "Botón de arranque",
+    "Cambio automático con levas en el volante",
+    "Freno de estacionamiento eléctrico con Autohold",
+    "Antena integrada en el parabrisas trasero",
+    "Espejos de cortesía iluminados",
+    "Faros Full LED",
+    "Firma lumínica LED delantera y trasera",
+    "Llantas de aleación 20\"",
+    "Cuadro de mandos digital avanzado de 12,3\" (Digital Cockpit)",
+    "Moldura central del salpicadero y decoración de las puertas en material suave",
+    "Pantalla central de 12,3\" con reconocimiento por voz",
+    "Iluminación LED",
+    "Kit de reparación de pinchazos",
+    "Reconocimiento de señales de tráfico"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/mazda-cx-60-01.webp",
+      "alt": "Mazda CX-60 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-cx-60-02.webp",
+      "alt": "Mazda CX-60 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-cx-60-03.webp",
+      "alt": "Mazda CX-60 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-cx-60-04.webp",
+      "alt": "Mazda CX-60 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-cx-60-05.webp",
+      "alt": "Mazda CX-60 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-cx-60-06.webp",
+      "alt": "Mazda CX-60 en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 70525
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 74033
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 77540
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 82108
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 86715
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 68640
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 71760
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 74878
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 79153
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 84083
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 66863
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 69668
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 72473
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 77106
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 81585
+    }
+  ],
+  "short_description": "SUV híbrido enchufable de 327 CV con cambio automático y etiqueta CERO"
+}

@@ -1,0 +1,164 @@
+{
+  "update_vehicle_id": "8b571481-923b-4b70-9c91-d3b5309f5ab5",
+  "brand": "Mazda",
+  "model": "CX-30",
+  "version": "e-SKYACTIV G MHEV 140CV 6AT Prime-Line",
+  "category": "suv",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "horsepower": 140,
+  "seats": 5,
+  "doors": 5,
+  "environmental_label": "eco",
+  "colors": [
+    "Arctic White"
+  ],
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 39710,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia"
+  ],
+  "equipment": [
+    "Cámara de visión trasera",
+    "Faros delanteros y traseros LED",
+    "Llantas de aleación 16",
+    "Luces diurnas halógenas",
+    "Retrovisores exteriores calefactados y ajustables eléctricamente",
+    "Sensor de luz",
+    "Spoiler techo",
+    "6 altavoces",
+    "Cuadro de mandos con pantalla digital central de 17,8cm (7\")",
+    "Iluminación interior tipo LED",
+    "Pantalla a color de 10,25\"",
+    "Radio digital (DAB)",
+    "Sistema de navegación híbrido",
+    "Tapicería de tela",
+    "Volante multifunción (Audio y Bluetooth)",
+    "Toma de corriente de 12V",
+    "Apple CarPlay y Android Auto inalámbricos",
+    "Head Up Display de proyección en parabrisas",
+    "Detector de tráfico trasero (RCTA)",
+    "Sistema de llamada de emergencia automática eCall",
+    "Control de ángulo muerto avanzado (BSM)",
+    "Sistema de asistencia a la frenada en ciudad avanzado delantero (SCBS) con reconocimiento de peatones",
+    "Sistema de control de luces de largo alcance (HBC)"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/mazda-cx-30-01.webp",
+      "alt": "Mazda CX-30 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-cx-30-02.webp",
+      "alt": "Mazda CX-30 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-cx-30-03.webp",
+      "alt": "Mazda CX-30 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-cx-30-04.webp",
+      "alt": "Mazda CX-30 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-cx-30-05.webp",
+      "alt": "Mazda CX-30 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-cx-30-06.webp",
+      "alt": "Mazda CX-30 en renting"
+    },
+    {
+      "url": "/coches-nuevos/mazda-cx-30-07.webp",
+      "alt": "Mazda CX-30 en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 40323
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 42179
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 44036
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 46833
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 49663
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 40168
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 41795
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 43420
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 46071
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 49303
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 39710
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 41147
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 42584
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 45642
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 48565
+    }
+  ],
+  "short_description": "SUV microhíbrido de 140 CV con cambio automático y etiqueta ECO"
+}

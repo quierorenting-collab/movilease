@@ -1,0 +1,187 @@
+{
+  "update_vehicle_id": "22f3081e-e410-4abf-ad90-a7cae1ca7221",
+  "brand": "Kia",
+  "model": "PV5 Passenger",
+  "version": "L2H1 Long Range Plus 163 CV",
+  "category": "furgoneta",
+  "fuel_type": "electrico",
+  "transmission": "automatico",
+  "horsepower": 163,
+  "environmental_label": "0",
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 59169,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Cambio de neumáticos",
+    "Asistencia en carretera 24h",
+    "Gestión de multas e impuestos",
+    "Entrega en provincia"
+  ],
+  "equipment": [
+    "Neumáticos 215/65 con cubre llantas de 41 cm (16”)",
+    "Freno de estacionamiento eléctrico",
+    "Levas para modular la intensidad de frenada regenerativa en el volante",
+    "Asistencia de conducción en carretera",
+    "Asistente de colisión frontal y en intersecciones",
+    "Asientos delanteros y traseros calefactables",
+    "Asistente dinámico para luces de carretera",
+    "Sistema de detección de fatiga del conductor",
+    "Sistema reconocimiento límites de velocidad",
+    "Asistencia para seguimiento de carril con tráfico intenso",
+    "Cargador USB bandeja delantera y en consola central, y en plazas traseras",
+    "Cargador inalámbrico (teléfono móvil)",
+    "Climatizador automático",
+    "Control de crucero adaptativo (con función Stop&Go)",
+    "Doble puerta trasera y portón trasero",
+    "Elevalunas delantero del conductor de un solo toque",
+    "Sensor de lluvia",
+    "Sistema de botón de arranque electrónico + Llave inteligente",
+    "Bandeja separadora inferior de maletero, lona cubre maletero",
+    "Navegador Kia Connect con cámara de asistencia al estacionamiento, Android Auto / Apple CarPlay inalámbrico y servicios de conectividad Kia de 33 cm (12,9”)",
+    "Panel de instrumentos digital tipo Supervisión de 19 cm (7,5”)",
+    "Combinación ópticas traseras con tecnología LED",
+    "Faros delanteros tipo LED",
+    "Sensores de aparcamiento delanteros y traseros",
+    "Cargador trifásico a bordo + Cable de recarga Tipo 2 Mennekes",
+    "Sistema de carga bidireccional V2L (Vehicle to Load)"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/kia-pv5-passenger-01.webp",
+      "alt": "Kia PV5 Passenger en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 66066
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 69091
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 71390
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 75020
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 77682
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 81312
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 84337
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 88088
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 91597
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 62799
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 65703
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 68365
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 71874
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 74657
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 78650
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 82522
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 85789
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 89056
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 59169
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 62073
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 65461
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 68365
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 72358
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 76230
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 79497
+    }
+  ],
+  "short_description": "Eléctrico de pasajeros de 163 CV con etiqueta CERO",
+  "description": "El Kia PV5 Passenger es una furgoneta eléctrica de 163 CV, en versión L2H1 Long Range Plus. Tiene la etiqueta CERO de la DGT y una autonomía de 412 km. El cambio es automático, y con las levas del volante modulas la intensidad de la frenada regenerativa. Para recargar lleva cargador trifásico a bordo y cable de recarga Tipo 2 Mennekes, además del sistema de carga bidireccional V2L (Vehicle to Load).\n\nDentro tienes climatizador automático y asientos delanteros y traseros calefactables. Hay cargadores USB en la bandeja delantera, en la consola central y en las plazas traseras, y cargador inalámbrico para el móvil. El navegador Kia Connect de 33 cm (12,9”) trae Android Auto y Apple CarPlay inalámbricos y cámara de asistencia al estacionamiento. Lleva doble puerta trasera y portón trasero, con bandeja separadora inferior de maletero y lona cubre maletero.\n\nPara conducir suma control de crucero adaptativo con función Stop&Go, asistente de colisión frontal y en intersecciones y asistencia para seguimiento de carril con tráfico intenso. También incluye detección de fatiga del conductor y reconocimiento de límites de velocidad. Los sensores de aparcamiento delanteros y traseros te ayudan en las maniobras. Puedes elegir plazos de 36, 48 o 60 meses y kilometrajes de 10.000 a 50.000 km."
+}

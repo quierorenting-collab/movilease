@@ -1,0 +1,196 @@
+{
+  "update_vehicle_id": "577ea201-a340-40b2-85b8-6520e6943df8",
+  "brand": "MINI",
+  "model": "Cooper",
+  "version": "C 156 CV 5 puertas",
+  "category": "turismo",
+  "fuel_type": "gasolina",
+  "transmission": "automatico",
+  "horsepower": 156,
+  "doors": 5,
+  "environmental_label": "c",
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 41987,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Cambio de neumáticos",
+    "Asistencia en carretera 24h",
+    "Gestión de multas e impuestos",
+    "Entrega en provincia"
+  ],
+  "equipment": [
+    "Llantas 17\" U-Spoke Grey",
+    "Dispositivo de alarma con mando a distancia",
+    "Acceso confort",
+    "Paquete de retrovisores interior y exteriores",
+    "Retrovisor interior con ajuste automático anti-deslumbramiento",
+    "Calefacción de los asientos delanteros",
+    "Modos MINI Experience",
+    "Faros LED con funciones ampliadas",
+    "Asistente para luz de carretera",
+    "Parking Assistant Plus",
+    "Sistema de sonido Surround Harman/Kardon",
+    "Head-Up Display",
+    "Bandeja para carga inalámbrica",
+    "Navegación MINI AR",
+    "Volante calefactable",
+    "Volante deportivo",
+    "Techo en negro",
+    "Guarnecido interior del techo en antracita",
+    "Asientos deportivos John Cooper Works",
+    "Contenidos adicionales específicos de Flavoured Trim",
+    "Depósito de combustible de mayor capacidad",
+    "Tornillos antirrobo para las llantas",
+    "Caja de cambios Steptronic con doble embrague",
+    "Control de presión de neumáticos",
+    "Juego de reparación de neumáticos",
+    "Triángulo de emergencia y botiquín de primeros auxilios",
+    "Sistema de fijación para asiento infantil i-Size o ISOFIX para el acompañante",
+    "Driving Assistant",
+    "Active Guard",
+    "Protección activa para peatones",
+    "Radio DAB+",
+    "TeleServices",
+    "Llamada de emergencia obligatoria",
+    "eSIM personal"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/mini-cooper-01.webp",
+      "alt": "MINI Cooper en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 45617
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 48037
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 52272
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 54934
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 57475
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 61347
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 65824
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 68486
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 71390
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 44286
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 46706
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 49126
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 51667
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 56386
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 58806
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 62194
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 65340
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 68849
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 41987
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 44286
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 46585
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 50820
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 53845
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 56507
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 59774
+    }
+  ],
+  "short_description": "Gasolina de 156 CV, cinco puertas y cambio automático",
+  "description": "El MINI Cooper C es un turismo de gasolina de 156 CV, con cinco puertas y cambio automático. La caja de cambios es Steptronic con doble embrague. Tiene la etiqueta C de la DGT. Por fuera lleva llantas de 17 pulgadas U-Spoke Grey con tornillos antirrobo, techo en negro y faros LED con funciones ampliadas. También monta un depósito de combustible de mayor capacidad.\n\nDentro tienes asientos deportivos John Cooper Works, volante deportivo y guarnecido interior del techo en antracita. Los asientos delanteros tienen calefacción y el volante es calefactable. Cuentas con Head-Up Display, navegación MINI AR, radio DAB+ y sistema de sonido Surround Harman/Kardon. Hay bandeja para carga inalámbrica, acceso confort y retrovisor interior con ajuste automático anti-deslumbramiento. Suma eSIM personal y TeleServices.\n\nEn ayudas a la conducción lleva Driving Assistant, Active Guard, protección activa para peatones, asistente para luz de carretera y Parking Assistant Plus. Añade control de presión de neumáticos, alarma con mando a distancia y llamada de emergencia obligatoria. Para la silla infantil, el asiento del acompañante tiene fijación i-Size o ISOFIX. Puedes elegir plazo de 36, 48 o 60 meses y un kilometraje entre 10.000 y 50.000 km."
+}

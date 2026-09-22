@@ -1,0 +1,187 @@
+{
+  "update_vehicle_id": "5414ec39-2b57-443a-971d-abd9f9f9b4af",
+  "brand": "SEAT",
+  "model": "León",
+  "version": "2.0 TDI 115 CV Style XL Fleet Pack",
+  "category": "turismo",
+  "fuel_type": "diesel",
+  "transmission": "manual",
+  "horsepower": 115,
+  "seats": 5,
+  "doors": 5,
+  "body_type": "Hatchback",
+  "environmental_label": "c",
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 41019,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Cambio de neumáticos",
+    "Asistencia en carretera 24h",
+    "Gestión de multas e impuestos",
+    "Entrega en provincia"
+  ],
+  "equipment": [
+    "Full Link (Android Auto & Car Play) por cable e inalámbrico",
+    "Llantas 16\" DESIGN de 41cm",
+    "Asistente de aparcamiento automático Park Assist + cámara de visión trasera",
+    "Reposabrazos central delantero",
+    "Digital Cockpit",
+    "Cristales traseros oscurecidos",
+    "Climatizador automático de tres zonas con control desde la segunda fila de asientos",
+    "2 USB traseros tipo C",
+    "Retrovisores plegables eléctricamente con función descenso retrovisor acompañante en aparcamiento",
+    "Faros Matrix",
+    "Asistente pre-colisión",
+    "Cargador inalámbrico en consola central con iluminación lead",
+    "Sensor de luz, lluvia y función Coming & Leaving Home",
+    "Faros antiniebla LED con función comering",
+    "Cámara de visión trasera",
+    "7 airbags (2 delanteros + central + 2 laterales + 2 cortina)",
+    "Asistente de frenada automática en ciudad con protección de peatones y ciclistas",
+    "Indicador de presión de neumáticos",
+    "ISOFIX",
+    "Sistema de detección de cansancio y distracciones",
+    "Reconocimiento de señales de tráfico",
+    "Asistente de salida involuntaria de carril",
+    "Sensor de parking trasero y delantero",
+    "Asientos traseros abatibles"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/seat-leon-01.webp",
+      "alt": "SEAT León en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 42955
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 44770
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 48400
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 50457
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 53482
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 55781
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 60137
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 62678
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 65945
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 42955
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 44891
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 47069
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 49973
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 53603
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 56144
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 59411
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 63041
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 66066
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 41019
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 43197
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 46101
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 49610
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 52756
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 55418
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 59290
+    }
+  ],
+  "short_description": "Diésel de 115 CV con cambio manual y etiqueta C"
+}

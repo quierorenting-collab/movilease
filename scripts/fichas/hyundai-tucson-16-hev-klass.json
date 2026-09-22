@@ -1,0 +1,154 @@
+{
+  "update_vehicle_id": "770f6726-b137-4427-aea3-4af67ba9ad25",
+  "is_active": true,
+  "brand": "Hyundai",
+  "model": "Tucson",
+  "version": "1.6 T-GDI HEV 239 CV Klass",
+  "category": "suv",
+  "fuel_type": "hibrido",
+  "transmission": "automatico",
+  "horsepower": 239,
+  "seats": 5,
+  "doors": 5,
+  "body_type": "SUV",
+  "environmental_label": "eco",
+  "colors": [
+    "Atlas White"
+  ],
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 44412,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Neumáticos incluidos",
+    "Asistencia 24h",
+    "Averías y reparaciones",
+    "ITV e impuestos",
+    "Gestión de multas",
+    "Entrega en provincia"
+  ],
+  "equipment": [
+    "Climatizador automático bizona con filtro de aire",
+    "Control de crucero con mandos en el volante",
+    "Cámara de aparcamiento trasero con guías activas",
+    "Llave inteligente con botón de arranque y detector de proximidad",
+    "Equipo de navegación con radio digital / Pantalla táctil color 26 cm (12,3\") / Bluelink / Android Auto / CarPlay",
+    "Cristales ligeramente oscurecidos",
+    "Sensor de luces automáticas",
+    "Retrovisores plegables eléctricos",
+    "Llantas de aleación de 43,2 cm (17\")",
+    "Faros delanteros tipo LED (cruce y carretera) con luz de alcance lateral"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/hyundai-tucson-01.webp",
+      "alt": "Hyundai Tucson en renting"
+    },
+    {
+      "url": "/coches-nuevos/hyundai-tucson-02.webp",
+      "alt": "Hyundai Tucson en renting"
+    },
+    {
+      "url": "/coches-nuevos/hyundai-tucson-03.webp",
+      "alt": "Hyundai Tucson en renting"
+    },
+    {
+      "url": "/coches-nuevos/hyundai-tucson-04.webp",
+      "alt": "Hyundai Tucson en renting"
+    },
+    {
+      "url": "/coches-nuevos/hyundai-tucson-05.webp",
+      "alt": "Hyundai Tucson en renting"
+    },
+    {
+      "url": "/coches-nuevos/hyundai-tucson-06.webp",
+      "alt": "Hyundai Tucson en renting"
+    },
+    {
+      "url": "/coches-nuevos/hyundai-tucson-07.webp",
+      "alt": "Hyundai Tucson en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 46424
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 48556
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 50688
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 53644
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 56979
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 45379
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 47235
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 49092
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 52030
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 55083
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 44412
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 46043
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 47675
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 50539
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 53422
+    }
+  ],
+  "short_description": "SUV híbrido de 239 CV con cambio automático y etiqueta ECO",
+  "description": "El Hyundai Tucson de esta ficha es la versión 1.6 T-GDI HEV con acabado Klass. Es un SUV híbrido sin enchufe de 239 CV y cambio automático. Tiene cinco puertas y cinco plazas. Lleva la etiqueta ECO de la DGT.\n\nDentro tienes climatizador automático bizona con filtro de aire. Lleva equipo de navegación con radio digital, pantalla táctil color de 26 cm (12,3\"), Bluelink, Android Auto y CarPlay. El control de crucero se maneja con mandos en el volante. La llave inteligente tiene botón de arranque y detector de proximidad. Para maniobrar cuentas con cámara de aparcamiento trasero con guías activas y retrovisores plegables eléctricos.\n\nPor fuera lleva faros delanteros tipo LED de cruce y carretera con luz de alcance lateral. Suma sensor de luces automáticas, cristales ligeramente oscurecidos y llantas de aleación de 43,2 cm (17\"). El color disponible es Atlas White. Puedes elegir un plazo de 36, 48 o 60 meses. El kilometraje puede ser de 10.000, 15.000, 20.000, 25.000 o 30.000 km."
+}

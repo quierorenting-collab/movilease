@@ -1,0 +1,185 @@
+{
+  "update_vehicle_id": "385a6cab-c3a2-4494-948b-55ce3ddbd010",
+  "brand": "Kia",
+  "model": "PV5 Cargo",
+  "version": "L2H1 Long Range Essential 163 CV",
+  "category": "furgoneta",
+  "fuel_type": "electrico",
+  "transmission": "automatico",
+  "horsepower": 163,
+  "body_type": "Furgón",
+  "environmental_label": "0",
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 61347,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Cambio de neumáticos",
+    "Asistencia en carretera 24h",
+    "Gestión de multas e impuestos",
+    "Entrega en provincia"
+  ],
+  "equipment": [
+    "Neumáticos 215/65 con cubre llantas de 41 cm (16\")",
+    "Freno de estacionamiento eléctrico",
+    "Levas para modular la intensidad de frenada regenerativa en el volante",
+    "Asistencia de conducción en carretera",
+    "Asistente de colisión frontal y en intersecciones",
+    "Asistente dinámico para luces de carretera",
+    "Sistema de detección de fatiga del conductor",
+    "Sistema reconocimiento límites de velocidad",
+    "Asistencia para seguimiento de carril con tráfico intenso",
+    "Cargador USB bandeja delantera y en consola central",
+    "Climatizador Automático",
+    "Control de crucero adaptativo (con función Stop&Go)",
+    "Doble puerta trasera y puerta lateral trasera",
+    "Elevalunas delantero del conductor de un solo toque",
+    "Sensor de lluvia",
+    "Sistema de botón de arranque electrónico + Llave inteligente",
+    "Bandeja separadora inferior de maletero",
+    "Navegador Kia Connect con cámara de asistencia al estacionamiento, Android Auto / Apple Carplay inalámbrico, y servicios de conectividad Kia de 33 cm (12,9\")",
+    "Panel de instrumentos digital tipo Supervisión de 19 cm (7,5\")",
+    "Combinación ópticas traseras con tecnología LED",
+    "Faros delanteros tipo LED",
+    "Sensores de aparcamiento delanteros y traseros",
+    "Cargador trifásico a bordo + Cable de Recarga Tipo 2 Mennekes"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/kia-pv5-cargo-01.webp",
+      "alt": "Kia PV5 Cargo en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 72842
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 75625
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 77803
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 80949
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 83248
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 86394
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 89056
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 92323
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 95348
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 66308
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 68849
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 71148
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 74052
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 76472
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 79981
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 83369
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 86152
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 89056
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 61347
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 63888
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 66792
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 69333
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 72842
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 76230
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 79013
+    }
+  ],
+  "short_description": "Furgoneta eléctrica de 163 CV con etiqueta CERO",
+  "description": "El Kia PV5 Cargo es una furgoneta 100 % eléctrica con carrocería de furgón. Esta versión es la L2H1 Long Range Essential, de 163 CV y con cambio automático. Su autonomía es de 416 km. Lleva la etiqueta CERO de la DGT.\n\nPara cargar y descargar tienes doble puerta trasera y puerta lateral trasera. En las maniobras te ayudan los sensores de aparcamiento delanteros y traseros y la cámara de asistencia al estacionamiento. Con las levas del volante modulas la intensidad de la frenada regenerativa. El freno de estacionamiento es eléctrico y arrancas con botón y llave inteligente. Para recargar, trae cargador trifásico a bordo y cable de recarga Tipo 2 Mennekes.\n\nEn carretera cuentas con control de crucero adaptativo con función Stop&Go y asistente de colisión frontal y en intersecciones. También lleva asistencia para seguimiento de carril con tráfico intenso, reconocimiento de límites de velocidad, detección de fatiga del conductor y asistente dinámico para luces de carretera. En la cabina tienes climatizador automático, sensor de lluvia y panel de instrumentos digital de 19 cm (7,5\"). El navegador de 33 cm (12,9\") incluye Android Auto y Apple CarPlay inalámbricos. Los faros delanteros y las ópticas traseras son LED, y hay cargador USB en la bandeja delantera y en la consola central."
+}

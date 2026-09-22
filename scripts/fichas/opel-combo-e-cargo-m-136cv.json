@@ -1,0 +1,190 @@
+{
+  "update_vehicle_id": "02639b01-e1a6-414d-bd62-7d49d5b07184",
+  "brand": "Opel",
+  "model": "Combo Cargo",
+  "version": "Combo-e M 800 kg 136 CV",
+  "category": "furgoneta",
+  "fuel_type": "electrico",
+  "transmission": "automatico",
+  "horsepower": 136,
+  "body_type": "Furgón",
+  "environmental_label": "0",
+  "is_featured": false,
+  "is_offer": false,
+  "monthly_price_cents": 63767,
+  "contract_months": 60,
+  "annual_km": 10000,
+  "included_services": [
+    "Seguro a todo riesgo",
+    "Mantenimiento y revisiones",
+    "Cambio de neumáticos",
+    "Asistencia en carretera 24h",
+    "Gestión de multas e impuestos",
+    "Entrega en provincia"
+  ],
+  "equipment": [
+    "All In One Radio (Pantalla SD 10” + WiFi Mirroring + Reconocimiento de Voz Smartphone + USB Tipo C Datos + USB Tipo C de carga)",
+    "Pack Visibilidad (Limpiaparabrisas delantero automático MagicWash + Faros antiniebla con función Cornering Light)",
+    "Rueda de repuesto homogénea",
+    "Asiento Conductor Confort con reglaje de altura, lumbar y apoyabrazos",
+    "Kit reparapinchazos",
+    "Airbag de copiloto, airbags laterales conductor y pasajero y airbags de cortina",
+    "Sensor de presión de neumáticos indirecto (iTPMS)",
+    "Control electrónico de estabilidad",
+    "Sensores de Aparcamiento traseros",
+    "Smartphone Station",
+    "Cinturones de seguridad con pretensores",
+    "6 Anillas universales en la zona de carga",
+    "Pequeño almacenamiento central básico junto al freno de mano manual",
+    "Freno de estacionamiento eléctrico",
+    "Mandos multimedia en volante",
+    "Retrovisores exteriores abatibles manualmente",
+    "Asiento Conductor con Reglaje Longitudinal e Inclinación de Respaldo",
+    "Asiento del pasajero (individual) Ajustable en 4 direcciones, Reposacabezas ajustable",
+    "Bandeja Portaobjetos Bajo Techo Cabina",
+    "Revestimiento del suelo: 1.ª fila: alfombra de tela y zona de carga solo pintada",
+    "Puertas traseras batientes cerradas sin ventana",
+    "Puerta lateral derecha deslizante, sin ventana",
+    "Panel de Separación de Carga",
+    "Aire acondicionado manual",
+    "2 elevalunas eléctricos (1ª fila) y retrovisor exterior eléctrico calefactable con sonda de temperatura",
+    "Llanta de acero de 16” con embellecedor",
+    "Faros halógenos",
+    "On board Charger 7,4KW"
+  ],
+  "images": [
+    {
+      "url": "/coches-nuevos/opel-combo-e-01.webp",
+      "alt": "Opel Combo-e Cargo en renting"
+    }
+  ],
+  "pricing": [
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 81554
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 84579
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 86999
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 89419
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 92565
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 95469
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 98494
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 101398
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 103939
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 71027
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 73810
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 76351
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 79134
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 81917
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 84700
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 87846
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 90508
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 93533
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 63767
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 66429
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 69454
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 72237
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 75141
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 78166
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 81191
+    }
+  ],
+  "short_description": "Furgoneta eléctrica de 136 CV con etiqueta CERO",
+  "description": "Esta Opel Combo Cargo es la versión Combo-e M 800 kg 136 CV: una furgoneta 100 % eléctrica de 136 CV. Lleva cambio automático y la etiqueta CERO de la DGT. Su autonomía es de 343 km.\n\nEn la zona de carga tienes panel de separación de carga y 6 anillas universales para sujetar la mercancía. Accedes por la puerta lateral derecha deslizante o por las puertas traseras batientes, ambas sin ventana. En la cabina tienes asiento del conductor Confort con reglaje de altura, lumbar y apoyabrazos, aire acondicionado manual y bandeja portaobjetos bajo techo.\n\nLa All In One Radio incluye pantalla SD de 10 pulgadas, WiFi Mirroring, reconocimiento de voz y USB tipo C. Suma mandos multimedia en volante y Smartphone Station. Para maniobrar cuentas con sensores de aparcamiento traseros. El Pack Visibilidad añade limpiaparabrisas delantero automático MagicWash y faros antiniebla con función Cornering Light. En seguridad lleva control electrónico de estabilidad, airbag de copiloto, airbags laterales, airbags de cortina y sensor de presión de neumáticos. Eliges plazo de 36, 48 o 60 meses y un kilometraje entre 10.000 y 50.000 km."
+}
