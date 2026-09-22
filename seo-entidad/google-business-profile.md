@@ -1,7 +1,10 @@
 # Google Business Profile: Movilease Renting
 
-Alta en https://business.google.com con la cuenta de Google de la empresa (la
-misma que tenga Search Console, si es posible).
+> **La ficha ya existe** (22/09/2026: sale en Google como «Movilease Renting»,
+> con 25 reseñas). No crees otra: una ficha duplicada divide las reseñas y
+> Google puede suspender las dos. Usa esta guía para **revisar la existente**
+> en https://business.google.com y dejar cada campo como dice abajo, sobre
+> todo la dirección, que tiene que coincidir con la de la web.
 
 ## Datos básicos
 
