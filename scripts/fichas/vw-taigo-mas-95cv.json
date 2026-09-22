@@ -166,5 +166,6 @@
       "monthly_price_cents": 42426
     }
   ],
-  "is_offer": false
+  "is_offer": false,
+  "is_active": false
 }

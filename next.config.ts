@@ -53,6 +53,12 @@ const MODELOS_RETIRADOS = [
   // Cupra Formentor manual: fuera de stock (15/09/2026). La version
   // automatica, renting-cupra-formentor, sigue en el catalogo.
   "renting-cupra-formentor-manual",
+  // Tucson, Taigo y T-Roc: aunque salen en las campañas del 22/09/2026, el
+  // proveedor avisa de que no hay stock y Adrián los pasa a FUERA DE STOCK
+  // en el Drive ese mismo día. No hay otra oferta de estos modelos en stock.
+  "renting-hyundai-tucson",
+  "renting-volkswagen-taigo",
+  "renting-volkswagen-t-roc",
 ];
 
 const nextConfig: NextConfig = {
