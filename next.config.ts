@@ -24,12 +24,13 @@ const MODELOS_RETIRADOS = [
   "renting-maxus-deliver-9",
   "renting-maxus-t60-max",
   "renting-mazda-6e",
+  /* Tucson, T-Roc, Omoda 9, Symbioz y Combo Cargo (ahora el Combo-e) vuelven
+     el 22/09/2026 con las campañas nuevas: salen de la lista para que sus
+     fichas no redirijan a /catalogo. */
   /* El MG ZS vuelve al catalogo el 21/09/2026 con lamina nueva en el Drive:
      sale de la lista, o su ficha redirigiria a /catalogo. */
   "renting-mitsubishi-outlander",
   "renting-nissan-x-trail",
-  "renting-omoda-9",
-  "renting-opel-combo-cargo",
   "renting-peugeot-2008",
   "renting-peugeot-3008",
   "renting-peugeot-partner",
@@ -38,7 +39,6 @@ const MODELOS_RETIRADOS = [
      /catalogo con un 307 y no se puede ver. */
   "renting-renault-espace",
   "renting-renault-rafale",
-  "renting-renault-symbioz",
   "renting-skoda-elroq",
   "renting-skoda-karoq",
   "renting-skoda-octavia",
@@ -50,14 +50,9 @@ const MODELOS_RETIRADOS = [
   // Skoda Fabia: el Drive solo lo tiene en FUERA DE STOCK y SIN STOCK
   // (revision del 14/09/2026).
   "renting-skoda-fabia",
-  // VW T-Roc: su carpeta ha pasado a FUERA DE STOCK en el Drive
-  // (revision del 15/09/2026).
-  "renting-volkswagen-t-roc",
   // Cupra Formentor manual: fuera de stock (15/09/2026). La version
   // automatica, renting-cupra-formentor, sigue en el catalogo.
   "renting-cupra-formentor-manual",
-  // Hyundai Tucson: se ha acabado el stock (15/09/2026).
-  "renting-hyundai-tucson",
 ];
 
 const nextConfig: NextConfig = {
