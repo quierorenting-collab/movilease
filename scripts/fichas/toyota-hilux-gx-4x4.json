@@ -15,8 +15,8 @@
     "Blanco Classic"
   ],
   "short_description": "Pick-up doble cabina 4x4 de 150 CV con cambio automático",
-  "monthly_price_cents": 55019,
-  "contract_months": 48,
+  "monthly_price_cents": 63479,
+  "contract_months": 60,
   "annual_km": 10000,
   "included_services": [
     "Seguro a todo riesgo",
@@ -30,79 +30,54 @@
   ],
   "pricing": [
     {
-      "contract_months": 36,
-      "annual_km": 10000,
-      "monthly_price_cents": 55284
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 15000,
-      "monthly_price_cents": 59811
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 20000,
-      "monthly_price_cents": 64019
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 25000,
-      "monthly_price_cents": 69558
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 30000,
-      "monthly_price_cents": 73939
-    },
-    {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 55019
+      "monthly_price_cents": 63675
     },
     {
       "contract_months": 48,
       "annual_km": 15000,
-      "monthly_price_cents": 59077
+      "monthly_price_cents": 68929
     },
     {
       "contract_months": 48,
       "annual_km": 20000,
-      "monthly_price_cents": 64850
+      "monthly_price_cents": 74191
     },
     {
       "contract_months": 48,
       "annual_km": 25000,
-      "monthly_price_cents": 70287
+      "monthly_price_cents": 80339
     },
     {
       "contract_months": 48,
       "annual_km": 30000,
-      "monthly_price_cents": 75246
+      "monthly_price_cents": 85764
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 55019
+      "monthly_price_cents": 63479
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 59077
+      "monthly_price_cents": 68571
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 64850
+      "monthly_price_cents": 75074
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 70287
+      "monthly_price_cents": 81112
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 75246
+      "monthly_price_cents": 87356
     }
   ],
   "images": [

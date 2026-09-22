@@ -2,20 +2,23 @@
   "update_vehicle_id": "d856563b-cf24-43a6-a278-843616f79e40",
   "brand": "Omoda",
   "model": "7",
-  "version": "1.5 TGDI 147CV Mate Premium",
-  "description": "El Omoda 7 se ofrece en una sola versión, la 1.5 TGDI Mate Premium: un SUV de gasolina con 147 CV y cambio automático. Tiene cinco puertas y cinco plazas, así que los de atrás suben por su propia puerta. Lleva la etiqueta ECO de la DGT. El color disponible es el Blanco Perlado.\n\nPara aparcar cuentas con sensores y cámara de visión trasera, que te enseñan lo que no ves desde el asiento. En marcha vigilan la frenada de emergencia, el asistente de mantenimiento de carril, el reconocimiento de señales y el control de estabilidad. El control de crucero y los modos de conducción descargan los trayectos largos. Dentro tienes climatizador automático, arranque sin llave y pantalla multimedia con Apple CarPlay y Android Auto: conectas el móvil y usas tu navegación y tu música. Las barras de techo te permiten montar un cofre o un portabicicletas cuando viajas cargado.\n\nLa tabla de renting cruza tres plazos, de 36, 48 y 60 meses, con cinco kilometrajes anuales que van de 10.000 a 30.000 kilómetros. Empieza por el kilometraje: calcula lo que ruedas al año y quédate en la franja que lo cubra. La de 10.000 encaja con un uso urbano y de fin de semana; la de 30.000, con quien hace desplazamientos largos a diario.",
+  "version": "PHEV 1.5T 279 CV Premium",
+  "description": "El Omoda 7 de esta ficha es un SUV híbrido enchufable en versión PHEV 1.5T con 279 CV, cambio automático y acabado Premium. Lleva la etiqueta CERO de la DGT. Lo recargas enchufándolo a la corriente. Tiene cinco plazas y cinco puertas. Puedes elegirlo en Plata Moonlight, Negro Ópalo, Verde Wave o Blanco Perlado.\n\nPor fuera monta llantas de aluminio de 51 cm (20\"), luces diurnas LED y faros dinámicos con función Leaving home/Follow me home LED. Suma faros antiniebla traseros, raíles de techo, spoiler trasero deportivo y cristales de privacidad. Los retrovisores exteriores son calefactados, se pliegan eléctricamente y tienen ajuste con memoria.\n\nDentro tienes tapicería de cuero sintético en color negro y asientos delanteros calefactables y ventilados. El asiento del pasajero tiene ajuste eléctrico en 6 direcciones. El volante multifunción es de cuero sintético y calefactable. El climatizador automático es bizona. Para maniobrar cuentas con cámara de visión panorámica 540° HD. El panel de instrumentos es digital LCD de 22 cm (8,88\"). Hay 8 altavoces SONY, carga inalámbrica de 50 W y puertos USB y USB-C delanteros y traseros. También tienes tomas de 12 V delante y en el maletero, y un reposabrazos central con espacio de almacenamiento refrigerado.",
   "category": "suv",
-  "fuel_type": "gasolina",
+  "fuel_type": "phev",
   "transmission": "automatico",
-  "horsepower": 147,
+  "horsepower": 279,
   "seats": 5,
   "doors": 5,
-  "environmental_label": "eco",
+  "environmental_label": "0",
   "colors": [
+    "Plata Moonlight",
+    "Negro Ópalo",
+    "Verde Wave",
     "Blanco Perlado"
   ],
-  "short_description": "SUV automático de 147 CV con etiqueta ECO",
-  "monthly_price_cents": 70200,
+  "short_description": "SUV híbrido enchufable de 279 CV con etiqueta CERO",
+  "monthly_price_cents": 68827,
   "contract_months": 60,
   "annual_km": 10000,
   "included_services": [
@@ -31,115 +34,103 @@
     {
       "contract_months": 36,
       "annual_km": 10000,
-      "monthly_price_cents": 85400
+      "monthly_price_cents": 83340
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 87060
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 90434
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 94479
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 98717
     },
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 76400
+      "monthly_price_cents": 74793
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 78195
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 82737
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 87327
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 92185
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 70200
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 15000,
-      "monthly_price_cents": 86600
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 15000,
-      "monthly_price_cents": 79800
+      "monthly_price_cents": 68827
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 74400
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 20000,
-      "monthly_price_cents": 92500
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 20000,
-      "monthly_price_cents": 84400
+      "monthly_price_cents": 72994
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 79400
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 25000,
-      "monthly_price_cents": 96600
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 25000,
-      "monthly_price_cents": 89000
+      "monthly_price_cents": 78022
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 84300
-    },
-    {
-      "contract_months": 36,
-      "annual_km": 30000,
-      "monthly_price_cents": 100800
-    },
-    {
-      "contract_months": 48,
-      "annual_km": 30000,
-      "monthly_price_cents": 93800
+      "monthly_price_cents": 82942
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 89800
+      "monthly_price_cents": 88369
     }
   ],
   "equipment": [
-    "Tecnología y conectividad: Pantalla multimedia",
-    "Tecnología y conectividad: Radio digital",
-    "Tecnología y conectividad: Bluetooth",
-    "Tecnología y conectividad: USB",
-    "Tecnología y conectividad: Apple CarPlay",
-    "Tecnología y conectividad: Android Auto",
-    "Confort: Climatizador automático",
-    "Confort: Volante multifunción",
-    "Confort: Control de crucero",
-    "Confort: Cierre centralizado",
-    "Confort: Elevalunas eléctricos",
-    "Confort: Retrovisores eléctricos",
-    "Diseño interior: Tapicería premium",
-    "Diseño interior: Asientos confort",
-    "Diseño interior: Iluminación interior",
-    "Diseño interior: Consola central",
-    "Diseño interior: Acabados específicos MATE",
-    "Seguridad: Control de estabilidad (ESP)",
-    "Seguridad: Frenada de emergencia",
-    "Seguridad: Asistente de mantenimiento de carril",
-    "Seguridad: Reconocimiento de señales",
-    "Seguridad: Sensores de aparcamiento",
-    "Seguridad: Cámara de visión trasera",
-    "Seguridad: Airbags",
-    "Diseño exterior: Faros LED",
-    "Diseño exterior: Luces diurnas LED",
-    "Diseño exterior: Llantas de aleación",
-    "Diseño exterior: Barras de techo",
-    "Diseño exterior: Tiradores integrados",
-    "Conducción: Modos de conducción",
-    "Conducción: Arranque sin llave",
-    "Conducción: Freno de estacionamiento eléctrico",
-    "Conducción: Control de presión de neumáticos",
-    "Conducción: Asistente de arranque en pendiente",
-    "Conducción: Sensores de lluvia y luces"
+    "Ajuste de los retrovisores exteriores con memoria",
+    "Cristales privacidad",
+    "Faros antiniebla traseros",
+    "Faros dinámicos con función Leaving home/Follow me home LED",
+    "Llantas aluminio de 51 cm (20\")",
+    "Luces diurnas LED",
+    "Raíles de techo",
+    "Retrovisores exteriores calefactados y plegables eléctricamente",
+    "Spoiler trasero deportivo",
+    "8 Altavoces SONY",
+    "Ajuste eléctrico del asiento del pasajero (6 direcciones)",
+    "Asientos delanteros calefactables y ventilados",
+    "Cámara de visión panorámica 540º HD",
+    "Carga inalámbrica Wireless (50W)",
+    "Climatizador automático bizona",
+    "Panel de instrumentos digital LCD de 22 cm (8,88”)",
+    "Puertos USB y USB-C delanteros y traseros",
+    "Reposabrazos central con espacio de almacenamiento refrigerado",
+    "Tapicería cuero sintético (color negro)",
+    "Toma de 12V delantera",
+    "Toma de 12V en el maletero",
+    "Volante calefactable",
+    "Volante multifunción de cuero sintético"
   ],
   "images": [
     {
@@ -175,5 +166,7 @@
       "alt": "Omoda 7 en renting — maletero"
     }
   ],
-  "body_type": "SUV"
+  "body_type": "SUV",
+  "consumption_value": null,
+  "consumption_unit": null
 }

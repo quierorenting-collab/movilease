@@ -1,4 +1,5 @@
 {
+  "update_vehicle_id": "82130179-c0b9-49fa-ac26-4476c6be2aab",
   "brand": "BMW",
   "model": "X3",
   "version": "30e xDrive 299 CV",
@@ -6,7 +7,7 @@
   "category": "suv",
   "fuel_type": "phev",
   "transmission": "automatico",
-  "monthly_price_cents": 89200,
+  "monthly_price_cents": 86273,
   "contract_months": 60,
   "annual_km": 10000,
   "horsepower": 299,
@@ -17,34 +18,170 @@
   "included_services": [
     "Seguro a todo riesgo",
     "Mantenimiento y revisiones",
-    "Neumáticos incluidos",
+    "Cambio de neumáticos",
     "Asistencia en carretera 24h",
-    "Averías y reparaciones",
-    "ITV e impuestos",
-    "Gestión de multas",
-    "Entrega en provincia",
-    "Cargador y soluciones de carga"
+    "Gestión de multas e impuestos",
+    "Entrega en provincia"
   ],
   "images": [
-    { "url": "/coches-nuevos/bmw-x3-01.webp", "alt": "BMW X3 en renting — vista exterior" },
-    { "url": "/coches-nuevos/bmw-x3-02.webp", "alt": "BMW X3 en renting — trasera" },
-    { "url": "/coches-nuevos/bmw-x3-03.webp", "alt": "BMW X3 en renting — perfil" },
-    { "url": "/coches-nuevos/bmw-x3-04.webp", "alt": "BMW X3 en renting — frontal" },
-    { "url": "/coches-nuevos/bmw-x3-05.webp", "alt": "BMW X3 en renting — vista trasera" },
-    { "url": "/coches-nuevos/bmw-x3-06.webp", "alt": "BMW X3 en renting — puesto de conducción" },
-    { "url": "/coches-nuevos/bmw-x3-07.webp", "alt": "BMW X3 en renting — asientos" },
-    { "url": "/coches-nuevos/bmw-x3-08.webp", "alt": "BMW X3 en renting — maletero" }
+    {
+      "url": "/coches-nuevos/bmw-x3-01.webp",
+      "alt": "BMW X3 en renting — vista exterior"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x3-02.webp",
+      "alt": "BMW X3 en renting — trasera"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x3-03.webp",
+      "alt": "BMW X3 en renting — perfil"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x3-04.webp",
+      "alt": "BMW X3 en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x3-05.webp",
+      "alt": "BMW X3 en renting — vista trasera"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x3-06.webp",
+      "alt": "BMW X3 en renting — puesto de conducción"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x3-07.webp",
+      "alt": "BMW X3 en renting — asientos"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x3-08.webp",
+      "alt": "BMW X3 en renting — maletero"
+    }
   ],
   "pricing": [
-    { "contract_months": 48, "annual_km": 10000, "monthly_price_cents": 96700 },
-    { "contract_months": 60, "annual_km": 10000, "monthly_price_cents": 89200 },
-    { "contract_months": 48, "annual_km": 15000, "monthly_price_cents": 100200 },
-    { "contract_months": 60, "annual_km": 15000, "monthly_price_cents": 92900 },
-    { "contract_months": 48, "annual_km": 20000, "monthly_price_cents": 104700 },
-    { "contract_months": 60, "annual_km": 20000, "monthly_price_cents": 98300 },
-    { "contract_months": 48, "annual_km": 25000, "monthly_price_cents": 109700 },
-    { "contract_months": 60, "annual_km": 25000, "monthly_price_cents": 103900 },
-    { "contract_months": 48, "annual_km": 30000, "monthly_price_cents": 114800 },
-    { "contract_months": 60, "annual_km": 30000, "monthly_price_cents": 109400 }
+    {
+      "contract_months": 36,
+      "annual_km": 10000,
+      "monthly_price_cents": 94985
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 15000,
+      "monthly_price_cents": 99341
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 20000,
+      "monthly_price_cents": 107085
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 25000,
+      "monthly_price_cents": 110473
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 30000,
+      "monthly_price_cents": 114466
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 35000,
+      "monthly_price_cents": 118822
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 40000,
+      "monthly_price_cents": 125114
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 45000,
+      "monthly_price_cents": 130801
+    },
+    {
+      "contract_months": 36,
+      "annual_km": 50000,
+      "monthly_price_cents": 136125
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 10000,
+      "monthly_price_cents": 91839
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 15000,
+      "monthly_price_cents": 95227
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 20000,
+      "monthly_price_cents": 98857
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 25000,
+      "monthly_price_cents": 102487
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 30000,
+      "monthly_price_cents": 107327
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 35000,
+      "monthly_price_cents": 112651
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 40000,
+      "monthly_price_cents": 117975
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 45000,
+      "monthly_price_cents": 123178
+    },
+    {
+      "contract_months": 48,
+      "annual_km": 50000,
+      "monthly_price_cents": 128381
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 10000,
+      "monthly_price_cents": 86273
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 15000,
+      "monthly_price_cents": 87967
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 20000,
+      "monthly_price_cents": 91839
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 25000,
+      "monthly_price_cents": 96558
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 30000,
+      "monthly_price_cents": 101277
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 35000,
+      "monthly_price_cents": 105633
+    },
+    {
+      "contract_months": 60,
+      "annual_km": 40000,
+      "monthly_price_cents": 111078
+    }
   ]
 }

@@ -6,7 +6,7 @@
   "category": "turismo",
   "fuel_type": "gasolina",
   "transmission": "manual",
-  "monthly_price_cents": 29950,
+  "monthly_price_cents": 31453,
   "contract_months": 60,
   "annual_km": 10000,
   "horsepower": 115,
@@ -80,52 +80,52 @@
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 30246
+      "monthly_price_cents": 32945
     },
     {
       "contract_months": 48,
       "annual_km": 15000,
-      "monthly_price_cents": 32201
+      "monthly_price_cents": 34593
     },
     {
       "contract_months": 48,
       "annual_km": 20000,
-      "monthly_price_cents": 34196
+      "monthly_price_cents": 36837
     },
     {
       "contract_months": 48,
       "annual_km": 25000,
-      "monthly_price_cents": 37256
+      "monthly_price_cents": 39621
     },
     {
       "contract_months": 48,
       "annual_km": 30000,
-      "monthly_price_cents": 39444
+      "monthly_price_cents": 42026
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 29950
+      "monthly_price_cents": 31453
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 31605
+      "monthly_price_cents": 33444
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 34702
+      "monthly_price_cents": 36329
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 37791
+      "monthly_price_cents": 39152
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 40199
+      "monthly_price_cents": 41850
     }
   ],
   "is_offer": false

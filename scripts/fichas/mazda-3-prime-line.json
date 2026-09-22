@@ -3,17 +3,17 @@
   "is_active": true,
   "brand": "Mazda",
   "model": "3",
-  "version": "2.5L e-SKY G MHEV 103kW 140CV Prime-line",
-  "description": "El Mazda 3 se ofrece aquí en una sola versión: la 2.5L e-SKY G MHEV de 140 CV con acabado Prime-line. No eliges motor ni acabado, solo plazo y kilometraje del renting: 36, 48 o 60 meses y entre 10.000 y 30.000 kilómetros al año. Es un turismo de gasolina con cambio automático y etiqueta ECO de la DGT. Homologa 5,5 litros a los 100 kilómetros.\n\nLa carrocería es una berlina con portón, de cinco puertas y cinco plazas. Los asientos traseros se abaten 60:40, así que amplías el hueco de carga sin renunciar del todo a la banqueta. Fuera monta llantas de aleación de 16 pulgadas, faros halógenos con luces diurnas LED, pilotos traseros LED y retrovisores exteriores eléctricos y calefactables, que agradecerás las mañanas de escarcha.\n\nDentro, el acabado Prime-line lleva la pantalla Mazda Connect de 8,8 pulgadas con Apple CarPlay y Android Auto inalámbricos: conectas el móvil sin cable cada vez que subes. Suma entrada USB-C, aire acondicionado manual, elevalunas eléctricos delanteros y traseros, mandos en el volante y ordenador de a bordo. El asiento del conductor se regula en altura. En seguridad cuentas con seis airbags, frenada inteligente, control de estabilidad y de tracción, asistente de arranque en cuesta, vigilancia de la presión de los neumáticos y anclajes ISOFIX atrás para sillas infantiles.",
+  "version": "2.5L e-SKYACTIV G MHEV 140CV 6AT Centre-line",
+  "description": "Esta ficha corresponde al Mazda 3 2.5L e-SKYACTIV G MHEV de 140 CV, con acabado Centre-line. Es un turismo con carrocería berlina con portón, cinco puertas y cinco plazas. El cambio es automático. Se trata de un híbrido sin enchufe, así que no tienes que recargarlo. Lleva la etiqueta ECO de la DGT.\n\nArrancas con botón y cuentas con Auto Hold. Para aparcar dispones de sensor de aparcamiento delantero y trasero y de cámara de visión trasera. En marcha tienes Head Up Display de proyección en parabrisas y reconocimiento de señales de tráfico (TSR). Los faros delanteros son LED con nivelación automática y luces diurnas halógenas. Suma luces Coming & Leaving Home e iluminación interior LED. Conectas el móvil con Android Auto y Apple CarPlay inalámbricos, y manejas el audio y el Bluetooth desde el volante multifunción.\n\nSe ofrece en color Arctic White. Puedes elegir plazos de 36, 48 o 60 meses y kilometrajes de 10.000, 15.000, 20.000, 25.000 o 30.000 km.",
   "category": "turismo",
-  "fuel_type": "gasolina",
+  "fuel_type": "hibrido",
   "transmission": "automatico",
-  "monthly_price_cents": 32205,
+  "monthly_price_cents": 36523,
   "contract_months": 60,
   "annual_km": 10000,
   "horsepower": 140,
-  "consumption_value": 5.5,
-  "consumption_unit": "l/100km",
+  "consumption_value": null,
+  "consumption_unit": null,
   "seats": 5,
   "doors": 5,
   "environmental_label": "eco",
@@ -32,77 +32,77 @@
     {
       "contract_months": 36,
       "annual_km": 10000,
-      "monthly_price_cents": 33383
+      "monthly_price_cents": 37725
     },
     {
       "contract_months": 36,
       "annual_km": 15000,
-      "monthly_price_cents": 35155
+      "monthly_price_cents": 39876
     },
     {
       "contract_months": 36,
       "annual_km": 20000,
-      "monthly_price_cents": 36928
+      "monthly_price_cents": 42026
     },
     {
       "contract_months": 36,
       "annual_km": 25000,
-      "monthly_price_cents": 39643
+      "monthly_price_cents": 45116
     },
     {
       "contract_months": 36,
       "annual_km": 30000,
-      "monthly_price_cents": 42303
+      "monthly_price_cents": 48154
     },
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 32937
+      "monthly_price_cents": 37291
     },
     {
       "contract_months": 48,
       "annual_km": 15000,
-      "monthly_price_cents": 34524
+      "monthly_price_cents": 39228
     },
     {
       "contract_months": 48,
       "annual_km": 20000,
-      "monthly_price_cents": 36112
+      "monthly_price_cents": 41165
     },
     {
       "contract_months": 48,
       "annual_km": 25000,
-      "monthly_price_cents": 38576
+      "monthly_price_cents": 43988
     },
     {
       "contract_months": 48,
       "annual_km": 30000,
-      "monthly_price_cents": 41809
+      "monthly_price_cents": 47563
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 32205
+      "monthly_price_cents": 36523
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 33749
+      "monthly_price_cents": 38410
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 35293
+      "monthly_price_cents": 40298
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 38416
+      "monthly_price_cents": 43766
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 41202
+      "monthly_price_cents": 46897
     }
   ],
   "images": [
@@ -133,29 +133,19 @@
   ],
   "body_type": "Berlina con portón",
   "equipment": [
-    "Seguridad: Sistema de asistencia a la frenada inteligente (SBS)",
-    "Seguridad: Control dinámico de estabilidad (DSC)",
-    "Seguridad: Control de tracción (TCS)",
-    "Seguridad: Asistente de arranque en cuesta (HLA)",
-    "Seguridad: Sistema de monitorización de presión de los neumáticos (TPMS)",
-    "Seguridad: 6 airbags (frontales, laterales y de cortina)",
-    "Seguridad: Anclajes ISOFIX en plazas traseras",
-    "Confort Y Tecnología: Sistema multimedia Mazda Connect con pantalla central de 8,8\"",
-    "Confort Y Tecnología: Apple CarPlay y Android Auto inalámbricos",
-    "Confort Y Tecnología: Bluetooth® y mandos en el volante",
-    "Confort Y Tecnología: Entrada USB-C",
-    "Confort Y Tecnología: Aire acondicionado manual",
-    "Confort Y Tecnología: Cierre centralizado con mando",
-    "Confort Y Tecnología: Elevalunas eléctricos delanteros y traseros",
-    "Confort Y Tecnología: Retrovisor interior antideslumbramiento manual",
-    "Confort Y Tecnología: Ordenador de a bordo",
-    "Diseño Y Funcionalidad: Faros halógenos con luces diurnas LED",
-    "Diseño Y Funcionalidad: Llantas de aleación de 16\"",
-    "Diseño Y Funcionalidad: Retrovisores exteriores eléctricos y calefactables",
-    "Diseño Y Funcionalidad: Asiento del conductor ajustable en altura",
-    "Diseño Y Funcionalidad: Asientos traseros abatibles 60:40",
-    "Diseño Y Funcionalidad: Volante y palanca de cambios en cuero",
-    "Diseño Y Funcionalidad: Luces traseras LED",
-    "Diseño Y Funcionalidad: Antena tipo aleta de tiburón"
+    "Botón de arranque",
+    "Auto Hold",
+    "Iluminación interior LED",
+    "Luces Coming & Leaving Home",
+    "Volante multifunción (audio y Bluetooth)",
+    "Faros delanteros LED con nivelación automática y luces diurnas halógenas",
+    "Sensor de aparcamiento delantero y trasero",
+    "Cámara de visión trasera",
+    "Reconocimiento de señales de tráfico (TSR)",
+    "Android Auto y Apple CarPlay inalámbricos",
+    "Head Up Display de proyección en parabrisas"
+  ],
+  "colors": [
+    "Arctic White"
   ]
 }

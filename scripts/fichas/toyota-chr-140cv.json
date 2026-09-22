@@ -6,7 +6,7 @@
   "category": "hibrido",
   "fuel_type": "hibrido",
   "transmission": "automatico",
-  "monthly_price_cents": 47078,
+  "monthly_price_cents": 48261,
   "contract_months": 60,
   "annual_km": 10000,
   "horsepower": 140,
@@ -61,52 +61,52 @@
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 48294
+      "monthly_price_cents": 50876
     },
     {
       "contract_months": 48,
       "annual_km": 15000,
-      "monthly_price_cents": 51176
+      "monthly_price_cents": 53313
     },
     {
       "contract_months": 48,
       "annual_km": 20000,
-      "monthly_price_cents": 54110
+      "monthly_price_cents": 56565
     },
     {
       "contract_months": 48,
       "annual_km": 25000,
-      "monthly_price_cents": 58233
+      "monthly_price_cents": 60360
     },
     {
       "contract_months": 48,
       "annual_km": 30000,
-      "monthly_price_cents": 61652
+      "monthly_price_cents": 63949
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 47078
+      "monthly_price_cents": 48261
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 49589
+      "monthly_price_cents": 51039
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 53998
+      "monthly_price_cents": 54953
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 58392
+      "monthly_price_cents": 58986
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 61814
+      "monthly_price_cents": 62769
     }
   ]
 }
