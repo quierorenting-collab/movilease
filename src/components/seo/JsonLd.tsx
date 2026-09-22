@@ -1,4 +1,4 @@
-import { SITE_URL, CONTACT } from "@/lib/constants";
+import { SITE_URL, CONTACT, COMPANY } from "@/lib/constants";
 
 /**
  * Datos estructurados. La web no tenía ninguno: Google no podía identificar la
@@ -6,15 +6,16 @@ import { SITE_URL, CONTACT } from "@/lib/constants";
  * migas de pan del catálogo.
  */
 /**
- * La organización solo se declara entera en la portada. En el resto de páginas
- * un `{ "@id": … }` suelto no dice ni el nombre: la prueba de resultados
+ * La organización se declara entera una vez por página (OrganizationJsonLd,
+ * en el layout raíz). Dentro de los demás bloques un `{ "@id": … }` suelto no
+ * dice ni el nombre: la prueba de resultados
  * enriquecidos daba el vendedor de las fichas y el autor de los artículos como
  * vacíos. Con tipo, nombre y url cada página se entiende sola.
  */
 const ORGANIZACION = {
   "@type": "Organization",
   "@id": `${SITE_URL}/#organizacion`,
-  name: "MoviLease",
+  name: COMPANY.name,
   url: SITE_URL,
 };
 
@@ -28,31 +29,65 @@ function Script({ data }: { data: Record<string, unknown> }) {
   );
 }
 
+/**
+ * La entidad completa, en el <head> de TODAS las páginas (layout raíz). Antes
+ * iba solo en la portada y sin dirección, y Google confundía la empresa con
+ * «MoviLease», una sociedad francesa cerrada de Wambrechies: lo único que nos
+ * distingue de ella son la razón social, el CIF y la dirección en Madrid, así
+ * que van en cada página que Google rastree.
+ */
 export function OrganizationJsonLd() {
   return (
     <Script
       data={{
         "@context": "https://schema.org",
-        /* Organization y no AutoRental: AutoRental es un negocio local y Google
-           le pide dirección, que aquí no se publica. Tampoco lleva priceRange,
-           que es propio de negocio local.
+        /* Organization + AutoRental: Organization para la entidad jurídica
+           (legalName, taxID) y AutoRental —un LocalBusiness— para que el
+           panel de conocimiento y la ficha de Maps casen con la dirección.
+           Es el tipo de schema.org más cercano al renting de largo plazo; no
+           existe uno específico. Sin priceRange ni horario: no hay un dato
+           confirmado que publicar.
 
            Logo en PNG cuadrado de 512 px: Google no admite SVG para el logo de
            la organización y pide al menos 112 px. */
-        ...ORGANIZACION,
-        logo: `${SITE_URL}/logo-cuadrado.png`,
+        "@type": ["Organization", "AutoRental"],
+        "@id": ORGANIZACION["@id"],
+        name: COMPANY.name,
+        legalName: COMPANY.legalName,
+        /* «MoviLease» y «Movilease» como alias y no como nombre: es como nos
+           buscan, pero a secas es también el nombre de la empresa francesa. */
+        alternateName: ["MoviLease", "Movilease", "movilease.es"],
+        taxID: COMPANY.taxId,
+        vatID: `ES${COMPANY.taxId}`,
+        url: SITE_URL,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/logo-cuadrado.png`,
+          width: 512,
+          height: 512,
+        },
         image: `${SITE_URL}/opengraph-image`,
         description:
-          "Renting de coches para particulares, autónomos y empresas en toda España. Sin entrada, con seguro y mantenimiento incluidos.",
+          "Movilease Renting, S.L. es una plataforma española de renting de vehículos a largo plazo para particulares, autónomos y empresas, con sede en Madrid y servicio en toda España. Sin entrada, con seguro y mantenimiento incluidos.",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: COMPANY.streetAddress,
+          postalCode: COMPANY.postalCode,
+          addressLocality: COMPANY.locality,
+          addressRegion: COMPANY.region,
+          addressCountry: COMPANY.countryCode,
+        },
         telephone: CONTACT.phone,
         email: CONTACT.email,
-        areaServed: { "@type": "Country", name: "España" },
-        sameAs: [CONTACT.instagram],
+        areaServed: { "@type": "Country", name: COMPANY.country, identifier: COMPANY.countryCode },
+        knowsLanguage: "es-ES",
+        sameAs: COMPANY.sameAs,
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "customer service",
           telephone: CONTACT.phone,
           email: CONTACT.email,
+          areaServed: COMPANY.countryCode,
           availableLanguage: ["es"],
         },
       }}
@@ -68,7 +103,8 @@ export function WebSiteJsonLd() {
         "@type": "WebSite",
         "@id": `${SITE_URL}/#web`,
         url: SITE_URL,
-        name: "MoviLease",
+        name: COMPANY.name,
+        alternateName: "MoviLease",
         inLanguage: "es-ES",
         publisher: ORGANIZACION,
       }}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CONTACT, buildWhatsAppLink } from "@/lib/constants";
+import { CONTACT, COMPANY, buildWhatsAppLink } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
 import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { getVehiclesByBrand } from "@/lib/data/vehicles";
@@ -277,10 +277,30 @@ export async function Footer() {
           </nav>
         )}
 
+        {/* Datos de la empresa en todas las páginas. Tienen que ser letra por
+            letra los del JSON-LD y los de la ficha de Google Business Profile
+            (todo sale de COMPANY): Google cruza nombre, dirección y teléfono
+            para decidir qué entidad es, y nos confundía con una MoviLease
+            francesa cerrada. Texto real y no imagen, para que se pueda leer. */}
+        <address className="mt-16 border-t border-white/10 pt-9 text-[12px] not-italic leading-[1.8] text-white/75">
+          <span className="font-semibold text-white/85">{COMPANY.legalName}</span>
+          {" · "}CIF {COMPANY.taxId}
+          {" · "}
+          {COMPANY.addressLine}
+          {" · "}
+          <a href={`tel:${CONTACT.phone}`} className="hover:text-white">
+            {CONTACT.phoneDisplay}
+          </a>
+          {" · "}
+          <a href={`mailto:${CONTACT.email}`} className="hover:text-white">
+            {CONTACT.email}
+          </a>
+        </address>
+
         {/* Bottom bar */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-9 sm:flex-row">
+        <div className="mt-6 flex flex-col items-center justify-between gap-3 sm:flex-row">
           <p className="text-[12px] text-white/75">
-            © 2026 MOVILEASE®. Todos los derechos reservados.
+            © 2026 {COMPANY.legalName} Todos los derechos reservados.
           </p>
           <p className="text-[10px] uppercase tracking-[0.22em] text-white/70">
             Smart Mobility Platform · España

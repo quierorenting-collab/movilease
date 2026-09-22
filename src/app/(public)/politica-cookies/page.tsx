@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
   title: "Política de cookies",
-  description: "Qué cookies utiliza MoviLease y cómo gestionar tus preferencias.",
+  description: "Qué cookies utiliza Movilease Renting en movilease.es y cómo gestionar tus preferencias.",
   path: "/politica-cookies",
 });
 

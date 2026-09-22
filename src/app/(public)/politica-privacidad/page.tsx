@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, COMPANY } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
   title: "Política de privacidad",
-  description: "Cómo trata MoviLease tus datos personales y qué derechos tienes.",
+  description:
+    "Cómo trata Movilease Renting, S.L. (Madrid) tus datos personales, con qué finalidad y qué derechos tienes.",
   path: "/politica-privacidad",
 });
 
@@ -33,15 +34,14 @@ export default function PoliticaPrivacidadPage() {
           </h2>
           <ul className="mt-4 space-y-2 text-[15px] leading-[1.8] text-white/70">
             <li>
-              <span className="text-white">Responsable:</span> MOVILEASE RENTING,
-              S.L.
+              <span className="text-white">Responsable:</span>{" "}
+              {COMPANY.legalName}
             </li>
             <li>
-              <span className="text-white">NIF:</span> B93944635
+              <span className="text-white">NIF:</span> {COMPANY.taxId}
             </li>
             <li>
-              <span className="text-white">Domicilio:</span> Calle Infanta
-              Mercedes 31, 2 — 28020 Madrid (España)
+              <span className="text-white">Domicilio:</span> {COMPANY.addressLine}
             </li>
             <li>
               <span className="text-white">Contacto:</span>{" "}

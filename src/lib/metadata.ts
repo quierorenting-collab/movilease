@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_URL, COMPANY } from "@/lib/constants";
 
-const SUFIJO_MARCA = " | MoviLease";
+/* «Movilease Renting» y no «MoviLease»: a secas coincide con una empresa
+   francesa cerrada con la que Google nos confundía. Son 8 caracteres más, así
+   que algunos títulos largos pierden la marca antes (ver elegirTitulo). */
+const SUFIJO_MARCA = ` | ${COMPANY.name}`;
 const LARGO_TITULO = 60;
 
 /**
  * Elige el título que cabe en los ~60 caracteres que enseña Google. Prueba cada
- * candidato con « | MoviLease» detrás y, si no cabe, sin él: en una marca que
+ * candidato con « | Movilease Renting» detrás y, si no cabe, sin él: en una marca que
  * nadie busca todavía pesa más conservar «sin entrada» o el precio que el
  * nombre de la web. Si ninguno cabe, se queda el último, que debe ser el corto.
  */
@@ -63,7 +66,7 @@ export function pageMetadata({
           }
         : { type: "website" as const }),
       locale: "es_ES",
-      siteName: "MoviLease",
+      siteName: COMPANY.name,
       url,
       title: elegido.texto,
       description,

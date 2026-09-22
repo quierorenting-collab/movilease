@@ -11,7 +11,7 @@ import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 export const metadata: Metadata = pageMetadata({
   title: "Renting de coches para empresas",
   description:
-    "Renting de flotas para empresas: cuota fija con todo incluido, sin entrada, gestión centralizada y renovación de vehículos sin inmovilizar capital.",
+    "Renting de coches y flotas para empresas en España: cuota fija con todo incluido, sin entrada, gestión centralizada y renovación sin inmovilizar capital.",
   path: "/renting-empresas",
 });
 

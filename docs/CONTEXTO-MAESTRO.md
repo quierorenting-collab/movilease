@@ -442,7 +442,8 @@ seguro a todo riesgo, mantenimiento e impuestos incluidos. Gestión en 48 h.
 
 - WhatsApp / teléfono: **+34 644 15 67 97** (`34644156797`)
 - Email: **contacto@movilease.es**
-- Instagram: **@quierorenting**
+- Instagram: **@movilease.es** (hasta el 22/09/2026 apuntaba a @quierorenting)
+- Datos societarios (razón social, CIF, dirección): constante `COMPANY` de `src/lib/constants.ts`
 
 **Nunca escribas un teléfono o un email a mano en un componente.** Importa
 `CONTACT` y `buildWhatsAppLink()` de `constants.ts`.
