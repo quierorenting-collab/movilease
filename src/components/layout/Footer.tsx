@@ -19,7 +19,7 @@ export async function Footer() {
       .slice(0, 12)
       .map((b) => ({
         name: b.brandName,
-        href: `/catalogo?brand=${encodeURIComponent(b.brandName.toLowerCase())}`,
+        href: b.href,
       }));
   } catch {
     topBrands = [];

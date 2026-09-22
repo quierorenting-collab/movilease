@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { BrandSummary } from "@/lib/data/vehicles";
 
 export function BrandCard({ brand }: { brand: BrandSummary }) {
-  const href = `/catalogo?brand=${encodeURIComponent(brand.brandName.toLowerCase())}`;
+  const href = brand.href;
   /**
    * El optimizador de Next devuelve 400 para SVG salvo que se active
    * dangerouslyAllowSVG. Como los SVG ya son vectoriales y pesan 9-13 kB, se

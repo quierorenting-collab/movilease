@@ -505,6 +505,9 @@ export const getCatalogVehicles = cache(async (filters: CatalogFilters = {}): Pr
 
 export interface BrandSummary {
   brandName: string;
+  /** Página de la marca: su landing (/renting-skoda) si la tiene y, si no, la
+   *  vista del catálogo. Todos los enlaces a una marca salen de aquí. */
+  href: string;
   vehicleCount: number;
   cheapestPriceLabel: string;
   featuredImageUrl: string | null;
@@ -519,8 +522,44 @@ export interface VehiclesByBrand {
 
 const PREMIUM_BRANDS = new Set(["BMW", "Mercedes", "Audi", "Tesla", "Volvo", "Lexus", "Porsche"]);
 
+/** «škoda» y «skoda» tienen que llevar a la misma marca: quien escribe la
+ *  dirección a mano no pone la š, y ?brand=skoda daba 404. */
+export function normalizaMarca(nombre: string): string {
+  return nombre.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+}
+
+/**
+ * Landings de marca (/renting-skoda…): nombre de la marca → slug.
+ *
+ * Son filas de landing_pages con `filter_json.brand`. Las vistas
+ * /catalogo?brand= tenían la marca en una query y ni una línea de texto propio;
+ * la landing lleva la palabra clave en la ruta, un texto escrito para esa marca
+ * y su FAQ. Solo las tienen las marcas con varios modelos: con uno solo, la
+ * landing competiría con la ficha del coche por la misma búsqueda.
+ *
+ * Nunca lanza: sin este dato, los enlaces caen a la vista del catálogo, que
+ * sigue existiendo para todas las marcas.
+ */
+const getBrandLandingSlugs = cache(async (): Promise<Map<string, string>> => {
+  const mapa = new Map<string, string>();
+  try {
+    const supabase = createPublicClient();
+    const { data } = await supabase
+      .from("landing_pages")
+      .select("slug, filter_json")
+      .eq("is_active", true);
+    for (const l of data ?? []) {
+      const marca = (l.filter_json as { brand?: string } | null)?.brand;
+      if (marca) mapa.set(marca, l.slug);
+    }
+  } catch {
+    /* sin landings: se enlaza la vista del catálogo */
+  }
+  return mapa;
+});
+
 export const getVehiclesByBrand = cache(async (): Promise<VehiclesByBrand> => {
-  const all = await getCatalogVehicles({});
+  const [all, landingsMarca] = await Promise.all([getCatalogVehicles({}), getBrandLandingSlugs()]);
 
   const map: Record<string, VehicleCardData[]> = {};
   for (const v of all) {
@@ -532,6 +571,9 @@ export const getVehiclesByBrand = cache(async (): Promise<VehiclesByBrand> => {
   const brands: BrandSummary[] = Object.entries(map)
     .map(([name, vehicles]) => ({
       brandName: name,
+      href: landingsMarca.has(name)
+        ? `/${landingsMarca.get(name)}`
+        : `/catalogo?brand=${encodeURIComponent(name.toLowerCase())}`,
       vehicleCount: vehicles.length,
       cheapestPriceLabel: vehicles[0]?.priceLabel ?? "",
       featuredImageUrl: vehicles.find((v) => v.imageUrl)?.imageUrl ?? null,
@@ -664,7 +706,7 @@ export async function getModelLastModified(): Promise<Map<string, Date>> {
 export async function getBrandDisplayName(slugMinusculas: string): Promise<string | null> {
   try {
     const { brands } = await getVehiclesByBrand();
-    return brands.find((b) => b.brandName.toLowerCase() === slugMinusculas)?.brandName ?? null;
+    return brands.find((b) => normalizaMarca(b.brandName) === normalizaMarca(slugMinusculas))?.brandName ?? null;
   } catch {
     return null;
   }

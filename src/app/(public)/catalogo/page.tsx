@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import {
   getVehiclesByBrand,
   getCatalogVehicles,
   getBrandDisplayName,
+  normalizaMarca,
 } from "@/lib/data/vehicles";
 import { VEHICLE_CATEGORY_LABELS, FUEL_TYPE_LABELS, buildWhatsAppLink } from "@/lib/constants";
 import type { VehicleCategoryEnum, FuelTypeEnum } from "@/types/database.types";
@@ -48,11 +49,13 @@ export async function generateMetadata({
 
   // Capitalizar el slug daba "Seat" y "Kgm" en el título y la descripción, que
   // es lo que ve el usuario en Google. Se usa el nombre real de la marca.
-  const nombre = (await getBrandDisplayName(brand)) ?? brand.charAt(0).toUpperCase() + brand.slice(1);
+  const real = await getBrandDisplayName(brand);
+  const nombre = real ?? brand.charAt(0).toUpperCase() + brand.slice(1);
   return pageMetadata({
     title: `Renting ${nombre}: modelos y cuotas`,
     description: `Todos los modelos ${nombre} disponibles en renting sin entrada, con seguro a todo riesgo y mantenimiento incluidos. Consulta cuotas y pide tu propuesta.`,
-    path: `/catalogo?brand=${encodeURIComponent(brand)}`,
+    // ?brand=skoda y ?brand=škoda son la misma vista: un solo canonical
+    path: `/catalogo?brand=${encodeURIComponent((real ?? brand).toLowerCase())}`,
     noIndex: filtrado,
   });
 }
@@ -88,7 +91,7 @@ export default async function CatalogoPage({
   // If a brand is selected, show its vehicles (with optional category/fuel filters)
   if (brandParam) {
     const matchedBrand = brands.find(
-      (b) => b.brandName.toLowerCase() === brandParam
+      (b) => normalizaMarca(b.brandName) === normalizaMarca(brandParam)
     );
     /* Una marca que no está en el catálogo respondía 200 con el titular
        «Renting Noexiste» y «No hay vehículos con este filtro»: una página
@@ -104,6 +107,13 @@ export default async function CatalogoPage({
       if (brands.length > 0) notFound();
       /* Sin `brands` no se puede afirmar que la marca no exista: se degrada
          como antes, con la página vacía, hasta que Supabase vuelva. */
+    }
+    /* Si la marca tiene landing, la vista sin filtros es la misma lista de
+       coches con peor dirección y sin texto propio: 308 a la landing, para que
+       lo que Google tenga de esta URL pase allí. Las vistas con filtro se
+       quedan aquí; son noindex y la landing no tiene esos filtros. */
+    if (matchedBrand?.href.startsWith("/renting-") && !category && !fuelType && !maxPrice) {
+      permanentRedirect(matchedBrand.href);
     }
     const brandVehicles = matchedBrand ? (vehiclesByBrand[matchedBrand.brandName] ?? []) : [];
 

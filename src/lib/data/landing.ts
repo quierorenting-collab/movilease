@@ -2,6 +2,7 @@ import "server-only";
 import { createPublicClient } from "@/lib/supabase/server";
 import {
   getCatalogVehicles,
+  getVehiclesByBrand,
   getVehiclesByModelSlugs,
   type VehicleCardData,
 } from "@/lib/data/vehicles";
@@ -39,7 +40,36 @@ export async function getLandingPageBySlug(slug: string): Promise<LandingPageDet
       fuel_type?: FuelTypeEnum | FuelTypeEnum[];
       transmission?: TransmissionEnum;
       model_slugs?: string[];
+      brand?: string;
     };
+    /* Landing de marca: sus coches salen de la misma consulta que el menú y el
+       pie (getVehiclesByBrand, cacheada por render), no de una nueva. Una marca
+       sin coches activos da 404, igual que un modelo sin coches: una página
+       «Renting Škoda» sin un Škoda es justo lo que no puede encontrarse quien
+       llega desde Google. La fila no se toca y vuelve sola con el stock. */
+    if (filterJson.brand) {
+      const deLaMarca = (await getVehiclesByBrand()).vehiclesByBrand[filterJson.brand] ?? [];
+      if (!deLaMarca.length) return null;
+      /* Una tarjeta por modelo, la de su versión más barata (llegan ordenadas
+         por cuota), como en la vista de marca del catálogo: dos Kamiq o dos
+         Octavia seguidos hacen dudar a quien compara. Las demás versiones
+         están en la ficha de cada modelo. */
+      const vistos = new Set<string>();
+      const unoPorModelo = deLaMarca.filter((v) => {
+        if (vistos.has(v.modelSlug)) return false;
+        vistos.add(v.modelSlug);
+        return true;
+      });
+      return {
+        type: data.type,
+        title: data.title,
+        h1: data.h1,
+        introContent: data.intro_content,
+        metaDescription: data.meta_description,
+        faq: (data.faq as { question: string; answer: string }[]) ?? [],
+        vehicles: unoPorModelo,
+      };
+    }
     /* Una lista de modelos escrita a mano es el único filtro posible cuando lo
        que agrupa a esos coches no está en ninguna columna: la entrega en 5-15
        días la marca el proveedor, no el vehículo. Sale de la misma constante
@@ -72,15 +102,23 @@ export async function getActiveLandingSlugs(): Promise<string[]> {
   return (await getActiveLandings()).map((l) => l.slug);
 }
 
-/** Igual, pero con la fecha del último cambio para el lastmod del sitemap. */
-export async function getActiveLandings(): Promise<{ slug: string; updatedAt: string | null }[]> {
+/** Igual, pero con la fecha del último cambio para el lastmod del sitemap, y
+ *  la marca en las landings de marca: el sitemap deja fuera la de una marca
+ *  que se ha quedado sin coches, porque esa landing responde 404. */
+export async function getActiveLandings(): Promise<
+  { slug: string; updatedAt: string | null; brand: string | null }[]
+> {
   try {
     const supabase = createPublicClient();
     const { data } = await supabase
       .from("landing_pages")
-      .select("slug, updated_at, created_at")
+      .select("slug, updated_at, created_at, filter_json")
       .eq("is_active", true);
-    return (data ?? []).map((l) => ({ slug: l.slug, updatedAt: l.updated_at ?? l.created_at ?? null }));
+    return (data ?? []).map((l) => ({
+      slug: l.slug,
+      updatedAt: l.updated_at ?? l.created_at ?? null,
+      brand: (l.filter_json as { brand?: string } | null)?.brand ?? null,
+    }));
   } catch {
     return [];
   }
@@ -95,12 +133,19 @@ export async function getFooterLandings(): Promise<{
     const supabase = createPublicClient();
     const { data } = await supabase
       .from("landing_pages")
-      .select("slug, title, type")
+      .select("slug, title, type, filter_json")
       .eq("is_active", true)
       .order("slug");
     const filas = data ?? [];
+    /* Las de marca son filas de tipo "category" (el enum de la base no tiene
+       otro valor y cambiarlo pide una migración), pero no son categorías: el
+       pie ya las enlaza en su bloque de marcas. */
+    const esDeMarca = (l: { filter_json: unknown }) =>
+      Boolean((l.filter_json as { brand?: string } | null)?.brand);
     return {
-      categorias: filas.filter((l) => l.type === "category").map(({ slug, title }) => ({ slug, title })),
+      categorias: filas
+        .filter((l) => l.type === "category" && !esDeMarca(l))
+        .map(({ slug, title }) => ({ slug, title })),
       ciudades: filas.filter((l) => l.type === "city").map(({ slug, title }) => ({ slug, title })),
     };
   } catch {

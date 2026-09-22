@@ -93,13 +93,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       })),
       // Las landings de categoria y ciudad son paginas indexables por derecho
       // propio: sin esta linea existen pero Google no las descubre.
-      ...landings.map((l) => ({
-        url: `${SITE_URL}/${l.slug}`,
-        lastModified: l.updatedAt ? new Date(l.updatedAt) : undefined,
-        changeFrequency: "weekly" as const,
-        priority: 0.75,
-      })),
-      ...brands.map((brand) => ({
+      /* La de una marca sin coches activos responde 404 y no se anuncia. Su
+         fecha es la más reciente entre la de su texto y la de sus coches: la
+         página cambia cuando cambia cualquiera de los dos. */
+      ...landings
+        .filter((l) => !l.brand || brands.some((b) => b.brandName === l.brand))
+        .map((l) => {
+          const texto = l.updatedAt ? new Date(l.updatedAt) : undefined;
+          const coches = l.brand ? fechaDeMarca(l.brand) : undefined;
+          return {
+            url: `${SITE_URL}/${l.slug}`,
+            lastModified:
+              texto && coches ? (texto > coches ? texto : coches) : (texto ?? coches),
+            changeFrequency: "weekly" as const,
+            priority: 0.75,
+          };
+        }),
+      /* Las marcas con landing ya están arriba: su vista del catálogo redirige
+         a la landing y anunciarla sería mandar a Google a una redirección. */
+      ...brands.filter((brand) => brand.href.startsWith("/catalogo")).map((brand) => ({
         url: `${SITE_URL}/catalogo?brand=${encodeURIComponent(brand.brandName.toLowerCase())}`,
         lastModified: fechaDeMarca(brand.brandName),
         changeFrequency: "weekly" as const,

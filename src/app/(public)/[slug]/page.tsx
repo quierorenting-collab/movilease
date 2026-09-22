@@ -5,6 +5,7 @@ import {
   getModelBySlugWithVehicles,
   getAlternativeModels,
   getCatalogVehicles,
+  getVehiclesByBrand,
   type VehicleDetailData,
 } from "@/lib/data/vehicles";
 import {
@@ -35,6 +36,7 @@ import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import {
   BreadcrumbJsonLd,
   FaqJsonLd,
+  ItemListJsonLd,
   VehicleModelJsonLd,
 } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
@@ -259,17 +261,22 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
       ]
     : [];
 
-  const marcaSlug = encodeURIComponent(model.brandName.toLowerCase());
   const nombreCompleto = `${model.brandName} ${model.model.name}`;
   /* Alternativas del mismo tipo de coche, no de la misma marca. El bloque
      decía «Otros Kia en renting» y enseñaba una furgoneta debajo de un SUV
      compacto: quien compara un SUV compara otros SUV, le dé igual la marca. */
-  const [alternativas, landingsTipo] = await Promise.all([
+  const [alternativas, landingsTipo, { brands }] = await Promise.all([
     primary
       ? getAlternativeModels(primary.category, model.model.slug, primary.monthlyPriceCents, 4)
       : Promise.resolve([]),
     getCategoryLandings(),
+    getVehiclesByBrand(),
   ]);
+  /* La marca en las migas lleva a su landing (/renting-skoda) si la tiene: es
+     el enlace interno que más empuja esa página, uno desde cada ficha. */
+  const enlaceMarca =
+    brands.find((b) => b.brandName === model.brandName)?.href ??
+    `/catalogo?brand=${encodeURIComponent(model.brandName.toLowerCase())}`;
   /* Las landings de tipo solo se enlazaban desde el pie, y Google da poco peso a
      esos enlaces. Desde la ficha, con el nombre de la landing como texto, cada
      coche empuja a las páginas de categoría en las que sale. */
@@ -363,7 +370,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
         items={[
           { name: "Inicio", path: "/" },
           { name: "Catálogo", path: "/catalogo" },
-          { name: model.brandName, path: `/catalogo?brand=${marcaSlug}` },
+          { name: model.brandName, path: enlaceMarca },
           { name: model.model.name, path: `/${model.model.slug}` },
         ]}
       />
@@ -402,7 +409,7 @@ async function ModelPage({ model }: { model: NonNullable<Awaited<ReturnType<type
               <li aria-hidden="true" className="text-white/45">/</li>
               <li>
                 <Link
-                  href={`/catalogo?brand=${marcaSlug}`}
+                  href={enlaceMarca}
                   className="transition-colors hover:text-white"
                 >
                   {model.brandName}
@@ -947,6 +954,18 @@ function LandingPage({
       />
       {landing.faq.length > 0 && (
         <FaqJsonLd items={landing.faq.map((f) => ({ q: f.question, a: f.answer }))} />
+      )}
+      {/* La lista de coches de la landing, como ya la declaraba la vista de
+          marca del catálogo: un modelo por entrada aunque la rejilla enseñe
+          varias versiones, porque cada entrada es la dirección de una ficha. */}
+      {coches.length > 0 && (
+        <ItemListJsonLd
+          name={landing.h1}
+          items={[...new Map(coches.map((v) => [v.modelSlug, v])).values()].map((v) => ({
+            name: `${v.brandName} ${v.modelName}`,
+            path: `/${v.modelSlug}`,
+          }))}
+        />
       )}
 
       {/* ── Hero ── */}

@@ -14,6 +14,7 @@ export default async function PublicLayout({ children }: { children: React.React
   const { brands } = await getVehiclesByBrand();
   const navBrands = brands.map((b) => ({
     name: b.brandName,
+    href: b.href,
     count: b.vehicleCount,
     logoUrl: b.logoUrl,
   }));

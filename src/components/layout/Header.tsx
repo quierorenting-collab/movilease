@@ -10,6 +10,8 @@ import { Logo } from "@/components/ui/Logo";
 
 export interface NavBrand {
   name: string;
+  /** Landing de la marca si la tiene; si no, su vista del catálogo. */
+  href: string;
   count: number;
   logoUrl: string | null;
 }
@@ -280,7 +282,7 @@ export function Header({ brands = [] }: { brands?: NavBrand[] }) {
                   {brands.map((brand) => (
                     <Link
                       key={brand.name}
-                      href={`/catalogo?brand=${encodeURIComponent(brand.name.toLowerCase())}`}
+                      href={brand.href}
                       onClick={() => setMegaOpen(false)}
                       className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-[#F4F6FA]"
                     >
