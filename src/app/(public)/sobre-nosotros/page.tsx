@@ -7,15 +7,18 @@ import {
 } from "@/components/ui/Reveal";
 import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import { pageMetadata } from "@/lib/metadata";
+import { CONTACT, COMPANY } from "@/lib/constants";
 import Image from "next/image";
 import { BreadcrumbJsonLd, WebPageJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = pageMetadata({
   // "Quiénes somos" ocupaba 25 caracteres del título: Google da ~60 y el
   // resto se desaprovechaba sin decir de qué empresa ni de qué va.
-  title: "Quiénes somos: renting de coches sin complicaciones",
+  // La razón social en el título: es la página que Google usa para saber
+  // quién es la empresa, y la separa de la MoviLease francesa.
+  title: "Movilease Renting, S.L.: renting de coches desde Madrid",
   description:
-    "Hazlo fácil. Hazlo MoviLease. Conoce nuestra misión, visión y valores, y por qué somos la forma más sencilla de estrenar coche en renting.",
+    "Movilease Renting, S.L. (CIF B93944635) es una empresa española de renting de coches con sede en Madrid. Conoce quiénes somos, cómo trabajamos y nuestros datos.",
   path: "/sobre-nosotros",
 });
 
@@ -99,7 +102,7 @@ function CheckIcon() {
 export default function SobreNosotrosPage() {
   return (
     <>
-      <WebPageJsonLd tipo="AboutPage" nombre="Quiénes somos" descripcion="Quiénes somos en MoviLease y cómo trabajamos el renting de coches." path="/sobre-nosotros" />
+      <WebPageJsonLd tipo="AboutPage" nombre="Quiénes somos" descripcion="Quiénes somos en Movilease Renting, S.L., empresa española de renting de coches con sede en Madrid." path="/sobre-nosotros" />
       <BreadcrumbJsonLd
         items={[
           { name: "Inicio", path: "/" },
@@ -252,6 +255,46 @@ export default function SobreNosotrosPage() {
               </RevealItem>
             ))}
           </RevealGroup>
+
+          {/* Datos societarios dentro de esta sección oscura y no en una propia:
+              entre esta y el cierre claro, una sección más rompía la alternancia
+              de fondos. Es la página «quiénes somos» que Google lee para saber
+              qué empresa es: razón social, CIF y dirección la separan de la
+              MoviLease francesa. Salen de COMPANY, igual que el pie. */}
+          <Reveal className="mt-16">
+            <div className="glass rounded-3xl p-7 sm:p-9">
+              <h2
+                className="text-xl font-semibold text-white"
+                style={{ fontFamily: "var(--font-space-grotesk)" }}
+              >
+                Datos de la empresa
+              </h2>
+              <dl className="mt-6 grid gap-x-8 gap-y-4 text-[15px] sm:grid-cols-2">
+                {[
+                  { k: "Razón social", v: COMPANY.legalName },
+                  { k: "CIF", v: COMPANY.taxId },
+                  { k: "Domicilio", v: COMPANY.addressLine },
+                  { k: "Actividad", v: "Renting de vehículos a largo plazo para particulares, autónomos y empresas" },
+                  { k: "Ámbito", v: "Toda España" },
+                  { k: "Teléfono", v: CONTACT.phoneDisplay },
+                  { k: "Email", v: CONTACT.email },
+                  { k: "Web", v: "movilease.es" },
+                ].map((d) => (
+                  <div key={d.k} className="min-w-0">
+                    <dt className="eyebrow">{d.k}</dt>
+                    <dd className="mt-1 break-words text-white/85">{d.v}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-6 text-sm text-white/70">
+                Más información en el{" "}
+                <Link href="/aviso-legal" className="underline hover:text-white">
+                  aviso legal
+                </Link>
+                .
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 

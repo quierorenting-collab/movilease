@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { BRANDS, DEFAULT_BRAND_DOMAIN } from "@/lib/brand";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_URL, COMPANY } from "@/lib/constants";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { OrganizationJsonLd } from "@/components/seo/JsonLd";
 import "./globals.css";
 
 // El peso 300 no aparece en ningún sitio del proyecto (0 usos de font-light):
@@ -41,22 +42,24 @@ export const viewport: Viewport = {
  */
 export function generateMetadata(): Metadata {
   const brand = BRANDS[DEFAULT_BRAND_DOMAIN];
-  const defaultTitle = `${brand.name} | Renting de Coches para Particulares`;
+  const defaultTitle = `${COMPANY.name} | Renting de coches en España`;
   const ogImage = `${SITE_URL}/opengraph-image`;
   return {
     metadataBase: new URL(SITE_URL),
     title: {
       default: defaultTitle,
-      template: `%s | ${brand.name}`,
+      /* «Movilease Renting» y no el brand.name «MoviLease»: a secas es también
+         el nombre de una empresa francesa cerrada y Google nos mezclaba. */
+      template: `%s | ${COMPANY.name}`,
     },
     description: brand.description,
-    applicationName: brand.name,
+    applicationName: COMPANY.name,
     // Evita que iOS convierta precios y cifras del catálogo en enlaces de llamada
     formatDetection: { telephone: false, address: false, email: false },
     openGraph: {
       type: "website",
       locale: "es_ES",
-      siteName: brand.name,
+      siteName: COMPANY.name,
       url: SITE_URL,
       title: defaultTitle,
       description: brand.description,
@@ -90,7 +93,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}>
+    // es-ES y no «es» a secas: la entidad es española, y el idioma con región
+    // es una señal más para separarla de la MoviLease francesa.
+    <html lang="es-ES" className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}>
+      <head>
+        {/* La organización en todas las páginas, no solo en la portada: es la
+            que dice razón social, CIF y dirección (ver OrganizationJsonLd). */}
+        <OrganizationJsonLd />
+      </head>
       <body className="min-h-full flex flex-col bg-[#0B2A5E] text-white">
         {children}
         <GoogleAnalytics />

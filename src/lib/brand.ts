@@ -12,7 +12,7 @@ export const BRANDS = {
     name: "MoviLease",
     domain: "movilease.es",
     description:
-      "Renting de coches para particulares sin complicaciones. Sin entrada, todo incluido, gestión en 48h.",
+      "Movilease Renting: renting de coches en España para particulares, autónomos y empresas. Sin entrada, todo incluido, gestión en 48 h. Sede en Madrid.",
   },
   "quierorenting.es": {
     name: "QuieroRenting",

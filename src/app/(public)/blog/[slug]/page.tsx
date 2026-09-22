@@ -30,7 +30,7 @@ export async function generateMetadata({
 
   return pageMetadata({
     title: post.title,
-    description: post.excerpt ?? `${post.title}. Guía de renting de coches de MoviLease.`,
+    description: post.excerpt ?? `${post.title}. Guía de renting de coches de Movilease Renting.`,
     path: `/blog/${post.slug}`,
     images: post.coverImageUrl ? [post.coverImageUrl] : undefined,
     article: { publishedTime: post.publishedAt, modifiedTime: post.updatedAt },

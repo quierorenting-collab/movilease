@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, COMPANY } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
   title: "Aviso legal",
-  description: "Información legal y condiciones de uso de MoviLease.",
+  description:
+    "Aviso legal de Movilease Renting, S.L. (CIF B93944635), con domicilio en Calle Infanta Mercedes 31, 28020 Madrid. Condiciones de uso de movilease.es.",
   path: "/aviso-legal",
 });
 
@@ -39,15 +40,22 @@ export default function AvisoLegalPage() {
           </p>
           <ul className="mt-4 space-y-2 text-[15px] leading-[1.8] text-white/70">
             <li>
-              <span className="text-white">Denominación social:</span> MOVILEASE
-              RENTING, S.L.
+              <span className="text-white">Denominación social:</span>{" "}
+              {COMPANY.legalName}
             </li>
             <li>
-              <span className="text-white">NIF:</span> B93944635
+              <span className="text-white">NIF:</span> {COMPANY.taxId}
             </li>
             <li>
-              <span className="text-white">Domicilio social:</span> Calle Infanta
-              Mercedes 31, 2 — 28020 Madrid (España)
+              {/* De COMPANY, como el pie y el JSON-LD: el domicilio tiene que
+                  ser idéntico en todas partes para que Google lo case. */}
+              <span className="text-white">Domicilio social:</span>{" "}
+              {COMPANY.addressLine}
+            </li>
+            <li>
+              <span className="text-white">Actividad:</span> renting de
+              vehículos a largo plazo para particulares, autónomos y empresas
+              en España
             </li>
             <li>
               <span className="text-white">Correo electrónico:</span>{" "}
@@ -60,6 +68,10 @@ export default function AvisoLegalPage() {
               <a href={`tel:${CONTACT.phone}`} className="underline">
                 {CONTACT.phoneDisplay}
               </a>
+            </li>
+            <li>
+              <span className="text-white">Nombre comercial:</span>{" "}
+              {COMPANY.name}
             </li>
             <li>
               <span className="text-white">Sitio web:</span> movilease.es

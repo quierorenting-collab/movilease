@@ -41,7 +41,7 @@ export async function generateMetadata({
     return pageMetadata({
       title: "Catálogo de coches en renting",
       description:
-        "Explora todas las marcas y modelos en renting para particulares, autónomos y empresas. Sin entrada, con seguro y mantenimiento incluidos.",
+        "Todas las marcas y modelos en renting en España para particulares, autónomos y empresas. Sin entrada, con seguro y mantenimiento incluidos.",
       path: "/catalogo",
       noIndex: filtrado,
     });

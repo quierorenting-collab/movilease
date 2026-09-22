@@ -14,7 +14,40 @@ export const CONTACT = {
   phone: `+${WHATSAPP_NUMBER}`,
   phoneDisplay: formatSpanishPhone(WHATSAPP_NUMBER),
   email: "contacto@movilease.es",
-  instagram: "https://www.instagram.com/quierorenting",
+  /* La cuenta de la marca. Antes apuntaba a @quierorenting, que ya redirige
+     entera aquí: enlazarla desde el schema le decía a Google que la entidad
+     de movilease.es era la de otra marca. */
+  instagram: "https://www.instagram.com/movilease.es/",
+  trustpilot: "https://es.trustpilot.com/review/movilease.es",
+} as const;
+
+/**
+ * Datos societarios: fuente única del JSON-LD, el pie y las páginas legales.
+ * Google compara el NAP (nombre, dirección, teléfono) entre la web, la ficha
+ * de Google Business Profile y los directorios; una coma distinta ya cuenta
+ * como otra entidad. Existe también una «MoviLease» francesa cerrada
+ * (Wambrechies) con la que Google nos mezcla: la razón social, el CIF y la
+ * dirección en Madrid son lo que nos separa de ella, así que salen siempre
+ * de aquí y siempre iguales.
+ */
+export const COMPANY = {
+  legalName: "Movilease Renting, S.L.",
+  /** Nombre comercial que usa Google para la entidad: «MoviLease» a secas es
+   *  justo el de la empresa francesa. */
+  name: "Movilease Renting",
+  taxId: "B93944635",
+  streetAddress: "Calle Infanta Mercedes 31",
+  postalCode: "28020",
+  locality: "Madrid",
+  region: "Comunidad de Madrid",
+  countryCode: "ES",
+  country: "España",
+  /** La dirección en una línea, idéntica en el pie y en las páginas legales. */
+  addressLine: "Calle Infanta Mercedes 31, 28020 Madrid, España",
+  /* Solo perfiles con URL confirmada. LinkedIn falta hasta tener la dirección
+     exacta de la página de empresa: un sameAs a una URL inventada o a otra
+     empresa es peor que ninguno. */
+  sameAs: [CONTACT.instagram, CONTACT.trustpilot],
 } as const;
 
 /** "34644156797" -> "+34 644 15 67 97" */

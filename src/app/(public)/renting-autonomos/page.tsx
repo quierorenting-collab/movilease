@@ -11,7 +11,7 @@ import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 export const metadata: Metadata = pageMetadata({
   title: "Renting de coches para autónomos",
   description:
-    "Renting de coches para autónomos: sin entrada, cuota fija con todo incluido y trámites simplificados. Empieza a usar tu coche nuevo sin tocar tu tesorería.",
+    "Renting de coches para autónomos en España: sin entrada, cuota fija con todo incluido y trámites simplificados. Estrena coche sin tocar tu tesorería.",
   path: "/renting-autonomos",
 });
 

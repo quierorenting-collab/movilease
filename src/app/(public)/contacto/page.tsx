@@ -9,7 +9,7 @@ import { BreadcrumbJsonLd, WebPageJsonLd } from "@/components/seo/JsonLd";
 export const metadata: Metadata = pageMetadata({
   title: "Contacto: pide tu oferta de renting",
   description:
-    "Cuéntanos qué coche buscas y te preparamos una propuesta de renting sin compromiso. Por formulario, teléfono, email o WhatsApp.",
+    "Contacta con Movilease Renting: te preparamos una propuesta de renting sin compromiso. Desde Madrid para toda España, por formulario, teléfono, email o WhatsApp.",
   path: "/contacto",
 });
 

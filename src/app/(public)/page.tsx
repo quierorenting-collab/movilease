@@ -28,7 +28,6 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { VideoBackdrop } from "@/components/ui/VideoBackdrop";
 import {
   FaqJsonLd,
-  OrganizationJsonLd,
   WebSiteJsonLd,
 } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
@@ -65,9 +64,13 @@ const EXCLUSIVOS = [
 ];
 
 export const metadata: Metadata = pageMetadata({
-  title: "Renting de coches sin entrada | Todo incluido",
+  /* Con « | Movilease Renting» detrás son 59 caracteres: cabe entero. «Todo
+     incluido» se va del título porque con el sufijo nuevo ya no cabía y se
+     perdía la marca, que es lo que Google necesita ver para no confundirnos
+     con la MoviLease francesa; sigue en la descripción. */
+  title: "Renting de coches sin entrada en España",
   description:
-    "Renting de coches para particulares, autónomos y empresas: sin entrada, con seguro a todo riesgo, mantenimiento e impuestos incluidos. Respuesta en 48 h.",
+    "Movilease Renting: renting de coches en España para particulares, autónomos y empresas. Sin entrada, con seguro y mantenimiento incluidos. Sede en Madrid.",
   path: "/",
 });
 
@@ -348,7 +351,6 @@ export default async function HomePage() {
 
   return (
     <>
-      <OrganizationJsonLd />
       <WebSiteJsonLd />
       <FaqJsonLd items={FAQ_ITEMS} />
 
