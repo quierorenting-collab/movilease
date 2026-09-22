@@ -15,15 +15,15 @@
   "environmental_label": "eco",
   "short_description": "SUV híbrido HEV con cambio automático y etiqueta ECO",
   "included_services": [
-    "Seguro a todo riesgo",
+    "Seguro a todo riesgo sin franquicia",
     "Mantenimiento y revisiones",
     "Neumáticos incluidos",
-    "Asistencia 24h",
+    "Asistencia en carretera 24h",
     "Averías y reparaciones",
     "ITV e impuestos",
     "Gestión de multas",
-    "Entrega a domicilio",
-    "Cambio de neumáticos"
+    "Entrega en provincia",
+    "Vehículo de sustitución"
   ],
   "images": [
     {
@@ -153,6 +153,6 @@
       "monthly_price_cents": 54611
     }
   ],
-  "body_type": "SUV",
+  "body_type": null,
   "is_offer": false
 }

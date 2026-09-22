@@ -22,7 +22,9 @@
     "Asistencia en carretera 24h",
     "Averías y reparaciones",
     "ITV e impuestos",
-    "Gestión de multas"
+    "Gestión de multas",
+    "Entrega en provincia",
+    "Vehículo de sustitución"
   ],
   "pricing": [
     { "contract_months": 36, "annual_km": 10000, "monthly_price_cents": 57600 },
@@ -96,6 +98,8 @@
     { "url": "/coches-nuevos/mercedes-gla-05.webp", "alt": "Mercedes-Benz GLA en renting — asientos delanteros" },
     { "url": "/coches-nuevos/mercedes-gla-06.webp", "alt": "Mercedes-Benz GLA en renting — salpicadero" },
     { "url": "/coches-nuevos/mercedes-gla-07.webp", "alt": "Mercedes-Benz GLA en renting — maletero" },
-    { "url": "/coches-nuevos/mercedes-gla-08.webp", "alt": "Mercedes-Benz GLA en renting — detalle del faro delantero" }
+    { "url": "/coches-nuevos/mercedes-gla-08.webp", "alt": "Mercedes-Benz GLA en renting — detalle del faro delantero" },
+    { "url": "/coches-nuevos/mercedes-gla-09.webp", "alt": "Mercedes-Benz GLA en renting — detalle del piloto trasero" },
+    { "url": "/coches-nuevos/mercedes-gla-10.webp", "alt": "Mercedes-Benz GLA en renting — detalle de la llanta" }
   ]
 }

@@ -2,12 +2,12 @@
   "update_vehicle_id": "522c80b1-9932-4d74-8097-84cf39249157",
   "brand": "Peugeot",
   "model": "Boxer",
-  "version": "3.3 L2 H2 BHDi 140CV",
+  "version": "3.3 L2 H2 BHDI 103kW (140CV)",
   "description": "El motor es un diésel BHDi de 140 CV, 103 kW de potencia. Va asociado a un cambio manual, la única transmisión de esta versión, así que no hay variante automática que valorar. Si necesitas la referencia exacta para pedir presupuesto, la versión es la 3.3 L2 H2 BHDi 103 kW.\n\nEl Boxer homologa tres plazas, así que caben el conductor y dos acompañantes sin recurrir a un segundo vehículo. Tiene cinco puertas. El color disponible es uno solo, blanco, una base neutra si piensas rotularlo con el nombre de tu empresa. La clasificación ambiental es la etiqueta C de la DGT.\n\nEl renting se contrata a 48 o 60 meses, con kilometraje anual a elegir entre 10.000 y 30.000 kilómetros en tramos de 5.000. Ese tramo es lo que más conviene afinar: si repartes a diario te interesa el extremo alto; si el uso es puntual, no pagas kilómetros que no vas a hacer. En el escenario máximo, 60 meses con 30.000 al año, hablas de 150.000 kilómetros contratados, así que cuadra la cifra con tu ruta real antes de firmar.",
   "category": "furgoneta",
   "fuel_type": "diesel",
   "transmission": "manual",
-  "monthly_price_cents": 57800,
+  "monthly_price_cents": 47400,
   "contract_months": 60,
   "annual_km": 10000,
   "horsepower": 140,
@@ -60,53 +60,53 @@
     {
       "contract_months": 48,
       "annual_km": 10000,
-      "monthly_price_cents": 60100
+      "monthly_price_cents": 49000
     },
     {
       "contract_months": 48,
       "annual_km": 15000,
-      "monthly_price_cents": 63700
+      "monthly_price_cents": 52200
     },
     {
       "contract_months": 48,
       "annual_km": 20000,
-      "monthly_price_cents": 67300
+      "monthly_price_cents": 55200
     },
     {
       "contract_months": 48,
       "annual_km": 25000,
-      "monthly_price_cents": 71700
+      "monthly_price_cents": 58900
     },
     {
       "contract_months": 48,
       "annual_km": 30000,
-      "monthly_price_cents": 75500
+      "monthly_price_cents": 62200
     },
     {
       "contract_months": 60,
       "annual_km": 10000,
-      "monthly_price_cents": 57800
+      "monthly_price_cents": 47400
     },
     {
       "contract_months": 60,
       "annual_km": 15000,
-      "monthly_price_cents": 61300
+      "monthly_price_cents": 50500
     },
     {
       "contract_months": 60,
       "annual_km": 20000,
-      "monthly_price_cents": 66000
+      "monthly_price_cents": 54500
     },
     {
       "contract_months": 60,
       "annual_km": 25000,
-      "monthly_price_cents": 70400
+      "monthly_price_cents": 58300
     },
     {
       "contract_months": 60,
       "annual_km": 30000,
-      "monthly_price_cents": 75000
+      "monthly_price_cents": 62200
     }
   ],
-  "body_type": "Furgón"
+  "body_type": null
 }

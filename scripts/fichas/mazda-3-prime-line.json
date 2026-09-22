@@ -107,28 +107,36 @@
   ],
   "images": [
     {
-      "url": "https://fotos.quecochemecompro.com/mazda-3/mazda-3-vista-delantera-lateral.jpg?size=1200x800",
-      "alt": "Mazda 3 en renting"
+      "url": "/coches-nuevos/mazda-3-01.webp",
+      "alt": "Mazda 3 en renting — vista frontal tres cuartos"
     },
     {
-      "url": "https://fotos.quecochemecompro.com/mazda-3/dos-mazda-3-frente-puente.jpg?size=1200x800",
-      "alt": "Mazda 3 en renting"
+      "url": "/coches-nuevos/mazda-3-02.webp",
+      "alt": "Mazda 3 en renting — vista trasera tres cuartos"
     },
     {
-      "url": "https://fotos.quecochemecompro.com/mazda-3/mazda-3-lateral-playa.jpg?size=1200x800",
-      "alt": "Mazda 3 en renting"
+      "url": "/coches-nuevos/mazda-3-03.webp",
+      "alt": "Mazda 3 en renting — maletero"
     },
     {
-      "url": "https://fotos.quecochemecompro.com/mazda-3/trasera-mazda-3-monumento.jpg?size=1200x800",
-      "alt": "Mazda 3 en renting"
+      "url": "/coches-nuevos/mazda-3-04.webp",
+      "alt": "Mazda 3 en renting — asientos delanteros"
     },
     {
-      "url": "https://fotos.quecochemecompro.com/mazda-3/mazda-3-palanca-manual.jpg?size=1200x800",
-      "alt": "Mazda 3 en renting"
+      "url": "/coches-nuevos/mazda-3-05.webp",
+      "alt": "Mazda 3 en renting — plazas traseras"
     },
     {
-      "url": "https://fotos.quecochemecompro.com/mazda-3/perspectiva-asientos-mazda-3.jpg?size=1200x800",
-      "alt": "Mazda 3 en renting"
+      "url": "/coches-nuevos/mazda-3-06.webp",
+      "alt": "Mazda 3 en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/mazda-3-07.webp",
+      "alt": "Mazda 3 en renting — consola central"
+    },
+    {
+      "url": "/coches-nuevos/mazda-3-08.webp",
+      "alt": "Mazda 3 en renting — pantalla central"
     }
   ],
   "body_type": "Berlina con portón",

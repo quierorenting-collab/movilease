@@ -2,7 +2,7 @@
   "update_vehicle_id": "676b3aa3-f07c-4d3e-845f-c72400c66021",
   "brand": "Cupra",
   "model": "Formentor",
-  "version": "1.5 eTSI 110kW 150CV DSG",
+  "version": "1.5 eTSI 150CV DSG",
   "description": "El Formentor de esta versión monta un 1.5 eTSI de gasolina, 110 kW (150 CV), con cambio automático DSG y frenos regenerativos. Homologa 6,7 litros cada 100 kilómetros y lleva la etiqueta ECO de la DGT. Su tabla ofrece nueve combinaciones: 36, 48 o 60 meses y 10.000, 15.000 o 20.000 kilómetros al año, que son el tope anual que firmas. Con ese consumo homologado, el tramo más alto equivale a unos 1.340 litros de gasolina en doce meses.\n\nEs un turismo de cinco puertas y cinco plazas, con maletero de 0,45 m³ medidos hasta las ventanas, bandeja trasera rígida y servocierre. El aire acondicionado automático trabaja en tres zonas, así que los de atrás ajustan su temperatura sin depender de la tuya. Los asientos, deportivos y con regulación manual y lumbar, van climatizados delante y detrás y están tapizados en tela y cuero sintético. El volante es de cuero, multifunción y térmico.\n\nEn marcha cuentas con control de crucero con sensores de distancia, alerta de cambio de carril, reconocimiento de señales y aviso de colisión. Para maniobrar hay sensores de aparcamiento traseros con radar, cámara y guía visual. La iluminación es LED completa: diurna, de freno, intermitentes y traseras. Los anclajes ISOFIX van de serie.",
   "category": "turismo",
   "fuel_type": "gasolina",
@@ -120,7 +120,7 @@
     }
   ],
   "is_offer": false,
-  "body_type": "Berlina con portón",
+  "body_type": null,
   "equipment": [
     "4 frenos de disco (2 ventilados)",
     "ABS",
