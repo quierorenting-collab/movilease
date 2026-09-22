@@ -27,9 +27,9 @@ Google revisa estas sugerencias desde el país de la ficha, así que conviene ir
 francés.
 
 ```
-Cette entreprise (MoviLease, Wambrechies, France) a cessé son activité et est définitivement fermée. Elle n'a aucun lien avec Movilease Renting, S.L. (CIF B93944635), société espagnole de location longue durée de véhicules dont le siège est Calle Infanta Mercedes 31, 28020 Madrid, Espagne (https://movilease.es).
+Cette entreprise (MoviLease, Wambrechies, France) a cessé son activité et est définitivement fermée. Elle n'a aucun lien avec Movilease Renting, S.L. (CIF B93944635), société espagnole de location longue durée de véhicules dont le siège est Calle Infanta Mercedes 31, planta 2, 28020 Madrid, Espagne (https://movilease.es).
 
-Esta empresa (MoviLease, Wambrechies, Francia) ha cesado su actividad y está cerrada definitivamente. No tiene ninguna relación con Movilease Renting, S.L. (CIF B93944635), empresa española de renting con sede en Calle Infanta Mercedes 31, 28020 Madrid, España (https://movilease.es).
+Esta empresa (MoviLease, Wambrechies, Francia) ha cesado su actividad y está cerrada definitivamente. No tiene ninguna relación con Movilease Renting, S.L. (CIF B93944635), empresa española de renting con sede en Calle Infanta Mercedes 31, planta 2, 28020 Madrid, España (https://movilease.es).
 ```
 
 ## Si aparece como fuente en el buscador
@@ -42,7 +42,7 @@ Google** al buscar «Movilease»:
    escribe en el comentario:
 
 ```
-Este panel mezcla dos empresas distintas. La información de Wambrechies (Francia) corresponde a una sociedad francesa cerrada llamada MoviLease. Movilease Renting, S.L. (CIF B93944635) es una empresa española de renting de vehículos con sede en Calle Infanta Mercedes 31, 28020 Madrid, España. Web oficial: https://movilease.es
+Este panel mezcla dos empresas distintas. La información de Wambrechies (Francia) corresponde a una sociedad francesa cerrada llamada MoviLease. Movilease Renting, S.L. (CIF B93944635) es una empresa española de renting de vehículos con sede en Calle Infanta Mercedes 31, planta 2, 28020 Madrid, España. Web oficial: https://movilease.es
 ```
 
 ## Prueba de cierre (opcional, refuerza la petición)

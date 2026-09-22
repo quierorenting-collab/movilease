@@ -23,7 +23,7 @@ respuesta**. No hay formulario aparte.
 ## Texto (español)
 
 ```
-La respuesta confunde dos empresas distintas. Movilease Renting, S.L. (CIF B93944635) es una empresa española de renting de vehículos a largo plazo para particulares, autónomos y empresas, con sede en Calle Infanta Mercedes 31, 28020 Madrid, España, y web oficial https://movilease.es. No tiene relación con «MoviLease», una empresa francesa de Wambrechies (Francia) que está cerrada. Los datos de la empresa francesa (dirección en Francia, cierre, actividad) no corresponden a Movilease Renting.
+La respuesta confunde dos empresas distintas. Movilease Renting, S.L. (CIF B93944635) es una empresa española de renting de vehículos a largo plazo para particulares, autónomos y empresas, con sede en Calle Infanta Mercedes 31, planta 2, 28020 Madrid, España, y web oficial https://movilease.es. No tiene relación con «MoviLease», una empresa francesa de Wambrechies (Francia) que está cerrada. Los datos de la empresa francesa (dirección en Francia, cierre, actividad) no corresponden a Movilease Renting.
 ```
 
 ## Versión corta (si el campo limita caracteres)

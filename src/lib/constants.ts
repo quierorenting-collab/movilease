@@ -36,14 +36,16 @@ export const COMPANY = {
    *  justo el de la empresa francesa. */
   name: "Movilease Renting",
   taxId: "B93944635",
-  streetAddress: "Calle Infanta Mercedes 31",
+  /* La planta va dentro de streetAddress y del addressLine, no aparte: así
+     la dirección es la misma línea en el pie, el schema y los directorios. */
+  streetAddress: "Calle Infanta Mercedes 31, planta 2",
   postalCode: "28020",
   locality: "Madrid",
   region: "Comunidad de Madrid",
   countryCode: "ES",
   country: "España",
   /** La dirección en una línea, idéntica en el pie y en las páginas legales. */
-  addressLine: "Calle Infanta Mercedes 31, 28020 Madrid, España",
+  addressLine: "Calle Infanta Mercedes 31, planta 2, 28020 Madrid, España",
   /* Solo perfiles con URL confirmada. LinkedIn falta hasta tener la dirección
      exacta de la página de empresa: un sameAs a una URL inventada o a otra
      empresa es peor que ninguno. */

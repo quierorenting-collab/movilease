@@ -34,7 +34,7 @@ Apunta si sale un panel y de qué tipo, y si mezcla datos de la empresa francesa
 Texto para sugerir cambios en el panel:
 
 ```
-El panel mezcla dos empresas. Movilease Renting, S.L. (CIF B93944635) es una empresa española de renting de vehículos con sede en Calle Infanta Mercedes 31, 28020 Madrid, España. Web oficial: https://movilease.es. Los datos de Wambrechies (Francia) corresponden a otra empresa, MoviLease, ya cerrada y sin relación con nosotros.
+El panel mezcla dos empresas. Movilease Renting, S.L. (CIF B93944635) es una empresa española de renting de vehículos con sede en Calle Infanta Mercedes 31, planta 2, 28020 Madrid, España. Web oficial: https://movilease.es. Los datos de Wambrechies (Francia) corresponden a otra empresa, MoviLease, ya cerrada y sin relación con nosotros.
 ```
 
 ## 3. Si no sale ningún panel todavía
