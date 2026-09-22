@@ -27,6 +27,9 @@ const MODELOS_RETIRADOS = [
   /* Tucson, T-Roc, Omoda 9, Symbioz y Combo Cargo (ahora el Combo-e) vuelven
      el 22/09/2026 con las campañas nuevas: salen de la lista para que sus
      fichas no redirijan a /catalogo. */
+  /* Škoda Elroq, Karoq y Octavia vuelven el 22/09/2026 con las campañas
+     nuevas (el Kamiq entra como modelo nuevo): salen de la lista para que sus
+     fichas no redirijan a /catalogo. */
   /* El MG ZS vuelve al catalogo el 21/09/2026 con lamina nueva en el Drive:
      sale de la lista, o su ficha redirigiria a /catalogo. */
   "renting-mitsubishi-outlander",
@@ -39,9 +42,6 @@ const MODELOS_RETIRADOS = [
      /catalogo con un 307 y no se puede ver. */
   "renting-renault-espace",
   "renting-renault-rafale",
-  "renting-skoda-elroq",
-  "renting-skoda-karoq",
-  "renting-skoda-octavia",
   "renting-subaru-crosstrek",
   "renting-subaru-forester",
   "renting-subaru-outback",
