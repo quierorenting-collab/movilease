@@ -16,12 +16,12 @@ teléfono sin prefijo. Estos son los mismos datos que publica la web (constante
 | Nombre comercial | Movilease Renting |
 | Razón social | Movilease Renting, S.L. |
 | CIF | B93944635 |
-| Dirección | Calle Infanta Mercedes 31 |
+| Dirección | Calle Infanta Mercedes 31, planta 2 |
 | Código postal | 28020 |
 | Ciudad | Madrid |
 | Provincia / comunidad | Madrid / Comunidad de Madrid |
 | País | España |
-| Dirección en una línea | Calle Infanta Mercedes 31, 28020 Madrid, España |
+| Dirección en una línea | Calle Infanta Mercedes 31, planta 2, 28020 Madrid, España |
 | Teléfono | +34 644 15 67 97 |
 | Email | contacto@movilease.es |
 | Web | https://movilease.es |
@@ -29,9 +29,8 @@ teléfono sin prefijo. Estos son los mismos datos que publica la web (constante
 | Trustpilot | https://es.trustpilot.com/review/movilease.es |
 | LinkedIn | ⚠️ pendiente: falta la URL exacta de la página de empresa |
 
-> ⚠️ **Por confirmar:** las páginas legales decían antes «Calle Infanta Mercedes
-> 31, **2**». Si ese «2» es la planta y forma parte del domicilio, hay que
-> añadirlo en `COMPANY` (web) y usarlo igual en todos los directorios.
+> En formularios con dos líneas de dirección: línea 1 «Calle Infanta Mercedes
+> 31», línea 2 «planta 2». En los de una sola línea, escríbela entera como arriba.
 
 Descripción corta (para campos de unos 160 caracteres):
 

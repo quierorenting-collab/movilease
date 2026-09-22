@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = pageMetadata({
   title: "Aviso legal",
   description:
-    "Aviso legal de Movilease Renting, S.L. (CIF B93944635), con domicilio en Calle Infanta Mercedes 31, 28020 Madrid. Condiciones de uso de movilease.es.",
+    "Aviso legal de Movilease Renting, S.L. (CIF B93944635), con domicilio en Calle Infanta Mercedes 31, planta 2, 28020 Madrid. Condiciones de uso de movilease.es.",
   path: "/aviso-legal",
 });
 

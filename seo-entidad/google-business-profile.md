@@ -10,7 +10,9 @@ misma que tenga Search Console, si es posible).
 | Nombre de la empresa | **Movilease Renting** |
 | Categoría principal | **Servicio de leasing de automóviles** (*Car leasing service*) |
 | Categorías secundarias | Agencia de alquiler de coches · Agencia de alquiler de furgonetas · Servicio de leasing (si aparece en el buscador de categorías) |
-| Dirección | Calle Infanta Mercedes 31, 28020 Madrid, España |
+| Dirección (línea 1) | Calle Infanta Mercedes 31 |
+| Dirección (línea 2) | planta 2 |
+| Código postal y ciudad | 28020 Madrid, España |
 | Zona de servicio | España (añadir también «Comunidad de Madrid») |
 | Teléfono principal | +34 644 15 67 97 |
 | Sitio web | https://movilease.es |
@@ -24,7 +26,7 @@ de suspensión). La forma jurídica «S.L.» tampoco hace falta en el nombre.
 aparezca con ese nombre. Si «Servicio de leasing de automóviles» no aparece, la
 alternativa es «Agencia de alquiler de coches» como principal.
 
-**¿Mostrar la dirección o no?** Solo si en Calle Infanta Mercedes 31 se atiende
+**¿Mostrar la dirección o no?** Solo si en Calle Infanta Mercedes 31, planta 2, se atiende
 a clientes en persona y hay alguien en horario publicado. Si es solo domicilio
 social u oficina sin atención al público, crea la ficha como **empresa de
 servicios a domicilio**: pon la dirección para verificar, **oculta la
