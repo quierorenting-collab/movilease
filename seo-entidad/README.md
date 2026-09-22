@@ -44,10 +44,13 @@ Descripción corta (para campos de unos 160 caracteres):
 - `feedback-ia-google.md`: texto para la vista creada con IA.
 - `directorios.md`: checklist de directorios españoles.
 - `reclamar-panel.md`: reclamar el panel de conocimiento.
+- `resenas/mensajes-whatsapp.md`: mensajes para pedir reseñas y respuestas modelo.
+- `resenas/tarjeta-qr.html`: tarjeta de visita con QR a la reseña. Se abre en el
+  navegador, se pega el enlace de «Pedir reseñas» y se imprime (A4, 10 tarjetas).
 
 ## Orden recomendado
 
-1. Google Business Profile (la señal más fuerte) y su verificación.
+1. Google Business Profile: la ficha ya existe; revisar que los datos coincidan.
 2. Search Console: confirmar que la propiedad de movilease.es está verificada y
    enviar `https://movilease.es/sitemap.xml`.
 3. Reportar la ficha francesa y enviar el feedback de la vista creada con IA.
