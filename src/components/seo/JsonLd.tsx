@@ -165,6 +165,11 @@ export function VehicleModelJsonLd({
   };
 }) {
   const validos = precios.filter((p) => Number.isFinite(p) && p > 0).sort((a, b) => a - b);
+  /* Las fotos de public/ llegaban como "/coches-nuevos/…": Google pide URLs
+     absolutas en `image`, y en el JSON-LD no hay metadataBase que las complete
+     como sí pasa con og:image. La portada, además, salía dos veces porque es
+     también la primera foto de la galería. */
+  const imagenes = [...new Set(images.map((u) => (u.startsWith("/") ? `${SITE_URL}${u}` : u)))];
   const propiedades = [
     specs?.combustible && { name: "Combustible", value: specs.combustible },
     specs?.cambio && { name: "Cambio", value: specs.cambio },
@@ -182,7 +187,7 @@ export function VehicleModelJsonLd({
         name: `${brandName} ${modelName}`,
         category: "Renting de vehículos",
         brand: { "@type": "Brand", name: brandName },
-        ...(images.length ? { image: images } : {}),
+        ...(imagenes.length ? { image: imagenes } : {}),
         description,
         url: `${SITE_URL}/${slug}`,
         ...(propiedades.length
