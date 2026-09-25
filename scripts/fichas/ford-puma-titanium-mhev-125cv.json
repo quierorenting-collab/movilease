@@ -47,52 +47,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/ford-puma-01.webp",
+      "url": "/coches-nuevos/ford-puma-real-01.webp",
       "alt": "Ford Puma en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/ford-puma-02.webp",
+      "url": "/coches-nuevos/ford-puma-real-02.webp",
       "alt": "Ford Puma en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/ford-puma-03.webp",
-      "alt": "Ford Puma en renting — perfil lateral"
+      "url": "/coches-nuevos/ford-puma-real-03.webp",
+      "alt": "Ford Puma en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/ford-puma-04.webp",
-      "alt": "Ford Puma en renting — frontal"
+      "url": "/coches-nuevos/ford-puma-real-04.webp",
+      "alt": "Ford Puma en renting — vista frontal"
     },
     {
-      "url": "/coches-nuevos/ford-puma-05.webp",
-      "alt": "Ford Puma en renting — trasera"
+      "url": "/coches-nuevos/ford-puma-real-05.webp",
+      "alt": "Ford Puma en renting — vista trasera"
     },
     {
-      "url": "/coches-nuevos/ford-puma-06.webp",
-      "alt": "Ford Puma en renting — faro delantero"
-    },
-    {
-      "url": "/coches-nuevos/ford-puma-07.webp",
-      "alt": "Ford Puma en renting — llanta"
-    },
-    {
-      "url": "/coches-nuevos/ford-puma-08.webp",
+      "url": "/coches-nuevos/ford-puma-real-06.webp",
       "alt": "Ford Puma en renting — salpicadero"
     },
     {
-      "url": "/coches-nuevos/ford-puma-09.webp",
+      "url": "/coches-nuevos/ford-puma-real-07.webp",
       "alt": "Ford Puma en renting — asientos delanteros"
     },
     {
-      "url": "/coches-nuevos/ford-puma-10.webp",
-      "alt": "Ford Puma en renting — plazas traseras"
-    },
-    {
-      "url": "/coches-nuevos/ford-puma-11.webp",
-      "alt": "Ford Puma en renting — palanca de cambio manual"
-    },
-    {
-      "url": "/coches-nuevos/ford-puma-12.webp",
-      "alt": "Ford Puma en renting — maletero"
+      "url": "/coches-nuevos/ford-puma-real-08.webp",
+      "alt": "Ford Puma en renting — habitaculo y plazas traseras"
     }
   ],
   "pricing": [

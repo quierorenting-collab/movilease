@@ -54,8 +54,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/jaecoo-5-ev-01.webp",
-      "alt": "Jaecoo 5 eléctrico en renting"
+      "url": "/coches-nuevos/jaecoo-5-real-01.webp",
+      "alt": "Jaecoo 5 en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-5-real-02.webp",
+      "alt": "Jaecoo 5 en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-5-real-03.webp",
+      "alt": "Jaecoo 5 en renting — vista lateral"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-5-real-04.webp",
+      "alt": "Jaecoo 5 en renting — vista frontal"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-5-real-05.webp",
+      "alt": "Jaecoo 5 en renting — vista trasera"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-5-real-06.webp",
+      "alt": "Jaecoo 5 en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-5-real-07.webp",
+      "alt": "Jaecoo 5 en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-5-real-08.webp",
+      "alt": "Jaecoo 5 en renting — maletero"
     }
   ],
   "pricing": [

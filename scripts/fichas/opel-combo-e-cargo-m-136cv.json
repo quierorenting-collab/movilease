@@ -54,8 +54,40 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/opel-combo-e-01.webp",
-      "alt": "Opel Combo-e Cargo en renting"
+      "url": "/coches-nuevos/opel-combo-cargo-real-01.webp",
+      "alt": "Opel Combo Cargo en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/opel-combo-cargo-real-02.webp",
+      "alt": "Opel Combo Cargo en renting — vista frontal en marcha"
+    },
+    {
+      "url": "/coches-nuevos/opel-combo-cargo-real-03.webp",
+      "alt": "Opel Combo Cargo en renting — lateral con puerta corredera abierta"
+    },
+    {
+      "url": "/coches-nuevos/opel-combo-cargo-real-04.webp",
+      "alt": "Opel Combo Cargo en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/opel-combo-cargo-real-05.webp",
+      "alt": "Opel Combo Cargo en renting — salpicadero y puesto de conduccion"
+    },
+    {
+      "url": "/coches-nuevos/opel-combo-cargo-real-06.webp",
+      "alt": "Opel Combo Cargo en renting — volante y cuadro digital"
+    },
+    {
+      "url": "/coches-nuevos/opel-combo-cargo-real-07.webp",
+      "alt": "Opel Combo Cargo en renting — asientos delanteros y mesa de trabajo"
+    },
+    {
+      "url": "/coches-nuevos/opel-combo-cargo-real-08.webp",
+      "alt": "Opel Combo Cargo en renting — pantalla central"
+    },
+    {
+      "url": "/coches-nuevos/opel-combo-cargo-real-09.webp",
+      "alt": "Opel Combo Cargo en renting — zona de carga con puertas traseras abiertas"
     }
   ],
   "pricing": [

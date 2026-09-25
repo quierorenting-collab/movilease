@@ -42,28 +42,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/mg-3-01.webp",
-      "alt": "MG3 en renting — vista frontal tres cuartos"
+      "url": "/coches-nuevos/mg-3-real-01.webp",
+      "alt": "MG 3 en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/mg-3-02.webp",
-      "alt": "MG3 en renting — vista trasera tres cuartos"
+      "url": "/coches-nuevos/mg-3-real-02.webp",
+      "alt": "MG 3 en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/mg-3-03.webp",
-      "alt": "MG3 en renting — perfil lateral"
+      "url": "/coches-nuevos/mg-3-real-03.webp",
+      "alt": "MG 3 en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/mg-3-04.webp",
-      "alt": "MG3 en renting — salpicadero"
+      "url": "/coches-nuevos/mg-3-real-04.webp",
+      "alt": "MG 3 en renting — vista frontal en marcha"
     },
     {
-      "url": "/coches-nuevos/mg-3-05.webp",
-      "alt": "MG3 en renting — asientos delanteros"
+      "url": "/coches-nuevos/mg-3-real-05.webp",
+      "alt": "MG 3 en renting — vista trasera en marcha"
     },
     {
-      "url": "/coches-nuevos/mg-3-06.webp",
-      "alt": "MG3 en renting — faro delantero"
+      "url": "/coches-nuevos/mg-3-real-06.webp",
+      "alt": "MG 3 en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/mg-3-real-07.webp",
+      "alt": "MG 3 en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/mg-3-real-08.webp",
+      "alt": "MG 3 en renting — maletero"
     }
   ],
   "pricing": [

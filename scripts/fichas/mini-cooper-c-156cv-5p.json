@@ -60,8 +60,32 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/mini-cooper-01.webp",
-      "alt": "MINI Cooper en renting"
+      "url": "/coches-nuevos/mini-cooper-real-01.webp",
+      "alt": "MINI Cooper en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/mini-cooper-real-02.webp",
+      "alt": "MINI Cooper en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/mini-cooper-real-03.webp",
+      "alt": "MINI Cooper en renting — vista frontal"
+    },
+    {
+      "url": "/coches-nuevos/mini-cooper-real-04.webp",
+      "alt": "MINI Cooper en renting — vista trasera"
+    },
+    {
+      "url": "/coches-nuevos/mini-cooper-real-05.webp",
+      "alt": "MINI Cooper en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/mini-cooper-real-06.webp",
+      "alt": "MINI Cooper en renting — asientos traseros"
+    },
+    {
+      "url": "/coches-nuevos/mini-cooper-real-07.webp",
+      "alt": "MINI Cooper en renting — consola central y selector automatico"
     }
   ],
   "pricing": [

@@ -174,36 +174,32 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/citroen-berlingo-01.webp",
-      "alt": "Citroen Berlingo en renting, frontal"
+      "url": "/coches-nuevos/citroen-berlingo-real-01.webp",
+      "alt": "Citroën Berlingo en renting — vista delantera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/citroen-berlingo-02.webp",
-      "alt": "Citroen Berlingo en renting, tres cuartos trasero"
+      "url": "/coches-nuevos/citroen-berlingo-real-02.webp",
+      "alt": "Citroën Berlingo en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/citroen-berlingo-03.webp",
-      "alt": "Citroen Berlingo en renting, trasera"
+      "url": "/coches-nuevos/citroen-berlingo-real-03.webp",
+      "alt": "Citroën Berlingo en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/citroen-berlingo-04.webp",
-      "alt": "Citroen Berlingo en renting, zona de carga"
+      "url": "/coches-nuevos/citroen-berlingo-real-04.webp",
+      "alt": "Citroën Berlingo en renting — vista delantera tres cuartos del lado derecho"
     },
     {
-      "url": "/coches-nuevos/citroen-berlingo-05.webp",
-      "alt": "Citroen Berlingo en renting, zona de carga, lateral"
+      "url": "/coches-nuevos/citroen-berlingo-real-05.webp",
+      "alt": "Citroën Berlingo en renting — salpicadero con cambio manual"
     },
     {
-      "url": "/coches-nuevos/citroen-berlingo-06.webp",
-      "alt": "Citroen Berlingo en renting, salpicadero"
+      "url": "/coches-nuevos/citroen-berlingo-real-07.webp",
+      "alt": "Citroën Berlingo en renting — asientos delanteros, version manual"
     },
     {
-      "url": "/coches-nuevos/citroen-berlingo-07.webp",
-      "alt": "Citroen Berlingo en renting, llanta"
-    },
-    {
-      "url": "/coches-nuevos/citroen-berlingo-08.webp",
-      "alt": "Citroen Berlingo en renting, faro"
+      "url": "/coches-nuevos/citroen-berlingo-real-09.webp",
+      "alt": "Citroën Berlingo en renting — zona de carga con las puertas traseras abiertas"
     }
   ]
 }

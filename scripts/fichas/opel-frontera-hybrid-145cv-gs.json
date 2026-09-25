@@ -44,8 +44,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/opel-frontera-01.webp",
-      "alt": "Opel Frontera en renting"
+      "url": "/coches-nuevos/opel-frontera-real-01.webp",
+      "alt": "Opel Frontera en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/opel-frontera-real-02.webp",
+      "alt": "Opel Frontera en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/opel-frontera-real-03.webp",
+      "alt": "Opel Frontera en renting — vista lateral"
+    },
+    {
+      "url": "/coches-nuevos/opel-frontera-real-04.webp",
+      "alt": "Opel Frontera en renting — vista frontal"
+    },
+    {
+      "url": "/coches-nuevos/opel-frontera-real-05.webp",
+      "alt": "Opel Frontera en renting — vista trasera"
+    },
+    {
+      "url": "/coches-nuevos/opel-frontera-real-06.webp",
+      "alt": "Opel Frontera en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/opel-frontera-real-07.webp",
+      "alt": "Opel Frontera en renting — asientos traseros"
+    },
+    {
+      "url": "/coches-nuevos/opel-frontera-real-08.webp",
+      "alt": "Opel Frontera en renting — maletero"
     }
   ],
   "pricing": [

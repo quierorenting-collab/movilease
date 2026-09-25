@@ -53,8 +53,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/omoda-9-01.webp",
-      "alt": "Omoda 9 en renting"
+      "url": "/coches-nuevos/omoda-9-real-01.webp",
+      "alt": "Omoda 9 en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/omoda-9-real-02.webp",
+      "alt": "Omoda 9 en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/omoda-9-real-03.webp",
+      "alt": "Omoda 9 en renting — vista lateral"
+    },
+    {
+      "url": "/coches-nuevos/omoda-9-real-04.webp",
+      "alt": "Omoda 9 en renting — vista frontal"
+    },
+    {
+      "url": "/coches-nuevos/omoda-9-real-05.webp",
+      "alt": "Omoda 9 en renting — vista trasera"
+    },
+    {
+      "url": "/coches-nuevos/omoda-9-real-06.webp",
+      "alt": "Omoda 9 en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/omoda-9-real-07.webp",
+      "alt": "Omoda 9 en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/omoda-9-real-08.webp",
+      "alt": "Omoda 9 en renting — techo solar panoramico y plazas traseras"
     }
   ],
   "pricing": [

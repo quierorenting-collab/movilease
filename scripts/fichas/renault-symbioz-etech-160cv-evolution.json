@@ -59,8 +59,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/renault-symbioz-01.webp",
-      "alt": "Renault Symbioz en renting"
+      "url": "/coches-nuevos/renault-symbioz-real-01.webp",
+      "alt": "Renault Symbioz en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/renault-symbioz-real-02.webp",
+      "alt": "Renault Symbioz en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/renault-symbioz-real-03.webp",
+      "alt": "Renault Symbioz en renting — vista lateral delantera"
+    },
+    {
+      "url": "/coches-nuevos/renault-symbioz-real-04.webp",
+      "alt": "Renault Symbioz en renting — vista frontal"
+    },
+    {
+      "url": "/coches-nuevos/renault-symbioz-real-05.webp",
+      "alt": "Renault Symbioz en renting — salpicadero y pantalla central"
+    },
+    {
+      "url": "/coches-nuevos/renault-symbioz-real-06.webp",
+      "alt": "Renault Symbioz en renting — selector del cambio automatico"
+    },
+    {
+      "url": "/coches-nuevos/renault-symbioz-real-07.webp",
+      "alt": "Renault Symbioz en renting — plazas traseras"
+    },
+    {
+      "url": "/coches-nuevos/renault-symbioz-real-08.webp",
+      "alt": "Renault Symbioz en renting — maletero"
     }
   ],
   "pricing": [

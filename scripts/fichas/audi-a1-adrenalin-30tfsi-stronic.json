@@ -29,32 +29,32 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/audi-a1-01.webp",
+      "url": "/coches-nuevos/audi-a1-real-01.webp",
       "alt": "Audi A1 en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/audi-a1-02.webp",
+      "url": "/coches-nuevos/audi-a1-real-02.webp",
       "alt": "Audi A1 en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/audi-a1-03.webp",
-      "alt": "Audi A1 en renting — perfil lateral"
-    },
-    {
-      "url": "/coches-nuevos/audi-a1-04.webp",
+      "url": "/coches-nuevos/audi-a1-real-03.webp",
       "alt": "Audi A1 en renting — frontal"
     },
     {
-      "url": "/coches-nuevos/audi-a1-05.webp",
-      "alt": "Audi A1 en renting — trasera"
+      "url": "/coches-nuevos/audi-a1-real-04.webp",
+      "alt": "Audi A1 en renting — detalle frontal"
     },
     {
-      "url": "/coches-nuevos/audi-a1-06.webp",
+      "url": "/coches-nuevos/audi-a1-real-05.webp",
       "alt": "Audi A1 en renting — salpicadero"
     },
     {
-      "url": "/coches-nuevos/audi-a1-07.webp",
-      "alt": "Audi A1 en renting — plazas traseras"
+      "url": "/coches-nuevos/audi-a1-real-06.webp",
+      "alt": "Audi A1 en renting — asientos"
+    },
+    {
+      "url": "/coches-nuevos/audi-a1-real-07.webp",
+      "alt": "Audi A1 en renting — maletero"
     }
   ],
   "pricing": [

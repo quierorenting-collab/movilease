@@ -51,8 +51,40 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/kia-pv5-passenger-01.webp",
-      "alt": "Kia PV5 Passenger en renting"
+      "url": "/coches-nuevos/kia-pv5-passenger-real-01.webp",
+      "alt": "Kia PV5 Passenger en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/kia-pv5-passenger-real-02.webp",
+      "alt": "Kia PV5 Passenger en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/kia-pv5-passenger-real-03.webp",
+      "alt": "Kia PV5 Passenger en renting — vista lateral"
+    },
+    {
+      "url": "/coches-nuevos/kia-pv5-passenger-real-04.webp",
+      "alt": "Kia PV5 Passenger en renting — vista frontal"
+    },
+    {
+      "url": "/coches-nuevos/kia-pv5-passenger-real-05.webp",
+      "alt": "Kia PV5 Passenger en renting — vista trasera"
+    },
+    {
+      "url": "/coches-nuevos/kia-pv5-passenger-real-06.webp",
+      "alt": "Kia PV5 Passenger en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/kia-pv5-passenger-real-07.webp",
+      "alt": "Kia PV5 Passenger en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/kia-pv5-passenger-real-08.webp",
+      "alt": "Kia PV5 Passenger en renting — asientos traseros"
+    },
+    {
+      "url": "/coches-nuevos/kia-pv5-passenger-real-09.webp",
+      "alt": "Kia PV5 Passenger en renting — maletero"
     }
   ],
   "pricing": [

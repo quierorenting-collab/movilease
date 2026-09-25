@@ -91,15 +91,13 @@
     "Línea interior: Alfombrillas de velours"
   ],
   "images": [
-    { "url": "/coches-nuevos/mercedes-gla-01.webp", "alt": "Mercedes-Benz GLA en renting — vista frontal tres cuartos" },
-    { "url": "/coches-nuevos/mercedes-gla-02.webp", "alt": "Mercedes-Benz GLA en renting — vista trasera tres cuartos" },
-    { "url": "/coches-nuevos/mercedes-gla-03.webp", "alt": "Mercedes-Benz GLA en renting — frontal" },
-    { "url": "/coches-nuevos/mercedes-gla-04.webp", "alt": "Mercedes-Benz GLA en renting — trasera" },
-    { "url": "/coches-nuevos/mercedes-gla-05.webp", "alt": "Mercedes-Benz GLA en renting — asientos delanteros" },
-    { "url": "/coches-nuevos/mercedes-gla-06.webp", "alt": "Mercedes-Benz GLA en renting — salpicadero" },
-    { "url": "/coches-nuevos/mercedes-gla-07.webp", "alt": "Mercedes-Benz GLA en renting — maletero" },
-    { "url": "/coches-nuevos/mercedes-gla-08.webp", "alt": "Mercedes-Benz GLA en renting — detalle del faro delantero" },
-    { "url": "/coches-nuevos/mercedes-gla-09.webp", "alt": "Mercedes-Benz GLA en renting — detalle del piloto trasero" },
-    { "url": "/coches-nuevos/mercedes-gla-10.webp", "alt": "Mercedes-Benz GLA en renting — detalle de la llanta" }
+    { "url": "/coches-nuevos/mercedes-benz-gla-real-01.webp", "alt": "Mercedes-Benz GLA en renting — vista frontal tres cuartos" },
+    { "url": "/coches-nuevos/mercedes-benz-gla-real-02.webp", "alt": "Mercedes-Benz GLA en renting — vista trasera tres cuartos" },
+    { "url": "/coches-nuevos/mercedes-benz-gla-real-03.webp", "alt": "Mercedes-Benz GLA en renting — vista lateral delantera" },
+    { "url": "/coches-nuevos/mercedes-benz-gla-real-04.webp", "alt": "Mercedes-Benz GLA en renting — vista frontal" },
+    { "url": "/coches-nuevos/mercedes-benz-gla-real-05.webp", "alt": "Mercedes-Benz GLA en renting — vista trasera" },
+    { "url": "/coches-nuevos/mercedes-benz-gla-real-06.webp", "alt": "Mercedes-Benz GLA en renting — salpicadero" },
+    { "url": "/coches-nuevos/mercedes-benz-gla-real-07.webp", "alt": "Mercedes-Benz GLA en renting — asientos delanteros y consola" },
+    { "url": "/coches-nuevos/mercedes-benz-gla-real-08.webp", "alt": "Mercedes-Benz GLA en renting — maletero" }
   ]
 }

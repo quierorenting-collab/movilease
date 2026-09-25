@@ -107,24 +107,32 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/mazda-3-01.webp",
+      "url": "/coches-nuevos/mazda-3-real-01.webp",
       "alt": "Mazda 3 en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/mazda-3-02.webp",
+      "url": "/coches-nuevos/mazda-3-real-02.webp",
       "alt": "Mazda 3 en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/mazda-3-03.webp",
-      "alt": "Mazda 3 en renting — maletero"
+      "url": "/coches-nuevos/mazda-3-real-03.webp",
+      "alt": "Mazda 3 en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/mazda-3-05.webp",
-      "alt": "Mazda 3 en renting — plazas traseras"
+      "url": "/coches-nuevos/mazda-3-real-04.webp",
+      "alt": "Mazda 3 en renting — frontal"
     },
     {
-      "url": "/coches-nuevos/mazda-3-08.webp",
-      "alt": "Mazda 3 en renting — pantalla central"
+      "url": "/coches-nuevos/mazda-3-real-05.webp",
+      "alt": "Mazda 3 en renting — trasera"
+    },
+    {
+      "url": "/coches-nuevos/mazda-3-real-06.webp",
+      "alt": "Mazda 3 en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/mazda-3-real-07.webp",
+      "alt": "Mazda 3 en renting — asientos traseros"
     }
   ],
   "body_type": "Berlina con portón",

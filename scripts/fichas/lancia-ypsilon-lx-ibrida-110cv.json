@@ -27,8 +27,32 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/lancia-ypsilon-01.webp",
+      "url": "/coches-nuevos/lancia-ypsilon-real-01.webp",
       "alt": "Lancia Ypsilon en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/lancia-ypsilon-real-02.webp",
+      "alt": "Lancia Ypsilon en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/lancia-ypsilon-real-03.webp",
+      "alt": "Lancia Ypsilon en renting — vista lateral"
+    },
+    {
+      "url": "/coches-nuevos/lancia-ypsilon-real-04.webp",
+      "alt": "Lancia Ypsilon en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/lancia-ypsilon-real-05.webp",
+      "alt": "Lancia Ypsilon en renting — consola central con cambio automatico"
+    },
+    {
+      "url": "/coches-nuevos/lancia-ypsilon-real-06.webp",
+      "alt": "Lancia Ypsilon en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/lancia-ypsilon-real-07.webp",
+      "alt": "Lancia Ypsilon en renting — tapiceria de los asientos"
     }
   ],
   "pricing": [

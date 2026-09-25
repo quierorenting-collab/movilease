@@ -42,31 +42,43 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/seat-leon-fr-01.webp",
-      "alt": "SEAT León FR en renting — vista exterior delantera"
+      "url": "/coches-nuevos/seat-leon-fr-real-01.webp",
+      "alt": "SEAT León FR en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/seat-leon-fr-02.webp",
-      "alt": "SEAT León FR en renting — vista exterior trasera"
+      "url": "/coches-nuevos/seat-leon-fr-real-02.webp",
+      "alt": "SEAT León FR en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/seat-leon-fr-03.webp",
-      "alt": "SEAT León FR en renting — perfil lateral"
+      "url": "/coches-nuevos/seat-leon-fr-real-03.webp",
+      "alt": "SEAT León FR en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/seat-leon-fr-04.webp",
-      "alt": "SEAT León FR en renting — frontal"
+      "url": "/coches-nuevos/seat-leon-fr-real-04.webp",
+      "alt": "SEAT León FR en renting — vista frontal en carretera"
     },
     {
-      "url": "/coches-nuevos/seat-leon-fr-05.webp",
-      "alt": "SEAT León FR en renting — trasera"
+      "url": "/coches-nuevos/seat-leon-fr-real-05.webp",
+      "alt": "SEAT León FR en renting — frontal tres cuartos en el pueblo"
     },
     {
-      "url": "/coches-nuevos/seat-leon-fr-06.webp",
-      "alt": "SEAT León FR en renting — interior y puesto de conducción"
+      "url": "/coches-nuevos/seat-leon-fr-real-06.webp",
+      "alt": "SEAT León FR en renting — exterior en carretera de montana"
     },
     {
-      "url": "/coches-nuevos/seat-leon-fr-07.webp",
+      "url": "/coches-nuevos/seat-leon-fr-real-07.webp",
+      "alt": "SEAT León FR en renting — exterior en marcha"
+    },
+    {
+      "url": "/coches-nuevos/seat-leon-fr-real-08.webp",
+      "alt": "SEAT León FR en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/seat-leon-fr-real-09.webp",
+      "alt": "SEAT León FR en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/seat-leon-fr-real-10.webp",
       "alt": "SEAT León FR en renting — maletero"
     }
   ],

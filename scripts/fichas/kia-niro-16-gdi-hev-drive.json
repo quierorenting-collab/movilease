@@ -30,31 +30,35 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/kia-niro-01.webp",
-      "alt": "Kia Niro en renting — vista exterior delantera"
+      "url": "/coches-nuevos/kia-niro-real-01.webp",
+      "alt": "Kia Niro en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/kia-niro-02.webp",
-      "alt": "Kia Niro en renting — vista exterior trasera"
+      "url": "/coches-nuevos/kia-niro-real-02.webp",
+      "alt": "Kia Niro en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/kia-niro-03.webp",
-      "alt": "Kia Niro en renting — perfil lateral"
+      "url": "/coches-nuevos/kia-niro-real-03.webp",
+      "alt": "Kia Niro en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/kia-niro-04.webp",
-      "alt": "Kia Niro en renting — frontal"
+      "url": "/coches-nuevos/kia-niro-real-04.webp",
+      "alt": "Kia Niro en renting — vista frontal"
     },
     {
-      "url": "/coches-nuevos/kia-niro-05.webp",
-      "alt": "Kia Niro en renting — trasera"
+      "url": "/coches-nuevos/kia-niro-real-05.webp",
+      "alt": "Kia Niro en renting — vista trasera"
     },
     {
-      "url": "/coches-nuevos/kia-niro-06.webp",
-      "alt": "Kia Niro en renting — interior y puesto de conducción"
+      "url": "/coches-nuevos/kia-niro-real-06.webp",
+      "alt": "Kia Niro en renting — salpicadero"
     },
     {
-      "url": "/coches-nuevos/kia-niro-07.webp",
+      "url": "/coches-nuevos/kia-niro-real-07.webp",
+      "alt": "Kia Niro en renting — consola central y selector automatico"
+    },
+    {
+      "url": "/coches-nuevos/kia-niro-real-08.webp",
       "alt": "Kia Niro en renting — maletero"
     }
   ],

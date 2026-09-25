@@ -49,8 +49,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/jaecoo-8-01.webp",
-      "alt": "Jaecoo 8 en renting"
+      "url": "/coches-nuevos/jaecoo-8-real-01.webp",
+      "alt": "Jaecoo 8 en renting — tres cuartos delantero"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-8-real-02.webp",
+      "alt": "Jaecoo 8 en renting — tres cuartos trasero"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-8-real-03.webp",
+      "alt": "Jaecoo 8 en renting — lateral"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-8-real-04.webp",
+      "alt": "Jaecoo 8 en renting — frontal"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-8-real-05.webp",
+      "alt": "Jaecoo 8 en renting — trasera"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-8-real-06.webp",
+      "alt": "Jaecoo 8 en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-8-real-07.webp",
+      "alt": "Jaecoo 8 en renting — asientos traseros"
+    },
+    {
+      "url": "/coches-nuevos/jaecoo-8-real-08.webp",
+      "alt": "Jaecoo 8 en renting — maletero"
     }
   ],
   "pricing": [
