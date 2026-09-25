@@ -38,48 +38,32 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/dacia-sandero-essential-01.webp",
-      "alt": "Dacia Sandero Stepway en renting — vista frontal tres cuartos"
+      "url": "/coches-nuevos/dacia-sandero-real-01.webp",
+      "alt": "Dacia Sandero en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/dacia-sandero-essential-02.webp",
-      "alt": "Dacia Sandero Stepway en renting — vista trasera tres cuartos"
+      "url": "/coches-nuevos/dacia-sandero-real-02.webp",
+      "alt": "Dacia Sandero en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/dacia-sandero-essential-03.webp",
-      "alt": "Dacia Sandero Stepway en renting — perfil lateral"
+      "url": "/coches-nuevos/dacia-sandero-real-03.webp",
+      "alt": "Dacia Sandero en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/dacia-sandero-essential-04.webp",
-      "alt": "Dacia Sandero Stepway en renting — frontal"
+      "url": "/coches-nuevos/dacia-sandero-real-04.webp",
+      "alt": "Dacia Sandero en renting — detalle de la llanta"
     },
     {
-      "url": "/coches-nuevos/dacia-sandero-essential-05.webp",
-      "alt": "Dacia Sandero Stepway en renting — trasera"
+      "url": "/coches-nuevos/dacia-sandero-real-05.webp",
+      "alt": "Dacia Sandero en renting — salpicadero"
     },
     {
-      "url": "/coches-nuevos/dacia-sandero-essential-06.webp",
-      "alt": "Dacia Sandero Stepway en renting — llanta"
+      "url": "/coches-nuevos/dacia-sandero-real-07.webp",
+      "alt": "Dacia Sandero en renting — asientos delanteros"
     },
     {
-      "url": "/coches-nuevos/dacia-sandero-essential-07.webp",
-      "alt": "Dacia Sandero Stepway en renting — salpicadero"
-    },
-    {
-      "url": "/coches-nuevos/dacia-sandero-essential-08.webp",
-      "alt": "Dacia Sandero Stepway en renting — asientos delanteros"
-    },
-    {
-      "url": "/coches-nuevos/dacia-sandero-essential-09.webp",
-      "alt": "Dacia Sandero Stepway en renting — plazas traseras"
-    },
-    {
-      "url": "/coches-nuevos/dacia-sandero-essential-10.webp",
-      "alt": "Dacia Sandero Stepway en renting — palanca de cambio manual"
-    },
-    {
-      "url": "/coches-nuevos/dacia-sandero-essential-11.webp",
-      "alt": "Dacia Sandero Stepway en renting — maletero"
+      "url": "/coches-nuevos/dacia-sandero-real-09.webp",
+      "alt": "Dacia Sandero en renting — botón de cambio a GLP"
     }
   ],
   "pricing": [

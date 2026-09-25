@@ -44,44 +44,32 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/citroen-c4-01.webp",
+      "url": "/coches-nuevos/citroen-c4-real-01.webp",
       "alt": "Citroën C4 en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/citroen-c4-02.webp",
+      "url": "/coches-nuevos/citroen-c4-real-02.webp",
       "alt": "Citroën C4 en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/citroen-c4-03.webp",
-      "alt": "Citroën C4 en renting — perfil lateral"
+      "url": "/coches-nuevos/citroen-c4-real-03.webp",
+      "alt": "Citroën C4 en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/citroen-c4-04.webp",
-      "alt": "Citroën C4 en renting — frontal"
+      "url": "/coches-nuevos/citroen-c4-real-04.webp",
+      "alt": "Citroën C4 en renting — vista frontal"
     },
     {
-      "url": "/coches-nuevos/citroen-c4-05.webp",
-      "alt": "Citroën C4 en renting — trasera"
+      "url": "/coches-nuevos/citroen-c4-real-05.webp",
+      "alt": "Citroën C4 en renting — salpicadero y puesto de conducción"
     },
     {
-      "url": "/coches-nuevos/citroen-c4-06.webp",
-      "alt": "Citroën C4 en renting — faro delantero"
-    },
-    {
-      "url": "/coches-nuevos/citroen-c4-07.webp",
-      "alt": "Citroën C4 en renting — salpicadero"
-    },
-    {
-      "url": "/coches-nuevos/citroen-c4-08.webp",
+      "url": "/coches-nuevos/citroen-c4-real-06.webp",
       "alt": "Citroën C4 en renting — asientos delanteros"
     },
     {
-      "url": "/coches-nuevos/citroen-c4-09.webp",
+      "url": "/coches-nuevos/citroen-c4-real-07.webp",
       "alt": "Citroën C4 en renting — plazas traseras"
-    },
-    {
-      "url": "/coches-nuevos/citroen-c4-10.webp",
-      "alt": "Citroën C4 en renting — maletero"
     }
   ],
   "pricing": [

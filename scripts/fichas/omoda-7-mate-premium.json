@@ -134,35 +134,39 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/omoda-7-01.webp",
-      "alt": "Omoda 7 en renting — tres cuartos delantero"
+      "url": "/coches-nuevos/omoda-7-real-01.webp",
+      "alt": "Omoda 7 en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/omoda-7-02.webp",
-      "alt": "Omoda 7 en renting — tres cuartos trasero"
+      "url": "/coches-nuevos/omoda-7-real-02.webp",
+      "alt": "Omoda 7 en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/omoda-7-03.webp",
-      "alt": "Omoda 7 en renting — perfil lateral"
+      "url": "/coches-nuevos/omoda-7-real-03.webp",
+      "alt": "Omoda 7 en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/omoda-7-04.webp",
-      "alt": "Omoda 7 en renting — frontal"
+      "url": "/coches-nuevos/omoda-7-real-04.webp",
+      "alt": "Omoda 7 en renting — vista frontal"
     },
     {
-      "url": "/coches-nuevos/omoda-7-05.webp",
-      "alt": "Omoda 7 en renting — trasera"
+      "url": "/coches-nuevos/omoda-7-real-05.webp",
+      "alt": "Omoda 7 en renting — vista trasera"
     },
     {
-      "url": "/coches-nuevos/omoda-7-06.webp",
-      "alt": "Omoda 7 en renting — salpicadero y pantalla"
+      "url": "/coches-nuevos/omoda-7-real-06.webp",
+      "alt": "Omoda 7 en renting — salpicadero"
     },
     {
-      "url": "/coches-nuevos/omoda-7-07.webp",
+      "url": "/coches-nuevos/omoda-7-real-07.webp",
+      "alt": "Omoda 7 en renting — volante y pantalla"
+    },
+    {
+      "url": "/coches-nuevos/omoda-7-real-08.webp",
       "alt": "Omoda 7 en renting — asientos delanteros"
     },
     {
-      "url": "/coches-nuevos/omoda-7-08.webp",
+      "url": "/coches-nuevos/omoda-7-real-09.webp",
       "alt": "Omoda 7 en renting — maletero"
     }
   ],

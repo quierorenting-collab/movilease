@@ -42,48 +42,32 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/ford-kuga-01.webp",
+      "url": "/coches-nuevos/ford-kuga-real-01.webp",
       "alt": "Ford Kuga en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/ford-kuga-02.webp",
+      "url": "/coches-nuevos/ford-kuga-real-02.webp",
       "alt": "Ford Kuga en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/ford-kuga-03.webp",
-      "alt": "Ford Kuga en renting — perfil lateral"
+      "url": "/coches-nuevos/ford-kuga-real-03.webp",
+      "alt": "Ford Kuga en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/ford-kuga-04.webp",
-      "alt": "Ford Kuga en renting — frontal"
-    },
-    {
-      "url": "/coches-nuevos/ford-kuga-05.webp",
-      "alt": "Ford Kuga en renting — trasera"
-    },
-    {
-      "url": "/coches-nuevos/ford-kuga-06.webp",
-      "alt": "Ford Kuga en renting — faro delantero"
-    },
-    {
-      "url": "/coches-nuevos/ford-kuga-07.webp",
+      "url": "/coches-nuevos/ford-kuga-real-04.webp",
       "alt": "Ford Kuga en renting — salpicadero"
     },
     {
-      "url": "/coches-nuevos/ford-kuga-08.webp",
+      "url": "/coches-nuevos/ford-kuga-real-05.webp",
       "alt": "Ford Kuga en renting — asientos delanteros"
     },
     {
-      "url": "/coches-nuevos/ford-kuga-09.webp",
-      "alt": "Ford Kuga en renting — asientos traseros"
+      "url": "/coches-nuevos/ford-kuga-real-06.webp",
+      "alt": "Ford Kuga en renting — consola central y palanca de cambios"
     },
     {
-      "url": "/coches-nuevos/ford-kuga-10.webp",
-      "alt": "Ford Kuga en renting — palanca de cambios"
-    },
-    {
-      "url": "/coches-nuevos/ford-kuga-11.webp",
-      "alt": "Ford Kuga en renting — maletero"
+      "url": "/coches-nuevos/ford-kuga-real-07.webp",
+      "alt": "Ford Kuga en renting — tapicería de tela"
     }
   ],
   "pricing": [

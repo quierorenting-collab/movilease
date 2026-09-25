@@ -51,44 +51,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/vw-polo-match-01.webp",
-      "alt": "Volkswagen Polo en renting — vista frontal tres cuartos"
+      "url": "/coches-nuevos/volkswagen-polo-real-01.webp",
+      "alt": "Volkswagen Polo en renting — tres cuartos delantero"
     },
     {
-      "url": "/coches-nuevos/vw-polo-match-02.webp",
-      "alt": "Volkswagen Polo en renting — vista trasera tres cuartos"
+      "url": "/coches-nuevos/volkswagen-polo-real-02.webp",
+      "alt": "Volkswagen Polo en renting — tres cuartos trasero"
     },
     {
-      "url": "/coches-nuevos/vw-polo-match-03.webp",
-      "alt": "Volkswagen Polo en renting — perfil lateral"
+      "url": "/coches-nuevos/volkswagen-polo-real-03.webp",
+      "alt": "Volkswagen Polo en renting — lateral"
     },
     {
-      "url": "/coches-nuevos/vw-polo-match-04.webp",
+      "url": "/coches-nuevos/volkswagen-polo-real-04.webp",
       "alt": "Volkswagen Polo en renting — frontal"
     },
     {
-      "url": "/coches-nuevos/vw-polo-match-05.webp",
+      "url": "/coches-nuevos/volkswagen-polo-real-05.webp",
       "alt": "Volkswagen Polo en renting — trasera"
     },
     {
-      "url": "/coches-nuevos/vw-polo-match-06.webp",
-      "alt": "Volkswagen Polo en renting — faro delantero"
-    },
-    {
-      "url": "/coches-nuevos/vw-polo-match-07.webp",
+      "url": "/coches-nuevos/volkswagen-polo-real-06.webp",
       "alt": "Volkswagen Polo en renting — salpicadero"
     },
     {
-      "url": "/coches-nuevos/vw-polo-match-08.webp",
-      "alt": "Volkswagen Polo en renting — asientos delanteros"
+      "url": "/coches-nuevos/volkswagen-polo-real-07.webp",
+      "alt": "Volkswagen Polo en renting — asientos"
     },
     {
-      "url": "/coches-nuevos/vw-polo-match-09.webp",
-      "alt": "Volkswagen Polo en renting — asientos traseros"
-    },
-    {
-      "url": "/coches-nuevos/vw-polo-match-10.webp",
-      "alt": "Volkswagen Polo en renting — maletero"
+      "url": "/coches-nuevos/volkswagen-polo-real-08.webp",
+      "alt": "Volkswagen Polo en renting — pantalla de navegación"
     }
   ],
   "pricing": [

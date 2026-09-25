@@ -24,12 +24,13 @@
     "Cambio de neumáticos"
   ],
   "images": [
-    { "url": "/coches-nuevos/renault-austral-01.webp", "alt": "Renault Austral en renting — vista exterior" },
-    { "url": "/coches-nuevos/renault-austral-02.webp", "alt": "Renault Austral en renting — trasera" },
-    { "url": "/coches-nuevos/renault-austral-03.webp", "alt": "Renault Austral en renting — perfil" },
-    { "url": "/coches-nuevos/renault-austral-04.webp", "alt": "Renault Austral en renting — frontal" },
-    { "url": "/coches-nuevos/renault-austral-05.webp", "alt": "Renault Austral en renting — interior" },
-    { "url": "/coches-nuevos/renault-austral-06.webp", "alt": "Renault Austral en renting — detalle" }
+    { "url": "/coches-nuevos/renault-austral-real-01.webp", "alt": "Renault Austral en renting — vista frontal tres cuartos" },
+    { "url": "/coches-nuevos/renault-austral-real-02.webp", "alt": "Renault Austral en renting — vista trasera tres cuartos" },
+    { "url": "/coches-nuevos/renault-austral-real-03.webp", "alt": "Renault Austral en renting — vista lateral" },
+    { "url": "/coches-nuevos/renault-austral-real-04.webp", "alt": "Renault Austral en renting — salpicadero" },
+    { "url": "/coches-nuevos/renault-austral-real-05.webp", "alt": "Renault Austral en renting — consola central" },
+    { "url": "/coches-nuevos/renault-austral-real-06.webp", "alt": "Renault Austral en renting — asientos" },
+    { "url": "/coches-nuevos/renault-austral-real-07.webp", "alt": "Renault Austral en renting — maletero" }
   ],
   "pricing": [
     { "contract_months": 36, "annual_km": 10000, "monthly_price_cents": 52514 },

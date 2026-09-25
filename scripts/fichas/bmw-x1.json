@@ -186,48 +186,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/bmw-x1-01.webp",
-      "alt": "BMW X1 en renting — vista frontal tres cuartos"
+      "url": "/coches-nuevos/bmw-x1-real-01.webp",
+      "alt": "BMW X1 en renting — tres cuartos delantero"
     },
     {
-      "url": "/coches-nuevos/bmw-x1-02.webp",
-      "alt": "BMW X1 en renting — vista trasera tres cuartos"
+      "url": "/coches-nuevos/bmw-x1-real-02.webp",
+      "alt": "BMW X1 en renting — tres cuartos trasero"
     },
     {
-      "url": "/coches-nuevos/bmw-x1-03.webp",
+      "url": "/coches-nuevos/bmw-x1-real-03.webp",
+      "alt": "BMW X1 en renting — lateral"
+    },
+    {
+      "url": "/coches-nuevos/bmw-x1-real-04.webp",
       "alt": "BMW X1 en renting — frontal"
     },
     {
-      "url": "/coches-nuevos/bmw-x1-04.webp",
+      "url": "/coches-nuevos/bmw-x1-real-05.webp",
       "alt": "BMW X1 en renting — trasera"
     },
     {
-      "url": "/coches-nuevos/bmw-x1-05.webp",
+      "url": "/coches-nuevos/bmw-x1-real-06.webp",
       "alt": "BMW X1 en renting — salpicadero"
     },
     {
-      "url": "/coches-nuevos/bmw-x1-06.webp",
-      "alt": "BMW X1 en renting — asientos delanteros"
+      "url": "/coches-nuevos/bmw-x1-real-07.webp",
+      "alt": "BMW X1 en renting — asientos traseros"
     },
     {
-      "url": "/coches-nuevos/bmw-x1-07.webp",
+      "url": "/coches-nuevos/bmw-x1-real-08.webp",
       "alt": "BMW X1 en renting — maletero"
-    },
-    {
-      "url": "/coches-nuevos/bmw-x1-08.webp",
-      "alt": "BMW X1 en renting — detalle del faro delantero"
-    },
-    {
-      "url": "/coches-nuevos/bmw-x1-09.webp",
-      "alt": "BMW X1 en renting — detalle de la llanta"
-    },
-    {
-      "url": "/coches-nuevos/bmw-x1-10.webp",
-      "alt": "BMW X1 en renting — detalle del emblema trasero"
-    },
-    {
-      "url": "/coches-nuevos/bmw-x1-11.webp",
-      "alt": "BMW X1 en renting — detalle del emblema de la versión"
     }
   ]
 }

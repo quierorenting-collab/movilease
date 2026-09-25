@@ -31,32 +31,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/mazda-cx-30-01.webp",
-      "alt": "Mazda CX-30 en renting — perfil lateral"
+      "url": "/coches-nuevos/mazda-cx-30-real-01.webp",
+      "alt": "Mazda CX-30 en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/mazda-cx-30-02.webp",
+      "url": "/coches-nuevos/mazda-cx-30-real-02.webp",
       "alt": "Mazda CX-30 en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/mazda-cx-30-03.webp",
+      "url": "/coches-nuevos/mazda-cx-30-real-03.webp",
+      "alt": "Mazda CX-30 en renting — lateral"
+    },
+    {
+      "url": "/coches-nuevos/mazda-cx-30-real-04.webp",
       "alt": "Mazda CX-30 en renting — frontal"
     },
     {
-      "url": "/coches-nuevos/mazda-cx-30-04.webp",
+      "url": "/coches-nuevos/mazda-cx-30-real-05.webp",
       "alt": "Mazda CX-30 en renting — trasera"
     },
     {
-      "url": "/coches-nuevos/mazda-cx-30-05.webp",
-      "alt": "Mazda CX-30 en renting — asientos delanteros"
+      "url": "/coches-nuevos/mazda-cx-30-real-06.webp",
+      "alt": "Mazda CX-30 en renting — salpicadero y palanca de cambio manual"
     },
     {
-      "url": "/coches-nuevos/mazda-cx-30-06.webp",
-      "alt": "Mazda CX-30 en renting — salpicadero"
+      "url": "/coches-nuevos/mazda-cx-30-real-08.webp",
+      "alt": "Mazda CX-30 en renting — asientos traseros"
     },
     {
-      "url": "/coches-nuevos/mazda-cx-30-07.webp",
-      "alt": "Mazda CX-30 en renting — perfil lateral"
+      "url": "/coches-nuevos/mazda-cx-30-real-09.webp",
+      "alt": "Mazda CX-30 en renting — consola central con cambio manual"
     }
   ],
   "pricing": [

@@ -190,28 +190,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/alfa-romeo-junior-01.webp",
-      "alt": "Alfa Romeo Junior en renting, frontal"
+      "url": "/coches-nuevos/alfa-romeo-junior-real-01.webp",
+      "alt": "Alfa Romeo Junior en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/alfa-romeo-junior-02.webp",
-      "alt": "Alfa Romeo Junior en renting, tres cuartos trasero"
+      "url": "/coches-nuevos/alfa-romeo-junior-real-02.webp",
+      "alt": "Alfa Romeo Junior en renting — vista cenital"
     },
     {
-      "url": "/coches-nuevos/alfa-romeo-junior-03.webp",
-      "alt": "Alfa Romeo Junior en renting, trasera"
+      "url": "/coches-nuevos/alfa-romeo-junior-real-03.webp",
+      "alt": "Alfa Romeo Junior en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/alfa-romeo-junior-04.webp",
-      "alt": "Alfa Romeo Junior en renting, asientos"
+      "url": "/coches-nuevos/alfa-romeo-junior-real-04.webp",
+      "alt": "Alfa Romeo Junior en renting — vista frontal"
     },
     {
-      "url": "/coches-nuevos/alfa-romeo-junior-05.webp",
-      "alt": "Alfa Romeo Junior en renting, salpicadero"
+      "url": "/coches-nuevos/alfa-romeo-junior-real-05.webp",
+      "alt": "Alfa Romeo Junior en renting — vista trasera"
     },
     {
-      "url": "/coches-nuevos/alfa-romeo-junior-06.webp",
-      "alt": "Alfa Romeo Junior en renting, maletero"
+      "url": "/coches-nuevos/alfa-romeo-junior-real-06.webp",
+      "alt": "Alfa Romeo Junior en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-real-07.webp",
+      "alt": "Alfa Romeo Junior en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/alfa-romeo-junior-real-08.webp",
+      "alt": "Alfa Romeo Junior en renting — maletero"
     }
   ]
 }

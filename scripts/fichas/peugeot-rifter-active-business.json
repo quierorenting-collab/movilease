@@ -23,14 +23,13 @@
     "Cambio de neumáticos"
   ],
   "images": [
-    { "url": "/coches-nuevos/peugeot-rifter-01.webp", "alt": "Peugeot Rifter en renting — vista exterior" },
-    { "url": "/coches-nuevos/peugeot-rifter-02.webp", "alt": "Peugeot Rifter en renting — trasera" },
-    { "url": "/coches-nuevos/peugeot-rifter-03.webp", "alt": "Peugeot Rifter en renting — perfil" },
-    { "url": "/coches-nuevos/peugeot-rifter-07.webp", "alt": "Peugeot Rifter en renting — frontal" },
-    { "url": "/coches-nuevos/peugeot-rifter-06.webp", "alt": "Peugeot Rifter en renting — vista trasera" },
-    { "url": "/coches-nuevos/peugeot-rifter-04.webp", "alt": "Peugeot Rifter en renting — puesto de conducción" },
-    { "url": "/coches-nuevos/peugeot-rifter-05.webp", "alt": "Peugeot Rifter en renting — asientos" },
-    { "url": "/coches-nuevos/peugeot-rifter-08.webp", "alt": "Peugeot Rifter en renting — maletero" }
+    { "url": "/coches-nuevos/peugeot-rifter-real-01.webp", "alt": "Peugeot Rifter en renting — vista delantera tres cuartos" },
+    { "url": "/coches-nuevos/peugeot-rifter-real-02.webp", "alt": "Peugeot Rifter en renting — vista trasera tres cuartos" },
+    { "url": "/coches-nuevos/peugeot-rifter-real-03.webp", "alt": "Peugeot Rifter en renting — vista lateral" },
+    { "url": "/coches-nuevos/peugeot-rifter-real-04.webp", "alt": "Peugeot Rifter en renting — vista delantera tres cuartos derecha" },
+    { "url": "/coches-nuevos/peugeot-rifter-real-05.webp", "alt": "Peugeot Rifter en renting — salpicadero con cambio manual" },
+    { "url": "/coches-nuevos/peugeot-rifter-real-06.webp", "alt": "Peugeot Rifter en renting — plazas traseras y separador de carga" },
+    { "url": "/coches-nuevos/peugeot-rifter-real-07.webp", "alt": "Peugeot Rifter en renting — zona de carga con separador de rejilla" }
   ],
   "pricing": [
     { "contract_months": 36, "annual_km": 10000, "monthly_price_cents": 43076 },

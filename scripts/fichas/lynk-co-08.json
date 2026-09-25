@@ -178,24 +178,32 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/lynk-co-08-01.webp",
-      "alt": "Lynk & Co 08 en renting, frontal"
+      "url": "/coches-nuevos/lynk-co-08-real-01.webp",
+      "alt": "Lynk & Co 08 en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/lynk-co-08-02.webp",
-      "alt": "Lynk & Co 08 en renting, tres cuartos trasero"
+      "url": "/coches-nuevos/lynk-co-08-real-02.webp",
+      "alt": "Lynk & Co 08 en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/lynk-co-08-03.webp",
-      "alt": "Lynk & Co 08 en renting, trasera"
+      "url": "/coches-nuevos/lynk-co-08-real-03.webp",
+      "alt": "Lynk & Co 08 en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/lynk-co-08-04.webp",
-      "alt": "Lynk & Co 08 en renting, asientos"
+      "url": "/coches-nuevos/lynk-co-08-real-04.webp",
+      "alt": "Lynk & Co 08 en renting — vista trasera"
     },
     {
-      "url": "/coches-nuevos/lynk-co-08-05.webp",
-      "alt": "Lynk & Co 08 en renting, salpicadero"
+      "url": "/coches-nuevos/lynk-co-08-real-05.webp",
+      "alt": "Lynk & Co 08 en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-real-06.webp",
+      "alt": "Lynk & Co 08 en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/lynk-co-08-real-07.webp",
+      "alt": "Lynk & Co 08 en renting — maletero"
     }
   ]
 }

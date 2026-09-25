@@ -52,32 +52,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/ebro-s400-01.webp",
+      "url": "/coches-nuevos/ebro-s400-real-01.webp",
       "alt": "Ebro S400 en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/ebro-s400-02.webp",
+      "url": "/coches-nuevos/ebro-s400-real-02.webp",
       "alt": "Ebro S400 en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/ebro-s400-03.webp",
-      "alt": "Ebro S400 en renting — perfil lateral"
+      "url": "/coches-nuevos/ebro-s400-real-03.webp",
+      "alt": "Ebro S400 en renting — vista lateral"
     },
     {
-      "url": "/coches-nuevos/ebro-s400-04.webp",
-      "alt": "Ebro S400 en renting — frontal"
+      "url": "/coches-nuevos/ebro-s400-real-04.webp",
+      "alt": "Ebro S400 en renting — vista frontal"
     },
     {
-      "url": "/coches-nuevos/ebro-s400-05.webp",
-      "alt": "Ebro S400 en renting — trasera"
+      "url": "/coches-nuevos/ebro-s400-real-05.webp",
+      "alt": "Ebro S400 en renting — vista trasera"
     },
     {
-      "url": "/coches-nuevos/ebro-s400-06.webp",
+      "url": "/coches-nuevos/ebro-s400-real-06.webp",
       "alt": "Ebro S400 en renting — salpicadero"
     },
     {
-      "url": "/coches-nuevos/ebro-s400-07.webp",
-      "alt": "Ebro S400 en renting — asientos delanteros"
+      "url": "/coches-nuevos/ebro-s400-real-07.webp",
+      "alt": "Ebro S400 en renting — asientos traseros"
+    },
+    {
+      "url": "/coches-nuevos/ebro-s400-real-08.webp",
+      "alt": "Ebro S400 en renting — maletero"
     }
   ],
   "pricing": [
