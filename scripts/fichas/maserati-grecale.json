@@ -131,48 +131,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/maserati-grecale-01.webp",
-      "alt": "Maserati Grecale en renting, tres cuartos delantero"
+      "url": "/coches-nuevos/maserati-grecale-real-01.webp",
+      "alt": "Maserati Grecale en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/maserati-grecale-02.webp",
-      "alt": "Maserati Grecale en renting, tres cuartos trasero"
+      "url": "/coches-nuevos/maserati-grecale-real-02.webp",
+      "alt": "Maserati Grecale en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/maserati-grecale-03.webp",
-      "alt": "Maserati Grecale en renting, frontal"
+      "url": "/coches-nuevos/maserati-grecale-real-03.webp",
+      "alt": "Maserati Grecale en renting — lateral"
     },
     {
-      "url": "/coches-nuevos/maserati-grecale-04.webp",
-      "alt": "Maserati Grecale en renting, trasera"
+      "url": "/coches-nuevos/maserati-grecale-real-04.webp",
+      "alt": "Maserati Grecale en renting — frontal"
     },
     {
-      "url": "/coches-nuevos/maserati-grecale-05.webp",
-      "alt": "Maserati Grecale en renting, asientos"
+      "url": "/coches-nuevos/maserati-grecale-real-05.webp",
+      "alt": "Maserati Grecale en renting — trasera"
     },
     {
-      "url": "/coches-nuevos/maserati-grecale-06.webp",
-      "alt": "Maserati Grecale en renting, salpicadero"
+      "url": "/coches-nuevos/maserati-grecale-real-06.webp",
+      "alt": "Maserati Grecale en renting — salpicadero"
     },
     {
-      "url": "/coches-nuevos/maserati-grecale-07.webp",
-      "alt": "Maserati Grecale en renting, maletero"
+      "url": "/coches-nuevos/maserati-grecale-real-07.webp",
+      "alt": "Maserati Grecale en renting — asientos delanteros"
     },
     {
-      "url": "/coches-nuevos/maserati-grecale-08.webp",
-      "alt": "Maserati Grecale en renting, faro"
-    },
-    {
-      "url": "/coches-nuevos/maserati-grecale-09.webp",
-      "alt": "Maserati Grecale en renting, llanta"
-    },
-    {
-      "url": "/coches-nuevos/maserati-grecale-10.webp",
-      "alt": "Maserati Grecale en renting, piloto trasero"
-    },
-    {
-      "url": "/coches-nuevos/maserati-grecale-11.webp",
-      "alt": "Maserati Grecale en renting, detalle lateral"
+      "url": "/coches-nuevos/maserati-grecale-real-08.webp",
+      "alt": "Maserati Grecale en renting — consola central"
     }
   ]
 }

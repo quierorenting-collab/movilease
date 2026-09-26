@@ -45,16 +45,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/skoda-octavia-01.webp",
+      "url": "/coches-nuevos/skoda-octavia-real-01.webp",
       "alt": "Škoda Octavia en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/skoda-octavia-02.webp",
-      "alt": "Škoda Octavia en renting — perfil lateral"
+      "url": "/coches-nuevos/skoda-octavia-real-02.webp",
+      "alt": "Škoda Octavia en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/skoda-octavia-03.webp",
-      "alt": "Škoda Octavia en renting — vista trasera tres cuartos"
+      "url": "/coches-nuevos/skoda-octavia-real-03.webp",
+      "alt": "Škoda Octavia en renting — vista lateral"
+    },
+    {
+      "url": "/coches-nuevos/skoda-octavia-real-04.webp",
+      "alt": "Škoda Octavia en renting — vista frontal"
+    },
+    {
+      "url": "/coches-nuevos/skoda-octavia-real-05.webp",
+      "alt": "Škoda Octavia en renting — vista trasera"
+    },
+    {
+      "url": "/coches-nuevos/skoda-octavia-real-06.webp",
+      "alt": "Škoda Octavia en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/skoda-octavia-real-07.webp",
+      "alt": "Škoda Octavia en renting — asientos"
+    },
+    {
+      "url": "/coches-nuevos/skoda-octavia-real-08.webp",
+      "alt": "Škoda Octavia en renting — maletero"
     }
   ],
   "pricing": [

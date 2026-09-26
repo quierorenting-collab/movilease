@@ -52,8 +52,32 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/seat-leon-01.webp",
-      "alt": "SEAT León en renting"
+      "url": "/coches-nuevos/seat-leon-real-01.webp",
+      "alt": "SEAT León en renting — vista frontal tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/seat-leon-real-02.webp",
+      "alt": "SEAT León en renting — vista trasera tres cuartos"
+    },
+    {
+      "url": "/coches-nuevos/seat-leon-real-03.webp",
+      "alt": "SEAT León en renting — vista lateral"
+    },
+    {
+      "url": "/coches-nuevos/seat-leon-real-04.webp",
+      "alt": "SEAT León en renting — vista lateral trasera"
+    },
+    {
+      "url": "/coches-nuevos/seat-leon-real-06.webp",
+      "alt": "SEAT León en renting — salpicadero con palanca manual"
+    },
+    {
+      "url": "/coches-nuevos/seat-leon-real-07.webp",
+      "alt": "SEAT León en renting — asientos delanteros"
+    },
+    {
+      "url": "/coches-nuevos/seat-leon-real-08.webp",
+      "alt": "SEAT León en renting — maletero"
     }
   ],
   "pricing": [

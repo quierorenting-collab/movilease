@@ -38,16 +38,36 @@
   ],
   "images": [
     {
-      "url": "/coches-nuevos/skoda-karoq-01.webp",
+      "url": "/coches-nuevos/skoda-karoq-real-01.webp",
       "alt": "Škoda Karoq en renting — vista frontal tres cuartos"
     },
     {
-      "url": "/coches-nuevos/skoda-karoq-02.webp",
-      "alt": "Škoda Karoq en renting — perfil lateral"
+      "url": "/coches-nuevos/skoda-karoq-real-02.webp",
+      "alt": "Škoda Karoq en renting — vista trasera tres cuartos"
     },
     {
-      "url": "/coches-nuevos/skoda-karoq-03.webp",
-      "alt": "Škoda Karoq en renting — vista trasera tres cuartos"
+      "url": "/coches-nuevos/skoda-karoq-real-03.webp",
+      "alt": "Škoda Karoq en renting — vista lateral"
+    },
+    {
+      "url": "/coches-nuevos/skoda-karoq-real-04.webp",
+      "alt": "Škoda Karoq en renting — vista frontal"
+    },
+    {
+      "url": "/coches-nuevos/skoda-karoq-real-05.webp",
+      "alt": "Škoda Karoq en renting — vista trasera"
+    },
+    {
+      "url": "/coches-nuevos/skoda-karoq-real-06.webp",
+      "alt": "Škoda Karoq en renting — salpicadero"
+    },
+    {
+      "url": "/coches-nuevos/skoda-karoq-real-07.webp",
+      "alt": "Škoda Karoq en renting — asientos"
+    },
+    {
+      "url": "/coches-nuevos/skoda-karoq-real-08.webp",
+      "alt": "Škoda Karoq en renting — maletero"
     }
   ],
   "pricing": [
